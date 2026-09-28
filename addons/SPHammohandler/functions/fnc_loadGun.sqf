@@ -82,7 +82,7 @@ switch ( _loaderType ) do {
 
                     //Get class of magazine to load
                     private _magFormat = getText (_selectedMagConfig >> "itc_land_charge_format");
-                    private _magClass = Format [ _magFormat , (_vehicle getVariable ["itc_land_currentChargeIndex",1]) ];
+                    private _magClass = format [ _magFormat , (_vehicle getVariable ["itc_land_currentChargeIndex",1]) ];
                     _vehicle setVariable ["itc_land_loadedMagClass",_selectedMagClass,true];
 
                     _vehicle removeMagazine (_vehicle getVariable "itc_land_loadedMagClass");
@@ -161,7 +161,7 @@ switch ( _loaderType ) do {
 
                     //Get class of magazine to load
                     private _magFormat = getText (_selectedMagConfig >> "itc_land_charge_format");
-                    private _magClass = Format [ _magFormat , (_vehicle getVariable ["itc_land_currentChargeIndex",1]) ];
+                    private _magClass = format [ _magFormat , (_vehicle getVariable ["itc_land_currentChargeIndex",1]) ];
                     _vehicle setVariable ["itc_land_loadedMagClass",_selectedMagClass,true];
 
                     _vehicle removeMagazine (_vehicle getVariable "itc_land_loadedMagClass");

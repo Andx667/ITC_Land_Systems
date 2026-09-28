@@ -23,8 +23,8 @@
  * Public: No
  */
 
-private _viewASL = AGLtoASL positionCameraToWorld [0,0,0];
-private _viewDir = _viewASL vectorFromTo (AGLtoASL positionCameraToWorld [0,0,1]);
+private _viewASL = AGLToASL positionCameraToWorld [0,0,0];
+private _viewDir = _viewASL vectorFromTo (AGLToASL positionCameraToWorld [0,0,1]);
 itc_land_spike_lockInformation params ["_lockObject", "_lockPosition", "_lockLostTime", "_originalLockPosition"];
 if (!isNil "itc_land_spike_currentMissile") then {
  _viewASL = getPosASL itc_land_spike_currentMissile;
@@ -40,7 +40,7 @@ if (isNil "_missileActivationTime") then {
     //systemChat str ["LASING", cursorTarget];
     private _target = [_viewASL, _viewDir, true] call FUNC(intersectScreenToWorld);
     private _intersect = [_viewASL, _viewDir] call FUNC(intersectScreenToWorld);
-    private _targetPos = if (!isNil "_target") then [{_target worldToModelVisual (ASLtoAGL _intersect)}, {[0,0,0]}];
+    private _targetPos = if (!isNil "_target") then [{_target worldToModelVisual (ASLToAGL _intersect)}, {[0,0,0]}];
     itc_land_spike_lockInformation = [_target, _targetPos, nil, _targetPos];
   };
 };

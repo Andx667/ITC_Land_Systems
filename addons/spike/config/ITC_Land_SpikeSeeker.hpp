@@ -15,7 +15,7 @@ class RscTitles {
               w = "12 *     (safezoneW / 64)";
               h = "(safezoneH)";
               colorBackground[] = {0,0,0,1};
-              colorText[] = {"172/255","255/255","153/255",1};
+              colorText[] = {172/255,255/255,153/255,1};
           };
           class Sidebar_Right: RscText {
               idc = 1010;
@@ -25,7 +25,7 @@ class RscTitles {
               h = "(safezoneH)";
               shadow = 0;
               colorBackground[] = {0,0,0,1};
-              colorText[] = {"172/255","255/255","153/255",1};
+              colorText[] = {172/255,255/255,153/255,1};
           };
 
           class VisionMode: Sidebar_Right {
@@ -274,7 +274,7 @@ class ITC_Land_SpikeSeeker {
             w = "12 *   (safezoneW / 64)";
             h = "(safezoneH)";
             colorBackground[] = {0,0,0,1};
-            colorText[] = {"172/255","255/255","153/255",1};
+            colorText[] = {172/255,255/255,153/255,1};
         };
         class Sidebar_Right: RscText {
             idc = 1010;
@@ -284,7 +284,7 @@ class ITC_Land_SpikeSeeker {
             h = "(safezoneH)";
             shadow = 0;
             colorBackground[] = {0,0,0,1};
-            colorText[] = {"172/255","255/255","153/255",1};
+            colorText[] = {172/255,255/255,153/255,1};
         };
     };
 };
@@ -319,7 +319,7 @@ class RscInGameUI {
           w = "12 *     (safezoneW / 64)";
           h = "(safezoneH)";
           colorBackground[] = {0,0,0,1};
-          colorText[] = {"172/255","255/255","153/255",1};
+          colorText[] = {172/255,255/255,153/255,1};
         };
         class Sidebar_Right: RscText {
           idc = 1010;
@@ -329,7 +329,7 @@ class RscInGameUI {
           h = "(safezoneH)";
           shadow = 0;
           colorBackground[] = {0,0,0,1};
-          colorText[] = {"172/255","255/255","153/255",1};
+          colorText[] = {172/255,255/255,153/255,1};
         };
         class HotBox: RscPicture {
           idc = 1018;

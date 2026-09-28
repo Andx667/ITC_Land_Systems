@@ -39,7 +39,7 @@ if (isClass _config) then {
       0
     ];
     _apsArray pushBack _aps;
-  } foreach _apsSystems;
+  } forEach _apsSystems;
 
   if (_apsArray isNotEqualTo []) then {
     _vehicle setVariable ["itc_land_aps_modules", _apsArray, true];

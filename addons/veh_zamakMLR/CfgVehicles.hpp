@@ -56,7 +56,7 @@ class CfgVehicles {
             class MainTurret: MainTurret {
                 weapons[] = {"itc_land_230mm_mlrs"};
                 magazines[] = {"itc_land_m230hex_12rnd","itc_land_m230pgm_12rnd"};
-                maxHorizontalRotSpeed = "((360/30)/45)";
+                maxHorizontalRotSpeed = ((360/30)/45);
                 turretInfoType = "ITC_Land_RscGunnerSightZamakMRLi";
             };
         };

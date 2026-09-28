@@ -26,7 +26,7 @@ private _configTypes = [];
     _configTypes pushBackUnique configName _x;
   };
 } forEach configProperties [configFile >> "ITC_Land_COBRA_SirenTypes", "isNumber _x"];
-private _missionTypes = missionNameSpace getVariable ["ITC_Land_COBRA_SirenTypes",[]];
+private _missionTypes = missionNamespace getVariable ["ITC_Land_COBRA_SirenTypes",[]];
 private _allTypes = [];
 
 switch (_mode) do {

@@ -48,7 +48,7 @@ if (!isNull _proj) then {
 
         //check object is in sensor's FOV, if it is, projectile go boom
         _vectorDirMissile = vectorDir _proj;
-        _vectorToTarget = (getposASL _proj) vectorFromTo (getposASL _tgt);
+        _vectorToTarget = (getPosASL _proj) vectorFromTo (getPosASL _tgt);
         _targetAngle = acos (_vectorDirMissile vectorCos _vectorToTarget);
 
         //diag_log format ["Timer 2: %1",diag_ticktime];

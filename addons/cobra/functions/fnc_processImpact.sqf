@@ -21,11 +21,11 @@
 
 params ["_cbr", "_impact"];
 _impact params ["_position", "_tof"];
-private _impacts = missionNameSpace getVariable "itc_land_cobra_activeShells";
+private _impacts = missionNamespace getVariable "itc_land_cobra_activeShells";
 private _impactTime = cba_missionTime + _tof;
 _impacts pushBack [_position, _impactTime];
 
-missionNameSpace setVariable ["itc_land_cobra_activeShells",_impacts];
+missionNamespace setVariable ["itc_land_cobra_activeShells",_impacts];
 
 private _sirenTypes = [0] call FUNC(sirenTypes);
 

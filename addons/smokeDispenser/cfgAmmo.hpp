@@ -18,7 +18,7 @@ class CfgAmmo {
   class GrenadeHand;
   class ITC_Land_SmokeDispenser_Munition : GrenadeHand {
     ace_frag_enabled = 1;
-    weaponLockSystem = "1+2+4";
+    weaponLockSystem = 1+2+4;
     explosionEffects = "ITC_Land_CMSmoke";
     explosionTime = 0.5;
     indirectHit = 1;

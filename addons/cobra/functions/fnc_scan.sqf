@@ -23,7 +23,7 @@
  */
 
 params ["_cbr"];
-_shells = missionNameSpace getVariable "itc_land_cobra_shells";
+_shells = missionNamespace getVariable "itc_land_cobra_shells";
 _toRemove = [];
 {
   _dir = deg (_cbr animationPhase "mainTurret");
@@ -43,11 +43,11 @@ _toRemove = [];
     _toRemove pushBack _x;
   }
 } forEach _shells;
-missionNameSpace setVariable ["itc_land_cobra_shells", _shells - _toRemove];
+missionNamespace setVariable ["itc_land_cobra_shells", _shells - _toRemove];
 
-_activeShells = missionNameSpace getVariable "itc_land_cobra_activeShells";
+_activeShells = missionNamespace getVariable "itc_land_cobra_activeShells";
 _toRemoveShells = [];
 {
   if(time > _x # 1) then {_toRemoveShells pushBack _x;};
 } forEach _activeShells;
-missionNameSpace setVariable ["itc_land_cobra_activeShells",_activeShells - _toRemoveShells];
+missionNamespace setVariable ["itc_land_cobra_activeShells",_activeShells - _toRemoveShells];

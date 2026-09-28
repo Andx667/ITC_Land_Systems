@@ -26,7 +26,7 @@
 //get item to pack item to:
 private _packed = (configOf _item >> "itc_land_PacksTo") call BIS_fnc_getCfgData;
  private _displayName = (configOf _item >> "displayName") call BIS_fnc_getCfgData;
- private _progtext = Format ["Packing: %1",_displayName];
+ private _progtext = format ["Packing: %1",_displayName];
 
 //Pack Darter
 [_caller, "MedicOther"] call ace_common_fnc_doGesture;

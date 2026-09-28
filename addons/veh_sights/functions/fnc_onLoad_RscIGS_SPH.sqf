@@ -63,8 +63,8 @@ _veh setVariable ["ITC_Land_SightEvent","itc_land_onLoad_RscIGS_SPH",true];
          private _weaponQuad = (_weaponDirVector call CBA_fnc_vect2Polar) select 2;
 
          //check if camera is pointed at the ground
-         private _testSeekerPosASL = AGLtoASL (positionCameraToWorld [0,0,0]);
-         private _testSeekerDir = _testSeekerPosASL vectorFromTo (AGLtoASL (positionCameraToWorld [0,0,1]));
+         private _testSeekerPosASL = AGLToASL (positionCameraToWorld [0,0,0]);
+         private _testSeekerDir = _testSeekerPosASL vectorFromTo (AGLToASL (positionCameraToWorld [0,0,1]));
          private _testPoint = _testSeekerPosASL vectorAdd (_testSeekerDir vectorMultiply viewDistance);
          if ((terrainIntersectASL [_testSeekerPosASL, _testPoint]) || {lineIntersects [_testSeekerPosASL, _testPoint]}) then {
                  //it's not pointing at the ground, which means the shell will now fly in a different direction
@@ -72,7 +72,7 @@ _veh setVariable ["ITC_Land_SightEvent","itc_land_onLoad_RscIGS_SPH",true];
                  _weaponDir = ((_lookVector select 0) atan2 (_lookVector select 1));
                  private _upVectorDir = (((vectorUp _veh) select 0) atan2 ((vectorUp _veh) select 1));
                  private _elevationDiff = (cos (_weaponDir - _upVectorDir)) * acos ((vectorUp _veh) select 2);
-                 _weaponQuad = ((180 / PI) * (_veh animationPhase "mainGun")) - _elevationDiff;
+                 _weaponQuad = ((180 / pi) * (_veh animationPhase "mainGun")) - _elevationDiff;
                  if(_weaponDir <= 0) then {_weaponDir = _weaponDir + 360};
          };
          private _displayedQuad = [_weaponQuad, 0, 4] call EFUNC(common,FormatAsMils);
@@ -175,8 +175,8 @@ _veh setVariable ["ITC_Land_SightEvent","itc_land_onLoad_RscIGS_SPH",true];
                 { [_display,_x,0] call EFUNC(common,ctrlSetFade) } forEach [1800,1801,1802];
             };
             //TO BE FILLED IN
-            #define adjustX(ARG) ((20.4 + (ARG)) * (0.01875 * SafezoneH))
-            #define adjustY(ARG) ((14.0 + (ARG)) * (0.025 * SafezoneH))
+            #define adjustX(ARG) ((20.4 + (ARG)) * (0.01875 * safeZoneH))
+            #define adjustY(ARG) ((14.0 + (ARG)) * (0.025 * safeZoneH))
 
             private _aziDif = (_weaponDir - _MISazi);
 

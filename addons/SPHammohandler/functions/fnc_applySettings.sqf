@@ -58,13 +58,13 @@ _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
         case "prox" : {
             private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
             _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
-            _fuzeText = Format ["%1: %2m",_fuzeDesc,_proxHOB];
+            _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
         };
         case "time" : {
             private _fuzeTime = parseNumber(ctrlText 86006);
             _vehicle setVariable ["itc_land_fuzeTime", _fuzeTime, true]; //this is used for UI stuff
             _vehicle setVariable ["itc_land_fuzeValues", _fuzeTime, true]; //this is for fuze stuff
-            _fuzeText = Format ["%1: %2s",_fuzeDesc,_fuzeTime];
+            _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
         };
         case "delay" : {
             _vehicle setVariable ["itc_land_fuzeValues",0.005, true];

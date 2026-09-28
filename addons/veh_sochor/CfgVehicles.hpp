@@ -77,7 +77,7 @@ class CfgVehicles {
                     mag_5("itc_land_g152lgm")
                 };
                 lockWhenVehicleSpeed= 1;
-                maxHorizontalRotSpeed = "((360/30)/45)";
+                maxHorizontalRotSpeed = ((360/30)/45);
                 class OpticsIn: ITC_Land_Optics_IGS {
                     class Wide: Wide {};
                 };

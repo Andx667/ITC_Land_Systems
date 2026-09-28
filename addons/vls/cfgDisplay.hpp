@@ -21,7 +21,7 @@
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.226875 * safezoneW";
                 h = "0.341 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0.1,0.1,0.1,1};
                 colorActive[] = {0.1,0.1,0.1,1};
             };
@@ -32,7 +32,7 @@
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.226875 * safezoneW";
                 h = "0.341 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 //colorBackground[] = {0.1,0.1,0.1,1};
                 //colorActive[] = {0.1,0.1,0.1,1};
             };
@@ -44,7 +44,7 @@
                 y = "0.654 * safezoneH + safezoneY";
                 w = "0.0979687 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorActive[] = {0,0,0,0};
             };
             class targetList_listbox: ITC_LAND_RscListBox {
@@ -54,7 +54,7 @@
                 y = "0.676 * safezoneH + safezoneY";
                 w = "0.216563 * safezoneW";
                 h = "0.143 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
                 onLBSelChanged = "call FUNC(onSelectTarget)";
@@ -66,7 +66,7 @@
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
             };
             class grid_edit: ITC_LAND_RscEdit {
                 idc = 4106;
@@ -75,7 +75,7 @@
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -86,7 +86,7 @@
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
             };
             class alt_edit: ITC_LAND_RscEdit {
                 idc = 4108;
@@ -95,7 +95,7 @@
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -106,7 +106,7 @@
                 y = "0.896 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorActive[] = {0,0,0,1};
             };
             class angle_combo: ITC_LAND_RscComboBox {
@@ -116,7 +116,7 @@
                 y = "0.896 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorActive[] = {0,0,0,1};
                 onLBSelChanged = "call FUNC(onSelectAngle)";
             };
@@ -127,7 +127,7 @@
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
             };
             class name_edit: ITC_LAND_RscEdit {
                 idc = 4112;
@@ -136,7 +136,7 @@
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -149,7 +149,7 @@
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -162,7 +162,7 @@
                 y = "0.896 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -176,7 +176,7 @@
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
@@ -190,7 +190,7 @@
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };

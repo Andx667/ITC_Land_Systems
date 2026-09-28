@@ -37,13 +37,13 @@ itc_land_spike_launchTime = cba_missionTime;
 itc_land_spike_activationTime = cba_missionTime;
 
 itc_land_spike_wobble = [if (random 1 > 0.5) then [{-1},{1}], 5 + (random 10), (round (random 3)) * 0.25];
-private _viewASL = AGLtoASL positionCameraToWorld [0,0,0];
-private _intersect = [AGLtoASL positionCameraToWorld [0,0,0], _viewASL vectorFromTo (AGLtoASL positionCameraToWorld [0,0,1])] call FUNC(intersectScreenToWorld);
+private _viewASL = AGLToASL positionCameraToWorld [0,0,0];
+private _intersect = [AGLToASL positionCameraToWorld [0,0,0], _viewASL vectorFromTo (AGLToASL positionCameraToWorld [0,0,1])] call FUNC(intersectScreenToWorld);
 if (!isNil "_intersect" && {(_intersect distance player) > 500}) then {
     itc_land_spike_targetPos = _intersect;
     itc_land_spike_targetPosCamera = _intersect;
 } else {
-    private _forward = AGLtoASL (player modelToWorld [0,3000,0]);
+    private _forward = AGLToASL (player modelToWorld [0,3000,0]);
     itc_land_spike_targetPos = _forward;
     itc_land_spike_targetPosCamera = _forward;
 };

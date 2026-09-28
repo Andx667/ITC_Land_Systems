@@ -19,7 +19,7 @@
 private _return = nil;
 
 if (cameraOn in allUnitsUAV) then {
-    _return = getConnectedUav ace_player;
+    _return = getConnectedUAV ace_player;
 } else {
     _return = vehicle ace_player;
 };

@@ -43,7 +43,7 @@ _this spawn {
   _target setPos (_projectile modelToWorld [0,-5,0]);
   _target setVelocity (velocity _projectile);
   _target setMass 0;
-  _target setobjecttexture [0,""];
+  _target setObjectTexture [0,""];
   createVehicleCrew _target;
   driver _target disableAI "ALL";
   gunner _target disableAI "ALL";

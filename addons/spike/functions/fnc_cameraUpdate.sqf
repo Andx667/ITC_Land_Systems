@@ -56,19 +56,19 @@ if (isNull _ui || isNil "itc_land_spike_camera") exitWith {
 (_ui displayCtrl 1013) ctrlSetText str (round ((time - itc_land_spike_activationTime) * 100));
 (_ui displayCtrl 1015) ctrlSetText (format ["%1/%2/%3 %4:%5", date # 2, date # 1, date # 0, date # 3, date # 4]);
 itc_land_spike_lockInformation params ["_lockObject", "_lockPosition", "_lockLostTime", "_originalLockPosition"];
-private _screenPos = (worldToScreen (ASLtoAGL itc_land_spike_targetPos));
+private _screenPos = (worldToScreen (ASLToAGL itc_land_spike_targetPos));
 if (!isNil "_lockObject") then {
   _screenPos = worldToScreen (_lockObject modelToWorld _lockPosition);
 };
 _screenPos params ["_x", "_y"];
 if (isNil "_x" || isNil "_y") exitWith {};
 (_ui displayCtrl 1021) ctrlSetPosition [
-  SafeZoneX + (safezoneW * _x) - (10 *  (safezoneW / 64)),
-  SafeZoneY + (safezoneH * _y) - (10 *  (safezoneH / 40))
+  safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
+  safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
 ];
 (_ui displayCtrl 1022) ctrlSetPosition [
-  SafeZoneX + (safezoneW * _x) - (10 *  (safezoneW / 64)),
-  SafeZoneY + (safezoneH * _y) - (10 *  (safezoneH / 40))
+  safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
+  safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
 ];
 (_ui displayCtrl 1021) ctrlCommit 0;
 (_ui displayCtrl 1022) ctrlCommit 0;

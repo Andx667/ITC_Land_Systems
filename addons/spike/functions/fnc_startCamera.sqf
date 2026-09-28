@@ -28,7 +28,7 @@ private _polarToTarget = ((getPosASL itc_land_spike_currentMissile) vectorFromTo
 
 itc_land_spike_camera setDir (_polarToTarget # 1);
 [itc_land_spike_camera, (_polarToTarget # 2), 0] call bis_fnc_setpitchbank;
-itc_land_spike_camera setVectorUP [0,0.5,0];
+itc_land_spike_camera setVectorUp [0,0.5,0];
 //itc_land_spike_camera attachTo [itc_land_spike_currentMissile, [0,1,0]];
 itc_land_spike_camera cameraEffect ["internal", "BACK"];
 

@@ -22,6 +22,6 @@ class CfgAmmo {
   };
   class ITC_Land_remoteFrag_Munition : GrenadeHand {
     ace_frag_enabled = 1;
-    weaponLockSystem = "1+2+4";
+    weaponLockSystem = 1+2+4;
   };
 };

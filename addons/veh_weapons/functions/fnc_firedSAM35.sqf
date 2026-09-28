@@ -55,7 +55,7 @@ private _sensorRAN = getNumber (_fuzeConfig >> "proxRAN"); //What is the range o
                 
                 //check object is in sensor's FOV, if it is, projectile go boom
                 _vectorDirMissile = vectorDir _projectile;
-                _vectorToTarget = (getposASL _projectile) vectorFromTo (getposASL _tgt);
+                _vectorToTarget = (getPosASL _projectile) vectorFromTo (getPosASL _tgt);
                 _targetAngle = acos (_vectorDirMissile vectorCos _vectorToTarget);  
                 
                 //diag_log format ["Target angle: %3", _vectorDirMissile, _vectorToTarget, _targetAngle];

@@ -36,8 +36,8 @@ params ["_siren","_sirenSound","_sirenDistance","_sirenDuration"];
 //[_siren,_linkID,"object_register", true] call EFUNC(datalink,connect);
 
 private _sirenType = typeOf _siren;
-if (isNIl "ITC_Land_COBRA_SirenTypes") then {
-  missionNameSpace setVariable ["ITC_Land_COBRA_SirenTypes",[_sirenType],true];
+if (isNil "ITC_Land_COBRA_SirenTypes") then {
+  missionNamespace setVariable ["ITC_Land_COBRA_SirenTypes",[_sirenType],true];
 } else {
   ITC_Land_COBRA_SirenTypes append [_sirenType];
 };

@@ -29,7 +29,7 @@
                 y = "0.555 * safezoneH + safezoneY";
                 w = "0.4125 * safezoneW";
                 h = "0.022 * safezoneH";
-                colorText[] = {"172/255","255/255","153/255",1};
+                colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0.1,0.1,0.1,1};
                 colorActive[] = {0.1,0.1,0.1,1};
             };

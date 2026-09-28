@@ -22,7 +22,7 @@
  */
 params ["_originPosition", "_direction", ["_object", false]];
 if (isNil "_direction") then {
-  _direction = _originPosition vectorFromTo (AGLtoASL (screenToWorld [0.5,0.5]));
+  _direction = _originPosition vectorFromTo (AGLToASL (screenToWorld [0.5,0.5]));
 };
 private _vect = _direction;
 private _polar = _vect call cba_fnc_vect2polar;

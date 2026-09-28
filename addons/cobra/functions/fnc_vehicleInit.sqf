@@ -31,14 +31,14 @@ itc_land_cobras pushBack _cbr;
 
 //[_cbr, "cobra", "getData", {_this call FUNC(getCobraData);}] call EFUNC(datalink,registerEvent);
 
-missionNameSpace setVariable ["itc_land_cobra_shells", []];
-missionNameSpace setVariable ["itc_land_cobra_origins", []];
-missionNameSpace setVariable ["itc_land_cobra_firingPositions", []];
-missionNameSpace setVariable ["itc_land_cobra_engagements", []];
-missionNameSpace setVariable ["itc_land_cobra_start", 1000];
-missionNameSpace setVariable ["itc_land_cobra_engagementTime", 30];
+missionNamespace setVariable ["itc_land_cobra_shells", []];
+missionNamespace setVariable ["itc_land_cobra_origins", []];
+missionNamespace setVariable ["itc_land_cobra_firingPositions", []];
+missionNamespace setVariable ["itc_land_cobra_engagements", []];
+missionNamespace setVariable ["itc_land_cobra_start", 1000];
+missionNamespace setVariable ["itc_land_cobra_engagementTime", 30];
 
-missionNameSpace setVariable ["itc_land_cobra_activeShells", []];
+missionNamespace setVariable ["itc_land_cobra_activeShells", []];
 [{
   (_this select 0) params ["_cbr","_lastScanned"];
   if(cba_missionTime == _lastScanned) exitWith {};

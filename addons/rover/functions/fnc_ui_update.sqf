@@ -22,9 +22,9 @@
 
 params ["_control","_index"];
 
-missionNameSpace setVariable ["itc_land_rover_ui_curSelIndex",_index];
-missionNameSpace setVariable ["itc_land_rover_ui_curAircraft",itc_land_rover_ui_aircraftList # _index];
-private _plane = missionNameSpace getVariable ["itc_land_rover_ui_curAircraft",objNull];
+missionNamespace setVariable ["itc_land_rover_ui_curSelIndex",_index];
+missionNamespace setVariable ["itc_land_rover_ui_curAircraft",itc_land_rover_ui_aircraftList # _index];
+private _plane = missionNamespace getVariable ["itc_land_rover_ui_curAircraft",objNull];
 
 private _feed = [_plane] call FUNC(createFeed);
 

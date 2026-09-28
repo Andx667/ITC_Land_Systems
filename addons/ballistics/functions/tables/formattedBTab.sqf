@@ -26,20 +26,18 @@
  * Public: No
  */
 
-private ["_magazine", "_elevMin", "_elevMax", "_elevStep", "_heightMin", "_heightMax", "_heightStep", "_mv", "_airFriction", "_proxy", "_ammo", "_btab", "_rangeMin", "_rangeMax"];
-
-_magazine = _this select 0;
-_elevMin = _this select 1;
-_elevMax = _this select 2;
-_elevStep = _this select 3;
-_heightMin = _this select 4;
-_heightMax = _this select 5;
-_heightStep = _this select 6;
-_muzzleVelocity = _this select 7;
-_airFriction = _this select 8;
+private _magazine = _this select 0;
+private _elevMin = _this select 1;
+private _elevMax = _this select 2;
+private _elevStep = _this select 3;
+private _heightMin = _this select 4;
+private _heightMax = _this select 5;
+private _heightStep = _this select 6;
+private _muzzleVelocity = _this select 7;
+private _airFriction = _this select 8;
 
 hint "4...";
-_ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
+private _ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
 btabammo = _ammo;
 
 
@@ -53,7 +51,7 @@ if((count _this) < 9) then {
 };
 hint "2...";
 
-_btab = [_magazine, _elevMin, _elevMax, _elevStep, _heightMin, _heightMax, _heightStep, _muzzleVelocity, _airFriction] call compile preprocessFileLineNumbers QPATHTOF(functions\tables\calcBallistics.sqf);
+private _btab = [_magazine, _elevMin, _elevMax, _elevStep, _heightMin, _heightMax, _heightStep, _muzzleVelocity, _airFriction] call compile preprocessFileLineNumbers QPATHTOF(functions\tables\calcBallistics.sqf);
 
 _btab = _btab select 0;
 
@@ -61,8 +59,8 @@ hint "1...";
 
 // Calculate min and max range based on median offset.
 _mo = floor(((_heightMax - _heightMin) / _heightStep)*0.5);
-_rangeMin = 999999;
-_rangeMax = -1;
+private _rangeMin = 999999;
+private _rangeMax = -1;
 for [{_i=0;},{_i < count(_btab)},{_i=_i+1;}] do
 {
     _slice = (_btab select _i) select 2;
@@ -78,13 +76,13 @@ debugMR = _rangeMax;
 
 // Generate SQF
 _sqf = "";
-_sqf = _sqf + format ["// ARTY+ACE Module ballistics table.%1// Magazine: %2%1// Ammo: %3%1// AirFriction: %4%1// MuzzleVelocity: %5%1%1private [""_btab"", ""_minRange"", ""_maxRange"", ""_minHeight"", ""_maxHeight"", ""_hstep""];%1%1", ToString [10], _magazine, _ammo, _airFriction, _muzzleVelocity];
-_sqf = _sqf + format ["_minHeight = %1;%2", _heightMin, ToString[10]];
-_sqf = _sqf + format ["_maxHeight = %1;%2", _heightMax, ToString[10]];
-_sqf = _sqf + format ["_hstep = %1;%2", _heightStep, ToString[10]];
-_sqf = _sqf + format ["_minRange = %1;%2", _rangeMin, ToString[10]];
-_sqf = _sqf + format ["_maxRange = %1;%2", _rangeMax, ToString[10]];
-_sqf = _sqf + format ["_btab = [%1", ToString[10]];
+_sqf = _sqf + format ["// ARTY+ACE Module ballistics table.%1// Magazine: %2%1// Ammo: %3%1// AirFriction: %4%1// MuzzleVelocity: %5%1%1", toString [10], _magazine, _ammo, _airFriction, _muzzleVelocity];
+_sqf = _sqf + format ["private _minHeight = %1;%2", _heightMin, toString[10]];
+_sqf = _sqf + format ["private _maxHeight = %1;%2", _heightMax, toString[10]];
+_sqf = _sqf + format ["private _hstep = %1;%2", _heightStep, toString[10]];
+_sqf = _sqf + format ["private _minRange = %1;%2", _rangeMin, toString[10]];
+_sqf = _sqf + format ["private _maxRange = %1;%2", _rangeMax, toString[10]];
+_sqf = _sqf + format ["private _btab = [%1", toString[10]];
 for [{_i=0;},{_i < count(_btab);},{_i=_i+1;}] do
 {
     _tail = ",";
@@ -92,11 +90,11 @@ for [{_i=0;},{_i < count(_btab);},{_i=_i+1;}] do
     {
         _tail = "";
     };
-    _sqf =_sqf + format ["    %1%2%3", (_btab select _i), _tail, ToString [10] ];
+    _sqf =_sqf + format ["    %1%2%3", (_btab select _i), _tail, toString [10] ];
 };
-_sqf = _sqf + format ["];%1%1",ToString [10]];
+_sqf = _sqf + format ["];%1%1",toString [10]];
 
-_sqf = _sqf + format ["[_btab, _minRange, _maxRange, _minHeight, _maxHeight, _hstep]%1",ToString[10]];
+_sqf = _sqf + format ["[_btab, _minRange, _maxRange, _minHeight, _maxHeight, _hstep]%1",toString[10]];
 
 hint "0";
 

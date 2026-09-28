@@ -41,7 +41,7 @@ if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
   };
 
   _begin = getPosASL _projectile;
-  _end = _begin vectorAdd ((vectordir _projectile) vectorMultiply 30);
+  _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
   _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
   if (count _intersects > 0) exitWith {
     { // forEach _intersects

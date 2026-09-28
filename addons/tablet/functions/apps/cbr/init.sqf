@@ -35,7 +35,7 @@ params ["_display"];
 //[_display, IDC_sidebar_button5, "Refresh data"] call FUNC(setText);
 
 /*
-if(!(missionNameSpace getVariable ["itc_land_cobra_app_hasInitialized",false])) then {
+if(!(missionNamespace getVariable ["itc_land_cobra_app_hasInitialized",false])) then {
   [player, "cobra", "returnData", {
     params ["_target","_transmission"];
     _transmission params ["_destination","_origin","_header","_type","_data"];

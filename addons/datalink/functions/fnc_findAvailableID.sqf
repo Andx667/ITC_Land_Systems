@@ -17,7 +17,7 @@
  */
 
 params ["_groupID"];
-private ["_firstChar","_secondChar","_id","_isAvailableID"];
+private ["_firstChar","_secondChar","_id"];
 
 private _foundID = false;
 private _isAvailableID = false;

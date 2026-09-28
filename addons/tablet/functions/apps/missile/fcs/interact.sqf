@@ -82,13 +82,13 @@ switch(_action) do {
                 private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
                 //itc_land_fuzeValues = _proxHOB;
                 _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
-                _fuzeText = Format ["%1: %2m",_fuzeDesc,_proxHOB];
+                _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
             };
             case "time" : {
                 private _fuzeTime = parseNumber(ctrlText 1906);
                 _vehicle setVariable ["itc_land_fuzeValues",_fuzeTime,true];
                 _vehicle setVariable ["itc_land_mlrsfci_fuzeTime",_fuzeTime,true];
-                _fuzeText = Format ["%1: %2s",_fuzeDesc,_fuzeTime];
+                _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
             };
             case "delay" : {
                 _vehicle setVariable ["itc_land_fuzeValues",0.005,true];

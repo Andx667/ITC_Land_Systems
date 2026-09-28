@@ -21,22 +21,21 @@
  */
 
 params ["_shell"];
-private ["_x","_y","_vx","_vy","_elevation","_fc","_tof"];
 _ammo = typeOf _shell;
 _vel = vectorMagnitude (velocity _shell);
 _airFriction = getNumber(configFile >> "CfgAmmo" >> _ammo >> "airFriction");
 _grav = -9.80665;
 _fps = 60;
-_elevation = (_shell call BIS_fnc_getPitchBank) # 0;
-_fc = 0;
+private _elevation = (_shell call BIS_fnc_getPitchBank) # 0;
+private _fc = 0;
 _useElevation = _elevation;
 
 // Set t0 parameters
-_vx = _vel * cos(_useElevation);
-_vy = _vel * sin(_useElevation);
+private _vx = _vel * cos(_useElevation);
+private _vy = _vel * sin(_useElevation);
 _frame = 1 / _fps;
-_x = 0;
-_y = 0.1;
+private _x = 0;
+private _y = 0.1;
 _alt = 0;
 _aboveLand = true;
 _simulatedPos = [];
