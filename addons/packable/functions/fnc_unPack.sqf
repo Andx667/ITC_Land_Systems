@@ -1,19 +1,26 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Toadball
- * UAV unpack function.
+ * Author: ITC Addons Team
+ * Unpacks a carried item into its deployed vehicle form (e.g. a UAV). Shows
+ * a 5 second progress bar with a gesture animation; if the calling unit is
+ * local, spawns the unpacked vehicle classname (itc_land_unPacksTo) next to
+ * the caller with a crew, and removes the packed item from the caller's
+ * inventory. Plays a "put down" gesture once the progress bar completes.
  *
  * Arguments:
- * 0: CALLER <OBJECT>
+ * 0: Packed item classname <STRING>
+ * 1: Unit performing the unpacking <OBJECT>
  *
  * Return Value:
- * unpacked drone, hopefully
+ * None
  *
  * Example:
- * [uavItem,this] call ITC_LAND_VEH_DARTER_FNC_UNPACK
+ * [_item, _caller] call itc_land_packable_fnc_unPack
  *
+ * Public: No
  */
+
  params ["_item","_caller"];
 
  //get class of UAV to unpack:

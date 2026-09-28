@@ -1,5 +1,31 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * "Fired" event handler for the SPH gun. Removes the fired magazine, increments the
+ * vehicle's fired-round counter, and either starts loading the next round or updates
+ * the autoloader status, depending on whether the ammo requested by the applied
+ * loader settings is still available and the round-count limit has not been reached.
+ *
+ * Arguments:
+ * 0: Unit or vehicle that fired the weapon <Object>
+ * 1: Fired weapon classname <String>
+ * 2: Fired muzzle classname <String>
+ * 3: Fired weapon mode <String>
+ * 4: Fired ammo classname <String>
+ * 5: Fired magazine classname <String>
+ * 6: Projectile object <Object>
+ * 7: Unit that pulled the trigger <Object>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_gun, _weapon, _muzzle, _mode, _ammo, _magazine, _shell, _gunner] call itc_land_SPHammohandler_fnc_firedEH
+ *
+ * Public: No
+ */
+
 
 params ["_gun", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_shell", "_gunner"];
 

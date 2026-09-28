@@ -1,3 +1,20 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Renders the SPG status page: builds a color-coded hitpoint status list (OK/DAM/FAIL) for the current
+ * vehicle and displays it, and updates the fuel percentage readout.
+ *
+ * Arguments:
+ * 0: The tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_tablet_fnc_pageRender
+ *
+ * Public: No
+ */
+
 params ["_display"];
 
 _allDamage = getAllHitPointsDamage _vehicle;

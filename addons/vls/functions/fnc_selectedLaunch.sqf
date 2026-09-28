@@ -1,6 +1,22 @@
 #include "..\script_component.hpp"
 
-// launches missile at selected target
+/*
+ * Author: ToadBall, Yax
+ * Launches the current weapon at the currently selected saved target: reads the saved
+ * target's position and impact angle, stores them on the current vehicle, then fires.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_this] spawn itc_land_vls_fnc_selectedLaunch
+ *
+ * Public: No
+ */
+
 waitUntil {
     !(isNull (findDisplay 86002))
 };

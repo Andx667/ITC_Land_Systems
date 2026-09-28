@@ -1,5 +1,23 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Updates the SPH ammo-loader dialog's Apply/Load/Unload buttons, status label, and
+ * (when a load or unload cycle has just pulled/stowed a round) the ammo listbox
+ * selection, to reflect the vehicle's current autoloader status.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_updateStatus
+ *
+ * Public: No
+ */
+
 disableSerialization;
 private _display = (findDisplay 86000);
 if (isNull _display) exitWith {};

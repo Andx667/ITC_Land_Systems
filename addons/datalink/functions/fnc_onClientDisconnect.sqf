@@ -1,9 +1,22 @@
 #include "..\script_component.hpp"
 
-/**
- * Process a discconnecting client
- * params: ID string, player, requesting system string
+/*
+ * Author: ToadBall, Yax, VKing
+ * Server-side event handler for a client disconnection request. Removes the given ID from the node registry, or, if no ID is given, removes every ID currently registered to the player.
+ *
+ * Arguments:
+ * 0: Player object disconnecting <Object>
+ * 1: Datalink ID to remove <String> (default: "", removes all IDs belonging to the player)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, "0101"] call itc_land_datalink_fnc_onClientDisconnect
+ *
+ * Public: No
  */
+
 params ["_player","_id"];
 
 //remove all IDs with this target

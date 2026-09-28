@@ -1,5 +1,30 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Performs terminal steering for a guided VLS projectile: banks and pitches it toward
+ * the steer point (with AGCAS-driven pull-ups), initiates the terminal dive once close
+ * enough to reach the desired impact angle, and applies the resulting pitch/bank.
+ *
+ * Arguments:
+ * 0: Projectile <Object>
+ * 1: Steer point <Position>
+ * 2: Frame time <Number>
+ * 3: Horizontal angle to steer point <Number>
+ * 4: Vertical angle to steer point <Number>
+ * 5: Guidance stage <String>
+ * 6: Projectile's current position <Position>
+ * 7: Desired terminal impact angle <Number>
+ *
+ * Return Value:
+ * Updated guidance stage <String>
+ *
+ * Example:
+ * [_projectile, _steerPoint, _frameTime, _angleX, _angleY, _stage, _position, _angle] call itc_land_vls_fnc_steerTo
+ *
+ * Public: No
+ */
+
 params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_position","_angle"];
 //[ASLtoAGL _steerPoint, "ColorRed"] call test_fnc_mark;
 (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];

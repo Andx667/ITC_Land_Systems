@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Records a predicted shell impact (position and calculated impact time) in
+ * the mission's active-shells list, then triggers any COBRA-linked sirens
+ * within range of the impact point.
+ *
+ * Arguments:
+ * 0: COBRA radar vehicle that detected the shell (unused in body) <Object>
+ * 1: Impact data array as returned by fnc_calcImpact: position (ASL) and time of flight <Array>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_cbr, _impact] call itc_land_cobra_fnc_processImpact
+ *
+ * Public: No
+ */
+
 params ["_cbr", "_impact"];
 _impact params ["_position", "_tof"];
 private _impacts = missionNameSpace getVariable "itc_land_cobra_activeShells";

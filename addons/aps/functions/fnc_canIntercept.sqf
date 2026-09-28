@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: Yax
+ * Checks whether a given APS (Active Protection System) module on a vehicle is currently able to intercept an incoming projectile,
+ * verifying range, reload state, traverse/elevation limits relative to the module's mount (turret or hull), and line of sight.
+ *
+ * Arguments:
+ * 0: Vehicle mounting the APS module <OBJECT>
+ * 1: APS module data: [name, position, turret, direction, traverseLim, elevateLim, range, ammoCount, pk, reloadTime, triggersAmmo, lastFiredTime] <ARRAY>
+ * 2: Incoming projectile <OBJECT>
+ *
+ * Return Value:
+ * True if the module is able to intercept the projectile right now <BOOLEAN>
+ *
+ * Example:
+ * [_vehicle, _apsModuleData, _projectile] call itc_land_aps_fnc_canIntercept
+ *
+ * Public: No
+ */
+
 params ["_vehicle", "_aps", "_projectile"];
 _aps params [
   "_name",

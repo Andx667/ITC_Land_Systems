@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Creates and configures the external seeker camera for an in-flight Spike LR
+ * missile: spawns a camera at the missile's position, sets its field of view,
+ * orients it toward the current target-camera position, attaches it as the
+ * internal back-view camera effect, and opens the Spike seeker UI display.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_spike_fnc_startCamera
+ *
+ * Public: No
+ */
+
 itc_land_spike_camera = "camera" camCreate (getPos itc_land_spike_currentMissile);
 itc_land_spike_camera camSetFov 0.08333;
 

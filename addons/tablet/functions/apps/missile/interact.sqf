@@ -1,5 +1,23 @@
 #include "..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles sidebar interactions for the missile app, switching the vehicle's active tablet page based on
+ * which sidebar button was pressed.
+ *
+ * Arguments:
+ * 0: The sidebar action identifier ("side1", "side2", "side3") <String>
+ * 1: The tablet dialog display <Display> (unused)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["side1", _display] call itc_land_tablet_fnc_appInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 switch(_action) do {

@@ -1,8 +1,25 @@
 #include "..\script_component.hpp"
 
 /*
- *  FUNC(cameraUpdate)
+ * Author: ToadBall, Yax, VKing
+ * Per-frame update for the Spike LR seeker camera view: positions and orients the
+ * external camera on the in-flight missile, applies/manages the color-correction and
+ * film-grain post-process effects, refreshes the countdown timer and target marker
+ * controls on the seeker HUD, and tears down the camera and effects once the
+ * seeker UI is closed or the camera reference becomes invalid.
+ *
+ * Arguments:
+ * 0: Seeker display (currently unused in this function) <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_spike_fnc_cameraUpdate
+ *
+ * Public: No
  */
+
 params ["_display"];
 if (!itc_land_spike_ppEffect) then {
   "colorCorrections" ppEffectAdjust [0.9, 0.4, 0, [0.9, 0.4, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];;

@@ -1,6 +1,28 @@
-// Ballistic table generator
-// 
-// Creates pre-rendered ballistic data for use with ARTY.
+/*
+ * Author: ToadBall, Yax, VKing
+ * Ballistic table generator. Numerically simulates a projectile's trajectory across a range of gun elevation angles for a given magazine,
+ * taking height-offset "slices" of each trajectory. Creates pre-rendered ballistic data for use with ARTY.
+ *
+ * Arguments:
+ * 0: Magazine classname (CfgMagazines) <STRING>
+ * 1: Minimum gun elevation angle, degrees <NUMBER>
+ * 2: Maximum gun elevation angle, degrees <NUMBER>
+ * 3: Gun elevation angle step, degrees <NUMBER>
+ * 4: Minimum height offset to slice at <NUMBER>
+ * 5: Maximum height offset to slice at <NUMBER>
+ * 6: Height step between slices <NUMBER>
+ * 7: Muzzle velocity, m/s <NUMBER> (default: magazine's initSpeed)
+ * 8: Air friction coefficient <NUMBER> (default: ammo's airFriction)
+ *
+ * Return Value:
+ * [ballisticTable, minRange, maxRange], where ballisticTable is an array of [elevation, maxHeight, slices] rows <ARRAY>
+ *
+ * Example:
+ * ["itc_Sh_82mm_HE", 45, 85, 1, -2000, 2000, 100] call itc_land_ballistics_fnc_calcBallistics
+ *
+ * Public: No
+ */
+
 #define MILPREC 17.7777777777778
 #define DEG2MIL(deg)    (((deg*MILPREC)) min 6400)
 #define MIL2DEG(mil)    mil/MILPREC

@@ -1,5 +1,37 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Spawns and tracks a targetable decoy object representing an incoming
+ * projectile, so that CIWS-enabled weapons can lock on to and engage it.
+ * After a 1 second delay, resolves a target classname from the fired ammo's
+ * itc_land_ciws_target config entry (defaulting to "itc_land_shell") with a
+ * side-specific suffix (_b/_o/_i) based on the gunner's side, spawns it
+ * behind the projectile with matching velocity and no mass, strips its crew
+ * AI, then adds a per-frame handler that keeps the decoy positioned relative
+ * to the projectile each frame, removes it once the projectile drops below
+ * 30m ASL while still descending and uninterceptable, and cleans up both
+ * objects once the projectile or the decoy is no longer alive.
+ *
+ * Arguments:
+ * 0: Vehicle/unit that fired the shot <OBJECT> (unused)
+ * 1: Weapon fired <STRING> (unused)
+ * 2: Muzzle used <STRING> (unused)
+ * 3: Firing mode <STRING> (unused)
+ * 4: Ammo classname fired <STRING>
+ * 5: Magazine used <STRING> (unused)
+ * 6: Fired projectile <OBJECT>
+ * 7: Gunner of the firing vehicle <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _gunner] call itc_land_ciws_fnc_shellTarget
+ *
+ * Public: No
+ */
+
 _this spawn {
   sleep 1;
   params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];

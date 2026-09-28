@@ -1,8 +1,23 @@
 #include "..\script_component.hpp"
 
-// Returns an array of COBRA siren types in different formats
-// 0 (Default) = single array of config and mission defined sirens
-// 1 = nested array: 0: array of sirens defined in config, 1: array of sirens defined in mission
+/*
+ * Author: ToadBall, Yax
+ * Returns an array of COBRA siren type class names, gathered from both
+ * config-defined siren types (any CfgVehicles class with a positive
+ * ITC_Land_COBRA_SirenTypes config entry) and mission-defined siren types
+ * (registered at runtime via fnc_sirenInit), in a format depending on mode.
+ *
+ * Arguments:
+ * 0: Return mode: 0 = single flattened array of all types, 1 = nested array [configTypes, missionTypes] <Number>
+ *
+ * Return Value:
+ * Array of siren-equipped class names, format depending on mode <Array>
+ *
+ * Example:
+ * [0] call itc_land_cobra_fnc_sirenTypes
+ *
+ * Public: No
+ */
 
 params ["_mode"];
 private _configTypes = [];

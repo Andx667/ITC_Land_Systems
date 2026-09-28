@@ -1,18 +1,22 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Toadball
- * "Packs" an item into player inventory or a ground weaponholder if there is no space.
+ * Author: ITC Addons Team
+ * Packs a deployed item (e.g. a deployed drone/system) back into its
+ * carryable item form. Shows a 5 second progress bar with a gesture
+ * animation, then, if the item is local, deletes it and spawns a ground
+ * weapon holder containing one copy of its packed item classname
+ * (itc_land_PacksTo).
  *
  * Arguments:
- * 0: Target <OBJECT>
- * 1: CALLER <OBJECT>
+ * 0: Item/object to pack <OBJECT>
+ * 1: Unit performing the packing <OBJECT>
  *
  * Return Value:
- * Nothing
+ * None
  *
  * Example:
- * [this] call TB_RALLYPOINT_FNC_PACK
+ * [_item, _caller] call itc_land_packable_fnc_Pack
  *
  * Public: No
  */

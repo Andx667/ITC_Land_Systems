@@ -1,10 +1,23 @@
 #include "..\script_component.hpp"
 
-/**
- * Process a connecting client
- * params: ID string, player, requesting system string
- * returns: nothing, sends targetEvent to origin with [success, [strings]]
+/*
+ * Author: ToadBall, Yax, VKing
+ * Server-side event handler for a client connection request. Auto-assigns an ID if none was supplied, validates the ID, and if it is valid and available, registers it in the node registry; sends a response transmission back to the requesting player with the outcome.
+ *
+ * Arguments:
+ * 0: Player object requesting the connection <Object>
+ * 1: Datalink ID being requested <String>
+ * 2: Name of the requesting system <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, "0101", "radar"] call itc_land_datalink_fnc_onClientConnect
+ *
+ * Public: No
  */
+
  params ["_player","_id","_requestingSystem"];
 
 //auto-assign ID if not set

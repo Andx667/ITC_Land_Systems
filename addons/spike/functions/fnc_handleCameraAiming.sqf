@@ -1,7 +1,22 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(handleCameraAiming)
+ * Author: ToadBall, Yax, VKing
+ * Reads the player's aim-input actions (AimLeft/AimRight/AimUp/AimDown) while in
+ * the Spike LR seeker camera view, re-centers the mouse cursor, clears any active
+ * target lock if the operator manually adjusts aim beyond a small deadzone, and
+ * traces a new intersection point to update the current aim/target position.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call itc_land_spike_fnc_handleCameraAiming
+ *
+ * Public: No
  */
 private _traverse = ((-(inputAction "AimLeft")) + (inputAction "AimRight")) * itc_land_spike_traverseModifier;
 private _elevate = ((inputAction "AimUp") + (-(inputAction "AimDown"))) * itc_land_spike_traverseModifier;

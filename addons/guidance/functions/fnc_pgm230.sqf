@@ -1,5 +1,36 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Fired EH handler for a longer-range GPS/INS-guided rocket (PGM230). Reads
+ * the target position stored on the firing unit (itc_land_guidance_targetPos,
+ * falling back to the like-named global variable), and, if one is set,
+ * attaches an every-frame handler that computes the yaw/pitch error to the
+ * target in the projectile's model space and applies a time-scaled turn rate
+ * (12 degrees/second) to correct heading continuously, while pitch/bank is
+ * only corrected when the vertical angle error exceeds 45 degrees or once
+ * the projectile has covered half the total launch-to-target distance. Does
+ * nothing if no target position has been assigned.
+ *
+ * Arguments:
+ * 0: Unit/vehicle that fired the shot <OBJECT>
+ * 1: Weapon fired <STRING> (unused)
+ * 2: Muzzle used <STRING> (unused)
+ * 3: Firing mode <STRING> (unused)
+ * 4: Ammo classname fired <STRING>
+ * 5: Magazine used <STRING> (unused)
+ * 6: Fired projectile <OBJECT>
+ * 7: Gunner of the firing vehicle <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_unit, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _gunner] call itc_land_guidance_fnc_pgm230
+ *
+ * Public: No
+ */
+
 params ["_unit", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
 

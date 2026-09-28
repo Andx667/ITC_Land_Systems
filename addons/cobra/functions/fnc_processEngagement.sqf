@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Groups detected firing origins into named "engagements" - clusters of shots
+ * within 300m of each other fired within the configured engagement-time
+ * window - updating the shot count and timestamps for an existing engagement,
+ * or creating a new one with an auto-incrementing "CBxxxx" identifier if none
+ * of the recent engagements are close enough.
+ *
+ * Arguments:
+ * 0: COBRA radar vehicle processing the engagement (unused in body) <Object>
+ * 1: Detected firing-origin position to associate with an engagement <Position>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_cbr, _origin] call itc_land_cobra_fnc_processEngagement
+ *
+ * Public: No
+ */
+
 params ["_cbr", "_origin"];
 _engagements = missionNameSpace getVariable "itc_land_cobra_engagements";
 _existingPosition = nil;

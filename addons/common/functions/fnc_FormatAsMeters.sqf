@@ -1,9 +1,8 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Pabst Mirror, Toadball
- * Converts input distance in meters to string with prefix for negative angles
- * Derived from old: ace_mk6mortar_fnc_dev_formatNumber
+ * Author: ToadBall, Yax
+ * Formats a distance in meters as a zero-padded string, with a "-" prefix for negative values.
  *
  * Arguments:
  * 0: Input number <NUMBER>
@@ -14,8 +13,9 @@
  * Formatted number <STRING>
  *
  * Example:
- * [45, 0, 4] call FUNC(FormatAsMeters) = "0045"
+ * [45, 0, 4] call itc_land_common_fnc_FormatAsMeters
  *
+ * Public: No
  */
 
 params ["_input", "_decimalPlaces", "_integerPlaces"];

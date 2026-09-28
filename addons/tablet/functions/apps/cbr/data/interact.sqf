@@ -1,3 +1,20 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles interactions on the CBR Data page. On the "savePos" action, reads the currently selected
+ * engagement from the combo box and pushes its grid position as a new entry onto the BCS stored-locations list.
+ *
+ * Arguments:
+ * 0: The interaction identifier dispatched from the page's UI controls <STRING>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["savePos"] call itc_land_tablet_fnc_pageInteract;
+ *
+ * Public: No
+ */
+
 params ["_action"];
 
 switch(_action) do {

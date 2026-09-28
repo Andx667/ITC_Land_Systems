@@ -1,6 +1,23 @@
 #include "..\script_component.hpp"
 
-// onLoad.sqf
+/*
+ * Author: ToadBall, Yax
+ * Handles the VLS targeting dialog's onLoad event: populates the saved-target list box,
+ * restores the last selected saved target and impact angle, and populates the ad-hoc
+ * grid/elevation/name edit fields from the current vehicle's stored variables.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_this] spawn itc_land_vls_fnc_onLoad
+ *
+ * Public: No
+ */
+
 waitUntil {
     !(isNull (findDisplay 86002))
 };

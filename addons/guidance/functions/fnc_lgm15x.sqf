@@ -1,5 +1,34 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Fired EH handler for a laser-guided precision munition (LGM15x). Reads the
+ * firing vehicle's assigned laser code (defaulting to 1111) and attaches a
+ * per-frame handler that searches for a matching laser spot with
+ * ace_laser_fnc_seekerFindLaserSpot every 0.1 seconds. While a spot is found,
+ * the handler steers the projectile's heading and pitch/bank toward the
+ * laser-designated target, terminating once the projectile is no longer
+ * alive.
+ *
+ * Arguments:
+ * 0: Vehicle/unit that fired the shot <OBJECT>
+ * 1: Weapon fired <STRING> (unused)
+ * 2: Muzzle used <STRING> (unused)
+ * 3: Firing mode <STRING> (unused)
+ * 4: Ammo classname fired <STRING>
+ * 5: Magazine used <STRING> (unused)
+ * 6: Fired projectile <OBJECT>
+ * 7: Gunner of the firing vehicle <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _gunner] call itc_land_guidance_fnc_lgm15x
+ *
+ * Public: No
+ */
+
 params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 
 _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];

@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the rover UI dialog: creates the rover camera, populates the
+ * aircraft list box, creates the video feed for the current aircraft, restores
+ * the FOV slider and vision mode, and starts a per-frame handler that keeps the
+ * feed, camera position/target and HUD updated while the dialog is open and the
+ * player is alive, tearing everything down once it closes or the player dies.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_rover_fnc_ui_init
+ *
+ * Public: No
+ */
+
 itc_land_rover_camera = "camera" camCreate [0,0,0];
 call FUNC(ui_populateListBox);
 

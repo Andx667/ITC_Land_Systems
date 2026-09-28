@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Simulates the forward ballistic trajectory of a fired shell, stepping the
+ * simulation forward frame by frame (applying air friction and gravity) until
+ * the simulated position drops below the terrain height, in order to predict
+ * where and when the shell will impact.
+ *
+ * Arguments:
+ * 0: Shell/projectile object to simulate forward to impact <Object>
+ *
+ * Return Value:
+ * Array containing the simulated impact position (ASL) and the simulated
+ * time of flight in seconds <Array>
+ *
+ * Example:
+ * [_shell] call itc_land_cobra_fnc_calcImpact
+ *
+ * Public: No
+ */
+
 params ["_shell"];
 private ["_x","_y","_vx","_vy","_elevation","_fc","_tof"];
 _ammo = typeOf _shell;

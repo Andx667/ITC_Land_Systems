@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Registers an object as a COBRA-linked siren (server-only): records its class
+ * in the mission-wide siren-type registry and stores its siren sound class,
+ * trigger distance and repeat duration on the object, falling back to default
+ * alarm values if fewer than 4 arguments are supplied.
+ *
+ * Arguments:
+ * 0: Siren object/vehicle to register <Object>
+ * 1: Sound class name to play for this siren <String>
+ * 2: Distance at which the siren sound is audible <Number>
+ * 3: Duration between siren sound repeats, in seconds <Number>
+ *
+ * Return Value:
+ * The input arguments array <Array>
+ *
+ * Example:
+ * [_siren, _sirenSound, _sirenDistance, _sirenDuration] call itc_land_cobra_fnc_sirenInit
+ *
+ * Public: No
+ */
+
 //[this,"vtolAlarm",100,2] call FUNC(sirenInit)
 
 if (!isServer) exitWith {};

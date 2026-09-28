@@ -1,5 +1,33 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Extrapolates a guided projectile's flight path forward using its current bank, bank rate,
+ * pitch and dive rate, and checks whether that path intersects terrain (Automatic Ground
+ * Collision Avoidance System check).
+ *
+ * Arguments:
+ * 0: Guidance data array <Array>
+ *   0: Projectile <Object>
+ *   1: Steer point <Position>
+ *   2: Frame time <Number>
+ *   3: Horizontal angle to target <Number>
+ *   4: Vertical angle to target <Number>
+ *   5: Guidance stage <String>
+ * 1: Current bank angle <Number>
+ * 2: Current bank rate <Number>
+ * 3: Current pitch angle <Number>
+ * 4: Current dive rate <Number>
+ *
+ * Return Value:
+ * True if the extrapolated flight path intersects terrain <Boolean>
+ *
+ * Example:
+ * [[_projectile, _steerPoint, _frameTime, _angleX, _angleY, _stage, _position, _angle], _bank, _bankRate, _pitch, _diveRate] call itc_land_vls_fnc_AGCAS
+ *
+ * Public: No
+ */
+
 params ["_guidance","_bank","_bankRate","_pitch","_diveRate"];
 _guidance params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage"];
 

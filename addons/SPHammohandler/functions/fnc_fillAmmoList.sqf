@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Clears and repopulates the ammo listbox in the SPH ammo-loader dialog with the
+ * consolidated counts of each magazine currently carried by the vehicle that is
+ * flagged to be counted by the ammo handler, storing each entry's magazine classname
+ * as its listbox data.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_fillAmmoList
+ *
+ * Public: No
+ */
+
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _vehMags = magazines _vehicle;

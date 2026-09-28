@@ -1,3 +1,20 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Renders the BCS solutionMission page's time-to-impact (TTI) countdown label, showing the
+ * remaining time until the recorded shot lands, or clearing it once the shot has landed.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_pageRender
+ *
+ * Public: No
+ */
+
 params ["_display"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;

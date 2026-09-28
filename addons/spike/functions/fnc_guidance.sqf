@@ -1,7 +1,27 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(fired)
+ * Author: ToadBall, Yax, VKing
+ * Missile guidance/attack-profile callback for the in-flight Spike LR missile.
+ * Blends the aim point toward the locked target's predicted position (using the
+ * target's velocity and remaining time-of-flight) once a lock exists, forces a
+ * lofted top-attack aim point offset from the shooter early in flight (before 30%
+ * of the flight distance is covered), updates the camera's tracked target
+ * position, and scales the film-grain post-process effect based on remaining
+ * distance to the target.
+ *
+ * Arguments:
+ * 0: Current seeker target position <Position>
+ * 1: Guidance arguments array; element 0 is the original "Fired" event handler params <Array>
+ * 2: Attack profile state parameters (unused) <Array>
+ *
+ * Return Value:
+ * Updated target position for the missile to steer toward <Position>
+ *
+ * Example:
+ * [_seekerTargetPos, _args, _attackProfileStateParams] call itc_land_spike_fnc_guidance
+ *
+ * Public: No
  */
 params ["_seekerTargetPos", "_args", "_attackProfileStateParams"];
 _args params ["_firedEH"];

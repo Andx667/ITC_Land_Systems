@@ -1,5 +1,25 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS newMission page interactions: "targetType" shows/hides and relabels the
+ * target input fields based on the selected target type (Grid/Shift/Polar/QuickLay);
+ * "load" fills the input fields from a selected known location; "save" calculates the
+ * target position from the entered data, stores it on the mission's target data and
+ * advances the mission to the engageMission page.
+ *
+ * Arguments:
+ * 0: Action identifier ("targetType", "load" or "save") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["save"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 //player sideChat "type switch";
 #include "..\bcsDefines.hpp"

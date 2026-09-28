@@ -1,6 +1,23 @@
 #include "..\script_component.hpp"
 
-// get information from adhoc fields and save a target.
+/*
+ * Author: ToadBall, Yax
+ * Reads the ad-hoc grid, elevation, impact-angle and name fields from the VLS targeting
+ * dialog, saves them to the current vehicle, and appends the resulting target as a new
+ * entry in the vehicle's saved-target list box and target array.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_this] spawn itc_land_vls_fnc_saveTGT
+ *
+ * Public: No
+ */
+
 waitUntil {
     !(isNull (findDisplay 86002))
 };

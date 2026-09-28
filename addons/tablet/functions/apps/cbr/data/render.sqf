@@ -1,5 +1,22 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Refreshes the CBR Data page each frame by rebuilding the engagements combo box with the current
+ * list of formatted COBRA engagement entries, without forcing a selection.
+ *
+ * Arguments:
+ * 0: The tablet dialog's display <DISPLAY>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_tablet_fnc_pageRender;
+ *
+ * Public: No
+ */
+
 params ["_display"];
 _firesStrings = itc_land_cobra_engagements apply {
   _pos = [_x # 2 # 0] call ace_common_fnc_getMapGridFromPos;

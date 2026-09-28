@@ -1,5 +1,23 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Updates the rover UI's HUD controls for the given aircraft: viewer direction
+ * (degrees/mils), target and aircraft grid references, target/aircraft ASL and
+ * AGL altitudes, aircraft speed, the north-arrow compass, and the clock display.
+ *
+ * Arguments:
+ * 0: Aircraft currently being viewed, used to compute the HUD display values <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_plane] call itc_land_rover_fnc_ui_draw
+ *
+ * Public: No
+ */
+
 params ["_plane"];
 ([] call ace_common_fnc_getTargetAzimuthAndInclination) params ["_viewDir","_viewInc"]; //new method uses ace function to get player view direction and inclination, as this function works of camera position it is better suited for multiple platforms.
 private _weaponDirD = [ _viewDir , 3 ] call CBA_fnc_formatNumber;     //Take weapon direction in degrees and format as 3 figure string

@@ -1,9 +1,31 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Toadball
- * Fired event for ITC SAM systems with SAM35 fuzed munitions
+ * Author: ToadBall, Yax, VKing
+ * Fired event handler for ITC SAM launchers firing SAM35 proximity-fuzed
+ * missiles. Reads the fuze's proximity FOV/range config, then starts a
+ * per-frame handler that scans for nearby air targets within sensor range and
+ * detonates a simulated warhead once a target enters the sensor's field of view.
+ *
+ * Arguments:
+ * 0: Unit that fired the weapon <OBJECT>
+ * 1: Weapon class fired <STRING>
+ * 2: Muzzle class used <STRING>
+ * 3: Fire mode used <STRING>
+ * 4: Ammo/simulation class of the fired round <STRING>
+ * 5: Magazine class fired <STRING>
+ * 6: Fired projectile (missile) <OBJECT>
+ * 7: Launcher vehicle that fired the missile; function exits if not local <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_unit, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _launcher] call itc_land_veh_weapons_fnc_firedSAM35
+ *
+ * Public: No
  */
+
 //diag_log format ["LAUNCH: SAM35 Fuze START"];
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_launcher"];
 if (!local _launcher) exitWith {};

@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Initializes a COBRA counter-battery radar vehicle: registers it in the
+ * global list of active COBRA vehicles, resets its mission-wide tracking
+ * variables (shells, origins, firing positions, engagements, active shells,
+ * engagement ID counter and engagement time window), and starts a per-second
+ * per-frame handler that runs fnc_scan for indirect fire while the vehicle is
+ * stationary and alive.
+ *
+ * Arguments:
+ * 0: COBRA-equipped vehicle to initialize <Object>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_cbr] call itc_land_cobra_fnc_vehicleInit
+ *
+ * Public: No
+ */
+
 //if (!isServer) exitWith {};
 params ["_cbr"];
 

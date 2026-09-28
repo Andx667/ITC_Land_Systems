@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Listbox selection-changed handler for the FCI mode selector. Note the
+ * function currently exits immediately (disabled); when active it would
+ * toggle visibility between the Manual mode controls and the LFCS mode
+ * controls based on the selected listbox index.
+ *
+ * Arguments:
+ * 0: Listbox control that triggered the event <Control>
+ * 1: Selected listbox index <Number>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [(_this select 0), (_this select 1)] call itc_land_tablet_fnc_fcimode_onlblselchanged
+ *
+ * Public: No
+ */
+
 params ["_control","_index"];
 if(true)exitWith{};
 //Generate global

@@ -1,14 +1,21 @@
 #include "..\script_component.hpp"
 
-/**
- * Validate a datalink ID
- * Params:
- * - id string
- * - return errors bool, default false
- * - broadcast bool, default false, when true it allows 00 combinations for broadcasting
- * Return:
- *  - default: bool
- *  - If errors are on: [bool, errors]
+/*
+ * Author: ToadBall, Yax, VKing
+ * Validates a datalink ID string against the configured ID length and allowed character set, and optionally rejects broadcast ("00") group/node combinations.
+ *
+ * Arguments:
+ * 0: Datalink ID to validate <String>
+ * 1: Return an array of error strings instead of a plain boolean <Boolean> (default: false)
+ * 2: Allow broadcast ("00") group/node combinations <Boolean> (default: false)
+ *
+ * Return Value:
+ * True if the ID is valid <Boolean> (or [Boolean, Array of error Strings] when argument 1 is true)
+ *
+ * Example:
+ * ["0101"] call itc_land_datalink_fnc_validateID
+ *
+ * Public: No
  */
 
 params ["_IDString",["_returnErrors", false],["_broadCastAllowed",false]];

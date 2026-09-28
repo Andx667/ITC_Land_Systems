@@ -1,9 +1,21 @@
 #include "..\script_component.hpp"
 
-/**
- * Initialisation of the datalink server
- * Can only be run on the server
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the datalink server: creates the node registry hash and registers the CBA event handlers for client connect, client disconnect, and client transmit events. Server-side only.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_datalink_fnc_serverInit
+ *
+ * Public: No
  */
+
 if(!isServer) exitWith {}; //end code if not server
 
 //create the address list hash, this will consist of IDGR: machine(server or client)

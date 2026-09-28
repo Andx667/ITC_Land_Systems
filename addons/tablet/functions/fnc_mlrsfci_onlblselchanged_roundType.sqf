@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Listbox selection-changed handler for the MLRS FCI round type selector.
+ * Looks up the selected magazine's fuze config and repopulates the fuze
+ * mode combobox with the available modes (restoring the previous
+ * selection if still valid), then shows or hides the guidance/PGM
+ * elements based on the round's guidance type (laser_coded, gps_inertial
+ * or none).
+ *
+ * Arguments:
+ * 0: Listbox control that triggered the event <Control>
+ * 1: Selected listbox index <Number>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [(_this select 0), (_this select 1)] call itc_land_tablet_fnc_mlrsfci_onlblselchanged_roundType
+ *
+ * Public: No
+ */
+
 params ["_control","_index"];
 
 //Generate globals

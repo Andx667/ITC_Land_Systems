@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Loads or unloads the SPH's gun magazine according to the vehicle's configured
+ * loader type (manual, semi-automatic or automatic) and current autoloader status,
+ * running the load/unload sequence asynchronously and updating the autoloader status
+ * (and its displayed text) through each step, from pulling/ramming the shell and
+ * inserting the charge to closing the breech, or from safing the weapon to removing
+ * and stowing the round.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_loadGun
+ *
+ * Public: No
+ */
+
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _status = (_vehicle getVariable ["itc_land_ammoHandler_status",[0,0,"WAITING"]]) # 0;

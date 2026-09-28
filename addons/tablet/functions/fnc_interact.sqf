@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles a tablet interaction. If the action is "app", switches the
+ * current vehicle's active app to the one at the given index. Otherwise
+ * forwards the action/value to the current app's interact function and
+ * returns the resulting page.
+ *
+ * Arguments:
+ * 0: Interaction action identifier <String>
+ * 1: Value associated with the action (e.g. app index) <Number>
+ *
+ * Return Value:
+ * Page identifier returned by the app's interact function <String>
+ *
+ * Example:
+ * ["app", 1] call itc_land_tablet_fnc_interact
+ *
+ * Public: No
+ */
+
 params ["_action", "_value"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 

@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Runs once the SPH ammo-loader dialog has been created. Restores the previously
+ * selected ammo and fuze listbox selections, round count, guidance field values
+ * (laser codes, target grid, target altitude) and autoloader status labels from the
+ * vehicle's stored variables.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_onLoad
+ *
+ * Public: No
+ */
+
 waitUntil {
     !(isNull (findDisplay 86000))
 };

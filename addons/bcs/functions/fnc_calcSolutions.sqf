@@ -1,10 +1,29 @@
 #include "..\script_component.hpp"
 
 /*
- * Calculates solutions for a firemission
- * Params: battery array, firemission target(posASL), engagement
- * Returns: solutions in format [battery, [gun1, gun2, etc]]
+ * Author: ToadBall, Yax, VKing
+ * Calculates a full battery fire-mission solution: derives each gun's
+ * individual aim point from the sheaf pattern (parallel, converged, linear,
+ * open or special/custom) selected in the engagement settings, applies any
+ * magazine height/time-of-flight config modifiers, and computes both a
+ * battery-centre ballistic solution and a per-gun ballistic solution via
+ * EFUNC(ballistics,calcShellTypeSolutions).
+ *
+ * Arguments:
+ * 0: Guns in the battery <ARRAY> of [gun number <NUMBER>, position string <STRING>, position <ARRAY> (Position ASL), elevation <NUMBER>, direction <NUMBER>]
+ * 1: Shell type <STRING> (CfgAmmo/CfgMagazines classname)
+ * 2: Fire-mission target position <ARRAY> (Position ASL)
+ * 3: Engagement settings <ARRAY> of [sheaf type <NUMBER> (0: Parallel, 1: Converged, 2: Linear, 3: Open, 4: Special), sheaf quick flag <NUMBER>/<BOOLEAN>, sheaf direction <NUMBER>, sheaf size <NUMBER>, shell type index <NUMBER>, magazine <STRING>]
+ *
+ * Return Value:
+ * Battery and per-gun solutions <ARRAY> in the format [battery solution <ARRAY>, gun solutions <ARRAY> of [gun number <NUMBER>, gun solution <ARRAY>]]
+ *
+ * Example:
+ * [_guns, _shellType, _targetPos, _engagement] call itc_land_bcs_fnc_calcSolutions
+ *
+ * Public: No
  */
+
 params ["_guns", "_shellType", "_targetPos", "_engagement"];
 _engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex","_magazine"];
 

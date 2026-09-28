@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Post-init entry point for the CIWS system. Registers the "Enable CIWS
+ * System" CBA setting, reads the list of interceptable ammo base classes
+ * from config (itc_land_ciws >> interceptable), and adds
+ * CuratorGroupPlaced/CuratorObjectPlaced event handlers to every curator so
+ * that units and objects placed via Zeus have their vehicle radar switched
+ * on (Zeus-spawned assets otherwise spawn with radar disabled).
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_ciws_fnc_init
+ *
+ * Public: No
+ */
+
 ["ITC_LAND_CIWS", "CHECKBOX", "Enable CIWS System", "ITC Land", [true]] call CBA_Settings_fnc_init; //ciws system enabling options
 ITC_LAND_CIWS_INTERCEPTABLE = (configFile >> "itc_land_ciws" >> "interceptable") call BIS_fnc_getCfgData; //list of ciws munitions to allow people to add more in missions
 

@@ -1,10 +1,22 @@
 #include "..\script_component.hpp"
 
 /*
- * Gets the center point of a list of howitzers
- * Params: array of howitzers([gun number, position string, positionASL, elevation, direction])
- * Returns: positionASL
+ * Author: ToadBall, Yax, VKing
+ * Calculates the average (centre) position of a list of howitzers by summing
+ * each gun's easting, northing and elevation and dividing by the gun count.
+ *
+ * Arguments:
+ * 0: Guns in the battery <ARRAY> of [gun number <NUMBER>, position string <STRING>, position <ARRAY> (Position ASL), elevation <NUMBER>, direction <NUMBER>]
+ *
+ * Return Value:
+ * Average battery position <ARRAY> (Position ASL), or [0, 0, 0] if the list is empty
+ *
+ * Example:
+ * [_gunList] call itc_land_bcs_fnc_getBatteryPosition
+ *
+ * Public: No
  */
+
 params ["_gunList"];
 if(count _gunList == 0) exitWith {[0,0,0]};
 //add up all the eastings, northings and elevations

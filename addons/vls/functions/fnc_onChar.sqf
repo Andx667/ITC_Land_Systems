@@ -1,6 +1,24 @@
 #include "..\script_component.hpp"
 
-// save adhoc details when entries are changed
+/*
+ * Author: ToadBall, Yax
+ * Handles the ad-hoc target dialog's onChar event: whenever the grid, elevation or
+ * name edit field is typed into, saves its current text to the corresponding variable
+ * on the current vehicle.
+ *
+ * Arguments:
+ * 0: Control that received the character <Control>
+ * 1: Character code <Number>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_control, _charCode] spawn itc_land_vls_fnc_onChar
+ *
+ * Public: No
+ */
+
 params ["_control", "_charCode"];
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _idc = ctrlIDC _control;

@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Calculates the horizontal and vertical angle offsets between a projectile's current
+ * heading/velocity vector and a target position.
+ *
+ * Arguments:
+ * 0: Projectile <Object>
+ * 1: Target / steer point position <Position>
+ * 2: Projectile's current position <Position>
+ *
+ * Return Value:
+ * Horizontal and vertical angle offsets to the target, in degrees <Array>
+ *
+ * Example:
+ * [_projectile, _steerPoint, _position] call itc_land_vls_fnc_angleToTarget
+ *
+ * Public: No
+ */
+
 params ["_projectile", "_target", "_position"];
 private _vectToTarget = _position vectorFromTo _target;
 private _vectToTargetDiff = _vectToTarget vectorDiff (vectorNormalized (velocity _projectile));

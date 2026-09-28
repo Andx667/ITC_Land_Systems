@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Adjusts the vehicle's currently selected propellant charge index by the given
+ * increment, clamping the result between 1 and the maximum charge index defined for
+ * the currently selected ammunition, and updates the charge label in the SPH
+ * ammo-loader dialog.
+ *
+ * Arguments:
+ * 0: Amount to change the current charge index by, may be negative <Number>
+ *
+ * Return Value:
+ * The new current charge index <Number>
+ *
+ * Example:
+ * [1] call itc_land_SPHammohandler_fnc_changeCharge
+ *
+ * Public: No
+ */
+
 params ["_increment"];
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);

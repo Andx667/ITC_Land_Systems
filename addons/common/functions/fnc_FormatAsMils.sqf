@@ -1,12 +1,11 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Pabst Mirror, Toadball
- * Converts input angle from degrees to mils and formats as string with prefix for negative angles
- * Derived from old: ace_mk6mortar_fnc_dev_formatNumber
+ * Author: ToadBall, Yax
+ * Converts an angle from degrees to mils and formats it as a zero-padded string, with a "-" prefix for negative values.
  *
  * Arguments:
- * 0: Input number <NUMBER>
+ * 0: Input number (degrees) <NUMBER>
  * 1: Number of decimal places <NUMBER>
  * 2: Number of integer places, used for adding leading 0s <NUMBER>
  *
@@ -14,8 +13,9 @@
  * Formatted number <STRING>
  *
  * Example:
- * [45, 0, 4] call FUNC(FormatAsMils) = "0800"
+ * [45, 0, 4] call itc_land_common_fnc_FormatAsMils
  *
+ * Public: No
  */
 
 params ["_input", "_decimalPlaces", "_integerPlaces"];

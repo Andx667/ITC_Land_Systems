@@ -1,8 +1,22 @@
 #include "..\script_component.hpp"
 
 /*
- * Process datalink registration data
+ * Author: ToadBall, Yax, VKing
+ * Handles the response to an ID registration request; if the registration succeeded, stores the assigned datalink ID on the target object.
+ *
+ * Arguments:
+ * 0: Target object that requested the ID <Object>
+ * 1: Received transmission [destination, origin, header, type, data] <Array>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, ["0101","0000","object_register","response",[true,"0101"]]] call itc_land_datalink_fnc_receiveIDRegistry
+ *
+ * Public: No
  */
+
  params ["_target","_transmission"];
  _transmission params ["_destination","_origin","_header","_type","_data"];
 

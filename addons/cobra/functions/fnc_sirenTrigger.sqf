@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Triggers a COBRA-linked siren for a predicted shell impact if the siren is
+ * within its trigger distance of the impact position. Extends the siren's
+ * active end time to cover the new impact, and, if not already running,
+ * spawns a loop that plays the siren's configured (or mission-overridden)
+ * sound repeatedly at its configured duration until the end time passes.
+ *
+ * Arguments:
+ * 0: Siren object to trigger <Object>
+ * 1: Predicted impact position <Position>
+ * 2: Predicted time the shell will impact <Number>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_siren, _position, _impactTime] call itc_land_cobra_fnc_sirenTrigger
+ *
+ * Public: No
+ */
+
 params ["_siren","_position","_impactTime"];
 private _sirenTriggerDist = _siren getVariable ["sirenTriggerDist", 500];
 

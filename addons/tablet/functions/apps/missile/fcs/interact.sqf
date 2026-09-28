@@ -1,5 +1,26 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles interactions on the missile FCS page. On "calc" it reads the entered target grid/elevation,
+ * computes ballistic firing solutions for the selected magazine, applies a guidance azimuth override for
+ * guided munitions, and stores the results on the vehicle. On "prev"/"next" it steps through the stored
+ * solutions. On "setFG" it spawns a thread that determines the fuze description/value for the selected
+ * fuze setting and, for GPS-inertial guided munitions, stores the entered target position on the vehicle.
+ * After "calc"/"prev"/"next" it also refreshes the on-screen firing solution readout.
+ *
+ * Arguments:
+ * 0: The interaction action identifier ("calc", "prev", "next", "setFG") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["calc"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 _curMag = (currentMagazine _vehicle);

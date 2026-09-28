@@ -1,7 +1,25 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(intersectAtPolar)
+ * Author: ToadBall, Yax, VKing
+ * Traces a ray from an origin position at a given azimuth/elevation and finds
+ * where it intersects either objects or the terrain surface, stepping outward
+ * in 1000m increments up to a maximum range of 16km.
+ *
+ * Arguments:
+ * 0: Origin position (ASL) to trace the ray from <Position>
+ * 1: Horizontal (azimuth) angle of the ray, in degrees <Number>
+ * 2: Vertical (elevation) angle of the ray, in degrees <Number>
+ * 3: True to intersect with objects (vehicle player) instead of terrain surfaces <Boolean>
+ *
+ * Return Value:
+ * ASL position where the ray intersects terrain or an object; nothing is
+ * returned if no intersection is found within range <Position>
+ *
+ * Example:
+ * [_origin, _angleX, _angleY, _object] call itc_land_spike_fnc_intersectAtPolar
+ *
+ * Public: No
  */
 params ["_origin","_angleX","_angleY", "_object"];
 

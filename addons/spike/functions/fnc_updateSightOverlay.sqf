@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Updates the pre-launch Spike LR gunner sight overlay each frame: repositions
+ * the seeker-status control group depending on current zoom/field of view, sets
+ * the DTV/HOT vision-mode label, and positions (or hides) the lock-reticle
+ * controls based on the current lock information.
+ *
+ * Arguments:
+ * 0: Gunner sight display to update <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_spike_fnc_updateSightOverlay
+ *
+ * Public: No
+ */
+
 params ["_display"];
 private _group = _display displayCtrl 170;
 private _boxHidePosition = if (((call CBA_fnc_getFOV) # 0) > 0.1) then [{[22 * (safezoneW / 64),10 *    (safezoneH / 40)]}, {[-1,-1]}];

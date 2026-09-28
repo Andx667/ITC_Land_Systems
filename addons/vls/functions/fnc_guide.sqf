@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Starts guidance on a freshly fired VLS projectile: reads the previously selected
+ * target position and impact angle from the vehicle, stores the bomb's flying target,
+ * and registers the per-frame guidance handler.
+ *
+ * Arguments (standard "Fired" EH arguments; only the indices below are used):
+ * 0: Vehicle <Object>
+ * 4: Ammo classname <String>
+ * 6: Projectile <Object>
+ * 7: Gunner <Object>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _gunner] call itc_land_vls_fnc_guide
+ *
+ * Public: No
+ */
+
 params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 
 if (!local _gunner) exitWith {};

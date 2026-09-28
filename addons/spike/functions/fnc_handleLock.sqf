@@ -1,7 +1,26 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(handleLock)
+ * Author: ToadBall, Yax, VKing
+ * Per-frame target-lock handling for the Spike LR seeker. Traces the current
+ * camera/missile view direction to find a potential lock target under the
+ * cursor when the lock input is held, then manages an existing lock's quality
+ * over time via a line-of-sight visibility check - marking the lock as lost when
+ * visibility drops, attempting to reacquire briefly, and dropping the lock
+ * entirely if it stays lost too long or the aim angle strays too far once the
+ * missile is in flight - and keeps the current target position synced to the
+ * locked object.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [] call itc_land_spike_fnc_handleLock
+ *
+ * Public: No
  */
 
 private _viewASL = AGLtoASL positionCameraToWorld [0,0,0];

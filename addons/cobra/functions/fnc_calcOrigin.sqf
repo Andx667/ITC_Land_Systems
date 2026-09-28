@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Simulates a fired shell's ballistic trajectory backward in time (negating the
+ * velocity increments and gravity direction used in fnc_calcImpact), stepping
+ * frame by frame until the simulated position drops below the terrain height,
+ * in order to estimate the position the shell was originally fired from.
+ *
+ * Arguments:
+ * 0: Shell/projectile object to simulate backward to its origin <Object>
+ *
+ * Return Value:
+ * Simulated origin position (ASL) the shell was fired from <Position>
+ *
+ * Example:
+ * [_shell] call itc_land_cobra_fnc_calcOrigin
+ *
+ * Public: No
+ */
+
 params ["_shell"];
 private ["_x","_y","_vx","_vy","_elevation","_fc","_tof"];
 _ammo = typeOf _shell;

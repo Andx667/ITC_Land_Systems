@@ -1,5 +1,22 @@
 #include "..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Renders the BCS app's sidebar fire mission list, showing each mission's name and its
+ * current SPLASH/SHOT countdown status where applicable.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_appRender
+ *
+ * Public: No
+ */
+
 params ["_display"];
 
 _fireMissionStrings = bcs_missions apply {

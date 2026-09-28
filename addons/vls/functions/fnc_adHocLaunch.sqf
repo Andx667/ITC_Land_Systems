@@ -1,6 +1,22 @@
 #include "..\script_component.hpp"
 
-// use inputs to launch missile on an adhoc target
+/*
+ * Author: ToadBall, Yax
+ * Reads the ad-hoc target grid, elevation and impact-angle fields from the VLS ad-hoc
+ * targeting dialog, converts the grid to a world position, stores the resulting target
+ * data on the current vehicle, then fires the currently selected weapon at it.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_this] spawn itc_land_vls_fnc_adHocLaunch
+ *
+ * Public: No
+ */
 
 waitUntil {
     !(isNull (findDisplay 86002))

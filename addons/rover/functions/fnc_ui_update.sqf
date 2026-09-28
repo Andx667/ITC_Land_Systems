@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles a selection change in the rover UI's aircraft list box: stores the
+ * newly selected index/aircraft, recreates the video feed for it, and
+ * recomputes the camera's optics memory point position from its laser turret
+ * (or driver optics if it has none).
+ *
+ * Arguments:
+ * 0: List box control that triggered the update <CONTROL>
+ * 1: Index of the newly selected item in the list box <NUMBER>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_control, _index] call itc_land_rover_fnc_ui_update
+ *
+ * Public: No
+ */
+
 params ["_control","_index"];
 
 missionNameSpace setVariable ["itc_land_rover_ui_curSelIndex",_index];

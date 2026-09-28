@@ -1,5 +1,23 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the BCS newMission page: shows the newMission workspace panel, sets its header
+ * and target input fields from the current mission's target data, and fills the target type
+ * and known-location combo boxes.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_pageInit
+ *
+ * Public: No
+ */
+
 params ["_display"];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"

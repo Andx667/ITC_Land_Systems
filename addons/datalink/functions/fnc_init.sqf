@@ -1,8 +1,19 @@
 #include "..\script_component.hpp"
 
-/**
- * Initialisation datalink settings
- * This will be run on both clients and server
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes shared datalink settings from config (allowed ID characters and ID length). Runs on both clients and the server.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_datalink_fnc_init
+ *
+ * Public: No
  */
 
 //Load the list of characters allowed in IDs

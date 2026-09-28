@@ -1,5 +1,23 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Switches the rover camera's vision mode (day/NVG/white-hot/black-hot) or
+ * updates the stored FOV slider value, based on the given UI button id, and
+ * remembers the selected vision mode for future dialog opens.
+ *
+ * Arguments:
+ * 0: Vision mode button id: "dtv", "nvg", "whot", "bhot", or "fov" <STRING>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["nvg"] call itc_land_rover_fnc_ui_vismode
+ *
+ * Public: No
+ */
+
 params ["_btn"];
 switch (_btn) do {
   case "dtv": {

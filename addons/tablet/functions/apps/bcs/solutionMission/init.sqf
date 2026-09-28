@@ -1,5 +1,26 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the BCS solutionMission page: shows the solutionMission workspace panel and
+ * sets its header. Unless told not to, recalculates the battery/gun firing solutions for the
+ * current mission; if no solutions exist, shows "NO SOLUTIONS" and the range to target,
+ * otherwise displays the currently selected solution's max ordinate, impact angle, distance
+ * and a per-gun breakdown (charge, azimuth, deflection, quadrant, time of flight).
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ * 1: Whether to recalculate the firing solutions before rendering <Boolean> (default: true)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562, false] call itc_land_tablet_fnc_pageInit
+ *
+ * Public: No
+ */
+
 params ["_display", ["_calculate", true]];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"

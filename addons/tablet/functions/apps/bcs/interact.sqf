@@ -1,5 +1,23 @@
 #include "..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS app-level sidebar interactions: switching between the settings, setup and
+ * locStores pages, creating a new fire mission (side5), and selecting a fire mission from
+ * the mission list (sideList) to jump to its current page.
+ *
+ * Arguments:
+ * 0: Action identifier ("side1", "side2", "side3", "side5" or "sideList") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["sideList"] call itc_land_tablet_fnc_appInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 #include "bcsDefines.hpp"
 _vehicle = [] call EFUNC(common,getCurVehicle);

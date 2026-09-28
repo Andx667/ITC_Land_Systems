@@ -1,11 +1,20 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(vehicleInit)
+ * Author: Yax
+ * Initializes a vehicle's APS (Active Protection System) modules from its "itc_land_aps" config class, and stores the resulting
+ * module array in the vehicle's "itc_land_aps_modules" variable (public) if any modules are defined.
  *
- * Initializes APS modules on vehicles
+ * Arguments:
+ * 0: Vehicle to initialize APS modules for <OBJECT>
  *
- * params (array)[(object) vehicle]
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [vehicle] call itc_land_aps_fnc_vehicleInit
+ *
+ * Public: No
  */
 params ["_vehicle"];
 

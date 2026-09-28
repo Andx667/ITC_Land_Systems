@@ -1,3 +1,22 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS setup page interactions: "save" reads the battery name and selected battery
+ * type; "addGun" reads the gun number, grid, elevation and direction fields, converts the
+ * grid to a map position, and either adds a new gun or updates an existing one (matched by
+ * number); "removeGun" deletes the selected gun from the battery.
+ *
+ * Arguments:
+ * 0: Action identifier ("save", "addGun" or "removeGun") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["addGun"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"

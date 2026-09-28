@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Per-frame scan for a stationary COBRA radar vehicle: checks each tracked
+ * indirect-fire shell against the vehicle's turret arc, detection range and
+ * terrain line-of-sight, and for each detected shell calculates its impact
+ * and origin points, then records the engagement and processes the origin and
+ * impact before removing the shell from the tracked list (also removing any
+ * shell that is no longer alive). Also purges expired active-shell impact
+ * predictions from the mission's active-shells list.
+ *
+ * Arguments:
+ * 0: COBRA radar vehicle performing the scan <Object>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_cbr] call itc_land_cobra_fnc_scan
+ *
+ * Public: No
+ */
+
 params ["_cbr"];
 _shells = missionNameSpace getVariable "itc_land_cobra_shells";
 _toRemove = [];

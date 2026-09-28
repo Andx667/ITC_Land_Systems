@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Computes firing solutions for every available charge of a given shell type, from a gun position/elevation/direction to a target position/elevation.
+ * Loads the magazine's ballistic table list from its config, then interpolates a solution per charge via calcBtabSolution.
+ *
+ * Arguments:
+ * 0: Shell/magazine classname (CfgMagazines) <STRING>
+ * 1: Gun position <ARRAY>
+ * 2: Gun elevation (height) <NUMBER>
+ * 3: Gun direction (degrees) <NUMBER>
+ * 4: Target position <ARRAY>
+ * 5: Target elevation (height) <NUMBER>
+ *
+ * Return Value:
+ * Array of firing solutions, one per available charge: [[charge, relativeDirectionMils, deflection, gunElevationMils, timeOfFlight, impactVelocity, impactAngle, maxOrdinate, distance, height], ...] <ARRAY>
+ *
+ * Example:
+ * ["itc_Sh_82mm_HE", [0,0,0], 0, 0, [1000,1000,0], 0] call itc_land_ballistics_fnc_calcShellTypeSolutions
+ *
+ * Public: No
+ */
+
 params ["_shellType", "_gunPos", "_gunElev", "_gunDir", "_targetPos", "_targetEl"];
 //_targetPos = [_targetGrid, true] call ace_common_fnc_getMapPosFromGrid;
 _distance = [_gunPos # 0, _gunPos # 1] distance [_targetPos # 0, _targetPos # 1];

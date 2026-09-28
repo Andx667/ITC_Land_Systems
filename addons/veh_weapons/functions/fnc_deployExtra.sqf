@@ -1,5 +1,29 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Deploys a single unguided submunition ("Extra") from a fired 155mm Mof35 shell.
+ * Spawns a placeholder cargo object that, after a short delay, becomes an
+ * ITC_155Extra loitering submunition, searches nearby armored targets, and fires
+ * a simulated HEAT projectile at the first target found within range, or
+ * self-destructs if it descends below a minimum altitude.
+ *
+ * Arguments:
+ * 0: Index of the submunition being deployed, used to offset its spawn position <NUMBER>
+ * 1: World position to spawn the submunition at <ARRAY>
+ * 2: Velocity vector of the parent projectile at deployment <ARRAY>
+ * 3: Pitch of the parent projectile at deployment <NUMBER>
+ * 4: Bank of the parent projectile at deployment <NUMBER>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [1, position _projectile, velocity _projectile, _pitch, _bank] call itc_land_veh_weapons_fnc_deployExtra
+ *
+ * Public: No
+ */
+
 params ["_subMunitionIndex", "_position", "_velocity", "_pitch", "_bank"];
 //player sideChat format ["%1 deployed", _subMunitionIndex];
 _spawnPosAdjustment = (vectorNormalized _velocity) vectorMultiply _subMunitionIndex;

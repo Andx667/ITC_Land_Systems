@@ -1,5 +1,22 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Clears the tablet header/workspace text fields and hides (fades out) the
+ * sidebar buttons, fire mission list and controls 15010/15011.
+ *
+ * Arguments:
+ * 0: Tablet display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_clear
+ *
+ * Public: No
+ */
+
 #include "BCS_idc_defines.hpp"
 
 params ["_display"];

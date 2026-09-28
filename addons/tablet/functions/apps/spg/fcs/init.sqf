@@ -1,5 +1,24 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the SPG FCS (fire control) page: shows its controls, sets the workspace header, initializes the
+ * vehicle's stored firing-solution variables if unset, restores any previously entered target grid/elevation,
+ * builds the ammunition combo box from the vehicle's available magazine types, renders the current firing
+ * solution (or "NO SLN" if none exists), and resets the local targeting mode listbox.
+ *
+ * Arguments:
+ * 0: The tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_tablet_fnc_pageInit
+ *
+ * Public: No
+ */
+
 #include "..\..\..\BCS_idc_defines.hpp"
 ctrlShow [13410, true];
 [_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);

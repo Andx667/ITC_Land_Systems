@@ -1,5 +1,23 @@
 #include "..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the missile app. Checks whether the current vehicle has the required tablet interface;
+ * if not, clears the app UI and shows a "no interface" message. Otherwise sets the app header/sidebar
+ * labels and returns the id of the page to open by default.
+ *
+ * Arguments:
+ * 0: The tablet dialog display <Display>
+ *
+ * Return Value:
+ * The initial page id to load <String> ("fcs", or "" if the vehicle has no compatible interface)
+ *
+ * Example:
+ * [_display] call itc_land_tablet_fnc_appInit
+ *
+ * Public: No
+ */
+
 #include "..\..\BCS_idc_defines.hpp"
 
 params ["_display"];

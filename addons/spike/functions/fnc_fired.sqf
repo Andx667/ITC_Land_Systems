@@ -1,7 +1,31 @@
 #include "..\script_component.hpp"
 
 /*
- * FUNC(fired)
+ * Author: ToadBall, Yax, VKing
+ * Handles the native "Fired" event for the Spike LR launcher. Exits if the firing
+ * unit is not local, then initializes the missile-tracking/wobble state (current
+ * missile, launch/activation time, ballistic wobble parameters) and computes an
+ * initial aim/target point in front of the shooter - either where the player's
+ * screen crosshair intersects terrain (if far enough away), or a fallback point
+ * 3000m ahead of the shooter - before starting the seeker camera.
+ *
+ * Arguments:
+ * 0: Unit that fired <Object>
+ * 1: Weapon fired <String>
+ * 2: Muzzle used <String>
+ * 3: Fire mode used <String>
+ * 4: Ammo used <String>
+ * 5: Magazine used <String>
+ * 6: Projectile object <Object>
+ * 7: Gunner of the vehicle <Object>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_unit, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile, _gunner] call itc_land_spike_fnc_fired
+ *
+ * Public: No
  */
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];

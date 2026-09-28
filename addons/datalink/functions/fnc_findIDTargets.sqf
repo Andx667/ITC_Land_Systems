@@ -1,11 +1,21 @@
 #include "..\script_component.hpp"
 
-/**
- * Find objects for the IDs
- * Method will only function on server
- * params: ID string
- * returns: targets
+/*
+ * Author: ToadBall, Yax, VKing
+ * Finds all target objects registered under a given datalink ID. Supports broadcast lookups where the group and/or node segment of the ID is "00", matching any group/node. Server-side only.
+ *
+ * Arguments:
+ * 0: Datalink ID to search for <String>
+ *
+ * Return Value:
+ * Objects registered under the matching ID(s) <Array>
+ *
+ * Example:
+ * ["0100"] call itc_land_datalink_fnc_findIDTargets
+ *
+ * Public: No
  */
+
 params ["_id"];
 private ["_groupID","_nodeID","_target","_groupMatch","_nodeMatch"];
 

@@ -1,3 +1,24 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS solutionMission page interactions: "back" returns to engageMission, "adjust"
+ * goes to adjustMission; "solup"/"soldn" step through the available firing solutions;
+ * "shot" records the time the mission will land; any action containing "eom" ends the
+ * mission (optionally saving its target as a known location first via "eomsave") and
+ * returns to locStores. In all cases the page is re-initialized afterward without
+ * recalculating the solutions.
+ *
+ * Arguments:
+ * 0: Action identifier ("back", "adjust", "solup", "soldn", "shot", "eom" or "eomsave") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["shot"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;

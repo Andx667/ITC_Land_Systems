@@ -1,5 +1,23 @@
 #include "..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the BCS (Battery Control System) tablet app. Sets the tablet header/sidebar
+ * labels, fades in the sidebar buttons and fire mission list, and seeds the mission namespace
+ * with default BCS variables (splash time, mission code, battery data, etc.) if not already set.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * Name of the initial page to open for this app <String>
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_appInit
+ *
+ * Public: No
+ */
+
 #include "..\..\BCS_idc_defines.hpp"
 _vehicle = [] call EFUNC(common,getCurVehicle);
 

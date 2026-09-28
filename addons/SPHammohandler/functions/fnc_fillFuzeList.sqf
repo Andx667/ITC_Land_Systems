@@ -1,5 +1,23 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Clears and repopulates the fuze combobox in the SPH ammo-loader dialog with the
+ * fuze modes and descriptions available for the currently selected ammunition's fuze
+ * type, storing each entry's fuze mode class as its listbox data.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_fillFuzeList
+ *
+ * Public: No
+ */
+
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _selectedMagConfig = (_vehicle getVariable "itc_land_currentMagInfo") # 2;

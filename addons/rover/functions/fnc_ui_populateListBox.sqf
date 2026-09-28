@@ -1,5 +1,23 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Rebuilds the rover UI's aircraft list box from the currently available
+ * friendly aircraft, restoring the previous selection if that aircraft is
+ * still present, and updates the current selection index/aircraft globals.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_rover_fnc_ui_populateListBox
+ *
+ * Public: No
+ */
+
 private _aircraft = call FUNC(getAircraft);
 itc_land_rover_ui_aircraftList = [objNull] + _aircraft;
 

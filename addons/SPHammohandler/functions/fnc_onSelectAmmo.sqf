@@ -1,5 +1,26 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * RscListBox onLBSelChanged handler for the SPH ammo-loader's ammo listbox. Stores the
+ * newly selected magazine's index, classname and config on the vehicle, updates the
+ * dialog header and charge label, refreshes the fuze list for the new ammo, and shows
+ * or hides the laser-coded / dual laser-coded / GPS-inertial guidance input fields
+ * according to the selected ammo's guidance type.
+ *
+ * Arguments:
+ * 0: The listbox control that triggered the selection change <Control>
+ * 1: Index of the newly selected ammo listbox item <Number>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [86001, 0] call itc_land_SPHammohandler_fnc_onSelectAmmo
+ *
+ * Public: No
+ */
+
 params ["_control","_index"];
 
 //private _vehicle = vehicle ace_player;

@@ -1,5 +1,22 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Intended to refresh the missile FCS page's firing-solution readout on render; currently a no-op, as its
+ * entire body is commented out.
+ *
+ * Arguments:
+ * 0: The tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_display] call itc_land_tablet_fnc_pageRender
+ *
+ * Public: No
+ */
+
 /*params ["_display"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 //weaponState [_vehicle, [0]] params ["_weapon", "_muzzle", "_firemode", "_magazine", "_ammoCount"];

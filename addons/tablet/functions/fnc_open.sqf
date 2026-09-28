@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Opens the tablet dialog and sets up a per-frame handler that drives the
+ * tablet's rendering and app/page switching for the current vehicle for
+ * as long as the dialog stays open.
+ *
+ * Arguments:
+ * 0: Tablet weapon config class name <String>
+ * 1: Unit using the tablet <Object> (default: player)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["itc_land_tablet_bcs"] call itc_land_tablet_fnc_open
+ *
+ * Public: No
+ */
+
 params ["_tabletClass",["_tabletOwner",player]];
 createDialog "itc_land_tablet";
 

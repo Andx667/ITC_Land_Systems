@@ -1,3 +1,24 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Per-frame handler implementing a proximity/FOV fuze for air-target-seeking
+ * munitions. Scans for nearby air targets within sensor range each frame and,
+ * once one enters the sensor's field of view cone, triggers the projectile's
+ * ammo. Removes itself once the projectile is no longer alive.
+ *
+ * Arguments:
+ * 0: PFH values array: [launcher <OBJECT>, weapon <STRING>, muzzle <STRING>,
+ *    mode <STRING>, ammo <STRING>, magazine <STRING>, projectile <OBJECT>] <ARRAY>
+ * 1: CBA per-frame handler ID <NUMBER>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [[_launcher, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile], _pfhId] call itc_land_veh_weapons_fnc_fuzeProxFOV
+ *
+ * Public: No
+ */
+
 //player sideChat "LAUNCH";
 private _args = _this # 0;
 private _launcher = _args # 0;

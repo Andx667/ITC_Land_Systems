@@ -1,6 +1,22 @@
 #include "..\script_component.hpp"
 
-// get information from adhoc fields and save a target.
+/*
+ * Author: ToadBall, Yax
+ * Removes the currently selected saved target from the VLS target list box and from
+ * the current vehicle's saved-target array.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_this] spawn itc_land_vls_fnc_removeTGT
+ *
+ * Public: No
+ */
+
 waitUntil {
     !(isNull (findDisplay 86002))
 };

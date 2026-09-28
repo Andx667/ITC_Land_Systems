@@ -1,11 +1,22 @@
 #include "..\script_component.hpp"
 
-/**
- * Non-player receive data over datalink
- * Params
- * - object
- * - transmission
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles an incoming datalink transmission received by a non-player object, dispatching it to any handler functions the object has registered (via registerEvent) whose header and type match the transmission.
+ *
+ * Arguments:
+ * 0: Object receiving the transmission <Object>
+ * 1: Received transmission [destination, origin, header, type, data] <Array>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [uav1, ["0101","0202","object_register","response",[true,"0101"]]] call itc_land_datalink_fnc_onClientRX
+ *
+ * Public: No
  */
+
 params ["_object","_transmission"];
 _transmission params ["_destination","_origin","_header","_type","_data"];
 

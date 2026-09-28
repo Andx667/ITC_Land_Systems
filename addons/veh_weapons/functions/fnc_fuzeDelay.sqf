@@ -1,5 +1,27 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Per-frame handler implementing a delay fuze. Tracks the projectile's position
+ * and velocity each frame; once the projectile is no longer alive, extrapolates
+ * the detonation point from its last known velocity and the fuze delay, then
+ * spawns the configured submunition there and removes the per-frame handler.
+ *
+ * Arguments:
+ * 0: PFH values array: [projectile <OBJECT>, magazine <STRING>, last position <ARRAY>,
+ *    fuze type <STRING>, fuze delay time <NUMBER>, last frame time <NUMBER>,
+ *    last known velocity <ARRAY>] <ARRAY>
+ * 1: CBA per-frame handler ID <NUMBER>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [[_projectile, _magazine, _position, "delay", _fuzeValue, time, [0,0,0]], _pfhId] call itc_land_veh_weapons_fnc_fuzeDelay
+ *
+ * Public: No
+ */
+
 params ["_pfhValues","_pfhId"];
 _pfhValues params ["_projectile", "_magazine", "_position", "_fuzeType","_fuzeTime", "_lastFrameTime","_velocity"];
 

@@ -1,5 +1,24 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles interactions on the SPG FCS page. On "calc" it reads the entered target grid/elevation, computes
+ * ballistic firing solutions for the selected magazine, and stores the results on the vehicle. On "prev"/"next"
+ * it steps through the stored solutions. After any of these actions it refreshes the on-screen firing
+ * solution readout.
+ *
+ * Arguments:
+ * 0: The interaction action identifier ("calc", "prev", "next") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["calc"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 _display = findDisplay 32562;

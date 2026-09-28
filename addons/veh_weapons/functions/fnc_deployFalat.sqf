@@ -1,5 +1,30 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Deploys a single laser-guided submunition ("Falat") from a fired shell.
+ * Spawns a placeholder cargo object that, after a short delay, becomes an
+ * ITC_155Extra loitering submunition, searches for a matching laser spot, and
+ * fires a simulated HEAT projectile at it, or triggers itself after a timeout
+ * if no laser spot is ever found.
+ *
+ * Arguments:
+ * 0: Index of the submunition being deployed, used to select its laser code <NUMBER>
+ * 1: World position to spawn the submunition at <ARRAY>
+ * 2: Velocity vector of the parent projectile at deployment <ARRAY>
+ * 3: Pitch of the parent projectile at deployment <NUMBER>
+ * 4: Bank of the parent projectile at deployment <NUMBER>
+ * 5: Guidance info array: [[laserCode0, laserCode1], targetGrid, targetAlt] <ARRAY>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [1, position _projectile, velocity _projectile, _pitch, _bank, _guidanceInfo] call itc_land_veh_weapons_fnc_deployFalat
+ *
+ * Public: No
+ */
+
 params ["_subMunitionIndex", "_position", "_velocity", "_pitch", "_bank", "_guidanceInfo"];
 
 private _laserCode = 1111;

@@ -1,9 +1,29 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Yax
- * Fired event for ITC Howitzers with Mof35Mod3 fuzed shells
+ * Author: ToadBall, Yax, VKing
+ * Fired event handler for ITC Howitzers firing Mof35Mod3-fuzed shells. Builds a
+ * guidance info array (laser codes, target grid, target altitude) from the
+ * firing vehicle's variables, then starts a per-frame handler that, once the
+ * time fuze elapses, deletes the projectile and spawns its configured
+ * submunitions (e.g. laser-guided Falat rounds) with that guidance info.
+ *
+ * Arguments:
+ * 0: Vehicle that fired the weapon <OBJECT>
+ * 1: Ammo/simulation class of the fired round <STRING>
+ * 2: Magazine class fired <STRING>
+ * 3: Fired projectile <OBJECT>
+ * 4: Gunner occupying the firing turret; function exits if not local <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_vehicle, "", "", "", _ammo, _magazine, _projectile, _gunner] call itc_land_veh_weapons_fnc_firedMof35Mod3
+ *
+ * Public: No
  */
+
 params ["_vehicle", "", "", "", "_ammo", "_magazine", "_projectile", "_gunner"];
 if (!local _gunner) exitWith {};
 

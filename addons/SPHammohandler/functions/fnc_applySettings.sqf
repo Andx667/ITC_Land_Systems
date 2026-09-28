@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ITC Addons Team
+ * Reads the current control values from the SPH ammo-loader dialog (selected ammo and
+ * charge, fuze mode and its associated value, and guidance settings for laser-coded,
+ * dual laser-coded, or GPS/inertial guided munitions, plus the requested round count)
+ * and stores them on the vehicle as itc_land_sphloadersettings and related variables,
+ * updating the dialog's readout labels and enabling the Load button.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_SPHammohandler_fnc_applySettings
+ *
+ * Public: No
+ */
+
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _curMag = (currentMagazine _vehicle);

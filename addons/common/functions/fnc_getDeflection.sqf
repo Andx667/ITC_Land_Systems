@@ -1,19 +1,20 @@
 #include "..\script_component.hpp"
 
 /*
- * Author: Toadball
- * Takes directions in degrees, converts them to mils and then calculates deflection.
+ * Author: ToadBall, Yax
+ * Takes two directions in degrees, converts them to mils, and calculates the deflection between them.
  *
  * Arguments:
  * 0: Direction to fixed point <NUMBER>
- * 1: Direction to deflect to: Gun direction / Target Direction <NUMBER>
+ * 1: Direction to deflect to: Gun direction / Target direction <NUMBER>
  *
  * Return Value:
- * number <STRING>
+ * Deflection in mils <STRING>
  *
  * Example:
- * [16, 16] call itc_land_fnc_getDeflection = "3200"
+ * [16, 16] call itc_land_common_fnc_getDeflection
  *
+ * Public: No
  */
 
  params ["_fixed","_deflecting"];

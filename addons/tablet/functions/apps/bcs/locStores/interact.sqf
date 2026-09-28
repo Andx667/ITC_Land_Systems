@@ -1,3 +1,22 @@
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS locStores page interactions: "addLocation" reads the location number, grid,
+ * elevation and friendly/enemy fields, converts the grid to a map position, and either adds
+ * a new stored location or updates an existing one (matched by number) before re-initializing
+ * the page; "removeLocation" deletes the selected location from the list.
+ *
+ * Arguments:
+ * 0: Action identifier ("addLocation" or "removeLocation") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["addLocation"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 #include "..\bcsDefines.hpp"
 

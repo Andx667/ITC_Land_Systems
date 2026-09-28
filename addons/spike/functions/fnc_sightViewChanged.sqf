@@ -1,7 +1,22 @@
 #include "..\script_component.hpp"
 
 /*
- * itc_land_spike_fnc_cameraViewChanged
+ * Author: ToadBall, Yax, VKing
+ * Handles a camera-view change while the Spike LR is equipped. If switching
+ * away from gunner view before a missile has been launched (no active camera
+ * object exists), treats it as the seeker sight closing; otherwise (re)enables
+ * the color-correction and film-grain post-process effects for the seeker view.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call itc_land_spike_fnc_sightViewChanged
+ *
+ * Public: No
  */
 
 //systemChat str ["VIEW CHANGED", cameraView];

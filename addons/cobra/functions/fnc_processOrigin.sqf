@@ -1,5 +1,25 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax
+ * Groups detected firing-origin positions into clusters (within 15m of each
+ * other), incrementing the shot count and timestamp for an existing cluster,
+ * or creating a new one if none of the tracked positions are close enough.
+ * Also appends the raw origin to the mission's flat list of all origins.
+ *
+ * Arguments:
+ * 0: COBRA radar vehicle processing the origin (unused in body) <Object>
+ * 1: Detected firing-origin position <Position>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_cbr, _origin] call itc_land_cobra_fnc_processOrigin
+ *
+ * Public: No
+ */
+
 params ["_cbr", "_origin"];
 _origins = missionNameSpace getVariable "itc_land_cobra_origins";
 _firingPositions = missionNameSpace getVariable "itc_land_cobra_firingPositions";

@@ -1,12 +1,19 @@
 #include "..\script_component.hpp"
 
-/**
- * Find an available datalink ID
- * Method will only function on server
- * Params:
- * - group ID
- * Return:
- *  - ID string
+/*
+ * Author: ToadBall, Yax, VKing
+ * Finds and returns the next unused datalink ID within a given group by generating candidate IDs from the allowed ID character set and checking them against the current node registry. Server-side only.
+ *
+ * Arguments:
+ * 0: Group ID to search within <String>
+ *
+ * Return Value:
+ * Available datalink ID <String>
+ *
+ * Example:
+ * ["01"] call itc_land_datalink_fnc_findAvailableID
+ *
+ * Public: No
  */
 
 params ["_groupID"];

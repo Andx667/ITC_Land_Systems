@@ -1,5 +1,24 @@
 #include "..\script_component.hpp"
 
+/*
+ * Author: Yax
+ * Attempts to intercept an incoming projectile with each of a vehicle's APS (Active Protection System) modules that report being able to
+ * intercept it. On a successful chance roll (pk), destroys or replaces the incoming projectile; on a failed roll, spawns a visual
+ * countermeasure round. Updates the vehicle's APS module state (ammo count, last fired time) accordingly.
+ *
+ * Arguments:
+ * 0: Incoming projectile <OBJECT>
+ * 1: Vehicle with APS module(s) attempting interception <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_projectile, _vehicle] call itc_land_aps_fnc_attemptIntercept
+ *
+ * Public: No
+ */
+
 params ["_projectile", "_vehicle"];
 scopeName "main";
 

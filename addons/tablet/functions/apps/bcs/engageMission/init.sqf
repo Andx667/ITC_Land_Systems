@@ -1,5 +1,23 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the BCS engageMission page: shows the engageMission workspace panel, sets its
+ * header to the current mission's identifier, and fills the shell type, sheaf type and
+ * quick/normal fire combo boxes from the mission's stored engagement data and battery type.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_pageInit
+ *
+ * Public: No
+ */
+
 params ["_display"];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"

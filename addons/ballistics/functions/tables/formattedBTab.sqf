@@ -1,10 +1,30 @@
 #include "..\..\script_component.hpp"
 
-// ARTY_generateFormattedBTab.sqf
-//
-// Generates a formatted ballistic table in SQF and copies to clipboard -- For use by designers & config makers.
-
-// ["16aa_Magazine_1Rnd_81mm_HE",45,85,1, -2000,2000,100] call compile preprocessFileLineNumbers "fnc_formattedBTAB.sqf"
+/*
+ * Author: ToadBall, Yax, VKing
+ * Generates a formatted ballistic table as SQF source text and copies it to the clipboard, for use by designers & config makers.
+ * Calls calcBallistics.sqf to compute the raw table, derives min/max range at the median height offset, and formats the result as
+ * an SQF array assignment ready to be pasted into a table file.
+ *
+ * Arguments:
+ * 0: Magazine classname (CfgMagazines) <STRING>
+ * 1: Minimum gun elevation angle, degrees <NUMBER>
+ * 2: Maximum gun elevation angle, degrees <NUMBER>
+ * 3: Gun elevation angle step, degrees <NUMBER>
+ * 4: Minimum height offset to slice at <NUMBER>
+ * 5: Maximum height offset to slice at <NUMBER>
+ * 6: Height step between slices <NUMBER>
+ * 7: Muzzle velocity, m/s <NUMBER> (default: magazine's initSpeed)
+ * 8: Air friction coefficient <NUMBER> (default: ammo's airFriction)
+ *
+ * Return Value:
+ * None (formatted SQF table text is copied to the clipboard and stored in the global variable FORMATTEDBTAB)
+ *
+ * Example:
+ * ["itc_Sh_82mm_HE", 45, 85, 1, -2000, 2000, 100] call itc_land_ballistics_fnc_formattedBTab
+ *
+ * Public: No
+ */
 
 private ["_magazine", "_elevMin", "_elevMax", "_elevStep", "_heightMin", "_heightMax", "_heightStep", "_mv", "_airFriction", "_proxy", "_ammo", "_btab", "_rangeMin", "_rangeMax"];
 

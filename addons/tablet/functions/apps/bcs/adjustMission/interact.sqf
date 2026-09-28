@@ -1,5 +1,23 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Handles BCS adjustMission page interactions: "back" returns to the solutionMission page
+ * without saving, "save" recalculates the target grid from the adjustment input fields,
+ * stores it on the current mission's target data and returns to solutionMission.
+ *
+ * Arguments:
+ * 0: Action identifier ("back" or "save") <String>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["save"] call itc_land_tablet_fnc_pageInteract
+ *
+ * Public: No
+ */
+
 params ["_action"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;

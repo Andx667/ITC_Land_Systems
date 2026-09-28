@@ -1,5 +1,23 @@
 #include "..\..\..\..\script_component.hpp"
 
+/*
+ * Author: ToadBall, Yax, VKing
+ * Initializes the BCS setup page: shows the setup workspace panel, sets its header and
+ * battery name field, fills the battery type combo box from the ballistics config's
+ * battery types, and populates the stored guns list box.
+ *
+ * Arguments:
+ * 0: Tablet dialog display <Display>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [findDisplay 32562] call itc_land_tablet_fnc_pageInit
+ *
+ * Public: No
+ */
+
 params ["_display"];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"
