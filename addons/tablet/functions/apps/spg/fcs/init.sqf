@@ -20,6 +20,8 @@
  */
 
 #include "..\..\..\BCS_idc_defines.hpp"
+params ["_display"];
+_vehicle = [] call EFUNC(common,getCurVehicle);
 ctrlShow [13410, true];
 [_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
 

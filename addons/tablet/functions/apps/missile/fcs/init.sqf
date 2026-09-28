@@ -20,6 +20,8 @@
  */
 
 #include "..\..\..\BCS_idc_defines.hpp"
+params ["_display"];
+_vehicle = [] call EFUNC(common,getCurVehicle);
 ctrlShow [13701, true];
 [_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
 //(_display displayCtrl 1501) lbAdd "MANUAL TARGETING";

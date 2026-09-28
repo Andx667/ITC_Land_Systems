@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Renders the SPG status page: builds a color-coded hitpoint status list (OK/DAM/FAIL) for the current
@@ -16,6 +18,7 @@
  */
 
 params ["_display"];
+_vehicle = [] call EFUNC(common,getCurVehicle);
 
 _allDamage = getAllHitPointsDamage _vehicle;
 _allDamage params ["", "_name", "_status"];
@@ -33,4 +36,4 @@ for "_i" from 0 to (count _status - 1) step 1 do {
 (_display displayCtrl 2100) ctrlSetStructuredText parseText _resString;
 (_display displayCtrl 2100) ctrlCommit 0;
 
-[_display, 2013, format["%1%2",round ((fuel _vehicle) * 100),"%"]] call itc_land_tablet_utils_fnc_setText;
+[_display, 2013, format["%1%2",round ((fuel _vehicle) * 100),"%"]] call FUNC(setText);

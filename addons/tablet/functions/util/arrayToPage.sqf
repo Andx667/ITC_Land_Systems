@@ -24,7 +24,7 @@ _controls = (configFile >> "itc_land_tablet" >> _page >> "Controls") call BIS_fn
     _controlKey = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "key");
     _setMethod = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "setMethod");
     if(_controlKey == _key) then {
-      _value call _setMethod;
+      _value call (compile _setMethod);
     };
   }forEach _controls;
 }forEach _input;

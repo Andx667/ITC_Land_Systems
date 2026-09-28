@@ -19,6 +19,7 @@
  */
 
 #include "..\..\BCS_idc_defines.hpp"
+params ["_display"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
 
 [_display, IDC_header1, "AIFMS"] call FUNC(setText);
