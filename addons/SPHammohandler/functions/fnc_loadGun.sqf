@@ -4,7 +4,7 @@
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _status = (_vehicle getVariable ["itc_land_ammoHandler_status",[0,0,"WAITING"]]) # 0;
 
-private _loaderType = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "itc_land" >> "loaderType");
+private _loaderType = getNumber (configOf _vehicle >> "itc_land" >> "loaderType");
 private _sphloadersettings = _vehicle getVariable ["itc_land_sphloadersettings", []];
 private _roundCount = ((_sphloadersettings # 0) # 3);
 private _roundsFired = _vehicle getVariable ["itc_land_roundsFired",0];
@@ -32,20 +32,20 @@ switch ( _loaderType ) do {
 
                     _vehicle setVariable ["itc_land_ammoHandler_status",[4,0,"SAFING WEAPON"],true]; [] call FUNC(updateStatus);
 
-                    sleep 3+random(2);
+                    sleep (3+random(2));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[4,1,"REMOVING CHARGE"],true]; [] call FUNC(updateStatus);
 
-                    sleep 2+random(1);
+                    sleep (2+random(1));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[4,2,"REMOVING ROUND"],true]; [] call FUNC(updateStatus);
 
                     _vehicle removeMagazine _curMag; //remove loaded magazine
 
-                    sleep 5+random(3);
+                    sleep (5+random(3));
 
                     _vehicle addMagazine _loadedMagClass;
                     _vehicle setVariable ["itc_land_ammoHandler_status",[4,3,"STOWING ROUND"],true]; [] call FUNC(updateStatus);
 
-                    sleep 2+random(2);
+                    sleep (2+random(2));
 
                     _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true]; [] call FUNC(updateStatus);
                 };
@@ -66,14 +66,14 @@ switch ( _loaderType ) do {
 
                     _vehicle removeMagazine (_vehicle getVariable "itc_land_loadedMagClass");
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,0,"PULLING SHELL"],true]; [] call FUNC(updateStatus);
-                    sleep 2+random(1);
+                    sleep (2+random(1));
 
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,1,"RAMMING SHELL"],true]; [] call FUNC(updateStatus);
 
-                    sleep 2+random(1);
+                    sleep (2+random(1));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,2,"INSERTING CHARGE"],true]; [] call FUNC(updateStatus);
 
-                    sleep 2+random(1);
+                    sleep (2+random(1));
 
                     _weapon = (weapons _vehicle) select 0;
 
@@ -84,15 +84,15 @@ switch ( _loaderType ) do {
 
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,3,"CLOSING BREECH"],true]; [] call FUNC(updateStatus);
 
-                    sleep 2+random(1);
+                    sleep (2+random(1));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,4,"INSERTING PRIMER"],true]; [] call FUNC(updateStatus);
 
 
-                    sleep 2+random(1);
+                    sleep (2+random(1));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,5,"ATTACHING LANYARD"],true]; [] call FUNC(updateStatus);
 
 
-                    sleep 1+random(1);
+                    sleep (1+random(1));
                     _vehicle setVariable ["itc_land_ammoHandler_status",[3,0,"READY TO FIRE"],true]; [] call FUNC(updateStatus);
 
 

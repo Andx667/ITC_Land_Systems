@@ -23,7 +23,7 @@ class itc_land_230mm_mlrs : rockets_230mm_GAT {
   {
       class itc_land_veh_weapons
       {
-          fired = "_this call FUNC(fired);";
+          fired = "call FUNC(fired);";
       };
   };
 };

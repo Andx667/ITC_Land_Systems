@@ -1,4 +1,4 @@
-class cfgAmmo {
+class CfgAmmo {
   class FlareCore;
   class itc_82mm_flare: FlareCore { //ILLUM
     model = "\A3\weapons_f\ammo\shell";

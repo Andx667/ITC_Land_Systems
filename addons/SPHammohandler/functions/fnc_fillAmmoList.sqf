@@ -10,8 +10,7 @@ lbClear 86001; //clear listbox
 //create array of magazines to count in the ammo handler
 {
     private _mag = _x;
-    private _isCounted = 0;
-    _isCounted = (configFile >> "CfgMagazines" >> _mag >> "itc_land_CountInAH") call BIS_fnc_getCfgData;
+    private _isCounted = (configFile >> "CfgMagazines" >> _mag >> "itc_land_CountInAH") call BIS_fnc_getCfgData;
     //is round to be counted in ammo list: Not to include _chgX variants
     if(_isCounted == 1) then {
         _magArray pushBack _x;

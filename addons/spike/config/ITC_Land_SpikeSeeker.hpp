@@ -289,12 +289,12 @@ class ITC_Land_SpikeSeeker {
     };
 };
 
-class RscIngameUI {
+class RscInGameUI {
   class RscOptics_LaserDesignator_02;
   class ITC_Land_SpikeOptics: RscOptics_LaserDesignator_02 {
     idd = 300;
     controls[] = {"CA_IGUI_elements_group"};
-    onLoad = "_this call FUNC(selectSpike)";
+    onLoad = "call FUNC(selectSpike)";
     class CA_IGUI_elements_group: RscControlsGroup
     {
       idc = 170;

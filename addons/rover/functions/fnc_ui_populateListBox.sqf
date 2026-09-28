@@ -7,7 +7,7 @@ lbClear 2100;
 lbAdd [2100, " -- "];
 
 {
-  lbAdd [2100, (getText (configFile >> "cfgVehicles" >> typeOf _x >> "displayName")) + " (" + (name _x) + ")"];
+  lbAdd [2100, (getText (configOf _x >> "displayName")) + " (" + (name _x) + ")"];
 } forEach _aircraft;
 
 private _index = missionNameSpace getVariable ["itc_land_rover_ui_curSelIndex",0];

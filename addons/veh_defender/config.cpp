@@ -7,7 +7,7 @@ class CfgPatches {
         authors[] = {"ToadBall","Yax","VKing"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main", "itc_land_main", "A3_Weapons_F_Sams", "itc_land_veh_weapons"};
-        units[] = { "itc_land_o_sam_rhea2"};
+        units[] = { "itc_land_b_defender2"};
         weapons[] = {};
         VERSION_CONFIG;
     };

@@ -14,8 +14,6 @@ if(isNil{_targetPos}) exitWith {};
   };
   private _distance2D = _projectile distance2D _targetCoordinates;
   private _distance2DTotal = _launchPos distance2D _targetCoordinates;
-  private _targetDistance = _targetCoordinates distance _projectile;
-  private _velocity = vectorMagnitude velocity _projectile;
   private _position = getPosASL _projectile;
   (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
   private _vectToTarget = _position vectorFromTo _targetCoordinates;

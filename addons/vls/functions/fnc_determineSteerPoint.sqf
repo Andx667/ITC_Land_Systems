@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 
-params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_targetCoordinates","_azimuth"];
+params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_targetCoordinates","_azimuth","_time"];
 //(_this select 0) params ["_projectile", "_ammo", "_position", "_targetCoordinates", "_stage", "_time", "_angle", "_lastFrameTime","_azimuth","_steerPoint"];
 private _return = [_stage, _steerPoint];
 if(_stage == "SEP") exitWith {

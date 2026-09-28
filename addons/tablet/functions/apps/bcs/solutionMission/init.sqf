@@ -21,14 +21,14 @@ if(count _btySolutions == 0) exitWith {
   SETTEXT(8020,"");//distance
   if(count bcs_bty_guns > 0) then {
     _btyPos = [bcs_bty_guns] call EFUNC(bcs,getBatteryPosition);
-    SETTEXT(8020, str round (_btyPos distance _tgtPos));//distance
+    SETTEXT(8020,str round (_btyPos distance _tgtPos));//distance
   };
 };
 _mission set [5, (count _btySolutions) - 1];
 (_btySolutions # _curSolution) params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
-SETTEXT(8018, str (round _maxOrd));//ordinate
-SETTEXT(8019, str (round _impAng));//angle
-SETTEXT(8020, str (round _dist));//distance
+SETTEXT(8018,str (round _maxOrd));//ordinate
+SETTEXT(8019,str (round _impAng));//angle
+SETTEXT(8020,str (round _dist));//distance
 _text = format["SOLUTION %1 OUT OF %2", (_curSolution + 1), count (bcs_solutions # 0)];
 SETTEXT(8022,_text);
 

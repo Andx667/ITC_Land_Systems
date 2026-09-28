@@ -1,16 +1,10 @@
 //UI Stuff:
 class RscText;
 class RscFrame;
-class RscListbox;
-class RscListNBox;
 class RscPicture;
-class ScrollBar;
 class RscControlsGroup;
-class RscControlsGroupNoScrollbars;
 
 
-class RscActiveText;
-class RscStructuredText;
 
 class RscInGameUI {
   class RscUnitInfo;

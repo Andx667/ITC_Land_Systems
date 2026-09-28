@@ -20,7 +20,7 @@ if (!isNull _proj) then {
     //drop ["\a3\data_f\Cl_basic","","Billboard",0.25,60,position _proj,[0,0,0],1,1.275,1.0,0.0,[2],[[0,1,0,1]],[0],0.0,2.0,"","",""];
     // proximity check: if there is an air object within sensor range of the projectile
     _nearTargets = nearestObjects [_proj, [], _sensorRAN];
-    if (_launcher distance _proj > _projAD  &&  count (_nearTargets) > 0) then {
+    if (_launcher distance _proj > _projAD  &&  _nearTargets isNotEqualTo []) then {
         _tgt = (_nearTargets) select 0; //get closest air object in sensor range
 
         //diag_log format ["Timer 1: %1",diag_ticktime];

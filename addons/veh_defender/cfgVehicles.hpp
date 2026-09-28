@@ -13,8 +13,6 @@
 #define mag_12(a) a, a, a, a, a, a, a, a, a, a, a, a
 #define mag_24(a) a, a, a, a, a, a, a, a, a, a, a, a,a, a, a, a, a, a, a, a, a, a, a, a
 
-class SensorTemplateDataLink;
-class SensorTemplateActiveRadar;
 class CfgVehicles {
   class StaticWeapon;
   class StaticMGWeapon : StaticWeapon {

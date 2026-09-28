@@ -1,10 +1,10 @@
 #include "..\script_component.hpp"
 
-itc_land_spike_camera = "camera" camCreate (getPos _projectile);
+itc_land_spike_camera = "camera" camCreate (getPos itc_land_spike_currentMissile);
 itc_land_spike_camera camSetFov 0.08333;
 
 //_camera camSetTarget (ASLtoAGL itc_exp_spike_targetPosCamera);
-private _polarToTarget = ((getPosASL _projectile) vectorFromTo itc_land_spike_targetPosCamera) call cba_fnc_vect2polar;
+private _polarToTarget = ((getPosASL itc_land_spike_currentMissile) vectorFromTo itc_land_spike_targetPosCamera) call cba_fnc_vect2polar;
 //systemChat str ["polar", _polarToTarget];
 
 itc_land_spike_camera setDir (_polarToTarget # 1);

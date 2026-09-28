@@ -1,4 +1,4 @@
-class cfgAmmo {
+class CfgAmmo {
   class ammo_Missile_mim145;
   class ammo_Missile_s750 : ammo_Missile_mim145 {
     class Components;

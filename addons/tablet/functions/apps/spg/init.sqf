@@ -4,7 +4,7 @@
 
 params ["_display"];
 _vehicle = [] call EFUNC(common,getCurVehicle);
-_interfaces = (configFile >> "CfgVehicles" >> typeOf (_vehicle) >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
+_interfaces = (configOf _vehicle >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
 _canOpen = (!isNil{_interfaces}); //can't open if there's no interfaces
 if(_canOpen) then { //check if it has the right interfaces
   _canOpen = "spg" in _interfaces;

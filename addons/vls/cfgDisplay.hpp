@@ -57,7 +57,7 @@
                 colorText[] = {"172/255","255/255","153/255",1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
-                onLBSelChanged = "_this call FUNC(onSelectTarget)";
+                onLBSelChanged = "call FUNC(onSelectTarget)";
             };
             class grid_text: ITC_LAND_RscText {
                 idc = 4105;
@@ -118,7 +118,7 @@
                 h = "0.022 * safezoneH";
                 colorText[] = {"172/255","255/255","153/255",1};
                 colorActive[] = {0,0,0,1};
-                onLBSelChanged = "_this call FUNC(onSelectAngle)";
+                onLBSelChanged = "call FUNC(onSelectAngle)";
             };
             class name_text: ITC_LAND_RscText {
                 idc = 4111;

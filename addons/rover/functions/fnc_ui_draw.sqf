@@ -12,7 +12,7 @@ ctrlSetText [75013, _displayedDir];
 //Get TGT grid
 private _tgtposWorld = (screenToWorld [0.5,0.5]);
 private _tgtposASL = AGLToASL _tgtposWorld;
-ctrlSetText [19438, round (_tgtposWorld distance position _plane)];
+ctrlSetText [19438, str round (_tgtposWorld distance position _plane)];
 private _tgtposMGRS = [_tgtposWorld] call ace_common_fnc_getMapGridFromPos;
 private _tgtposDisplayed = format ["%1 %2",_tgtposMGRS # 0,_tgtposMGRS # 1];
 

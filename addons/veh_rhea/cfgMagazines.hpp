@@ -1,4 +1,4 @@
-class cfgMagazines {
+class CfgMagazines {
   class magazine_Missile_s750_x4;
   class itc_land_s750_x4 : magazine_Missile_s750_x4 {
     ammo = "itc_land_s750";

@@ -11,7 +11,7 @@ private _feed = [_plane] call FUNC(createFeed);
 private _turret = [_plane] call FUNC(getLaserTurret);
 if (isNil "_turret") exitWith {};
 if (count _turret == 1 && {_turret # 0 == -1}) then {
-  private _memPointName = getText (configFile >> "CfgVehicles" >> typeOf _plane >> "memoryPointDriverOptics");
+  private _memPointName = getText (configOf _plane >> "memoryPointDriverOptics");
   itc_land_rover_mempointPos = _plane selectionPosition _memPointName;
 } else {
   private _turretConfig = [_plane, _turret] call CBA_fnc_getTurret;

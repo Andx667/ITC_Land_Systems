@@ -27,7 +27,7 @@ private _sensorRAN = getNumber (_fuzeConfig >> "proxRAN"); //What is the range o
             //drop ["\a3\data_f\Cl_basic","","Billboard",0.25,60,position _projectile,[0,0,0],1,1.275,1.0,0.0,[2],[[0,1,0,1]],[0],0.0,2.0,"","",""];
             // proximity check: if there is an air object within sensor range of the projectile
             _nearTargets = nearestObjects [_projectile, ["Air"], _sensorRAN];
-            if (_launcher distance _projectile > _projAD  &&  count (_nearTargets) > 0) then {
+            if (_launcher distance _projectile > _projAD  &&  _nearTargets isNotEqualTo []) then {
                 _tgt = (_nearTargets) select 0; //get closest air object in sensor range
                 //diag_log format ["SEARCHING: TARGET = %1 @ %2m",_tgt,(_projectile distance _tgt)];
                 

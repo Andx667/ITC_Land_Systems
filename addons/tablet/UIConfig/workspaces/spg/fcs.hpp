@@ -17,7 +17,7 @@ class page_spg_controls:ITC_LAND_Workspace {
             w = "0.1125 * safezoneW";
             x = "0.435 * safezoneW + safezoneX";
             y = "0.24 * safezoneH + safezoneY";   
-            onLBSelChanged = "_this call FUNC(fcimode_onlblselchanged)";              
+            onLBSelChanged = "call FUNC(fcimode_onlblselchanged)";              
         };
         //Manual Mode Controls
         //#include "fcs_manualmode.hpp"

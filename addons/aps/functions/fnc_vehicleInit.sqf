@@ -9,7 +9,7 @@
  */
 params ["_vehicle"];
 
-private _config = (configFile >> "cfgVehicles" >> (typeof _vehicle) >> "itc_land_aps");
+private _config = (configOf _vehicle >> "itc_land_aps");
 
 if (isClass _config) then {
   private _apsArray = [];
@@ -32,7 +32,7 @@ if (isClass _config) then {
     _apsArray pushBack _aps;
   } foreach _apsSystems;
 
-  if (count _apsArray > 0) then {
+  if (_apsArray isNotEqualTo []) then {
     _vehicle setVariable ["itc_land_aps_modules", _apsArray, true];
   };
 };

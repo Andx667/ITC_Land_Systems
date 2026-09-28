@@ -1,4 +1,4 @@
-class cfgMagazines {
+class CfgMagazines {
     class 8Rnd_82mm_Mo_shells;
     class ACE_1Rnd_82mm_Mo_HE: 8Rnd_82mm_Mo_shells {
       itc_land_btabListFile = QPATHTOEF(ballistics,tables\b_82\list.sqf);

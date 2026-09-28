@@ -13,7 +13,6 @@ class CfgPatches {
         VERSION_CONFIG;
     };
 };
-class NewTurret;
 
 #include "CfgEventHandlers.hpp"
 #include "config\baseControls.hpp"

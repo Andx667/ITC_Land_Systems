@@ -3,7 +3,6 @@ class CfgVehicles {
   class Radar_System_01_base_F;
   class B_Radar_System_01_F : Radar_System_01_base_F {
     class EventHandlers;
-    class Attributes;
   };
   class itc_land_COBRA01 : B_Radar_System_01_F {
         author = "Yax";
@@ -16,7 +15,7 @@ class CfgVehicles {
         class Components {};
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "_this call FUNC(vehicleInit);";
+          init = "call FUNC(vehicleInit);";
       };
       class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
     };
@@ -25,7 +24,6 @@ class CfgVehicles {
   class Radar_System_02_base_F;
   class O_Radar_System_02_F : Radar_System_02_base_F {
     class EventHandlers;
-    class Attributes;
   };
   class itc_land_COBRA02 : O_Radar_System_02_F {
         author = "Yax";
@@ -38,15 +36,13 @@ class CfgVehicles {
         class Components {};
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "_this call FUNC(vehicleInit);";
+          init = "call FUNC(vehicleInit);";
       };
       class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
     };
   };
   class NonStrategic;
   class Land_Loudspeakers_F : NonStrategic {
-    class EventHandlers;
-    class Attributes;
   };
   class ITC_Land_Loudspeakers : Land_Loudspeakers_F {
     displayName = "COBRA Siren";
@@ -59,7 +55,7 @@ class CfgVehicles {
     Commented out as is old concept content that may be referred back to in later versions
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "_this call FUNC(sirenInit);";
+          init = "call FUNC(sirenInit);";
       };
     };
     class Attributes : Attributes {

@@ -18,7 +18,6 @@ class CfgPatches {
     };
 };
 
-class mode_semiauto;
 
 #include "ITC_Land_CfgFuzes.hpp"
 #include "CfgAmmo.hpp"

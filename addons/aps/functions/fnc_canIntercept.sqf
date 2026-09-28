@@ -45,7 +45,7 @@ if (!(_apsDir - _traverseLim < _azimuth && _azimuth < _apsDir + _traverseLim)) e
 if (_elevation < -_elevateLim && _elevation > _elevateLim) exitWith { systemChat "elev"; false };
 
 // los check from aps module
-_intersects = lineIntersectsWith  [_begin, _end, _vehicle, _projectile];
+private _intersects = lineIntersectsWith [_apsPosition, _projectilePosition, _vehicle, _projectile];
 if (count _intersects > 0) exitWith { systemChat "LOS"; false };
 
 systemChat str _vectPolar;

@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 
-params ["_projectile", "_target"];
+params ["_projectile", "_target", "_position"];
 private _vectToTarget = _position vectorFromTo _target;
 private _vectToTargetDiff = _vectToTarget vectorDiff (vectorNormalized (velocity _projectile));
 private _vectorModelSpace = _projectile vectorWorldToModel _vectToTargetDiff;

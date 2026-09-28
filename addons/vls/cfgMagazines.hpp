@@ -1,4 +1,4 @@
-class cfgMagazines {
+class CfgMagazines {
   //class magazine_rockets_230mm_GAT_x18;
   class magazine_Missile_rim162_x8;
   class itc_land_mn230essm_x18 : magazine_Missile_rim162_x8 {

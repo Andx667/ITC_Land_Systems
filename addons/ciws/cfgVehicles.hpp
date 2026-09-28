@@ -184,14 +184,14 @@ class CfgVehicles {
   class All {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };
   class StaticCannon: StaticWeapon {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };
@@ -200,7 +200,7 @@ class CfgVehicles {
   class Mortar_01_base_F: StaticMortar {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };
@@ -209,7 +209,7 @@ class CfgVehicles {
   class Tank_F: Tank {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };
@@ -218,7 +218,7 @@ class CfgVehicles {
   class Plane_Base_F: Plane {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };
@@ -227,7 +227,7 @@ class CfgVehicles {
   class Land_Orange_01_F: Land_Orange_01_Base_F {
     class EventHandlers {
       class itc_land_ciws_eventhandlers {
-        fired = "_this call FUNC(fired)";
+        fired = "call FUNC(fired)";
       };
     };
   };

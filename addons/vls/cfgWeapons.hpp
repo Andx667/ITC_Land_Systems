@@ -1,4 +1,4 @@
-class cfgWeapons {
+class CfgWeapons {
   class weapon_rim162Launcher;
   class itc_land_mn230essm_launcher : weapon_rim162Launcher {
     weaponLockDelay = 0.1;
@@ -16,7 +16,7 @@ class cfgWeapons {
     reloadTime=5;
     class EventHandlers {
         class itc_land_veh_weapons {
-            fired = "_this call BIS_fnc_effectFiredCruiseMissile;";
+            fired = "call BIS_fnc_effectFiredCruiseMissile;";
         };
     };
   };
@@ -25,7 +25,7 @@ class cfgWeapons {
     magazines[] = {"itc_land_mn230slam_x18"};
     class EventHandlers {
         class itc_land_veh_weapons {
-            fired = "_this call FUNC(fired);";
+            fired = "call FUNC(fired);";
         };
     };
   };

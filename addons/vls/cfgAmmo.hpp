@@ -1,4 +1,4 @@
-class cfgAmmo {
+class CfgAmmo {
   class ammo_Missile_MediumRangeAABase;
   class ammo_Missile_rim162 : ammo_Missile_MediumRangeAABase {
     class Components;

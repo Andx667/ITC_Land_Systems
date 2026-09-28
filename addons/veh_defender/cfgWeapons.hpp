@@ -6,7 +6,7 @@ class CfgWeapons {
     {
         class itc_land_veh_defender
         {
-            fired = "_this call EFUNC(veh_weapons,fired);";
+            fired = "call EFUNC(veh_weapons,fired);";
         };
     };
   };

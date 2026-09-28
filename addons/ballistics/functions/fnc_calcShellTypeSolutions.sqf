@@ -19,7 +19,7 @@ for "_i" from 0 to (count _charges) - 1 step 1 do {
   _btab = []  call compile preProcessFile _table;
   _solution = [_btab, _distance, _elevDiff] call FUNC(calcBtabSolution);
   if(count _solution > 0) then {
-    _solutions = _solutions + [[_charges # _i, _relDirMils, _df] + _solution];
+    _solutions pushBack ([_charges # _i,_relDirMils,_df] + _solution);
   };
 };
 _solutions

@@ -45,17 +45,12 @@ _elevation = 0;
 
 for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
         // Initial params
-        _vgate = 0;
-        _gaterng = 0;
         _x = 0;
         _y = 0.1;
-        _vx = 0;
-        _vy = 0;
         _ymax = 0;
         _xmax = 0;
         _vel = _muzzle_velocity;
         _fc = 0;
-        _tof = 0;
         
 
         _useElevation = _elevation;
@@ -95,7 +90,7 @@ for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
             if ((_y < _agate) && (_vy < 0) && (_agate >= _hmin)) then
             {
                 while {_agate > _y} do {_agate = _agate - _hstep;};
-                _slices = _slices + [[_x, _y, _fc*_frame, _vel, _elev]];
+                _slices pushBack [_x,_y,_fc * _frame,_vel,_elev];
             };
             
             // Increment frame count.
@@ -116,11 +111,11 @@ for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
         _rSlices = [];
         for [{_a = count(_slices)-1;},{_a >= 0},{_a = _a - 1}] do
         {
-            _rSlices = _rSlices + [_slices select _a];
+            _rSlices pushBack (_slices select _a);
         };
  
         // Put calculated rocket decay points into table if offsets are used.
         _addTab = [_elevation, _ymax, _rSlices];
-        _btab set [count _btab, _addTab];
+        _btab pushBack _addTab;
 };
 [_btab, _minrange, _maxrange]

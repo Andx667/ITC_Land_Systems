@@ -2,6 +2,8 @@
 
 #include "BCS_idc_defines.hpp"
 
+params ["_display"];
+
 [_display, IDC_header1, ""] call FUNC(setText);
 [_display, IDC_header2, ""] call FUNC(setText);
 [_display, IDC_workspace_header, ""] call FUNC(setText);

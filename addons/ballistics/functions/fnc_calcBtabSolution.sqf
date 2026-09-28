@@ -3,7 +3,6 @@
 params["_atab", "_distance", "_heightDelta"];
 _atab params ["_table", "_rangeMin", "_rangeMax", "_heightMin", "_heightMax", "_heightStep"];
 
-_solution = [];
 
 // Check if height difference is within table extremes
 if (_heightDelta < _heightMin || _heightDelta > _heightMax) exitWith {

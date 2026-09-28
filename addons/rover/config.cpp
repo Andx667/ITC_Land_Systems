@@ -8,7 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main", "itc_land_main"};
         units[] = {};
-        weapons[] = {};
+        weapons[] = {"itc_land_tablet_rover"};
         magazines[] = {};
         VERSION_CONFIG;
     };

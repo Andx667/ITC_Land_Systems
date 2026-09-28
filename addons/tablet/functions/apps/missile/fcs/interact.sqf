@@ -23,7 +23,7 @@ switch(_action) do {
 
     itc_land_guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
 
-    if (count itc_land_guidance > 0) then {
+    if (itc_land_guidance isNotEqualTo []) then {
         if (count _solutions > 0) then {
             _solutions apply {
                 _x set [3,800];
@@ -78,7 +78,7 @@ switch(_action) do {
 
     private _guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
 
-    if (count _guidance > 0) then {
+    if (_guidance isNotEqualTo []) then {
         switch (_guidance # 0) do {
             case "gps_inertial" : {
                 _targetGrid = ctrlText 1909;

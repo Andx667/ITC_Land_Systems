@@ -18,7 +18,7 @@ class CfgWeapons {
     magazineWell[] = {};
     class EventHandlers {
         class itc_land_spike {
-            fired = "_this call FUNC(fired);";
+            fired = "call FUNC(fired);";
         };
     };
     canLock = 0;

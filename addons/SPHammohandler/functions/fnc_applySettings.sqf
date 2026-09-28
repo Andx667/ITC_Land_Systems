@@ -29,7 +29,6 @@ _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
 
     private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
     private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc",(lbText [86004,_selectedFuzeIndex])];
-    private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
     private _fuzeMode = _vehicle getVariable ["itc_land_selectedFuzeMode","pd"];
 
     switch (_fuzeMode) do {
@@ -52,7 +51,7 @@ _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
             _fuzeText = _fuzeDesc;
         };
     };
-    _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
+    private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
     //Render string to output field.
     ctrlSetText [86018, _fuzeText];
 
@@ -61,7 +60,7 @@ _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
     private _guidance = getArray (_selectedMagConfig >> "itc_land_guidance");
 
     private _guidanceText = "-- N/A --";
-    if (count _guidance > 0) then {
+    if (_guidance isNotEqualTo []) then {
         switch (_guidance # 0) do {
             case "gps_inertial" : {
                 private _targetGrid = ctrlText 86013;

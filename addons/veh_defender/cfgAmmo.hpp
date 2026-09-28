@@ -1,7 +1,6 @@
-class cfgAmmo {
+class CfgAmmo {
   class ammo_Missile_LongRangeAABase;
   class ammo_Missile_mim145 : ammo_Missile_LongRangeAABase {
-    class Components;
   };
   class itc_land_mim145 : ammo_Missile_mim145 {
     /*  

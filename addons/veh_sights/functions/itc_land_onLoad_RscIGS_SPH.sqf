@@ -59,6 +59,7 @@
 
             //Get mission azimuth
             private _displayedMISazi = "----";
+            private _MISazi = _weaponDir;
             private _slnIndex = _veh getVariable "itc_land_tablet_fcs_solutions_index";
             if !(isNil {_slnIndex}) then {
                 private _sln = _veh getVariable "itc_land_tablet_fcs_solutions";

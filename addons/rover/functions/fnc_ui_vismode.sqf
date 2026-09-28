@@ -24,4 +24,4 @@ switch (_btn) do {
   };
 };
 
-if (!(_btn == "fov")) then { itc_land_rover_ui_visMode = _btn };
+if (_btn != "fov") then { itc_land_rover_ui_visMode = _btn };

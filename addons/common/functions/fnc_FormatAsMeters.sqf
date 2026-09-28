@@ -20,6 +20,6 @@
 
 params ["_input", "_decimalPlaces", "_integerPlaces"];
 
-private _prefix = if (_input < 0) then {"-"} else {""};
+private _prefix = ["", "-"] select (_input < 0);
 private _return = [abs (_input), _integerPlaces, _decimalPlaces, false] call CBA_fnc_formatNumber;
 (_prefix + _return)

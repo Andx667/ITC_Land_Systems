@@ -5,7 +5,7 @@ class CfgWeapons {
         {
                 class itc_land_sphammohandler
                 {
-                        fired = "_this call FUNC(firedEH);";
+                        fired = "call FUNC(firedEH);";
                 };
         };
     };

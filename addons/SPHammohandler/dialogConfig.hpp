@@ -64,7 +64,7 @@
                 colorBackground[] = {0,0,0,1};
                 colorSelectBackground[] = AIFMSGRN;
                 colorSelectBackground2[] = AIFMSGRN;
-                onLBSelChanged = "_this call FUNC(onSelectAmmo)";
+                onLBSelChanged = "call FUNC(onSelectAmmo)";
             };
             class ammoframe: ITC_LAND_RscFrame {
                 x = "0.29475 * safezoneW + safezoneX";
@@ -126,7 +126,7 @@
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.0825 * safezoneW";
                 h = "0.022 * safezoneH";
-                onLBSelChanged = "_this call FUNC(onSelectFuze)";
+                onLBSelChanged = "call FUNC(onSelectFuze)";
             };
             class fuzeTime: ITC_LAND_RscText {
                 idc = 86005;

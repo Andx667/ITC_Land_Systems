@@ -9,7 +9,6 @@ _grav = -9.80665;
 _fps = 60;
 _elevation = (_shell call BIS_fnc_getPitchBank) # 0;
 _fc = 0;
-_tof = 0;
 _useElevation = _elevation;
 
 // Set t0 parameters
@@ -37,7 +36,6 @@ while {_aboveLand} do
     _vy = _vy + (_vy * _vel * _airFriction * _frame);
     _vy = _vy + (_grav * _frame);
     _vel = sqrt(_vx*_vx + _vy*_vy);
-    _elev = asin (_vy / _vel);
     // Increment positions
     _y = _y + (_vy * _frame);
     _x = _x + (_vx * _frame);

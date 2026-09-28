@@ -21,8 +21,6 @@ _airFriction = _this select 8;
 hint "4...";
 _ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
 btabammo = _ammo;
-_proxy = getText(configFile >> "CfgAmmo" >> _ammo >> "ARTY_ReplaceWithAmmo");
-_mv = getNumber(configFile >> "CfgMagazines" >> _magazine >> "initSpeed");
 
 
 // Normal artillery shell calculation

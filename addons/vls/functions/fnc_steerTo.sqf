@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 
-params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage"];
+params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_position","_angle"];
 //[ASLtoAGL _steerPoint, "ColorRed"] call test_fnc_mark;
 (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 private _speed = vectorMagnitude (velocity _projectile);

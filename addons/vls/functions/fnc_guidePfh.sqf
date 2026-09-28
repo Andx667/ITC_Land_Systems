@@ -9,14 +9,14 @@ if (!alive _projectile) exitWith {
 private _frameTime = time - _lastFrameTime;
 _this call FUNC(updateData);
 
-private _angles = [_projectile, _steerPoint] call FUNC(angleToTarget);
+private _angles = [_projectile, _steerPoint, _position] call FUNC(angleToTarget);
 
-_return = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _targetCoordinates,_azimuth,_angle]) call FUNC(determineSteerPoint);
+_return = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _targetCoordinates,_azimuth,_time]) call FUNC(determineSteerPoint);
 _stage = (_return # 0);
 (_this select 0) set [9, (_return # 1)];
 
 if(_stage != "SEP" && _stage != "TURN") then {
-  _stage = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage]) call FUNC(steerTo);
+  _stage = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _position, _angle]) call FUNC(steerTo);
 } else {
   if(_stage == "TURN") then {
     (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];

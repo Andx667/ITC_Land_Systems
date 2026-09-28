@@ -9,7 +9,6 @@ _grav = 9.80665;
 _fps = 60;
 _elevation = (_shell call BIS_fnc_getPitchBank) # 0;
 _fc = 0;
-_tof = 0;
 _useElevation = _elevation;
 
 // Set t0 parameters

@@ -20,8 +20,8 @@
  params ["_item","_caller"];
 
 //get item to pack item to:
-private _packed = (configFile >> "CfgVehicles" >> typeOf _item >> "itc_land_PacksTo") call BIS_fnc_getCfgData;
- private _displayName = (configFile >> "CfgVehicles" >> typeOf _item >> "displayName") call BIS_fnc_getCfgData;
+private _packed = (configOf _item >> "itc_land_PacksTo") call BIS_fnc_getCfgData;
+ private _displayName = (configOf _item >> "displayName") call BIS_fnc_getCfgData;
  private _progtext = Format ["Packing: %1",_displayName];
 
 //Pack Darter

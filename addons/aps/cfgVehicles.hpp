@@ -1,7 +1,7 @@
 #define APS_INIT_EH \
   class EventHandlers: EventHandlers { \
-    class itc_land_aps { \
-      init = "_this call FUNC(vehicleInit)"; \
+    class ADDON { \
+      init = "call FUNC(vehicleInit)"; \
     }; \
   };
 
