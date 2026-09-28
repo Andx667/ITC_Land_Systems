@@ -21,17 +21,17 @@
  */
 
 params ["_action", "_value"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 if(_action == "app" && !isNil{_value}) exitWith {
   if(count (_vehicle getVariable "apps") > _value) then {
-    _newApp = (_vehicle getVariable "apps") # _value;
+    private _newApp = (_vehicle getVariable "apps") # _value;
     if(!isNil{_newApp}) then {
       _vehicle setVariable ["app", _newApp];
     };
   };
 };
 
-_display = findDisplay 32562;
-_app = _vehicle getVariable "app";
-_page = [_action, _display] call FUNC(appInteract);
+private _display = findDisplay 32562;
+private _app = _vehicle getVariable "app";
+private _page = [_action, _display] call FUNC(appInteract);

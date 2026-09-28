@@ -22,25 +22,25 @@
  */
 
 params ["_action"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
-_curMag = (currentMagazine _vehicle);
-_display = findDisplay 32562;
+private _vehicle = [] call EFUNC(common,getCurVehicle);
+private _curMag = (currentMagazine _vehicle);
+private _display = findDisplay 32562;
 
 switch(_action) do {
   case "calc": {
     //#include "interact_calc.sqf"
-    _gridField = ctrlText 2400;
+    private _gridField = ctrlText 2400;
     _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
-    _elField = parseNumber (ctrlText 2401);
-    _elTgt =  _elField - ace_common_mapAltitude;
+    private _elField = parseNumber (ctrlText 2401);
+    private _elTgt =  _elField - ace_common_mapAltitude;
 
     _vehicle setVariable ["itc_land_tablet_fcs_tgtelev", _elField, true];
 
     private _shellType = lbData[2402, (lbCurSel 2402)];
-    _targetPos = [_gridField, false] call ace_common_fnc_getMapPosFromGrid;
-    _gunPos = getPosASL _vehicle;
+    private _targetPos = [_gridField, false] call ace_common_fnc_getMapPosFromGrid;
+    private _gunPos = getPosASL _vehicle;
 
-    _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
+    private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
 
     itc_land_guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
 
@@ -55,12 +55,12 @@ switch(_action) do {
     _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
   };
   case "prev" : {
-    _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
+    private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
     _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex - 1) max 0, true];
   };
   case "next" : {
-    _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
-    _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
+    private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
+    private _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
     _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
   };
   case "setFG" : {
@@ -76,23 +76,23 @@ switch(_action) do {
 
         switch (lbData [1904, lbCurSel 1904 ]) do {
             case "pd" : {
-                _fuzeText = _fuzeDesc;
+                private _fuzeText = _fuzeDesc;
             };
             case "prox" : {
                 private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
                 //itc_land_fuzeValues = _proxHOB;
                 _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
-                _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
+                private _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
             };
             case "time" : {
                 private _fuzeTime = parseNumber(ctrlText 1906);
                 _vehicle setVariable ["itc_land_fuzeValues",_fuzeTime,true];
                 _vehicle setVariable ["itc_land_mlrsfci_fuzeTime",_fuzeTime,true];
-                _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
+                private _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
             };
             case "delay" : {
                 _vehicle setVariable ["itc_land_fuzeValues",0.005,true];
-                _fuzeText = _fuzeDesc;
+                private _fuzeText = _fuzeDesc;
             };
         };
     };
@@ -102,11 +102,11 @@ switch(_action) do {
     if (_guidance isNotEqualTo []) then {
         switch (_guidance # 0) do {
             case "gps_inertial" : {
-                _targetGrid = ctrlText 1909;
+                private _targetGrid = ctrlText 1909;
                 //player sidechat itc_land_guidance_targetGrid;
-                _targetPos = [_targetGrid,true] call CBA_fnc_mapGridToPos;
+                private _targetPos = [_targetGrid,true] call CBA_fnc_mapGridToPos;
                 //player sidechat str _targetPos;
-                _targetAlt = parseNumber(ctrlText 1911);
+                private _targetAlt = parseNumber(ctrlText 1911);
                 _targetPos set [2,(_targetAlt - ace_common_mapAltitude)];
                 //player sidechat str _targetPos;
 
@@ -121,12 +121,12 @@ switch(_action) do {
 };
 
 if (_action in ["calc","prev","next"]) then {
-    _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
+    private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
 
     if(count _solutions > 0) then {
-      _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-      _solution = _solutions # _solutionIndex;
-      _solutionString = "";
+      private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
+      private _solution = _solutions # _solutionIndex;
+      private _solutionString = "";
       _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 
       _solutionString = _solutionString + format ["SLN: %1 / %2<br/>", _solutionIndex+1,(count _solutions)];

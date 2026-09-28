@@ -21,10 +21,10 @@
  */
 
 params ["_cbr", "_origin"];
-_origins = missionNamespace getVariable "itc_land_cobra_origins";
-_firingPositions = missionNamespace getVariable "itc_land_cobra_firingPositions";
+private _origins = missionNamespace getVariable "itc_land_cobra_origins";
+private _firingPositions = missionNamespace getVariable "itc_land_cobra_firingPositions";
 _origins pushBack _origin;
-_existingPosition = nil;
+private _existingPosition = nil;
 {
     _x params ["_shots", "_positions"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {

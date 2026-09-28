@@ -20,7 +20,7 @@
 
 #include "..\..\BCS_idc_defines.hpp"
 params ["_display"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 [_display, IDC_header1, "AIFMS"] call FUNC(setText);
 [_display, IDC_header2, "FDC Suite"] call FUNC(setText);
@@ -38,7 +38,7 @@ _vehicle = [] call EFUNC(common,getCurVehicle);
 
 [_display, IDC_fire_mission_list, 0] call FUNC(setFade);
 
-_defaults = [
+private _defaults = [
   ["bcs_splash_time", 10],
   ["bcs_mission_code", "FM"],
   ["bcs_mission_start", 1],

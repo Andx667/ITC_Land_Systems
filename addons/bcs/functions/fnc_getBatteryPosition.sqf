@@ -20,9 +20,9 @@
 params ["_gunList"];
 if(count _gunList == 0) exitWith {[0,0,0]};
 //add up all the eastings, northings and elevations
-_totalEasting = 0;
-_totalNorthing = 0;
-_totalElev = 0;
+private _totalEasting = 0;
+private _totalNorthing = 0;
+private _totalElev = 0;
 
 {
   (_x # 2) params ["_easting", "_northing", "_elev"];
@@ -31,6 +31,6 @@ _totalElev = 0;
   _totalElev = _totalElev + _elev;
 }forEach _gunList;
 
-_number = count _gunList;
+private _number = count _gunList;
 //return the totals divided by the gun count
 [_totalEasting / _number, _totalNorthing / _number, _totalElev / _number]

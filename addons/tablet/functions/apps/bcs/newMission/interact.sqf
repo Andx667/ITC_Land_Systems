@@ -24,13 +24,13 @@ params ["_action"];
 //player sideChat "type switch";
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
-_display = findDisplay 32562;
-_typeIndex = lbCurSel 6100;
+private _display = findDisplay 32562;
+private _typeIndex = lbCurSel 6100;
 if(_action == "targetType") then {
   //player sideChat format["ti %1",_typeIndex];
   {[_display, _x, 1] call FUNC(setFade);}forEach [6019,6403,6404,6019,6101,6601];
-  _labelTexts = ["","","",""];
-  _showFields = [];
+  private _labelTexts = ["","","",""];
+  private _showFields = [];
   switch (_typeIndex) do {
     case 0: {
       _labelTexts = ["Grid","Elevation","",""];
@@ -55,14 +55,14 @@ if(_action == "targetType") then {
 
 
 if(_action == "load") then {
-  _point = bcs_locations # (lbCurSel 6101);
+  private _point = bcs_locations # (lbCurSel 6101);
   [_display, 6401, _point # 1] call FUNC(setText);
   [_display, 6402, str (_point # 3)] call FUNC(setText);
 };
 
 if(_action == "save") then {
   _targetPage = [_typeIndex, lbCurSel 6101, UITEXT(6401),UITEXT(6402),UITEXT(6403),UITEXT(6404)];
-  _targetPos = _targetPage call EFUNC(bcs,calculateTarget);
+  private _targetPos = _targetPage call EFUNC(bcs,calculateTarget);
   _targetPage set [6, _targetPos];
   _mission set [2, _targetPage];
   _mission set [0, UITEXT(6400)];

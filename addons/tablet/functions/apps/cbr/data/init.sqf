@@ -23,8 +23,8 @@ ctrlShow [13602, true];
 
 [_display, IDC_workspace_header, "Data"] call FUNC(setText);
 
-_firesStrings = itc_land_cobra_engagements apply {
-  _pos = [_x # 2 # 0] call ace_common_fnc_getMapGridFromPos;
+private _firesStrings = itc_land_cobra_engagements apply {
+  private _pos = [_x # 2 # 0] call ace_common_fnc_getMapGridFromPos;
   format["%1            POS %2 %3           Shots %4         Last Shot %5",
     _x # 0,
     _pos # 0, _pos # 1,

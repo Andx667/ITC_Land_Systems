@@ -30,5 +30,5 @@ SETTEXT(6402,_in1);
 SETTEXT(6403,_in2);
 SETTEXT(6404,_in3);
 [6100, ["Grid","Shift","Polar","QuickLay"], _targetTypeIndex] call FUNC(fillComboBox);
-_knownPoints = bcs_locations apply {_x #  0};
+private _knownPoints = bcs_locations apply {_x #  0};
 [6101, _knownPoints, _kpi] call FUNC(fillComboBox);

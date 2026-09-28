@@ -58,15 +58,15 @@ _btab = _btab select 0;
 hint "1...";
 
 // Calculate min and max range based on median offset.
-_mo = floor(((_heightMax - _heightMin) / _heightStep)*0.5);
+private _mo = floor(((_heightMax - _heightMin) / _heightStep)*0.5);
 private _rangeMin = 999999;
 private _rangeMax = -1;
-for [{_i=0;},{_i < count(_btab)},{_i=_i+1;}] do
+for [{private _i=0;},{_i < count(_btab)},{_i=_i+1;}] do
 {
-    _slice = (_btab select _i) select 2;
+    private _slice = (_btab select _i) select 2;
     if (count _slice >= (_mo+1)) then
     {
-        _range = (_slice select _mo) select 0;
+        private _range = (_slice select _mo) select 0;
         if (_range < _rangeMin) then {_rangeMin = _range;};
         if (_range > _rangeMax) then {_rangeMax = _range;};
     };
@@ -75,7 +75,7 @@ for [{_i=0;},{_i < count(_btab)},{_i=_i+1;}] do
 debugMR = _rangeMax;
 
 // Generate SQF
-_sqf = "";
+private _sqf = "";
 _sqf = _sqf + format ["// ARTY+ACE Module ballistics table.%1// Magazine: %2%1// Ammo: %3%1// AirFriction: %4%1// MuzzleVelocity: %5%1%1", toString [10], _magazine, _ammo, _airFriction, _muzzleVelocity];
 _sqf = _sqf + format ["private _minHeight = %1;%2", _heightMin, toString[10]];
 _sqf = _sqf + format ["private _maxHeight = %1;%2", _heightMax, toString[10]];
@@ -83,9 +83,9 @@ _sqf = _sqf + format ["private _hstep = %1;%2", _heightStep, toString[10]];
 _sqf = _sqf + format ["private _minRange = %1;%2", _rangeMin, toString[10]];
 _sqf = _sqf + format ["private _maxRange = %1;%2", _rangeMax, toString[10]];
 _sqf = _sqf + format ["private _btab = [%1", toString[10]];
-for [{_i=0;},{_i < count(_btab);},{_i=_i+1;}] do
+for [{private _i=0;},{_i < count(_btab);},{_i=_i+1;}] do
 {
-    _tail = ",";
+    private _tail = ",";
     if (_i == (count(_btab) - 1)) then
     {
         _tail = "";

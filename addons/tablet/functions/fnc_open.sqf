@@ -22,8 +22,8 @@
 params ["_tabletClass",["_tabletOwner",player]];
 createDialog "itc_land_tablet";
 
-_vehicle = [] call EFUNC(common,getCurVehicle);
-_display = findDisplay 32562;
+private _vehicle = [] call EFUNC(common,getCurVehicle);
+private _display = findDisplay 32562;
 if(!(_vehicle isKindOf "Man")) then {
   //_tabletClass = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "itc_land" >> "tablet")  call BIS_fnc_getCfgData;
 };
@@ -32,7 +32,7 @@ _vehicle setVariable ["apps", (configFile >> "CfgWeapons" >> _tabletClass >> "ap
 if(isNil{_vehicle getVariable "app"}) then {
   _vehicle setVariable ["app", "home"];
 };
-_page = if(isNil{_vehicle getVariable "page"}) then [{""},{"OPEN"}];
+private _page = if(isNil{_vehicle getVariable "page"}) then [{""},{"OPEN"}];
 [{
   _this select 0 params ["_display","_vehicle", "_app", "_page"];
   if(!dialog || !alive player) then { //ensure player is alive and dialog is open
@@ -48,7 +48,7 @@ _page = if(isNil{_vehicle getVariable "page"}) then [{""},{"OPEN"}];
     };
     _app = _vehicle getVariable "app"; //switch the app variable
     [_app] call FUNC(compileApp);
-    _newPage = [_display] call itc_land_tablet_fnc_appInit; //initialize the new app
+    private _newPage = [_display] call itc_land_tablet_fnc_appInit; //initialize the new app
     if(_page != "OPEN") then { //this makes sure the init page isn't loaded when you're re-opening an already running tablet
       _vehicle setVariable ["page", _newPage];
     };

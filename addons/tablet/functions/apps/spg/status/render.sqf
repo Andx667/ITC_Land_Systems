@@ -18,16 +18,16 @@
  */
 
 params ["_display"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 
-_allDamage = getAllHitPointsDamage _vehicle;
+private _allDamage = getAllHitPointsDamage _vehicle;
 _allDamage params ["", "_name", "_status"];
 
-_resString = "";
+private _resString = "";
 
 for "_i" from 0 to (count _status - 1) step 1 do {
-  _col = "acff99";
-  _stat = "OK";
+  private _col = "acff99";
+  private _stat = "OK";
   if(_status select _i > 0) then {_col = "ff7f00"; _stat = "DAM";};
   if(_status select _i > 0.5) then {_col = "ff0000"; _stat = "FAIL";};
   _resString = _resString + format["<t align='left' color='#%1'>%2    %3</t>",_col,_name select _i, _stat] + "<br/>";

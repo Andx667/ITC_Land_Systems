@@ -19,7 +19,7 @@
  */
 
 params ["_action"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 switch(_action) do {
   //case "side1": {
   //  _vehicle setVariable ["page", "settings"];

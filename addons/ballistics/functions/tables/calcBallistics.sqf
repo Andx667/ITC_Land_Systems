@@ -29,17 +29,17 @@
 
 private ["_offsetTable", "_offsetIdx", "_useElevation", "_addTab", "_offsetEntry"];
 
-_magazine = _this select 0;
-_emin = _this select 1;
-_emax = _this select 2;
-_estep = _this select 3;
-_hmin = _this select 4;
-_hmax = _this select 5;
-_hstep = _this select 6;
-_muzzle_velocity = _this select 7;
-_airFriction = _this select 8;
+private _magazine = _this select 0;
+private _emin = _this select 1;
+private _emax = _this select 2;
+private _estep = _this select 3;
+private _hmin = _this select 4;
+private _hmax = _this select 5;
+private _hstep = _this select 6;
+private _muzzle_velocity = _this select 7;
+private _airFriction = _this select 8;
 
-_ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
+private _ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
 if((count _this) < 8) then {
     _muzzle_velocity = getNumber(configFile >> "CfgMagazines" >> _magazine >> "initSpeed");
 };
@@ -54,36 +54,36 @@ debugAF = _airFriction;
 // based on the elevation step value.
 
 
-_grav = -9.80665;                      // Gravity constant.
-_fps = 60;                             // Frames per second for calculation.
+private _grav = -9.80665;                      // Gravity constant.
+private _fps = 60;                             // Frames per second for calculation.
    
 // Stops
-_minrange = 99999999;
-_maxrange = 0;
+private _minrange = 99999999;
+private _maxrange = 0;
 
 // Initialize resultant set of data
-_btab = [];
-_elevation = 0;
+private _btab = [];
+private _elevation = 0;
 
 for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
         // Initial params
-        _x = 0;
-        _y = 0.1;
-        _ymax = 0;
-        _xmax = 0;
-        _vel = _muzzle_velocity;
-        _fc = 0;
+        private _x = 0;
+        private _y = 0.1;
+        private _ymax = 0;
+        private _xmax = 0;
+        private _vel = _muzzle_velocity;
+        private _fc = 0;
         
 
         _useElevation = _elevation;
         
         // Set t0 parameters
-        _vx = _vel * cos(_useElevation);
-        _vy = _vel * sin(_useElevation);
-        _frame = 1 / _fps;
+        private _vx = _vel * cos(_useElevation);
+        private _vy = _vel * sin(_useElevation);
+        private _frame = 1 / _fps;
         
-        _slices = [];
-        _agate = _hmax;
+        private _slices = [];
+        private _agate = _hmax;
         
         while {_y >= _hmin} do
         {
@@ -92,7 +92,7 @@ for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
             _vy = _vy + (_vy * _vel * _airFriction * _frame);
             _vy = _vy + (_grav * _frame);
             _vel = sqrt(_vx*_vx + _vy*_vy);
-            _elev = asin (_vy / _vel);
+            private _elev = asin (_vy / _vel);
             // Increment positions
             _y = _y + (_vy * _frame);
             _x = _x + (_vx * _frame);
@@ -130,8 +130,8 @@ for [{_elevation=_emin},{_elevation<=_emax},{_elevation=_elevation+_estep}] do {
         };
         
         // Order slices lowest to highest
-        _rSlices = [];
-        for [{_a = count(_slices)-1;},{_a >= 0},{_a = _a - 1}] do
+        private _rSlices = [];
+        for [{private _a = count(_slices)-1;},{_a >= 0},{_a = _a - 1}] do
         {
             _rSlices pushBack (_slices select _a);
         };

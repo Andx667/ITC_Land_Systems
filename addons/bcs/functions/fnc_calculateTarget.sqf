@@ -24,9 +24,9 @@
  */
 
 params ["_targetTypeIndex","_kpi","_in0","_in1","_in2","_in3"];
-_targetPos = [];
+private _targetPos = [];
 if(_targetTypeIndex == 0) then {
-  _pos = [_in0, false] call ace_common_fnc_getMapPosFromGrid;
+  private _pos = [_in0, false] call ace_common_fnc_getMapPosFromGrid;
   _targetPos = [_pos # 0, _pos # 1, parseNumber _in1];
 };
 if(_targetTypeIndex == 1 || _targetTypeIndex == 2) then {
@@ -37,8 +37,8 @@ if(_targetTypeIndex == 3) then {
 };
 
 if(_targetTypeIndex > 0) then {
-  _lr = if(_targetTypeIndex == 1) then [{_in2},{"0"}];
-  _ud = if(_targetTypeIndex == 1) then [{_in3},{_in2}];
+  private _lr = if(_targetTypeIndex == 1) then [{_in2},{"0"}];
+  private _ud = if(_targetTypeIndex == 1) then [{_in3},{_in2}];
   _targetPos = [_targetPos, parseNumber _in0, parseNumber _in1, parseNumber _lr, parseNumber _ud] call FUNC(adjustGrid);
 };
 _targetPos

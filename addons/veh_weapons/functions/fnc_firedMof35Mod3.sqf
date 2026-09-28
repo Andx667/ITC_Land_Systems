@@ -27,8 +27,8 @@
 params ["_vehicle", "", "", "", "_ammo", "_magazine", "_projectile", "_gunner"];
 if (!local _gunner) exitWith {};
 
-_fuzeType = "time";
-_fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
+private _fuzeType = "time";
+private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
 private _guidanceInfo = [
   [
     _vehicle getVariable ["itc_land_guidance_laserCode",1111],
@@ -47,11 +47,11 @@ private _guidanceInfo = [
     _pfhValues set [2, _position];
   };
 
-  _triggered = time > _firedTime + _fuzeTime;
+  private _triggered = time > _firedTime + _fuzeTime;
 
   if(_triggered && alive _projectile) exitWith {
-    _subMunitionScript = configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionScript";
-    _subMunitionCount = getNumber (configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionCount");
+    private _subMunitionScript = configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionScript";
+    private _subMunitionCount = getNumber (configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionCount");
     (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
     if (isText _subMunitionScript) then {
       for "_i" from 1 to _subMunitionCount step 1 do {

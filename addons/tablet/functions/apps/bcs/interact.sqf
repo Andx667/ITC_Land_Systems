@@ -20,7 +20,7 @@
 
 params ["_action"];
 #include "bcsDefines.hpp"
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 switch(_action) do {
   case "side1": {
     _vehicle setVariable ["page", "settings"];
@@ -32,8 +32,8 @@ switch(_action) do {
     _vehicle setVariable ["page", "locStores"];
   };
   case "side5": {
-    _ident = GENIDENT;
-    _newMission = EMPTYMISSION(_ident);
+    private _ident = GENIDENT;
+    private _newMission = EMPTYMISSION(_ident);
     bcs_missions pushBack _newMission;
     bcs_mission_index = (count bcs_missions) - 1;
     if(_vehicle getVariable "page" == "newMission") then {

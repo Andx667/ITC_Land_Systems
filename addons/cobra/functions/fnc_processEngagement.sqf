@@ -22,8 +22,8 @@
  */
 
 params ["_cbr", "_origin"];
-_engagements = missionNamespace getVariable "itc_land_cobra_engagements";
-_existingPosition = nil;
+private _engagements = missionNamespace getVariable "itc_land_cobra_engagements";
+private _existingPosition = nil;
 {
     _x params ["_ident","_shots", "_positions", "_firstShot", "_lastShot"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {
@@ -40,7 +40,7 @@ _existingPosition = nil;
 }forEach _engagements;
 
 if(isNil{_existingPosition}) then {
-    _start = missionNamespace getVariable "itc_land_cobra_start";
+    private _start = missionNamespace getVariable "itc_land_cobra_start";
     _engagements pushBack [format["CB%1",[_start,4] call cba_fnc_formatNumber],1, [_origin], time, time, dayTime];
     missionNamespace setVariable ["itc_land_cobra_start", _start + 1];
 };

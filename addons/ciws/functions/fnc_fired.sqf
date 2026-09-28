@@ -33,7 +33,7 @@ params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 if(!local _gunner) exitWith {}; //make sure it doesn't get executed everywhere
 if(!ITC_LAND_CIWS) exitWith {};  //if the CIWS system is turned off, stop the script
 
-_interceptable = false;
+private _interceptable = false;
 { //loop through interceptable ammo base classes
   if(_ammo isKindOf [_x, configFile >> "cfgAmmo"]) exitWith {_interceptable = true;};
 }forEach ITC_LAND_CIWS_INTERCEPTABLE;

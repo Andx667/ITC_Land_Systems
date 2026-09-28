@@ -23,19 +23,19 @@
  */
 
 params ["_cbr"];
-_shells = missionNamespace getVariable "itc_land_cobra_shells";
-_toRemove = [];
+private _shells = missionNamespace getVariable "itc_land_cobra_shells";
+private _toRemove = [];
 {
-  _dir = deg (_cbr animationPhase "mainTurret");
+  private _dir = deg (_cbr animationPhase "mainTurret");
   _dir = (getDir _cbr - _dir);
   if(_dir > 360) then {_dir = _dir - 360;};
-  _angleTo = abs (((_dir) + 360) - ((_cbr getDir _x) + 360));
-  _inRange = _x distance _cbr < 10000;
+  private _angleTo = abs (((_dir) + 360) - ((_cbr getDir _x) + 360));
+  private _inRange = _x distance _cbr < 10000;
   if(_angleTo < 23 && _inRange && !(terrainIntersectASL [getPosASL _x, (getPosASL _cbr) vectorAdd [0,0,3]])) then {
     _toRemove pushBack _x;
-    _impact = [_x] call FUNC(calcImpact);
+    private _impact = [_x] call FUNC(calcImpact);
     [_cbr, _impact] call FUNC(processImpact);
-    _origin = [_x] call FUNC(calcOrigin);
+    private _origin = [_x] call FUNC(calcOrigin);
     [_cbr, _origin] call FUNC(processOrigin);
     [_cbr, _origin] call FUNC(processEngagement);
   };
@@ -45,8 +45,8 @@ _toRemove = [];
 } forEach _shells;
 missionNamespace setVariable ["itc_land_cobra_shells", _shells - _toRemove];
 
-_activeShells = missionNamespace getVariable "itc_land_cobra_activeShells";
-_toRemoveShells = [];
+private _activeShells = missionNamespace getVariable "itc_land_cobra_activeShells";
+private _toRemoveShells = [];
 {
   if(time > _x # 1) then {_toRemoveShells pushBack _x;};
 } forEach _activeShells;

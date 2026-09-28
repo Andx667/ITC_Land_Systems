@@ -96,7 +96,7 @@ switch ( _loaderType ) do {
 
                     sleep (2+random(1));
 
-                    _weapon = (weapons _vehicle) select 0;
+                    private _weapon = (weapons _vehicle) select 0;
 
                     _vehicle removeWeapon _weapon;
                     _vehicle addMagazine _magClass;
@@ -174,7 +174,7 @@ switch ( _loaderType ) do {
                     _vehicle setVariable ["itc_land_ammoHandler_status",[2,2,"INSERTING CHARGE"],true]; [] call FUNC(updateStatus);
 
                     sleep 0.5;
-                    _weapon = (weapons _vehicle) select 0;
+                    private _weapon = (weapons _vehicle) select 0;
 
                     _vehicle removeWeapon _weapon;
                     _vehicle addMagazine _magClass;

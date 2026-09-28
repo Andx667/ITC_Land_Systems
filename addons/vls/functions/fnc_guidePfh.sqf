@@ -41,7 +41,7 @@ _this call FUNC(updateData);
 
 private _angles = [_projectile, _steerPoint, _position] call FUNC(angleToTarget);
 
-_return = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _targetCoordinates,_azimuth,_time]) call FUNC(determineSteerPoint);
+private _return = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _targetCoordinates,_azimuth,_time]) call FUNC(determineSteerPoint);
 _stage = (_return # 0);
 (_this select 0) set [9, (_return # 1)];
 

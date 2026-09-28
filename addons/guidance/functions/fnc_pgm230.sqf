@@ -32,7 +32,7 @@
  */
 
 params ["_unit", "", "", "", "_ammo", "", "_projectile", "_gunner"];
-_targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
+private _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
 
 if(isNil{_targetPos}) exitWith {};
 [{
@@ -53,7 +53,7 @@ if(isNil{_targetPos}) exitWith {};
   private _angleX = asin (_vectorModelSpace # 0);
   private _angleY = asin (_vectorModelSpace # 2);
 
-  _turnRate = 12 * _frameTime;
+  private _turnRate = 12 * _frameTime;
   _projectile setDir (getDir _projectile) + (_angleX min _turnRate  max -_turnRate );
   if(((-_angleY) > 45)) then {
     [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;

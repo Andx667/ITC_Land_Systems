@@ -30,8 +30,8 @@ if (_heightDelta < _heightMin || _heightDelta > _heightMax) exitWith {
 };
 
 // Find the over/under _solution columns
-_heightIndexLower = floor ((_heightDelta - _heightMin) / _heightStep);
-_heightIndexHigher = ceil ((_heightDelta - _heightMin) / _heightStep);
+private _heightIndexLower = floor ((_heightDelta - _heightMin) / _heightStep);
+private _heightIndexHigher = ceil ((_heightDelta - _heightMin) / _heightStep);
 
 // If the _solution is on a column boundry
 if (_heightIndexHigher == _heightIndexLower) then {
@@ -39,25 +39,25 @@ if (_heightIndexHigher == _heightIndexLower) then {
 };
 
 // Interpolation factor
-_heightFactor = ((_heightDelta - _heightMin) - _heightIndexLower * _heightStep) /
+private _heightFactor = ((_heightDelta - _heightMin) - _heightIndexLower * _heightStep) /
               (_heightIndexHigher * _heightStep - _heightIndexLower * _heightStep);
 
-_distanceNearest = 99999999;
-_elevNearestRow = -1;
-_elevNextNearestRow = -1;
-_sliceNextNearest = [];
+private _distanceNearest = 99999999;
+private _elevNearestRow = -1;
+private _elevNextNearestRow = -1;
+private _sliceNextNearest = [];
 
 // Find closest elevation _solution in the table
 for "_i" from 1 to ((count _table) - 2) step 1 do {
-    _prevSliceCount = count (_table # (_i-1) # 2);
-    _slices = _table # _i # 2;
-    _nextSliceCount = count (_table # (_i+1) # 2);
+    private _prevSliceCount = count (_table # (_i-1) # 2);
+    private _slices = _table # _i # 2;
+    private _nextSliceCount = count (_table # (_i+1) # 2);
 
     if ((count _slices) > _heightIndexHigher && _prevSliceCount > _heightIndexHigher && _nextSliceCount > _heightIndexHigher) then {
-        _sliceLow = _slices # _heightIndexLower;
-        _sliceHigh = _slices # _heightIndexHigher;
-        _testSlice = [_sliceLow, _sliceHigh, _heightFactor] call FUNC(interpolateSlices);
-        _testDist = _testSlice # 0;
+        private _sliceLow = _slices # _heightIndexLower;
+        private _sliceHigh = _slices # _heightIndexHigher;
+        private _testSlice = [_sliceLow, _sliceHigh, _heightFactor] call FUNC(interpolateSlices);
+        private _testDist = _testSlice # 0;
 
         if (abs(_testDist - _distance) < _distanceNearest) then {
             _distanceNearest = abs(_testDist - _distance);
@@ -70,13 +70,13 @@ if (_elevNearestRow < 1) exitWith {
 };
 
 // Find the nearest neighboring _solutions
-_sliceNearestLowerBase = _table # (_elevNearestRow-1) # 2;
-_sliceNearestLower = [_sliceNearestLowerBase # _heightIndexLower, _sliceNearestLowerBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
-_sliceNearestHigherBase = _table # (_elevNearestRow+1) # 2;
-_sliceNearestHigher = [_sliceNearestHigherBase # _heightIndexLower, _sliceNearestHigherBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
+private _sliceNearestLowerBase = _table # (_elevNearestRow-1) # 2;
+private _sliceNearestLower = [_sliceNearestLowerBase # _heightIndexLower, _sliceNearestLowerBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
+private _sliceNearestHigherBase = _table # (_elevNearestRow+1) # 2;
+private _sliceNearestHigher = [_sliceNearestHigherBase # _heightIndexLower, _sliceNearestHigherBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
 
-_distanceNearestLower = _sliceNearestLower # 0;
-_distanceNearestHigher = _sliceNearestHigher # 0;
+private _distanceNearestLower = _sliceNearestLower # 0;
+private _distanceNearestHigher = _sliceNearestHigher # 0;
 if (abs(_distanceNearestLower - _distance) < abs(_distanceNearestHigher - _distance)) then {
     _elevNextNearestRow = _elevNearestRow - 1;
     _sliceNextNearest = _sliceNearestLower;
@@ -91,18 +91,18 @@ if ((_distance < _distanceNearestLower && _distance < _distanceNearestHigher) ||
     []
 };
 
-_sliceNearestBase = _table # _elevNearestRow # 2;
-_sliceNearest = [_sliceNearestBase # _heightIndexLower, _sliceNearestBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
+private _sliceNearestBase = _table # _elevNearestRow # 2;
+private _sliceNearest = [_sliceNearestBase # _heightIndexLower, _sliceNearestBase # _heightIndexHigher, _heightFactor] call FUNC(interpolateSlices);
 
-_distanceFactor = (_distance - _sliceNearest # 0) / (_sliceNextNearest # 0 - _sliceNearest # 0);
+private _distanceFactor = (_distance - _sliceNearest # 0) / (_sliceNextNearest # 0 - _sliceNearest # 0);
 
 // Find the actual elevations
-_elevNearest = _table # _elevNearestRow # 0;
-_elevNextNearest = _table # _elevNextNearestRow # 0;
+private _elevNearest = _table # _elevNearestRow # 0;
+private _elevNextNearest = _table # _elevNextNearestRow # 0;
 
 // Find maximum ordnance
-_maxOrdNearest = _table # _elevNearestRow # 1;
-_maxOrdNextNearest = _table # _elevNextNearestRow # 1;
+private _maxOrdNearest = _table # _elevNearestRow # 1;
+private _maxOrdNextNearest = _table # _elevNextNearestRow # 1;
 
 
 if (count (_table # 0) >= 7) exitWith {
@@ -111,7 +111,7 @@ if (count (_table # 0) >= 7) exitWith {
 };
 
 // Interpolate _solution
-_solution =  [
+private _solution =  [
     [_elevNearest, _sliceNearest # 0, _sliceNearest # 2, _sliceNearest # 1, _sliceNearest # 3, _sliceNearest # 4, _maxOrdNearest
     ],
     [_elevNextNearest, _sliceNextNearest # 0, _sliceNextNearest # 2, _sliceNextNearest # 1, _sliceNextNearest # 3, _sliceNextNearest # 4, _maxOrdNextNearest
@@ -119,5 +119,5 @@ _solution =  [
     _distanceFactor
 ] call FUNC(interpolateSlices);
 
-_rs = [round(_solution # 0 *17.77777778), _solution # 2, _solution # 4, _solution # 5, _solution # 6, _solution # 1, _solution # 3];
+private _rs = [round(_solution # 0 *17.77777778), _solution # 2, _solution # 4, _solution # 5, _solution # 6, _solution # 1, _solution # 3];
 _rs

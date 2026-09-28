@@ -21,7 +21,7 @@
 
 #include "..\..\..\BCS_idc_defines.hpp"
 params ["_display"];
-_vehicle = [] call EFUNC(common,getCurVehicle);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
 ctrlShow [13701, true];
 [_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
 //(_display displayCtrl 1501) lbAdd "MANUAL TARGETING";
@@ -65,11 +65,11 @@ if ((!(isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtgrid"}))&&(!(isNil {_
   [2402,_magazineNames,0,_magazines] call FUNC(fillComboBox);
   [2402, lbCurSel 2402] call FUNC(mlrsfci_onlblselchanged_roundType);
   
-_solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
+private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
 if(count _solutions > 0) then {
-  _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-  _solution = _solutions # _solutionIndex;
-  _solutionString = "";
+  private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
+  private _solution = _solutions # _solutionIndex;
+  private _solutionString = "";
   _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 
   _solutionString = _solutionString + format ["SLN: %1 / %2<br/>", _solutionIndex+1,(count _solutions)];

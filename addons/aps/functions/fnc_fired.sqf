@@ -40,9 +40,9 @@ if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
     [_this select 1] call CBA_fnc_removePerFrameHandler;
   };
 
-  _begin = getPosASL _projectile;
-  _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
-  _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
+  private _begin = getPosASL _projectile;
+  private _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
+  private _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
   if (count _intersects > 0) exitWith {
     { // forEach _intersects
       private _aps = _x getVariable ["itc_land_aps_modules", nil];

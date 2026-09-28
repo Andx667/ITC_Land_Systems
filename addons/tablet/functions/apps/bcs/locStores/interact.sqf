@@ -22,16 +22,16 @@ params ["_action"];
 
 switch(_action) do {
   case "addLocation": {
-    _num = UITEXT(5402);
-    _posStr = UITEXT(5404);
-    _elev = UINUMBER(5406);
-    _friendly = lbText [5408, (lbCurSel 5408)];
-    _pos = [_posStr, false] call ace_common_fnc_getMapPosFromGrid;
+    private _num = UITEXT(5402);
+    private _posStr = UITEXT(5404);
+    private _elev = UINUMBER(5406);
+    private _friendly = lbText [5408, (lbCurSel 5408)];
+    private _pos = [_posStr, false] call ace_common_fnc_getMapPosFromGrid;
     _pos = _pos vectorAdd [0,0,_elev];
-    _locString = format["%1               %2              %3               %4", _num, _posStr, _elev, _friendly];
-    _locData = [_num, _posStr, _pos, _elev, _friendly];
+    private _locString = format["%1               %2              %3               %4", _num, _posStr, _elev, _friendly];
+    private _locData = [_num, _posStr, _pos, _elev, _friendly];
 
-    _location = bcs_locations findIf {_x # 0 == _num};
+    private _location = bcs_locations findIf {_x # 0 == _num};
     if(_location == -1) then {
       lbAdd [5411, _locString];
       bcs_locations pushBack _locData;
@@ -41,7 +41,7 @@ switch(_action) do {
     };
   };
   case "removeLocation": {
-    _index = lbCurSel 5411;
+    private _index = lbCurSel 5411;
     bcs_locations deleteAt _index;
     lbDelete [5411, _index];
   };

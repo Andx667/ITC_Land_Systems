@@ -41,7 +41,7 @@ if(count _btySolutions == 0) exitWith {
   SETTEXT(8019,"");//angle
   SETTEXT(8020,"");//distance
   if(count bcs_bty_guns > 0) then {
-    _btyPos = [bcs_bty_guns] call EFUNC(bcs,getBatteryPosition);
+    private _btyPos = [bcs_bty_guns] call EFUNC(bcs,getBatteryPosition);
     SETTEXT(8020,str round (_btyPos distance _tgtPos));//distance
   };
 };
@@ -50,14 +50,14 @@ _mission set [5, (count _btySolutions) - 1];
 SETTEXT(8018,str (round _maxOrd));//ordinate
 SETTEXT(8019,str (round _impAng));//angle
 SETTEXT(8020,str (round _dist));//distance
-_text = format["SOLUTION %1 OUT OF %2", (_curSolution + 1), count (bcs_solutions # 0)];
+private _text = format["SOLUTION %1 OUT OF %2", (_curSolution + 1), count (bcs_solutions # 0)];
 SETTEXT(8022,_text);
 
 lbClear 8500;
 {
   _x params ["_num"];
-  _solution = _gunSolutions # _forEachIndex # 1 # _curSolution;
-  _solText = format[
+  private _solution = _gunSolutions # _forEachIndex # 1 # _curSolution;
+  private _solText = format[
     "G: %1     CH: %2     AZ: %3     DF: %4     QD: %5     TOF: %6",
     _num, _solution # 0, round (_solution # 1), _solution # 2, round (_solution # 3), [( _solution # 4),1,2] call CBA_fnc_formatNumber];
   (_display displayCtrl 8500) lbAdd _solText;

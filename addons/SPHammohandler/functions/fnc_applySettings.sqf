@@ -146,7 +146,7 @@ _vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
     //ctrlEnable [86009, true];
     ctrlEnable [86010, true];
 
-    _ctrl = ((findDisplay 86000) displayCtrl 86010);
+    private _ctrl = ((findDisplay 86000) displayCtrl 86010);
     ctrlSetFocus _ctrl;
     private _settings = [
         [
