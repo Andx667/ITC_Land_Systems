@@ -1,0 +1,5 @@
+#define COMPONENT ballistics
+#define COMPONENT_BEAUTIFIED Ballistics
+#include "\z\itc_land\addons\main\script_mod.hpp"
+
+#include "\z\itc_land\addons\main\script_macros.hpp"

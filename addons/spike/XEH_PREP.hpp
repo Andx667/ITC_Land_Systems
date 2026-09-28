@@ -1,0 +1,14 @@
+PREP(init);
+PREP(selectSpike);
+PREP(sightViewChanged);
+PREP(sightClosed);
+PREP(fired);
+PREP(cameraUpdate);
+PREP(updateSightOverlay);
+PREP(handleLock);
+PREP(intersectScreenToWorld);
+PREP(intersectAtPolar);
+PREP(startCamera);
+PREP(guidance);
+PREP(handleCameraAiming);
+PREP(reloaded);

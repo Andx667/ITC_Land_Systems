@@ -1,0 +1,15 @@
+PREP(serverInit);
+PREP(findAvailableID);
+PREP(onClientConnect);
+PREP(onClientDisconnect);
+PREP(onClientTX);
+PREP(findIDTargets);
+PREP(receiveIDRegistry);
+PREP(connect);
+PREP(disconnect);
+PREP(transmit);
+PREP(onClientRX);
+PREP(registerEvent);
+PREP(unregisterEvent);
+PREP(init);
+PREP(validateID);

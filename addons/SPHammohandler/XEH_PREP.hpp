@@ -1,0 +1,10 @@
+PREP(onLoad);
+PREP(updateStatus);
+PREP(fillAmmoList);
+PREP(fillFuzeList);
+PREP(onSelectAmmo);
+PREP(onSelectFuze);
+PREP(changeCharge);
+PREP(applySettings);
+PREP(loadGun);
+PREP(firedEH);

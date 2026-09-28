@@ -1,0 +1,16 @@
+#include "..\..\..\..\script_component.hpp"
+
+params ["_display"];
+#include "..\..\..\BCS_idc_defines.hpp"
+#include "..\bcsDefines.hpp"
+MISSION;MISSIONPARAMS;
+ctrlShow [13505, true];
+[_display, IDC_workspace_header, format ["%1 ENGAGEMENT",_ident]] call FUNC(setText);
+
+_shellTypes = bcs_shellTypes # (bcs_bty_type # 0);
+_shellNames = _shellTypes apply {((configFile >> "CfgMagazines" >> _x >> "displayName")  call BIS_fnc_getCfgData)};
+[7100,_shellNames,_shellTypeIndex,_shellTypes] call FUNC(fillComboBox);
+
+[7101,["Parallel","Converged","Linear","Open","Special"],_sheafTypeIndex] call FUNC(fillComboBox);
+
+[7401,["On","Off"],_quick] call FUNC(fillComboBox);

@@ -1,4 +1,19 @@
+# =========================
+# HEMTT
+# =========================
+
+*.pbo
+.hemttout
+hemtt
+hemtt.exe
+*.biprivatekey
+*.hemttprivatekey
+releases
+
+# =========================
 # Windows image file caches
+# =========================
+
 Thumbs.db
 ehthumbs.db
 

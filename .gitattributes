@@ -1,17 +1,13 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Sources
+*.cpp text diff=cpp linguist-language=cpp
+*.hpp text diff=cpp linguist-language=cpp
+*.rhai text diff=rust linguist-language=rust
 
-# Custom for Visual Studio
-*.cs     diff=csharp
+*.png binary
+*.jpg binary
+*.paa binary
 
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+# Linguistics
+# Exclude included files and examples from stats
+include/* linguist-vendored
+extra/* linguist-vendored

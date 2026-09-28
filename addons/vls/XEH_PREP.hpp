@@ -1,0 +1,16 @@
+PREP(fired);
+PREP(guide);
+PREP(guidePfh);
+PREP(updateData);
+PREP(angleToTarget);
+PREP(steerTo);
+PREP(determineSteerPoint);
+PREP(AGCAS);
+PREP(onLoad);
+PREP(onChar);
+PREP(onSelectAngle);
+PREP(onSelectTarget);
+PREP(saveTGT);
+PREP(removeTGT);
+PREP(adHocLaunch);
+PREP(selectedLaunch);
