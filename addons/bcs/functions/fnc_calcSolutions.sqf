@@ -28,7 +28,7 @@ params ["_guns", "_shellType", "_targetPos", "_engagement"];
 _engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex","_magazine"];
 
 _magazineHeightModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_heightModifier";
-_magazineHeightModifier = if(isText _magazineHeightModifier) then [{getText _magazineHeightModifier}, {0}];
+_magazineHeightModifier = if(isNumber _magazineHeightModifier) then [{getNumber _magazineHeightModifier}, {0}];
 _targetPos = _targetPos vectorAdd [0,0,_magazineHeightModifier];
 _magazineTimeModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_timeModifier";
 _magazineTimeModifier = if(isNumber _magazineTimeModifier) then [{getNumber _magazineTimeModifier}, {0}];

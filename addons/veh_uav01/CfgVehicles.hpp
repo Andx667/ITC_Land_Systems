@@ -431,7 +431,7 @@ class CfgVehicles {
 
     };
     class I_UAV_01_F: UAV_01_base_F {
-        itc_land_PacksTo = "ITC_Land_B_UAV_Packed";
+        itc_land_PacksTo = "ITC_Land_I_UAV_Packed";
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {

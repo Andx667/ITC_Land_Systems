@@ -36,7 +36,7 @@ if ((count _targetList) > 0) then {
 };
 private _currentTGTindex = _vehicle getVariable ["ITC_Land_VLS_selectedTGT",[]];
 if ((lbSize 4103) > 0) then {
-    if ( (_currentTGTindex # 0) <= (lbSize 4103)) then {
+    if ( (count _currentTGTindex > 0) && {(_currentTGTindex # 0) < (lbSize 4103)}) then {
         //Recall last selection in ComboBox
         lbSetCurSel [4103, (_currentTGTindex # 0)];
     } else {
