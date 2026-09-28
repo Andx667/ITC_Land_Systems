@@ -1,1 +1,10 @@
 PREP(init);
+PREP(onLoad_RscGunnerSightSPH);
+PREP(onLoad_RscGunnerSightBasic);
+PREP(onLoad_RscAltGunnerSightSPH);
+PREP(onLoad_RscGunnerSightMLRS);
+PREP(onLoad_RscGunnerSightZamakMRLi);
+PREP(onLoad_RscIGS_SPH);
+PREP(onLoad_RscOptics_UAV_gunner);
+PREP(onLoad_RscOptics_GLTD_gunner);
+PREP(onLoad_RscOptics_strider_commander);
