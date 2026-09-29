@@ -22,5 +22,5 @@
 
 _data params ["_success","_info"];
 if(_success) then {
-  _target setVariable ["datalink_id",_destination];
+  _target setVariable [QGVAR(id),_destination];
 };

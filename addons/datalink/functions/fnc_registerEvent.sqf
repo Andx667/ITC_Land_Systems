@@ -21,6 +21,6 @@
 
 params ["_target", "_header", "_type", "_code"];
 
-private _functions = _target getVariable ["datalink_functions",[]];
+private _functions = _target getVariable [QGVAR(functions),[]];
 _functions pushBack _this;
-_target setVariable ["datalink_functions",_functions];
+_target setVariable [QGVAR(functions),_functions];

@@ -27,4 +27,4 @@ if(_autoStore) then {
   }] call FUNC(registerEvent);
 };
 
-["clientConnect",[_object, _id, _system]] call CBA_fnc_serverEvent;
+[QGVAR(clientConnect),[_object, _id, _system]] call CBA_fnc_serverEvent;

@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Renders the BCS solutionMission page's time-to-impact (TTI) countdown label, showing the

@@ -24,8 +24,8 @@ _transmission params ["_destination","_origin","_header","_type","_data"];
 
 private _returnData = [
   _target,
-  _target getVariable "firingPositions",
-  _target getVariable "engagements",
-  _target getVariable "activeShells"
+  _target getVariable QGVAR(firingPositions),
+  _target getVariable QGVAR(engagements),
+  _target getVariable QGVAR(activeShells)
 ];
-[_origin,_target getVariable "datalink_id","cobra","returnData",_returnData] call EFUNC(datalink,transmit);
+[_origin,_target getVariable QEGVAR(datalink,id),"cobra","returnData",_returnData] call EFUNC(datalink,transmit);

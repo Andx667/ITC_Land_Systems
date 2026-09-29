@@ -40,19 +40,19 @@ if(!(missionNamespace getVariable ["itc_land_cobra_app_hasInitialized",false])) 
     params ["_target","_transmission"];
     _transmission params ["_destination","_origin","_header","_type","_data"];
     _data params ["_vehicle","_origins","_engagements","_activeShells"];
-    _cobras = _target getVariable ["cobra_vehicles",[]];
-    _target setVariable ["cobra_vehicles",_cobras + [_vehicle]];
-    _target setVariable ["cobra_firingPositions",_origins];
-    _target setVariable ["cobra_engagements",_engagements];
-    _target setVariable ["cobra_activeShells",_activeShells];
+    _cobras = _target getVariable [QEGVAR(cobra,vehicles),[]];
+    _target setVariable [QEGVAR(cobra,vehicles),_cobras + [_vehicle]];
+    _target setVariable [QEGVAR(cobra,firingPositions),_origins];
+    _target setVariable [QEGVAR(cobra,engagements),_engagements];
+    _target setVariable [QEGVAR(cobra,activeShells),_activeShells];
   }] call EFUNC(datalink,registerEvent);
 
   [player, "cobra", "shellDetected", {
     params ["_target","_transmission"];
     _transmission params ["_destination","_origin","_header","_type","_data"];
     _data params ["_position","_tof"];
-    _activeShells = _target getVariable ["cobra_activeShells",[]];
-    _target setVariable ["cobra_activeShells",_activeShells + [[_position, _tof + time]]];
+    _activeShells = _target getVariable [QEGVAR(cobra,activeShells),[]];
+    _target setVariable [QEGVAR(cobra,activeShells),_activeShells + [[_position, _tof + time]]];
   }] call EFUNC(datalink,registerEvent);
 };
 

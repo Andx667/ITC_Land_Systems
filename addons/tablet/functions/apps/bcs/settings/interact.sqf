@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Handles BCS settings page interactions: "save" reads the splash time, mission code and
@@ -19,7 +21,7 @@ params ["_action"];
 #include "..\bcsDefines.hpp"
 
 if(_action == "save") then {
-  bcs_splash_time = UINUMBER(3205);
-  bcs_mission_code = UITEXT(3206);
-  bcs_mission_start = UINUMBER(3207);
+  GVAR(bcs_splash_time) = UINUMBER(3205);
+  GVAR(bcs_mission_code) = UITEXT(3206);
+  GVAR(bcs_mission_start) = UINUMBER(3207);
 };

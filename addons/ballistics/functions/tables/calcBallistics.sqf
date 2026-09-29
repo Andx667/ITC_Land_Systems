@@ -43,11 +43,11 @@ private _ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
 if((count _this) < 8) then {
     _muzzle_velocity = getNumber(configFile >> "CfgMagazines" >> _magazine >> "initSpeed");
 };
-debugMV = _muzzle_velocity;
+itc_land_ballistics_debugMV = _muzzle_velocity;
 if((count _this) < 9) then {
     _airFriction = getNumber(configFile >> "CfgAmmo" >> _ammo >> "airFriction");
 };
-debugAF = _airFriction;
+itc_land_ballistics_debugAF = _airFriction;
 
 // Grab offset table if it exists. Offsets are used for calculating rocket artillery trajectories.
 // The number of entries in the offset table must match the number of entries in the generated ballistic table,

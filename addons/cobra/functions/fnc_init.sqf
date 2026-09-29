@@ -18,4 +18,4 @@
  */
 
 itc_land_cobras = [];
-cbr_positionNames_start = 0;
+GVAR(positionNames_start) = 0;

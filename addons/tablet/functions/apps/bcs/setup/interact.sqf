@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Handles BCS setup page interactions: "save" reads the battery name and selected battery
@@ -24,9 +26,9 @@ params ["_action"];
 private _listIndex = lbCurSel 4315;
 switch(_action) do {
   case "save": {
-    bcs_bty_name = UITEXT(4303);
+    GVAR(bcs_bty_name) = UITEXT(4303);
     private _gunIndex = lbCurSel 4304;
-    bcs_bty_type = [_gunIndex, lbData [4304, _gunIndex]];
+    GVAR(bcs_bty_type) = [_gunIndex, lbData [4304, _gunIndex]];
   };
   case "addGun": {
     private _num = UITEXT(4306);
@@ -38,17 +40,17 @@ switch(_action) do {
     private _gunString = format["%1               %2              %3               %4", _num, _posStr, _elev, _dir];
     private _gunData = [_num, _posStr, _pos, _elev, _dir];
 
-    private _gun = bcs_bty_guns findIf {_x # 0 == _num};
+    private _gun = GVAR(bcs_bty_guns) findIf {_x # 0 == _num};
     if(_gun == -1) then {
       lbAdd [4315, _gunString];
-      bcs_bty_guns pushBack _gunData;
+      GVAR(bcs_bty_guns) pushBack _gunData;
     } else {
-      bcs_bty_guns set [_gun, _gunData];
+      GVAR(bcs_bty_guns) set [_gun, _gunData];
       [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     };
   };
   case "removeGun": {
-    bcs_bty_guns deleteAt _listIndex;
+    GVAR(bcs_bty_guns) deleteAt _listIndex;
     lbDelete [4315, _listIndex];
   };
 };

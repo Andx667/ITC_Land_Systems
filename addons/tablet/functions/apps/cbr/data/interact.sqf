@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Handles interactions on the CBR Data page. On the "savePos" action, reads the currently selected
@@ -22,7 +24,7 @@ switch(_action) do {
     private _posIndex = lbCurSel 136001;
     private _pos = itc_land_cobra_engagements # _posIndex;
     private _MGRS = [_pos # 2 # 0] call ace_common_fnc_getMapGridFromPos;
-    if(isNil{bcs_locations}) then {bcs_locations = [];};
-    bcs_locations pushBack [_pos # 0, format["%1 %2",_MGRS # 0, _MGRS # 1], _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
+    if(isNil{GVAR(bcs_locations)}) then {GVAR(bcs_locations) = [];};
+    GVAR(bcs_locations) pushBack [_pos # 0, format["%1 %2",_MGRS # 0, _MGRS # 1], _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
   };
 };

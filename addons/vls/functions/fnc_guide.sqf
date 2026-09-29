@@ -29,7 +29,7 @@ private _angle = itc_land_target_IAtest;
 private _targetCoordinates = itc_land_target_test;
 private _azimuth = 0;//keep this 0 until target azimuth works
 
-_vehicle setVariable ["bomb_flying_target", _targetCoordinates];
+_vehicle setVariable [QGVAR(bomb_flying_target), _targetCoordinates];
 private _dropTime = time;
 
 //GUIDANCE

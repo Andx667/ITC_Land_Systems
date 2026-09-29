@@ -27,12 +27,12 @@ private _display = findDisplay 32562;
 if(!(_vehicle isKindOf "Man")) then {
   //_tabletClass = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "itc_land" >> "tablet")  call BIS_fnc_getCfgData;
 };
-_vehicle setVariable ["apps", (configFile >> "CfgWeapons" >> _tabletClass >> "apps")  call BIS_fnc_getCfgData];
-//_vehicle setVariable ["app", (_vehicle getVariable "apps") # 0];
-if(isNil{_vehicle getVariable "app"}) then {
-  _vehicle setVariable ["app", "home"];
+_vehicle setVariable [QGVAR(apps), (configFile >> "CfgWeapons" >> _tabletClass >> "apps")  call BIS_fnc_getCfgData];
+//_vehicle setVariable ["itc_land_tablet_app", (_vehicle getVariable "itc_land_tablet_apps") # 0];
+if(isNil{_vehicle getVariable QGVAR(app)}) then {
+  _vehicle setVariable [QGVAR(app), "home"];
 };
-private _page = if(isNil{_vehicle getVariable "page"}) then [{""},{"OPEN"}];
+private _page = if(isNil{_vehicle getVariable QGVAR(page)}) then [{""},{"OPEN"}];
 [{
   _this select 0 params ["_display","_vehicle", "_app", "_page"];
   if(!dialog || !alive player) then { //ensure player is alive and dialog is open
@@ -41,22 +41,22 @@ private _page = if(isNil{_vehicle getVariable "page"}) then [{""},{"OPEN"}];
 
   [_display] call FUNC(render);
 
-  if(_vehicle getVariable "app" != _app) then { //check if app switched
+  if(_vehicle getVariable QGVAR(app) != _app) then { //check if app switched
     [_display] call FUNC(clear); //clear app pages
     if(_app != "") then { //clear the previous app if it existed
       [_display] call FUNC(appClear); //clear app pages
     };
-    _app = _vehicle getVariable "app"; //switch the app variable
+    _app = _vehicle getVariable QGVAR(app); //switch the app variable
     [_app] call FUNC(compileApp);
     private _newPage = [_display] call itc_land_tablet_fnc_appInit; //initialize the new app
     if(_page != "OPEN") then { //this makes sure the init page isn't loaded when you're re-opening an already running tablet
-      _vehicle setVariable ["page", _newPage];
+      _vehicle setVariable [QGVAR(page), _newPage];
     };
   };
   [_display] call itc_land_tablet_fnc_appRender; //render the app
 
-  if(_vehicle getVariable "page" != _page) then { //check if page switched
-    _page = _vehicle getVariable "page"; //switch the app variable
+  if(_vehicle getVariable QGVAR(page) != _page) then { //check if page switched
+    _page = _vehicle getVariable QGVAR(page); //switch the app variable
     [_display] call FUNC(appClear); //clear app pages
     if(_page != "") then { //if there's a page, initlialize it
       [_app,_page] call FUNC(compilePage);

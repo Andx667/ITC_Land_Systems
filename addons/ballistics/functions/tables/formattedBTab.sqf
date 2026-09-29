@@ -18,7 +18,7 @@
  * 8: Air friction coefficient <NUMBER> (default: ammo's airFriction)
  *
  * Return Value:
- * None (formatted SQF table text is copied to the clipboard and stored in the global variable FORMATTEDBTAB)
+ * None (formatted SQF table text is copied to the clipboard and stored in the global variable itc_land_ballistics_formattedBTab)
  *
  * Example:
  * ["itc_Sh_82mm_HE", 45, 85, 1, -2000, 2000, 100] call itc_land_ballistics_fnc_formattedBTab
@@ -38,7 +38,7 @@ private _airFriction = _this select 8;
 
 hint "4...";
 private _ammo = getText(configFile >> "CfgMagazines" >> _magazine >> "ammo");
-btabammo = _ammo;
+GVAR(btabAmmo) = _ammo;
 
 
 // Normal artillery shell calculation
@@ -72,7 +72,7 @@ for [{private _i=0;},{_i < count(_btab)},{_i=_i+1;}] do
     };
 };
 
-debugMR = _rangeMax;
+GVAR(debugMR) = _rangeMax;
 
 // Generate SQF
 private _sqf = "";
@@ -99,4 +99,4 @@ _sqf = _sqf + format ["[_btab, _minRange, _maxRange, _minHeight, _maxHeight, _hs
 hint "0";
 
 copyToClipboard _sqf;
-FORMATTEDBTAB = _sqf;
+GVAR(formattedBTab) = _sqf;

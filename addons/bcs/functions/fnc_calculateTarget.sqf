@@ -8,7 +8,7 @@
  *
  * Arguments:
  * 0: Target type index <NUMBER> (0: Grid, 1: Shift from known point, 2: Polar from known point, 3: Quick lay from battery position)
- * 1: Known point index <NUMBER> (index into bcs_locations, used for types 1 and 2)
+ * 1: Known point index <NUMBER> (index into itc_land_tablet_bcs_locations, used for types 1 and 2)
  * 2: Input 0 <STRING> (type 0: grid reference; types 1-3: OT direction in mils)
  * 3: Input 1 <STRING> (type 0: target elevation; types 1-3: add/drop distance)
  * 4: Input 2 <STRING> (type 1: left/right distance; types 2-3: up/down elevation adjustment; unused for type 0)
@@ -30,10 +30,10 @@ if(_targetTypeIndex == 0) then {
   _targetPos = [_pos # 0, _pos # 1, parseNumber _in1];
 };
 if(_targetTypeIndex == 1 || _targetTypeIndex == 2) then {
-  _targetPos = (bcs_locations # _kpi) # 2;
+  _targetPos = (EGVAR(tablet,bcs_locations) # _kpi) # 2;
 };
 if(_targetTypeIndex == 3) then {
-  _targetPos = [bcs_bty_guns] call FUNC(getBatteryPosition);
+  _targetPos = [EGVAR(tablet,bcs_bty_guns)] call FUNC(getBatteryPosition);
 };
 
 if(_targetTypeIndex > 0) then {

@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Handles BCS engageMission page interactions: "back" returns to the newMission page without
@@ -26,14 +28,14 @@ params ["_action", "_listBox", "_target", "_value"];
 MISSION;MISSIONPARAMS;
 
 if(_action == "back") then {
-  (vehicle player) setVariable ["page", "newMission"];
+  (vehicle player) setVariable [QGVAR(page), "newMission"];
 };
 
 if(_action == "save") then {
-  private _magType = bcs_shellTypes # (bcs_bty_type # 0) # (lbCurSel 7100);
+  private _magType = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0) # (lbCurSel 7100);
   _engagePage = [lbCurSel 7101, lbCurSel 7401, UINUMBER(7402), UINUMBER(7403), lbCurSel 7100, _magType];
   _mission set [3, _engagePage];
   SAVEMISSION(_mission);
   _mission set [1, "solutionMission"];
-  (vehicle player) setVariable ["page", "solutionMission"];
+  (vehicle player) setVariable [QGVAR(page), "solutionMission"];
 };

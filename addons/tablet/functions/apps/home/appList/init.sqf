@@ -26,7 +26,7 @@ ctrlShow [13301, true];
 [_display, 15011, 0] call FUNC(setFade);
 
 ITC_CURVEHICLE
-private _apps = _vehicle getVariable "apps";
+private _apps = _vehicle getVariable QGVAR(apps);
 {
   if(_x < count _apps) then {
     private _name = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "displayName")  call BIS_fnc_getCfgData;

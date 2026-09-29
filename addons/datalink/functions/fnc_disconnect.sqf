@@ -19,4 +19,4 @@
 
 params[["_object",player],["_id",""]];
 
-["clientDisconnect",[_object, _id]] call CBA_fnc_serverEvent;
+[QGVAR(clientDisconnect),[_object, _id]] call CBA_fnc_serverEvent;

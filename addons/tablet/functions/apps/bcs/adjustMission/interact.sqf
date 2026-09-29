@@ -22,7 +22,7 @@ params ["_action"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 if(_action == "back") then {
-  (vehicle player) setVariable ["page", "solutionMission"];
+  (vehicle player) setVariable [QGVAR(page), "solutionMission"];
 };
 
 if(_action == "save") then {
@@ -30,5 +30,5 @@ if(_action == "save") then {
   _targetPage set [6, _tgtPos];
   _mission set [2, _targetPage];
   SAVEMISSION(_mission);
-  (vehicle player) setVariable ["page", "solutionMission"];
+  (vehicle player) setVariable [QGVAR(page), "solutionMission"];
 };

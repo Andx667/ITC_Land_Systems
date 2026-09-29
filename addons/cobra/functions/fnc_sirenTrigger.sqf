@@ -23,20 +23,20 @@
  */
 
 params ["_siren","_position","_impactTime"];
-private _sirenTriggerDist = _siren getVariable ["sirenTriggerDist", 500];
+private _sirenTriggerDist = _siren getVariable [QGVAR(sirenTriggerDist), 500];
 
 if(_siren distance _position < _sirenTriggerDist) then {
 
-  private _sirenActive = _siren getVariable ["sirenActive", false];
-  private _sirenEndTime = _siren getVariable ["sirenEndTime", time];
+  private _sirenActive = _siren getVariable [QGVAR(sirenActive), false];
+  private _sirenEndTime = _siren getVariable [QGVAR(sirenEndTime), time];
   private _sirenType = typeOf _siren;
-  private _sirenParams = _siren getVariable ["sirenParams",[false]];
+  private _sirenParams = _siren getVariable [QGVAR(sirenParams),[false]];
   
   if(_impactTime > _sirenEndTime) then {
-    _siren setVariable ["sirenEndTime", _impactTime];
+    _siren setVariable [QGVAR(sirenEndTime), _impactTime];
   };
   if(!_sirenActive) then {
-    _siren setVariable ["sirenActive", true];
+    _siren setVariable [QGVAR(sirenActive), true];
     private ["_sirenSound","_sirenDistance","_sirenDuration"];
     ([1] call FUNC(sirenTypes)) params ["_configTypes","_missionTypes"];
 
@@ -58,8 +58,8 @@ if(_siren distance _position < _sirenTriggerDist) then {
     [{
       params ["_args", "_pfhId"];
       _args params ["_siren", "_sirenSound", "_sirenDistance"];
-      if (time >= _siren getVariable ["sirenEndTime", 0]) exitWith {
-        _siren setVariable ["sirenActive", false];
+      if (time >= _siren getVariable [QGVAR(sirenEndTime), 0]) exitWith {
+        _siren setVariable [QGVAR(sirenActive), false];
         [_pfhId] call CBA_fnc_removePerFrameHandler;
       };
       _siren say3D [_sirenSound, _sirenDistance, 1];

@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Validates the given origin and destination datalink IDs and, if both are valid, broadcasts the transmission to the server via the clientTX event for delivery to matching targets.
+ * Validates the given origin and destination datalink IDs and, if both are valid, broadcasts the transmission to the server via the itc_land_datalink_clientTX event for delivery to matching targets.
  *
  * Arguments:
  * 0: Destination datalink ID <String>
@@ -25,5 +25,5 @@ private _validDestination = [_destination, false, true] call FUNC(validateID);
 private _validOrigin = [_origin] call FUNC(validateID);
 
 if(_validDestination && _validOrigin) then {
-  ["clientTX", [_destination,_origin,_header,_type,_data]] call CBA_fnc_serverEvent;
+  [QGVAR(clientTX), [_destination,_origin,_header,_type,_data]] call CBA_fnc_serverEvent;
 };

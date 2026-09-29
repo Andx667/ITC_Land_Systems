@@ -23,32 +23,32 @@ params ["_action"];
 ITC_CURVEHICLE
 switch(_action) do {
   case "side1": {
-    _vehicle setVariable ["page", "settings"];
+    _vehicle setVariable [QGVAR(page), "settings"];
   };
   case "side2": {
-    _vehicle setVariable ["page", "setup"];
+    _vehicle setVariable [QGVAR(page), "setup"];
   };
   case "side3": {
-    _vehicle setVariable ["page", "locStores"];
+    _vehicle setVariable [QGVAR(page), "locStores"];
   };
   case "side5": {
     private _ident = GENIDENT;
     private _newMission = EMPTYMISSION(_ident);
-    bcs_missions pushBack _newMission;
-    bcs_mission_index = (count bcs_missions) - 1;
-    if(_vehicle getVariable "page" == "newMission") then {
+    GVAR(bcs_missions) pushBack _newMission;
+    GVAR(bcs_mission_index) = (count GVAR(bcs_missions)) - 1;
+    if(_vehicle getVariable QGVAR(page) == "newMission") then {
       [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     } else {
-      _vehicle setVariable ["page", "newMission"];
+      _vehicle setVariable [QGVAR(page), "newMission"];
     };
   };
   case "sideList": {
-    bcs_mission_index = lbCurSel 15114;
+    GVAR(bcs_mission_index) = lbCurSel 15114;
     MISSION;
-    if(_vehicle getVariable "page" == _mission # 1) then {
+    if(_vehicle getVariable QGVAR(page) == _mission # 1) then {
       [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     } else {
-      _vehicle setVariable ["page", _mission # 1];
+      _vehicle setVariable [QGVAR(page), _mission # 1];
     };
   };
 };

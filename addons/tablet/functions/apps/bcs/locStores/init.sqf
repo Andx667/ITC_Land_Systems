@@ -26,5 +26,5 @@ ctrlShow [13503, true];
 [5408,["no","yes"],0] call FUNC(fillComboBox);
 
 lbClear 5411;
-private _locationsStrings = bcs_locations apply {format["%1               %2              %3               %4", _x # 0, _x # 1, _x # 3, _x # 4]};
+private _locationsStrings = GVAR(bcs_locations) apply {format["%1               %2              %3               %4", _x # 0, _x # 1, _x # 3, _x # 4]};
 [5411, _locationsStrings, 0] call FUNC(fillComboBox);

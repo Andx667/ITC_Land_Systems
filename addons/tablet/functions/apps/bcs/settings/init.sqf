@@ -25,6 +25,6 @@ ctrlShow [13501, true];
 
 [_display, IDC_workspace_header, "Battery Control System Settings"] call FUNC(setText);
 
-SETTEXT(3205,str bcs_splash_time);
-SETTEXT(3206,bcs_mission_code);
-SETTEXT(3207,str bcs_mission_start);
+SETTEXT(3205,str GVAR(bcs_splash_time));
+SETTEXT(3206,GVAR(bcs_mission_code));
+SETTEXT(3207,str GVAR(bcs_mission_start));

@@ -55,7 +55,7 @@ if(_action == "targetType") then {
 
 
 if(_action == "load") then {
-  private _point = bcs_locations # (lbCurSel 6101);
+  private _point = GVAR(bcs_locations) # (lbCurSel 6101);
   [_display, 6401, _point # 1] call FUNC(setText);
   [_display, 6402, str (_point # 3)] call FUNC(setText);
 };
@@ -68,5 +68,5 @@ if(_action == "save") then {
   _mission set [0, UITEXT(6400)];
   SAVEMISSION(_mission);
   _mission set [1, "engageMission"];
-  (vehicle player) setVariable ["page", "engageMission"];
+  (vehicle player) setVariable [QGVAR(page), "engageMission"];
 };

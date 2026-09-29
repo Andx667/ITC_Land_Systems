@@ -24,14 +24,14 @@ params ["_action", "_value"];
 ITC_CURVEHICLE
 
 if(_action == "app" && !isNil{_value}) exitWith {
-  if(count (_vehicle getVariable "apps") > _value) then {
-    private _newApp = (_vehicle getVariable "apps") # _value;
+  if(count (_vehicle getVariable QGVAR(apps)) > _value) then {
+    private _newApp = (_vehicle getVariable QGVAR(apps)) # _value;
     if(!isNil{_newApp}) then {
-      _vehicle setVariable ["app", _newApp];
+      _vehicle setVariable [QGVAR(app), _newApp];
     };
   };
 };
 
 private _display = findDisplay 32562;
-private _app = _vehicle getVariable "app";
+private _app = _vehicle getVariable QGVAR(app);
 private _page = [_action, _display] call FUNC(appInteract);

@@ -43,9 +43,9 @@ if (isNil "ITC_Land_COBRA_SirenTypes") then {
 };
 
 if ((count _this) < 4) then {
-  _siren setVariable ["sirenParams",[true,"alarm",250,1.75],true];
+  _siren setVariable [QGVAR(sirenParams),[true,"alarm",250,1.75],true];
 } else {
-  _siren setVariable ["sirenParams",[true,_sirenSound,_sirenDistance,_sirenDuration],true];
+  _siren setVariable [QGVAR(sirenParams),[true,_sirenSound,_sirenDistance,_sirenDuration],true];
 };
 
 _this;

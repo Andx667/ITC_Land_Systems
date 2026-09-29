@@ -1,3 +1,5 @@
+#include "..\..\..\..\script_component.hpp"
+
 /*
  * Author: ToadBall, Yax, VKing
  * Handles BCS locStores page interactions: "addLocation" reads the location number, grid,
@@ -31,18 +33,18 @@ switch(_action) do {
     private _locString = format["%1               %2              %3               %4", _num, _posStr, _elev, _friendly];
     private _locData = [_num, _posStr, _pos, _elev, _friendly];
 
-    private _location = bcs_locations findIf {_x # 0 == _num};
+    private _location = GVAR(bcs_locations) findIf {_x # 0 == _num};
     if(_location == -1) then {
       lbAdd [5411, _locString];
-      bcs_locations pushBack _locData;
+      GVAR(bcs_locations) pushBack _locData;
     } else {
-      bcs_locations set [_location, _locData];
+      GVAR(bcs_locations) set [_location, _locData];
       [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     };
   };
   case "removeLocation": {
     private _index = lbCurSel 5411;
-    bcs_locations deleteAt _index;
+    GVAR(bcs_locations) deleteAt _index;
     lbDelete [5411, _index];
   };
 };

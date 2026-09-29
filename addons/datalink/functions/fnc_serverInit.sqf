@@ -22,8 +22,8 @@ if(!isServer) exitWith {}; //end code if not server
 itc_land_datalink_nodes = [] call CBA_fnc_hashCreate;
 
 //add the eventhandlers for connecting and disconnecting clients
-itc_land_datalink_eh_clientConnect = ["clientConnect", FUNC(onClientConnect)] call CBA_fnc_addEventHandler;
-itc_land_datalink_eh_clientDisconnect = ["clientDisconnect", FUNC(onClientDisconnect)] call CBA_fnc_addEventHandler;
+itc_land_datalink_eh_clientConnect = [QGVAR(clientConnect), FUNC(onClientConnect)] call CBA_fnc_addEventHandler;
+itc_land_datalink_eh_clientDisconnect = [QGVAR(clientDisconnect), FUNC(onClientDisconnect)] call CBA_fnc_addEventHandler;
 
 //add eventhandlers for handling transmissions
-itc_land_datalink_eh_clientTX = ["clientTX", FUNC(onClientTX)] call CBA_fnc_addEventHandler;
+itc_land_datalink_eh_clientTX = [QGVAR(clientTX), FUNC(onClientTX)] call CBA_fnc_addEventHandler;
