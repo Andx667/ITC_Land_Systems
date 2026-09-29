@@ -1,86 +1,10 @@
 //VESTIGIAL: To be removed following retesting - Toadball
 
-#define GUI_GRID_W  (0.025)
-#define GUI_GRID_H  (0.04)
-
-#define CT_STATIC 0
-#define CT_BUTTON 1
-#define CT_EDIT 2
-#define CT_SLIDER 3
-#define CT_COMBO 4
-#define CT_LISTBOX 5
-#define CT_TOOLBOX 6
-#define CT_CHECKBOXES 7
-#define CT_PROGRESS 8
-#define CT_HTML 9
-#define CT_STATIC_SKEW 10
-#define CT_ACTIVETEXT 11
-#define CT_TREE 12
-#define CT_STRUCTURED_TEXT 13
-#define CT_CONTEXT_MENU 14
-#define CT_CONTROLS_GROUP 15
-#define CT_XKEYDESC 40
-#define CT_XBUTTON 41
-#define CT_XLISTBOX 42
-#define CT_XSLIDER 43
-#define CT_XCOMBO 44
-#define CT_ANIMATED_TEXTURE 45
-#define CT_OBJECT 80
-#define CT_OBJECT_ZOOM 81
-#define CT_OBJECT_CONTAINER 82
-#define CT_OBJECT_CONT_ANIM 83
-#define CT_LINEBREAK 98
-#define CT_USER 99
-#define CT_MAP 100
-#define CT_MAP_MAIN 101 // Static styles
-
-#define ST_POS 0x0F
-#define ST_HPOS 0x03
-#define ST_VPOS 0x0C
-#define ST_LEFT 0x00
-#define ST_RIGHT 0x01
-#define ST_CENTER 0x02
-#define ST_DOWN 0x04
-#define ST_UP 0x08
-#define ST_VCENTER 0x0c
-#define ST_TYPE 0xF0
-#define ST_SINGLE 0
-#define ST_MULTI 16
-#define ST_TITLE_BAR 32
-#define ST_PICTURE 48
-#define ST_FRAME 64
-#define ST_BACKGROUND 80
-#define ST_GROUP_BOX 96
-#define ST_GROUP_BOX2 112
-#define ST_HUD_BACKGROUND 128
-#define ST_TILE_PICTURE 144
-#define ST_WITH_RECT 160
-#define ST_LINE 176
-#define ST_SHADOW 0x100
-#define ST_NO_RECT 0x200
-#define ST_KEEP_ASPECT_RATIO 0x800
-#define ST_TITLE ST_TITLE_BAR + ST_CENTER
-
-// Slider styles
-#define SL_DIR 0x400
-#define SL_VERT 0
-#define SL_HORZ 0x400
-#define SL_TEXTURES 0x10
-
-// Listbox styles
-#define LB_TEXTURES 0x10
-#define LB_MULTI 0x20
-
-#define FontM "TahomaB"
-
-#define ROWPOS(y)   ((0.015*y)*SafeZoneW)
-#define COLPOS(x)   ((0.015*x)*SafeZoneW)
-
 #define AIFMSGRN {172/255,255/255,153/255,1}
 
 class RscControlsGroup;
 
-class ITC_ARTY_RscText {
+class ITC_LAND_RscText {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -104,7 +28,7 @@ class ITC_ARTY_RscText {
     tooltipColorBox[] = {1,1,1,1};
     tooltipColorShade[] ={0,0,0,0.65};
 };
-class ITC_ARTY_RscEdit
+class ITC_LAND_RscEdit
 {
     deletable = 0;
     fade = 0;
@@ -136,7 +60,7 @@ class ITC_ARTY_RscEdit
         tooltipColorBox[] = {1,1,1,1};
         tooltipColorShade[] ={0,0,0,0.65};
 };
-class ITC_ARTY_RscStructuredText
+class ITC_LAND_RscStructuredText
 {
     deletable = 0;
     fade = 0;
@@ -161,7 +85,7 @@ class ITC_ARTY_RscStructuredText
     size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     shadow = 1;
 };
-class ITC_ARTY_RscPicture {
+class ITC_LAND_RscPicture {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -184,7 +108,7 @@ class ITC_ARTY_RscPicture {
     tooltipColorBox[] = AIFMSGRN;
     tooltipColorShade[] = {0,0,0,0.65};
 };
-class ITC_ARTY_RscTextBox {
+class ITC_LAND_RscTextBox {
     idc = -1;
     deletable = 0;
     fade = 0;
@@ -210,14 +134,14 @@ class ITC_ARTY_RscTextBox {
     tooltipColorBox[] = AIFMSGRN;
     tooltipColorShade[] = {0,0,0,0.65};
 };
-class itc_land_workspace:RscControlsGroup {
+class ITC_LAND_Workspace: RscControlsGroup {
     onLoad = "(_this # 0) ctrlShow false";
-    x = (0.344062+ POSXADJUST) * safezoneW + safezoneX;
-    y = 0.225 * safezoneH + safezoneY;
-    w = 0.622812 * safezoneW;
-    h = 0.506 * safezoneH;
+    x = "(0.344062 - 0.04675) * safezoneW + safezoneX";
+    y = "0.225 * safezoneH + safezoneY";
+    w = "0.622812 * safezoneW";
+    h = "0.506 * safezoneH";
 };
-class ITC_ARTY_ScrollBar {
+class ITC_LAND_ScrollBar {
         color[] = AIFMSGRN;
         colorActive[] = AIFMSGRN;
         colorDisabled[] = {1, 1, 1, 0.3};
@@ -234,7 +158,7 @@ class ITC_ARTY_ScrollBar {
         autoScrollDelay = 5;
         autoScrollRewind = 0;
     };
-class ITC_ARTY_RscListBox {
+class ITC_LAND_RscListBox {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -266,7 +190,7 @@ class ITC_ARTY_RscListBox {
     tooltipColorText[] = AIFMSGRN;
     tooltipColorBox[] = AIFMSGRN;
     tooltipColorShade[] = {0, 0, 0, 0.65};
-    class ListScrollBar: ITC_ARTY_ScrollBar {
+    class ListScrollBar: ITC_LAND_ScrollBar {
         color[] = AIFMSGRN;
         autoScrollEnabled = 1;
     };
@@ -283,7 +207,7 @@ class ITC_ARTY_RscListBox {
     maxHistoryDelay = 1;
 };
 
-class ITC_ARTY_RscComboBox {
+class ITC_LAND_RscComboBox {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -327,7 +251,7 @@ class ITC_ARTY_RscComboBox {
     colorActive[] = {1,0,0,1};
 };
 
-class ITC_ARTY_RscButton {
+class ITC_LAND_RscButton {
     deletable = 0;
     fade = 0;
     access = 0;

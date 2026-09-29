@@ -54,9 +54,9 @@ class itc_land_tablet {
   };
   class workspace_header_bar: ITC_LAND_RscText {
     idc = 15103;
-    x = "(0.396875 + POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.247 + POSYADJUST) * safezoneH + safezoneY";
-    w = "(0.299062 + WSWADJUST) * safezoneW";
+    x = QUOTE((0.396875 + POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.247 + POSYADJUST) * safezoneH + safezoneY);
+    w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
     h = "0.044 * safezoneH";
     colorBackground[] = {0.1,0.1,0.1,1};
     colorActive[] = {0.1,0.1,0.1,1};
@@ -65,9 +65,9 @@ class itc_land_tablet {
     class workspace_header: ITC_LAND_RscText {
         idc = 15104;
         text = "Workspace Header";
-        x = "(0.402031 + POSXADJUST) * safezoneW + safezoneX";
+        x = QUOTE((0.402031 + POSXADJUST) * safezoneW + safezoneX);
         y = "0.1825 * safezoneH + safezoneY";
-        w = "(0.299062 + WSWADJUST) * safezoneW";
+        w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
         h = "0.044 * safezoneH";
 
         sizeEx = 1.5 * GUI_GRID_H;
@@ -75,8 +75,8 @@ class itc_land_tablet {
   class header1: ITC_LAND_RscText {
     idc = 15106;
     text = "FDC SUITE";
-    x = "(0.31+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.26+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.26+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
 
@@ -85,8 +85,8 @@ class itc_land_tablet {
   class header2: ITC_LAND_RscText {
     idc = 15105;
     text = "ILS - AIFMS";
-    x = "(0.31+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.285+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.285+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
 
@@ -128,7 +128,7 @@ class itc_land_tablet {
   class homepage_background: ITC_LAND_RscText {
     idc = 15010;
     x = "0.2425 * safezoneW + safezoneX";
-    y = "(0.247+ POSYADJUST) * safezoneH + safezoneY";
+    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.51 * safezoneW";
     h = "0.55 * safezoneH";
     colorBackground[] = {0.1,0.1,0.1,1};
@@ -138,7 +138,7 @@ class itc_land_tablet {
     idc = 15011;
     text = QPATHTOF(UI\logo.paa);
     x = "0.2425 * safezoneW + safezoneX";
-    y = "(0.3+ POSYADJUST) * safezoneH + safezoneY";
+    y = QUOTE((0.3+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.52 * safezoneW";
     h = "0.26 * safezoneH";
     //colorBackground[] = {0.1,0.1,0.1,1};
@@ -147,28 +147,28 @@ class itc_land_tablet {
 
   class sidebar_background: ITC_LAND_RscText {
     idc = 15101;
-    x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.247+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
-    h = "(0.506 + WSHADJUST) * safezoneH";
+    h = QUOTE((0.506 + WSHADJUST) * safezoneH);
     colorBackground[] = {0.1,0.1,0.1,1};
     colorActive[] = {0.1,0.1,0.1,1};
 
   };
   class workspace_background: ITC_LAND_RscText {
     idc = 15102;
-    x = "(0.396875+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.247+ POSYADJUST) * safezoneH + safezoneY";
-    w = "(0.299062 + WSWADJUST) * safezoneW";
-    h = "(0.506 + WSHADJUST) * safezoneH";
+    x = QUOTE((0.396875+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
+    w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
+    h = QUOTE((0.506 + WSHADJUST) * safezoneH);
     colorBackground[] = {0.125,0.125,0.125,1};
     colorActive[] = {0.125,0.125,0.125,1};
   };
   class sidebar_button1: ITC_LAND_RscButton {
     idc = 15108;
     text = "Page 1";
-    x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.313+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.313+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
@@ -178,8 +178,8 @@ class itc_land_tablet {
   class sidebar_button2: ITC_LAND_RscButton {
     idc = 15109;
     text = "Page 2";
-    x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.335+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.335+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
@@ -189,8 +189,8 @@ class itc_land_tablet {
   class sidebar_button3: ITC_LAND_RscButton {
     idc = 15110;
     text = "Page 3";
-    x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.357+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.357+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
@@ -200,8 +200,8 @@ class itc_land_tablet {
   class sidebar_button4: ITC_LAND_RscButton {
     idc = 15111;
     text = "Page 4";
-    x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-    y = "(0.379+ POSYADJUST) * safezoneH + safezoneY";
+    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+    y = QUOTE((0.379+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
@@ -211,8 +211,8 @@ class itc_land_tablet {
   class sidebar_button5: ITC_LAND_RscButton {
     idc = 15112;
     text = "Page 5";
-        x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-        y = "(0.445+ POSYADJUST) * safezoneH + safezoneY";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.445+ POSYADJUST) * safezoneH + safezoneY);
         w = "0.0928125 * safezoneW";
         h = "0.044 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
@@ -221,8 +221,8 @@ class itc_land_tablet {
   };
     class fire_mission_list: ITC_LAND_RscListBox {
         idc = 15114;
-        x = "(0.304062+ POSXADJUST) * safezoneW + safezoneX";
-        y = "(0.5+ POSYADJUST) * safezoneH + safezoneY";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.5+ POSYADJUST) * safezoneH + safezoneY);
         w = "0.0928125 * safezoneW";
         h = "0.154 * safezoneH";
         //colorBackground[] = {0,0,0,0.9};

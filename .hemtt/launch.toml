@@ -2,4 +2,7 @@
 workshop = [
     "450814997",  # CBA_A3
     "463939057",  # ACE3
+    "1779063631", # Zeus Enhanced
+    "3499977893", # Advanced Development Tools
 ]
+mission = "itc_land_vr_test.VR"

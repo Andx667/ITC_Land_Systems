@@ -26,6 +26,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
     {
         idc = 9020;
         text = "OT"; //--- ToDo: Localize;
+        tooltip = "Observer-Target direction: compass direction from the observer to the target, in mils";
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.379 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -71,6 +72,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
     {
         idc = 9021;
         text = "AD"; //--- ToDo: Localize;
+        tooltip = "Add/Drop: range correction along the OT line, in meters (positive adds range, negative drops it)";
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.401 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -80,6 +82,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
     {
         idc = 9022;
         text = "LR"; //--- ToDo: Localize;
+        tooltip = "Left/Right: lateral correction perpendicular to the OT line, in meters";
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.423 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -89,6 +92,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
     {
         idc = 9023;
         text = "UD"; //--- ToDo: Localize;
+        tooltip = "Up/Down: vertical/elevation correction, in meters";
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.445 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";

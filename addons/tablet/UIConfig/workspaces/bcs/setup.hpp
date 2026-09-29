@@ -54,6 +54,15 @@ class page_bcs_setup:ITC_LAND_Workspace
      action = "[""save""] call itc_land_tablet_fnc_pageInteract";
 
     };
+    class btysetup_active_type_label: ITC_LAND_RscText {
+        idc = 4318;
+
+        text = "";
+        x = "0.438125 * safezoneW + safezoneX";
+        y = "0.291 * safezoneH + safezoneY";
+        w = "0.211094 * safezoneW";
+        h = "0.022 * safezoneH";
+    };
     class btysetup_gun_number_label: ITC_LAND_RscText {
         idc = 4305;
 

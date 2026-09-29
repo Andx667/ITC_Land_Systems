@@ -55,9 +55,12 @@ if(_action == "targetType") then {
 
 
 if(_action == "load") then {
-  private _point = GVAR(bcs_locations) # (lbCurSel 6101);
-  [_display, 6401, _point # 1] call FUNC(setText);
-  [_display, 6402, str (_point # 3)] call FUNC(setText);
+  private _pointIndex = lbCurSel 6101;
+  if(_pointIndex > -1) then {
+    private _point = GVAR(bcs_locations) # _pointIndex;
+    [_display, 6401, _point # 1] call FUNC(setText);
+    [_display, 6402, str (_point # 3)] call FUNC(setText);
+  };
 };
 
 if(_action == "save") then {

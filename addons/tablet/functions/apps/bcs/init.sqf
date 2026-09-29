@@ -44,7 +44,7 @@ private _defaults = [
   [QGVAR(bcs_mission_start), 1],
 
   [QGVAR(bcs_bty_name), ""],
-  [QGVAR(bcs_bty_type), [0,"g_155"]],
+  [QGVAR(bcs_bty_type), [0,"G155"]],
   [QGVAR(bcs_bty_guns), []],
   [QGVAR(bcs_locations), []],
   [QGVAR(bcs_missions), []],
