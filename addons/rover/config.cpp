@@ -17,5 +17,5 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "config\baseControls.hpp"
 #include "config\tablet.hpp"
-#include "cfgVehicles.hpp"
-#include "cfgWeapons.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"

@@ -14,7 +14,7 @@ class CfgPatches {
     };
 };
 
-#include "cfgMagazines.hpp"
-#include "cfgAmmo.hpp"
+#include "CfgMagazines.hpp"
+#include "CfgAmmo.hpp"
 #include "config\particles.hpp"
 #include "CfgCloudlets.hpp"

@@ -15,4 +15,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "cfgMisc.hpp"
+#include "CfgMisc.hpp"

@@ -15,5 +15,5 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "cfgEden.hpp"
-#include "cfgUI.hpp"
+#include "CfgEden.hpp"
+#include "CfgUI.hpp"

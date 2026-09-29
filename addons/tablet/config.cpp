@@ -30,6 +30,6 @@ class ITC_LAND_RscButton;
 //#include "UIconfig\ControlBaseClasses.hpp"
 #include "UIconfig\tablet.hpp"
 
-#include "cfgVehicles.hpp"
-#include "cfgWeapons.hpp"
-#include "cfgMisc.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"
+#include "CfgMisc.hpp"

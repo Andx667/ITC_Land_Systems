@@ -15,8 +15,8 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "cfgVehicles.hpp"
-#include "cfgMisc.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgMisc.hpp"
 
 class Extended_FiredBIS_EventHandlers {
     class All {
