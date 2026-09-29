@@ -53,11 +53,12 @@ _extra setVelocity _randomizedVelocity;
   };
 
   if(time > _firedTime + 8 && typeOf _projectile == "ITC_155Extra") then { //SEARCH FOR A TARGET
-    private _spot = [getPosASL _projectile, [0,0,-1], 90, 300, [1500, 1550], _laserCode] call ace_laser_fnc_seekerFindLaserSpot;
+    private _projectilePosASL = getPosASL _projectile;
+    private _spot = [_projectilePosASL, [0,0,-1], 90, 300, [1500, 1550], _laserCode] call ace_laser_fnc_seekerFindLaserSpot;
     if(!isNil{_spot select 0}) then {
       private _heat = createVehicle ["R_MRAAWS_HEAT_F", getPos _projectile, [], 0, "FLY"];
       [_heat, -90, 0] call BIS_fnc_setPitchBank;
-      private _vectorToTank = (getPosASL _projectile) vectorFromTo (_spot select 0);
+      private _vectorToTank = (_projectilePosASL) vectorFromTo (_spot select 0);
       _heat setVelocity (_vectorToTank vectorMultiply 5000);
 
       deleteVehicle _projectile;

@@ -19,7 +19,7 @@
  */
 
 params ["_action"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 switch(_action) do {
   case "side1": {
     _vehicle setVariable ["page", "fcs"];

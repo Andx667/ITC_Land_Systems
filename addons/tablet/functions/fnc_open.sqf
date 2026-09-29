@@ -22,7 +22,7 @@
 params ["_tabletClass",["_tabletOwner",player]];
 createDialog "itc_land_tablet";
 
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _display = findDisplay 32562;
 if(!(_vehicle isKindOf "Man")) then {
   //_tabletClass = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "itc_land" >> "tablet")  call BIS_fnc_getCfgData;

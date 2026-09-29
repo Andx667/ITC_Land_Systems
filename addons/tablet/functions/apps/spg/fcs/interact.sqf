@@ -20,7 +20,7 @@
  */
 
 params ["_action"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _display = findDisplay 32562;
 
 switch(_action) do {

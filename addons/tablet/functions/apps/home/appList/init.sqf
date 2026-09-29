@@ -25,7 +25,7 @@ ctrlShow [13301, true];
 [_display, 15010, 0] call FUNC(setFade);
 [_display, 15011, 0] call FUNC(setFade);
 
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _apps = _vehicle getVariable "apps";
 {
   if(_x < count _apps) then {

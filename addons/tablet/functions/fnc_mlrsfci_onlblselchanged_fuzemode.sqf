@@ -21,7 +21,7 @@
  */
 
 params ["_control","_index"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _curMag = (currentMagazine _vehicle);
 //Generate globals
 

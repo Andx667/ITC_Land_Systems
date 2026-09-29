@@ -22,7 +22,7 @@
  */
 
 params ["_action"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _curMag = (currentMagazine _vehicle);
 private _display = findDisplay 32562;
 

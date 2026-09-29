@@ -18,7 +18,7 @@
  */
 
 params ["_display"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 
 private _allDamage = getAllHitPointsDamage _vehicle;
 _allDamage params ["", "_name", "_status"];

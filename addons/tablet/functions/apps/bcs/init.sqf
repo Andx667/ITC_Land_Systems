@@ -20,7 +20,7 @@
 
 #include "..\..\BCS_idc_defines.hpp"
 params ["_display"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 
 [_display, IDC_header1, "AIFMS"] call FUNC(setText);
 [_display, IDC_header2, "FDC Suite"] call FUNC(setText);

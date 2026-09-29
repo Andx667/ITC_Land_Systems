@@ -21,7 +21,7 @@
 #include "..\..\BCS_idc_defines.hpp"
 
 params ["_display"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 private _interfaces = (configOf _vehicle >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
 private _canOpen = (!isNil{_interfaces}); //can't open if there's no interfaces
 if(_canOpen) then { //check if it has the right interfaces

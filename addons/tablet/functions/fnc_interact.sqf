@@ -21,7 +21,7 @@
  */
 
 params ["_action", "_value"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 
 if(_action == "app" && !isNil{_value}) exitWith {
   if(count (_vehicle getVariable "apps") > _value) then {

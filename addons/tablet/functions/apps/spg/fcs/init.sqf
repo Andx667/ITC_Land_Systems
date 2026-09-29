@@ -21,7 +21,7 @@
 
 #include "..\..\..\BCS_idc_defines.hpp"
 params ["_display"];
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+ITC_CURVEHICLE
 ctrlShow [13410, true];
 [_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
 
