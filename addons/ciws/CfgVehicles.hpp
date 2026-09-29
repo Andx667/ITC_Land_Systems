@@ -19,6 +19,7 @@ class CfgVehicles {
       scope = 1;
       armor = 10;
       isUAV = 0;
+      mass = 50;
   };
   class itc_land_shell_o : itc_land_shell_b {
       crew="O_UAV_AI";
