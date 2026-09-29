@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * call itc_land_SPHammohandler_fnc_fillFuzeList
+ * call itc_land_sphammohandler_fnc_fillFuzeList
  *
  * Public: No
  */

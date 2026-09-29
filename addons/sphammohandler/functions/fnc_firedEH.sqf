@@ -21,7 +21,7 @@
  * None
  *
  * Example:
- * [_gun, _weapon, _muzzle, _mode, _ammo, _magazine, _shell, _gunner] call itc_land_SPHammohandler_fnc_firedEH
+ * [_gun, _weapon, _muzzle, _mode, _ammo, _magazine, _shell, _gunner] call itc_land_sphammohandler_fnc_firedEH
  *
  * Public: No
  */

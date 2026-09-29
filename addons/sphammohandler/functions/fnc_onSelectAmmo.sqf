@@ -16,7 +16,7 @@
  * None
  *
  * Example:
- * [86001, 0] call itc_land_SPHammohandler_fnc_onSelectAmmo
+ * [86001, 0] call itc_land_sphammohandler_fnc_onSelectAmmo
  *
  * Public: No
  */

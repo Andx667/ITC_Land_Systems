@@ -14,7 +14,7 @@
  * The new current charge index <Number>
  *
  * Example:
- * [1] call itc_land_SPHammohandler_fnc_changeCharge
+ * [1] call itc_land_sphammohandler_fnc_changeCharge
  *
  * Public: No
  */

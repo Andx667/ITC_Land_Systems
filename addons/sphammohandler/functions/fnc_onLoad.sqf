@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * call itc_land_SPHammohandler_fnc_onLoad
+ * call itc_land_sphammohandler_fnc_onLoad
  *
  * Public: No
  */

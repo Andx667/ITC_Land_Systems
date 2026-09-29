@@ -15,7 +15,7 @@
  * None
  *
  * Example:
- * [86004, 0] call itc_land_SPHammohandler_fnc_onSelectFuze
+ * [86004, 0] call itc_land_sphammohandler_fnc_onSelectFuze
  *
  * Public: No
  */

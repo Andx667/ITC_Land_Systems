@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * call itc_land_SPHammohandler_fnc_fillAmmoList
+ * call itc_land_sphammohandler_fnc_fillAmmoList
  *
  * Public: No
  */

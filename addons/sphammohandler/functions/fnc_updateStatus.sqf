@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * call itc_land_SPHammohandler_fnc_updateStatus
+ * call itc_land_sphammohandler_fnc_updateStatus
  *
  * Public: No
  */
