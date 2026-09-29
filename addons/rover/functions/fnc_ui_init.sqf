@@ -20,6 +20,11 @@
  * Public: No
  */
 
+// onLoad fires before the dialog is registered; the IDC-based UI commands below need it active
+if (isNull findDisplay 20001) exitWith {
+    [{!isNull findDisplay 20001}, FUNC(ui_init), _this] call CBA_fnc_waitUntilAndExecute;
+};
+
 itc_land_rover_camera = "camera" camCreate [0,0,0];
 call FUNC(ui_populateListBox);
 

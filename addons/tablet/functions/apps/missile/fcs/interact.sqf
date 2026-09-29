@@ -23,7 +23,6 @@
 
 params ["_action"];
 ITC_CURVEHICLE
-private _curMag = (currentMagazine _vehicle);
 private _display = findDisplay 32562;
 
 switch(_action) do {
@@ -64,36 +63,32 @@ switch(_action) do {
     _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
   };
   case "setFG" : {
-    [_vehicle,_curMag] spawn {
-        params ["_vehicle","_curMag"];
-        disableSerialization;
-        private _fuze  = getText (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_fuze");
+    private _fuze  = getText (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_fuze");
 
-       //private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
-        //if (isNil "itc_land_fuzeDesc") then { itc_land_fuzeDesc = lbText [1904,itc_land_selectedFuzeIndex]; };
-        private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc",(lbText [1904,lbCurSel 1904])];
-        private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
+   //private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
+    //if (isNil "itc_land_fuzeDesc") then { itc_land_fuzeDesc = lbText [1904,itc_land_selectedFuzeIndex]; };
+    private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc",(lbText [1904,lbCurSel 1904])];
+    private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
 
-        switch (lbData [1904, lbCurSel 1904 ]) do {
-            case "pd" : {
-                private _fuzeText = _fuzeDesc;
-            };
-            case "prox" : {
-                private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
-                //itc_land_fuzeValues = _proxHOB;
-                _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
-                private _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
-            };
-            case "time" : {
-                private _fuzeTime = parseNumber(ctrlText 1906);
-                _vehicle setVariable ["itc_land_fuzeValues",_fuzeTime,true];
-                _vehicle setVariable ["itc_land_mlrsfci_fuzeTime",_fuzeTime,true];
-                private _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
-            };
-            case "delay" : {
-                _vehicle setVariable ["itc_land_fuzeValues",0.005,true];
-                private _fuzeText = _fuzeDesc;
-            };
+    switch (lbData [1904, lbCurSel 1904 ]) do {
+        case "pd" : {
+            private _fuzeText = _fuzeDesc;
+        };
+        case "prox" : {
+            private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
+            //itc_land_fuzeValues = _proxHOB;
+            _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
+            private _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
+        };
+        case "time" : {
+            private _fuzeTime = parseNumber(ctrlText 1906);
+            _vehicle setVariable ["itc_land_fuzeValues",_fuzeTime,true];
+            _vehicle setVariable ["itc_land_mlrsfci_fuzeTime",_fuzeTime,true];
+            private _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
+        };
+        case "delay" : {
+            _vehicle setVariable ["itc_land_fuzeValues",0.005,true];
+            private _fuzeText = _fuzeDesc;
         };
     };
 

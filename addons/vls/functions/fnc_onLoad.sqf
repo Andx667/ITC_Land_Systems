@@ -13,13 +13,14 @@
  * None
  *
  * Example:
- * [_this] spawn itc_land_vls_fnc_onLoad
+ * [_this] call itc_land_vls_fnc_onLoad
  *
  * Public: No
  */
 
-waitUntil {
-    !(isNull (findDisplay 86002))
+// onLoad fires before the dialog is registered; the IDC-based UI commands below need it active
+if (isNull findDisplay 86002) exitWith {
+    [{!isNull findDisplay 86002}, FUNC(onLoad), _this] call CBA_fnc_waitUntilAndExecute;
 };
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 

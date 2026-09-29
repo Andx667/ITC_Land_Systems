@@ -1,7 +1,7 @@
 class itc_land_rover_tablet {
   idd = 20001;
   movingEnable = 1;
-  onLoad=QUOTE(_this spawn FUNC(ui_init));
+  onLoad=QUOTE(_this call FUNC(ui_init));
   onDestroy=QUOTE(call FUNC(killFeed));
   class Controls {
     class ITC_Land_UAVi_IGUI_elements_group: RscControlsGroup {

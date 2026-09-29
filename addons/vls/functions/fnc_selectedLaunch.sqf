@@ -12,14 +12,11 @@
  * None
  *
  * Example:
- * [_this] spawn itc_land_vls_fnc_selectedLaunch
+ * [_this] call itc_land_vls_fnc_selectedLaunch
  *
  * Public: No
  */
 
-waitUntil {
-    !(isNull (findDisplay 86002))
-};
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _target = _vehicle getVariable ["ITC_Land_VLS_selectedTGT",[]];
 if ((count _target) < 1) exitWith {};

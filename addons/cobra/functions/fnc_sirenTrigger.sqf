@@ -55,16 +55,14 @@ if(_siren distance _position < _sirenTriggerDist) then {
     };
 
 
-    [_siren,_sirenSound,_sirenDistance,_sirenDuration] spawn {
-      params ["_siren","_sirenSound","_sirenDistance","_sirenDuration"];
-
-      while{time < _siren getVariable "sirenEndTime"} do {
-
-        (_this # 0) say3D [_sirenSound,_sirenDistance,1];
-        sleep _sirenDuration;
-
+    [{
+      params ["_args", "_pfhId"];
+      _args params ["_siren", "_sirenSound", "_sirenDistance"];
+      if (time >= _siren getVariable ["sirenEndTime", 0]) exitWith {
+        _siren setVariable ["sirenActive", false];
+        [_pfhId] call CBA_fnc_removePerFrameHandler;
       };
-      (_this # 0) setVariable ["sirenActive", false];
-    };
+      _siren say3D [_sirenSound, _sirenDistance, 1];
+    }, _sirenDuration, [_siren, _sirenSound, _sirenDistance]] call CBA_fnc_addPerFrameHandler;
   };
 };

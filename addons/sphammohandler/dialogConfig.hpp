@@ -11,7 +11,7 @@
 
         controlsBackground[] = {};
         objects[] = {};
-        onLoad = QUOTE([_this] spawn FUNC(onLoad));
+        onLoad = QUOTE([_this] call FUNC(onLoad));
         onUnload = "itc_land_SPHammoHandler_open = false";
 
         class Controls {

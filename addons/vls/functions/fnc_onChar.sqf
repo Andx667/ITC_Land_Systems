@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [_control, _charCode] spawn itc_land_vls_fnc_onChar
+ * [_control, _charCode] call itc_land_vls_fnc_onChar
  *
  * Public: No
  */

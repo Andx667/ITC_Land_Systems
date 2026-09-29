@@ -32,8 +32,7 @@
  * Public: No
  */
 
-_this spawn {
-  sleep 1;
+[{
   params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
   private _classTarget = getText (configFile >> "cfgAmmo" >> _ammo >> "itc_land_ciws_target");
   private _initialClass = if(_classTarget != "") then [{_classTarget},{"itc_land_shell"}];
@@ -64,4 +63,4 @@ _this spawn {
         _target setVelocity (velocity _projectile);
       };
   }, 0, [_projectile, _target]] call CBA_fnc_addPerFrameHandler;
-};
+}, _this, 1] call CBA_fnc_waitAndExecute;

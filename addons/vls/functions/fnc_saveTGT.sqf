@@ -13,14 +13,11 @@
  * None
  *
  * Example:
- * [_this] spawn itc_land_vls_fnc_saveTGT
+ * [_this] call itc_land_vls_fnc_saveTGT
  *
  * Public: No
  */
 
-waitUntil {
-    !(isNull (findDisplay 86002))
-};
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 //get data from edit fields

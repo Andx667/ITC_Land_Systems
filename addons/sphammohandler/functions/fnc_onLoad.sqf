@@ -19,8 +19,9 @@
  * Public: No
  */
 
-waitUntil {
-    !(isNull (findDisplay 86000))
+// onLoad fires before the dialog is registered; the IDC-based UI commands below need it active
+if (isNull findDisplay 86000) exitWith {
+    [{!isNull findDisplay 86000}, FUNC(onLoad), _this] call CBA_fnc_waitUntilAndExecute;
 };
 itc_land_SPHammoHandler_open = true;
 

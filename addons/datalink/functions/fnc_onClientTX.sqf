@@ -27,5 +27,5 @@ private _targets = [_destination] call FUNC(findIDTargets);
 
 //send it on to non-player targets
 {
-  [_x,_this] remoteExec [QFUNC(onClientRX), _x, false];
+  [QGVAR(clientRX), [_x, _this], _x] call CBA_fnc_targetEvent;
 }forEach _targets;

@@ -2,7 +2,8 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes shared datalink settings from config (allowed ID characters and ID length). Runs on both clients and the server.
+ * Initializes shared datalink settings from config (allowed ID characters and ID length)
+ * and registers the clientRX event that delivers transmissions to local objects. Runs on both clients and the server.
  *
  * Arguments:
  * None
@@ -20,3 +21,5 @@
 itc_land_datalink_allowedIDCharacters = (configFile >> "itc_land_datalink" >> "allowedIDCharacters") call BIS_fnc_getCfgData;
 //Load the list of characters allowed in IDs
 itc_land_datalink_IDLength = getNumber (configFile >> "itc_land_datalink" >> "IDLength");
+
+[QGVAR(clientRX), FUNC(onClientRX)] call CBA_fnc_addEventHandler;

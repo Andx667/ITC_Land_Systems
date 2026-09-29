@@ -39,7 +39,7 @@ if (!isNil "_targetObject") then {
   private _tofRemaining = _distanceRemaining / (vectorMagnitude velocity _projectile);
   _target = _target vectorAdd ((velocity _targetObject) vectorMultiply _tofRemaining);
 };
-itc_land_spike_targetPos spawn {sleep 0.05; itc_land_spike_targetPosCamera = _this;};
+[{itc_land_spike_targetPosCamera = _this}, itc_land_spike_targetPos, 0.05] call CBA_fnc_waitAndExecute;
 if (_progress < 0.3) then {
   private _vect = [_fullDist, _shooter getDir itc_land_spike_targetPos, 10] call CBA_fnc_polar2vect;
   _target = (getPosASL _shooter) vectorAdd _vect;

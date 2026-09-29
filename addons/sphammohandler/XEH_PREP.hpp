@@ -7,4 +7,5 @@ PREP(onSelectFuze);
 PREP(changeCharge);
 PREP(applySettings);
 PREP(loadGun);
+PREP(runSequence);
 PREP(firedEH);

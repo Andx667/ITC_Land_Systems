@@ -45,4 +45,4 @@ if (_isAvailableID && _isValidID) then {
   _transmission = ["","0000",_requestingSystem,"response",[false,_errors]];
 };
 
-[_player, _transmission] remoteExec [QFUNC(onClientRX), _player, false];
+[QGVAR(clientRX), [_player, _transmission], _player] call CBA_fnc_targetEvent;

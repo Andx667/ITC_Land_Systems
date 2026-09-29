@@ -12,14 +12,11 @@
  * None
  *
  * Example:
- * [_this] spawn itc_land_vls_fnc_removeTGT
+ * [_this] call itc_land_vls_fnc_removeTGT
  *
  * Public: No
  */
 
-waitUntil {
-    !(isNull (findDisplay 86002))
-};
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 //get selected target
