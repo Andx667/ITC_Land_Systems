@@ -4,7 +4,7 @@ class CfgMagazines {
         scope = 2;
         count = 1;
         nameSound = "cannon";
-                dispersionEvent = "FUNC(adjustMuzzleVelG15x)";
+                dispersionEvent = QFUNC(adjustMuzzleVelG15x);
                 itc_land_heightModifier = 0;
                 itc_land_timeModifier = 0;
     };

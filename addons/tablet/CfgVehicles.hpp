@@ -6,7 +6,7 @@ class CfgVehicles {
         class itc_land_tablet_spg {
           displayName = "SPG Tablet";
           condition = "[_player,""itc_land_tablet_spg""] call ace_common_fnc_hasItem";
-          statement = "[""itc_land_tablet_spg""] call FUNC(open)";
+          statement = QUOTE(['itc_land_tablet_spg'] call FUNC(open));
           icon = QPATHTOF(UI\arty-icon.paa);
           priority = 2.6;
           showDisabled = 1;
@@ -15,7 +15,7 @@ class CfgVehicles {
         class itc_land_tablet_fdc {
           displayName = "FDC Tablet";
           condition = "[_player,""itc_land_tablet_fdc""] call ace_common_fnc_hasItem";
-          statement = "[""itc_land_tablet_fdc""] call FUNC(open)";
+          statement = QUOTE(['itc_land_tablet_fdc'] call FUNC(open));
           icon = QPATHTOF(UI\arty-icon.paa);
           priority = 2.6;
           showDisabled = 1;
@@ -34,8 +34,8 @@ class CfgVehicles {
       class ITC_Land_MountedTablet {
         displayName = "Open Mounted Tablet";
         icon = QPATHTOF(UI\arty-icon.paa);
-        condition = "[_target] call FUNC(vehicleHasTablet)";
-        statement = "[_target] call FUNC(openVehicleTablet)"
+        condition = QUOTE([_target] call FUNC(vehicleHasTablet));
+        statement = QUOTE([_target] call FUNC(openVehicleTablet))
       };
     };
   };

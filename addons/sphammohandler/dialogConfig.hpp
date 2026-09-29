@@ -11,7 +11,7 @@
 
         controlsBackground[] = {};
         objects[] = {};
-        onLoad = "[_this] spawn FUNC(onLoad)";
+        onLoad = QUOTE([_this] spawn FUNC(onLoad));
         onUnload = "itc_land_SPHammoHandler_open = false";
 
         class Controls {
@@ -64,7 +64,7 @@
                 colorBackground[] = {0,0,0,1};
                 colorSelectBackground[] = AIFMSGRN;
                 colorSelectBackground2[] = AIFMSGRN;
-                onLBSelChanged = "call FUNC(onSelectAmmo)";
+                onLBSelChanged = QUOTE(call FUNC(onSelectAmmo));
             };
             class ammoframe: ITC_LAND_RscFrame {
                 x = "0.29475 * safezoneW + safezoneX";
@@ -102,7 +102,7 @@
                 y = "0.599 * safezoneH + safezoneY";
                 w = "0.0103125 * safezoneW";
                 h = "0.022 * safezoneH";
-                action = "[-1] call FUNC(changeCharge)";
+                action = QUOTE([-1] call FUNC(changeCharge));
             };
             class ammoChargeUp: ITC_LAND_RscButton {
                 text = "+";
@@ -110,7 +110,7 @@
                 y = "0.599 * safezoneH + safezoneY";
                 w = "0.0103125 * safezoneW";
                 h = "0.022 * safezoneH";
-                action = "[1]  call FUNC(changeCharge)";
+                action = QUOTE([1]  call FUNC(changeCharge));
             };
             class fuze_type: ITC_LAND_RscText {
                 text = "Fuze: ";
@@ -126,7 +126,7 @@
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.0825 * safezoneW";
                 h = "0.022 * safezoneH";
-                onLBSelChanged = "call FUNC(onSelectFuze)";
+                onLBSelChanged = QUOTE(call FUNC(onSelectFuze));
             };
             class fuzeTime: ITC_LAND_RscText {
                 idc = 86005;
@@ -237,7 +237,7 @@
                 y = "0.772 * safezoneH + safezoneY";
                 w = "0.113437 * safezoneW";
                 h = "0.022 * safezoneH";
-                action = "[] call FUNC(applySettings)";
+                action = QUOTE([] call FUNC(applySettings));
             };
             class loadButton: ITC_LAND_RscButton {
                 idc = 86010;
@@ -246,7 +246,7 @@
                 y = "0.772 * safezoneH + safezoneY";
                 w = "0.113437 * safezoneW";
                 h = "0.022 * safezoneH";
-                action = "[] call FUNC(loadGun)";
+                action = QUOTE([] call FUNC(loadGun));
             };
             //Autoloader Settings displays
             class AL_Header: ITC_LAND_RscText {

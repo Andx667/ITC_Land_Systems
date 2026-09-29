@@ -27,5 +27,5 @@ private _targets = [_destination] call FUNC(findIDTargets);
 
 //send it on to non-player targets
 {
-  [_x,_this] remoteExec ["FUNC(onClientRX)", _x, false];
+  [_x,_this] remoteExec [QFUNC(onClientRX), _x, false];
 }forEach _targets;

@@ -51,7 +51,7 @@ class fcs_combo_round_type: ITC_LAND_RscComboBox {
     y = "0.395 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-    onLBSelChanged = "call FUNC(mlrsfci_onlblselchanged_roundType)";                
+    onLBSelChanged = QUOTE(call FUNC(mlrsfci_onlblselchanged_roundType));                
 };
 class fcs_results: ITC_LAND_RscStructuredText {
     idc = 2403;

@@ -24,7 +24,7 @@ class CfgPatches {
 class Extended_FiredBIS_EventHandlers {
     class All {
         class ADDON {
-            firedBIS = "call FUNC(fired)";
+            firedBIS = QUOTE(call FUNC(fired));
         };
     };
 };

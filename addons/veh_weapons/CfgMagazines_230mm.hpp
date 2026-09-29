@@ -10,7 +10,7 @@ class itc_land_m230hex_12rnd : 12Rnd_230mm_rockets {
   itc_land_btabListFile = QPATHTOEF(ballistics,tables\b_230\list.sqf);
 };
 class itc_land_m230pgm_12rnd : itc_land_m230hex_12rnd {
-  itc_land_guidance[] = {"gps_inertial","EFUNC(guidance,pgm230)"};
+  itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};
   displayName = "M230 PGM";
   displayNameShort = "M230 PGM";
 };
@@ -31,7 +31,7 @@ class itc_land_m230icm_6rnd : itc_land_m230icm_12rnd {
 class itc_land_m230gicm_12rnd : itc_land_m230icm_12rnd {
   displayName = "M230 G-ICM";
   displayNameShort = "M230 G-ICM";
-  itc_land_guidance[] = {"gps_inertial","EFUNC(guidance,pgm230)"};  
+  itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};  
 };
 class itc_land_m230gicm_6rnd : itc_land_m230gicm_12rnd {
   count = 6;

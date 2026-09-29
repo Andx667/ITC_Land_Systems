@@ -294,7 +294,7 @@ class RscInGameUI {
   class ITC_Land_SpikeOptics: RscOptics_LaserDesignator_02 {
     idd = 300;
     controls[] = {"CA_IGUI_elements_group"};
-    onLoad = "call FUNC(selectSpike)";
+    onLoad = QUOTE(call FUNC(selectSpike));
     class CA_IGUI_elements_group: RscControlsGroup
     {
       idc = 170;

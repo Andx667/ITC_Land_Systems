@@ -87,7 +87,7 @@ class CfgVehicles {
         class ITC_Land_CommanderTablet {
             displayName = "Open VLS Interface";
             icon = "";
-            condition = "( _target ) == ([] call EFUNC(common,getCurVehicle))";
+            condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
             statement = "createDialog 'ITC_Land_RscVLSlaunch'";
         };
     };

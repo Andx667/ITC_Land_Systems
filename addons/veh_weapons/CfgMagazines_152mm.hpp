@@ -104,7 +104,7 @@
         muzzleImpulseFactor[] = {15, 30};
         displayNameShort = "G152 PGM";
         itc_land_fuze = "mof35_mod2";
-        itc_land_guidance[] = {"gps_inertial","EFUNC(guidance,pgm15x)"};
+        itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g152pgm_chg%1";
         itc_land_CountInAH = 1;
@@ -124,7 +124,7 @@
         muzzleImpulseFactor[] = {15, 30};
         displayNameShort = "G152 LGM";
         itc_land_fuze = "mof35_mod2";
-        itc_land_guidance[] = {"laser_coded","EFUNC(guidance,lgm15x)"};
+        itc_land_guidance[] = {"laser_coded",QEFUNC(guidance,lgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g152lgm_chg%1";
         itc_land_CountInAH = 1;

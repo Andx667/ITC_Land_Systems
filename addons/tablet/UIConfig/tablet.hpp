@@ -173,7 +173,7 @@ class itc_land_tablet {
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
     //colorActive[] = {0.1,0.1,0.1,0.9};
-        action = "[""side1""] call FUNC(interact)";
+        action = QUOTE(['side1'] call FUNC(interact));
   };
   class sidebar_button2: ITC_LAND_RscButton {
     idc = 15109;
@@ -184,7 +184,7 @@ class itc_land_tablet {
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
     //colorActive[] = {0.1,0.1,0.1,0.9};
-        action = "[""side2""] call FUNC(interact)";
+        action = QUOTE(['side2'] call FUNC(interact));
   };
   class sidebar_button3: ITC_LAND_RscButton {
     idc = 15110;
@@ -195,7 +195,7 @@ class itc_land_tablet {
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
     //colorActive[] = {0.1,0.1,0.1,0.9};
-        action = "[""side3""] call FUNC(interact)";
+        action = QUOTE(['side3'] call FUNC(interact));
   };
   class sidebar_button4: ITC_LAND_RscButton {
     idc = 15111;
@@ -206,7 +206,7 @@ class itc_land_tablet {
     h = "0.022 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
     //colorActive[] = {0.1,0.1,0.1,0.9};
-    action = "[""side4""] call FUNC(interact)";
+    action = QUOTE(['side4'] call FUNC(interact));
   };
   class sidebar_button5: ITC_LAND_RscButton {
     idc = 15112;
@@ -217,7 +217,7 @@ class itc_land_tablet {
         h = "0.044 * safezoneH";
     //colorBackground[] = {0,0,0,0.9};
     //colorActive[] = {0.1,0.1,0.1,0.9};
-        action = "[""side5""] call FUNC(interact)";
+        action = QUOTE(['side5'] call FUNC(interact));
   };
     class fire_mission_list: ITC_LAND_RscListBox {
         idc = 15114;
@@ -240,7 +240,7 @@ class itc_land_tablet {
     colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
-        action = "[""app"", 0] call FUNC(interact)";
+        action = QUOTE([ARR_2('app',0)] call FUNC(interact));
     };
     class app2: ITC_LAND_RscButton
     {
@@ -253,7 +253,7 @@ class itc_land_tablet {
     colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
-        action = "[""app"", 1] call FUNC(interact)";
+        action = QUOTE([ARR_2('app',1)] call FUNC(interact));
     };
     class app3: ITC_LAND_RscButton
     {
@@ -266,7 +266,7 @@ class itc_land_tablet {
     colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
-        action = "[""app"", 2] call FUNC(interact)";
+        action = QUOTE([ARR_2('app',2)] call FUNC(interact));
     };
     class app4: ITC_LAND_RscButton
     {
@@ -279,7 +279,7 @@ class itc_land_tablet {
     colorActive[] = {-1,-1,-1,0};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,0};
-        action = "[""app"", 3] call FUNC(interact)";
+        action = QUOTE([ARR_2('app',3)] call FUNC(interact));
     };
 
 

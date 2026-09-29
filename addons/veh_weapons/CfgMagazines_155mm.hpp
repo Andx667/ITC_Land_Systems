@@ -106,7 +106,7 @@
         muzzleImpulseFactor[] = {15, 30};
         displayNameShort = "G155 PGM";
         itc_land_fuze = "mof35_mod2";
-        itc_land_guidance[] = {"gps_inertial","EFUNC(guidance,pgm15x)"};
+        itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g155pgm_chg%1";
         itc_land_CountInAH = 1;
@@ -126,7 +126,7 @@
         muzzleImpulseFactor[] = {15, 30};
         displayNameShort = "G155 LGM";
         itc_land_fuze = "mof35_mod2";
-        itc_land_guidance[] = {"laser_coded","EFUNC(guidance,lgm15x)"};
+        itc_land_guidance[] = {"laser_coded",QEFUNC(guidance,lgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g155lgm_chg%1";
         itc_land_CountInAH = 1;
@@ -166,7 +166,7 @@
         displayName = "G155 EXTRA";
         ammo = "itc_land_155mm_inert";
         itc_land_submunitionCount = 2;
-        itc_land_submunitionScript = "FUNC(deployExtra)";
+        itc_land_submunitionScript = QFUNC(deployExtra);
         itc_land_heightModifier = 50;
         itc_land_timeModifier = -5;
         muzzleImpulseFactor[] = {15, 30};
@@ -189,7 +189,7 @@
         displayName = "G155 FALAT";
         ammo = "itc_land_155mm_inert";
         itc_land_submunitionCount = 2;
-        itc_land_submunitionScript = "FUNC(deployFalat)";
+        itc_land_submunitionScript = QFUNC(deployFalat);
         itc_land_guidance[] = {"laser_coded_2"};
         itc_land_heightModifier = 50;
         itc_land_timeModifier = -5;

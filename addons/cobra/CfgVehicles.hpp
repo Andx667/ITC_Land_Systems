@@ -15,7 +15,7 @@ class CfgVehicles {
         class Components {};
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "call FUNC(vehicleInit);";
+          init = QUOTE(call FUNC(vehicleInit););
       };
       class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
     };
@@ -36,7 +36,7 @@ class CfgVehicles {
         class Components {};
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "call FUNC(vehicleInit);";
+          init = QUOTE(call FUNC(vehicleInit););
       };
       class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
     };
@@ -55,7 +55,7 @@ class CfgVehicles {
     Commented out as is old concept content that may be referred back to in later versions
     class EventHandlers : EventHandlers {
       class itc_land_cobra_eventHandlers {
-          init = "call FUNC(sirenInit);";
+          init = QUOTE(call FUNC(sirenInit););
       };
     };
     class Attributes : Attributes {

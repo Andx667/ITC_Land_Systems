@@ -1,7 +1,7 @@
 #define APS_INIT_EH \
   class EventHandlers: EventHandlers { \
     class ADDON { \
-      init = "call FUNC(vehicleInit)"; \
+      init = QUOTE(call FUNC(vehicleInit)); \
     }; \
   };
 

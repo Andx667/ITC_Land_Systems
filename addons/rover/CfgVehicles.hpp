@@ -35,8 +35,8 @@ class CfgVehicles {
       class ITC_Land_MountedTablet {
         displayName = "Open Mounted Tablet";
         icon = QPATHTOEF(tablet,UI\arty-icon.paa);
-        condition = "[_target] call EFUNC(tablet,vehicleHasTablet)";
-        statement = "[_target] call EFUNC(tablet,openVehicleTablet)"
+        condition = QUOTE([_target] call EFUNC(tablet,vehicleHasTablet));
+        statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet))
       };
     };
   };

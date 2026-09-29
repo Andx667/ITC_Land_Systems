@@ -9,28 +9,28 @@ class ITC_Land_CfgFuzes {
     class mof35_mod0 {
         modes[] = {"pd","prox","time","delay"};
         modeDesc[] = {"Point Detonate","Proximity","Time","Delay"};
-        firedEvent = "FUNC(firedMof35)";
+        firedEvent = QFUNC(firedMof35);
         proxHOB = 9;
     };
     class mof35_mod1: mof35_mod0 {
         modes[] = {"time"};
         modeDesc[] = {"Time"};
-        firedEvent = "FUNC(firedMof35)";
+        firedEvent = QFUNC(firedMof35);
     };
     class mof35_mod2: mof35_mod0 {
         modes[] = {"pd","prox","delay"};
         modeDesc[] = {"Point Detonate","Proximity","Delay"};
-        firedEvent = "FUNC(firedMof35)";
+        firedEvent = QFUNC(firedMof35);
     };
     class mof35_mod3: mof35_mod0 { //FOR CARGO SHELLS LIKE EXTRA
         modes[] = {"time"};
         modeDesc[] = {"Time"};
-        firedEvent = "FUNC(firedMof35Mod3)";
+        firedEvent = QFUNC(firedMof35Mod3);
     };
     class sam35_mod0 { //FOR SAMS WITH PROX FUZING
         modes[] = {"prox"};
         modeDesc[] = {"Proximity"};
-        firedEvent = "FUNC(firedSAM35)";
+        firedEvent = QFUNC(firedSAM35);
         proxFOV = 60;
         proxRAN = 30;
     };  

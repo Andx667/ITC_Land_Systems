@@ -41,12 +41,12 @@ class CfgVehicles {
             class ITC_Land_CommanderTablet {
                 displayName = "Open Mounted Tablet";
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
-                condition = "( _target ) == ([] call EFUNC(common,getCurVehicle))";
-                statement = "[_target] call EFUNC(tablet,openVehicleTablet)";
+                condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
+                statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
             };
             class ITC_Land_SPHammohandler {
                 displayName = "Open Ammo Handling Interface";
-                condition = "( _target ) == ([] call EFUNC(common,getCurVehicle))";
+                condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };
         };

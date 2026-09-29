@@ -8,7 +8,7 @@ class CfgVehicles {
           class ITC_Land_Unpack_RemoteGLTD_B {
             displayName = "Remote GLTD [NATO]";
             condition = "'ITC_Land_B_RemoteGLTD_Packed' in (items _player)";
-            statement = "['ITC_Land_B_RemoteGLTD_Packed',_player] call EFUNC(packable,unpack)";
+            statement = QUOTE([ARR_2('ITC_Land_B_RemoteGLTD_Packed',_player)] call EFUNC(packable,unpack));
             priority = 1;
             showDisabled = 1;
             exceptions[] = {"isNotInside","isNotSitting"};
@@ -17,7 +17,7 @@ class CfgVehicles {
           class ITC_Land_Unpack_RemoteGLTD_BW: ITC_Land_Unpack_RemoteGLTD_B {
             displayName = "Remote GLTD (Green) [NATO]";
             condition = "'ITC_Land_BW_RemoteGLTD_Packed' in (items _player)";
-            statement = "['ITC_Land_BW_RemoteGLTD_Packed',_player] call EFUNC(packable,unpack)";
+            statement = QUOTE([ARR_2('ITC_Land_BW_RemoteGLTD_Packed',_player)] call EFUNC(packable,unpack));
           };
         };
       };
@@ -59,7 +59,7 @@ class CfgVehicles {
         class ITC_Land_PackGLTD {
                     displayName = "Repack GLTD";
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
-                    statement = "[_target,_player] call EFUNC(packable,pack)";
+                    statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
       };
     };
@@ -95,7 +95,7 @@ class CfgVehicles {
         class ITC_Land_PackGLTD {
                     displayName = "Repack GLTD";
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
-                    statement = "[_target,_player] call EFUNC(packable,pack)";
+                    statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
       };
     };

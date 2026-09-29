@@ -1,8 +1,8 @@
 class itc_land_rover_tablet {
   idd = 20001;
   movingEnable = 1;
-  onLoad="_this spawn FUNC(ui_init)";
-  onDestroy="call FUNC(killFeed)";
+  onLoad=QUOTE(_this spawn FUNC(ui_init));
+  onDestroy=QUOTE(call FUNC(killFeed));
   class Controls {
     class ITC_Land_UAVi_IGUI_elements_group: RscControlsGroup {
       idc = 75001;
@@ -286,7 +286,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "0.113437 * safezoneW";
         h = "0.022 * safezoneH";
-      onLBSelChanged="call FUNC(ui_update)";
+      onLBSelChanged=QUOTE(call FUNC(ui_update));
     };
     /*
     class RscButton_1600: RscButton
@@ -297,7 +297,7 @@ class itc_land_rover_tablet {
         y = TOP_BAR_Y * safezoneH + safezoneY;
         w = 0.0103125 * safezoneW;
         h = 0.022 * safezoneH;
-      onMouseButtonClick="[""fovup""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['fovup'] call FUNC(ui_vismode););
     };
     class RscButton_1601: RscButton
     {
@@ -307,7 +307,7 @@ class itc_land_rover_tablet {
         y = TOP_BAR_Y * safezoneH + safezoneY;
         w = 0.0103125 * safezoneW;
         h = 0.022 * safezoneH;
-      onMouseButtonClick="[""fovdn""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['fovdn'] call FUNC(ui_vismode););
     };
     */
     class RscText_1006: Text_base
@@ -325,7 +325,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "0.12625 * safezoneW";
         h = "0.022 * safezoneH";
-      onSliderPosChanged="[""fov""] call FUNC(ui_vismode);";
+      onSliderPosChanged=QUOTE(['fov'] call FUNC(ui_vismode););
     };
     #define VISMODE_BTN_W (0.028*safeZoneW)
     class RscText_999: RscButton
@@ -336,7 +336,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
         h = "0.022 * safezoneH";
-      onMouseButtonClick="[""dtv""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['dtv'] call FUNC(ui_vismode););
     };
     class RscText_1001: RscButton
     {
@@ -346,7 +346,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
         h = "0.022 * safezoneH";
-      onMouseButtonClick="[""nvg""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['nvg'] call FUNC(ui_vismode););
     };
     class RscText_1002: RscButton
     {
@@ -356,7 +356,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
         h = "0.022 * safezoneH";
-      onMouseButtonClick="[""whot""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['whot'] call FUNC(ui_vismode););
     };
     class RscText_1003: RscButton
     {
@@ -366,7 +366,7 @@ class itc_land_rover_tablet {
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
         h = "0.022 * safezoneH";
-      onMouseButtonClick="[""bhot""] call FUNC(ui_vismode);";
+      onMouseButtonClick=QUOTE(['bhot'] call FUNC(ui_vismode););
     };
     class RscText_1004: Text_base
     {

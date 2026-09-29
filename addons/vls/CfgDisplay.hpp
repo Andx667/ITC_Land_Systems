@@ -7,7 +7,7 @@
 
 
     class ITC_Land_RscVLSlaunch {
-        onLoad = "[_this] spawn FUNC(onLoad)";
+        onLoad = QUOTE([_this] spawn FUNC(onLoad));
 
         idd = 86002;
         controlsBackground[] = {};
@@ -57,7 +57,7 @@
                 colorText[] = {172/255,255/255,153/255,1};
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
-                onLBSelChanged = "call FUNC(onSelectTarget)";
+                onLBSelChanged = QUOTE(call FUNC(onSelectTarget));
             };
             class grid_text: ITC_LAND_RscText {
                 idc = 4105;
@@ -70,7 +70,7 @@
             };
             class grid_edit: ITC_LAND_RscEdit {
                 idc = 4106;
-                onChar = "_this spawn FUNC(onChar)";
+                onChar = QUOTE(_this spawn FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -90,7 +90,7 @@
             };
             class alt_edit: ITC_LAND_RscEdit {
                 idc = 4108;
-                onChar = "_this spawn FUNC(onChar)";
+                onChar = QUOTE(_this spawn FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -118,7 +118,7 @@
                 h = "0.022 * safezoneH";
                 colorText[] = {172/255,255/255,153/255,1};
                 colorActive[] = {0,0,0,1};
-                onLBSelChanged = "call FUNC(onSelectAngle)";
+                onLBSelChanged = QUOTE(call FUNC(onSelectAngle));
             };
             class name_text: ITC_LAND_RscText {
                 idc = 4111;
@@ -131,7 +131,7 @@
             };
             class name_edit: ITC_LAND_RscEdit {
                 idc = 4112;
-                onChar = "_this spawn FUNC(onChar)";
+                onChar = QUOTE(_this spawn FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -144,7 +144,7 @@
                 idc = 4104;
 
                 text = "LAUNCH SELECTED";
-                action =  "[_this] spawn FUNC(selectedLaunch)";
+                action =  QUOTE([_this] spawn FUNC(selectedLaunch));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -157,7 +157,7 @@
                 idc = 4113;
 
                 text = "SAVE TO LIST";
-                action =  "[_this] spawn FUNC(saveTGT)";
+                action =  QUOTE([_this] spawn FUNC(saveTGT));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.896 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -171,7 +171,7 @@
                 idc = 4114;
 
                 text = "REMOVE FROM LIST";
-                action =  "[_this] spawn FUNC(removeTGT)";
+                action =  QUOTE([_this] spawn FUNC(removeTGT));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -185,7 +185,7 @@
                 idc = 4115;
 
                 text = "ADHOC LAUNCH";
-                action =  "[_this] spawn FUNC(adHocLaunch)";
+                action =  QUOTE([_this] spawn FUNC(adHocLaunch));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";

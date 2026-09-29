@@ -9,7 +9,7 @@ class CfgVehicles {
             class ITC_Land_Unpack_AL6_B {
               displayName = "AL-6 Pelican [NATO]";
               condition = "'ITC_Land_B_AL6_Packed' in (items _player)";
-              statement = "['ITC_Land_B_AL6_Packed',_player] call EFUNC(packable,unpack)";
+              statement = QUOTE([ARR_2('ITC_Land_B_AL6_Packed',_player)] call EFUNC(packable,unpack));
               priority = 1;
               showDisabled = 1;
               exceptions[] = {"isNotInside","isNotSitting"};
@@ -37,7 +37,7 @@ class CfgVehicles {
                 class ITC_Land_PackAL6 {
                     displayName = "Repack UAV";
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
-                    statement = "[_target,_player] call EFUNC(packable,pack)";
+                    statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
             };
         };

@@ -25,7 +25,7 @@ class CfgWeapons {
     magazines[] = {"itc_land_mn230slam_x18"};
     class EventHandlers {
         class itc_land_veh_weapons {
-            fired = "call FUNC(fired);";
+            fired = QUOTE(call FUNC(fired););
         };
     };
   };

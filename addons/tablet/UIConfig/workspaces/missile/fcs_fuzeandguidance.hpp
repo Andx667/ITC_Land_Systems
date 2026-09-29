@@ -29,7 +29,7 @@ class fci_fuzeinputs_mode_combo: ITC_LAND_RscComboBox {
     y = "0.556 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-    onLBSelChanged = "call FUNC(mlrsfci_onlblselchanged_fuzemode)";
+    onLBSelChanged = QUOTE(call FUNC(mlrsfci_onlblselchanged_fuzemode));
 };
 
 class fci_fuzeinputs_time_text: ITC_LAND_RscText {

@@ -6,7 +6,7 @@ class CfgVehicles {
       class ACE_Equipment {
         class ITC_Land_Unpack {
           displayName = "Unpack";
-          condition = "[ACE_player] call FUNC(canunpack)";
+          condition = QUOTE([ACE_player] call FUNC(canunpack));
           statement = "";
           exceptions[] = {"isNotDragging", "notOnMap", "isNotInside", "isNotSitting"};
           showDisabled = 0;
