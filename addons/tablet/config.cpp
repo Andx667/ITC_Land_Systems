@@ -27,8 +27,8 @@ class ITC_LAND_RscComboBox;
 class ITC_LAND_RscButton;
 
 
-//#include "UIconfig\ControlBaseClasses.hpp"
-#include "UIconfig\tablet.hpp"
+//#include "UIConfig\ControlBaseClasses.hpp"
+#include "UIConfig\tablet.hpp"
 
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
