@@ -4,9 +4,9 @@
  * Author: ToadBall, Yax
  * Fired EH for weapons that can be engaged by the CIWS system. Runs only on
  * the machine where the gunner is local, and only when the CIWS system is
- * enabled (ITC_LAND_CIWS). Checks whether the fired ammo's base class
+ * enabled (GVAR(enabled)). Checks whether the fired ammo's base class
  * matches one of the configured interceptable ammo classes
- * (ITC_LAND_CIWS_INTERCEPTABLE); if so, forwards the Fired EH parameters to
+ * (GVAR(interceptable)); if so, forwards the Fired EH parameters to
  * FUNC(shellTarget) to spawn a trackable decoy target for the CIWS to
  * engage.
  *
@@ -31,12 +31,12 @@
 
 params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 if(!local _gunner) exitWith {}; //make sure it doesn't get executed everywhere
-if(!ITC_LAND_CIWS) exitWith {};  //if the CIWS system is turned off, stop the script
+if(!GVAR(enabled)) exitWith {};  //if the CIWS system is turned off, stop the script
 
 private _interceptable = false;
 { //loop through interceptable ammo base classes
   if(_ammo isKindOf [_x, configFile >> "cfgAmmo"]) exitWith {_interceptable = true;};
-}forEach ITC_LAND_CIWS_INTERCEPTABLE;
+}forEach GVAR(interceptable);
 
 if(!_interceptable) exitWith {}; //if the ammo can't be intercepted, kill the script;
 

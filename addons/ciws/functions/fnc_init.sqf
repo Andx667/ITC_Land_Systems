@@ -21,8 +21,8 @@
  * Public: No
  */
 
-["ITC_LAND_CIWS", "CHECKBOX", "Enable CIWS System", "ITC Land", [true]] call CBA_Settings_fnc_init; //ciws system enabling options
-ITC_LAND_CIWS_INTERCEPTABLE = (configFile >> "itc_land_ciws" >> "interceptable") call BIS_fnc_getCfgData; //list of ciws munitions to allow people to add more in missions
+[QGVAR(enabled), "CHECKBOX", "Enable CIWS System", "ITC Land", [true]] call CBA_Settings_fnc_init; //ciws system enabling options
+GVAR(interceptable) = (configFile >> "itc_land_ciws" >> "interceptable") call BIS_fnc_getCfgData; //list of ciws munitions to allow people to add more in missions
 
 //Add EHs to wake up objects placed by a zeus which have radars which would otherwise not have them on.
 {
