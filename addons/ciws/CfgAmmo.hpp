@@ -15,23 +15,17 @@ class CfgAmmo {
     trackLead = 0.4;
     trackOversteer = 1;
     irLock = 1;
-    class Components
-    {
-      class SensorsManagerComponent
-      {
-        class Components
-        {
-          class IRSensorComponent: SensorTemplateIR
-          {
-            class AirTarget
-            {
+    class Components {
+      class SensorsManagerComponent {
+        class Components {
+          class IRSensorComponent: SensorTemplateIR {
+            class AirTarget {
               minRange = 500;
               maxRange = 15000;
               objectDistanceLimitCoef = -1;
               viewDistanceLimitCoef = -1;
             };
-            class GroundTarget
-            {
+            class GroundTarget {
               minRange = 500;
               maxRange = 3500;
               objectDistanceLimitCoef = -1;
@@ -44,8 +38,7 @@ class CfgAmmo {
             animDirection = "mainGun";
             aimDown = -0.5;
           };
-          class DataLinkSensorComponent: SensorTemplateDataLink
-          {
+          class DataLinkSensorComponent: SensorTemplateDataLink {
           };
         };
       };

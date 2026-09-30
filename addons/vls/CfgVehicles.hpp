@@ -39,26 +39,19 @@ class CfgVehicles {
          weapon = "itc_land_mn230essm_launcher";
       };
     };
-        class Components
-        {
-            class SensorsManagerComponent
-            {
-                class Components
-                {
-                    class DataLinkSensorComponent: SensorTemplateDataLink
-                    {
+        class Components {
+            class SensorsManagerComponent {
+                class Components {
+                    class DataLinkSensorComponent: SensorTemplateDataLink {
                     };
-                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar
-                    {
-                        class AirTarget
-                        {
+                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+                        class AirTarget {
                             minRange = 2000;
                             maxRange = 20000;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
-                        class GroundTarget
-                        {
+                        class GroundTarget {
                             minRange = 7000;
                             maxRange = 8000;
                             objectDistanceLimitCoef = -1;

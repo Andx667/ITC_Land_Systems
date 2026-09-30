@@ -1,5 +1,4 @@
-class page_bcs_setup:ITC_LAND_Workspace
-{
+class page_bcs_setup:ITC_LAND_Workspace {
   idc = 13502;
   class Controls {
     class btysetup_bty_callsign_label: ITC_LAND_RscText {

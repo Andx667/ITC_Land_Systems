@@ -15,23 +15,17 @@ class CfgAmmo {
     thrust = 350;
     thrustTime = 25;
     radarLock = 1;
-    class Components: Components
-    {
-      class SensorsManagerComponent
-      {
-        class Components
-        {
-          class ActiveRadarSensorComponent: SensorTemplateActiveRadar
-          {
-            class AirTarget
-            {
+    class Components: Components {
+      class SensorsManagerComponent {
+        class Components {
+          class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+            class AirTarget {
               minRange = 1000;
               maxRange = 20000;
               objectDistanceLimitCoef = -1;
               viewDistanceLimitCoef = -1;
             };
-            class GroundTarget
-            {
+            class GroundTarget {
               minRange = 7000;
               maxRange = 8000;
               objectDistanceLimitCoef = -1;
@@ -43,8 +37,7 @@ class CfgAmmo {
             aimDown = 0;
             groundNoiseDistanceCoef = 0.1;
           };
-          class DataLinkSensorComponent: SensorTemplateDataLink
-          {
+          class DataLinkSensorComponent: SensorTemplateDataLink {
           };
         };
       };

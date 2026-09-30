@@ -72,23 +72,17 @@ class CfgVehicles {
         maxVerticalRotSpeed = 3;
       };
     };
-        class Components
-        {
-            class SensorsManagerComponent
-            {
-                class Components
-                {
-                    class IRSensorComponent: SensorTemplateIR
-                    {
-                        class AirTarget
-                        {
+        class Components {
+            class SensorsManagerComponent {
+                class Components {
+                    class IRSensorComponent: SensorTemplateIR {
+                        class AirTarget {
                             minRange = 500;
                             maxRange = 9000;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
-                        class GroundTarget
-                        {
+                        class GroundTarget {
                             minRange = 500;
                             maxRange = 3500;
                             objectDistanceLimitCoef = -1;
@@ -101,17 +95,14 @@ class CfgVehicles {
                         animDirection = "mainGun";
                         aimDown = -0.5;
                     };
-                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar
-                    {
-                        class AirTarget
-                        {
+                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+                        class AirTarget {
                             minRange = 2000;
                             maxRange = 20000;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
-                        class GroundTarget
-                        {
+                        class GroundTarget {
                             minRange = 7000;
                             maxRange = 8000;
                             objectDistanceLimitCoef = -1;
@@ -123,8 +114,7 @@ class CfgVehicles {
                         aimDown = -45;
                         groundNoiseDistanceCoef = 0.1;
                     };
-                    class DataLinkSensorComponent: SensorTemplateDataLink
-                    {
+                    class DataLinkSensorComponent: SensorTemplateDataLink {
                     };
                 };
             };
@@ -144,23 +134,17 @@ class CfgVehicles {
     crew = "B_UAV_AI";
     scope = 2;
     scopeCurator = 2;
-    class Components
-    {
-      class SensorsManagerComponent
-      {
-        class Components
-        {
-          class IRSensorComponent: SensorTemplateIR
-          {
-            class AirTarget
-            {
+    class Components {
+      class SensorsManagerComponent {
+        class Components {
+          class IRSensorComponent: SensorTemplateIR {
+            class AirTarget {
               minRange = 15000;
               maxRange = 15000;
               objectDistanceLimitCoef = -1;
               viewDistanceLimitCoef = -1;
             };
-            class GroundTarget
-            {
+            class GroundTarget {
               minRange = 500;
               maxRange = 3500;
               objectDistanceLimitCoef = -1;
@@ -173,8 +157,7 @@ class CfgVehicles {
             animDirection = "mainGun";
             aimDown = -0.5;
           };
-          class DataLinkSensorComponent: SensorTemplateDataLink
-          {
+          class DataLinkSensorComponent: SensorTemplateDataLink {
           };
         };
       };

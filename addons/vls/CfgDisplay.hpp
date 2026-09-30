@@ -166,8 +166,7 @@
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
-            class removefromlist_button: ITC_LAND_RscButton
-            {
+            class removefromlist_button: ITC_LAND_RscButton {
                 idc = 4114;
 
                 text = "REMOVE FROM LIST";
@@ -180,8 +179,7 @@
                 colorBackground[] = {0,0,0,1};
                 colorActive[] = {0,0,0,1};
             };
-            class adhocLaunch_Button: ITC_LAND_RscButton
-            {
+            class adhocLaunch_Button: ITC_LAND_RscButton {
                 idc = 4115;
 
                 text = "ADHOC LAUNCH";

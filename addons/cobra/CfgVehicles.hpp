@@ -59,8 +59,7 @@ class CfgVehicles {
       };
     };
     class Attributes : Attributes {
-        class ITC_Land_Datalink_Ext_ID
-        {
+        class ITC_Land_Datalink_Ext_ID {
         displayName = "Trigger Datalink ID";
         tooltip = "4 character ID, characters 0-F allowed";
         property = "ITC_Land_Datalink_ext_ID";
@@ -69,8 +68,7 @@ class CfgVehicles {
         defaultValue = "CF01";
         unique = 1;
       };
-        class ITC_Land_Datalink_ID
-        {
+        class ITC_Land_Datalink_ID {
         displayName = "Own Datalink ID(optional)";
         tooltip = "4 character ID, characters 0-F allowed";
         property = "ITC_Land_Datalink_ID";

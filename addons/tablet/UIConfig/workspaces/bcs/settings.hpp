@@ -1,9 +1,7 @@
-class page_bcs_settings:ITC_LAND_Workspace
-{
+class page_bcs_settings:ITC_LAND_Workspace {
   idc = 13501;
   class Controls {
-    class bcs_settings_alerttosplash_label: ITC_LAND_RscText
-    {
+    class bcs_settings_alerttosplash_label: ITC_LAND_RscText {
         idc = 3201;
         text = "Alert To Splash: ";
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
@@ -12,8 +10,7 @@ class page_bcs_settings:ITC_LAND_Workspace
         h = "0.022 * safezoneH";
 
     };
-    class bcs_settings_firemission_code_label: ITC_LAND_RscText
-    {
+    class bcs_settings_firemission_code_label: ITC_LAND_RscText {
         idc = 3203;
         text = "Firemission Code: ";
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
@@ -22,8 +19,7 @@ class page_bcs_settings:ITC_LAND_Workspace
         h = "0.022 * safezoneH";
 
     };
-    class bcs_settings_firemission_start_label: ITC_LAND_RscText
-    {
+    class bcs_settings_firemission_start_label: ITC_LAND_RscText {
         idc = 3204;
         text = "Firemission Start: ";
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
@@ -32,8 +28,7 @@ class page_bcs_settings:ITC_LAND_Workspace
         h = "0.022 * safezoneH";
 
     };
-    class bcs_settings_alerttosplash_text: ITC_LAND_RscEdit
-    {
+    class bcs_settings_alerttosplash_text: ITC_LAND_RscEdit {
         idc = 3205;
         text = "10";
         x = QUOTE((0.479375 + POSXADJUST) * safezoneW + safezoneX);
@@ -47,8 +42,7 @@ class page_bcs_settings:ITC_LAND_Workspace
         colorBackground[] = {0,0,0,1};
         colorActive[] = {0,0,0,1};
     };
-    class bcs_settings_firemission_code_text: ITC_LAND_RscEdit
-    {
+    class bcs_settings_firemission_code_text: ITC_LAND_RscEdit {
         idc = 3206;
         text = "FM";
         x = QUOTE((0.479375 + POSXADJUST) * safezoneW + safezoneX);
@@ -59,8 +53,7 @@ class page_bcs_settings:ITC_LAND_Workspace
         colorBackground[] = {0,0,0,1};
         colorActive[] = {0,0,0,1};
     };
-    class bcs_settings_firemission_start_text: ITC_LAND_RscEdit
-    {
+    class bcs_settings_firemission_start_text: ITC_LAND_RscEdit {
         idc = 3207;
         text = "0001";
         x = QUOTE((0.479375 + POSXADJUST) * safezoneW + safezoneX);

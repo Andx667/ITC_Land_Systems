@@ -1,5 +1,4 @@
-class page_bcs_locations:ITC_LAND_Workspace
-{
+class page_bcs_locations:ITC_LAND_Workspace {
   idc = 13503;
   class Controls {
     class locstores_referenceID_label: ITC_LAND_RscText {

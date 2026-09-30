@@ -28,8 +28,7 @@ class ITC_LAND_RscText {
     tooltipColorBox[] = {1,1,1,1};
     tooltipColorShade[] ={0,0,0,0.65};
 };
-class ITC_LAND_RscEdit
-{
+class ITC_LAND_RscEdit {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -41,8 +40,7 @@ class ITC_LAND_RscEdit
         colorBackground[] = {0,0,0,0};
         colorText[] = AIFMSGRN;
     colorDisabled[] ={1,1,1,0.25};
-    colorSelection[] =
-    {
+    colorSelection[] = {
         "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])",
         "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])",
         "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",
@@ -60,8 +58,7 @@ class ITC_LAND_RscEdit
         tooltipColorBox[] = {1,1,1,1};
         tooltipColorShade[] ={0,0,0,0.65};
 };
-class ITC_LAND_RscStructuredText
-{
+class ITC_LAND_RscStructuredText {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -69,8 +66,7 @@ class ITC_LAND_RscStructuredText
     idc = -1;
     style = 0;
         colorText[] = AIFMSGRN;
-    class Attributes
-    {
+    class Attributes {
         font = "RobotoCondensed";
         color = "#acff99";
         colorLink = "#D09B43";

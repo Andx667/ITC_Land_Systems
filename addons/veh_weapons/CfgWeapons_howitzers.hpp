@@ -13,10 +13,8 @@
             artilleryCharge = 1;
             reloadTime = 5;
         };
-        class EventHandlers
-        {
-                class itc_land_veh_weapons
-                {
+        class EventHandlers {
+                class itc_land_veh_weapons {
                         fired = QUOTE(call FUNC(fired););
                 };
         };

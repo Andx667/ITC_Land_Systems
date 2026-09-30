@@ -56,8 +56,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "4.5 *      (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class TextSpd: RangeText
-      {
+      class TextSpd: RangeText {
         idc = 1009;
         text = "SPD [KM/H]:";
         x = "5.8 *      (0.01875 * SafezoneH)";
@@ -65,8 +64,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "5 *        (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class CA_Speed: RangeText
-      {
+      class CA_Speed: RangeText {
         idc = 188;
         text = "120";
         x = "10.3 *         (0.01875 * SafezoneH)";
@@ -74,8 +72,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "5 *        (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class TextAlt: RangeText
-      {
+      class TextAlt: RangeText {
         idc = 1007;
         text = "ALT [AGL]:";
         x = "5.8 *      (0.01875 * SafezoneH)";
@@ -83,8 +80,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "5 *        (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class CA_Alt: RangeText
-      {
+      class CA_Alt: RangeText {
         idc = 189;
         text = "3825";
         x = "10.3 *         (0.01875 * SafezoneH)";
@@ -92,8 +88,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "5 *        (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class ITC_Land_UAVi_Alt_text: RangeText
-      {
+      class ITC_Land_UAVi_Alt_text: RangeText {
         idc = 75010;
         text = "ALT [ASL]:";
         x = "5.8 *      (0.01875 * SafezoneH)";
@@ -101,8 +96,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         w = "5 *        (0.01875 * SafezoneH)";
         h = "1.2 *      (0.025 * SafezoneH)";
       };
-      class ITC_Land_UAVi_Alt_value: RangeText
-      {
+      class ITC_Land_UAVi_Alt_value: RangeText {
         idc = 75011;
         text = "3825";
         x = "10.3 *         (0.01875 * SafezoneH)";

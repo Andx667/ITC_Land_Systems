@@ -295,23 +295,19 @@ class RscInGameUI {
     idd = 300;
     controls[] = {"CA_IGUI_elements_group"};
     onLoad = QUOTE(call FUNC(selectSpike));
-    class CA_IGUI_elements_group: RscControlsGroup
-    {
+    class CA_IGUI_elements_group: RscControlsGroup {
       idc = 170;
-      class VScrollbar: VScrollbar
-      {
+      class VScrollbar: VScrollbar {
         width = 0;
       };
-      class HScrollbar: HScrollbar
-      {
+      class HScrollbar: HScrollbar {
         height = 0;
       };
       x = "safeZoneX";
       y = "safeZoneY";
       w = "safeZoneW";
       h = "safeZoneH";
-      class controls
-      {
+      class controls {
         class Sidebar_Left: RscText {
           idc = 1009;
           x = "0 *  (safezoneW / 64) +  (0)";

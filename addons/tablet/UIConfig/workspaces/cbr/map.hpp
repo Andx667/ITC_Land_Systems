@@ -1,5 +1,4 @@
-class page_cbr_map:ITC_LAND_Workspace
-{
+class page_cbr_map:ITC_LAND_Workspace {
   idc = 13601;
   class Controls {
     class cbr_map: RscMapControl {

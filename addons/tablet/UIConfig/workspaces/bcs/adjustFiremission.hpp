@@ -1,9 +1,7 @@
-class page_bcs_firemission_adjust:ITC_LAND_Workspace
-{
+class page_bcs_firemission_adjust:ITC_LAND_Workspace {
   idc = 13507;
   class Controls {
-    class itc_land_firemission_next: ITC_LAND_RscButton
-    {
+    class itc_land_firemission_next: ITC_LAND_RscButton {
         idc = 9600;
         text = "Next"; //--- ToDo: Localize;
         x = "0.561875 * safezoneW + safezoneX";
@@ -12,8 +10,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         h = "0.044 * safezoneH";
         action = "[""save""] call itc_land_tablet_fnc_pageInteract";
     };
-    class itc_land_firemission_back: ITC_LAND_RscButton
-    {
+    class itc_land_firemission_back: ITC_LAND_RscButton {
         idc = 9604;
         text = "Back"; //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
@@ -22,8 +19,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         h = "0.044 * safezoneH";
         action = "[""back""] call itc_land_tablet_fnc_pageInteract";
     };
-    class itc_land_target_field1_text: ITC_LAND_RscText
-    {
+    class itc_land_target_field1_text: ITC_LAND_RscText {
         idc = 9020;
         text = "OT"; //--- ToDo: Localize;
         tooltip = "Observer-Target direction: compass direction from the observer to the target, in mils";
@@ -32,8 +28,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0515625 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field1_input: ITC_LAND_RscEdit
-    {
+    class itc_land_target_field1_input: ITC_LAND_RscEdit {
         idc = 9401;
         text = "0"; //--- ToDo: Localize;
         x = "0.427812 * safezoneW + safezoneX";
@@ -41,8 +36,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0825 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field2_input: ITC_LAND_RscEdit
-    {
+    class itc_land_target_field2_input: ITC_LAND_RscEdit {
         idc = 9402;
         text = "0"; //--- ToDo: Localize;
         x = "0.427812 * safezoneW + safezoneX";
@@ -50,8 +44,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0825 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field3_input: ITC_LAND_RscEdit
-    {
+    class itc_land_target_field3_input: ITC_LAND_RscEdit {
         idc = 9403;
         text = "0"; //--- ToDo: Localize;
         x = "0.427812 * safezoneW + safezoneX";
@@ -59,8 +52,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0825 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field4_input: ITC_LAND_RscEdit
-    {
+    class itc_land_target_field4_input: ITC_LAND_RscEdit {
         idc = 9404;
         text = "0"; //--- ToDo: Localize;
         x = "0.427812 * safezoneW + safezoneX";
@@ -68,8 +60,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0825 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field2_text: ITC_LAND_RscText
-    {
+    class itc_land_target_field2_text: ITC_LAND_RscText {
         idc = 9021;
         text = "AD"; //--- ToDo: Localize;
         tooltip = "Add/Drop: range correction along the OT line, in meters (positive adds range, negative drops it)";
@@ -78,8 +69,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0515625 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field3_text: ITC_LAND_RscText
-    {
+    class itc_land_target_field3_text: ITC_LAND_RscText {
         idc = 9022;
         text = "LR"; //--- ToDo: Localize;
         tooltip = "Left/Right: lateral correction perpendicular to the OT line, in meters";
@@ -88,8 +78,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace
         w = "0.0515625 * safezoneW";
         h = "0.022 * safezoneH";
     };
-    class itc_land_target_field4_text: ITC_LAND_RscText
-    {
+    class itc_land_target_field4_text: ITC_LAND_RscText {
         idc = 9023;
         text = "UD"; //--- ToDo: Localize;
         tooltip = "Up/Down: vertical/elevation correction, in meters";

@@ -229,8 +229,7 @@ class itc_land_tablet {
         //colorActive[] = {0,0,0,0.9};
         onLBSelChanged = "[""sideList""] call itc_land_tablet_fnc_appInteract";
     };
-    class app1: ITC_LAND_RscButton
-    {
+    class app1: ITC_LAND_RscButton {
       idc = 15600;
       x = "0.200937 * safezoneW + safezoneX";
       y = "0.39 * safezoneH + safezoneY";
@@ -242,8 +241,7 @@ class itc_land_tablet {
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',0)] call FUNC(interact));
     };
-    class app2: ITC_LAND_RscButton
-    {
+    class app2: ITC_LAND_RscButton {
     idc = 15601;
     x = "0.200937 * safezoneW + safezoneX";
     y = "0.434 * safezoneH + safezoneY";
@@ -255,8 +253,7 @@ class itc_land_tablet {
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',1)] call FUNC(interact));
     };
-    class app3: ITC_LAND_RscButton
-    {
+    class app3: ITC_LAND_RscButton {
     idc = 15602;
     x = "0.200937 * safezoneW + safezoneX";
     y = "0.489 * safezoneH + safezoneY";
@@ -268,8 +265,7 @@ class itc_land_tablet {
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',2)] call FUNC(interact));
     };
-    class app4: ITC_LAND_RscButton
-    {
+    class app4: ITC_LAND_RscButton {
     idc = 15603;
     x = "0.200937 * safezoneW + safezoneX";
     y = "0.533 * safezoneH + safezoneY";

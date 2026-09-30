@@ -1,5 +1,4 @@
-class page_cbr_data:ITC_LAND_Workspace
-{
+class page_cbr_data:ITC_LAND_Workspace {
   idc = 13602;
   class Controls {
     class cbr_data_list: ITC_LAND_RscListBox {

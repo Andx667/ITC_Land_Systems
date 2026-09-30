@@ -19,10 +19,8 @@ class itc_land_230mm_mlrs : rockets_230mm_GAT {
        reloadTime = 0.5;
        
   };
-  class EventHandlers
-  {
-      class itc_land_veh_weapons
-      {
+  class EventHandlers {
+      class itc_land_veh_weapons {
           fired = QUOTE(call FUNC(fired););
       };
   };
