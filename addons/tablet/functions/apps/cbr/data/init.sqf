@@ -21,7 +21,7 @@
 params ["_display"];
 ctrlShow [13602, true];
 
-[_display, IDC_workspace_header, "Data"] call FUNC(setText);
+[_display, IDC_workspace_header, "Data"] call EFUNC(common,ctrlSetText);
 
 private _firesStrings = itc_land_cobra_engagements apply {
   private _pos = [_x # 2 # 0] call ace_common_fnc_getMapGridFromPos;

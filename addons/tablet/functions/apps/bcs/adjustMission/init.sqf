@@ -22,4 +22,4 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 ctrlShow [13507, true];
 
-[_display, IDC_workspace_header, "Adjust Mission"] call FUNC(setText);
+[_display, IDC_workspace_header, "Adjust Mission"] call EFUNC(common,ctrlSetText);

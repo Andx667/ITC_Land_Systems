@@ -22,21 +22,21 @@
 params ["_display"];
 ITC_CURVEHICLE
 
-[_display, IDC_header1, "AIFMS"] call FUNC(setText);
-[_display, IDC_header2, "FDC Suite"] call FUNC(setText);
+[_display, IDC_header1, "AIFMS"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header2, "FDC Suite"] call EFUNC(common,ctrlSetText);
 
-[_display, IDC_sidebar_button1, "BCS Settings"] call FUNC(setText);
-[_display, IDC_sidebar_button2, "Bty Setup"] call FUNC(setText);
-[_display, IDC_sidebar_button3, "Location Stores"] call FUNC(setText);
-//[_display, IDC_sidebar_button4, "Ammo Stores"] call FUNC(setText);
-[_display, IDC_sidebar_button5, "New Firemission"] call FUNC(setText);
+[_display, IDC_sidebar_button1, "BCS Settings"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button2, "Bty Setup"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button3, "Location Stores"] call EFUNC(common,ctrlSetText);
+//[_display, IDC_sidebar_button4, "Ammo Stores"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button5, "New Firemission"] call EFUNC(common,ctrlSetText);
 
-[_display, IDC_sidebar_button1, 0] call FUNC(setFade);
-[_display, IDC_sidebar_button2, 0] call FUNC(setFade);
-[_display, IDC_sidebar_button3, 0] call FUNC(setFade);
-[_display, IDC_sidebar_button5, 0] call FUNC(setFade);
+[_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);
+[_display, IDC_sidebar_button2, 0] call EFUNC(common,ctrlSetFade);
+[_display, IDC_sidebar_button3, 0] call EFUNC(common,ctrlSetFade);
+[_display, IDC_sidebar_button5, 0] call EFUNC(common,ctrlSetFade);
 
-[_display, IDC_fire_mission_list, 0] call FUNC(setFade);
+[_display, IDC_fire_mission_list, 0] call EFUNC(common,ctrlSetFade);
 
 private _defaults = [
   [QGVAR(bcs_splash_time), 10],

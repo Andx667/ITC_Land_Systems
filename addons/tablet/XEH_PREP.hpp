@@ -4,8 +4,6 @@ PREP(interact);
 PREP(render);
 PREP(compileApp);
 PREP(compilePage);
-PREP(setText);
-PREP(setFade);
 PREP(fillComboBox);
 PREP(vehicleHasTablet);
 PREP(openVehicleTablet);

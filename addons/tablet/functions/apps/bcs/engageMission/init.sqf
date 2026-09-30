@@ -23,7 +23,7 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 ctrlShow [13505, true];
-[_display, IDC_workspace_header, format ["%1 ENGAGEMENT",_ident]] call FUNC(setText);
+[_display, IDC_workspace_header, format ["%1 ENGAGEMENT",_ident]] call EFUNC(common,ctrlSetText);
 
 private _shellTypes = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0);
 private _shellNames = _shellTypes apply {((configFile >> "CfgMagazines" >> _x >> "displayName")  call BIS_fnc_getCfgData)};

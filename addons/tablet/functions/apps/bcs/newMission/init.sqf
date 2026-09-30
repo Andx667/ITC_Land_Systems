@@ -23,7 +23,7 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 ctrlShow [13504, true];
-[_display, IDC_workspace_header, _ident] call FUNC(setText);
+[_display, IDC_workspace_header, _ident] call EFUNC(common,ctrlSetText);
 SETTEXT(6400,_ident);
 SETTEXT(6401,_in0);
 SETTEXT(6402,_in1);

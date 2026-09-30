@@ -21,18 +21,18 @@
 params ["_display"];
 #include "..\..\BCS_idc_defines.hpp"
 
-[_display, IDC_header1, "COBRA"] call FUNC(setText);
-[_display, IDC_header2, "Radar Suite"] call FUNC(setText);
+[_display, IDC_header1, "COBRA"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header2, "Radar Suite"] call EFUNC(common,ctrlSetText);
 
-//[_display, IDC_sidebar_button1, 0] call FUNC(setFade);
-[_display, IDC_sidebar_button2, 0] call FUNC(setFade);
-[_display, IDC_sidebar_button3, 0] call FUNC(setFade);
-//[_display, IDC_sidebar_button1, "COBRA Settings"] call FUNC(setText);
-[_display, IDC_sidebar_button2, "Map view"] call FUNC(setText);
-[_display, IDC_sidebar_button3, "Data view"] call FUNC(setText);
+//[_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);
+[_display, IDC_sidebar_button2, 0] call EFUNC(common,ctrlSetFade);
+[_display, IDC_sidebar_button3, 0] call EFUNC(common,ctrlSetFade);
+//[_display, IDC_sidebar_button1, "COBRA Settings"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button2, "Map view"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button3, "Data view"] call EFUNC(common,ctrlSetText);
 
-//[_display, IDC_sidebar_button5, 0] call FUNC(setFade);
-//[_display, IDC_sidebar_button5, "Refresh data"] call FUNC(setText);
+//[_display, IDC_sidebar_button5, 0] call EFUNC(common,ctrlSetFade);
+//[_display, IDC_sidebar_button5, "Refresh data"] call EFUNC(common,ctrlSetText);
 
 /*
 if(!(missionNamespace getVariable ["itc_land_cobra_app_hasInitialized",false])) then {

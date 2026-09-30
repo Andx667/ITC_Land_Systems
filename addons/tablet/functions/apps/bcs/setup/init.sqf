@@ -23,7 +23,7 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 ctrlShow [13502, true];
 
-[_display, IDC_workspace_header, "Battery Setup"] call FUNC(setText);
+[_display, IDC_workspace_header, "Battery Setup"] call EFUNC(common,ctrlSetText);
 SETTEXT(4303,GVAR(bcs_bty_name));
 
 //_tables = (configFile >> "itc_land_ballistics" >> "availableTables")  call BIS_fnc_getCfgData;

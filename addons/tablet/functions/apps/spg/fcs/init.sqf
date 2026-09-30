@@ -23,7 +23,7 @@
 params ["_display"];
 ITC_CURVEHICLE
 ctrlShow [13410, true];
-[_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
+[_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call EFUNC(common,ctrlSetText);
 
 if(isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions"}) then {
   _vehicle setVariable ["itc_land_tablet_fcs_solutions", [], true];

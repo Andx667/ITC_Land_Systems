@@ -23,7 +23,7 @@
 params ["_display"];
 ITC_CURVEHICLE
 ctrlShow [13701, true];
-[_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call FUNC(setText);
+[_display, IDC_workspace_header, "FIRING COMMAND INTERFACE"] call EFUNC(common,ctrlSetText);
 //(_display displayCtrl 1501) lbAdd "MANUAL TARGETING";
 lbClear (_display displayCtrl 1512);
 (_display displayCtrl 1512) lbAdd "L-FCS TARGETING";

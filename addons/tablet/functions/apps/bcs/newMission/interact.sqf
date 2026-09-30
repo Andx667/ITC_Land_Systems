@@ -28,7 +28,7 @@ private _display = findDisplay 32562;
 private _typeIndex = lbCurSel 6100;
 if(_action == "targetType") then {
   //player sideChat format["ti %1",_typeIndex];
-  {[_display, _x, 1] call FUNC(setFade);}forEach [6019,6403,6404,6019,6101,6601];
+  {[_display, _x, 1] call EFUNC(common,ctrlSetFade);}forEach [6019,6403,6404,6019,6101,6601];
   private _labelTexts = ["","","",""];
   private _showFields = [];
   switch (_typeIndex) do {
@@ -49,8 +49,8 @@ if(_action == "targetType") then {
       _showFields = [6403];
     };
   };
-  {[_display, _x,_labelTexts select _forEachIndex] call FUNC(setText);} forEach [6020,6021,6022,6023];
-  {[_display, _x, 0] call FUNC(setFade);}forEach _showFields;
+  {[_display, _x,_labelTexts select _forEachIndex] call EFUNC(common,ctrlSetText);} forEach [6020,6021,6022,6023];
+  {[_display, _x, 0] call EFUNC(common,ctrlSetFade);}forEach _showFields;
 };
 
 
@@ -58,8 +58,8 @@ if(_action == "load") then {
   private _pointIndex = lbCurSel 6101;
   if(_pointIndex > -1) then {
     private _point = GVAR(bcs_locations) # _pointIndex;
-    [_display, 6401, _point # 1] call FUNC(setText);
-    [_display, 6402, str (_point # 3)] call FUNC(setText);
+    [_display, 6401, _point # 1] call EFUNC(common,ctrlSetText);
+    [_display, 6402, str (_point # 3)] call EFUNC(common,ctrlSetText);
   };
 };
 

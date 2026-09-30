@@ -23,7 +23,7 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 ctrlShow [13501, true];
 
-[_display, IDC_workspace_header, "Battery Control System Settings"] call FUNC(setText);
+[_display, IDC_workspace_header, "Battery Control System Settings"] call EFUNC(common,ctrlSetText);
 
 SETTEXT(3205,str GVAR(bcs_splash_time));
 SETTEXT(3206,GVAR(bcs_mission_code));

@@ -21,7 +21,7 @@ params ["_display"];
 #include "..\..\..\BCS_idc_defines.hpp"
 ctrlShow [13503, true];
 
-[_display, IDC_workspace_header, "Location Stores"] call FUNC(setText);
+[_display, IDC_workspace_header, "Location Stores"] call EFUNC(common,ctrlSetText);
 
 [5408,["no","yes"],0] call FUNC(fillComboBox);
 

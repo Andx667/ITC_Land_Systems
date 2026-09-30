@@ -27,7 +27,7 @@ params ["_display", ["_calculate", true]];
 MISSION;MISSIONPARAMS;
 ctrlShow [13506, true];
 
-[_display, IDC_workspace_header, format["%1 Solutions", _ident]] call FUNC(setText);
+[_display, IDC_workspace_header, format["%1 Solutions", _ident]] call EFUNC(common,ctrlSetText);
 
 if(_calculate) then {
   GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage]  call EFUNC(bcs,calcSolutions);

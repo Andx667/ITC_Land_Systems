@@ -20,4 +20,4 @@
 params ["_display"];
 ctrlShow [13601, true];
 
-[_display, IDC_workspace_header, "Map"] call FUNC(setText);
+[_display, IDC_workspace_header, "Map"] call EFUNC(common,ctrlSetText);

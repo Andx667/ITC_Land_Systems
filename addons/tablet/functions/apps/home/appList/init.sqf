@@ -22,8 +22,8 @@
 params ["_display"];
 #include "..\..\..\BCS_idc_defines.hpp"
 ctrlShow [13301, true];
-[_display, 15010, 0] call FUNC(setFade);
-[_display, 15011, 0] call FUNC(setFade);
+[_display, 15010, 0] call EFUNC(common,ctrlSetFade);
+[_display, 15011, 0] call EFUNC(common,ctrlSetFade);
 
 ITC_CURVEHICLE
 private _apps = _vehicle getVariable QGVAR(apps);
@@ -35,12 +35,12 @@ private _apps = _vehicle getVariable QGVAR(apps);
     private _displayedName = toUpper (format ["APP %1: %2",_x + 1, _name]);
     private _displayedifaces = toUpper ( _ifaces );
 
-    [_display, 91000 + _x, _displayedName] call FUNC(setText);
-    [_display, 91010 + _x, _displayedifaces] call FUNC(setText);
+    [_display, 91000 + _x, _displayedName] call EFUNC(common,ctrlSetText);
+    [_display, 91010 + _x, _displayedifaces] call EFUNC(common,ctrlSetText);
 
   } else {
-    [_display, 91000 + _x, ""] call FUNC(setText);
-    [_display, 91010 + _x, ""] call FUNC(setText);
+    [_display, 91000 + _x, ""] call EFUNC(common,ctrlSetText);
+    [_display, 91010 + _x, ""] call EFUNC(common,ctrlSetText);
     ctrlShow [91020 + _x, false];
   };
 }forEach [0,1,2];
