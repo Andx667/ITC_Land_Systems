@@ -45,49 +45,10 @@ if ( !(isNil "itc_land_selectedFuzeIndex") && {itc_land_selectedFuzeIndex <= (lb
     [1904, 0] call FUNC(mlrsfci_onlblselchanged_fuzemode);        
 };
 
-//Guided munition elements 
-if ( isArray (_selectedMagConfig >> "itc_land_guidance") ) then {
-    private _isSmart = (getArray (_selectedMagConfig >> "itc_land_guidance")) select 0;
-    switch _isSmart do {
-        case "laser_coded" : {
-    
-        };
-        case "gps_inertial" : {
-            //Show Guidance header
-            ctrlShow [1907, true];
-            
-            //Show PGM elements
-            ctrlShow [1908, true];
-            ctrlShow [1909, true];
-            private _tgtGrid = "0000000000";
-            if (!(isNil "itc_land_guidance_targetGrid")) then { _tgtGrid = itc_land_guidance_targetGrid; };
-            ctrlSetText [1909,format["%1", _tgtGrid]];  
-            
-            ctrlShow [1910, true];
-            ctrlShow [1911, true];      
-            private _tgtAlt = 0;
-            if (!(isNil "itc_land_guidance_targetAlt")) then {  _tgtAlt = itc_land_guidance_targetAlt; };
-            ctrlSetText [1911,format["%1", _tgtAlt]];           
-            
-        };
-        default { 
-            //Hide Guidance fields
-            //Guidance header
-            ctrlShow [1907, false];
-
-            //PGM
-            ctrlShow [1908, false];
-            ctrlShow [1909, false];
-            ctrlShow [1910, false];
-            ctrlShow [1911, false]; 
-        };
-    };  
-} else {
-    //Hide Guidance fields
-            //Guidance header
-            ctrlShow [1907, false];
-            ctrlShow [1908, false];
-            ctrlShow [1909, false];
-            ctrlShow [1910, false];
-            ctrlShow [1911, false]; 
+//Guided munition elements: only GPS guided rounds take a target grid and altitude
+private _isPgm = ((getArray (_selectedMagConfig >> "itc_land_guidance")) param [0, ""]) == "gps_inertial";
+[[1907, 1908, 1909, 1910, 1911], _isPgm] call EFUNC(common,ctrlShowMany);
+if (_isPgm) then {
+    ctrlSetText [1909, format ["%1", missionNamespace getVariable ["itc_land_guidance_targetGrid", "0000000000"]]];
+    ctrlSetText [1911, format ["%1", missionNamespace getVariable ["itc_land_guidance_targetAlt", 0]]];
 };

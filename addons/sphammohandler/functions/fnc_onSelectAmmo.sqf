@@ -52,70 +52,8 @@ if ( _selectedFuzeIndex <= (lbSize 86004)) then {
     lbSetCurSel [86004, 0];
 };
 
-//Guided munition elements
-if ( isArray (_selectedMagConfig >> "itc_land_guidance") ) then {
-    private _isSmart = (getArray (_selectedMagConfig >> "itc_land_guidance")) select 0;
-    switch _isSmart do {
-        case "laser_coded" : {
-            //Show LGM elements
-            ctrlShow [86007, true];
-            ctrlShow [86008, true];
-            ctrlShow [86023, false];
-            ctrlShow [86024, false];
-            //hide PGM elements
-            ctrlShow [86012, false];
-            ctrlShow [86013, false];
-            ctrlShow [86014, false];
-            ctrlShow [86015, false];
-        };
-            case "laser_coded_2" : {
-                //Show LGM elements
-                ctrlShow [86007, true];
-                ctrlShow [86008, true];
-                ctrlShow [86023, true];
-                ctrlShow [86024, true];
-                //hide PGM elements
-                ctrlShow [86012, false];
-                ctrlShow [86013, false];
-                ctrlShow [86014, false];
-                ctrlShow [86015, false];
-            };
-        case "gps_inertial" : {
-            //Hide LGM elements
-            ctrlShow [86007, false];
-            ctrlShow [86008, false];
-            ctrlShow [86023, false];
-            ctrlShow [86024, false];
-            //Show PGM elements
-            ctrlShow [86012, true];
-            ctrlShow [86013, true];
-            ctrlShow [86014, true];
-            ctrlShow [86015, true];
-        };
-        default {
-            //Hide Guidance fields
-            //LGM
-            ctrlShow [86007, false];
-            ctrlShow [86008, false];
-            ctrlShow [86023, false];
-            ctrlShow [86024, false];
-
-            //PGM
-            ctrlShow [86012, false];
-            ctrlShow [86013, false];
-            ctrlShow [86014, false];
-            ctrlShow [86015, false];
-        };
-    };
-} else {
-    //Hide Guidance fields
-    ctrlShow [86007, false];
-    ctrlShow [86008, false];
-    ctrlShow [86023, false];
-    ctrlShow [86024, false];
-
-    ctrlShow [86012, false];
-    ctrlShow [86013, false];
-    ctrlShow [86014, false];
-    ctrlShow [86015, false];
-};
+//Guided munition elements: laser code 1 (LGM), laser code 2, and grid/altitude (PGM)
+private _guidanceType = (getArray (_selectedMagConfig >> "itc_land_guidance")) param [0, ""];
+[[86007, 86008], _guidanceType in ["laser_coded", "laser_coded_2"]] call EFUNC(common,ctrlShowMany);
+[[86023, 86024], _guidanceType == "laser_coded_2"] call EFUNC(common,ctrlShowMany);
+[[86012, 86013, 86014, 86015], _guidanceType == "gps_inertial"] call EFUNC(common,ctrlShowMany);

@@ -38,34 +38,11 @@ ctrlSetText[86019,_ammoText];
 //Get fuze settings based on type
 //Get fuze description from combobox
 private _fuze  = getText (configFile >> "CfgMagazines" >> _selectedMagClass >> "itc_land_fuze");
-//set rendered string empty. Use switch to generate new rendered string and setValues.
-private _fuzeText = "";
-
 private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
 private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc",(lbText [86004,_selectedFuzeIndex])];
 private _fuzeMode = _vehicle getVariable ["itc_land_selectedFuzeMode","pd"];
 
-switch (_fuzeMode) do {
-    case "pd" : {
-        _fuzeText = _fuzeDesc;
-    };
-    case "prox" : {
-        private _proxHOB = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
-        _vehicle setVariable ["itc_land_fuzeValues",_proxHOB,true];
-        _fuzeText = format ["%1: %2m",_fuzeDesc,_proxHOB];
-    };
-    case "time" : {
-        private _fuzeTime = parseNumber(ctrlText 86006);
-        _vehicle setVariable ["itc_land_fuzeTime", _fuzeTime, true]; //this is used for UI stuff
-        _vehicle setVariable ["itc_land_fuzeValues", _fuzeTime, true]; //this is for fuze stuff
-        _fuzeText = format ["%1: %2s",_fuzeDesc,_fuzeTime];
-    };
-    case "delay" : {
-        _vehicle setVariable ["itc_land_fuzeValues",0.005, true];
-        _fuzeText = _fuzeDesc;
-    };
-};
-private _fuzeValues = _vehicle getVariable ["itc_land_fuzeValues",0];
+([_vehicle, _fuzeMode, _fuzeDesc, _fuze, parseNumber (ctrlText 86006), "itc_land_fuzeTime"] call EFUNC(common,resolveFuzeSetting)) params ["_fuzeText", "_fuzeValues"];
 //Render string to output field.
 ctrlSetText [86018, _fuzeText];
 
@@ -89,25 +66,13 @@ if (_guidance isNotEqualTo []) then {
 
         };
         case "laser_coded" : {
-            private _laserCode = parseNumber(ctrlText 86008);
-            if ( !([_laserCode] call EFUNC(common,isLaserCode)) ) then {
-                _laserCode = 1111;
-                ctrlSetText [86008,"1111"];
-            };
+            private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
             _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
             _guidanceText = format["CODE: %1",_laserCode];
         };
         case "laser_coded_2" : {
-            private _laserCode = parseNumber(ctrlText 86008);
-            if ( !([_laserCode] call EFUNC(common,isLaserCode)) ) then {
-                _laserCode = 1111;
-                ctrlSetText [86008,"1111"];
-            };
-            private _laserCode2 = parseNumber(ctrlText 86024);
-            if ( !([_laserCode2] call EFUNC(common,isLaserCode)) ) then {
-                _laserCode2 = 1111;
-                ctrlSetText [86024,"1111"];
-            };
+            private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
+            private _laserCode2 = [86024] call EFUNC(common,sanitizeLaserCode);
             _vehicle setVariable ["itc_land_guidance_laserCode_2", _laserCode2, true];
             _guidanceText = format["CODES: %1/%2", _laserCode, _laserCode2];
         };

@@ -14,3 +14,7 @@ PREP(getSolutionText);
 PREP(getGunStatusText);
 PREP(getLoaderReadout);
 PREP(sightViewCheck);
+PREP(applyFuzeSelection);
+PREP(resolveFuzeSetting);
+PREP(sanitizeLaserCode);
+PREP(ctrlShowMany);
