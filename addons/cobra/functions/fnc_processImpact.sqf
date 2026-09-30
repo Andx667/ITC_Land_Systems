@@ -8,7 +8,7 @@
  *
  * Arguments:
  * 0: COBRA radar vehicle that detected the shell (unused in body) <Object>
- * 1: Impact data array as returned by fnc_calcImpact: position (ASL) and time of flight <Array>
+ * 1: Impact data array as returned by itc_land_common_fnc_simulateTrajectory: position (ASL) and time of flight <Array>
  *
  * Return Value:
  * None

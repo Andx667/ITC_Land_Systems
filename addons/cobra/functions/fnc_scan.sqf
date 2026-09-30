@@ -33,9 +33,9 @@ private _toRemove = [];
   private _inRange = _x distance _cbr < 10000;
   if(_angleTo < 23 && _inRange && !(terrainIntersectASL [getPosASL _x, (getPosASL _cbr) vectorAdd [0,0,3]])) then {
     _toRemove pushBack _x;
-    private _impact = [_x] call FUNC(calcImpact);
+    private _impact = [_x] call EFUNC(common,simulateTrajectory);
     [_cbr, _impact] call FUNC(processImpact);
-    private _origin = [_x] call FUNC(calcOrigin);
+    private _origin = ([_x, true] call EFUNC(common,simulateTrajectory)) # 0;
     [_cbr, _origin] call FUNC(processOrigin);
     [_cbr, _origin] call FUNC(processEngagement);
   };

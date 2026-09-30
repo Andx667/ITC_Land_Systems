@@ -18,3 +18,4 @@ PREP(applyFuzeSelection);
 PREP(resolveFuzeSetting);
 PREP(sanitizeLaserCode);
 PREP(ctrlShowMany);
+PREP(simulateTrajectory);
