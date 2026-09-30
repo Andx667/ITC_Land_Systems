@@ -2,8 +2,8 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Handles sidebar interactions for the missile app, switching the vehicle's active tablet page based on
- * which sidebar button was pressed.
+ * Handles sidebar interactions for the artillery apps (SPG and MLRS), switching the vehicle's active tablet page based on which
+ * sidebar button was pressed.
  *
  * Arguments:
  * 0: The sidebar action identifier ("side1", "side2", "side3") <String>

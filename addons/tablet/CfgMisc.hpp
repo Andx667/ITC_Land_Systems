@@ -3,6 +3,10 @@ class itc_land {
     class spg {
       displayName = "Self Propelled Gun";
       interfaces = "ITC Self Propelled Gun";
+      sharedApp = "artillery";
+      title = "SPG APP";
+      subtitle = "SP Artillery";
+      sidebar2 = "INS / DATA";
     };
     class bcs {
       displayName = "Battery Control System";
@@ -15,6 +19,10 @@ class itc_land {
     class missile {
       displayName = "Guided Missile Configuration";
       interfaces = "ITC Self Propelled Gun";
+      sharedApp = "artillery";
+      title = "MLRS APP";
+      subtitle = "MLRS";
+      sidebar2 = "STATUS";
     };
   };
 };

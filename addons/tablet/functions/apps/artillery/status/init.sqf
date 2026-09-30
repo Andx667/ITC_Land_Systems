@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes the SPG status page: shows its controls and sets the workspace header text.
+ * Initializes the artillery apps' status page: shows its controls and sets the workspace header text.
  *
  * Arguments:
  * 0: The tablet dialog display <Display>

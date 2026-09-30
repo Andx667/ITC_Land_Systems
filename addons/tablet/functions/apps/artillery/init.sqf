@@ -2,9 +2,9 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes the missile app. Checks whether the current vehicle has the required tablet interface;
- * if not, clears the app UI and shows a "no interface" message. Otherwise sets the app header/sidebar
- * labels and returns the id of the page to open by default.
+ * Initializes the artillery apps (SPG and MLRS), whose labels come from the app's tablet config. Checks whether the current vehicle has the required tablet interface; if not,
+ * clears the app UI and shows a "no interface" message. Otherwise sets the app header/sidebar labels and
+ * returns the id of the page to open by default.
  *
  * Arguments:
  * 0: The tablet dialog display <Display>
@@ -22,6 +22,7 @@
 
 params ["_display"];
 ITC_CURVEHICLE
+private _appConfig = configFile >> "itc_land" >> "apps" >> (_vehicle getVariable QGVAR(app));
 private _interfaces = (configOf _vehicle >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
 private _canOpen = (!isNil{_interfaces}); //can't open if there's no interfaces
 if(_canOpen) then { //check if it has the right interfaces
@@ -30,7 +31,7 @@ if(_canOpen) then { //check if it has the right interfaces
 if(!_canOpen) exitWith {
   [_display] call FUNC(appClear);
 
-  [_display, IDC_header1, "MLRS APP"] call EFUNC(common,ctrlSetText);
+  [_display, IDC_header1, getText (_appConfig >> "title")] call EFUNC(common,ctrlSetText);
   [_display, IDC_header2, "NO INTERFACE"] call EFUNC(common,ctrlSetText);
   [_display, IDC_sidebar_button5, 1] call EFUNC(common,ctrlSetFade);
   [_display, IDC_workspace_header, "Self Propelled Gun Interface not found"] call EFUNC(common,ctrlSetText);
@@ -38,13 +39,13 @@ if(!_canOpen) exitWith {
 };
 
 [_display, IDC_header1, "Vehicle"] call EFUNC(common,ctrlSetText);
-[_display, IDC_header2, "MLRS"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header2, getText (_appConfig >> "subtitle")] call EFUNC(common,ctrlSetText);
 
 [_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);
 [_display, IDC_sidebar_button2, 0] call EFUNC(common,ctrlSetFade);
 //[_display, IDC_sidebar_button3, 0] call EFUNC(common,ctrlSetFade);
 [_display, IDC_sidebar_button1, "FCI"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button2, "STATUS"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button2, getText (_appConfig >> "sidebar2")] call EFUNC(common,ctrlSetText);
 //[_display, IDC_sidebar_button3, "Status"] call EFUNC(common,ctrlSetText);
 
 "fcs"

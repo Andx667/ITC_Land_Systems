@@ -19,7 +19,7 @@
  */
 
 params ["_app"];
-itc_land_tablet_fnc_appInit = compile preprocessFileLineNumbers format[QPATHTOF(functions\apps\%1\init.sqf), _app];
-FUNC(appClear) = compile preprocessFileLineNumbers format[QPATHTOF(functions\apps\%1\clear.sqf), _app];
-FUNC(appInteract) = compile preprocessFileLineNumbers format[QPATHTOF(functions\apps\%1\interact.sqf), _app];
-itc_land_tablet_fnc_appRender = compile preprocessFileLineNumbers format[QPATHTOF(functions\apps\%1\render.sqf), _app];
+itc_land_tablet_fnc_appInit = compile preprocessFileLineNumbers ([_app, "init.sqf"] call FUNC(resolveAppFile));
+FUNC(appClear) = compile preprocessFileLineNumbers ([_app, "clear.sqf"] call FUNC(resolveAppFile));
+FUNC(appInteract) = compile preprocessFileLineNumbers ([_app, "interact.sqf"] call FUNC(resolveAppFile));
+itc_land_tablet_fnc_appRender = compile preprocessFileLineNumbers ([_app, "render.sqf"] call FUNC(resolveAppFile));

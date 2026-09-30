@@ -3,6 +3,7 @@ PREP(clear);
 PREP(interact);
 PREP(render);
 PREP(compileApp);
+PREP(resolveAppFile);
 PREP(compilePage);
 PREP(fillComboBox);
 PREP(vehicleHasTablet);

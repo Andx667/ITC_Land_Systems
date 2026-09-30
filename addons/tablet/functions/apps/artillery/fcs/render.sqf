@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Intended to refresh the SPG FCS page's firing-solution readout on render; currently a no-op, as its
+ * Intended to refresh the artillery apps' FCS page's firing-solution readout on render; currently a no-op, as its
  * entire body is commented out.
  *
  * Arguments:

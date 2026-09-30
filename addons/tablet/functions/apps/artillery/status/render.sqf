@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Renders the SPG status page: builds a color-coded hitpoint status list (OK/DAM/FAIL) for the current
+ * Renders the artillery apps' status page: builds a color-coded hitpoint status list (OK/DAM/FAIL) for the current
  * vehicle and displays it, and updates the fuel percentage readout.
  *
  * Arguments:

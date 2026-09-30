@@ -1,6 +1,6 @@
 /*
  * Author: ToadBall, Yax, VKing
- * Intended to handle interactions on the SPG status page; currently empty (no-op), as the status page has
+ * Intended to handle interactions on the artillery apps' status page; currently empty (no-op), as the status page has
  * no interactive controls.
  *
  * Arguments:
