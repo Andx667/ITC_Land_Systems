@@ -35,14 +35,12 @@ params ["_unit", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 private _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
 
 if(isNil{_targetPos}) exitWith {};
-[{
-  (_this select 0) params ["_projectile", "_lastFrameTime", "_targetCoordinates","_launchPos"];
+[_projectile, {
+  params ["_projectile", "_args"];
+  _args params ["_lastFrameTime", "_targetCoordinates", "_launchPos"];
   private _frameTime = time - _lastFrameTime;
-  (_this select 0) set [1, time];
+  _args set [0, time];
 
-  if (!alive _projectile) exitWith {
-    [_this select 1] call CBA_fnc_removePerFrameHandler;
-  };
   private _distance2D = _projectile distance2D _targetCoordinates;
   private _distance2DTotal = _launchPos distance2D _targetCoordinates;
   private _position = getPosASL _projectile;
@@ -63,4 +61,4 @@ if(isNil{_targetPos}) exitWith {};
     [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;
   };
 
-}, 0, [_projectile, time, _targetPos, getPosASL _projectile]] call CBA_fnc_addPerFrameHandler;
+}, 0, [time, _targetPos, getPosASL _projectile]] call EFUNC(common,addProjectilePFH);

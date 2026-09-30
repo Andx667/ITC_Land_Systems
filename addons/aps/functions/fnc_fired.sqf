@@ -32,14 +32,8 @@ private _simulation = getText (configFile >> "cfgAmmo" >> _ammo >> "simulation")
 
 if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
 
-[{
-  (_this select 0) params ["_projectile"];
-  //_aps params ["_name", "_position", "_direction", "_traverse", "_elevate", "_range", "_ammoCount", "_reloadTime"]
-  if (!alive _projectile) exitWith {
-    setAccTime 1;
-    [_this select 1] call CBA_fnc_removePerFrameHandler;
-  };
-
+[_projectile, {
+  params ["_projectile"];
   private _begin = getPosASL _projectile;
   private _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
   private _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
@@ -51,4 +45,4 @@ if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
       };
     } forEach _intersects;
   };
-}, 0.05, [_projectile]] call CBA_fnc_addPerFrameHandler;
+}, 0.05, [], {setAccTime 1}] call EFUNC(common,addProjectilePFH);

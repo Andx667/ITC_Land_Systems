@@ -32,14 +32,12 @@
 params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 private _targetPos = _vehicle getVariable "itc_land_guidance_targetPos";
 if(isNil{_targetPos}) exitWith {};
-[{
-  (_this select 0) params ["_projectile", "_ammo", "_position", "_targetCoordinates"];
-  if (!alive _projectile) exitWith {
-      [_this select 1] call CBA_fnc_removePerFrameHandler;
-  };
+[_projectile, {
+  params ["_projectile", "_args"];
+  _args params ["_ammo", "_position", "_targetCoordinates"];
 
   _position = getPosASL _projectile;
-  (_this select 0) set [2, _position];
+  _args set [1, _position];
   (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 
   private _dElev = (_position select 2) - (_targetCoordinates select 2);
@@ -62,4 +60,4 @@ if(isNil{_targetPos}) exitWith {};
       [_projectile, _pitch + (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
     };
   };
-}, 0.1, [_projectile, _ammo, getPosATL _projectile, _targetPos]] call CBA_fnc_addPerFrameHandler;
+}, 0.1, [_ammo, getPosATL _projectile, _targetPos]] call EFUNC(common,addProjectilePFH);

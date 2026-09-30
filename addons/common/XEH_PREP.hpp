@@ -19,3 +19,4 @@ PREP(resolveFuzeSetting);
 PREP(sanitizeLaserCode);
 PREP(ctrlShowMany);
 PREP(simulateTrajectory);
+PREP(addProjectilePFH);
