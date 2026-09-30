@@ -14,3 +14,4 @@ PREP(saveTGT);
 PREP(removeTGT);
 PREP(adHocLaunch);
 PREP(selectedLaunch);
+PREP(readAdHocTarget);

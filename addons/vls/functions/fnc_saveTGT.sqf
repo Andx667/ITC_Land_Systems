@@ -20,14 +20,7 @@
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
-//get data from edit fields
-private _targetGrid = ctrlText 4106;
-_vehicle setVariable ["ITC_Land_VLS_adHocData_grid",_targetGrid,true];
-
-private _targetElev = parseNumber(ctrlText 4108);
-_vehicle setVariable ["ITC_Land_VLS_adHocData_elev", _targetElev, true];
-
-private _targetPos = [_targetGrid, _targetElev] call EFUNC(common,gridToPos);
+([_vehicle] call FUNC(readAdHocTarget)) params ["_targetGrid", "_targetElev", "_targetPos"];
 
 private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
 private _targetAnglNum = parseNumber (_targetAngl # 1);
