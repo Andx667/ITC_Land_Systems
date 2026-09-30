@@ -181,12 +181,12 @@ _veh setVariable ["ITC_Land_SightEvent","itc_land_onLoad_RscIGS_SPH",true];
             private _aziDif = (_weaponDir - _MISazi);
 
             if ((_aziDif <= 100) && (_aziDif >= -100)) then {
-                [_display, 1801, 0] call EFUNC(tablet,setFade);
+                [_display, 1801, 0] call EFUNC(common,ctrlSetFade);
                 private _adjustX = ( _aziDif / 100) * 4.55;
                 (_display displayCtrl 1801) ctrlSetPosition [adjustX(_adjustX),adjustY(0)];
                 (_display displayCtrl 1801) ctrlCommit 0;
             } else {
-                [_display, 1801, 1] call EFUNC(tablet,setFade);
+                [_display, 1801, 1] call EFUNC(common,ctrlSetFade);
             };
 
         } else {

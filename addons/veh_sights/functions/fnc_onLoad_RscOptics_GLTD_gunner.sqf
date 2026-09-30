@@ -87,9 +87,9 @@
         (_display displayCtrl 75020) ctrlSetAngle [(_viewDir) * -1, 0.5, 0.5];
 
   if ( !(isLaserOn _uav) ) then {
-    [_display, 75021, 1] call EFUNC(tablet,setFade);
+    [_display, 75021, 1] call EFUNC(common,ctrlSetFade);
   } else {
-    [_display, 75021, 0] call EFUNC(tablet,setFade);
+    [_display, 75021, 0] call EFUNC(common,ctrlSetFade);
     private _laserCode = _uav getVariable ["ace_laser_code",1111];
     (_display displayCtrl 75021) ctrlSetText ([_laserCode, 4, 0, false] call CBA_fnc_formatNumber);
   };
