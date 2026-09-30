@@ -6,7 +6,7 @@ class CfgPatches {
         author = AUTHOR;
         authors[] = {"ToadBall","Yax"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "itc_land_main", "A3_Armor_F_Gamma_MBT_01", "itc_land_veh_sights", "itc_land_veh_weapons", "itc_land_sphammohandler"};
+        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_common", "A3_Armor_F_Gamma_MBT_01", "itc_land_veh_sights", "itc_land_veh_weapons", "itc_land_sphammohandler"};
         units[] = { "itc_land_b_SPH_Sholef2","itc_land_b_t_SPH_Sholef2" };
         weapons[] = {};
         VERSION_CONFIG;

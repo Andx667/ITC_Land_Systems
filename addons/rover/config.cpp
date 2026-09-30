@@ -6,7 +6,7 @@ class CfgPatches {
         author = AUTHOR;
         authors[] = {"ToadBall","Yax","VKing"};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "itc_land_main"};
+        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_common"};
         units[] = {};
         weapons[] = {"itc_land_tablet_rover"};
         magazines[] = {};

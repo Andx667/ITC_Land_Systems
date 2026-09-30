@@ -5,7 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         author = AUTHOR;
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "itc_land_main", "A3_Drones_F_Air_F_Gamma_UAV_01", "itc_land_veh_sights", "itc_land_packable"};
+        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_common", "A3_Drones_F_Air_F_Gamma_UAV_01", "itc_land_veh_sights", "itc_land_packable"};
         units[] = {"ITC_Land_B_UAV_AR2i","ITC_Land_O_UAV_AR2i","ITC_Land_I_UAV_AR2i","ITC_Land_B_UAV_AR2e","ITC_Land_O_UAV_AR2e","ITC_Land_I_UAV_AR2e","B_UAV_01_F","O_UAV_01_F","I_UAV_01_F","ITC_Land_b_uav_backpack","ITC_Land_i_uav_backpack","ITC_Land_o_uav_backpack"};
         weapons[] = {"ITC_Land_B_AR2i_Packed","ITC_Land_O_AR2i_Packed","ITC_Land_I_AR2i_Packed","ITC_Land_B_AR2e_Packed","ITC_Land_O_AR2e_Packed","ITC_Land_I_AR2e_Packed","ITC_Land_B_UAV_Packed","ITC_Land_O_UAV_Packed","ITC_Land_I_UAV_Packed"};
         magazines[] = {};

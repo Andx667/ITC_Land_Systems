@@ -5,7 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         author = AUTHOR;
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "itc_land_main", "A3_Drones_F_Air_F_Gamma_UAV_02", "itc_land_veh_sights"};
+        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_common", "A3_Drones_F_Air_F_Gamma_UAV_02", "itc_land_veh_sights"};
         units[] = {"ITC_Land_B_UAV_MQ4i","ITC_Land_O_UAV_K40i","ITC_Land_I_UAV_K40i"};
         VERSION_CONFIG;
     };
