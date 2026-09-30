@@ -99,11 +99,8 @@ switch(_action) do {
             case "gps_inertial" : {
                 private _targetGrid = ctrlText 1909;
                 //player sidechat itc_land_guidance_targetGrid;
-                private _targetPos = [_targetGrid,true] call CBA_fnc_mapGridToPos;
-                //player sidechat str _targetPos;
                 private _targetAlt = parseNumber(ctrlText 1911);
-                _targetPos set [2,(_targetAlt - ace_common_mapAltitude)];
-                //player sidechat str _targetPos;
+                private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
 
                 _vehicle setVariable ["itc_land_guidance_targetPos",_targetPos,true];
             };

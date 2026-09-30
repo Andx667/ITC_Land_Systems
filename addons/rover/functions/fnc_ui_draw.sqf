@@ -31,11 +31,8 @@ ctrlSetText [75013, _displayedDir];
 private _tgtposWorld = (screenToWorld [0.5,0.5]);
 private _tgtposASL = AGLToASL _tgtposWorld;
 ctrlSetText [19438, str round (_tgtposWorld distance position _plane)];
-private _tgtposMGRS = [_tgtposWorld] call ace_common_fnc_getMapGridFromPos;
-private _tgtposDisplayed = format ["%1 %2",_tgtposMGRS # 0,_tgtposMGRS # 1];
-
-private _uavpos = [position _plane] call ace_common_fnc_getMapGridFromPos;
-private _uavposDisplayed = format ["%1 %2",_uavpos # 0,_uavpos # 1];
+private _tgtposDisplayed = [_tgtposWorld] call EFUNC(common,posToGrid);
+private _uavposDisplayed = [position _plane] call EFUNC(common,posToGrid);
 
 //display grids
 ctrlSetText [75015, _tgtposDisplayed];

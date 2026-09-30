@@ -80,11 +80,9 @@ if (_guidance isNotEqualTo []) then {
             private _targetGrid = ctrlText 86013;
             _vehicle setVariable ["itc_land_guidance_targetGrid", _targetGrid, true];
 
-            private _targetPos = [_targetGrid,true] call CBA_fnc_mapGridToPos;
-
             private _targetAlt = parseNumber(ctrlText 86015);
             _vehicle setVariable ["itc_land_guidance_targetAlt", _targetAlt, true];
-            _targetPos set [2,(_targetAlt  - ace_common_mapAltitude)];
+            private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
 
             _vehicle setVariable ["itc_land_guidance_targetPos", _targetPos, true];
             _guidanceText = format["%1 -- %2",_targetGrid,_targetAlt];

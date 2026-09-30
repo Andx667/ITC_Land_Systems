@@ -23,8 +23,7 @@ switch(_action) do {
   case "savePos": {
     private _posIndex = lbCurSel 136001;
     private _pos = itc_land_cobra_engagements # _posIndex;
-    private _MGRS = [_pos # 2 # 0] call ace_common_fnc_getMapGridFromPos;
     if(isNil{GVAR(bcs_locations)}) then {GVAR(bcs_locations) = [];};
-    GVAR(bcs_locations) pushBack [_pos # 0, format["%1 %2",_MGRS # 0, _MGRS # 1], _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
+    GVAR(bcs_locations) pushBack [_pos # 0, [_pos # 2 # 0] call EFUNC(common,posToGrid), _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
   };
 };

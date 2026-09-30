@@ -19,10 +19,9 @@
 
 params ["_display"];
 private _firesStrings = itc_land_cobra_engagements apply {
-  private _pos = [_x # 2 # 0] call ace_common_fnc_getMapGridFromPos;
-  format["%1            POS %2 %3           Shots %4         Last Shot %5",
+  format["%1            POS %2           Shots %3         Last Shot %4",
     _x # 0,
-    _pos # 0, _pos # 1,
+    [_x # 2 # 0] call EFUNC(common,posToGrid),
     _x # 1,
     (_x # 5) call BIS_fnc_timeToString
   ]

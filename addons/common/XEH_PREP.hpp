@@ -5,3 +5,6 @@ PREP(ctrlSetText);
 PREP(ctrlSetFade);
 PREP(FormatAsMils);
 PREP(FormatAsMeters);
+PREP(gridToPos);
+PREP(posToGrid);
+PREP(getAltitudeMSL);
