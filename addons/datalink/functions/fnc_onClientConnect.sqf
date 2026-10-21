@@ -27,7 +27,6 @@ if(isNil{_id} || _id == "") then {
 };
 
 //validate the id
-private _isAvailableID = false;
 //check formating
 ([_id, true] call FUNC(validateID)) params ["_isValidID","_errors"];
 //check if it's free

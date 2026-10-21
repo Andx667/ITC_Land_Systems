@@ -25,7 +25,6 @@
 params ["_control","_index"];
 
 //Generate globals
-private _selectedMagIndex = _index;
 private _selectedMagClass = lbData [2402,_index];
 private _selectedMagConfig = configFile >> "CfgMagazines" >> _selectedMagClass;
 

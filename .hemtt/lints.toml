@@ -8,6 +8,9 @@ undefined = "Error"             # L-S13
 var_all_caps = "Error"          # L-S17
 function_undefined = "Error"    # L-S29
 direct_private = "Error"        # L-S38
+# L-S49 suggests countType for `{_x isKindOf [...]} count`, but countType only
+# counts objects; the rover code counts weapon class names (strings).
+count_type = false
 
 [config]
 math_could_be_unquoted = "Error" # L-C12

@@ -26,7 +26,7 @@ params ["_display", "_groupIdc", "_pfID", "_role", "_requiredRole"];
 
 private _group = _display displayCtrl _groupIdc;
 
-if (cameraView != "GUNNER" || {_role != _requiredRole}) exitWith {
+if (cameraView != "GUNNER" || _role != _requiredRole) exitWith {
     _group ctrlShow false;
     if (_role != _requiredRole) then {
         [_pfID] call CBA_fnc_removePerFrameHandler;

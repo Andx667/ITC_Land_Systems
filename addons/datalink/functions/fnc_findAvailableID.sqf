@@ -19,7 +19,6 @@
 params ["_groupID"];
 private ["_firstChar","_secondChar","_id"];
 
-private _foundID = false;
 private _isAvailableID = false;
 private _characterHighestIndex = ((count itc_land_datalink_allowedIDCharacters) - 1);
 //loop through first char

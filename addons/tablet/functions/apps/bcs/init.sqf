@@ -20,7 +20,6 @@
 
 #include "..\..\BCS_idc_defines.hpp"
 params ["_display"];
-ITC_CURVEHICLE
 
 [_display, IDC_header1, "AIFMS"] call EFUNC(common,ctrlSetText);
 [_display, IDC_header2, LLSTRING(Bcs_FdcSuite)] call EFUNC(common,ctrlSetText);

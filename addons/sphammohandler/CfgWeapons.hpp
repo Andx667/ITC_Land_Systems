@@ -3,7 +3,7 @@ class CfgWeapons {
     class itc_land_howitzer_base: mortar_155mm_AMOS {
         class EventHandlers {
                 class itc_land_sphammohandler {
-                        fired = QUOTE(_this call FUNC(firedEH););
+                        fired = QUOTE(call FUNC(firedEH););
                 };
         };
     };

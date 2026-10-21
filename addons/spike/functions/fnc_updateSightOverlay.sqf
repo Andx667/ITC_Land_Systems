@@ -27,7 +27,10 @@ private _boxHidePosition = if (((call CBA_fnc_getFOV) # 0) > 0.1) then [{[22 * (
 (_group controlsGroupCtrl 1011) ctrlSetText (if (currentVisionMode player == 0) then [{"DTV"}, {"HOT"}]);
 
 itc_land_spike_lockInformation params ["_lockObject", "_lockPosition", "_lockLostTime", "_originalLockPosition"];
-if (!isNil "_lockObject") then {
+if (isNil "_lockObject") then {
+  (_group controlsGroupCtrl 1021) ctrlSetPosition [22 * (safeZoneW / 64),10 *   (safeZoneH / 40)];
+  (_group controlsGroupCtrl 1022) ctrlSetPosition [-1, -1];
+} else {
   private _screenPos = worldToScreen (_lockObject modelToWorld _lockPosition);
   private _screenPosX = (_screenPos # 0) - safeZoneX;
   private _screenPosY = (_screenPos # 1) - safeZoneY;
@@ -35,9 +38,6 @@ if (!isNil "_lockObject") then {
   _screenPosY = _screenPosY - (10 * (safeZoneH / 40));
   (_group controlsGroupCtrl 1021) ctrlSetPosition [_screenPosX, _screenPosY];
   (_group controlsGroupCtrl 1022) ctrlSetPosition [_screenPosX, _screenPosY];
-} else {
-  (_group controlsGroupCtrl 1021) ctrlSetPosition [22 * (safeZoneW / 64),10 *   (safeZoneH / 40)];
-  (_group controlsGroupCtrl 1022) ctrlSetPosition [-1, -1];
 };
 (_group controlsGroupCtrl 1021) ctrlCommit 0;
 (_group controlsGroupCtrl 1022) ctrlCommit 0;

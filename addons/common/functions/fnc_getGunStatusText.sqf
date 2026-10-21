@@ -22,7 +22,7 @@ params ["_vehicle", ["_showRounds", true]];
 
 private _statusText = localize ((_vehicle getVariable ["itc_land_ammoHandler_status", [0,0,ELSTRING(sphammohandler,Status_Waiting)]]) select 2);
 private _roundCount = _vehicle getVariable ["itc_land_roundCount", 0];
-if (!_showRounds || {_roundCount < 1}) exitWith {_statusText};
+if (!_showRounds || _roundCount < 1) exitWith {_statusText};
 
 private _roundsFired = _vehicle getVariable ["itc_land_roundsFired", 0];
 if (_roundsFired == _roundCount) exitWith {

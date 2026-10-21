@@ -28,7 +28,7 @@ if (isNull findDisplay 20001) exitWith {
 itc_land_rover_camera = "camera" camCreate [0,0,0];
 call FUNC(ui_populateListBox);
 
-private _feed = [itc_land_rover_ui_curAircraft] call FUNC(createFeed);
+[itc_land_rover_ui_curAircraft] call FUNC(createFeed);
 
 sliderSetPosition [1600, 5];
 itc_land_rover_ui_camFov = 0.02 + ((10 - (sliderPosition 1600)) / 10) * 0.33;

@@ -33,7 +33,6 @@ if((!alive ace_player) || (!itc_land_SPHammoHandler_open)) then {
 //private _vehicle = vehicle ace_player;        
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];     
-private _lastStatus = _vehicle getVariable ["itc_land_ammoHandler_lastStatus",[0,0,LSTRING(Status_Waiting)]];
 //Only run code required to update if status has changed.
 //if (!(_status isEqualTo _lastStatus)) then {
     

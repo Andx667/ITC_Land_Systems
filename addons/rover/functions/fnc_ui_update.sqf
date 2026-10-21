@@ -26,7 +26,7 @@ missionNamespace setVariable ["itc_land_rover_ui_curSelIndex",_index];
 missionNamespace setVariable ["itc_land_rover_ui_curAircraft",itc_land_rover_ui_aircraftList # _index];
 private _plane = missionNamespace getVariable ["itc_land_rover_ui_curAircraft",objNull];
 
-private _feed = [_plane] call FUNC(createFeed);
+[_plane] call FUNC(createFeed);
 
 private _turret = [_plane] call FUNC(getLaserTurret);
 if (isNil "_turret") exitWith {};

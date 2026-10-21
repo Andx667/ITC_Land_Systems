@@ -70,7 +70,7 @@
             };
             class grid_edit: ITC_LAND_RscEdit {
                 idc = 4106;
-                onChar = QUOTE(_this call FUNC(onChar));
+                onChar = QUOTE(call FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -90,7 +90,7 @@
             };
             class alt_edit: ITC_LAND_RscEdit {
                 idc = 4108;
-                onChar = QUOTE(_this call FUNC(onChar));
+                onChar = QUOTE(call FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -131,7 +131,7 @@
             };
             class name_edit: ITC_LAND_RscEdit {
                 idc = 4112;
-                onChar = QUOTE(_this call FUNC(onChar));
+                onChar = QUOTE(call FUNC(onChar));
                 x = "0.412342 * safezoneW + safezoneX";
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";

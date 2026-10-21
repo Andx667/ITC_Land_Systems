@@ -48,7 +48,6 @@ if (isNil "_missileActivationTime") then {
 //systemChat str itc_land_spike_lockInformation;
 if (!isNil "_lockObject") then {
     private _targetASL = _lockObject modelToWorldVisualWorld _lockPosition;
-    private _direction = getCameraViewDirection player;
     private _vector = _viewASL vectorFromTo _targetASL;
     private _angle = acos (_vector vectorDotProduct _viewDir);
     private _visibility = [player, "FIRE", _lockObject] checkVisibility [_viewASL, _targetASL];

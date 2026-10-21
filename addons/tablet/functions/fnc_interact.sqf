@@ -33,5 +33,4 @@ if(_action == "app" && !isNil{_value}) exitWith {
 };
 
 private _display = findDisplay 32562;
-private _app = _vehicle getVariable QGVAR(app);
-private _page = [_action, _display] call FUNC(appInteract);
+[_action, _display] call FUNC(appInteract);
