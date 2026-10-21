@@ -27,8 +27,8 @@ class itc_land_rover_tablet {
           idc = 1000;
           //text = "RANGE:";
           text = "";
-          x = "COL_2 * safeZoneW";
-          y = "ROW_1 * safeZoneH + (ROW_H*2)";
+          x = QUOTE(COL_2 * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + (ROW_H*2));
             w = "0.221719 * safezoneW";
             h = "0.022 * safezoneH";
         };
@@ -57,99 +57,99 @@ class itc_land_rover_tablet {
         class TextSpd: RangeText {
           idc = 1009;
           text = CSTRING(TextSpd_Text);
-          x = "COL_1 * safeZoneW";
-          y = "ROW_1 * safeZoneH + ROW_H";
+          x = QUOTE(COL_1 * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + ROW_H);
         };
         class CA_Speed: RangeText {
           idc = 188;
           text = "120";
-          x = "COL_1_VAL * safeZoneW";
-          y = "ROW_1 * safeZoneH + ROW_H";
+          x = QUOTE(COL_1_VAL * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + ROW_H);
         };
         class TextAlt: RangeText {
           idc = 1007;
           text = CSTRING(TextAlt_Text);
-          x = "COL_1 * safeZoneW";
-          y = "ROW_1 * safeZoneH + (ROW_H*2)";
+          x = QUOTE(COL_1 * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + (ROW_H*2));
         };
         class CA_Alt: RangeText {
           idc = 189;
           text = "3825";
-          x = "COL_1_VAL * safeZoneW";
-          y = "ROW_1 * safeZoneH + (ROW_H*2)";
+          x = QUOTE(COL_1_VAL * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + (ROW_H*2));
         };
         class ITC_Land_UAVi_Alt_text: RangeText {
           idc = 75010;
           text = CSTRING(UAVi_Alt_text_Text);
-          x = "COL_1 * safeZoneW";
-          y = "ROW_1 * safeZoneH + (ROW_H*3)";
+          x = QUOTE(COL_1 * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + (ROW_H*3));
         };
         class ITC_Land_UAVi_Alt_value: RangeText {
           idc = 75011;
           text = "3825";
-          x = "COL_1_VAL * safeZoneW";
-          y = "ROW_1 * safeZoneH + (ROW_H*3)";
+          x = QUOTE(COL_1_VAL * safeZoneW);
+          y = QUOTE(ROW_1 * safeZoneH + (ROW_H*3));
         };
         class ITC_Land_UAVi_DIR_text: RangeText {
           idc = 75012;
           text = CSTRING(UAVi_DIR_text_Text);
-          x = "COL_2 * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*1)";
+          x = QUOTE(COL_2 * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*1));
         };
         class ITC_Land_UAVi_DIR_value: RangeText {
           idc = 75013;
           text = "120 / 1200";
-          x = "COL_2_VAL * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*1)";
+          x = QUOTE(COL_2_VAL * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*1));
         };
         class ITC_Land_UAVi_TGT_text: RangeText {
           idc = 75014;
           text = CSTRING(UAVi_TGT_text_Text);
-          x = "COL_2 * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*0)";
+          x = QUOTE(COL_2 * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*0));
         };
         class ITC_Land_UAVi_TGT_value: RangeText {
           idc = 75015;
           text = "01234 01234";
-          x = "COL_2_VAL * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*0)";
+          x = QUOTE(COL_2_VAL * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*0));
         };
         class ITC_Land_UAVi_TGTalt_text: RangeText {
           idc = 75016;
           text = CSTRING(UAVi_TGTalt_text_Text);
-          x = "COL_2 * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*2)";
+          x = QUOTE(COL_2 * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*2));
         };
         class ITC_Land_UAVi_TGTalt_value: RangeText {
           idc = 75017;
           text = "3825";
-          x = "COL_2_VAL * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*2)";
+          x = QUOTE(COL_2_VAL * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*2));
         };
         class TextGrid: RangeText {
           idc = 19005;
           text = CSTRING(TextGrid_Text);
-          x = "COL_1 * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*0)";
+          x = QUOTE(COL_1 * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*0));
         };
         class ITC_Land_UAVi_ValueGrid: RangeText {
           idc = 75018;
           text = "01234 01234";
-          x = "COL_1_VAL * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*0)";
+          x = QUOTE(COL_1_VAL * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*0));
         };
         class TextTime: RangeText {
           idc = 1010;
           text = CSTRING(TextTime_Text);
-          x = "COL_1 * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*1)";
+          x = QUOTE(COL_1 * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*1));
         };
         class ValueTime: RangeText {
           idc = 19357;
           text = "20:28:35";
           w = "1.6 * safezoneW";
-          x = "COL_1_VAL * safeZoneW";
-          y = "ROW_2 * safeZoneH + (ROW_H*1)";
+          x = QUOTE(COL_1_VAL * safeZoneW);
+          y = QUOTE(ROW_2 * safeZoneH + (ROW_H*1));
         };
 
         class CA_Laser: RscText {
@@ -161,7 +161,7 @@ class itc_land_rover_tablet {
           font = "EtelkaMonospacePro";
           text = QPATHTOF(data\iconLaserOn_w.paa);
           x = "0.55 * safeZoneW";
-          y = "ROW_1 * safeZoneH";
+          y = QUOTE(ROW_1 * safeZoneH);
         };
         class ITC_Land_UAVi_NArr_txt: RscPicture {
           idc = 75019;
@@ -232,7 +232,7 @@ class itc_land_rover_tablet {
     class Top_Bar: IGUIBack {
         idc = 2200;
         x = "0.195781 * safezoneW + safezoneX";
-        y = "(TOP_BAR_Y - 0.011) * safezoneH + safezoneY";
+        y = QUOTE((TOP_BAR_Y - 0.011) * safezoneH + safezoneY);
         w = "0.634219 * safezoneW";
         h = "0.043 * safezoneH";
       colorBackground[] = RGBA255(170,170,170,1);
@@ -241,7 +241,7 @@ class itc_land_rover_tablet {
         idc = 1000;
         text = CSTRING(Text_base_Text); //--- ToDo: Localize;
         x = "0.21125 * safezoneW + safezoneX";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
         w = "0.0515625 * safezoneW";
         h = "0.022 * safezoneH";
       shadow = 0;
@@ -266,7 +266,7 @@ class itc_land_rover_tablet {
     class RscCombo_2100: RscCombo {
         idc = 2100;
         x = "0.262812 * safezoneW + safezoneX";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
         w = "0.113437 * safezoneW";
         h = "0.022 * safezoneH";
       onLBSelChanged=QUOTE(call FUNC(ui_update));
@@ -295,14 +295,14 @@ class itc_land_rover_tablet {
         idc = 1006;
         text = CSTRING(RscText_1006_Text); //--- ToDo: Localize;
         x = "0.38 * safezoneW + safezoneX";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
         w = "0.025625 * safezoneW";
         h = "0.022 * safezoneH";
     };
     class fovSlider: RscXSliderH {
         idc = 1600;
         x = "0.42 * safezoneW + safezoneX";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
         w = "0.12625 * safezoneW";
         h = "0.022 * safezoneH";
       onSliderPosChanged=QUOTE(['fov'] call FUNC(ui_vismode););
@@ -312,35 +312,35 @@ class itc_land_rover_tablet {
         idc = 999;
         text = CSTRING(RscText_999_Text); //--- ToDo: Localize;
         x = "0.557 * safezoneW + safezoneX";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
-        w = "VISMODE_BTN_W";
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
+        w = QUOTE(VISMODE_BTN_W);
         h = "0.022 * safezoneH";
       onMouseButtonClick=QUOTE(['dtv'] call FUNC(ui_vismode););
     };
     class RscText_1001: RscButton {
         idc = 1001;
         text = CSTRING(RscText_1001_Text); //--- ToDo: Localize;
-        x = "0.557 * safezoneW + safezoneX + VISMODE_BTN_W";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
-        w = "VISMODE_BTN_W";
+        x = QUOTE(0.557 * safezoneW + safezoneX + VISMODE_BTN_W);
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
+        w = QUOTE(VISMODE_BTN_W);
         h = "0.022 * safezoneH";
       onMouseButtonClick=QUOTE(['nvg'] call FUNC(ui_vismode););
     };
     class RscText_1002: RscButton {
         idc = 1002;
         text = CSTRING(RscText_1002_Text); //--- ToDo: Localize;
-        x = "0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*2)";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
-        w = "VISMODE_BTN_W";
+        x = QUOTE(0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*2));
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
+        w = QUOTE(VISMODE_BTN_W);
         h = "0.022 * safezoneH";
       onMouseButtonClick=QUOTE(['whot'] call FUNC(ui_vismode););
     };
     class RscText_1003: RscButton {
         idc = 1003;
         text = CSTRING(RscText_1003_Text); //--- ToDo: Localize;
-        x = "0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*3)";
-        y = "TOP_BAR_Y * safezoneH + safezoneY";
-        w = "VISMODE_BTN_W";
+        x = QUOTE(0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*3));
+        y = QUOTE(TOP_BAR_Y * safezoneH + safezoneY);
+        w = QUOTE(VISMODE_BTN_W);
         h = "0.022 * safezoneH";
       onMouseButtonClick=QUOTE(['bhot'] call FUNC(ui_vismode););
     };
