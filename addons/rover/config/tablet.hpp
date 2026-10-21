@@ -355,10 +355,11 @@ class itc_land_rover_tablet {
     };
     class RscText_1005: Text_base {
         idc = 1005;
+        style = 2;
         text = CSTRING(RscText_1005_Text); //--- ToDo: Localize;
-        x = "0.386562 * safezoneW + safezoneX";
+        x = "0.3325 * safezoneW + safezoneX";
         y = "0.5 * safezoneH + safezoneY";
-        w = "0.221719 * safezoneW";
+        w = "0.34 * safezoneW";
         h = "0.022 * safezoneH";
       colorText[] = RGBA255(255,255,255,1);
     };
