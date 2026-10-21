@@ -14,10 +14,13 @@
 #define mag_24(a) a, a, a, a, a, a, a, a, a, a, a, a,a, a, a, a, a, a, a, a, a, a, a, a
 
 class CfgVehicles {
-  class StaticWeapon;
+  class LandVehicle;
+  class StaticWeapon: LandVehicle {
+    class Turrets;
+  };
   class StaticMGWeapon : StaticWeapon {
-    class Turrets {
-     class MainTurret;
+    class Turrets: Turrets {
+      class MainTurret;
     };
   };
   class SAM_System_03_base_F : StaticMGWeapon {

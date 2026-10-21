@@ -20,6 +20,8 @@ class CfgVehicles {
       armor = 10;
       isUAV = 0;
       mass = 50;
+      // the crate model has no turret selections; the decoy only needs its driver for a side
+      class Turrets {};
   };
   class itc_land_shell_o : itc_land_shell_b {
       crew="O_UAV_AI";
@@ -44,11 +46,14 @@ class CfgVehicles {
     irTarget = 1;
     irTargetSize = 1;
   };
-  class StaticWeapon;
+  class LandVehicle;
+  class StaticWeapon: LandVehicle {
+    class Turrets;
+  };
   class StaticMGWeapon : StaticWeapon {
-        class Turrets {
-         class MainTurret;
-        };
+    class Turrets: Turrets {
+      class MainTurret;
+    };
   };
   class AAA_System_01_base_F : StaticMGWeapon {
     class Turrets : Turrets {

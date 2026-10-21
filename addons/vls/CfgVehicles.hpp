@@ -3,12 +3,13 @@ class SensorTemplateActiveRadar;
 class CfgVehicles {
   class LandVehicle;
   class StaticWeapon: LandVehicle {
-     class ACE_SelfActions;
+    class ACE_SelfActions;
+    class Turrets;
   };
   class StaticMGWeapon : StaticWeapon {
-        class Turrets {
-         class MainTurret;
-        };
+    class Turrets: Turrets {
+      class MainTurret;
+    };
     class ACE_SelfActions: ACE_SelfActions {};
   };
   class B_Ship_MRLS_01_base_F : StaticMGWeapon {

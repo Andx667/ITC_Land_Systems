@@ -16,10 +16,13 @@
 class SensorTemplateDataLink;
 class SensorTemplateActiveRadar;
 class CfgVehicles {
-  class StaticWeapon;
+  class LandVehicle;
+  class StaticWeapon: LandVehicle {
+    class Turrets;
+  };
   class StaticMGWeapon : StaticWeapon {
-    class Turrets {
-     class MainTurret;
+    class Turrets: Turrets {
+      class MainTurret;
     };
   };
   class SAM_System_04_base_F : StaticMGWeapon {

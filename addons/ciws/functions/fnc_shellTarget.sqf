@@ -7,8 +7,8 @@
  * After a 1 second delay, resolves a target classname from the fired ammo's
  * itc_land_ciws_target config entry (defaulting to "itc_land_shell") with a
  * side-specific suffix (_b/_o/_i) based on the gunner's side, spawns it
- * behind the projectile with matching velocity and no mass, strips its crew
- * AI, then adds a per-frame handler that keeps the decoy positioned relative
+ * behind the projectile with matching velocity, disables its crew AI, then
+ * adds a per-frame handler that keeps the decoy positioned relative
  * to the projectile each frame, removes it once the projectile drops below
  * 30m ASL while still descending and uninterceptable, and cleans up both
  * objects once the projectile or the decoy is no longer alive.
@@ -41,14 +41,12 @@
   private _target = _class createVehicle [0,0,1000];
   _target setPos (_projectile modelToWorld [0,-5,0]);
   _target setVelocity (velocity _projectile);
-  _target setMass 0;
   _target setObjectTexture [0,""];
   // The crew gives the decoy a side so CIWS AI treats it as hostile
   createVehicleCrew _target;
   (group driver _target) deleteGroupWhenEmpty true;
   driver _target disableAI "ALL";
   gunner _target disableAI "ALL";
-  _target deleteVehicleCrew (gunner _target);
   if (missionNamespace getVariable [QGVAR(debug), false]) then {
     private _log = {
       params ["_label", "_projectile", "_target"];
