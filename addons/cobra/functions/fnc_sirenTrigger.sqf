@@ -2,11 +2,11 @@
 
 /*
  * Author: ToadBall, Yax
- * Triggers a COBRA-linked siren for a predicted shell impact if the siren is
- * within its trigger distance of the impact position. Extends the siren's
- * active end time to cover the new impact, and, if not already running,
- * spawns a loop that plays the siren's configured (or mission-overridden)
- * sound repeatedly at its configured duration until the end time passes.
+ * Server-side: triggers a COBRA-linked siren for a predicted shell impact if
+ * the siren is within its trigger distance of the impact position. Extends the
+ * siren's published end time to cover the new impact, and, if not already
+ * running, raises the sirenPlay event on every machine so the siren's
+ * configured (or mission-overridden) sound repeats until the end time passes.
  *
  * Arguments:
  * 0: Siren object to trigger <Object>
@@ -28,12 +28,12 @@ private _sirenTriggerDist = _siren getVariable [QGVAR(sirenTriggerDist), 500];
 if(_siren distance _position < _sirenTriggerDist) then {
 
   private _sirenActive = _siren getVariable [QGVAR(sirenActive), false];
-  private _sirenEndTime = _siren getVariable [QGVAR(sirenEndTime), time];
+  private _sirenEndTime = _siren getVariable [QGVAR(sirenEndTime), cba_missionTime];
   private _sirenType = typeOf _siren;
   private _sirenParams = _siren getVariable [QGVAR(sirenParams),[false]];
   
   if(_impactTime > _sirenEndTime) then {
-    _siren setVariable [QGVAR(sirenEndTime), _impactTime];
+    _siren setVariable [QGVAR(sirenEndTime), _impactTime, true];
   };
   if(!_sirenActive) then {
     _siren setVariable [QGVAR(sirenActive), true];
@@ -55,14 +55,7 @@ if(_siren distance _position < _sirenTriggerDist) then {
     };
 
 
-    [{
-      params ["_args", "_pfhId"];
-      _args params ["_siren", "_sirenSound", "_sirenDistance"];
-      if (time >= _siren getVariable [QGVAR(sirenEndTime), 0]) exitWith {
-        _siren setVariable [QGVAR(sirenActive), false];
-        [_pfhId] call CBA_fnc_removePerFrameHandler;
-      };
-      _siren say3D [_sirenSound, _sirenDistance, 1];
-    }, _sirenDuration, [_siren, _sirenSound, _sirenDistance]] call CBA_fnc_addPerFrameHandler;
+    private _endTime = _siren getVariable [QGVAR(sirenEndTime), _impactTime];
+    [QGVAR(sirenPlay), [_siren, _sirenSound, _sirenDistance, _sirenDuration, _endTime]] call CBA_fnc_globalEvent;
   };
 };

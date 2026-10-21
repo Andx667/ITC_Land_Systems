@@ -33,14 +33,14 @@ private _existingPosition = nil;
                 _existingPosition = _x;
                 _positions pushBack _origin;
                 _x set [0,_shots + 1];
-                _x set [2, time];
+                _x set [2, cba_missionTime];
             };
         };
     };
 }forEach _firingPositions;
 
 if(isNil{_existingPosition}) then {
-    _firingPositions pushBack [1, [_origin], time];
+    _firingPositions pushBack [1, [_origin], cba_missionTime];
 };
 
 missionNamespace setVariable ["itc_land_cobra_firingPositions",_firingPositions];

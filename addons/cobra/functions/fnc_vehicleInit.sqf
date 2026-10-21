@@ -2,12 +2,10 @@
 
 /*
  * Author: ToadBall, Yax
- * Initializes a COBRA counter-battery radar vehicle: registers it in the
- * global list of active COBRA vehicles, resets its mission-wide tracking
- * variables (shells, origins, firing positions, engagements, active shells,
- * engagement ID counter and engagement time window), and starts a per-second
- * per-frame handler that runs fnc_scan for indirect fire while the vehicle is
- * stationary and alive.
+ * Registers a COBRA counter-battery radar vehicle with the server-side COBRA
+ * simulation (see itc_land_cobra_fnc_scan) and publishes the updated list of
+ * COBRA vehicles to all clients. Runs from the vehicle's init event, which
+ * fires on every machine; only the server registers.
  *
  * Arguments:
  * 0: COBRA-equipped vehicle to initialize <Object>
@@ -21,35 +19,16 @@
  * Public: No
  */
 
-//if (!isServer) exitWith {};
 params ["_cbr"];
+if (!isServer) exitWith {};
 
-itc_land_cobras pushBack _cbr;
+itc_land_cobras pushBackUnique _cbr;
+publicVariable "itc_land_cobras";
 
 //private _linkID = _cbr getVariable ["init_datalink_id",""];
 //[_cbr,"","object_register",true] call EFUNC(datalink,connect);
 
 //[_cbr, "cobra", "getData", {_this call FUNC(getCobraData);}] call EFUNC(datalink,registerEvent);
-
-missionNamespace setVariable ["itc_land_cobra_shells", []];
-missionNamespace setVariable ["itc_land_cobra_origins", []];
-missionNamespace setVariable ["itc_land_cobra_firingPositions", []];
-missionNamespace setVariable ["itc_land_cobra_engagements", []];
-missionNamespace setVariable ["itc_land_cobra_start", 1000];
-missionNamespace setVariable ["itc_land_cobra_engagementTime", 30];
-
-missionNamespace setVariable ["itc_land_cobra_activeShells", []];
-[{
-  (_this select 0) params ["_cbr","_lastScanned"];
-  if(cba_missionTime == _lastScanned) exitWith {};
-  (_this select 0) set [1, cba_missionTime];
-  if(!alive _cbr) exitWith {
-    [_this select 1] call CBA_fnc_removePerFrameHandler;
-  };
-  if(vectorMagnitude (velocity _cbr) < 1) then {
-    [_cbr] call FUNC(scan);
-  };
-}, 1, [_cbr,cba_missionTime]] call CBA_fnc_addPerFrameHandler;
 
 
 /*
@@ -71,7 +50,7 @@ missionNamespace setVariable ["itc_land_cobra_activeShells", []];
   _transmission params ["_destination","_origin","_header","_type","_data"];
   _data params ["_position","_tof"];
   _activeShells = _target getVariable [QGVAR(activeShells),[]];
-  _target setVariable [QGVAR(activeShells),_activeShells + [[_position, _tof + time]]];
+  _target setVariable [QGVAR(activeShells),_activeShells + [[_position, _tof + cba_missionTime]]];
 }] call EFUNC(datalink,registerEvent);
 
 ["0111","AB01","cobra","getData",""] call EFUNC(datalink,transmit);
@@ -92,8 +71,8 @@ GVAR(map_app_render) = {
   }forEach (player getVariable [QGVAR(firingPositions),[]]);
   {
     _x params ["_impactPoint","_impactTime"];
-    if(time < _impactTime) then {
-      _map drawIcon ["a3\ui_f\data\Map\Markers\Military\destroy_CA.paa",[1,0,0,1],_impactPoint, 24, 24, 0, str round(_impactTime - time),0,0.05,"TahomaB","right"];
+    if(cba_missionTime < _impactTime) then {
+      _map drawIcon ["a3\ui_f\data\Map\Markers\Military\destroy_CA.paa",[1,0,0,1],_impactPoint, 24, 24, 0, str round(_impactTime - cba_missionTime),0,0.05,"TahomaB","right"];
     };
   }forEach (player getVariable [QGVAR(activeShells),[]]);
 };

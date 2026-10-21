@@ -18,7 +18,7 @@
  */
 
 params ["_display"];
-private _firesStrings = itc_land_cobra_engagements apply {
+private _firesStrings = (missionNamespace getVariable ["itc_land_cobra_engagements", []]) apply {
   format["%1            POS %2           Shots %3         Last Shot %4",
     _x # 0,
     [_x # 2 # 0] call EFUNC(common,posToGrid),

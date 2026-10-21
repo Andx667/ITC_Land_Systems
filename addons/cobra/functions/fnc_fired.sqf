@@ -2,10 +2,11 @@
 
 /*
  * Author: ToadBall, Yax
- * Handles the native "Fired" event, filtering for AMOS mortar shell (direct and
- * guided) ammo types; when a matching round is fired, adds the projectile to
- * the tracked list of active COBRA counter-battery shells for later scan,
- * impact and origin processing.
+ * Handles the "FiredBIS" event, which runs on every machine, on the server
+ * only. Filters for AMOS mortar shell (direct and guided) ammo types; when a
+ * matching round is fired, adds the server's copy of the projectile to the
+ * tracked list of COBRA counter-battery shells for later scan, impact and
+ * origin processing.
  *
  * Arguments:
  * 0: Unit that fired (unused) <Object>
@@ -26,7 +27,7 @@
  * Public: No
  */
 
-//if (!isServer) exitWith {};
+if (!isServer) exitWith {};
 
 params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 

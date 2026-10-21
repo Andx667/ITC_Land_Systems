@@ -9,3 +9,4 @@ PREP(sirenInit);
 PREP(sirenTrigger);
 PREP(sirenTypes);
 PREP(getCobraData);
+PREP(sirenPlay);

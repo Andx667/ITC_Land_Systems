@@ -2,52 +2,71 @@
 
 /*
  * Author: ToadBall, Yax
- * Per-frame scan for a stationary COBRA radar vehicle: checks each tracked
- * indirect-fire shell against the vehicle's turret arc, detection range and
- * terrain line-of-sight, and for each detected shell calculates its impact
- * and origin points, then records the engagement and processes the origin and
- * impact before removing the shell from the tracked list (also removing any
- * shell that is no longer alive). Also purges expired active-shell impact
- * predictions from the mission's active-shells list.
+ * Server-side once-per-second scan over all COBRA radar vehicles: drops
+ * destroyed COBRAs, then checks each tracked indirect-fire shell against every
+ * stationary COBRA's turret arc, detection range and terrain line-of-sight.
+ * The first COBRA that detects a shell calculates its impact and origin
+ * points and records the impact, origin and engagement; the shell then stops
+ * being tracked (as does any shell that is no longer alive). Also purges
+ * expired impact predictions, then publishes the results to all clients if
+ * anything changed.
  *
  * Arguments:
- * 0: COBRA radar vehicle performing the scan <Object>
+ * None
  *
  * Return Value:
  * None
  *
  * Example:
- * [_cbr] call itc_land_cobra_fnc_scan
+ * call itc_land_cobra_fnc_scan
  *
  * Public: No
  */
 
-params ["_cbr"];
-private _shells = missionNamespace getVariable "itc_land_cobra_shells";
-private _toRemove = [];
-{
-  private _dir = deg (_cbr animationPhase "mainTurret");
-  _dir = (getDir _cbr - _dir);
-  if(_dir > 360) then {_dir = _dir - 360;};
-  private _angleTo = abs (((_dir) + 360) - ((_cbr getDir _x) + 360));
-  private _inRange = _x distance _cbr < 10000;
-  if(_angleTo < 23 && _inRange && !(terrainIntersectASL [getPosASL _x, (getPosASL _cbr) vectorAdd [0,0,3]])) then {
-    _toRemove pushBack _x;
-    private _impact = [_x] call EFUNC(common,simulateTrajectory);
-    [_cbr, _impact] call FUNC(processImpact);
-    private _origin = ([_x, true] call EFUNC(common,simulateTrajectory)) # 0;
-    [_cbr, _origin] call FUNC(processOrigin);
-    [_cbr, _origin] call FUNC(processEngagement);
-  };
-  if(!alive _x) then {
-    _toRemove pushBack _x;
-  }
-} forEach _shells;
-missionNamespace setVariable ["itc_land_cobra_shells", _shells - _toRemove];
+private _cobras = itc_land_cobras select {alive _x};
+if (count _cobras != count itc_land_cobras) then {
+  itc_land_cobras = _cobras;
+  publicVariable "itc_land_cobras";
+};
 
-private _activeShells = missionNamespace getVariable "itc_land_cobra_activeShells";
-private _toRemoveShells = [];
+private _scanning = _cobras select {vectorMagnitude (velocity _x) < 1};
+private _changed = false;
+private _remainingShells = [];
 {
-  if(time > _x # 1) then {_toRemoveShells pushBack _x;};
-} forEach _activeShells;
-missionNamespace setVariable ["itc_land_cobra_activeShells",_activeShells - _toRemoveShells];
+  private _shell = _x;
+  if (alive _shell) then {
+    private _detectedBy = _scanning findIf {
+      private _dir = deg (_x animationPhase "mainTurret");
+      _dir = (getDir _x - _dir);
+      if(_dir > 360) then {_dir = _dir - 360;};
+      private _angleTo = abs (((_dir) + 360) - ((_x getDir _shell) + 360));
+      _angleTo < 23
+        && {_shell distance _x < 10000}
+        && {!(terrainIntersectASL [getPosASL _shell, (getPosASL _x) vectorAdd [0,0,3]])}
+    };
+    if (_detectedBy == -1) then {
+      _remainingShells pushBack _shell;
+    } else {
+      private _cbr = _scanning select _detectedBy;
+      private _impact = [_shell] call EFUNC(common,simulateTrajectory);
+      [_cbr, _impact] call FUNC(processImpact);
+      private _origin = ([_shell, true] call EFUNC(common,simulateTrajectory)) # 0;
+      [_cbr, _origin] call FUNC(processOrigin);
+      [_cbr, _origin] call FUNC(processEngagement);
+      _changed = true;
+    };
+  };
+} forEach itc_land_cobra_shells;
+itc_land_cobra_shells = _remainingShells;
+
+private _activeShells = itc_land_cobra_activeShells select {cba_missionTime <= _x # 1};
+if (count _activeShells != count itc_land_cobra_activeShells) then {
+  itc_land_cobra_activeShells = _activeShells;
+  _changed = true;
+};
+
+if (_changed) then {
+  publicVariable "itc_land_cobra_firingPositions";
+  publicVariable "itc_land_cobra_engagements";
+  publicVariable "itc_land_cobra_activeShells";
+};

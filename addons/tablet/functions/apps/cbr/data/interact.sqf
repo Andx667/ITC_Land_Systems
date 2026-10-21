@@ -22,7 +22,9 @@ params ["_action"];
 switch(_action) do {
   case "savePos": {
     private _posIndex = lbCurSel 136001;
-    private _pos = itc_land_cobra_engagements # _posIndex;
+    private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
+    if (_posIndex < 0 || {_posIndex >= count _engagements}) exitWith {};
+    private _pos = _engagements # _posIndex;
     if(isNil{GVAR(bcs_locations)}) then {GVAR(bcs_locations) = [];};
     GVAR(bcs_locations) pushBack [_pos # 0, [_pos # 2 # 0] call EFUNC(common,posToGrid), _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
   };

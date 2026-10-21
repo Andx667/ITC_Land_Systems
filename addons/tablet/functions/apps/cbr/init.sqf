@@ -52,7 +52,7 @@ if(!(missionNamespace getVariable ["itc_land_cobra_app_hasInitialized",false])) 
     _transmission params ["_destination","_origin","_header","_type","_data"];
     _data params ["_position","_tof"];
     _activeShells = _target getVariable [QEGVAR(cobra,activeShells),[]];
-    _target setVariable [QEGVAR(cobra,activeShells),_activeShells + [[_position, _tof + time]]];
+    _target setVariable [QEGVAR(cobra,activeShells),_activeShells + [[_position, _tof + cba_missionTime]]];
   }] call EFUNC(datalink,registerEvent);
 };
 
