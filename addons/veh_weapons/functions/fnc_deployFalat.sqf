@@ -28,8 +28,9 @@
 params ["_subMunitionIndex", "_position", "_velocity", "_pitch", "_bank", "_guidanceInfo"];
 
 private _laserCode = 1111;
-if (_subMunitionIndex < 2) then {
-    _laserCode = _guidanceInfo # 0 # _subMunitionIndex;
+// submunition indices start at 1: the first uses the first laser code, the second the second
+if (_subMunitionIndex <= 2) then {
+    _laserCode = _guidanceInfo # 0 # (_subMunitionIndex - 1);
 };
 
 private _profile = createHashMapFromArray [
