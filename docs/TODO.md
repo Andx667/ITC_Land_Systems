@@ -5,7 +5,7 @@ Section numbers are kept stable so commits and issues can refer to them.
 
 ## Next up
 
-1. In-game verification (below), together with regression issue #1.
+1. In-game verification: issue #3 (full checklist; the list below is the short version).
 2. Decide on the dormant content (5).
 3. Fix the duplicate UI base classes (5), it needs the in-game check anyway.
 4. Tests (7).
@@ -13,7 +13,7 @@ Section numbers are kept stable so commits and issues can refer to them.
 
 ## In-game verification
 
-Only checked by `hemtt check` so far.
+Only checked by `hemtt check` so far. Full checklist with setup and expected behaviour: issue #3.
 
 Locality fixes:
 
@@ -121,12 +121,11 @@ errors (verified by planting violations; S17 is set too but did not fire on a te
 global), `tools/macro_in_string_checker.py` runs in the Validate workflow, Dependabot
 covers GitHub Actions, checks are documented in `CONTRIBUTING.md`. The Python
 stringtable and config-style checkers stay, they check conventions HEMTT does not.
+`hemtt check -p` is clean except the dormant `veh_weapons/fuzeProxFOV.sqf` (5);
+S49 (`countType`) is disabled because it misfires on class-name strings.
 
 - [ ] Replace `tools/macro_in_string_checker.py` with a HEMTT TOML lint
       (`.hemtt/lints/*.toml`) once a HEMTT release after 1.22.0 supports them.
-- [ ] Optional pedantic lints (`hemtt check -p`): ~12 unused variables (S14), 3 unneeded
-      `!` in `if` (S11), 3 short-circuit hints (S26), 5 unnecessary `_this` in config
-      calls (C13). Code-quality pass, not bugs.
 - [ ] `hemtt publish` to Steam from CI (needs Steam credentials as repo secrets).
 
 ## 7. Testing
@@ -139,7 +138,7 @@ stringtable and config-style checkers stay, they check conventions HEMTT does no
 
 - [ ] Zeus Enhanced / ACE Zeus modules, editor categories and subcategories.
 - [ ] ACE Arsenal / cargo sizes for packable items.
-- [ ] Use newer commands where it helps (`getOrDefault`, `countType`, ...).
+- [ ] Use newer commands where it helps (`getOrDefault`, ...).
 - [ ] Real Steam Workshop ID in README badges and `mod.cpp` (currently `id=0`);
       version is 0.1.0.
 
