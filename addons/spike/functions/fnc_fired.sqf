@@ -30,7 +30,8 @@
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 //player addmagazine _magazine;
-if (!local _unit) exitWith {};
+// The seeker camera and view-based aiming below are for the controlled player only, not AI units local to this machine
+if (!local _unit || {_unit != ace_player}) exitWith {};
 
 itc_land_spike_currentMissile = _projectile;
 itc_land_spike_launchTime = cba_missionTime;

@@ -65,10 +65,8 @@ private _sensorRAN = getNumber (_fuzeConfig >> "proxRAN"); //What is the range o
                 if (_targetAngle > (0+_sensorFOV) && _targetAngle < (180-_sensorFOV)) then {
                     _projPos = getPos _projectile;
                     deleteVehicle _projectile;
-                    if (isServer) then {
-                        _spawnedproj = _proxHelper createVehicle _projPos;
-                        //drop ["\a3\data_f\Cl_basic","","Billboard",0.25,60,position _projectile,[0,0,0],1,1.275,1.0,0.0,[2],[[1,0,0,1]],[0],0.0,2.0,"","",""];
-                    };
+                    _spawnedproj = _proxHelper createVehicle _projPos;
+                    //drop ["\a3\data_f\Cl_basic","","Billboard",0.25,60,position _projectile,[0,0,0],1,1.275,1.0,0.0,[2],[[1,0,0,1]],[0],0.0,2.0,"","",""];
                     //diag_log format ["DET: %1 @ %2",_projectile,diag_ticktime];
                 };
             } else {};

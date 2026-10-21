@@ -4,8 +4,8 @@
  * Author: ITC Addons Team
  * Packs a deployed item (e.g. a deployed drone/system) back into its
  * carryable item form. Shows a 5 second progress bar with a gesture
- * animation, then, if the item is local, deletes it and spawns a ground
- * weapon holder containing one copy of its packed item classname
+ * animation, then deletes it and spawns a ground weapon holder at its
+ * position containing one copy of its packed item classname
  * (itc_land_PacksTo).
  *
  * Arguments:
@@ -35,11 +35,11 @@ private _packed = (configOf _item >> "itc_land_PacksTo") call BIS_fnc_getCfgData
     [_caller,_item,_packed],
     {
         (_this select 0) params ["_caller","_item","_packed"];
-        if (local _item) then {
-            deleteVehicle _item;
-            private _gwh = [getPos _item, 0, 'GroundWeaponHolder', side _caller] call BIS_fnc_spawnVehicle;
-            (_gwh select 0) addItemCargo [_packed,1];
-        };
+        // deleteVehicle and createVehicle are global, so this works whoever owns the item; read the position before deleting it
+        private _pos = getPosATL _item;
+        deleteVehicle _item;
+        private _holder = createVehicle ["GroundWeaponHolder", _pos, [], 0, "CAN_COLLIDE"];
+        _holder addItemCargoGlobal [_packed, 1];
     },
     {},
     _progtext

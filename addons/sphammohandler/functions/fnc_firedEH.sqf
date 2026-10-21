@@ -31,8 +31,13 @@ params ["_gun", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_shell", "
 
 if (!(local _gunner)) exitWith {};
 
-_gun removeMagazine _magazine;
+// Read the magazines before the removal is applied, as it may happen on another machine
 private _gunMags = magazines _gun;
+private _firedIndex = _gunMags find _magazine;
+if (_firedIndex != -1) then {
+    _gunMags deleteAt _firedIndex;
+};
+[_gun, "remove", _magazine] call FUNC(changeMagazine);
 
 private _roundsFired = _gun getVariable ["itc_land_roundsFired",0];
 _roundsFired = _roundsFired +1;

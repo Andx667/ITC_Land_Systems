@@ -2,7 +2,7 @@
 
 /*
  * Author: Yax
- * Addon postInit entry point. Registers the APS "Fired" class event handler for all units and vehicles.
+ * Addon postInit entry point. Registers the APS "Fired" class event handler for all units and vehicles, and the moduleFired event handler.
  *
  * Arguments:
  * None
@@ -17,3 +17,4 @@
  */
 
 ["All", "Fired", FUNC(fired)] call CBA_fnc_addClassEventHandler;
+[QGVAR(moduleFired), FUNC(onModuleFired)] call CBA_fnc_addEventHandler;

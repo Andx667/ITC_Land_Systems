@@ -9,3 +9,5 @@ PREP(applySettings);
 PREP(loadGun);
 PREP(runSequence);
 PREP(firedEH);
+PREP(changeMagazine);
+PREP(onChangeMagazine);

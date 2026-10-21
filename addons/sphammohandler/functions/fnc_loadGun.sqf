@@ -46,13 +46,13 @@ if (_status == 3) exitWith {
     private _steps = if (_semiAuto) then {[
         [0, {SET_STATUS(4,0,"SAFING WEAPON")}],
         [3 + random 2, {SET_STATUS(4,1,"REMOVING CHARGE")}],
-        [2 + random 1, {params ["_vehicle", "_curMag"]; SET_STATUS(4,2,"REMOVING ROUND"); _vehicle removeMagazine _curMag}],
-        [5 + random 3, {params ["_vehicle", "", "_loadedMagClass"]; _vehicle addMagazine _loadedMagClass; SET_STATUS(4,3,"STOWING ROUND")}],
+        [2 + random 1, {params ["_vehicle", "_curMag"]; SET_STATUS(4,2,"REMOVING ROUND"); [_vehicle, "remove", _curMag] call FUNC(changeMagazine)}],
+        [5 + random 3, {params ["_vehicle", "", "_loadedMagClass"]; [_vehicle, "add", _loadedMagClass] call FUNC(changeMagazine); SET_STATUS(4,3,"STOWING ROUND")}],
         [2 + random 2, {SET_STATUS(1,0,"WAITING")}]
     ]} else {[
         [0, {SET_STATUS(4,0,"SAFING WEAPON")}],
-        [1, {params ["_vehicle", "_curMag"]; SET_STATUS(4,2,"REMOVING ROUND"); _vehicle removeMagazine _curMag}],
-        [4, {params ["_vehicle", "", "_loadedMagClass"]; _vehicle addMagazine _loadedMagClass; SET_STATUS(4,3,"STOWING ROUND")}],
+        [1, {params ["_vehicle", "_curMag"]; SET_STATUS(4,2,"REMOVING ROUND"); [_vehicle, "remove", _curMag] call FUNC(changeMagazine)}],
+        [4, {params ["_vehicle", "", "_loadedMagClass"]; [_vehicle, "add", _loadedMagClass] call FUNC(changeMagazine); SET_STATUS(4,3,"STOWING ROUND")}],
         [4, {SET_STATUS(1,0,"WAITING")}]
     ]};
     [_steps, [_vehicle, _curMag, _vehicle getVariable "itc_land_loadedMagClass"]] call FUNC(runSequence);
@@ -61,15 +61,11 @@ if (_status == 3) exitWith {
 (_vehicle getVariable "itc_land_currentMagInfo") params ["", "_selectedMagClass", "_selectedMagConfig"];
 private _magClass = format [getText (_selectedMagConfig >> "itc_land_charge_format"), _vehicle getVariable ["itc_land_currentChargeIndex", 1]];
 _vehicle setVariable ["itc_land_loadedMagClass", _selectedMagClass, true];
-_vehicle removeMagazine _selectedMagClass;
+[_vehicle, "remove", _selectedMagClass] call FUNC(changeMagazine);
 
 private _closeBreech = {
     params ["_vehicle", "_magClass"];
-    private _weapon = (weapons _vehicle) select 0;
-    _vehicle removeWeapon _weapon;
-    _vehicle addMagazine _magClass;
-    _vehicle addWeapon _weapon;
-    _vehicle selectWeapon _weapon;
+    [_vehicle, "closeBreech", _magClass] call FUNC(changeMagazine);
     SET_STATUS(2,3,"CLOSING BREECH");
 };
 

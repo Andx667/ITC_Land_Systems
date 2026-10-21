@@ -18,6 +18,9 @@
  */
 params ["_vehicle"];
 
+// The init event runs on every machine; only the server sets the state so that joining clients do not reset it
+if (!isServer) exitWith {};
+
 private _config = (configOf _vehicle >> "itc_land_aps");
 
 if (isClass _config) then {

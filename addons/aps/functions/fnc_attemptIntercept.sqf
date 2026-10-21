@@ -4,7 +4,8 @@
  * Author: Yax
  * Attempts to intercept an incoming projectile with each of a vehicle's APS (Active Protection System) modules that report being able to
  * intercept it. On a successful chance roll (pk), destroys or replaces the incoming projectile; on a failed roll, spawns a visual
- * countermeasure round. Updates the vehicle's APS module state (ammo count, last fired time) accordingly.
+ * countermeasure round. Runs on the machine that owns the projectile. The module's ammo count and last fired time are updated
+ * optimistically on this machine and sent to the vehicle's owner (onModuleFired), which applies and publishes the authoritative state.
  *
  * Arguments:
  * 0: Incoming projectile <OBJECT>
@@ -26,28 +27,22 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
 {
   private _canIntercept = [_vehicle, _x, _projectile] call FUNC(canIntercept);
   if (_canIntercept) then {
-    _x params [
-      "_name",
-      "_position",
-      "_turret",
-      "_direction",
-      "_traverseLim",
-      "_elevateLim",
-      "_range",
-      "_ammoCount",
-      "_pk",
-      "_reloadTime",
-      "_triggersAmmo",
-      "_lastFiredTime"
-    ];
-    _lastFiredTime = cba_missionTime;
-    _ammoCount = _ammoCount - 1;
-    _apsModules set [_forEachIndex, [
-      _name, _position, _turret, _direction, _traverseLim, _elevateLim, _range, _ammoCount, _pk, _reloadTime, _triggersAmmo, _lastFiredTime
-    ]];
-    systemChat "FIRED";
+    private _index = _forEachIndex;
+    private _module = +_x;
+    private _pk = _module select 8;
+    private _triggersAmmo = _module select 10;
+
+    // When the vehicle is remote, apply the shot locally right away so the next frame does not fire
+    // the same module again; the owner's event handler applies it to the shared state
+    if (!local _vehicle) then {
+        _module set [7, (_module select 7) - 1];
+        _module set [11, cba_missionTime];
+        _apsModules set [_index, _module];
+        _vehicle setVariable ["itc_land_aps_modules", _apsModules];
+    };
+    [QGVAR(moduleFired), [_vehicle, _index, cba_missionTime], _vehicle] call CBA_fnc_targetEvent;
+
     if (random 1 <= _pk) then {
-      systemChat format ["KILL AT %1m", _projectile distance _vehicle];
       if (_triggersAmmo) then {
         triggerAmmo _projectile;
       } else {
@@ -69,5 +64,3 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
     };
   };
 } forEach _apsModules;
-
-_vehicle setVariable ["itc_land_aps_modules", _apsModules, true];
