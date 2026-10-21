@@ -29,6 +29,9 @@ start a fresh empty [Unreleased] section above it. -->
 - Spike: the seeker camera only starts for the player-controlled shooter, not for AI units local to the machine.
 - COBRA: placing a second COBRA no longer wipes the first one's data, and a shell is no longer missed by one COBRA because another already consumed it. Sirens are now heard by all players, not only the host.
 - Datalink: transmissions are delivered to the machine that connected the target (where its handlers are registered), and registry entries are removed when the object is deleted or its player disconnects.
+- Addons that extend ACE config classes (interaction menus, items, explosives, HuntIR, missile guidance) now list those ACE addons in `requiredAddons`, so the load order is guaranteed.
+- `veh_uav06` no longer claims the vanilla AL-6 classes in its `units[]`.
+- Defender and Rhea magazines no longer reference guidance functions that never existed.
 
 ### Changed
 

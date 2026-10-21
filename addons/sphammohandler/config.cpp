@@ -5,7 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         author = AUTHOR;
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_veh_weapons", "itc_land_common"};
+        requiredAddons[] = {"cba_main", "itc_land_main", "itc_land_veh_weapons", "itc_land_common", "ace_interaction"};
         units[] = {};
         weapons[] = {};
         magazines[] = {};
