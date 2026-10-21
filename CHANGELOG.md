@@ -35,6 +35,12 @@ start a fresh empty [Unreleased] section above it. -->
 - Defender and Rhea magazines no longer reference guidance functions that never existed.
 - CIWS: decoys for incoming shells no longer leave their AI crew and group behind. Zeus-placed radar vehicles get their radar switched on also for curators created mid-mission, on the machine that owns the vehicle.
 - VLS: guidance reads the launch target from the vehicle instead of two shared globals, and an AI-fired round without a target flies unguided instead of erroring.
+- SPH loader: loading and fuzing now use the applied settings; changing the ammo, charge or fuze selection afterwards no longer changes the loaded round or its fuze until Apply is pressed again. Dual-laser rounds now keep laser code 1.
+- Tablet: opening a different tablet no longer resumes an app that tablet doesn't have, app buttons without an app return to the home screen, and the tablet stops cleanly when closed or when the player dies.
+- Gunner sights no longer leave a per-frame handler running every time the player leaves the vehicle.
+- Spike: the missile camera and its screen effects are always removed when the player dies, switches weapon or the missile hits.
+- BCS page buttons work while controlling a UAV; the BCS target-type labels are translatable.
+- Saved list selections (SPH ammo/fuze, VLS impact angle, MLRS fuze) restore correctly, including the last entry; the MLRS round-type page shows the applied PGM grid and altitude.
 
 ### Changed
 

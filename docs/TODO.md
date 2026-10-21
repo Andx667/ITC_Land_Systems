@@ -35,6 +35,22 @@ Locality fixes:
 - [ ] Tablet: switching apps/pages still works (scripts now cached); first firing
       solution per shell type may hitch once while its tables compile.
 
+User-flow fixes from the code review:
+
+- [ ] SPH loader: changing ammo, charge or fuze after Apply (without applying again) no
+      longer changes what gets loaded or how it is fuzed; Apply is what counts.
+- [ ] SPH dual-laser (Falat) rounds use both laser codes entered at Apply.
+- [ ] Tablet: opening a different tablet (handheld FDC after the mounted SPG one, or the
+      other way round) starts on the home screen; app buttons without an app return to it.
+- [ ] Tablet closes cleanly (no errors in the frame it closes, closes when the player dies).
+- [ ] Gunner sights: entering and leaving the gun several times doesn't slow the game
+      (old sight handlers now stop).
+- [ ] Spike: dying, switching weapon or the missile hitting during camera flight returns
+      to the normal view without colour/grain effects stuck on.
+- [ ] BCS page buttons work while controlling a UAV.
+- [ ] Saved list selections (SPH ammo/fuze, VLS angle, MLRS fuze) restore correctly,
+      including the last entry; the MLRS round type page shows the applied PGM grid/altitude.
+
 Settings, localization and dependencies:
 
 - [ ] CBA settings show under "ITC Land Systems" and can be forced by the server;
@@ -72,6 +88,12 @@ validation errors (never shown to players) stay English. Acronyms and product na
       hostile target. The crew leak is fixed; profile a large barrage in MP to see
       whether the per-shell vehicle/group creation is acceptable.
 
+- [ ] VLS: removing a saved target leaves `ITC_Land_VLS_selectedTGT` pointing at it.
+      Check in game whether `lbDelete` fires a new selection; if not, "Launch selected"
+      can fire at the removed target. Clear or refresh the selection in `fnc_removeTGT`.
+- [ ] VLS `onChar` broadcasts the grid/elevation/name to every machine on each keystroke;
+      launch and save read the fields themselves, so store locally or drop it.
+
 Only if the datalink gets a live caller (nothing uses it today):
 
 - [ ] Respawn leaves the registration on the old body.
@@ -106,6 +128,12 @@ tracker, which has to follow its shell every frame.
   - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
     `vls` getGuidanceOptions (never registered)
   - the datalink system (see 3)
+- [ ] Code-review leftovers (low priority): SPH `onLoad` re-broadcasts the unchanged loader
+      status on every open; ROVER `ui_init` sets the slider/FOV twice and its open condition
+      uses `items player` instead of the ACE player; the tablet's re-open logic relies on an
+      `"OPEN"` placeholder page; commented-out mounted-tablet block in
+      `tablet/CfgVehicles.hpp` and the unused `action_tablet_open` macro in
+      `rover/CfgVehicles.hpp`; packable files `fnc_Pack`/`fnc_unPack` vs `PREP(pack/unpack)`.
 - [ ] `common/CfgUI.hpp` and `tablet/UIConfig/ControlBaseClasses.hpp` both define the
       root classes `ITC_LAND_RscText`, `RscEdit`, `RscStructuredText`, `RscPicture`,
       `ScrollBar`, `RscListBox`, `RscComboBox`, `RscButton`; the tablet versions have no
