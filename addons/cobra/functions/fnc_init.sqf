@@ -4,9 +4,10 @@
  * Author: ToadBall, Yax
  * Initializes the server-side COBRA counter-battery state: the list of COBRA
  * vehicles, the tracked shells, the recorded origins, firing positions,
- * engagements and predicted impacts, the engagement ID counter and the
- * engagement time window. Only the server runs the COBRA simulation; clients
- * read the published results (itc_land_cobras, itc_land_cobra_firingPositions,
+ * engagements and predicted impacts, and the engagement ID counter. The
+ * detection range and engagement time window are CBA settings. Only the
+ * server runs the COBRA simulation; clients read the published results
+ * (itc_land_cobras, itc_land_cobra_firingPositions,
  * itc_land_cobra_engagements, itc_land_cobra_activeShells).
  *
  * Arguments:
@@ -30,4 +31,3 @@ itc_land_cobra_firingPositions = [];
 itc_land_cobra_engagements = [];
 itc_land_cobra_activeShells = [];
 itc_land_cobra_start = 1000;
-itc_land_cobra_engagementTime = 30;

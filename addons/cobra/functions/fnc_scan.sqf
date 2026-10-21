@@ -41,7 +41,7 @@ private _remainingShells = [];
       if(_dir > 360) then {_dir = _dir - 360;};
       private _angleTo = abs (((_dir) + 360) - ((_x getDir _shell) + 360));
       _angleTo < 23
-        && {_shell distance _x < 10000}
+        && {_shell distance _x < GVAR(range)}
         && {!(terrainIntersectASL [getPosASL _shell, (getPosASL _x) vectorAdd [0,0,3]])}
     };
     if (_detectedBy == -1) then {

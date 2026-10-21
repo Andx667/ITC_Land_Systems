@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="cobra">
+        <Key ID="STR_itc_land_cobra_DisplayName">
+            <English>COBRA Counter-Battery Radar</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_EngagementTime_Description">
+            <English>Seconds after the last detected shot during which new shots from within 300 m are added to the same engagement.</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_EngagementTime_DisplayName">
+            <English>Engagement window</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_Range_Description">
+            <English>Maximum distance in meters at which a COBRA radar detects incoming rounds.</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_Range_DisplayName">
+            <English>Detection range</English>
+        </Key>
+    </Package>
+</Project>

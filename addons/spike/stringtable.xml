@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="spike">
+        <Key ID="STR_itc_land_spike_CameraSensitivity_Description">
+            <English>How fast the Spike missile camera turns with the aim keys.</English>
+        </Key>
+        <Key ID="STR_itc_land_spike_CameraSensitivity_DisplayName">
+            <English>Camera sensitivity</English>
+        </Key>
+        <Key ID="STR_itc_land_spike_DisplayName">
+            <English>Spike</English>
+        </Key>
+    </Package>
+</Project>

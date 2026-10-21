@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="aps">
+        <Key ID="STR_itc_land_aps_DisplayName">
+            <English>Active Protection System</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_Enabled_Description">
+            <English>Allows vehicles with an active protection system to intercept incoming rockets and missiles.</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_Enabled_DisplayName">
+            <English>Enable APS</English>
+        </Key>
+    </Package>
+</Project>

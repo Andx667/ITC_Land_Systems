@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="ciws">
+        <Key ID="STR_itc_land_ciws_DisplayName">
+            <English>CIWS</English>
+        </Key>
+        <Key ID="STR_itc_land_ciws_Enabled_Description">
+            <English>Allows CIWS turrets to track and shoot down incoming artillery, mortar and rocket rounds.</English>
+        </Key>
+        <Key ID="STR_itc_land_ciws_Enabled_DisplayName">
+            <English>Enable CIWS</English>
+        </Key>
+    </Package>
+</Project>
