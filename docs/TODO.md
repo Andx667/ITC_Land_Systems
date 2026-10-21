@@ -191,6 +191,20 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 - [ ] Use newer commands where it helps (`getOrDefault`, ...).
 - [ ] Real Steam Workshop ID in README badges and `mod.cpp` (currently `id=0`);
       version is 0.1.0.
+- [ ] APS as a framework that can be attached to any vehicle. Today a vehicle needs an
+      `itc_land_aps` config class plus the `APS_INIT_EH` init handler in its
+      `EventHandlers` (a vehicle that redefines `EventHandlers` without inheriting silently
+      gets no APS), and only three vanilla tanks are patched. To do:
+  - init through CBA XEH (`Extended_InitPost_EventHandlers` on `AllVehicles`, reading
+    `itc_land_aps` if present) so a config class alone is enough, no event handler
+  - public script API: add/remove a module or a whole preset on a vehicle at runtime
+    (missions, Zeus), query its modules and remaining ammo
+  - presets (Trophy, Drozd, Afganit, ...) a vehicle config can inherit instead of
+    copying every value
+  - rearm: refill module ammo from ACE rearm / vanilla ammo sources, which never happens
+    now
+  - Zeus module and/or ACE interaction to fit an APS to a vehicle
+  - document the config keys and the API for mod makers (with section 9)
 
 ## 9. Documentation (after in-game testing, issue #1)
 
