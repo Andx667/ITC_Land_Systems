@@ -25,6 +25,8 @@
 
 Fully open-source. Bug reports, feature requests, and contributions are all welcome.
 
+**Credits:** Based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. The new work in this beta is released under the MIT license. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal.
+
 [GitHub Repository](https://github.com/Andx667/ITC_Land_Systems)
 [Report an Issue](https://github.com/Andx667/ITC_Land_Systems/issues)
 [Discord](https://discord.gg/ag4v6kxYAa)

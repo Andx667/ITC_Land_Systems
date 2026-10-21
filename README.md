@@ -86,6 +86,10 @@ Planned, with parts already in the code but not yet usable in game:
 
 Also planned: Zeus and Zeus Enhanced modules, translations, automated tests, a documentation site for players and mission makers, and the Steam Workshop release. The full list is in [docs/TODO.md](./docs/TODO.md).
 
+## Credits
+
+ITC Land Systems is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. The new work in this beta is released under the [MIT](./LICENSE) license. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal.
+
 ## Contributing
 
 For new contributors, see the [Contributing Setup & Guidelines](./.github/CONTRIBUTING.md).
