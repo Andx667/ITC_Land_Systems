@@ -94,6 +94,69 @@ itc_test_ciwsUnits = [
     ["itc_land_cram_praetorian2", [6600, 7200, 0], 270, true] call itc_test_fnc_spawn,
     ["itc_land_ciws_centurion2", [6640, 7200, 0], 270, true] call itc_test_fnc_spawn
 ];
+// RPT: how close a CIWS round came to the nearest shell decoy, split into along its flight path
+// (ahead = led too much, behind = led too little) and to the side
+itc_test_fnc_trackRound = {
+    params ["_round"];
+    private _decoys = vehicles select {(typeOf _x) find "itc_land_shell_" == 0};
+    if (_decoys isEqualTo []) exitWith {};
+    private _decoy = [_decoys, _round] call BIS_fnc_nearestPosition;
+    [{
+        params ["_args", "_pfh"];
+        _args params ["_round", "_decoy", "_prev", "_best", "_bestRel", "_start"];
+        private _done = !alive _round || {!alive _decoy} || {time - _start > 4};
+        if (!_done) then {
+            // closest point to the decoy on the segment the round travelled this frame
+            private _cur = getPosASL _round;
+            private _seg = _cur vectorDiff _prev;
+            private _len2 = _seg vectorDotProduct _seg;
+            private _t = if (_len2 > 0) then {((((getPosASL _decoy) vectorDiff _prev) vectorDotProduct _seg) / _len2) max 0 min 1} else {0};
+            private _rel = (_prev vectorAdd (_seg vectorMultiply _t)) vectorDiff (getPosASL _decoy);
+            if (vectorMagnitude _rel < _best) then {
+                _args set [3, vectorMagnitude _rel];
+                _args set [4, [_rel, velocity _decoy, round (_decoy distance (_args # 6))]];
+            };
+            _args set [2, _cur];
+        } else {
+            [_pfh] call CBA_fnc_removePerFrameHandler;
+            if (_bestRel isNotEqualTo []) then {
+                _bestRel params ["_rel", "_vel", "_range"];
+                private _along = _rel vectorDotProduct (vectorNormalized _vel);
+                diag_log format ["[ITC CIWS] round miss %1 m: %2 m %3, %4 m to the side (decoy %5 m from the gun)", _best toFixed 1, (abs _along) toFixed 1, ["behind", "ahead"] select (_along > 0), (sqrt ((_best ^ 2 - _along ^ 2) max 0)) toFixed 1, _range];
+            };
+        };
+    }, 0, [_round, _decoy, getPosASL _round, 1e10, [], time, itc_test_ciwsUnits # 0]] call CBA_fnc_addPerFrameHandler;
+};
+
+// RPT: every hit on a shell decoy (if rounds hit but the decoy survives, its armour is the problem)
+["itc_land_shell_b", "Hit", {
+    params ["_decoy", "_source", "_damage"];
+    diag_log format ["[ITC CIWS] decoy hit by %1, damage +%2 (total %3), altATL %4 m", typeOf _source, _damage toFixed 2, (damage _decoy) toFixed 2, round (getPosATL _decoy # 2)];
+}] call CBA_fnc_addClassEventHandler;
+["itc_land_shell_b", "Killed", {
+    params ["_decoy", "_killer"];
+    diag_log format ["[ITC CIWS] decoy destroyed by %1, altATL %2 m", typeOf _killer, round (getPosATL _decoy # 2)];
+}] call CBA_fnc_addClassEventHandler;
+
+// RPT: each burst a CIWS starts (nearest shell decoy, its altitude, rounds left) and its running shot count
+{
+    _x addEventHandler ["Fired", {
+        params ["_unit", "_weapon", "", "", "", "", "_projectile"];
+        private _shots = (_unit getVariable ["itc_test_shots", 0]) + 1;
+        _unit setVariable ["itc_test_shots", _shots];
+        if (typeOf _unit == "itc_land_cram_praetorian2" && {_shots % 20 == 0}) then {[_projectile] call itc_test_fnc_trackRound};
+        // a new burst: more than 2 s since the last round
+        if (time - (_unit getVariable ["itc_test_lastShot", -10]) > 2) then {
+            private _decoys = vehicles select {(typeOf _x) find "itc_land_shell_" == 0};
+            private _nearest = [_decoys, _unit] call BIS_fnc_nearestPosition;
+            private _where = if (_nearest isEqualType objNull && {!isNull _nearest}) then {
+                format ["nearest decoy %1 m, altATL %2 m", round (_unit distance _nearest), round (getPosATL _nearest # 2)]
+            } else {"no decoy alive"};
+            diag_log format ["[ITC CIWS] %1 starts a burst: %2, rounds left %3 (shot %4)", typeOf _unit, _where, _unit ammo _weapon, _shots];
+        };
+        _unit setVariable ["itc_test_lastShot", time];
+    }];
+} forEach itc_test_ciwsUnits;
 ["itc_test_ciws", [6620, 7200, 0], "CIWS (8)"] call itc_test_fnc_marker;
 ["itc_test_ciwsImpact", [6620, 7400, 0], "CIWS barrage impact", "mil_destroy"] call itc_test_fnc_marker;
 
@@ -156,8 +219,18 @@ itc_test_startCurator = call itc_test_fnc_createCurator;
 
 // --- scenario events (raised from the control board) ---------------------------------------
 
+// A/B test of CIWS accuracy: radar forced on (mod default at init) or left to the AI
+["itc_test_ciwsRadar", {
+    params ["_mode", "_caller"];
+    {_x setVehicleRadar _mode} forEach itc_test_ciwsUnits;
+    private _text = ["CIWS radar: automatic (AI decides)", "CIWS radar: forced on"] select (_mode == 1);
+    diag_log format ["[ITC CIWS] TEST %1", _text];
+    ["itc_test_notify", [_text], _caller] call CBA_fnc_targetEvent;
+}] call CBA_fnc_addEventHandler;
+
 ["itc_test_barrage", {
     params ["_targetPos", "_caller"];
+    diag_log format ["[ITC CIWS] TEST barrage at %1, %2 m from the CIWS, radar mode %3", _targetPos, round ((itc_test_ciwsUnits # 0) distance2D _targetPos), itc_test_ciwsUnits apply {isVehicleRadarOn _x}];
     private _firing = 0;
     {
         _x setVehicleAmmo 1;

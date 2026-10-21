@@ -24,7 +24,7 @@ player createDiaryRecord ["Diary", ["Test stations", "
 Numbers are the sections of the checklist in GitHub issue #3. Use the control board next to the arsenal for teleports, scenarios and diagnostics.<br/><br/>
 <marker name='itc_test_artillery'>Artillery park</marker>: Sholef 2, Sochor 2, Hammer 2 (mod 0/1), Seara 2, Zamak MRLi. SPH loader (5, 15), gunner sights (15), mounted tablets (11), Falat (12). Two players: one gunner, one driver/commander.<br/>
 <marker name='itc_test_packing'>Packing</marker>: an empty Strider for the commander optic. Packed AR-2i, Remote GLTD and AL-6 are in your inventory: unpack, control, pack again (10).<br/>
-<marker name='itc_test_vls'>VLS</marker>: two empty launchers for players, one with an AI gunner for the unguided AI shot (9).<br/>
+<marker name='itc_test_vls'>VLS</marker>: two empty launchers for players, one with an AI gunner for the unguided AI shot (9). The AI launcher must never fire by itself, even with the enemy battery in range.<br/>
 <marker name='itc_test_cobra'>COBRA</marker>: two radars facing the enemy battery, siren at the impact area (3). Use 'Barrage on COBRA impact area'.<br/>
 <marker name='itc_test_ciws'>CIWS</marker>: Praetorian 2 and Centurion 2 (8). Use 'Barrage near CIWS', then 'Show AI units and groups'. Zeus: take the mission-start Zeus or create a new one mid-mission, place a radar vehicle.<br/>
 <marker name='itc_test_sam'>SAM-35</marker>: AI-crewed and empty Defender 2 (7). Use 'Air target'.<br/>
@@ -74,6 +74,9 @@ Diagnostics: 'Show per-frame handler count' should not keep growing after enteri
     } forEach [
         ["Barrage on COBRA impact area", "itc_test_barrage", [[5600, 7700, 0]]],
         ["Barrage near CIWS", "itc_test_barrage", [[6620, 7400, 0]]],
+        ["Barrage near CIWS, 400 m (original test spot)", "itc_test_barrage", [[6620, 7600, 0]]],
+        ["CIWS radar: automatic (AI decides)", "itc_test_ciwsRadar", [0]],
+        ["CIWS radar: forced on (mod default)", "itc_test_ciwsRadar", [1]],
         ["CIWS: show sensor targets and decoys (run during a barrage)", "itc_test_ciwsDebug", []],
         ["APS attack (2 AI AT soldiers)", "itc_test_apsAttack", []],
         ["AI Spike shot", "itc_test_aiSpike", []],
