@@ -27,4 +27,5 @@ if(_autoStore) then {
   }] call FUNC(registerEvent);
 };
 
-[QGVAR(clientConnect),[_object, _id, _system]] call CBA_fnc_serverEvent;
+// Pass this machine's ID so transmissions are delivered to where the handlers registered above live
+[QGVAR(clientConnect),[_object, _id, _system, clientOwner]] call CBA_fnc_serverEvent;

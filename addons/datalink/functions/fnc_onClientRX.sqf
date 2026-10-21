@@ -18,6 +18,7 @@
  */
 
 params ["_object","_transmission"];
+if (isNull _object) exitWith {};
 _transmission params ["_destination","_origin","_header","_type","_data"];
 
 private _datalinkMethods = _object getVariable [QGVAR(functions),[]];

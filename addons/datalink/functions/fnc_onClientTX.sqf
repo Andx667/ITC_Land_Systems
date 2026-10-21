@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Server-side event handler that relays a transmission out to all non-player targets currently registered under the destination ID.
+ * Server-side event handler that relays a transmission out to all targets currently registered under the destination ID, on the machine that connected each target.
  *
  * Arguments:
  * 0: Destination datalink ID <String>
@@ -25,7 +25,8 @@ params["_destination","_origin","_header","_type","_data"];
 //find all targets matching the destination ID
 private _targets = [_destination] call FUNC(findIDTargets);
 
-//send it on to non-player targets
+//send it on to each target's connecting machine
 {
-  [QGVAR(clientRX), [_x, _this], _x] call CBA_fnc_targetEvent;
+  _x params ["_target", "_owner"];
+  [QGVAR(clientRX), [_target, _this], _owner] call CBA_fnc_ownerEvent;
 }forEach _targets;

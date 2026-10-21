@@ -13,3 +13,4 @@ PREP(registerEvent);
 PREP(unregisterEvent);
 PREP(init);
 PREP(validateID);
+PREP(removeNodes);
