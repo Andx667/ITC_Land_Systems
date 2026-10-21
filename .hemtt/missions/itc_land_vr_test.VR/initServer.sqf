@@ -115,6 +115,9 @@ itc_test_battery = [];
 
 // --- station: APS (crewed tank without ammo, shooters spawn on demand) ---------------------
 
+// logs every tracked rocket/missile and why each module did or did not fire to the RPT ([ITC APS])
+missionNamespace setVariable ["itc_land_aps_debug", true, true];
+
 itc_test_apsTank = ["B_MBT_01_cannon_F", [6400, 6700, 0], 180, true] call itc_test_fnc_spawn;
 [itc_test_apsTank] call itc_test_fnc_pacify;
 ["itc_test_aps", [6400, 6700, 0], "APS tank (4)"] call itc_test_fnc_marker;
@@ -127,20 +130,25 @@ itc_test_spikeTarget = ["O_APC_Tracked_02_cannon_F", [6200, 6100, 0], 0, true] c
 ["itc_test_spike", [6200, 6700, 0], "Spike post (6)"] call itc_test_fnc_marker;
 ["itc_test_spikeTarget", [6200, 6100, 0], "Spike target", "o_mech_inf"] call itc_test_fnc_marker;
 
-// --- ROVER: a laser-capable UAV loitering over the target area -----------------------------
+// --- UAV apron: the bigger UAVs parked facing north, flown with the UAV terminal ----------
+// (the MQ-4I is the laser-capable one for ROVER; nothing is in the take-off path)
 
-private _roverUav = ["ITC_Land_B_UAV_MQ4i", [6200, 6600, 400], 180, true, "FLY"] call itc_test_fnc_spawn;
-_roverUav flyInHeight 400;
-private _loiter = (group driver _roverUav) addWaypoint [[6200, 6100, 0], 0];
-_loiter setWaypointType "LOITER";
-_loiter setWaypointLoiterRadius 600;
-["itc_test_rover", [6200, 6350, 0], "ROVER UAV loiter (connect with the UAV terminal, lase)"] call itc_test_fnc_marker;
+["ITC_Land_B_UAV_MQ4i", [6240, 7180, 0], 0, true] call itc_test_fnc_spawn;
+["ITC_Land_B_UAV_UCAVi", [6280, 7180, 0], 0, true] call itc_test_fnc_spawn;
+["itc_test_rover", [6260, 7170, 0], "UAV apron: MQ-4I (ROVER), UCAVi"] call itc_test_fnc_marker;
 
 // --- Zeus: one curator from mission start, more can be created mid-mission ----------------
 
 itc_test_fnc_createCurator = {
     private _curator = (createGroup sideLogic) createUnit ["ModuleCurator_F", [0, 0, 0], [], 0, "NONE"];
-    _curator addCuratorAddons activatedAddons;
+    // all loaded addons: the mission itself only declares A3_Characters_F, so "active addons" misses ITC
+    _curator setVariable ["Addons", 3, true];
+    // no owner: assignment goes through the control board (an empty owner errors in singleplayer)
+    _curator setVariable ["owner", "objNull"];
+    _curator setVariable ["showNotification", false];
+    // a scripted module never runs its init (addons, placement and attribute handlers) unless activated
+    _curator setVariable ["bis_fnc_initModules_disableAutoActivation", false, true];
+    _curator setVariable ["bis_fnc_initModules_activate", true];
     _curator addCuratorEditableObjects [vehicles + allUnits, true];
     _curator
 };

@@ -30,7 +30,7 @@ Numbers are the sections of the checklist in GitHub issue #3. Use the control bo
 <marker name='itc_test_sam'>SAM-35</marker>: AI-crewed and empty Defender 2 (7). Use 'Air target'.<br/>
 <marker name='itc_test_aps'>APS</marker>: crewed tank without ammo (4). Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines.<br/>
 <marker name='itc_test_spike'>Spike</marker>: player Spike from the arsenal or 'AI Spike shot' against the target APC (6).<br/>
-<marker name='itc_test_rover'>ROVER</marker>: MQ-4I loitering over the target area. Connect with the UAV terminal, lase, open the ROVER tablet (16).<br/>
+<marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (16).<br/>
 Tablets (FDC, SPG, ROVER) and a UAV terminal are in your inventory (11, 15, 16).<br/><br/>
 Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems (1).
 "]];
@@ -64,7 +64,8 @@ Diagnostics: 'Show per-frame handler count' should not keep growing after enteri
         ["CIWS", [6620, 7188, 0]],
         ["SAM-35", [6620, 6888, 0]],
         ["APS tank", [6400, 6720, 0]],
-        ["Spike post", [6200, 6712, 0]]
+        ["Spike post", [6200, 6712, 0]],
+        ["UAV apron", [6260, 7165, 0]]
     ];
 
     {
