@@ -21,6 +21,10 @@
  */
 
 params ["_display"];
+private _ui = uiNamespace getVariable ["itc_land_spike_ui", displayNull];
+if (isNull _ui || isNil "itc_land_spike_camera") exitWith {
+  call FUNC(stopCamera);
+};
 if (!itc_land_spike_ppEffect) then {
   "colorCorrections" ppEffectAdjust [0.9, 0.4, 0, [0.9, 0.4, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];;
   "colorCorrections" ppEffectCommit 0;
@@ -39,15 +43,6 @@ private _bank = if (time > itc_land_spike_launchTime + ((itc_land_spike_wobble #
 [itc_land_spike_camera, (_polarToTarget # 2), _bank * (itc_land_spike_wobble # 0)] call bis_fnc_setpitchbank;
 itc_land_spike_camera camCommit 0;
 
-private _ui = uiNamespace getVariable "itc_land_spike_ui";
-if (isNull _ui || isNil "itc_land_spike_camera") exitWith {
-  itc_land_spike_camera cameraEffect ["terminate", "back"];
-  camDestroy itc_land_spike_camera;
-  itc_land_spike_camera = nil;
-  "colorCorrections" ppEffectEnable false;
-  "filmGrain" ppEffectEnable false;
-  itc_land_spike_ppEffect = false;  
-};
 (_ui displayCtrl 1011) ctrlShow false;
 (_ui displayCtrl 1018) ctrlShow false;
 (_ui displayCtrl -1) ctrlShow false;

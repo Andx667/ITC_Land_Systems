@@ -31,7 +31,8 @@ params ["_sightName", "_layout"];
     (_this select 0) params ["_displayVar", "_layout"];
     disableSerialization;
     private _display = uiNamespace getVariable [_displayVar, displayNull];
-    if (isNull _display) exitWith {};
+    // the display is gone (left the seat/vehicle); its next onLoad starts a new handler
+    if (isNull _display) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
 
     private _useUav = _layout get "uav";
     private _role = if (_useUav) then {[ACE_player] call ace_common_fnc_getUavControlPosition} else {ACE_player call CBA_fnc_vehicleRole};

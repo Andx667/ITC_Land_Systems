@@ -38,7 +38,8 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     (_this select 0) params ["_displayVar", "_layout"];
     disableSerialization;
     private _display = uiNamespace getVariable [_displayVar, displayNull];
-    if (isNull _display) exitWith {};
+    // the display is gone (left the seat/vehicle); its next onLoad starts a new handler
+    if (isNull _display) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
 
     private _viewOk = [_display, _layout get "group", _this select 1, ACE_player call CBA_fnc_vehicleRole, "GUNNER"] call EFUNC(common,sightViewCheck);
     if (!_viewOk) exitWith {};

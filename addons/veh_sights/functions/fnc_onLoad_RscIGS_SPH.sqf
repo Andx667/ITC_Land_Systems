@@ -31,7 +31,8 @@ _vehicle setVariable ["ITC_Land_SightEvent", "itc_land_onLoad_RscIGS_SPH", true]
     params ["_args", "_pfID"];
     disableSerialization;
     private _display = uiNamespace getVariable ["ITC_Land_RscIGS_SPH", displayNull];
-    if (isNull _display) exitWith {};
+    // the display is gone (left the seat/vehicle); its next onLoad starts a new handler
+    if (isNull _display) exitWith {[_pfID] call CBA_fnc_removePerFrameHandler};
 
     private _vehicle = [] call EFUNC(common,getCurVehicle);
     private _role = if (_vehicle in allUnitsUAV) then {(UAVControl _vehicle) # 1} else {ACE_player call CBA_fnc_vehicleRole};

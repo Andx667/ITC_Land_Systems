@@ -28,6 +28,7 @@ params ["_display"];
   (_this select 0) params ["_display"];
   if (!alive player || isNull _display || currentWeapon player != "itc_land_spikeLR") exitWith {
     [_this select 1] call CBA_fnc_removePerFrameHandler;
+    call FUNC(stopCamera);
   };
 
   if (itc_land_spike_cameraMode != cameraView) then {
@@ -38,12 +39,11 @@ params ["_display"];
   call FUNC(handleLock);
 
   if (!isNil "itc_land_spike_currentMissile" && {isNull itc_land_spike_currentMissile}) exitWith {
-    (uiNamespace getVariable "itc_land_spike_ui") closeDisplay 2;
-    itc_land_spike_camera cameraEffect ["terminate", "back"];
-    camDestroy itc_land_spike_camera;
-    itc_land_spike_camera = nil;
+    call FUNC(stopCamera);
     itc_land_spike_currentMissile = nil;
     itc_land_spike_lockInformation = [nil, [0,0,0], nil, [0,0,0]];
+    // back in the launcher sight: restore its overlay effects
+    [] call FUNC(sightViewChanged);
   };
 
   if (isNil "itc_land_spike_camera" && cameraView == "GUNNER") then {
