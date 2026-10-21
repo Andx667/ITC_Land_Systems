@@ -84,10 +84,14 @@ itc_test_vlsAi = ["itc_land_b_vls2_slam", [6140, 6960, 0], 270, true] call itc_t
 
 // --- station: CIWS -------------------------------------------------------------------------
 
-["itc_land_cram_praetorian2", [6600, 7200, 0], 270, true] call itc_test_fnc_spawn;
-["itc_land_ciws_centurion2", [6640, 7200, 0], 270, true] call itc_test_fnc_spawn;
+// logs decoy and CIWS sensor state to the RPT ([ITC CIWS])
+missionNamespace setVariable ["itc_land_ciws_debug", true];
+itc_test_ciwsUnits = [
+    ["itc_land_cram_praetorian2", [6600, 7200, 0], 270, true] call itc_test_fnc_spawn,
+    ["itc_land_ciws_centurion2", [6640, 7200, 0], 270, true] call itc_test_fnc_spawn
+];
 ["itc_test_ciws", [6620, 7200, 0], "CIWS (8)"] call itc_test_fnc_marker;
-["itc_test_ciwsImpact", [6620, 7600, 0], "CIWS barrage impact", "mil_destroy"] call itc_test_fnc_marker;
+["itc_test_ciwsImpact", [6620, 7400, 0], "CIWS barrage impact", "mil_destroy"] call itc_test_fnc_marker;
 
 // --- enemy battery (fires the barrages for COBRA and CIWS) ---------------------------------
 
@@ -203,6 +207,26 @@ itc_test_startCurator = call itc_test_fnc_createCurator;
     // The AI gunner has no target set through the launch dialog: the round must fly unguided
     itc_test_vlsAi fireAtTarget [objNull, (itc_test_vlsAi weaponsTurret [0]) param [0, ""]];
     ["itc_test_notify", ["AI VLS launcher fired without a target"], _caller] call CBA_fnc_targetEvent;
+}] call CBA_fnc_addEventHandler;
+
+["itc_test_ciwsDebug", {
+    params ["_caller"];
+    private _lines = [];
+    {
+        private _unit = _x;
+        private _targets = getSensorTargets _unit;
+        _lines pushBack format ["%1: radar on %2, %3 sensor target(s)", typeOf _unit, isVehicleRadarOn _unit, count _targets];
+        {
+            _x params ["_object", "_type", "_relation"];
+            _lines pushBack format ["  %1 %2 %3 (%4 m)", typeOf _object, _type, _relation, round (_object distance _unit)];
+        } forEach (_targets select [0, 4]);
+    } forEach itc_test_ciwsUnits;
+    private _decoys = vehicles select {(typeOf _x) find "itc_land_shell_" == 0};
+    _lines pushBack format ["Decoys alive: %1", count _decoys];
+    {
+        _lines pushBack format ["  %1 side %2 alt %3 m speed %4 m/s crew %5", typeOf _x, side group driver _x, round (getPosATL _x select 2), round speed _x, count crew _x];
+    } forEach (_decoys select [0, 4]);
+    ["itc_test_notify", [_lines joinString "\n"], _caller] call CBA_fnc_targetEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["itc_test_zeus", {

@@ -72,7 +72,8 @@ Diagnostics: 'Show per-frame handler count' should not keep growing after enteri
         [format ["<t color='#ffb84d'>%1</t>", _title], _server, [_event, _params]] call _add;
     } forEach [
         ["Barrage on COBRA impact area", "itc_test_barrage", [[5600, 7700, 0]]],
-        ["Barrage near CIWS", "itc_test_barrage", [[6620, 7600, 0]]],
+        ["Barrage near CIWS", "itc_test_barrage", [[6620, 7400, 0]]],
+        ["CIWS: show sensor targets and decoys (run during a barrage)", "itc_test_ciwsDebug", []],
         ["APS attack (2 AI AT soldiers)", "itc_test_apsAttack", []],
         ["AI Spike shot", "itc_test_aiSpike", []],
         ["Air target for the SAM-35", "itc_test_airTarget", []],
