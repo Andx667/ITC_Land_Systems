@@ -3,8 +3,8 @@
 /*
  * Author: ToadBall, Yax, VKing
  * Fired event handler for ITC Howitzers firing Mof35-fuzed shells. Reads the
- * firing vehicle's selected fuze mode/value and, unless the fuze is proximity
- * detonation ("pd"), starts a per-frame handler running the matching fuze
+ * firing vehicle's applied fuze mode/value (see fnc_resolveFuzeSetting) and, unless
+ * the fuze is point detonation ("pd"), starts a per-frame handler running the matching fuze
  * function (delay, time, or prox) against the fired projectile.
  *
  * Arguments:
@@ -25,7 +25,7 @@
 
 params ["_vehicle", "", "", "", "_ammo", "_magazine", "_projectile", "_gunner"];
 if (!local _gunner) exitWith {};
-private _fuzeType = _vehicle getVariable ["itc_land_selectedFuzeMode","pd"];
+private _fuzeType = _vehicle getVariable ["itc_land_fuzeMode","pd"];
 private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
 
 

@@ -2,8 +2,10 @@
 
 /*
  * Author: ToadBall, Yax
- * Applies the selected fuze mode to the vehicle: stores the value the fuze will use
- * (proximity height, time or delay) and builds the text shown in the interface.
+ * Applies the selected fuze mode to the vehicle: stores the mode and the value the fuze
+ * will use (proximity height, time or delay) and builds the text shown in the interface.
+ * The fired handlers read only these applied values (itc_land_fuzeMode/itc_land_fuzeValues),
+ * not the live selection in the interface (itc_land_selectedFuzeMode).
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -25,6 +27,7 @@
 params ["_vehicle", "_mode", "_description", "_fuze", "_time", "_timeVariable"];
 
 private _text = _description;
+_vehicle setVariable ["itc_land_fuzeMode", _mode, true];
 switch (_mode) do {
     case "prox": {
         private _height = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");

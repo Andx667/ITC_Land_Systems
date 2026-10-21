@@ -73,6 +73,7 @@ if (_guidance isNotEqualTo []) then {
         case "laser_coded_2" : {
             private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
             private _laserCode2 = [86024] call EFUNC(common,sanitizeLaserCode);
+            _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
             _vehicle setVariable ["itc_land_guidance_laserCode_2", _laserCode2, true];
             _guidanceText = format[LLSTRING(LaserCodes), _laserCode, _laserCode2];
         };
