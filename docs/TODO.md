@@ -85,6 +85,45 @@ validation errors (never shown to players) stay English. Acronyms and product na
 
 - [ ] Further candidates: CIWS/COBRA detection arc, siren trigger distance, SPH loader
       timings, a debug logging toggle.
+- [ ] One on/off switch per system. Rules:
+  - CBA checkbox `itc_land_<component>_enabled` under "ITC Land Systems" -> system,
+    default on, server-forced (like the existing APS and CIWS toggles).
+  - Off = ITC's scripted behaviour is gone and the vehicle falls back to what the engine
+    does; vehicles, weapons and ammo stay in Eden/Zeus/Arsenal (settings cannot unload
+    config).
+  - Takes effect at the next mission (CBA "needs restart") for systems set up at mission
+    start or vehicle init; APS and CIWS check per shot and can stay live.
+  - Per component: `initSettings.inc.sqf` + stringtable keys; gate the few entry points
+    (postInit registrations, config init/`Fired` handlers, ACE action conditions, UI
+    openers) with a shared `EXIT_IF_DISABLED` macro; register behind CBA's
+    settings-initialized event so the value is known.
+- [ ] Clean switches (off = vanilla fallback):
+  - APS (exists): no APS on tanks.
+  - CIWS (exists): engages only what vanilla does (air, missiles).
+  - COBRA: server scan loop, radar vehicle init, sirens, CBR tablet app (and the datalink,
+    which only COBRA uses). Off: plain radar vehicles, CBR app hidden.
+  - SAM-35 proximity fuze (`veh_weapons` / `veh_rhea` fired): vanilla hit-to-kill missiles.
+  - VLS: target dialog, ad-hoc/saved targets, guidance. Off: vanilla VLS behaviour.
+  - Spike LR camera seeker (`fired`, `selectSpike`): missile flies as configured.
+  - SPH ammo handler (dialog, ACE action, fired reload cycle): guns fire their charge
+    magazines directly, like vanilla.
+  - ROVER tablet: action hidden, no video feed.
+  - Guided artillery (LGM/PGM, `guidance`): rounds fly ballistic.
+- [ ] Decide: switches that would break things, recommended none or an "expert" switch:
+  - Fire control tablet / BCS: the ITC guns set `artilleryScanner = 0`, so off leaves no
+    fire control at all (only manual laying); a setting cannot re-enable the vanilla
+    computer.
+  - Gunner sights: overlays come from config (`turretInfoType`), off leaves the ITC
+    overlay without readouts.
+  - Special munitions (fuzes, ICM, mines, smoke, illumination, Extra/Falat): inert shells
+    plus a scripted effect, off turns them into duds.
+  - Packable equipment: off makes packed items in loadouts useless.
+- No switch possible: vehicles/UAVs, Strider, remote frag, smoke dispenser, Mk6 ammo are
+  config only (would need separate optional PBOs); `main`, `common`, `ballistics` and
+  `datalink` follow their users.
+- Rollout: macro + helper in `main`/`common`, then one commit per clean switch; test-range
+  check (toggle, restart, confirm the vanilla fallback) and issue #3 entry; settings table
+  in the README.
 
 ## 3. Multiplayer / locality (remaining low-priority audit items)
 
