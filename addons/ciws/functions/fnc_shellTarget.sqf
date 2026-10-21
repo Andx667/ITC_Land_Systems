@@ -51,14 +51,15 @@
         private _log = {
             params ["_label", "_projectile", "_target"];
             private _cram = vehicles select {((typeOf _x) find "itc_land_cram") == 0 || {((typeOf _x) find "itc_land_ciws") == 0}};
-            diag_log format ["[ITC CIWS] %1 target=%2 alive=%3 side=%4 posATL=%5 vel=%6 projAlive=%7", _label, typeOf _target, alive _target, side group driver _target, getPosATL _target, round speed _target, alive _projectile];
+            diag_log format ["[ITC CIWS] %1 target=%2 alive=%3 side=%4 posATL=%5 speed=%6 m/s (shell %7 m/s) mass=%8 projAlive=%9", _label, typeOf _target, alive _target, side group driver _target, getPosATL _target, round vectorMagnitude velocity _target, round vectorMagnitude velocity _projectile, getMass _target, alive _projectile];
             {
                 private _gunner = gunner _x;
-                diag_log format ["[ITC CIWS]   %1 radar=%2 gunner=%3 knows=%4 sensorTargets=%5 dist=%6", typeOf _x, isVehicleRadarOn _x, side group _gunner, _gunner knowsAbout _target, count getSensorTargets _x, round (_x distance _target)];
+                diag_log format ["[ITC CIWS]   %1 radar=%2 gunner=%3 knows=%4 sensorTargets=%5 dist=%6 aimingAccuracy=%7", typeOf _x, isVehicleRadarOn _x, side group _gunner, _gunner knowsAbout _target, count getSensorTargets _x, round (_x distance _target), _gunner skillFinal "aimingAccuracy"];
             } forEach _cram;
         };
         ["decoy created", _projectile, _target] call _log;
-        for "_i" from 1 to 6 do {
+        // every 3 s for the whole flight (stops once the decoy is gone)
+        for "_i" from 1 to 40 do {
             [{
                 params ["_log", "_projectile", "_target", "_i"];
                 if (!isNull _target) then {[format ["decoy +%1 s", _i * 3], _projectile, _target] call _log};
@@ -70,6 +71,14 @@
         private _canIntercept = (getPosATL _projectile # 2 > 30);
         private _descending = (velocity _projectile # 2 < 0);
         if (!alive _projectile || (!alive _target && _canIntercept)) exitWith {
+            if (missionNamespace getVariable [QGVAR(debug), false]) then {
+                if (alive _projectile) then {
+                    private _ciws = (vehicles select {((typeOf _x) find "itc_land_cram") == 0 || {((typeOf _x) find "itc_land_ciws") == 0}}) apply {round (_x distance _projectile)};
+                    diag_log format ["[ITC CIWS] shell INTERCEPTED at altATL=%1 m, distance to CIWS units %2 m", round (getPosATL _projectile # 2), _ciws];
+                } else {
+                    diag_log "[ITC CIWS] shell landed";
+                };
+            };
             deleteVehicle _projectile;
             deleteVehicleCrew _target;
             deleteVehicle _target;
