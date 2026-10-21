@@ -51,7 +51,11 @@ publicVariable "itc_test_board";
 
 {
     _x params ["_class", "_posX"];
-    [_class, [_posX, 7040, 0], 0] call itc_test_fnc_spawn;
+    private _howitzer = [_class, [_posX, 7040, 0], 0] call itc_test_fnc_spawn;
+    // no vehicle carries these rounds by default: Falat (two laser codes) and the Extra cargo shell
+    if (_class == "itc_land_b_SPH_Sholef2") then {
+        {_howitzer addMagazineTurret [_x, [0], 3]} forEach ["itc_land_g155falat", "itc_land_g155ext"];
+    };
 } forEach [
     ["itc_land_b_SPH_Sholef2", 6060],
     ["itc_land_o_sph_sochor2", 6100],
