@@ -4,9 +4,6 @@
     <a href="https://github.com/Andx667/ITC_Land_Systems/issues">
         <img src="https://img.shields.io/github/issues-raw/Andx667/ITC_Land_Systems.svg?style=flat-square&label=Issues" alt="ITC Land Systems Issues">
     </a>
-    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=0">
-        <img src="https://img.shields.io/steam/downloads/0.svg?style=flat-square&label=Downloads" alt="ITC Land Systems Downloads">
-    </a>
     <a href="https://github.com/Andx667/ITC_Land_Systems/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="ITC Land Systems License">
     </a>
@@ -17,20 +14,75 @@
 
 __Requires__ [CBA_A3](https://github.com/CBATeam/CBA_A3) and [ACE3](https://github.com/acemod/ACE3).
 
-__ITC Land Systems__ (ITC) improvements and additions to Arma 3's land-based weapon systems — active protection, CIWS, guided munitions, UAVs, VLS, and more.
+__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based weapon systems: artillery with real fire control, air and missile defence, counter-battery radar, active protection, guided munitions and UAVs.
 
 The project is entirely __open-source__ and any contributions are welcome.
 
-Steam Workshop: <https://steamcommunity.com/sharedfiles/filedetails/?id=0>
 Discord: <https://discord.gg/ag4v6kxYAa>
+
+> [!NOTE]
+> ITC Land Systems is in pre-release (0.1.0). The current build is being tested in game, see [issue #3](https://github.com/Andx667/ITC_Land_Systems/issues/3). A Steam Workshop release follows once that is done.
 
 ## Features
 
-- Active Protection System (APS) for armored vehicles
-- CIWS point-defense for land and sea platforms
-- Guided and remote-detonated munitions (Spike, PGM, laser/IR-guided rounds)
-- Vertical Launch System (VLS) and datalink target sharing
-- Additional land vehicles and UAVs with custom sights and fire control
+### Artillery and fire control
+
+- __Self-propelled guns and rocket artillery__: M4 Sholef 2 and 2S9 Sochor 2 howitzers, Mk45 Hammer 2 naval gun (mod. 0 and mod. 1), M5 Seara 2 MLRS and Zamak MRLi.
+- __Munitions__ for 152/155 mm, 127 mm naval and 230 mm MLRS: HE, ICM, smoke, illumination, AP/AT mines, laser-guided (LGM) and GPS-guided (PGM) rounds, and the Extra and Falat submunition rounds. Proximity, time and delay fuzes.
+- __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence. The loader status is shared with the whole crew.
+- __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
+- __Gunner sights__ with azimuth, quadrant, firing solution and loader readouts.
+
+### Air and missile defence
+
+- __CIWS__ (Mk49 Spartan 2, Praetorian 2) that track and shoot down incoming artillery, mortar and rocket rounds.
+- __SAM sites__: MIM-145 Defender 2 and S750 Rhea 2 with proximity-fuzed missiles.
+- __Vertical Launch System__ (MN230, air defence and cruise missile variants) with a target dialog for ad-hoc and saved targets and a selectable impact angle.
+
+### Counter-battery
+
+- __COBRA counter-battery radar__ (AN/TPQ-105, R-750): detects incoming shells, predicts their impact point and back-traces the firing position. Results show on a tablet map and data page, and alarm sirens sound near predicted impacts.
+
+### Vehicle protection and anti-tank
+
+- __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
+- __Spike LR__ man-portable ATGM with a camera seeker you steer and lock in flight.
+
+### UAVs, recon and support
+
+- __UAVs__: AR-2i/AR-2e Darter 2 and Tayran 2, MQ-4I Greyhawk and K40i Ababil-3, UCAVi Sentinel 2, and the AL-6 as a carryable UAV bag.
+- __Packable equipment__: pack and unpack UAVs and the Remote GLTD laser designator through ACE interactions.
+- __ROVER tablet__ showing the video feed of laser-designating aircraft.
+- __Strider RV__ variants (unarmed, HMG, GMG).
+- __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
+
+## Settings
+
+Under __Addon Options → ITC Land Systems__ (CBA settings, can be forced by the server):
+
+| System | Setting |
+| --- | --- |
+| CIWS | Enable CIWS |
+| Active Protection System | Enable APS |
+| COBRA | Detection range, engagement window |
+| Spike | Camera sensitivity (per player) |
+
+## Languages
+
+All player-facing text lives in stringtables. Only English exists so far, translations are welcome.
+
+## Roadmap
+
+Planned, with parts already in the code but not yet usable in game:
+
+- 105 mm and 122 mm howitzers on a vehicle
+- 155 mm APF (flechette) round
+- RIM-116 missile launcher for the CIWS family
+- SADL (situational awareness) tablet app
+- Dual-mode GPS/laser guided artillery rounds
+- Datalink to share radar and fire-mission data between systems
+
+Also planned: Zeus and Zeus Enhanced modules, translations, automated tests, a documentation site for players and mission makers, and the Steam Workshop release. The full list is in [docs/TODO.md](./docs/TODO.md).
 
 ## Contributing
 
