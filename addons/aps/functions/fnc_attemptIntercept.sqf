@@ -12,7 +12,7 @@
  * 1: Vehicle with APS module(s) attempting interception <OBJECT>
  *
  * Return Value:
- * None
+ * True if a module destroyed the projectile <BOOL>
  *
  * Example:
  * [_projectile, _vehicle] call itc_land_aps_fnc_attemptIntercept
@@ -21,10 +21,11 @@
  */
 
 params ["_projectile", "_vehicle"];
-scopeName "main";
 
+private _killed = false;
 private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
 {
+    if (_killed) exitWith {};
     private _canIntercept = [_vehicle, _x, _projectile] call FUNC(canIntercept);
     if (_canIntercept) then {
         private _index = _forEachIndex;
@@ -42,7 +43,12 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
         };
         [QGVAR(moduleFired), [_vehicle, _index, cba_missionTime], _vehicle] call CBA_fnc_targetEvent;
 
-        if (random 1 <= _pk) then {
+        private _kill = random 1 <= _pk;
+        if (missionNamespace getVariable [QGVAR(debug), false]) then {
+            diag_log format ["[ITC APS] %1 %2 fired at %3 m: %4", typeOf _vehicle, _module select 0, round (_projectile distance _vehicle), ["miss", "kill"] select _kill];
+        };
+
+        if (_kill) then {
             if (_triggersAmmo) then {
                 triggerAmmo _projectile;
             } else {
@@ -54,7 +60,7 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
                 _newProjectile setPosASL _pos;
                 triggerAmmo _newProjectile;
             };
-            breakOut "main";
+            _killed = true;
         } else {
             private _velocity = velocity _projectile;
             private _inverseMagnitude = -1 * (vectorMagnitude _velocity);
@@ -64,3 +70,5 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
         };
     };
 } forEach _apsModules;
+
+_killed

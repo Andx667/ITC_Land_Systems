@@ -24,6 +24,7 @@ start a fresh empty [Unreleased] section above it. -->
 - COBRA: impact/engagement/siren timing used the per-machine `time` in some places and `cba_missionTime` in others; everything now uses `cba_missionTime` so clients agree with the host.
 - SAM-35: proximity detonation only spawned on the server, so client-fired missiles disappeared without exploding.
 - APS: the elevation limit was never enforced (`&&` instead of `||`); removed leftover debug chat output.
+- APS: a module's traverse arc did not wrap across north, so depending on the vehicle's heading a module (e.g. the left Trophy on a north-facing Slammer) covered almost nothing. Incoming rounds are now checked every frame instead of every 0.05 s and are no longer tracked once killed (a second module could fire at the same dying round), and every lost rocket no longer resets time acceleration to 1.
 - Packing a deployed item spawned the weapon holder at `[0,0,0]` and did nothing if the item was not local.
 - Datalink: removed leftover debug chat output on client connect.
 - SPH autoloader: magazine changes are now sent to the vehicle's owner, so the loader works when the gunner is not on the machine that owns the vehicle.
