@@ -170,7 +170,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 - [ ] CBA unit tests for pure functions in `common` (getDeflection, gridToPos/posToGrid,
       simulateTrajectory, fuze resolution).
-- [ ] Smoke missions for APS, CIWS, VLS (only one manual VR mission today).
+- [x] Test range mission (`.hemtt/missions/itc_land_vr_test.VR`, started by `hemtt launch`):
+      stations for every issue #3 section, a control board with teleports, scenarios
+      (enemy barrage, APS attack, AI Spike/VLS shots, air target, Zeus) and diagnostics.
+- [ ] Automate parts of it (scripted pass/fail checks) once the manual run is done.
 
 ## 8. Compatibility and polish
 

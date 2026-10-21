@@ -1,0 +1,17 @@
+onLoadName = "ITC Land Systems - Test Range";
+onLoadMission = "Test stations for the in-game checklist (GitHub issue #3)";
+author = "ITC Addons Team";
+
+class Header {
+    gameType = "Coop";
+    minPlayers = 1;
+    maxPlayers = 4;
+};
+
+// Several checks need dying (Spike camera, tablet) and two players on different machines
+respawn = "BASE";
+respawnDelay = 5;
+respawnOnStart = -1;
+
+enableDebugConsole = 2;
+disabledAI = 1;
