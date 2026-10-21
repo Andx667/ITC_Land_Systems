@@ -24,6 +24,8 @@ start a fresh empty [Unreleased] section above it. -->
 - COBRA: impact/engagement/siren timing used the per-machine `time` in some places and `cba_missionTime` in others; everything now uses `cba_missionTime` so clients agree with the host.
 - SAM-35: proximity detonation only spawned on the server, so client-fired missiles disappeared without exploding.
 - APS: the elevation limit was never enforced (`&&` instead of `||`); removed leftover debug chat output.
+- CIWS: the Praetorian 2 radar, now always on, also detected ground vehicles out to 8 km and shared them over datalink, so AI-crewed VLS launchers fired cruise missiles at enemy artillery on their own. CIWS units are anti-air only: their radar and IR sensors no longer have ground bands.
+- VLS: the launchers only fire on user input (gunner seat, launch dialog, scripts); AI gunners never launch by themselves. The ESSM launcher's AI ranges were set on the weapon, but the game reads them from its fire mode, so they never applied.
 - APS: a module's traverse arc did not wrap across north, so depending on the vehicle's heading a module (e.g. the left Trophy on a north-facing Slammer) covered almost nothing. Incoming rounds are now checked every frame instead of every 0.05 s and are no longer tracked once killed (a second module could fire at the same dying round), and every lost rocket no longer resets time acceleration to 1.
 - Packing a deployed item spawned the weapon holder at `[0,0,0]` and did nothing if the item was not local.
 - Datalink: removed leftover debug chat output on client connect.

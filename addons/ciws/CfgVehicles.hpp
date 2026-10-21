@@ -87,9 +87,10 @@ class CfgVehicles {
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
+                        // anti-air only: no ground band, so no ground contacts go out over datalink
                         class GroundTarget {
-                            minRange = 500;
-                            maxRange = 3500;
+                            minRange = 0;
+                            maxRange = 0;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
@@ -107,9 +108,12 @@ class CfgVehicles {
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
+                        // anti-air only: no ground band. The radar is always on (shell decoys are
+                        // radar-only) and its contacts go out over datalink, so a ground band would
+                        // hand ground vehicles kilometres away to every datalinked launcher
                         class GroundTarget {
-                            minRange = 7000;
-                            maxRange = 8000;
+                            minRange = 0;
+                            maxRange = 0;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
@@ -149,9 +153,10 @@ class CfgVehicles {
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };
+                        // anti-air only: no ground band, so no ground contacts go out over datalink
                         class GroundTarget {
-                            minRange = 500;
-                            maxRange = 3500;
+                            minRange = 0;
+                            maxRange = 0;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = -1;
                         };

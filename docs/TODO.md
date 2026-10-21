@@ -31,6 +31,8 @@ Locality fixes:
       mid-mission; a long barrage leaves no orphan AI units or groups.
 - [ ] VLS: launches from the dialog still hit; an AI-fired VLS round flies unguided
       without script errors.
+- [ ] CIWS: still engages shells and aircraft without the ground sensor bands, and no
+      longer reports ground vehicles over datalink.
 - [ ] MOF35 Mod3 (Falat) rounds release their submunitions at the set fuze time.
 - [ ] Tablet: switching apps/pages still works (scripts now cached); first firing
       solution per shell type may hitch once while its tables compile.
