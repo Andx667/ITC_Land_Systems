@@ -187,3 +187,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 - [ ] Tracked as issue #2: accurate function headers + `Public: Yes` API marking,
       per-addon READMEs, MkDocs Material site on GitHub Pages.
+
+## 10. Known bugs
+
+- [ ] MLRS calculates a firing solution when no input grid is given; it should refuse (or
+      show no solution) until a target grid is entered.
+- [ ] Artillery tablet status page: some glass hitpoints still show the raw class name because
+      ACE Repair has no `STR_ACE_Repair_<hitpoint>` string for them; add own strings or a mapping.
