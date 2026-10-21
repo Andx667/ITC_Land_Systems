@@ -8,7 +8,7 @@ class fcs_target_title: ITC_LAND_RscText {
     sizeEx = 1.25 * GUI_GRID_H;
 };      
 class fcs_target_pos: ITC_LAND_RscText {
-  idc = 1010;
+  idc = 2510;
     text = CSTRING(fcs_target_pos_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.329 * safezoneH + safezoneY";
@@ -23,7 +23,7 @@ class fcs_edit_target_pos: ITC_LAND_RscEdit {
     h = "0.022 * safezoneH";
 };  
 class fcs_target_elev: ITC_LAND_RscText {
-    idc = 1011;
+    idc = 2511;
     text = CSTRING(fcs_target_elev_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.362 * safezoneH + safezoneY";
@@ -38,7 +38,7 @@ class fcs_edit_target_el: ITC_LAND_RscEdit {
     h = "0.022 * safezoneH";
 };  
 class fcs_round_type: ITC_LAND_RscText {
-    idc = 1012;
+    idc = 2512;
     text = CSTRING(fcs_round_type_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.395 * safezoneH + safezoneY";
@@ -63,7 +63,7 @@ class fcs_results: ITC_LAND_RscStructuredText {
     colorBackground[] = {0,0,0,1};
 };
 class fcs_results_frame: ITC_LAND_RscFrame {
-    idc = 1101;
+    idc = 2501;
     text = "";
     x = "0.551562 * safezoneW + safezoneX";
     y = "0.285 * safezoneH + safezoneY";
@@ -72,7 +72,7 @@ class fcs_results_frame: ITC_LAND_RscFrame {
     colorBackground[] = {0,0,0,0};
 };  
 class fcs_next: ITC_LAND_RscButton {
-    idc = 1601;
+    idc = 2601;
     text = CSTRING(fcs_next_Text);
     x = "0.494844 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";
@@ -81,7 +81,7 @@ class fcs_next: ITC_LAND_RscButton {
     action = "[""next""] call itc_land_tablet_fnc_pageInteract";
 };
 class fcs_prev: ITC_LAND_RscButton {
-    idc = 1602;
+    idc = 2602;
     text = CSTRING(fcs_prev_Text);
     x = "0.438125 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";
@@ -90,7 +90,7 @@ class fcs_prev: ITC_LAND_RscButton {
     action = "[""prev""] call itc_land_tablet_fnc_pageInteract";
 };
 class fcs_calc: ITC_LAND_RscButton {
-    idc = 1600;
+    idc = 2600;
     text = CSTRING(fcs_calc_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";

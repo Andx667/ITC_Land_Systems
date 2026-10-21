@@ -71,7 +71,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     */
     class itc_land_solution_solup: ITC_LAND_RscButton {
-        idc = 1600;
+        idc = 8040;
         text = CSTRING(solution_solup_Text); //--- ToDo: Localize;
         x = "0.6098435 * safezoneW + safezoneX";
         y = "0.467 * safezoneH + safezoneY";
@@ -80,7 +80,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
         action = "[""solup""] call itc_land_tablet_fnc_pageInteract";
     };
     class itc_land_solution_soldn: ITC_LAND_RscButton {
-        idc = 1601;
+        idc = 8041;
         text = CSTRING(solution_soldn_Text); //--- ToDo: Localize;
         x = "0.578906 * safezoneW + safezoneX";
         y = "0.467 * safezoneH + safezoneY";

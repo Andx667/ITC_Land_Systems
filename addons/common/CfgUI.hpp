@@ -37,7 +37,7 @@ class ITC_LAND_RscPicture: RscPicture {
 class RscControlsGroup;
 class ITC_LAND_Workspace: RscControlsGroup {
     onLoad = "(_this # 0) ctrlShow false";
-    x = "(0.344062+ POSXADJUST) * safezoneW + safezoneX";
+    x = "(0.344062 - 0.04675) * safezoneW + safezoneX";
     y = "0.225 * safezoneH + safezoneY";
     w = "0.622812 * safezoneW";
     h = "0.506 * safezoneH";

@@ -81,7 +81,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         h = "0.022 * safezoneH";
     };
     class itc_land_firemission_back: ITC_LAND_RscButton {
-        idc = 6601;
+        idc = 6603;
         text = CSTRING(firemission_back_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.511 * safezoneH + safezoneY";
@@ -90,7 +90,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         action = "[""back""] call itc_land_tablet_fnc_pageInteract";
     };
     class itc_land_firemission_next: ITC_LAND_RscButton {
-        idc = 6600;
+        idc = 6602;
         text = CSTRING(firemission_next_Text); //--- ToDo: Localize;
         x = "0.561875 * safezoneW + safezoneX";
         y = "0.511 * safezoneH + safezoneY";

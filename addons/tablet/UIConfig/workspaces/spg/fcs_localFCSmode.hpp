@@ -1,5 +1,5 @@
 class fcs_target_title: ITC_LAND_RscText {
-    idc = 1012;
+    idc = 1018;
     text = CSTRING(fcs_target_title_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.285 * safezoneH + safezoneY";
