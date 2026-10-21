@@ -1,0 +1,94 @@
+site_name: ITC Land Systems
+site_description: An Arma 3 mod that adds and improves land-based weapon systems - artillery with real fire control, air and missile defence, counter-battery radar, active protection, guided munitions and UAVs.
+site_url: https://andx667.github.io/ITC_Land_Systems/
+repo_name: Andx667/ITC_Land_Systems
+repo_url: https://github.com/Andx667/ITC_Land_Systems
+edit_uri: edit/master/docs/
+
+# The open work list lives next to the docs but is not part of the site
+exclude_docs: |
+  TODO.md
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/icon.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.path
+    - navigation.indexes
+    - content.action.edit
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - search.share
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - def_list
+  - abbr
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+plugins:
+  - privacy
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Systems:
+      - systems/index.md
+      - Artillery & Fire Control: systems/artillery.md
+      - Battery Computer (BCS): systems/bcs.md
+      - Counter-Battery Radar: systems/cobra.md
+      - Air & Missile Defence: systems/air-defence.md
+      - Active Protection: systems/aps.md
+      - Spike LR: systems/spike.md
+      - UAVs & Recon: systems/uavs.md
+      - Other Equipment: systems/equipment.md
+  - Mission Makers & Modders: scripting.md
+  - Components: components.md
+  - Contributing: contributing.md
+  - License: license.md

@@ -1,0 +1,51 @@
+# Components
+
+ITC follows the ACE-style addon layout: the functionality is split across several `itc_land_*` PBOs (addons), each with a single responsibility.
+
+## Framework
+
+| PBO | Purpose |
+| --- | --- |
+| `itc_land_main` | Shared macros, mod metadata, the settings category |
+| `itc_land_common` | Shared functions (grid and position conversion, projectile tracking, firing solution and UI helpers) and dialog base classes |
+| `itc_land_ballistics` | Ballistic tables, firing solutions and the [BCS battery types](scripting.md#battery-types) |
+| `itc_land_datalink` | ID registry and messages between objects, for systems that exchange data |
+| `itc_land_tablet` | The tablet items, the app framework and the [tablet apps](usage.md#tablets) |
+| `itc_land_bcs` | [Battery fire missions](systems/bcs.md): target methods, sheaf patterns, per-gun solutions |
+| `itc_land_veh_weapons` | Howitzer and rocket launcher weapons, [munitions](systems/artillery.md#munitions), fuzes, submunitions and the SAM-35 proximity fuze |
+| `itc_land_veh_sights` | [Gunner sights](systems/artillery.md#gunner-sight) and the optics readouts of UAVs and the Strider |
+| `itc_land_sphammohandler` | The [ammunition handler](systems/artillery.md#ammunition-handler) |
+| `itc_land_guidance` | Laser and GPS guidance of the guided rounds |
+
+## Systems
+
+| PBO | Purpose |
+| --- | --- |
+| `itc_land_aps` | [Active protection](systems/aps.md) |
+| `itc_land_ciws` | [CIWS](systems/air-defence.md#ciws) and the shell decoys they track |
+| `itc_land_cobra` | [Counter-battery radar](systems/cobra.md) and sirens |
+| `itc_land_vls` | [Vertical launch system](systems/air-defence.md#vertical-launch-system) and its interface |
+| `itc_land_spike` | [Spike LR](systems/spike.md) |
+| `itc_land_rover` | [ROVER tablet](systems/uavs.md#rover-tablet) |
+| `itc_land_packable` | [Packing and unpacking](systems/uavs.md#packable-equipment) of equipment |
+| `itc_land_remotefrag` | [Remote frag grenade](systems/equipment.md#remote-frag-grenade) |
+| `itc_land_smokedispenser` | [Smoke dispenser](systems/equipment.md#smoke-dispenser) magazine |
+
+## Vehicles
+
+| PBO | Purpose |
+| --- | --- |
+| `itc_land_veh_sholef` | M4 Sholef 2 |
+| `itc_land_veh_sochor` | 2S9 Sochor 2 |
+| `itc_land_veh_hammer` | Mk45 Hammer 2 |
+| `itc_land_veh_seara` | M5 Seara 2 |
+| `itc_land_veh_zamakmlr` | Zamak MRLi |
+| `itc_land_veh_mk6` | Mk6 mortar magazines for the BCS |
+| `itc_land_veh_defender` | MIM-145 Defender 2 |
+| `itc_land_veh_rhea` | S750 Rhea 2 |
+| `itc_land_veh_gltd` | Remote GLTD |
+| `itc_land_veh_strider` | Strider RV |
+| `itc_land_veh_uav01` | AR-2i and AR-2e, UAV bags |
+| `itc_land_veh_uav02` | MQ-4I Greyhawk, K40i Ababil-3 |
+| `itc_land_veh_uav05` | UCAVi Sentinel 2 |
+| `itc_land_veh_uav06` | AL-6 Pelican packing, UAV bags (AL-6) |

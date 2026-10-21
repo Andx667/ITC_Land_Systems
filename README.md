@@ -58,6 +58,14 @@ Discord: <https://discord.gg/ag4v6kxYAa>
 - __Strider RV__ variants (unarmed, HMG, GMG).
 - __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
 
+## Documentation
+
+The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:
+
+- [Systems](https://andx667.github.io/ITC_Land_Systems/systems/) — every system with its vehicles, classnames and how to use it
+- [Usage](https://andx667.github.io/ITC_Land_Systems/usage/) — tablets, interactions and settings
+- [Mission Makers & Modders](https://andx667.github.io/ITC_Land_Systems/scripting/) — what to place, and the config to add ITC features to your own vehicles
+
 ## Settings
 
 Under __Addon Options → ITC Land Systems__ (CBA settings, can be forced by the server):

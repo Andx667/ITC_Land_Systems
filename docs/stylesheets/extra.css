@@ -1,0 +1,25 @@
+/* ITC Land Systems brand color: the logo's light green (#ACFF99). The logo is light green on
+   transparent, so it needs a dark background: the header is a dark military green and its text
+   and icons use the logo green (8.3:1). Links cannot use the light green on the white page, so
+   they get a darker green in light mode. All pairs below meet WCAG AA (4.5:1). */
+:root {
+  --md-primary-fg-color: #2B4A23;
+  --md-primary-fg-color--light: #3A6130;
+  --md-primary-fg-color--dark: #1F3619;
+  /* Text and icons on the primary color (header, tabs, buttons). */
+  --md-primary-bg-color: #ACFF99;
+  --md-primary-bg-color--light: rgba(172, 255, 153, 0.85);
+}
+
+/* Light mode: the logo green on white is too light, so links and accents use a darker green
+   (6.5:1 on white, 9.9:1 on hover). */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #2E6B1E;
+  --md-accent-fg-color: #1F4D14;
+}
+
+/* Dark mode: the logo green reads well on the dark slate page (13.4:1). */
+[data-md-color-scheme="slate"] {
+  --md-typeset-a-color: #ACFF99;
+  --md-accent-fg-color: #D4FFC9;
+}

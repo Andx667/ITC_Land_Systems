@@ -250,7 +250,9 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 ## 9. Documentation (after in-game testing, issue #1)
 
 - [ ] Tracked as issue #2: accurate function headers + `Public: Yes` API marking,
-      per-addon READMEs, MkDocs Material site on GitHub Pages.
+      per-addon READMEs. The MkDocs Material user docs exist (`mkdocs.yml`, `docs/`);
+      enable GitHub Pages (source: GitHub Actions) for the deploy workflow and re-check the
+      pages against the game after in-game testing.
 
 ## 10. Known bugs
 
