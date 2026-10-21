@@ -1,13 +1,22 @@
 # TODO
 
-Open work for ITC Land Systems. Merged from the earlier modernization and
-locality TODO lists, now holding only the unfinished items (the finished ones
-are in git history and `CHANGELOG.md`). Section numbers match the original
-modernization plan.
+Open work for ITC Land Systems. Finished items are in git history and `CHANGELOG.md`.
+Section numbers are kept stable so commits and issues can refer to them.
 
-## In-game verification (do first, with regression issue #1)
+## Next up
 
-Changed by the locality fixes and only checked by `hemtt check` so far:
+1. In-game verification (below), together with regression issue #1.
+2. Decide on the dormant content (5).
+3. Fix the duplicate UI base classes (5), it needs the in-game check anyway.
+4. Ballistics and tablet compile caching (4).
+5. Tests (7).
+6. Translations (1), compatibility (8), then documentation (9).
+
+## In-game verification
+
+Only checked by `hemtt check` so far.
+
+Locality fixes:
 
 - [ ] COBRA on a dedicated server: the server receives fired shells; markers and
       engagements show on clients; a shell is counted once with two COBRAs; all
@@ -20,25 +29,35 @@ Changed by the locality fixes and only checked by `hemtt check` so far:
 - [ ] SAM-35 fired from a client explodes.
 - [ ] Packing a deployed item drops the packed item where it stood.
 
+Settings, localization and dependencies:
+
+- [ ] CBA settings show under "ITC Land Systems" and can be forced by the server;
+      COBRA range/engagement window and APS/CIWS toggles take effect.
+- [ ] No raw `STR_itc_land_...` keys anywhere: tablet apps, sights, SPH loader dialog,
+      VLS dialog, Arsenal/editor names, ACE interaction menus.
+- [ ] SPH loader status text shows correctly for the other crew members.
+- [ ] RPT at startup has no missing-class or `Updating base class` warnings (the
+      second confirms the duplicate UI classes in 5).
+
 ## 1. Localization
 
 Config strings (names, descriptions, dialog labels) and the visible script strings
 (tablet apps, sights, SPH loader, packing, VLS) are in per-addon stringtables.
 
 - [ ] Translations (English only so far; German first?).
-- [ ] Remaining script strings not shown in normal UI: datalink ID validation errors,
-      the `ballistics/formattedBTab` dev tool. Acronyms and product names (COBRA, AIFMS,
-      DTV/HOT) were left untranslated on purpose.
 - [ ] Some keys are named after generic control classes (`RscText_1006_Text`, ...);
       rename to meaningful names when touching those dialogs.
 - [ ] 37 keys are unused (`hemtt check` L-L02U) because they come from config files
-      that are never included (105 mm rounds, tablet UI prototypes, static Spike, SPH
-      vehicle config). They go away or get used with the dormant-content decision (5).
+      that are never included; resolved by the dormant-content decision (5).
+
+Not planned: the `ballistics/formattedBTab` developer tool and the datalink ID
+validation errors (never shown to players) stay English. Acronyms and product names
+(COBRA, AIFMS, DTV/HOT) stay untranslated.
 
 ## 2. Settings
 
-- [ ] Further candidates: CIWS/COBRA arc and siren trigger distance, SPH loader
-      timings, debug logging.
+- [ ] Further candidates: CIWS/COBRA detection arc, siren trigger distance, SPH loader
+      timings, a debug logging toggle.
 
 ## 3. Multiplayer / locality (remaining low-priority audit items)
 
@@ -47,24 +66,45 @@ Config strings (names, descriptions, dialog labels) and the visible script strin
       broadcast from every machine; curators created later are missed.
 - [ ] VLS launch data in two globals (`itc_land_target_test`, `itc_land_target_IAtest`)
       while the same data is already per vehicle (`itc_land_vls_targetPos`/`targetAngl`).
-- [ ] Datalink: respawn leaves the registration on the old body. No live caller
-      uses the datalink yet.
 
-## 4. Ballistics runtime performance
+Only if the datalink gets a live caller (nothing uses it today):
 
-- [ ] `ballistics/fnc_calcShellTypeSolutions.sqf` and `tables/formattedBTab.sqf` use
-      `compile preprocessFile` on every call (the only `call compile` left).
-- [ ] Preprocess tables once (preInit, cached hashmap) or at build time.
-- [ ] Audit PFH delays: no per-frame handlers where a delay suffices.
+- [ ] Respawn leaves the registration on the old body.
+- [ ] Replace the CBA hashes in the datalink registry with native hashmaps.
+
+## 4. Runtime performance
+
+- [ ] `ballistics/fnc_calcShellTypeSolutions.sqf` runs `compile preprocessFile` on the
+      table list and every table on each call. Load the tables once (preInit, cached
+      hashmap) or generate them at build time.
+- [ ] The tablet recompiles 7 app/page files with `compile preprocessFileLineNumbers` on
+      every app or page switch (`fnc_compileApp`, `fnc_compilePage`); compile once and
+      cache per app/page.
+- [ ] `tablet/functions/util/arrayToPage.sqf` compiles a code string on every call.
+- [ ] Every-frame handlers: the sight/tablet/UI ones are correct; check whether the CIWS
+      decoy tracker (`ciws/fnc_shellTarget`) and the MOF35 Mod3 fuze
+      (`veh_weapons/fnc_firedMof35Mod3`) need to run every frame.
 
 ## 5. Config hygiene
 
-- [ ] Decide: finish or delete dormant pieces: `spike` CfgVehicles (static Spike LR,
-      commented out), `spike/fnc_reloaded` (no-op, never registered),
-      `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered),
-      `veh_weapons/fuzeProxFOV.sqf` (never registered).
-- [ ] `common/CfgUI.hpp` and `tablet/UIConfig/ControlBaseClasses.hpp` both define
-      the root classes `ITC_LAND_RscText`, `RscEdit`, `RscStructuredText`, `RscPicture`,
+- [ ] Decide per item: finish, keep dormant, or delete. Inventory of content that
+      exists but cannot be reached in game (from 2026-09-29, re-verify before deleting):
+  - 105 mm howitzer magazines (`veh_weapons/CfgMagazines_105mm.hpp`, never included),
+    122 mm howitzer (not mounted), 155 APF round
+  - CIWS RIM-116 launcher (not mounted)
+  - static Spike LR (`spike/CfgVehicles.hpp` include commented out), `spike/fnc_reloaded`
+    (no-op, never registered)
+  - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
+    never included)
+  - remote-frag detonator item (CfgWeapons commented out)
+  - tablet: SADL app, handheld MLRS tablet (no action), UI prototypes
+    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`)
+  - UAV02/UAV05 custom UI (includes of missing files)
+  - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
+    `vls` getGuidanceOptions (never registered)
+  - the datalink system (see 3)
+- [ ] `common/CfgUI.hpp` and `tablet/UIConfig/ControlBaseClasses.hpp` both define the
+      root classes `ITC_LAND_RscText`, `RscEdit`, `RscStructuredText`, `RscPicture`,
       `ScrollBar`, `RscListBox`, `RscComboBox`, `RscButton`; the tablet versions have no
       parent, so the engine merges both and drops the `RscText`/... base classes. Pick
       one definition (or rename the tablet ones) and check the tablet, VLS and SPH
@@ -73,9 +113,11 @@ Config strings (names, descriptions, dialog labels) and the visible script strin
 
 ## 6. Linting and CI
 
-Done: `.hemtt/lints.toml` (S04/S12/S13/S17/S29/S38, C12 and stringtable sorting are
-errors), `tools/macro_in_string_checker.py` in the Validate workflow, Dependabot for
-GitHub Actions, checks documented in `CONTRIBUTING.md`.
+Done: `.hemtt/lints.toml` sets S04/S12/S13/S29/S38, C12 and stringtable sorting to
+errors (verified by planting violations; S17 is set too but did not fire on a test
+global), `tools/macro_in_string_checker.py` runs in the Validate workflow, Dependabot
+covers GitHub Actions, checks are documented in `CONTRIBUTING.md`. The Python
+stringtable and config-style checkers stay, they check conventions HEMTT does not.
 
 - [ ] Replace `tools/macro_in_string_checker.py` with a HEMTT TOML lint
       (`.hemtt/lints/*.toml`) once a HEMTT release after 1.22.0 supports them.
@@ -83,8 +125,6 @@ GitHub Actions, checks documented in `CONTRIBUTING.md`.
       `!` in `if` (S11), 3 short-circuit hints (S26), 5 unnecessary `_this` in config
       calls (C13). Code-quality pass, not bugs.
 - [ ] `hemtt publish` to Steam from CI (needs Steam credentials as repo secrets).
-- [ ] The Python stringtable and config-style checkers stay: they check naming and style
-      conventions HEMTT does not.
 
 ## 7. Testing
 
@@ -96,9 +136,7 @@ GitHub Actions, checks documented in `CONTRIBUTING.md`.
 
 - [ ] Zeus Enhanced / ACE Zeus modules, editor categories and subcategories.
 - [ ] ACE Arsenal / cargo sizes for packable items.
-- [ ] Eden attributes for settings.
-- [ ] Use newer commands where it helps (`getOrDefault`, native hashmaps instead of
-      CBA hashes, etc.).
+- [ ] Use newer commands where it helps (`getOrDefault`, `countType`, ...).
 - [ ] Real Steam Workshop ID in README badges and `mod.cpp` (currently `id=0`);
       version is 0.1.0.
 
