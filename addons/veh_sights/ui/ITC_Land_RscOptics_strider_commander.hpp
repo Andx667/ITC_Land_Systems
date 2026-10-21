@@ -96,10 +96,10 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
         shadow = 0;
         font = "EtelkaMonospacePro";
         text = "0123401234";
-        x = "10.5 *         (0.01875 * SafezoneH)";
+        x = "9.5 *          (0.01875 * SafezoneH)";
         y = "35.6 *         (0.025 * SafezoneH)";
-        w = "14 *       (0.01875 * SafezoneH)";
-        h = "1.1 *      (0.025 * SafezoneH)";
+        w = "16 *       (0.01875 * SafezoneH)";
+        h = "1.6 *      (0.025 * SafezoneH)";
       };
       class ITC_Land_TGrid: ITC_Land_OGrid {
         idc = 75016;
@@ -108,7 +108,7 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
       };
       class ITC_Land_TGrid_text: ITC_Land_OGrid_text {
         idc = 75015;
-        x = "28.5 *         (0.01875 * SafezoneH)";
+        x = "27.5 *         (0.01875 * SafezoneH)";
       };
       class ITC_Land_Heading_text: RscText {
         idc = 75013;
@@ -118,9 +118,9 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
         shadow = 0;
         font = "EtelkaMonospacePro";
         text = "0360 / 6400";
-        x = "13.5 *         (0.01875 * SafezoneH)";
+        x = "12.5 *         (0.01875 * SafezoneH)";
         y = "3 *        (0.025 * SafezoneH)";
-        w = "8 *        (0.01875 * SafezoneH)";
+        w = "10 *       (0.01875 * SafezoneH)";
         h = "1.6 *      (0.025 * SafezoneH)";
       };
       class ITC_Land_NArr_txt: RscPicture {
