@@ -59,7 +59,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};
                     text = CSTRING(CurrentAzimuth_text_Text);
-                    x = "14 *       (0.01875 * SafezoneH)";
+                    x = "8.8 *       (0.01875 * SafezoneH)";
                     y = "19 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
@@ -72,7 +72,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};                    
                     text = "0000";
-                    x = "15 *       (0.01875 * SafezoneH)";
+                    x = "13.5 *       (0.01875 * SafezoneH)";
                     y = "19 *       (0.025 * SafezoneH)";                   
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";                   
@@ -85,7 +85,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};
                     text = CSTRING(MissionAzimuth_text_Text);
-                    x = "14 *       (0.01875 * SafezoneH)";
+                    x = "8.8 *       (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
@@ -98,7 +98,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};
                     text = "----";
-                    x = "15 *       (0.01875 * SafezoneH)";
+                    x = "13.5 *       (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";                   
@@ -111,7 +111,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};
                     text = CSTRING(CurrentQuadrant_text_Text);
-                    x = "34.2 *         (0.01875 * SafezoneH)";
+                    x = "35.7 *         (0.01875 * SafezoneH)";
                     y = "19 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
@@ -124,7 +124,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};                    
                     text = "0000";
-                    x = "35.2 *         (0.01875 * SafezoneH)";
+                    x = "40.4 *         (0.01875 * SafezoneH)";
                     y = "19 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";                   
@@ -137,7 +137,7 @@
                     font = "EtelkaMonospacePro";
                     colorText[] = {0.709,0.972,0.384,1};
                     text = CSTRING(MissionQuadrant_text_Text);
-                    x = "34.2 *         (0.01875 * SafezoneH)";
+                    x = "35.7 *         (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
@@ -150,7 +150,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     text = "----";
-                    x = "35.2 *         (0.01875 * SafezoneH)";
+                    x = "40.4 *         (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";                   
