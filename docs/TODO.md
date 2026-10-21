@@ -118,9 +118,9 @@ tracker, which has to follow its shell every frame.
 
 - [ ] Decide per item: finish, keep dormant, or delete. Inventory of content that
       exists but cannot be reached in game (from 2026-09-29, re-verify before deleting):
-  - 105 mm howitzer magazines (`veh_weapons/CfgMagazines_105mm.hpp`, never included),
-    122 mm howitzer (not mounted), 155 APF round
-  - CIWS RIM-116 launcher (not mounted)
+  - 105 mm and 122 mm howitzers: decided, framework only (see below)
+  - 155 APF round, CIWS RIM-116 launcher (not mounted): dropped from the roadmap, not
+    planned; candidates for deletion
   - static Spike LR (`spike/CfgVehicles.hpp` include commented out), `spike/fnc_reloaded`
     (no-op, never registered)
   - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
@@ -133,6 +133,15 @@ tracker, which has to follow its shell every frame.
   - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
     `vls` getGuidanceOptions (never registered)
   - the datalink system (see 3)
+- [ ] 105 mm / 122 mm framework for other mods (ITC adds no vehicle for them). Missing so
+      far:
+  - `veh_weapons/CfgMagazines_105mm.hpp` is never included in `CfgMagazines.hpp`, so
+    `itc_land_105mm_howitzer` lists magazines that do not exist.
+  - no `G105`/`G122` entry under `itc_land_ballistics >> batteryTypes`
+    (`ballistics/CfgMisc.hpp`), so the tablet FCS and the BCS offer no shells or
+    solutions for these guns.
+  - document for mod makers what a vehicle needs (weapon class, magazines, tablet and
+    ammo-handler config) and test it on a vanilla-based example vehicle.
 - [ ] Code-review leftovers (low priority): SPH `onLoad` re-broadcasts the unchanged loader
       status on every open; ROVER `ui_init` sets the slider/FOV twice and its open condition
       uses `items player` instead of the ACE player; the tablet's re-open logic relies on an

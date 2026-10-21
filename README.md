@@ -77,14 +77,12 @@ All player-facing text lives in stringtables. Only English exists so far, transl
 
 Planned, with parts already in the code but not yet usable in game:
 
-- 105 mm and 122 mm howitzers on a vehicle
-- 155 mm APF (flechette) round
-- RIM-116 missile launcher for the CIWS family
+- 105 mm and 122 mm howitzers as a framework for other mods: weapons, ammunition, ballistic tables and fire control support ready to mount on their own vehicles. ITC Land Systems itself adds no vehicle for them.
 - SADL (situational awareness) tablet app
 - Dual-mode GPS/laser guided artillery rounds
 - Datalink to share radar and fire-mission data between systems
 
-Also planned: Zeus and Zeus Enhanced modules, translations, automated tests, a documentation site for players and mission makers, and the Steam Workshop release. The full list is in [docs/TODO.md](./docs/TODO.md).
+Also planned: Zeus and Zeus Enhanced modules, translations, a documentation site for players and mission makers, and the Steam Workshop release. The full list is in [docs/TODO.md](./docs/TODO.md).
 
 ## Credits
 
