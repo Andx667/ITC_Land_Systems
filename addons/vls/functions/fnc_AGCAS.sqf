@@ -34,7 +34,7 @@ _guidance params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY
 _pitch = _pitch + 0.01;
 
 private _speed = vectorMagnitude (velocity _projectile);
-private _levelTime = if(_bank != 0 && _bankRate != 0)then[{(abs _bank) / _bankRate},{0}];
+private _levelTime = if (_bank != 0 && _bankRate != 0)then[{(abs _bank) / _bankRate},{0}];
 private _pitchTime = (10 - _pitch) / _diveRate;
 private _pullDist = ((_levelTime * _speed) + (_pitchTime * _speed)) max 300;
 private _velocityDirDist = ((vectorNormalized (velocity _projectile)) vectorMultiply _pullDist);

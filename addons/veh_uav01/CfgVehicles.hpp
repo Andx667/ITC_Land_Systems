@@ -2,64 +2,64 @@ class CfgVehicles {
 
     class Man;
     class CAManBase: Man {
-      class ACE_SelfActions {
-        class ACE_Equipment {
-          class ITC_Land_Unpack {
+        class ACE_SelfActions {
+            class ACE_Equipment {
+                class ITC_Land_Unpack {
 
-            class ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2_B_DisplayName);
-              condition = "'ITC_Land_B_UAV_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_B_UAV_Packed',_player)] call EFUNC(packable,unpack));
-              priority = 1;
-              showDisabled = 1;
-              exceptions[] = {"isNotInside","isNotSitting"};
-              enableInside = 0;
-            };
-            class ITC_Land_Unpack_AR2_O: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2_O_DisplayName);
-              condition = "'ITC_Land_O_UAV_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_O_UAV_Packed',_player)] call EFUNC(packable,unpack));
-            };
-            class ITC_Land_Unpack_AR2_I: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2_I_DisplayName);
-              condition = "'ITC_Land_I_UAV_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_I_UAV_Packed',_player)] call EFUNC(packable,unpack));
-            };
+                    class ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2_B_DisplayName);
+                        condition = "'ITC_Land_B_UAV_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_B_UAV_Packed',_player)] call EFUNC(packable,unpack));
+                        priority = 1;
+                        showDisabled = 1;
+                        exceptions[] = {"isNotInside","isNotSitting"};
+                        enableInside = 0;
+                    };
+                    class ITC_Land_Unpack_AR2_O: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2_O_DisplayName);
+                        condition = "'ITC_Land_O_UAV_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_O_UAV_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                    class ITC_Land_Unpack_AR2_I: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2_I_DisplayName);
+                        condition = "'ITC_Land_I_UAV_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_I_UAV_Packed',_player)] call EFUNC(packable,unpack));
+                    };
 
-            class ITC_Land_Unpack_AR2i_B: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2i_B_DisplayName);
-              condition = "'ITC_Land_B_AR2i_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_B_AR2i_Packed',_player)] call EFUNC(packable,unpack));
-            };
-            class ITC_Land_Unpack_AR2i_O: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2i_O_DisplayName);
-              condition = "'ITC_Land_O_AR2i_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_O_AR2i_Packed',_player)] call EFUNC(packable,unpack));
-            };
-            class ITC_Land_Unpack_AR2i_I: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2i_B_DisplayName);
-              condition = "'ITC_Land_I_AR2i_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_I_AR2i_Packed',_player)] call EFUNC(packable,unpack));
-            };
+                    class ITC_Land_Unpack_AR2i_B: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2i_B_DisplayName);
+                        condition = "'ITC_Land_B_AR2i_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_B_AR2i_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                    class ITC_Land_Unpack_AR2i_O: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2i_O_DisplayName);
+                        condition = "'ITC_Land_O_AR2i_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_O_AR2i_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                    class ITC_Land_Unpack_AR2i_I: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2i_B_DisplayName);
+                        condition = "'ITC_Land_I_AR2i_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_I_AR2i_Packed',_player)] call EFUNC(packable,unpack));
+                    };
 
-            class ITC_Land_Unpack_AR2e_B: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2e_B_DisplayName);
-              condition = "'ITC_Land_B_AR2e_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_B_AR2e_Packed',_player)] call EFUNC(packable,unpack));
+                    class ITC_Land_Unpack_AR2e_B: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2e_B_DisplayName);
+                        condition = "'ITC_Land_B_AR2e_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_B_AR2e_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                    class ITC_Land_Unpack_AR2e_O: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2e_O_DisplayName);
+                        condition = "'ITC_Land_O_AR2e_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_O_AR2e_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                    class ITC_Land_Unpack_AR2e_I: ITC_Land_Unpack_AR2_B {
+                        displayName = CSTRING(Unpack_AR2e_B_DisplayName);
+                        condition = "'ITC_Land_I_AR2e_Packed' in (items _player)";
+                        statement = QUOTE([ARR_2('ITC_Land_I_AR2e_Packed',_player)] call EFUNC(packable,unpack));
+                    };
+                };
             };
-            class ITC_Land_Unpack_AR2e_O: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2e_O_DisplayName);
-              condition = "'ITC_Land_O_AR2e_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_O_AR2e_Packed',_player)] call EFUNC(packable,unpack));
-            };
-            class ITC_Land_Unpack_AR2e_I: ITC_Land_Unpack_AR2_B {
-              displayName = CSTRING(Unpack_AR2e_B_DisplayName);
-              condition = "'ITC_Land_I_AR2e_Packed' in (items _player)";
-              statement = QUOTE([ARR_2('ITC_Land_I_AR2e_Packed',_player)] call EFUNC(packable,unpack));
-            };
-          };
         };
-      };
     };
     class Air;
     class Helicopter: Air {
@@ -90,7 +90,7 @@ class CfgVehicles {
     class ITC_Land_UAV_AR2i_base: UAV_01_base_F {
         class Turrets: Turrets {
             class MainTurret: MainTurret {
-                    turretInfoType = "ITC_Land_RscOptics_UAV_gunner";
+                turretInfoType = "ITC_Land_RscOptics_UAV_gunner";
             };
         };
     };
@@ -454,43 +454,43 @@ class CfgVehicles {
 
     class Bag_Base;
     class ITC_Land_uav_backpack_base: Bag_Base {
-            author = "Toadball";
-            displayName = CSTRING(uav_backpack_base_DisplayName);
-            maximumLoad = 300;
-            mass = 60;
-            mapSize = 0.6;
-            scope = 0;
-            model = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\UAV_backpack_F.p3d";
-            editorCategory = "EdCat_Equipment";
-            editorSubcategory = "EdSubcat_Backpacks";
-            hiddenSelectionsMaterials[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_backpack.rvmat"};
+        author = "Toadball";
+        displayName = CSTRING(uav_backpack_base_DisplayName);
+        maximumLoad = 300;
+        mass = 60;
+        mapSize = 0.6;
+        scope = 0;
+        model = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\UAV_backpack_F.p3d";
+        editorCategory = "EdCat_Equipment";
+        editorSubcategory = "EdSubcat_Backpacks";
+        hiddenSelectionsMaterials[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_backpack.rvmat"};
     };
     class ITC_Land_b_uav_backpack: ITC_Land_uav_backpack_base {
-            author = "Toadball";
-            displayName = CSTRING(b_uav_backpack_DisplayName);
-            scope = 2;
-            scopeCurator = 2;
-            faction = "BLU_F";
-            picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_rgr_ca";
-            hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_NATO_co.paa"};
+        author = "Toadball";
+        displayName = CSTRING(b_uav_backpack_DisplayName);
+        scope = 2;
+        scopeCurator = 2;
+        faction = "BLU_F";
+        picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_rgr_ca";
+        hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_NATO_co.paa"};
     };
     class ITC_Land_i_uav_backpack: ITC_Land_uav_backpack_base {
-            author = "Toadball";
-            displayName = CSTRING(i_uav_backpack_DisplayName);
-            scope = 2;
-            scopeCurator = 2;
-            faction = "IND_F";
-            picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_oli_ca";
-            hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_AAF_co.paa"};
+        author = "Toadball";
+        displayName = CSTRING(i_uav_backpack_DisplayName);
+        scope = 2;
+        scopeCurator = 2;
+        faction = "IND_F";
+        picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_oli_ca";
+        hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_AAF_co.paa"};
     };
     class ITC_Land_o_uav_backpack: ITC_Land_uav_backpack_base {
-            author = "Toadball";
-            displayName = CSTRING(o_uav_backpack_DisplayName);
-            scope = 2;
-            scopeCurator = 2;
-            faction = "OPF_F";
-            picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_cbr_ca";
-            hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_CSAT_co.paa"};
+        author = "Toadball";
+        displayName = CSTRING(o_uav_backpack_DisplayName);
+        scope = 2;
+        scopeCurator = 2;
+        faction = "OPF_F";
+        picture = "\A3\Drones_F\Weapons_F_Gamma\Ammoboxes\Bags\Data\UI\icon_B_C_UAV_cbr_ca";
+        hiddenSelectionsTextures[] = {"\A3\Supplies_F_Orange\Bags\Data\UAV_06_backpack_CSAT_co.paa"};
     };
 
 };

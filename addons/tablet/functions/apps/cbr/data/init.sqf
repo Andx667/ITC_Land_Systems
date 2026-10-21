@@ -24,11 +24,11 @@ ctrlShow [13602, true];
 [_display, IDC_workspace_header, LLSTRING(Cbr_Data)] call EFUNC(common,ctrlSetText);
 
 private _firesStrings = (missionNamespace getVariable ["itc_land_cobra_engagements", []]) apply {
-  format[LLSTRING(Cbr_EngagementEntry),
-    _x # 0,
-    [_x # 2 # 0] call EFUNC(common,posToGrid),
-    _x # 1,
-    (_x # 5) call BIS_fnc_timeToString
-  ]
+    format[LLSTRING(Cbr_EngagementEntry),
+        _x # 0,
+        [_x # 2 # 0] call EFUNC(common,posToGrid),
+        _x # 1,
+        (_x # 5) call BIS_fnc_timeToString
+    ]
 };
 [136001,_firesStrings,0] call FUNC(fillComboBox);

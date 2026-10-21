@@ -18,6 +18,6 @@
 params ["_vehicle", "_interface"];
 
 private _interfaces = (configOf (vehicle player) >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
-if(isNil{_interfaces}) exitWith {false};
+if (isNil{_interfaces}) exitWith {false};
 
 _interface in _interfaces

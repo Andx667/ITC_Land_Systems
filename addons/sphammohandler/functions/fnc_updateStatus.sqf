@@ -30,50 +30,50 @@ if((!alive ace_player) || (!itc_land_SPHammoHandler_open)) then {
     [_pfID] call CBA_fnc_removePerFrameHandler;
 };*/
 
-//private _vehicle = vehicle ace_player;        
+//private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];     
+private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
 //Only run code required to update if status has changed.
 //if (!(_status isEqualTo _lastStatus)) then {
-    
+
     //Check status and adjust buttons and labels
     switch ( _status # 0 ) do {
-    
-        case 0: { 
+
+        case 0: {
             //Waiting - Unloaded Settings not applied
             //Can apply settings. (86009)
             //Cannot load/unload. (86010)
-            
+
             ctrlEnable [86009, true]; //can apply settings
-            
+
             ctrlSetText [86010, LLSTRING(Load)];
             ctrlEnable [86010, false];  //cannot load
-            
+
         };
-        case 1: { 
+        case 1: {
             //Waiting - Unloaded settings applied 1
             //Can Load
-            //Can apply settings    
+            //Can apply settings
             ctrlEnable [86009, true]; //can apply settings
-            
+
             ctrlSetText [86010, LLSTRING(Load)];
-            ctrlEnable [86010, true];   //can load              
-        
-        };      
+            ctrlEnable [86010, true];   //can load
+
+        };
         case 2: {
             //Loading
             //Cannot apply settings
             //Cannot load/unload
 
             ctrlEnable [86009, false]; //cannot apply settings
-            
+
             ctrlSetText [86010, LLSTRING(Load)];
             ctrlEnable [86010, false];  //cannot load
-            
+
             //After pulling shell update available ammo list.
             //refresh ammo list
             private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
-            private _selectedMagIndex = (_currentMagInfo # 0);                      
+            private _selectedMagIndex = (_currentMagInfo # 0);
             if ((_status # 1) == 3) then {
                 [] call FUNC(fillAmmoList);
                 if ( _selectedMagIndex < (lbSize 86001)) then {
@@ -81,32 +81,32 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
                 } else {
                     lbSetCurSel [86001, 0];
                 };
-                [86001,_selectedMagIndex] call FUNC(onSelectAmmo);    
+                [86001,_selectedMagIndex] call FUNC(onSelectAmmo);
             };
         };
         case 3: {
             //LSTRING(Status_ReadyToFire) 0
             //Cannot apply settings
-            //Can unload    
+            //Can unload
             ctrlEnable [86009, false]; //can apply settings
-            
+
             ctrlSetText [86010, LLSTRING(Unload)];
-            ctrlEnable [86010, true];   //can unload                            
+            ctrlEnable [86010, true];   //can unload
         };
         case 4: {
             //LSTRING(Status_SafingWeapon) 0
             //LSTRING(Status_RemovingCharge) 1
             //LSTRING(Status_RemovingRound) 2
-            //LSTRING(Status_StowingRound) 3 
+            //LSTRING(Status_StowingRound) 3
             ctrlEnable [86009, false]; //cannot apply settings
-            
+
             ctrlSetText [86010, LLSTRING(Unload)];
             ctrlEnable [86010, false];  //cannot unload
-            
+
             if ((_status # 1) == 3) then {
                 //refresh ammo list
                 private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
-                private _selectedMagIndex = (_currentMagInfo # 0); 
+                private _selectedMagIndex = (_currentMagInfo # 0);
                 [] call FUNC(fillAmmoList);
                 if ( _selectedMagIndex < (lbSize 86001)) then {
                     lbSetCurSel [86001, _selectedMagIndex];
@@ -117,7 +117,7 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
             };
         };
     };
-    
-    ctrlSetText [86011, localize (_status # 2)]; //updating status label               
+
+    ctrlSetText [86011, localize (_status # 2)]; //updating status label
     _vehicle setVariable ["itc_land_ammoHandler_lastStatus",_status,true];
 //};

@@ -14,51 +14,51 @@
 #define mag_24(a) a, a, a, a, a, a, a, a, a, a, a, a,a, a, a, a, a, a, a, a, a, a, a, a
 
 class CfgVehicles {
-  class LandVehicle;
-  class StaticWeapon: LandVehicle {
-    class Turrets;
-  };
-  class StaticMGWeapon : StaticWeapon {
-    class Turrets: Turrets {
-      class MainTurret;
+    class LandVehicle;
+    class StaticWeapon: LandVehicle {
+        class Turrets;
     };
-  };
-  class SAM_System_03_base_F : StaticMGWeapon {
-    class Turrets : Turrets {
-      class MainTurret: MainTurret {};
+    class StaticMGWeapon : StaticWeapon {
+        class Turrets: Turrets {
+            class MainTurret;
+        };
     };
-    class AnimationSources;
-  };
-  class itc_land_b_defender2 : SAM_System_03_base_F {
-    author = "Toadball";
-    displayName = CSTRING(b_defender2_DisplayName);
-    editorSubcategory = "EdSubcat_AAs";
-    side = 1;
-    faction = "BLU_F";
-    crew = "B_UAV_AI";
-    typicalCargo[] = {"B_UAV_AI"};
-    scope = 2;
-    scopeCurator = 2;
-    class Turrets : Turrets {
-      class MainTurret: MainTurret {
-        
-        minelev = 35;
-        initElev = 35;
-        maxelev = 35;
-        /*
-        minturn = 0;
-        initTurn = 0;
-        maxturn = 0;
+    class SAM_System_03_base_F : StaticMGWeapon {
+        class Turrets : Turrets {
+            class MainTurret: MainTurret {};
+        };
+        class AnimationSources;
+    };
+    class itc_land_b_defender2 : SAM_System_03_base_F {
+        author = "Toadball";
+        displayName = CSTRING(b_defender2_DisplayName);
+        editorSubcategory = "EdSubcat_AAs";
+        side = 1;
+        faction = "BLU_F";
+        crew = "B_UAV_AI";
+        typicalCargo[] = {"B_UAV_AI"};
+        scope = 2;
+        scopeCurator = 2;
+        class Turrets : Turrets {
+            class MainTurret: MainTurret {
+
+                minelev = 35;
+                initElev = 35;
+                maxelev = 35;
+                /*
+                minturn = 0;
+                initTurn = 0;
+                maxturn = 0;
         */
-        weapons[] = {"itc_land_mim145_launcher"};
-        magazines[] = {"itc_land_mim145_x4"};
-      };
+                weapons[] = {"itc_land_mim145_launcher"};
+                magazines[] = {"itc_land_mim145_x4"};
+            };
+        };
+        class AnimationSources : AnimationSources {
+            class Missiles_revolving {
+                source = "revolving";
+                weapon = "itc_land_mim145_launcher";
+            };
+        };
     };
-    class AnimationSources : AnimationSources {
-      class Missiles_revolving {
-        source = "revolving";
-        weapon = "itc_land_mim145_launcher";
-      };
-    };
-  };
 };

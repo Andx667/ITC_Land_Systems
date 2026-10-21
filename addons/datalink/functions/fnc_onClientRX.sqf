@@ -23,8 +23,8 @@ _transmission params ["_destination","_origin","_header","_type","_data"];
 
 private _datalinkMethods = _object getVariable [QGVAR(functions),[]];
 {
-  _x params ["_target", "_rxheader", "_rxtype", "_code"];
-  if(_header == _rxheader && _type == _rxtype) then {
-    [_object, _transmission] call _code;
-  };
+    _x params ["_target", "_rxheader", "_rxtype", "_code"];
+    if (_header == _rxheader && _type == _rxtype) then {
+        [_object, _transmission] call _code;
+    };
 }forEach _datalinkMethods;

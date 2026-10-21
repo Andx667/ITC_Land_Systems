@@ -59,7 +59,7 @@ if (!isNull _proj) then {
         //diag_log format ["Timer 3: %1",diag_ticktime];
 
         if (_targetAngle > 60 && _targetAngle < 120) then {
-      triggerAmmo _proj;
+            triggerAmmo _proj;
             /*_projPos = getPos _proj;
             deleteVehicle _proj;
             if (isServer) then {

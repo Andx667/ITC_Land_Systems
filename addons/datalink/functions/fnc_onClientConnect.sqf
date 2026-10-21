@@ -22,8 +22,8 @@
 params ["_player","_id","_requestingSystem","_owner"];
 
 //auto-assign ID if not set
-if(isNil{_id} || _id == "") then {
-  _id = ["01"] call FUNC(findAvailableID);
+if (isNil{_id} || _id == "") then {
+    _id = ["01"] call FUNC(findAvailableID);
 };
 
 //validate the id
@@ -31,17 +31,17 @@ if(isNil{_id} || _id == "") then {
 ([_id, true] call FUNC(validateID)) params ["_isValidID","_errors"];
 //check if it's free
 private _isAvailableID = !([itc_land_datalink_nodes, _id] call CBA_fnc_hashHasKey);
-if(!_isAvailableID) then {
-  _errors pushBack "ID unavailable";
+if (!_isAvailableID) then {
+    _errors pushBack "ID unavailable";
 };
 
 //if valid and available then add it
 private _transmission = [];
 if (_isAvailableID && _isValidID) then {
-  [itc_land_datalink_nodes, _id, [_player, _owner]] call CBA_fnc_hashSet;
-  _transmission = [_id,"0000",_requestingSystem,"response",[true,_id]];
+    [itc_land_datalink_nodes, _id, [_player, _owner]] call CBA_fnc_hashSet;
+    _transmission = [_id,"0000",_requestingSystem,"response",[true,_id]];
 } else { //return errors
-  _transmission = ["","0000",_requestingSystem,"response",[false,_errors]];
+    _transmission = ["","0000",_requestingSystem,"response",[false,_errors]];
 };
 
 [QGVAR(clientRX), [_player, _transmission], _owner] call CBA_fnc_ownerEvent;

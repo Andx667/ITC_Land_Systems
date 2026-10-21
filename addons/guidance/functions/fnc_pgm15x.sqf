@@ -31,33 +31,33 @@
 
 params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 private _targetPos = _vehicle getVariable "itc_land_guidance_targetPos";
-if(isNil{_targetPos}) exitWith {};
+if (isNil{_targetPos}) exitWith {};
 [_projectile, {
-  params ["_projectile", "_args"];
-  _args params ["_ammo", "_position", "_targetCoordinates"];
+    params ["_projectile", "_args"];
+    _args params ["_ammo", "_position", "_targetCoordinates"];
 
-  _position = getPosASL _projectile;
-  _args set [1, _position];
-  (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
+    _position = getPosASL _projectile;
+    _args set [1, _position];
+    (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 
-  private _dElev = (_position select 2) - (_targetCoordinates select 2);
-  private _distHorizontal = [_position select 0, _position select 1, 0] distance [_targetCoordinates select 0, _targetCoordinates select 1, 0];
-  private _angleTo = atan(_dElev / _distHorizontal);
+    private _dElev = (_position select 2) - (_targetCoordinates select 2);
+    private _distHorizontal = [_position select 0, _position select 1, 0] distance [_targetCoordinates select 0, _targetCoordinates select 1, 0];
+    private _angleTo = atan(_dElev / _distHorizontal);
 
-  private _diff = abs(_pitch - (_angleTo * -1));
+    private _diff = abs(_pitch - (_angleTo * -1));
 
-  if(_diff < 20) then {
-    if((_projectile getDir _targetCoordinates) > getDir _projectile) then {
-      _projectile setDir (getDir _projectile + 0.5);
-    } else {
-      _projectile setDir (getDir _projectile - 0.5);
+    if (_diff < 20) then {
+        if ((_projectile getDir _targetCoordinates) > getDir _projectile) then {
+            _projectile setDir (getDir _projectile + 0.5);
+        } else {
+            _projectile setDir (getDir _projectile - 0.5);
+        };
+
+        private _turnRate = 2;
+        if (_pitch > (_angleTo * -1)) then {
+            [_projectile, _pitch - (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
+        } else {
+            [_projectile, _pitch + (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
+        };
     };
-
-    private _turnRate = 2;
-    if(_pitch > (_angleTo * -1)) then {
-      [_projectile, _pitch - (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
-    } else {
-      [_projectile, _pitch + (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
-    };
-  };
-}, 0.1, [_ammo, getPosATL _projectile, _targetPos]] call EFUNC(common,addProjectilePFH);
+    }, 0.1, [_ammo, getPosATL _projectile, _targetPos]] call EFUNC(common,addProjectilePFH);

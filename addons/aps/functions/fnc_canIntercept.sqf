@@ -21,18 +21,18 @@
 
 params ["_vehicle", "_aps", "_projectile"];
 _aps params [
-  "_name",
-  "_position",
-  "_turret",
-  "_direction",
-  "_traverseLim",
-  "_elevateLim",
-  "_range",
-  "_ammoCount",
-  "_pk",
-  "_reloadTime",
-  "_triggersAmmo",
-  "_lastFiredTime"
+    "_name",
+    "_position",
+    "_turret",
+    "_direction",
+    "_traverseLim",
+    "_elevateLim",
+    "_range",
+    "_ammoCount",
+    "_pk",
+    "_reloadTime",
+    "_triggersAmmo",
+    "_lastFiredTime"
 ];
 
 private _apsPosition = _vehicle modelToWorldWorld _position;
@@ -54,8 +54,8 @@ _vectPolar params ["", "_azimuth", "_elevation"];
 
 private _mountDirection = (getDir _vehicle);
 if (!isNil "_turret") then {
-  private _turretVector = ([_vehicle, _turret] call ace_common_fnc_getTurretDirection) # 1;
-  _mountDirection = (_turretVector call CBA_fnc_vect2Polar) # 1;
+    private _turretVector = ([_vehicle, _turret] call ace_common_fnc_getTurretDirection) # 1;
+    _mountDirection = (_turretVector call CBA_fnc_vect2Polar) # 1;
 };
 
 private _apsDir = (_mountDirection + _direction) % 360;

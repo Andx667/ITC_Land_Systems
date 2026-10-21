@@ -25,17 +25,17 @@ ITC_CURVEHICLE
 private _appConfig = configFile >> "itc_land" >> "apps" >> (_vehicle getVariable QGVAR(app));
 private _interfaces = (configOf _vehicle >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;
 private _canOpen = (!isNil{_interfaces}); //can't open if there's no interfaces
-if(_canOpen) then { //check if it has the right interfaces
-  _canOpen = "spg" in _interfaces;
+if (_canOpen) then { //check if it has the right interfaces
+    _canOpen = "spg" in _interfaces;
 };
-if(!_canOpen) exitWith {
-  [_display] call FUNC(appClear);
+if (!_canOpen) exitWith {
+    [_display] call FUNC(appClear);
 
-  [_display, IDC_header1, getText (_appConfig >> "title")] call EFUNC(common,ctrlSetText);
-  [_display, IDC_header2, LLSTRING(Artillery_NoInterface)] call EFUNC(common,ctrlSetText);
-  [_display, IDC_sidebar_button5, 1] call EFUNC(common,ctrlSetFade);
-  [_display, IDC_workspace_header, LLSTRING(Artillery_InterfaceNotFound)] call EFUNC(common,ctrlSetText);
-  ""
+    [_display, IDC_header1, getText (_appConfig >> "title")] call EFUNC(common,ctrlSetText);
+    [_display, IDC_header2, LLSTRING(Artillery_NoInterface)] call EFUNC(common,ctrlSetText);
+    [_display, IDC_sidebar_button5, 1] call EFUNC(common,ctrlSetFade);
+    [_display, IDC_workspace_header, LLSTRING(Artillery_InterfaceNotFound)] call EFUNC(common,ctrlSetText);
+    ""
 };
 
 [_display, IDC_header1, LLSTRING(Artillery_Vehicle)] call EFUNC(common,ctrlSetText);

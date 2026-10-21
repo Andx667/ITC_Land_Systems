@@ -9,9 +9,9 @@ class CfgWeapons {
         model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
 
         class ItemInfo: CBA_MiscItem_ItemInfo {
-          mass = 75;
-          allowedSlots[] = {901};
-          scope = 0;
+            mass = 75;
+            allowedSlots[] = {901};
+            scope = 0;
         };
     };
 };

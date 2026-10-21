@@ -46,10 +46,10 @@ private _tgtASL = round (_tgtposASL select 2) + ace_common_mapAltitude;
 
 //make sure _tgtASL is not returning depth of water: getTrrainHeightASL will return negative values for terrain underwater
 private _tgtASLdisplayed = 0;
- if (_tgtASL < 0) then {
-  _tgtASLdisplayed = [0, 0, 4] call EFUNC(common,FormatAsMeters);
- } else {
-  _tgtASLdisplayed = [_tgtASL, 0, 4] call EFUNC(common,FormatAsMeters);
+if (_tgtASL < 0) then {
+    _tgtASLdisplayed = [0, 0, 4] call EFUNC(common,FormatAsMeters);
+} else {
+    _tgtASLdisplayed = [_tgtASL, 0, 4] call EFUNC(common,FormatAsMeters);
 };
 
 private _uavAGL =  round ((getPos _plane) # 2);
@@ -59,10 +59,10 @@ private _uavSpeedDisplayed = [_uavSpeed, 0, 4] call EFUNC(common,FormatAsMeters)
 
 ctrlSetText [188, _uavSpeedDisplayed];
 
- //display ALTS
- ctrlSetText [75017, _tgtASLdisplayed];
- ctrlSetText [75011, _uavASLDisplayed];
- ctrlSetText [189, _uavAGLDisplayed];
+//display ALTS
+ctrlSetText [75017, _tgtASLdisplayed];
+ctrlSetText [75011, _uavASLDisplayed];
+ctrlSetText [189, _uavAGLDisplayed];
 //Draw Situational Awareness Compass
 //[_tgtposWorld] call itc_land_veh_darter_fnc_drawCompass;
 (uiNamespace getVariable "itc_land_rover_ui_nArrow") ctrlSetAngle [(_viewDir) * -1, 0.5, 0.5];

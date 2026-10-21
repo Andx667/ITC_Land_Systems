@@ -22,7 +22,7 @@
 //systemChat str ["VIEW CHANGED", cameraView];
 
 if (cameraView != "GUNNER" && isNil "itc_land_spike_camera") exitWith {
-  [] call FUNC(sightClosed);
+    [] call FUNC(sightClosed);
 };
 
 "colorCorrections" ppEffectAdjust [0.9, 0.4, 0, [0.9, 0.4, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];;

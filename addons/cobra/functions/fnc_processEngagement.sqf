@@ -27,8 +27,8 @@ private _existingPosition = nil;
 {
     _x params ["_ident","_shots", "_positions", "_firstShot", "_lastShot"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {
-        if(_origin distance (_positions # _i) < 300 && (_lastShot + (missionNamespace getVariable "itc_land_cobra_engagementTime")) > cba_missionTime) then {
-            if(isNil{_existingPosition}) then {
+        if (_origin distance (_positions # _i) < 300 && (_lastShot + (missionNamespace getVariable "itc_land_cobra_engagementTime")) > cba_missionTime) then {
+            if (isNil{_existingPosition}) then {
                 _existingPosition = _x;
                 _positions pushBack _origin;
                 _x set [1,_shots + 1];
@@ -39,7 +39,7 @@ private _existingPosition = nil;
     };
 }forEach _engagements;
 
-if(isNil{_existingPosition}) then {
+if (isNil{_existingPosition}) then {
     private _start = missionNamespace getVariable "itc_land_cobra_start";
     _engagements pushBack [format["CB%1",[_start,4] call cba_fnc_formatNumber],1, [_origin], cba_missionTime, cba_missionTime, dayTime];
     missionNamespace setVariable ["itc_land_cobra_start", _start + 1];

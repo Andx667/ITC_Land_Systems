@@ -33,54 +33,54 @@
  */
 
 [{
-  params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
-  private _classTarget = getText (configFile >> "cfgAmmo" >> _ammo >> "itc_land_ciws_target");
-  private _initialClass = if(_classTarget != "") then [{_classTarget},{"itc_land_shell"}];
-  private _class = if((side _gunner) == west) then [{_initialClass + "_b"},{_initialClass + "_o"}];
-  _class = if((side _gunner) == resistance) then [{_initialClass + "_i"},{_class}];
-  private _target = _class createVehicle [0,0,1000];
-  _target setPos (_projectile modelToWorld [0,-5,0]);
-  _target setVelocity (velocity _projectile);
-  _target setObjectTexture [0,""];
-  // The crew gives the decoy a side so CIWS AI treats it as hostile
-  createVehicleCrew _target;
-  (group driver _target) deleteGroupWhenEmpty true;
-  driver _target disableAI "ALL";
-  gunner _target disableAI "ALL";
-  if (missionNamespace getVariable [QGVAR(debug), false]) then {
-    private _log = {
-      params ["_label", "_projectile", "_target"];
-      private _cram = vehicles select {((typeOf _x) find "itc_land_cram") == 0 || {((typeOf _x) find "itc_land_ciws") == 0}};
-      diag_log format ["[ITC CIWS] %1 target=%2 alive=%3 side=%4 posATL=%5 vel=%6 projAlive=%7", _label, typeOf _target, alive _target, side group driver _target, getPosATL _target, round speed _target, alive _projectile];
-      {
-        private _gunner = gunner _x;
-        diag_log format ["[ITC CIWS]   %1 radar=%2 gunner=%3 knows=%4 sensorTargets=%5 dist=%6", typeOf _x, isVehicleRadarOn _x, side group _gunner, _gunner knowsAbout _target, count getSensorTargets _x, round (_x distance _target)];
-      } forEach _cram;
+    params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+    private _classTarget = getText (configFile >> "cfgAmmo" >> _ammo >> "itc_land_ciws_target");
+    private _initialClass = if (_classTarget != "") then [{_classTarget},{"itc_land_shell"}];
+    private _class = if ((side _gunner) == west) then [{_initialClass + "_b"},{_initialClass + "_o"}];
+    _class = if ((side _gunner) == resistance) then [{_initialClass + "_i"},{_class}];
+    private _target = _class createVehicle [0,0,1000];
+    _target setPos (_projectile modelToWorld [0,-5,0]);
+    _target setVelocity (velocity _projectile);
+    _target setObjectTexture [0,""];
+    // The crew gives the decoy a side so CIWS AI treats it as hostile
+    createVehicleCrew _target;
+    (group driver _target) deleteGroupWhenEmpty true;
+    driver _target disableAI "ALL";
+    gunner _target disableAI "ALL";
+    if (missionNamespace getVariable [QGVAR(debug), false]) then {
+        private _log = {
+            params ["_label", "_projectile", "_target"];
+            private _cram = vehicles select {((typeOf _x) find "itc_land_cram") == 0 || {((typeOf _x) find "itc_land_ciws") == 0}};
+            diag_log format ["[ITC CIWS] %1 target=%2 alive=%3 side=%4 posATL=%5 vel=%6 projAlive=%7", _label, typeOf _target, alive _target, side group driver _target, getPosATL _target, round speed _target, alive _projectile];
+            {
+                private _gunner = gunner _x;
+                diag_log format ["[ITC CIWS]   %1 radar=%2 gunner=%3 knows=%4 sensorTargets=%5 dist=%6", typeOf _x, isVehicleRadarOn _x, side group _gunner, _gunner knowsAbout _target, count getSensorTargets _x, round (_x distance _target)];
+            } forEach _cram;
+        };
+        ["decoy created", _projectile, _target] call _log;
+        for "_i" from 1 to 6 do {
+            [{
+                params ["_log", "_projectile", "_target", "_i"];
+                if (!isNull _target) then {[format ["decoy +%1 s", _i * 3], _projectile, _target] call _log};
+                }, [_log, _projectile, _target, _i], _i * 3] call CBA_fnc_waitAndExecute;
+        };
     };
-    ["decoy created", _projectile, _target] call _log;
-    for "_i" from 1 to 6 do {
-      [{
-        params ["_log", "_projectile", "_target", "_i"];
-        if (!isNull _target) then {[format ["decoy +%1 s", _i * 3], _projectile, _target] call _log};
-      }, [_log, _projectile, _target, _i], _i * 3] call CBA_fnc_waitAndExecute;
-    };
-  };
-  [{
-      (_this select 0) params ["_projectile", "_target"];
-      private _canIntercept = (getPosATL _projectile # 2 > 30);
-      private _descending = (velocity _projectile # 2 < 0);
-      if (!alive _projectile || (!alive _target && _canIntercept)) exitWith {
-          deleteVehicle _projectile;
-          deleteVehicleCrew _target;
-          deleteVehicle _target;
-          [_this select 1] call CBA_fnc_removePerFrameHandler;
-      };
-      if(!_canIntercept && alive _target && _descending) then {
-        deleteVehicleCrew _target;
-        deleteVehicle _target;
-      } else {
-        _target setPos (_projectile modelToWorld [1,-5,1]);
-        _target setVelocity (velocity _projectile);
-      };
-  }, 0, [_projectile, _target]] call CBA_fnc_addPerFrameHandler;
-}, _this, 1] call CBA_fnc_waitAndExecute;
+    [{
+        (_this select 0) params ["_projectile", "_target"];
+        private _canIntercept = (getPosATL _projectile # 2 > 30);
+        private _descending = (velocity _projectile # 2 < 0);
+        if (!alive _projectile || (!alive _target && _canIntercept)) exitWith {
+            deleteVehicle _projectile;
+            deleteVehicleCrew _target;
+            deleteVehicle _target;
+            [_this select 1] call CBA_fnc_removePerFrameHandler;
+        };
+        if (!_canIntercept && alive _target && _descending) then {
+            deleteVehicleCrew _target;
+            deleteVehicle _target;
+        } else {
+            _target setPos (_projectile modelToWorld [1,-5,1]);
+            _target setVelocity (velocity _projectile);
+        };
+        }, 0, [_projectile, _target]] call CBA_fnc_addPerFrameHandler;
+    }, _this, 1] call CBA_fnc_waitAndExecute;

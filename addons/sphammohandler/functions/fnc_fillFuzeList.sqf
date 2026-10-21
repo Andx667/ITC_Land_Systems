@@ -27,7 +27,7 @@ lbClear 86004;
 
 //Look up fuze on magazine and modes
 private _fuze = getText (_selectedMagConfig >> "itc_land_fuze");
-private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modes"); 
+private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modes");
 private _fuzeDescArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modeDesc");
 
 {

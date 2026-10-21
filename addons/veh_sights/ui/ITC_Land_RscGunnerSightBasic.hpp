@@ -1,4 +1,4 @@
-  class ITC_Land_RscGunnerSightBasic {
+    class ITC_Land_RscGunnerSightBasic {
         onLoad = "uiNamespace setVariable ['ITC_Land_RscGunnerSightBasic', _this select 0]; ['itc_land_onLoad_RscGunnerSightBasic', []] call CBA_fnc_localEvent;";
         idd = 513;
         controls[] = {"ITC_Land_IGUI_elements_group"};
@@ -25,7 +25,7 @@
                     w = "10.75 *        (0.01875 * SafezoneH)";
                     h = "2.65 *         (0.025 * SafezoneH)";
                     colorText[] = {0.67451,1,0.6,1};
-                    //style = 0xA0;                 
+                    //style = 0xA0;
                 };
                 class align_header: RscText {
                     text = CSTRING(align_header_Text);
@@ -35,7 +35,7 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class align_azi_header: RscText {
                     text = CSTRING(align_azi_header_Text);
@@ -45,8 +45,8 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
                 class align_azi: RscText {
                     idc = 82014;
                     text = "CA: 6400 MA: 6400";
@@ -55,7 +55,7 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class align_quad_header: RscText {
                     text = CSTRING(align_quad_header_Text);
@@ -65,8 +65,8 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
                 class align_quad: RscText {
                     idc = 82016;
                     text = "CQ: 6400 MQ: 6400";
@@ -75,8 +75,8 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
             };
         };
-    };  
+    };

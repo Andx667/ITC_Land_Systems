@@ -1,4 +1,4 @@
-  class ITC_Land_RscAltGunnerSightSPH {
+    class ITC_Land_RscAltGunnerSightSPH {
         onLoad = "uiNamespace setVariable ['ITC_Land_RscAltGunnerSightSPH', _this select 0]; ['itc_land_onLoad_RscAltGunnerSightSPH', []] call CBA_fnc_localEvent;";
         idd = 513;
         controls[] = {"ITC_Land_IGUI_elements_group"};
@@ -25,7 +25,7 @@
                     w = "10.75 *        (0.01875 * SafezoneH)";
                     h = "2.65 *         (0.025 * SafezoneH)";
                     colorText[] = {0.67451,1,0.6,1};
-                    //style = 0xA0;                 
+                    //style = 0xA0;
                 };
                 class align_header: RscText {
                     text = CSTRING(align_header_Text);
@@ -35,7 +35,7 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class align_azi_header: RscText {
                     text = CSTRING(align_azi_header_Text);
@@ -45,8 +45,8 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
                 class align_azi: RscText {
                     idc = 82014;
                     text = "CA: 6400 MA: 6400";
@@ -55,7 +55,7 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class align_quad_header: RscText {
                     text = CSTRING(align_quad_header_Text);
@@ -65,8 +65,8 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
                 class align_quad: RscText {
                     idc = 82016;
                     text = "CQ: 6400 MQ: 6400";
@@ -75,39 +75,39 @@
                     w = "0.0721875 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
 
 
-                
+
                 class loader_background: RscText {
-                    idc = 82017;                    
+                    idc = 82017;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "21 *       (0.025 * SafezoneH)";
                     w = "10.75 *        (0.01875 * SafezoneH)";
                     h = "4.5 *      (0.025 * SafezoneH)";
                     colorBackground[] = {0.1,0.1,0.1,0.75};
-                    style = 0;                  
-                };  
+                    style = 0;
+                };
                 class loader_frame: RscFrame {
-                    idc = 82018;                        
+                    idc = 82018;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "21 *       (0.025 * SafezoneH)";
                     w = "10.75 *        (0.01875 * SafezoneH)";
                     h = "4.5 *      (0.025 * SafezoneH)";
                     colorText[] = {0.67451,1,0.6,1};
-                    //style = 0xA0;                 
+                    //style = 0xA0;
                 };
 
                 class ITC_Land_AutoLoader: RscText {
                     text = CSTRING(AutoLoader_Text);
-                    idc = 82019;                    
+                    idc = 82019;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "21.125 *       (0.025 * SafezoneH)";
                     w = "0.108281 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class ITC_Land_AutoLoaderStatus_text: RscText {
                     idc = 82020;
@@ -117,9 +117,9 @@
                     w = "0.149531 * safezoneW";
                     h = "0.011 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
-                
+
                 class ITC_Land_CAutoLoaderAmmo_text: RscText {
                     idc = 82021;
                     text = CSTRING(CAutoLoaderAmmo_text_Text);
@@ -128,8 +128,8 @@
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };              
+                    style = 0;
+                };
                 class ITC_Land_AutoLoaderFuze_text: RscText {
                     idc = 82022;
                     text = CSTRING(AutoLoaderFuze_text_Text);
@@ -138,7 +138,7 @@
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
+                    style = 0;
                 };
                 class ITC_Land_AutoLoaderGuidance_text: RscText {
                     idc = 82023;
@@ -148,8 +148,8 @@
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
-                    style = 0;                  
-                };                          
+                    style = 0;
+                };
             };
         };
-    };  
+    };

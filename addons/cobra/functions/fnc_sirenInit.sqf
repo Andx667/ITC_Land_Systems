@@ -37,15 +37,15 @@ params ["_siren","_sirenSound","_sirenDistance","_sirenDuration"];
 
 private _sirenType = typeOf _siren;
 if (isNil "ITC_Land_COBRA_SirenTypes") then {
-  missionNamespace setVariable ["ITC_Land_COBRA_SirenTypes",[_sirenType],true];
+    missionNamespace setVariable ["ITC_Land_COBRA_SirenTypes",[_sirenType],true];
 } else {
-  ITC_Land_COBRA_SirenTypes append [_sirenType];
+    ITC_Land_COBRA_SirenTypes append [_sirenType];
 };
 
 if ((count _this) < 4) then {
-  _siren setVariable [QGVAR(sirenParams),[true,"alarm",250,1.75],true];
+    _siren setVariable [QGVAR(sirenParams),[true,"alarm",250,1.75],true];
 } else {
-  _siren setVariable [QGVAR(sirenParams),[true,_sirenSound,_sirenDistance,_sirenDuration],true];
+    _siren setVariable [QGVAR(sirenParams),[true,_sirenSound,_sirenDistance,_sirenDuration],true];
 };
 
 _this;

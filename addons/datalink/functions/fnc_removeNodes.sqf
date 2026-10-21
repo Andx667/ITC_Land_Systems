@@ -21,10 +21,10 @@ params ["_index", "_match"];
 
 private _toRemoveIDs = [];
 [itc_land_datalink_nodes, {
-  if ((_value # _index) isEqualTo _match) then {
-    _toRemoveIDs pushBack _key;
-  };
+    if ((_value # _index) isEqualTo _match) then {
+        _toRemoveIDs pushBack _key;
+    };
 }] call CBA_fnc_hashEachPair;
 {
-  [itc_land_datalink_nodes, _x] call CBA_fnc_hashRem;
+    [itc_land_datalink_nodes, _x] call CBA_fnc_hashRem;
 } forEach _toRemoveIDs;

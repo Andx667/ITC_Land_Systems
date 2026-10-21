@@ -2,8 +2,8 @@
         author = "Toadball";
         displayName = CSTRING(g105hex_DisplayName);
         displayNameShort = CSTRING(g105hex_DisplayNameShort);
-    ammo = "itc_land_105mm";
-    itc_land_submunition = "itc_land_105mm_helper";
+        ammo = "itc_land_105mm";
+        itc_land_submunition = "itc_land_105mm_helper";
         itc_land_charge_format = "itc_land_g105hex_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
     };
@@ -17,7 +17,7 @@
         author = "Toadball";
         displayName = CSTRING(g105smo_DisplayName);
         displayNameShort = CSTRING(g105smo_DisplayNameShort);
-    ammo = "itc_land_127mm_smoke";
+        ammo = "itc_land_127mm_smoke";
         itc_land_charge_format = "itc_land_g105smo_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
     };
@@ -31,7 +31,7 @@
         author = "Toadball";
         displayName = CSTRING(g105ill_DisplayName);
         displayNameShort = CSTRING(g105ill_DisplayNameShort);
-    ammo = "itc_land_105mm_illum";
+        ammo = "itc_land_105mm_illum";
         itc_land_charge_format = "itc_land_g105ill_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
     };
@@ -41,22 +41,22 @@
     class itc_land_g105ill_chg4: itc_land_g105ill { initSpeed = 320; itc_land_CountInAH = 0;  };
     class itc_land_g105ill_chg5: itc_land_g105ill { initSpeed = 400; itc_land_CountInAH = 0;  };
 
-  class itc_land_g105icm: itc_land_how_mag {
-    author = "Toadball";
-    displayName = CSTRING(g105icm_DisplayName);
-    ammo = "itc_land_105mm_inert";
-    itc_land_submunition = "itc_land_105mm_dpicm_helper";
-    muzzleImpulseFactor[] = {15, 30};
-    displayNameShort = CSTRING(g105icm_DisplayNameShort);
-    itc_land_fuze = "mof35_mod1";
-    itc_land_charge_format = "itc_land_g105icm_chg%1";
-    itc_land_CountInAH = 1;
-    itc_land_maxChargeIndex = 5;
-    itc_land_timeModifier = -2;
-    itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
-  };
-  class itc_land_g105icm_chg1: itc_land_g105icm { initSpeed = 86; itc_land_CountInAH = 0;  };
-  class itc_land_g105icm_chg2: itc_land_g105icm { initSpeed = 160; itc_land_CountInAH = 0;  };
-  class itc_land_g105icm_chg3: itc_land_g105icm { initSpeed = 240; itc_land_CountInAH = 0;  };
-  class itc_land_g105icm_chg4: itc_land_g105icm { initSpeed = 320; itc_land_CountInAH = 0;  };
-  class itc_land_g105icm_chg5: itc_land_g105icm { initSpeed = 400; itc_land_CountInAH = 0;  };
+    class itc_land_g105icm: itc_land_how_mag {
+        author = "Toadball";
+        displayName = CSTRING(g105icm_DisplayName);
+        ammo = "itc_land_105mm_inert";
+        itc_land_submunition = "itc_land_105mm_dpicm_helper";
+        muzzleImpulseFactor[] = {15, 30};
+        displayNameShort = CSTRING(g105icm_DisplayNameShort);
+        itc_land_fuze = "mof35_mod1";
+        itc_land_charge_format = "itc_land_g105icm_chg%1";
+        itc_land_CountInAH = 1;
+        itc_land_maxChargeIndex = 5;
+        itc_land_timeModifier = -2;
+        itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
+    };
+    class itc_land_g105icm_chg1: itc_land_g105icm { initSpeed = 86; itc_land_CountInAH = 0;  };
+    class itc_land_g105icm_chg2: itc_land_g105icm { initSpeed = 160; itc_land_CountInAH = 0;  };
+    class itc_land_g105icm_chg3: itc_land_g105icm { initSpeed = 240; itc_land_CountInAH = 0;  };
+    class itc_land_g105icm_chg4: itc_land_g105icm { initSpeed = 320; itc_land_CountInAH = 0;  };
+    class itc_land_g105icm_chg5: itc_land_g105icm { initSpeed = 400; itc_land_CountInAH = 0;  };

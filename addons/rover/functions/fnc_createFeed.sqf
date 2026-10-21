@@ -21,7 +21,7 @@
 
 params ["_vehicle"];
 if (isNull _vehicle) exitWith {
-  call FUNC(killFeed);
+    call FUNC(killFeed);
 };
 ctrlShow [2205, false];
 ctrlShow [1004, false];

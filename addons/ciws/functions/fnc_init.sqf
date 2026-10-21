@@ -26,16 +26,16 @@ GVAR(interceptable) = (configFile >> "itc_land_ciws" >> "interceptable") call BI
 
 //Add EHs to wake up objects placed by a zeus which have radars which would otherwise not have them on.
 ["ModuleCurator_F", "Init", {
-  params ["_curator"];
-  _curator addEventHandler ["CuratorGroupPlaced", {
-    params ["", "_group"];
-    {
-      private _vehicle = vehicle _x;
-      [QGVAR(radarOn), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
-    } forEach units _group;
-  }];
-  _curator addEventHandler ["CuratorObjectPlaced", {
-    params ["", "_entity"];
-    [QGVAR(radarOn), [_entity], _entity] call CBA_fnc_targetEvent;
-  }];
-}, true, [], true] call CBA_fnc_addClassEventHandler;
+    params ["_curator"];
+    _curator addEventHandler ["CuratorGroupPlaced", {
+        params ["", "_group"];
+        {
+            private _vehicle = vehicle _x;
+            [QGVAR(radarOn), [_vehicle], _vehicle] call CBA_fnc_targetEvent;
+        } forEach units _group;
+    }];
+    _curator addEventHandler ["CuratorObjectPlaced", {
+        params ["", "_entity"];
+        [QGVAR(radarOn), [_entity], _entity] call CBA_fnc_targetEvent;
+    }];
+    }, true, [], true] call CBA_fnc_addClassEventHandler;

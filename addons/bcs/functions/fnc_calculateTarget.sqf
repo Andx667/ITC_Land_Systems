@@ -25,20 +25,20 @@
 
 params ["_targetTypeIndex","_kpi","_in0","_in1","_in2","_in3"];
 private _targetPos = [];
-if(_targetTypeIndex == 0) then {
-  private _pos = [_in0, false] call ace_common_fnc_getMapPosFromGrid;
-  _targetPos = [_pos # 0, _pos # 1, parseNumber _in1];
+if (_targetTypeIndex == 0) then {
+    private _pos = [_in0, false] call ace_common_fnc_getMapPosFromGrid;
+    _targetPos = [_pos # 0, _pos # 1, parseNumber _in1];
 };
-if(_targetTypeIndex == 1 || _targetTypeIndex == 2) then {
-  _targetPos = (EGVAR(tablet,bcs_locations) # _kpi) # 2;
+if (_targetTypeIndex == 1 || _targetTypeIndex == 2) then {
+    _targetPos = (EGVAR(tablet,bcs_locations) # _kpi) # 2;
 };
-if(_targetTypeIndex == 3) then {
-  _targetPos = [EGVAR(tablet,bcs_bty_guns)] call FUNC(getBatteryPosition);
+if (_targetTypeIndex == 3) then {
+    _targetPos = [EGVAR(tablet,bcs_bty_guns)] call FUNC(getBatteryPosition);
 };
 
-if(_targetTypeIndex > 0) then {
-  private _lr = if(_targetTypeIndex == 1) then [{_in2},{"0"}];
-  private _ud = if(_targetTypeIndex == 1) then [{_in3},{_in2}];
-  _targetPos = [_targetPos, parseNumber _in0, parseNumber _in1, parseNumber _lr, parseNumber _ud] call FUNC(adjustGrid);
+if (_targetTypeIndex > 0) then {
+    private _lr = if (_targetTypeIndex == 1) then [{_in2},{"0"}];
+    private _ud = if (_targetTypeIndex == 1) then [{_in3},{_in2}];
+    _targetPos = [_targetPos, parseNumber _in0, parseNumber _in1, parseNumber _lr, parseNumber _ud] call FUNC(adjustGrid);
 };
 _targetPos

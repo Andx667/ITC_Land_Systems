@@ -27,15 +27,15 @@ params ["_action", "_listBox", "_target", "_value"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 
-if(_action == "back") then {
-  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "newMission"];
+if (_action == "back") then {
+    ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "newMission"];
 };
 
-if(_action == "save") then {
-  private _magType = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0) # (lbCurSel 7100);
-  _engagePage = [lbCurSel 7101, lbCurSel 7401, UINUMBER(7402), UINUMBER(7403), lbCurSel 7100, _magType];
-  _mission set [3, _engagePage];
-  SAVEMISSION(_mission);
-  _mission set [1, "solutionMission"];
-  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "solutionMission"];
+if (_action == "save") then {
+    private _magType = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0) # (lbCurSel 7100);
+    _engagePage = [lbCurSel 7101, lbCurSel 7401, UINUMBER(7402), UINUMBER(7403), lbCurSel 7100, _magType];
+    _mission set [3, _engagePage];
+    SAVEMISSION(_mission);
+    _mission set [1, "solutionMission"];
+    ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "solutionMission"];
 };

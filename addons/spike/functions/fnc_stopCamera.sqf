@@ -19,14 +19,14 @@
  */
 
 if (!isNil "itc_land_spike_camera") then {
-  itc_land_spike_camera cameraEffect ["terminate", "back"];
-  camDestroy itc_land_spike_camera;
-  itc_land_spike_camera = nil;
+    itc_land_spike_camera cameraEffect ["terminate", "back"];
+    camDestroy itc_land_spike_camera;
+    itc_land_spike_camera = nil;
 };
 
 private _ui = uiNamespace getVariable ["itc_land_spike_ui", displayNull];
 if (!isNull _ui) then {
-  _ui closeDisplay 2;
+    _ui closeDisplay 2;
 };
 
 call FUNC(sightClosed);

@@ -1,5 +1,5 @@
     #define IGSGRN {0.709,0.972,0.384,1}
-    
+
     class ITC_Land_RscIGS_SPH {
         onLoad = "uiNamespace setVariable ['ITC_Land_RscIGS_SPH', _this select 0]; ['itc_land_onLoad_RscIGS_SPH', []] call CBA_fnc_localEvent;";
         //onLoad = "uiNamespace setVariable ['ITC_Land_RscIGS_SPH', _this select 0];";
@@ -70,12 +70,12 @@
                     style = 1;
                     shadow = 0;
                     font = "EtelkaMonospacePro";
-                    colorText[] = {0.709,0.972,0.384,1};                    
+                    colorText[] = {0.709,0.972,0.384,1};
                     text = "0000";
                     x = "13.5 *       (0.01875 * SafezoneH)";
-                    y = "19 *       (0.025 * SafezoneH)";                   
+                    y = "19 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
-                    h = "1.2 *      (0.025 * SafezoneH)";                   
+                    h = "1.2 *      (0.025 * SafezoneH)";
                 };
                 class MissionAzimuth_text: RscText {
                     idc = 1103;
@@ -101,7 +101,7 @@
                     x = "13.5 *       (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
-                    h = "1.2 *      (0.025 * SafezoneH)";                   
+                    h = "1.2 *      (0.025 * SafezoneH)";
                 };
                 class CurrentQuadrant_text: RscText {
                     idc = 1105;
@@ -122,12 +122,12 @@
                     style = 1;
                     shadow = 0;
                     font = "EtelkaMonospacePro";
-                    colorText[] = {0.709,0.972,0.384,1};                    
+                    colorText[] = {0.709,0.972,0.384,1};
                     text = "0000";
                     x = "40.4 *         (0.01875 * SafezoneH)";
                     y = "19 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
-                    h = "1.2 *      (0.025 * SafezoneH)";                   
+                    h = "1.2 *      (0.025 * SafezoneH)";
                 };
                 class MissionQuadrant_text: RscText {
                     idc = 1107;
@@ -153,8 +153,8 @@
                     x = "40.4 *         (0.01875 * SafezoneH)";
                     y = "20 *       (0.025 * SafezoneH)";
                     w = "4 *        (0.01875 * SafezoneH)";
-                    h = "1.2 *      (0.025 * SafezoneH)";                   
-                };  
+                    h = "1.2 *      (0.025 * SafezoneH)";
+                };
                 class CA_LasedRange: RscText {
                     idc = 198;
                     style = 2;
@@ -167,8 +167,8 @@
                     y = "26 *       (0.025 * SafezoneH)";
                     w = "11 *       (0.01875 * SafezoneH)";
                     h = "2 *        (0.025 * SafezoneH)";
-                };  
-                
+                };
+
                 class ITC_Land_AutoLoader: RscText {
                     style = 0;
                     idc = 1700;
@@ -180,7 +180,7 @@
                     y = "32.6 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };              
+                };
                 class ITC_Land_AutoLoaderStatus_text: RscText {
                     idc = 1701;
                     style = 0;
@@ -204,7 +204,7 @@
                     y = "34.2 *         (0.025 * SafezoneH)";
                     w = "20 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };  
+                };
                 class ITC_Land_AutoLoaderFuze_text: RscText {
                     idc = 1703;
                     style = 0;
@@ -216,7 +216,7 @@
                     y = "35 *       (0.025 * SafezoneH)";
                     w = "20 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };                  
+                };
                 class ITC_Land_AutoLoaderGuidance_text: RscText {
                     idc = 1704;
                     style = 0;
@@ -252,7 +252,7 @@
                     text = "COUNT: 5 ROUNDS ";
                     x = "34.2 *         (0.01875 * SafezoneH)";
                     //x = "26 *         (0.01875 * SafezoneH)";
-                    y = "33.4 *         (0.025 * SafezoneH)";                   
+                    y = "33.4 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
@@ -265,7 +265,7 @@
                     text = "LOAD: G155 HE CHG 3";
                     x = "34.2 *         (0.01875 * SafezoneH)";
                     //x = "26 *         (0.01875 * SafezoneH)";
-                    y = "34.2 *         (0.025 * SafezoneH)";                   
+                    y = "34.2 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
@@ -278,7 +278,7 @@
                     text = CSTRING(OrdersFuze_Text);
                     x = "34.2 *         (0.01875 * SafezoneH)";
                     //x = "26 *         (0.01875 * SafezoneH)";
-                    y = "35 *       (0.025 * SafezoneH)";                   
+                    y = "35 *       (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
@@ -291,10 +291,10 @@
                     text = CSTRING(OrdersGuided_Text);
                     x = "34.2 *         (0.01875 * SafezoneH)";
                     //x = "26 *         (0.01875 * SafezoneH)";
-                    y = "35.8 *         (0.025 * SafezoneH)";                   
+                    y = "35.8 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };              
+                };
                 class ITC_Land_FCIalign: RscText {
                     style = 0;
                     idc = 1605;
@@ -304,81 +304,81 @@
                     text = "AZ/QD: 2460 / 1026";
                     x = "34.2 *         (0.01875 * SafezoneH)";
                     //x = "26 *         (0.01875 * SafezoneH)";
-                    y = "36.6 *         (0.025 * SafezoneH)";                   
+                    y = "36.6 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
-                
+
                 class crosshair_image: RscPicture {
                     idc = 1800;
                     text = QPATHTOF(ui\data\crosshair_ca.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "20.375 *       (0.01875 * SafezoneH)";
                     y = "14 *       (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                   
-                };              
+                    h = "12 *       (0.025 * SafezoneH)";
+                };
                 class horizontalmark_image: RscPicture {
                     idc = 1801;
                     text = QPATHTOF(ui\data\mark.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "20.4 *         (0.01875 * SafezoneH)";
                     y = "(14) *         (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
-                };              
+                    h = "12 *       (0.025 * SafezoneH)";
+                };
                 class verticalmark_image: RscPicture {
                     idc = 1802;
                     text = QPATHTOF(ui\data\mark.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "20.4 *         (0.01875 * SafezoneH)";
                     y = "(14) *         (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
+                    h = "12 *       (0.025 * SafezoneH)";
                 };
                 class arrowLeft_image: RscPicture {
                     idc = 1803;
                     text = QPATHTOF(ui\data\arrowmark_l.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "26 *       (0.01875 * SafezoneH)";
                     y = "(14) *         (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
+                    h = "12 *       (0.025 * SafezoneH)";
                 };
                 class arrowRight_image: RscPicture {
                     idc = 1804;
                     text = QPATHTOF(ui\data\arrowmark_r.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "14.75 *        (0.01875 * SafezoneH)";
                     y = "(14) *         (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
+                    h = "12 *       (0.025 * SafezoneH)";
                 };
                 class arrowUp_image: RscPicture {
                     idc = 1805;
                     text = QPATHTOF(ui\data\arrowmark_u.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "20.4 *         (0.01875 * SafezoneH)";
                     y = "(19.8) *       (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
+                    h = "12 *       (0.025 * SafezoneH)";
                 };
                 class arrowDown_image: RscPicture {
                     idc = 1806;
                     text = QPATHTOF(ui\data\arrowmark_d.paa);
                     style = 2096;
-                    shadow = 0;                 
+                    shadow = 0;
                     x = "20.4 *         (0.01875 * SafezoneH)";
                     y = "(8.2) *        (0.025 * SafezoneH)";
                     w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";                       
-                };                  
+                    h = "12 *       (0.025 * SafezoneH)";
+                };
             };
         };
     };

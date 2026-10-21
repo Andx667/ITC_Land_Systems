@@ -38,14 +38,14 @@ private _tableList = GVAR(tableCache) getOrDefaultCall [_tableListPath, {[] call
 //_tableList = [vehicle player] call itc_land_fcs_fnc_get_vehicle_tables;
 _tableList params ["_charges", "_tables"];
 
-if(isNil{_tables}) exitWith {[]};
+if (isNil{_tables}) exitWith {[]};
 private _solutions = [];
 for "_i" from 0 to (count _charges) - 1 step 1 do {
-  private _table = _tables # _i;
-  private _btab = GVAR(tableCache) getOrDefaultCall [_table, {[] call compile preprocessFile _table}, true];
-  private _solution = [_btab, _distance, _elevDiff] call FUNC(calcBtabSolution);
-  if(count _solution > 0) then {
-    _solutions pushBack ([_charges # _i,_relDirMils,_df] + _solution);
-  };
+    private _table = _tables # _i;
+    private _btab = GVAR(tableCache) getOrDefaultCall [_table, {[] call compile preprocessFile _table}, true];
+    private _solution = [_btab, _distance, _elevDiff] call FUNC(calcBtabSolution);
+    if (count _solution > 0) then {
+        _solutions pushBack ([_charges # _i,_relDirMils,_df] + _solution);
+    };
 };
 _solutions

@@ -10,35 +10,35 @@
   };
 
 class CfgVehicles {
-  class Man;
-  class CAManBase: Man {
-    class ACE_SelfActions {
-      class ACE_Equipment {
-        class ITC_Land_Rover_Open {
-          displayName = CSTRING(Rover_Open_DisplayName);
-          condition = "'itc_land_tablet_rover' in (items player)";
-          statement = "createDialog ""itc_land_rover_tablet"";";
-          priority = 2.6;
-          showDisabled = 1;
-          exceptions[] = {"isNotInside","isNotSitting"};
+    class Man;
+    class CAManBase: Man {
+        class ACE_SelfActions {
+            class ACE_Equipment {
+                class ITC_Land_Rover_Open {
+                    displayName = CSTRING(Rover_Open_DisplayName);
+                    condition = "'itc_land_tablet_rover' in (items player)";
+                    statement = "createDialog ""itc_land_rover_tablet"";";
+                    priority = 2.6;
+                    showDisabled = 1;
+                    exceptions[] = {"isNotInside","isNotSitting"};
+                };
+            };
+        };
+    };
+    /*
+      class LandVehicle;
+      class Tank : LandVehicle {
+        class ACE_SelfActions;
+      };
+      class Tank_F : Tank {
+        class ACE_SelfActions : ACE_SelfActions {
+          class ITC_Land_MountedTablet {
+            displayName = "Open Mounted Tablet";
+            icon = QPATHTOEF(tablet,UI\arty-icon.paa);
+            condition = QUOTE([_target] call EFUNC(tablet,vehicleHasTablet));
+            statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet))
+          };
         };
       };
-    };
-  };
-/*
-  class LandVehicle;
-  class Tank : LandVehicle {
-    class ACE_SelfActions;
-  };
-  class Tank_F : Tank {
-    class ACE_SelfActions : ACE_SelfActions {
-      class ITC_Land_MountedTablet {
-        displayName = "Open Mounted Tablet";
-        icon = QPATHTOEF(tablet,UI\arty-icon.paa);
-        condition = QUOTE([_target] call EFUNC(tablet,vehicleHasTablet));
-        statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet))
-      };
-    };
-  };
  */
 };

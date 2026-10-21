@@ -28,19 +28,19 @@ ctrlShow [13301, true];
 ITC_CURVEHICLE
 private _apps = _vehicle getVariable QGVAR(apps);
 {
-  if(_x < count _apps) then {
-    private _name = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "displayName")  call BIS_fnc_getCfgData;
-    private _ifaces = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "interfaces")  call BIS_fnc_getCfgData;
+    if (_x < count _apps) then {
+        private _name = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "displayName")  call BIS_fnc_getCfgData;
+        private _ifaces = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "interfaces")  call BIS_fnc_getCfgData;
 
-    private _displayedName = toUpper (format [LLSTRING(Home_AppEntry),_x + 1, _name]);
-    private _displayedifaces = toUpper ( _ifaces );
+        private _displayedName = toUpper (format [LLSTRING(Home_AppEntry),_x + 1, _name]);
+        private _displayedifaces = toUpper ( _ifaces );
 
-    [_display, 91000 + _x, _displayedName] call EFUNC(common,ctrlSetText);
-    [_display, 91010 + _x, _displayedifaces] call EFUNC(common,ctrlSetText);
+        [_display, 91000 + _x, _displayedName] call EFUNC(common,ctrlSetText);
+        [_display, 91010 + _x, _displayedifaces] call EFUNC(common,ctrlSetText);
 
-  } else {
-    [_display, 91000 + _x, ""] call EFUNC(common,ctrlSetText);
-    [_display, 91010 + _x, ""] call EFUNC(common,ctrlSetText);
-    ctrlShow [91020 + _x, false];
-  };
+    } else {
+        [_display, 91000 + _x, ""] call EFUNC(common,ctrlSetText);
+        [_display, 91010 + _x, ""] call EFUNC(common,ctrlSetText);
+        ctrlShow [91020 + _x, false];
+    };
 }forEach [0,1,2];

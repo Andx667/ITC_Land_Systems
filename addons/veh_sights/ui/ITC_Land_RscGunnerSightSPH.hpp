@@ -21,7 +21,7 @@
                     y = "19.46 *        (0.025 * SafezoneH)";
                     w = "3.5 *      (0.01875 * SafezoneH)";
                     h = "1.1 *      (0.025 * SafezoneH)";
-                };          
+                };
                 class CA_OpticsZoom: RscText {
                     idc = 180;
                     style = 1;
@@ -176,7 +176,7 @@
                     y = "32.6 *         (0.025 * SafezoneH)";
                     w = "15 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };              
+                };
                 class ITC_Land_AutoLoaderStatus_text: RscText {
                     idc = 81022;
                     style = 0;
@@ -202,7 +202,7 @@
                     y = "34.2 *         (0.025 * SafezoneH)";
                     w = "20 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };  
+                };
                 class ITC_Land_AutoLoaderFuze_text: RscText {
                     idc = 81024;
                     style = 0;
@@ -215,7 +215,7 @@
                     y = "35 *       (0.025 * SafezoneH)";
                     w = "20 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };                  
+                };
                 class ITC_Land_AutoLoaderGuidance_text: RscText {
                     idc = 81025;
                     style = 0;
@@ -228,7 +228,7 @@
                     y = "35.8 *         (0.025 * SafezoneH)";
                     w = "20 *       (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
-                };                          
+                };
             };
         };
     };

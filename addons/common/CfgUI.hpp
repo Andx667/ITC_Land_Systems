@@ -1,10 +1,10 @@
 #define AIFMSGRN {172/255,255/255,153/255,1}
-class RscFrame; 
+class RscFrame;
 class ITC_LAND_RscFrame: RscFrame {
     style = 0xA0;
     colorBackground[] = {0,0,0,0};
-    colorText[] = AIFMSGRN;     
-};  
+    colorText[] = AIFMSGRN;
+};
 class RscText;
 class ITC_LAND_RscText: RscText {
     colorText[] = AIFMSGRN;
@@ -32,7 +32,7 @@ class ITC_LAND_RscPicture: RscPicture {
     //colorText[] = AIFMSGRN;
     //tooltipColorText[] = AIFMSGRN;
     //tooltipColorBox[] = AIFMSGRN;
-    style = 48; 
+    style = 48;
 };
 class RscControlsGroup;
 class ITC_LAND_Workspace: RscControlsGroup {
@@ -69,10 +69,10 @@ class ITC_LAND_RscListBox: RscListBox {
 class RscXListBox;
 class ITC_LAND_RscXListBox: RscXListBox {
     colorSelect[] = {0, 0, 0, 1};
-    colorSelect2[] = {0, 0, 0, 1};  
+    colorSelect2[] = {0, 0, 0, 1};
     tooltipColorText[] = AIFMSGRN;
     tooltipColorBox[] = AIFMSGRN;
-    tooltipColorShade[] = {0, 0, 0, 0.65};  
+    tooltipColorShade[] = {0, 0, 0, 0.65};
 };
 class RscCombo;
 class ITC_LAND_RscComboBox: RscCombo {
@@ -82,7 +82,7 @@ class ITC_LAND_RscComboBox: RscCombo {
     colorSelect[] = {0,0,0,1};
     colorActive[] = AIFMSGRN;
     arrowEmpty = QPATHTOF(data\arrow_combo_ca.paa);
-    arrowFull = QPATHTOF(data\arrow_combo_active_ca.paa);   
+    arrowFull = QPATHTOF(data\arrow_combo_active_ca.paa);
 };
 
 class RscButton;
@@ -91,5 +91,3 @@ class ITC_LAND_RscButton: RscButton {
     colorDisabled[] = {1,1,1,0.25};
     colorFocused[] = {0,0,0,0.5};
 };
-
-

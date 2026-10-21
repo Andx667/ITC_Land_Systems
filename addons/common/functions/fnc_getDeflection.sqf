@@ -17,9 +17,9 @@
  * Public: No
  */
 
- params ["_fixed","_deflecting"];
+params ["_fixed","_deflecting"];
 
- //convert degrees to mills
+//convert degrees to mills
 _fixed = (_fixed / 360) * 6400;
 _deflecting = (_deflecting / 360) * 6400;
 if ((_fixed < 1) && (_deflecting > 3200)) then {_fixed = 6400};
@@ -28,7 +28,7 @@ if ((_fixed < 1) && (_deflecting > 3200)) then {_fixed = 6400};
 private _df = 3200 - (_fixed - _deflecting);
 
 // ensure numbers are in range 0 - 6400
-_df = if(_df < 0) then [{_df + 6400}, {_df}];
-_df = if(_df > 6400) then [{_df - 6400}, {_df}];
+_df = if (_df < 0) then [{_df + 6400}, {_df}];
+_df = if (_df > 6400) then [{_df - 6400}, {_df}];
 
 [_df,4,0] call CBA_fnc_formatNumber;

@@ -27,8 +27,8 @@ if(count _solutions > 0) then {
   _solution = _solutions # _solutionIndex;
   _solutionString = "";
   _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
-  
-  _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];  
+
+  _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
   _solutionString = _solutionString + format [LLSTRING(Fcs_Charge) + "<br/>", _charge];
   _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
   _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];

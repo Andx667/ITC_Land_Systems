@@ -7,7 +7,7 @@ class RscControlsGroup;
 
 
 class RscInGameUI {
-  class RscUnitInfo;
+    class RscUnitInfo;
 
     #include "ui\ITC_Land_RscGunnerSightSPH.hpp"
     #include "ui\ITC_Land_RscGunnerSightBasic.hpp"
@@ -16,13 +16,13 @@ class RscInGameUI {
     #include "ui\ITC_Land_RscGunnerSightZamakMRLi.hpp"
     #include "ui\ITC_Land_RscIGS_SPH.hpp"
 
-  class RscOptics_strider_commander {
-    class CA_IGUI_elements_group;
-  };
+    class RscOptics_strider_commander {
+        class CA_IGUI_elements_group;
+    };
   #include "ui\ITC_Land_RscOptics_strider_commander.hpp"
   #include "ui\ITC_Land_RscOptics_GLTD_gunner.hpp"
 
-  class RscOptics_UAV_gunner: RscUnitInfo {
+    class RscOptics_UAV_gunner: RscUnitInfo {
         class CA_IGUI_elements_group;
     };
   #include "ui\ITC_Land_RscOptics_UAV_gunner.hpp"

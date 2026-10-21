@@ -45,15 +45,15 @@ private _return = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _
 _stage = (_return # 0);
 (_this select 0) set [9, (_return # 1)];
 
-if(_stage != "SEP" && _stage != "TURN") then {
-  _stage = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _position, _angle]) call FUNC(steerTo);
+if (_stage != "SEP" && _stage != "TURN") then {
+    _stage = ([_projectile, _steerPoint, _frameTime] + _angles + [_stage, _position, _angle]) call FUNC(steerTo);
 } else {
-  if(_stage == "TURN") then {
-    (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
-    _projectile setDir (_projectile getDir _targetCoordinates);
-    if (_pitch > 0) then {
-      [_projectile, _pitch - (_frameTime * 10), 0] call BIS_fnc_setPitchBank;
+    if (_stage == "TURN") then {
+        (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
+        _projectile setDir (_projectile getDir _targetCoordinates);
+        if (_pitch > 0) then {
+            [_projectile, _pitch - (_frameTime * 10), 0] call BIS_fnc_setPitchBank;
+        };
     };
-  };
 };
 (_this select 0) set [4, _stage];

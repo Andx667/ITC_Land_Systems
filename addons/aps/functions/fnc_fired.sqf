@@ -34,16 +34,16 @@ private _simulation = getText (configFile >> "cfgAmmo" >> _ammo >> "simulation")
 if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
 
 [_projectile, {
-  params ["_projectile"];
-  private _begin = getPosASL _projectile;
-  private _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
-  private _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
-  if (count _intersects > 0) exitWith {
-    { // forEach _intersects
-      private _aps = _x getVariable ["itc_land_aps_modules", nil];
-      if (!(isNil "_aps")) then {
-        [_projectile, _x] call FUNC(attemptIntercept);
-      };
-    } forEach _intersects;
-  };
-}, 0.05, [], {setAccTime 1}] call EFUNC(common,addProjectilePFH);
+    params ["_projectile"];
+    private _begin = getPosASL _projectile;
+    private _end = _begin vectorAdd ((vectorDir _projectile) vectorMultiply 30);
+    private _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
+    if (count _intersects > 0) exitWith {
+        { // forEach _intersects
+            private _aps = _x getVariable ["itc_land_aps_modules", nil];
+            if (!(isNil "_aps")) then {
+                [_projectile, _x] call FUNC(attemptIntercept);
+            };
+        } forEach _intersects;
+    };
+    }, 0.05, [], {setAccTime 1}] call EFUNC(common,addProjectilePFH);

@@ -23,17 +23,17 @@
 params ["_display"];
 private _ui = uiNamespace getVariable ["itc_land_spike_ui", displayNull];
 if (isNull _ui || isNil "itc_land_spike_camera") exitWith {
-  call FUNC(stopCamera);
+    call FUNC(stopCamera);
 };
 if (!itc_land_spike_ppEffect) then {
-  "colorCorrections" ppEffectAdjust [0.9, 0.4, 0, [0.9, 0.4, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];;
-  "colorCorrections" ppEffectCommit 0;
-  "colorCorrections" ppEffectEnable true;
+    "colorCorrections" ppEffectAdjust [0.9, 0.4, 0, [0.9, 0.4, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];;
+    "colorCorrections" ppEffectCommit 0;
+    "colorCorrections" ppEffectEnable true;
 
-  "filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
-  "filmGrain" ppEffectCommit 0;
-  "filmGrain" ppEffectEnable true;
-  itc_land_spike_ppEffect = true;
+    "filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
+    "filmGrain" ppEffectCommit 0;
+    "filmGrain" ppEffectEnable true;
+    itc_land_spike_ppEffect = true;
 };
 itc_land_spike_camera camSetPos (itc_land_spike_currentMissile modelToWorld [0,1,0]);
 private _polarToTarget = ((getPosASL itc_land_spike_currentMissile) vectorFromTo itc_land_spike_targetPosCamera) call cba_fnc_vect2polar;
@@ -53,17 +53,17 @@ itc_land_spike_camera camCommit 0;
 itc_land_spike_lockInformation params ["_lockObject", "_lockPosition", "_lockLostTime", "_originalLockPosition"];
 private _screenPos = (worldToScreen (ASLToAGL itc_land_spike_targetPos));
 if (!isNil "_lockObject") then {
-  _screenPos = worldToScreen (_lockObject modelToWorld _lockPosition);
+    _screenPos = worldToScreen (_lockObject modelToWorld _lockPosition);
 };
 _screenPos params ["_x", "_y"];
 if (isNil "_x" || isNil "_y") exitWith {};
 (_ui displayCtrl 1021) ctrlSetPosition [
-  safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
-  safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
+    safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
+    safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
 ];
 (_ui displayCtrl 1022) ctrlSetPosition [
-  safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
-  safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
+    safeZoneX + (safeZoneW * _x) - (10 *  (safeZoneW / 64)),
+    safeZoneY + (safeZoneH * _y) - (10 *  (safeZoneH / 40))
 ];
 (_ui displayCtrl 1021) ctrlCommit 0;
 (_ui displayCtrl 1022) ctrlCommit 0;

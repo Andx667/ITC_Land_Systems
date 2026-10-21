@@ -21,7 +21,7 @@
  */
 
 params ["_control","_index"];
-if(true)exitWith{};
+if (true)exitWith{};
 //Generate global
 itc_land_fcimode = [_index,lbText [1501,_index]];
 itc_land_fcimode_manualidcarray = [1800,1801,1802,1803,1804,1805,1603];

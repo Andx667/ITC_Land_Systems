@@ -16,48 +16,48 @@
 class SensorTemplateDataLink;
 class SensorTemplateActiveRadar;
 class CfgVehicles {
-  class LandVehicle;
-  class StaticWeapon: LandVehicle {
-    class Turrets;
-  };
-  class StaticMGWeapon : StaticWeapon {
-    class Turrets: Turrets {
-      class MainTurret;
+    class LandVehicle;
+    class StaticWeapon: LandVehicle {
+        class Turrets;
     };
-  };
-  class SAM_System_04_base_F : StaticMGWeapon {
-    class Turrets : Turrets {
-      class MainTurret: MainTurret {};
+    class StaticMGWeapon : StaticWeapon {
+        class Turrets: Turrets {
+            class MainTurret;
+        };
     };
-    class AnimationSources;
-  };
-  class itc_land_o_rhea2 : SAM_System_04_base_F {
-    author = "Yax";
-    displayName = CSTRING(o_rhea2_DisplayName);
-    editorSubcategory = "EdSubcat_AAs";
-    side = 0;
-    faction = "OPF_F";
-    crew = "O_UAV_AI";
-    scope = 2;
-    scopeCurator = 2;
-    class Turrets : Turrets {
-      class MainTurret: MainTurret {
-        minelev = 90;
-        initElev = 90;
-        maxelev = 90;
+    class SAM_System_04_base_F : StaticMGWeapon {
+        class Turrets : Turrets {
+            class MainTurret: MainTurret {};
+        };
+        class AnimationSources;
+    };
+    class itc_land_o_rhea2 : SAM_System_04_base_F {
+        author = "Yax";
+        displayName = CSTRING(o_rhea2_DisplayName);
+        editorSubcategory = "EdSubcat_AAs";
+        side = 0;
+        faction = "OPF_F";
+        crew = "O_UAV_AI";
+        scope = 2;
+        scopeCurator = 2;
+        class Turrets : Turrets {
+            class MainTurret: MainTurret {
+                minelev = 90;
+                initElev = 90;
+                maxelev = 90;
 
-        minturn = 0;
-        initTurn = 0;
-        maxturn = 0;
-        weapons[] = {"itc_land_s750_launcher"};
-        magazines[] = {"itc_land_s750_x4"};
-      };
+                minturn = 0;
+                initTurn = 0;
+                maxturn = 0;
+                weapons[] = {"itc_land_s750_launcher"};
+                magazines[] = {"itc_land_s750_x4"};
+            };
+        };
+        class AnimationSources : AnimationSources {
+            class Missiles_revolving {
+                source = "revolving";
+                weapon = "itc_land_s750_launcher";
+            };
+        };
     };
-    class AnimationSources : AnimationSources {
-      class Missiles_revolving {
-        source = "revolving";
-        weapon = "itc_land_s750_launcher";
-      };
-    };
-  };
 };

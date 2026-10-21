@@ -27,19 +27,19 @@ class CfgVehicles {
     class MBT_02_base_F: Tank_F {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
     };
     class MBT_02_arty_base_F: MBT_02_base_F {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret { };
+            class MainTurret: MainTurret { };
         };
     };
     class O_MBT_02_arty_base_F: MBT_02_arty_base_F {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
     };
     class itc_land_SPH02_base: O_MBT_02_arty_base_F {
@@ -58,12 +58,12 @@ class CfgVehicles {
         };
         artilleryScanner = 0;
         class itc_land {
-          tabletInterfaces[] = {"spg"};
-          mountedTablet = "itc_land_tablet_spg";
-          loaderType = 1; // semi automatic
-          class fcs {
-            tableList = "g_152";
-          };
+            tabletInterfaces[] = {"spg"};
+            mountedTablet = "itc_land_tablet_spg";
+            loaderType = 1; // semi automatic
+            class fcs {
+                tableList = "g_152";
+            };
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {

@@ -25,31 +25,31 @@ params ["_action"];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];
-if(_action == "back") then {
-  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "engageMission"];
+if (_action == "back") then {
+    ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "engageMission"];
 };
-if(_action == "adjust") then {
-  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "adjustMission"];
-};
-
-if(_action == "solup") then {
-  if(_curSolution < _solutionLimit) then {
-    _mission set [4, _curSolution + 1];
-  };
-};
-if(_action == "soldn") then {
-  _mission set [4, (_curSolution - 1) max 0];
+if (_action == "adjust") then {
+    ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "adjustMission"];
 };
 
-if(_action == "shot") then {
-  _mission set [6, time + ((_btySolutions # _curSolution) # 4)];
+if (_action == "solup") then {
+    if (_curSolution < _solutionLimit) then {
+        _mission set [4, _curSolution + 1];
+    };
+};
+if (_action == "soldn") then {
+    _mission set [4, (_curSolution - 1) max 0];
 };
 
-if("eom" in _action) then {
-  if(_action == "eomsave") then {
-    GVAR(bcs_locations) pushBack [_ident, [_tgtPos] call EFUNC(common,posToGrid), _tgtPos , round (_tgtPos # 2), false];
-  };
-  GVAR(bcs_missions) deleteAt GVAR(bcs_mission_index);
-  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "locStores"];
+if (_action == "shot") then {
+    _mission set [6, time + ((_btySolutions # _curSolution) # 4)];
+};
+
+if ("eom" in _action) then {
+    if (_action == "eomsave") then {
+        GVAR(bcs_locations) pushBack [_ident, [_tgtPos] call EFUNC(common,posToGrid), _tgtPos , round (_tgtPos # 2), false];
+    };
+    GVAR(bcs_missions) deleteAt GVAR(bcs_mission_index);
+    ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "locStores"];
 };
 [findDisplay 32562, false] call itc_land_tablet_fnc_pageInit;

@@ -28,7 +28,7 @@ class CfgVehicles {
     class MBT_01_base_F: Tank_F {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
         class AnimationSources: AnimationSources {};
     };
@@ -36,14 +36,14 @@ class CfgVehicles {
         class ACE_SelfActions: ACE_SelfActions {};
         class AnimationSources: AnimationSources {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
     };
     class B_MBT_01_arty_base_F: MBT_01_arty_base_F {
         class ACE_SelfActions: ACE_SelfActions {};
         class AnimationSources: AnimationSources {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
     };
 
@@ -63,9 +63,9 @@ class CfgVehicles {
         };
         artilleryScanner = 0;
         class itc_land {
-          tabletInterfaces[] = {"spg"};
-          mountedTablet = "itc_land_tablet_spg";
-          loaderType = 1; // semi automatic
+            tabletInterfaces[] = {"spg"};
+            mountedTablet = "itc_land_tablet_spg";
+            loaderType = 1; // semi automatic
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {

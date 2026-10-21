@@ -34,31 +34,31 @@
 params ["_unit", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 private _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
 
-if(isNil{_targetPos}) exitWith {};
+if (isNil{_targetPos}) exitWith {};
 [_projectile, {
-  params ["_projectile", "_args"];
-  _args params ["_lastFrameTime", "_targetCoordinates", "_launchPos"];
-  private _frameTime = time - _lastFrameTime;
-  _args set [0, time];
+    params ["_projectile", "_args"];
+    _args params ["_lastFrameTime", "_targetCoordinates", "_launchPos"];
+    private _frameTime = time - _lastFrameTime;
+    _args set [0, time];
 
-  private _distance2D = _projectile distance2D _targetCoordinates;
-  private _distance2DTotal = _launchPos distance2D _targetCoordinates;
-  private _position = getPosASL _projectile;
-  (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
-  private _vectToTarget = _position vectorFromTo _targetCoordinates;
-  private _vectToTargetDiff = _vectToTarget vectorDiff (vectorNormalized (velocity _projectile));
-  private _vectorModelSpace = _projectile vectorWorldToModel _vectToTargetDiff;
-  private _angleX = asin (_vectorModelSpace # 0);
-  private _angleY = asin (_vectorModelSpace # 2);
+    private _distance2D = _projectile distance2D _targetCoordinates;
+    private _distance2DTotal = _launchPos distance2D _targetCoordinates;
+    private _position = getPosASL _projectile;
+    (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
+    private _vectToTarget = _position vectorFromTo _targetCoordinates;
+    private _vectToTargetDiff = _vectToTarget vectorDiff (vectorNormalized (velocity _projectile));
+    private _vectorModelSpace = _projectile vectorWorldToModel _vectToTargetDiff;
+    private _angleX = asin (_vectorModelSpace # 0);
+    private _angleY = asin (_vectorModelSpace # 2);
 
-  private _turnRate = 12 * _frameTime;
-  _projectile setDir (getDir _projectile) + (_angleX min _turnRate  max -_turnRate );
-  if(((-_angleY) > 45)) then {
-    [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;
-  };
+    private _turnRate = 12 * _frameTime;
+    _projectile setDir (getDir _projectile) + (_angleX min _turnRate  max -_turnRate );
+    if (((-_angleY) > 45)) then {
+        [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;
+    };
 
-  if(_distance2D < (_distance2DTotal / 2)) then {
-    [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;
-  };
+    if (_distance2D < (_distance2DTotal / 2)) then {
+        [_projectile, _pitch + (_angleY  min _turnRate  max -_turnRate), 0] call BIS_fnc_setPitchBank;
+    };
 
-}, 0, [time, _targetPos, getPosASL _projectile]] call EFUNC(common,addProjectilePFH);
+    }, 0, [time, _targetPos, getPosASL _projectile]] call EFUNC(common,addProjectilePFH);

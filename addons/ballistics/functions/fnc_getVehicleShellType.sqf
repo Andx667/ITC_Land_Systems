@@ -19,7 +19,7 @@
 params ["_vehicle"];
 
 private _hasFCS = isClass (configOf _vehicle >> "itc_land" >> "fcs");
-if(!_hasFCS) exitWith {};
+if (!_hasFCS) exitWith {};
 
 private _tableListFile = (configOf _vehicle >> "itc_land" >> "fcs" >> "tableList")  call BIS_fnc_getCfgData;
 _tableListFile

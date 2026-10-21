@@ -6,9 +6,9 @@ class fcs_target_title: ITC_LAND_RscText {
     w = "0.15 * safezoneW";
     h = "0.033 * safezoneH";
     sizeEx = 1.25 * GUI_GRID_H;
-};      
+};
 class fcs_target_pos: ITC_LAND_RscText {
-  idc = 1010;
+    idc = 1010;
     text = CSTRING(fcs_target_pos_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.329 * safezoneH + safezoneY";
@@ -21,7 +21,7 @@ class fcs_edit_target_pos: ITC_LAND_RscEdit {
     y = "0.329 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-};  
+};
 class fcs_target_elev: ITC_LAND_RscText {
     idc = 1011;
     text = CSTRING(fcs_target_elev_Text);
@@ -36,7 +36,7 @@ class fcs_edit_target_el: ITC_LAND_RscEdit {
     y = "0.362 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-};  
+};
 class fcs_round_type: ITC_LAND_RscText {
     idc = 1012;
     text = CSTRING(fcs_round_type_Text2);
@@ -69,7 +69,7 @@ class fcs_results_frame: ITC_LAND_RscFrame {
     w = "0.139219 * safezoneW";
     h = "0.18 * safezoneH";
     colorBackground[] = {0,0,0,0};
-};  
+};
 class fcs_next: ITC_LAND_RscButton {
     idc = 1601;
     text = CSTRING(fcs_next_Text);
@@ -96,4 +96,4 @@ class fcs_calc: ITC_LAND_RscButton {
     w = "0.0515625 * safezoneW";
     h = "0.033 * safezoneH";
     action = "[""calc""] call itc_land_tablet_fnc_pageInteract";
-};  
+};

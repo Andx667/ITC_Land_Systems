@@ -30,11 +30,11 @@ lbClear (_display displayCtrl 1512);
 (_display displayCtrl 1512) lbSetCurSel 0;
 //[_display,1] call FUNC(fcimode_onlblselchanged);
 
-if(isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions"}) then {
-  _vehicle setVariable ["itc_land_tablet_fcs_solutions", [], true];
+if (isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions"}) then {
+    _vehicle setVariable ["itc_land_tablet_fcs_solutions", [], true];
 };
-if(isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions_index"}) then {
-  _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+if (isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions_index"}) then {
+    _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
 };
 
 //Clear or populate local FCS inputs and solution output
@@ -45,44 +45,44 @@ if ((!(isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtgrid"}))&&(!(isNil {_
     ctrlSetText [2400,""];
     ctrlSetText [2401,""];
 };
-  private _magazineTypes = (((
+private _magazineTypes = (((
     "(getText (_x >> ""weaponClass"")) == ((weapons vehicle player)#0)"
     configClasses
     (configFile >> "itc_land_ballistics" >> "batteryTypes")
-  ) # 0) >> "ammunition") call BIS_fnc_getCfgData;
-  private _magazines = [];
-  {
+    ) # 0) >> "ammunition") call BIS_fnc_getCfgData;
+private _magazines = [];
+{
     if (_x in _magazineTypes) then {
         _magazines pushBack _x;
     };
-  } forEach ( magazines _vehicle );
- 
+} forEach ( magazines _vehicle );
 
-  private _magazineNames = _magazines apply {
+
+private _magazineNames = _magazines apply {
     getText (configFile >> "CfgMagazines" >> _x >> "displayName");
-  };
-  
-  [2402,_magazineNames,0,_magazines] call FUNC(fillComboBox);
-  [2402, lbCurSel 2402] call FUNC(mlrsfci_onlblselchanged_roundType);
-  
+};
+
+[2402,_magazineNames,0,_magazines] call FUNC(fillComboBox);
+[2402, lbCurSel 2402] call FUNC(mlrsfci_onlblselchanged_roundType);
+
 private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
-if(count _solutions > 0) then {
-  private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-  private _solution = _solutions # _solutionIndex;
-  private _solutionString = "";
-  _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
+if (count _solutions > 0) then {
+    private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
+    private _solution = _solutions # _solutionIndex;
+    private _solutionString = "";
+    _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 
-  _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
-  _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
+    _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
 
-  (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
+    (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
 } else {
-  (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
+    (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
 };
 (_display displayCtrl 2403) ctrlCommit 0;
 

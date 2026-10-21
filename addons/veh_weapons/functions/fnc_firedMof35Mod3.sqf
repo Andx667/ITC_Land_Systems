@@ -29,26 +29,26 @@ if (!local _gunner) exitWith {};
 
 private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
 private _guidanceInfo = [
-  [
-    _vehicle getVariable ["itc_land_guidance_laserCode",1111],
-    _vehicle getVariable ["itc_land_guidance_laserCode_2",1112]
-  ],
-  _vehicle getVariable ["itc_land_guidance_targetGrid","00000000"],
-  _vehicle getVariable ["itc_land_guidance_targetAlt",0]
+    [
+        _vehicle getVariable ["itc_land_guidance_laserCode",1111],
+        _vehicle getVariable ["itc_land_guidance_laserCode_2",1112]
+    ],
+    _vehicle getVariable ["itc_land_guidance_targetGrid","00000000"],
+    _vehicle getVariable ["itc_land_guidance_targetAlt",0]
 ];
 
 [{
-  params ["_projectile", "_magazine", "_guidanceInfo"];
-  if (!alive _projectile) exitWith {};
+    params ["_projectile", "_magazine", "_guidanceInfo"];
+    if (!alive _projectile) exitWith {};
 
-  private _subMunitionScript = configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionScript";
-  private _subMunitionCount = getNumber (configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionCount");
-  (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
-  if (isText _subMunitionScript) then {
-    for "_i" from 1 to _subMunitionCount step 1 do {
-      [_i, getPosASL _projectile, velocity _projectile, _pitch, _bank, _guidanceInfo] call (missionNamespace getVariable [getText _subMunitionScript, {}]);
+    private _subMunitionScript = configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionScript";
+    private _subMunitionCount = getNumber (configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunitionCount");
+    (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
+    if (isText _subMunitionScript) then {
+        for "_i" from 1 to _subMunitionCount step 1 do {
+            [_i, getPosASL _projectile, velocity _projectile, _pitch, _bank, _guidanceInfo] call (missionNamespace getVariable [getText _subMunitionScript, {}]);
+        };
     };
-  };
 
-  deleteVehicle _projectile;
-}, [_projectile, _magazine, _guidanceInfo], _fuzeValue] call CBA_fnc_waitAndExecute;
+    deleteVehicle _projectile;
+    }, [_projectile, _magazine, _guidanceInfo], _fuzeValue] call CBA_fnc_waitAndExecute;

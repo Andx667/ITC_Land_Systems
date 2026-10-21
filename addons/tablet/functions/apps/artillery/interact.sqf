@@ -20,14 +20,14 @@
 
 params ["_action"];
 ITC_CURVEHICLE
-switch(_action) do {
-  case "side1": {
-    _vehicle setVariable [QGVAR(page), "fcs"];
-  };
-  case "side2": {
-    _vehicle setVariable [QGVAR(page), "status"];
-  };
-  case "side3": {
-    _vehicle setVariable [QGVAR(page), "status"];
-  };  
+switch (_action) do {
+    case "side1": {
+        _vehicle setVariable [QGVAR(page), "fcs"];
+    };
+    case "side2": {
+        _vehicle setVariable [QGVAR(page), "status"];
+    };
+    case "side3": {
+        _vehicle setVariable [QGVAR(page), "status"];
+    };
 };

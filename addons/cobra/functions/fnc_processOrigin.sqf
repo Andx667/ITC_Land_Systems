@@ -28,8 +28,8 @@ private _existingPosition = nil;
 {
     _x params ["_shots", "_positions"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {
-        if(_origin distance (_positions # _i) < 15) then {
-            if(isNil{_existingPosition}) then {
+        if (_origin distance (_positions # _i) < 15) then {
+            if (isNil{_existingPosition}) then {
                 _existingPosition = _x;
                 _positions pushBack _origin;
                 _x set [0,_shots + 1];
@@ -39,7 +39,7 @@ private _existingPosition = nil;
     };
 }forEach _firingPositions;
 
-if(isNil{_existingPosition}) then {
+if (isNil{_existingPosition}) then {
     _firingPositions pushBack [1, [_origin], cba_missionTime];
 };
 

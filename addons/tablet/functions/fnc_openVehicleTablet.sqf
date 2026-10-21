@@ -21,6 +21,6 @@ params ["_vehicle"];
 
 private _tablet = (configOf _vehicle >> "itc_land" >> "mountedTablet")  call BIS_fnc_getCfgData;
 
-if(!isNil{_tablet}) then {
-  [_tablet] call FUNC(open);
+if (!isNil{_tablet}) then {
+    [_tablet] call FUNC(open);
 };

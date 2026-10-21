@@ -30,17 +30,17 @@ private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> "itc_land_
 private _event = configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "firedEvent";
 
 if (isText _event) then {
-  _this call (missionNamespace getVariable [getText _event, {}]);
+    _this call (missionNamespace getVariable [getText _event, {}]);
 };
 
 private _dispersionEvent = configFile >> "CfgMagazines" >> _magazine >> "dispersionEvent";
 if (isText _dispersionEvent) then {
-  _this call (missionNamespace getVariable [getText _dispersionEvent, {}]);
+    _this call (missionNamespace getVariable [getText _dispersionEvent, {}]);
 };
 
 private _guidanceConfig = (configFile >> "CfgMagazines" >> _magazine >> "itc_land_guidance") call BIS_fnc_getCfgData;
 
 if (!isNil{_guidanceConfig # 1}) then {
     //player sideChat format["INIT GUIDANCE %1",_guidanceConfig # 0];
-  _this call (missionNamespace getVariable [_guidanceConfig # 1, {}]);
+    _this call (missionNamespace getVariable [_guidanceConfig # 1, {}]);
 };

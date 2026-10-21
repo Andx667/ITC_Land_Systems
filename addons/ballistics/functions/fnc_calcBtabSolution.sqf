@@ -40,7 +40,7 @@ if (_heightIndexHigher == _heightIndexLower) then {
 
 // Interpolation factor
 private _heightFactor = ((_heightDelta - _heightMin) - _heightIndexLower * _heightStep) /
-              (_heightIndexHigher * _heightStep - _heightIndexLower * _heightStep);
+    (_heightIndexHigher * _heightStep - _heightIndexLower * _heightStep);
 
 private _distanceNearest = 99999999;
 private _elevNearestRow = -1;
@@ -87,7 +87,7 @@ if (abs(_distanceNearestLower - _distance) < abs(_distanceNearestHigher - _dista
 
 // Check that _solution is within range
 if ((_distance < _distanceNearestLower && _distance < _distanceNearestHigher) ||
-   (_distance > _distanceNearestLower && _distance > _distanceNearestHigher)) exitWith {
+    (_distance > _distanceNearestLower && _distance > _distanceNearestHigher)) exitWith {
     []
 };
 

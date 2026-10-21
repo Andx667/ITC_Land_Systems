@@ -38,21 +38,21 @@ params ["_display"];
 [_display, IDC_fire_mission_list, 0] call EFUNC(common,ctrlSetFade);
 
 private _defaults = [
-  [QGVAR(bcs_splash_time), 10],
-  [QGVAR(bcs_mission_code), "FM"],
-  [QGVAR(bcs_mission_start), 1],
+    [QGVAR(bcs_splash_time), 10],
+    [QGVAR(bcs_mission_code), "FM"],
+    [QGVAR(bcs_mission_start), 1],
 
-  [QGVAR(bcs_bty_name), ""],
-  [QGVAR(bcs_bty_type), [0,"G155"]],
-  [QGVAR(bcs_bty_guns), []],
-  [QGVAR(bcs_locations), []],
-  [QGVAR(bcs_missions), []],
-  [QGVAR(bcs_mission_index), 0]
+    [QGVAR(bcs_bty_name), ""],
+    [QGVAR(bcs_bty_type), [0,"G155"]],
+    [QGVAR(bcs_bty_guns), []],
+    [QGVAR(bcs_locations), []],
+    [QGVAR(bcs_missions), []],
+    [QGVAR(bcs_mission_index), 0]
 ];
 {
-  if(isNil{missionNamespace getVariable (_x # 0)}) then {
-    missionNamespace setVariable [_x # 0, _x # 1];
-  };
+    if (isNil{missionNamespace getVariable (_x # 0)}) then {
+        missionNamespace setVariable [_x # 0, _x # 1];
+    };
 } forEach _defaults;
 
 //itc_land_tablet_bcs_bty_guns = [["1","018058",[1800,5800,5],5,1],["2","018059",[1800,5900,5],5,1]];

@@ -13,7 +13,7 @@ magazines[] = {
     "itc_land_g105smo_chg4",
     "itc_land_g105smo_chg5",
 
-  "itc_land_g105icm_chg1",
+    "itc_land_g105icm_chg1",
     "itc_land_g105icm_chg2",
     "itc_land_g105icm_chg3",
     "itc_land_g105icm_chg4",

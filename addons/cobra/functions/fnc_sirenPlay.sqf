@@ -27,16 +27,16 @@
 params ["_siren", "_sirenSound", "_sirenDistance", "_sirenDuration", "_endTime"];
 
 [{
-  params ["_args", "_pfhId"];
-  _args params ["_siren", "_sirenSound", "_sirenDistance", "_endTime"];
-  // The end time is also passed in, in case this event arrives before the published variable
-  if (isNull _siren || {cba_missionTime >= ((_siren getVariable [QGVAR(sirenEndTime), 0]) max _endTime)}) exitWith {
-    if (isServer && {!isNull _siren}) then {
-      _siren setVariable [QGVAR(sirenActive), false];
+    params ["_args", "_pfhId"];
+    _args params ["_siren", "_sirenSound", "_sirenDistance", "_endTime"];
+    // The end time is also passed in, in case this event arrives before the published variable
+    if (isNull _siren || {cba_missionTime >= ((_siren getVariable [QGVAR(sirenEndTime), 0]) max _endTime)}) exitWith {
+        if (isServer && {!isNull _siren}) then {
+            _siren setVariable [QGVAR(sirenActive), false];
+        };
+        [_pfhId] call CBA_fnc_removePerFrameHandler;
     };
-    [_pfhId] call CBA_fnc_removePerFrameHandler;
-  };
-  if (hasInterface) then {
-    _siren say3D [_sirenSound, _sirenDistance, 1];
-  };
-}, _sirenDuration, [_siren, _sirenSound, _sirenDistance, _endTime]] call CBA_fnc_addPerFrameHandler;
+    if (hasInterface) then {
+        _siren say3D [_sirenSound, _sirenDistance, 1];
+    };
+    }, _sirenDuration, [_siren, _sirenSound, _sirenDistance, _endTime]] call CBA_fnc_addPerFrameHandler;

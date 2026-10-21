@@ -29,21 +29,21 @@ ctrlShow [13506, true];
 
 [_display, IDC_workspace_header, format[LLSTRING(Bcs_Solutions), _ident]] call EFUNC(common,ctrlSetText);
 
-if(_calculate) then {
-  GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage]  call EFUNC(bcs,calcSolutions);
+if (_calculate) then {
+    GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage]  call EFUNC(bcs,calcSolutions);
 };
 
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];
-if(count _btySolutions == 0) exitWith {
-  SETTEXT(8022,LLSTRING(Bcs_NoSolutions));
-  lbClear 8500;
-  SETTEXT(8018,"");//ordinate
-  SETTEXT(8019,"");//angle
-  SETTEXT(8020,"");//distance
-  if(count GVAR(bcs_bty_guns) > 0) then {
-    private _btyPos = [GVAR(bcs_bty_guns)] call EFUNC(bcs,getBatteryPosition);
-    SETTEXT(8020,str round (_btyPos distance _tgtPos));//distance
-  };
+if (count _btySolutions == 0) exitWith {
+    SETTEXT(8022,LLSTRING(Bcs_NoSolutions));
+    lbClear 8500;
+    SETTEXT(8018,"");//ordinate
+    SETTEXT(8019,"");//angle
+    SETTEXT(8020,"");//distance
+    if (count GVAR(bcs_bty_guns) > 0) then {
+        private _btyPos = [GVAR(bcs_bty_guns)] call EFUNC(bcs,getBatteryPosition);
+        SETTEXT(8020,str round (_btyPos distance _tgtPos));//distance
+    };
 };
 _mission set [5, (count _btySolutions) - 1];
 (_btySolutions # _curSolution) params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
@@ -55,10 +55,10 @@ SETTEXT(8022,_text);
 
 lbClear 8500;
 {
-  _x params ["_num"];
-  private _solution = _gunSolutions # _forEachIndex # 1 # _curSolution;
-  private _solText = format[
-    "G: %1     CH: %2     AZ: %3     DF: %4     QD: %5     TOF: %6",
-    _num, _solution # 0, round (_solution # 1), _solution # 2, round (_solution # 3), [( _solution # 4),1,2] call CBA_fnc_formatNumber];
-  (_display displayCtrl 8500) lbAdd _solText;
+    _x params ["_num"];
+    private _solution = _gunSolutions # _forEachIndex # 1 # _curSolution;
+    private _solText = format[
+        "G: %1     CH: %2     AZ: %3     DF: %4     QD: %5     TOF: %6",
+        _num, _solution # 0, round (_solution # 1), _solution # 2, round (_solution # 3), [( _solution # 4),1,2] call CBA_fnc_formatNumber];
+    (_display displayCtrl 8500) lbAdd _solText;
 }forEach GVAR(bcs_bty_guns);

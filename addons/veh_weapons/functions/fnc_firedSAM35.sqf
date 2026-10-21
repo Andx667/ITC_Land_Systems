@@ -52,16 +52,16 @@ private _sensorRAN = getNumber (_fuzeConfig >> "proxRAN"); //What is the range o
         if (_launcher distance _projectile > _projAD  &&  _nearTargets isNotEqualTo []) then {
             private _tgt = (_nearTargets) select 0; //get closest air object in sensor range
             //diag_log format ["SEARCHING: TARGET = %1 @ %2m",_tgt,(_projectile distance _tgt)];
-            
+
             //check object is in sensor's FOV, if it is, projectile go boom
             private _vectorDirMissile = vectorDir _projectile;
             private _vectorToTarget = (getPosASL _projectile) vectorFromTo (getPosASL _tgt);
-            private _targetAngle = acos (_vectorDirMissile vectorCos _vectorToTarget);  
-            
+            private _targetAngle = acos (_vectorDirMissile vectorCos _vectorToTarget);
+
             //diag_log format ["Target angle: %3", _vectorDirMissile, _vectorToTarget, _targetAngle];
             //diag_log format ["SENSOR // %1 // %2 // %3 // %4 //",_projectile,_sensorFOV,_sensorRAN,_proxHelper];
-            
-            
+
+
             if (_targetAngle > (0+_sensorFOV) && _targetAngle < (180-_sensorFOV)) then {
                 private _projPos = getPos _projectile;
                 deleteVehicle _projectile;
@@ -73,4 +73,3 @@ private _sensorRAN = getNumber (_fuzeConfig >> "proxRAN"); //What is the range o
     // PFH FNC End
     }, 0, [_launcher,_projectile,_projAD,_sensorFOV,_sensorRAN,_proxHelper]
 ] call CBA_fnc_addPerFrameHandler;
-

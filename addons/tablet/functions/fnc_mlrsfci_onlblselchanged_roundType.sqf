@@ -32,7 +32,7 @@ private _selectedMagConfig = configFile >> "CfgMagazines" >> _selectedMagClass;
 //player sideChat Format ["%1 %2 %3",_control,_index, lbData [86001,_index]];
 
 private _fuze = getText (_selectedMagConfig >> "itc_land_fuze");
-private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modes"); 
+private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modes");
 private _fuzeDescArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modeDesc");
 
 // The fuze selection is stored on the vehicle (see EFUNC(common,applyFuzeSelection))
@@ -40,11 +40,11 @@ private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",
 if (_selectedFuzeIndex >= 0 && {_selectedFuzeIndex < count _fuzeDescArray}) then {
     //Recall last selection in ComboBox
     [1904, _fuzeDescArray, _selectedFuzeIndex, _fuzeModeArray] call FUNC(fillComboBox);
-    [1904, lbCurSel 1904] call FUNC(mlrsfci_onlblselchanged_fuzemode);    
+    [1904, lbCurSel 1904] call FUNC(mlrsfci_onlblselchanged_fuzemode);
 } else {
     //select first item in ComboBox
     [1904, _fuzeDescArray, 0, _fuzeModeArray] call FUNC(fillComboBox);
-    [1904, 0] call FUNC(mlrsfci_onlblselchanged_fuzemode);        
+    [1904, 0] call FUNC(mlrsfci_onlblselchanged_fuzemode);
 };
 
 //Guided munition elements: only GPS guided rounds take a target grid and altitude

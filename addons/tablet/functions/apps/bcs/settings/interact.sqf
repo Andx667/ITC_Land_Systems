@@ -20,8 +20,8 @@
 params ["_action"];
 #include "..\bcsDefines.hpp"
 
-if(_action == "save") then {
-  GVAR(bcs_splash_time) = UINUMBER(3205);
-  GVAR(bcs_mission_code) = UITEXT(3206);
-  GVAR(bcs_mission_start) = UINUMBER(3207);
+if (_action == "save") then {
+    GVAR(bcs_splash_time) = UINUMBER(3205);
+    GVAR(bcs_mission_code) = UITEXT(3206);
+    GVAR(bcs_mission_start) = UINUMBER(3207);
 };

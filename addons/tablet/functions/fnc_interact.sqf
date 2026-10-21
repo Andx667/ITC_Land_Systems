@@ -24,11 +24,11 @@
 params ["_action", "_value"];
 ITC_CURVEHICLE
 
-if(_action == "app" && !isNil{_value}) exitWith {
-  private _apps = _vehicle getVariable [QGVAR(apps), []];
-  // App buttons without an app behind them return to the home screen (the app list)
-  private _newApp = _apps param [_value, "home"];
-  _vehicle setVariable [QGVAR(app), _newApp];
+if (_action == "app" && !isNil{_value}) exitWith {
+    private _apps = _vehicle getVariable [QGVAR(apps), []];
+    // App buttons without an app behind them return to the home screen (the app list)
+    private _newApp = _apps param [_value, "home"];
+    _vehicle setVariable [QGVAR(app), _newApp];
 };
 
 private _display = findDisplay 32562;

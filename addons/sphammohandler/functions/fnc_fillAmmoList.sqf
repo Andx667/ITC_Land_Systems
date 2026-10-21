@@ -31,7 +31,7 @@ lbClear 86001; //clear listbox
     private _mag = _x;
     private _isCounted = (configFile >> "CfgMagazines" >> _mag >> "itc_land_CountInAH") call BIS_fnc_getCfgData;
     //is round to be counted in ammo list: Not to include _chgX variants
-    if(_isCounted == 1) then {
+    if (_isCounted == 1) then {
         _magArray pushBack _x;
     };
 } forEach _vehMags;
@@ -46,6 +46,6 @@ _magArray = _magArray call BIS_fnc_consolidateArray;
     private _displayName = getText (configFile >> "CfgMagazines" >> _mag >> "displayName");
 
     private _index = lbAdd [86001, format["%1 -- %2", _count, _displayName]];
-    lbSetData [86001, _index, _mag];    
+    lbSetData [86001, _index, _mag];
 
 } forEach _magArray;

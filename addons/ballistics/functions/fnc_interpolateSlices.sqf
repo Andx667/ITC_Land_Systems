@@ -21,8 +21,8 @@
 params ["_sliceLow", "_sliceHigh", "_factor"];
 private _ret = [];
 for "_i" from 0 to ((count _sliceLow) - 1) step 1 do {
- private _x1 = _sliceLow # _i;
- private _x2 = _sliceHigh # _i;
- _ret pushBack (_x1 + ((_x2 - _x1) * _factor));
+    private _x1 = _sliceLow # _i;
+    private _x2 = _sliceHigh # _i;
+    _ret pushBack (_x1 + ((_x2 - _x1) * _factor));
 };
 _ret

@@ -14,9 +14,9 @@
             reloadTime = 5;
         };
         class EventHandlers {
-                class itc_land_veh_weapons {
-                        fired = QUOTE(call FUNC(fired););
-                };
+            class itc_land_veh_weapons {
+                fired = QUOTE(call FUNC(fired););
+            };
         };
     };
 
@@ -30,7 +30,7 @@
         #include "CfgWeapons_howitzers_magazines152mm.hpp"
         displayName = "H152 L/52";
     };
-  class itc_land_105mm_howitzer: itc_land_howitzer_base {
+    class itc_land_105mm_howitzer: itc_land_howitzer_base {
         scope = 1;
         #include "CfgWeapons_howitzers_magazines105mm.hpp"
         displayName = "H105 L/30";
@@ -40,7 +40,7 @@
             reloadTime = 3;
         };
     };
-  class itc_land_122mm_howitzer: itc_land_howitzer_base {
+    class itc_land_122mm_howitzer: itc_land_howitzer_base {
         scope = 1;
         #include "CfgWeapons_howitzers_magazines122mm.hpp"
         displayName = "H122 L/38";

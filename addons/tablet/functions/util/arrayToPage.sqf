@@ -19,12 +19,12 @@
 params ["_page", "_input"];
 private _controls = (configFile >> "itc_land_tablet" >> _page >> "Controls") call BIS_fnc_getCfgSubClasses;
 {
-  _x params ["_key", "_value"];
-  {
-    private _controlKey = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "key");
-    private _setMethod = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "setMethod");
-    if(_controlKey == _key) then {
-      _value call (compile _setMethod);
-    };
-  }forEach _controls;
+    _x params ["_key", "_value"];
+    {
+        private _controlKey = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "key");
+        private _setMethod = getText (configFile >> "itc_land_tablet" >> "page_bcs_firemission_engage" >> "Controls" >> _x >> "setMethod");
+        if (_controlKey == _key) then {
+            _value call (compile _setMethod);
+        };
+    }forEach _controls;
 }forEach _input;

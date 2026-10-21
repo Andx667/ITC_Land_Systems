@@ -33,5 +33,5 @@ class ITC_Land_CfgFuzes {
         firedEvent = QFUNC(firedSAM35);
         proxFOV = 60;
         proxRAN = 30;
-    };  
+    };
 };

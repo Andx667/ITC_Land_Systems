@@ -6,7 +6,7 @@ class fci_fuzeinputs: ITC_LAND_RscText {
     y = "0.490 * safezoneH + safezoneY";
     w = "0.2 * safezoneW";
     h = "0.033 * safezoneH";
-};  
+};
 class fci_fuzeinputs_text: ITC_LAND_RscText {
     idc = 1901;
     text = CSTRING(fci_fuzeinputs_text_Text);
@@ -46,7 +46,7 @@ class fci_fuzeinputs_time_edit: ITC_LAND_RscEdit {
     y = "0.589 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-};  
+};
 
 class fci_guideinputs_text: ITC_LAND_RscText {
     idc = 1907;
@@ -55,7 +55,7 @@ class fci_guideinputs_text: ITC_LAND_RscText {
     y = "0.523 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
     h = "0.022 * safezoneH";
-};  
+};
 
 class fci_guideinputs_tgtgrid_text: ITC_LAND_RscText {
     idc = 1908;
@@ -88,7 +88,7 @@ class fci_guideinputs_elev_edit: ITC_LAND_RscEdit {
     w = "0.025 * safezoneW";
     h = "0.022 * safezoneH";
 };
-/*FOR GLSDB 
+/*FOR GLSDB
 class fci_guideinputs_aoi_text: ITC_LAND_RscText {
     idc = 1912;
     text = "AOI:";
@@ -112,8 +112,8 @@ class fci_guideinputs_apply_btn: ITC_LAND_RscButton {
     y = "0.622 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";
     h = "0.022 * safezoneH";
-    action = "[""setFG""] call itc_land_tablet_fnc_pageInteract";   
-};  
+    action = "[""setFG""] call itc_land_tablet_fnc_pageInteract";
+};
 /*class fci_AHinputs_button1: ITC_LAND_RscButton {
     idc = 1918;
     text = "BUTTON 1";
@@ -121,5 +121,4 @@ class fci_guideinputs_apply_btn: ITC_LAND_RscButton {
     y = 0.649 * safezoneH + safezoneY;
     w = 0.0825 * safezoneW;
     h = 0.022 * safezoneH;
-};*/    
-            
+};*/

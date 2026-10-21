@@ -29,11 +29,11 @@ private _originPosition = getPosASL itc_land_spike_currentMissile;
 private _vect = _originPosition vectorFromTo itc_land_spike_targetPos;
 private _polar = _vect call cba_fnc_vect2polar;
 private _newDir = [
-  (_polar # 1) + _traverse,
-  (_polar # 2) + _elevate
+    (_polar # 1) + _traverse,
+    (_polar # 2) + _elevate
 ];
 private _intersect = [_originPosition, _newDir # 0, _newDir # 1, false] call FUNC(intersectAtPolar);
 // systemchat str ["intersect", _intersect];
-if(!isNil "_intersect") then {
-  itc_land_spike_targetPos = _intersect;
+if (!isNil "_intersect") then {
+    itc_land_spike_targetPos = _intersect;
 };

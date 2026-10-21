@@ -27,6 +27,6 @@ private _targets = [_destination] call FUNC(findIDTargets);
 
 //send it on to each target's connecting machine
 {
-  _x params ["_target", "_owner"];
-  [QGVAR(clientRX), [_target, _this], _owner] call CBA_fnc_ownerEvent;
+    _x params ["_target", "_owner"];
+    [QGVAR(clientRX), [_target, _this], _owner] call CBA_fnc_ownerEvent;
 }forEach _targets;

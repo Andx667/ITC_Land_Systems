@@ -52,9 +52,9 @@ class CfgVehicles {
         };
         artilleryScanner = 0;
         class itc_land {
-          tabletInterfaces[] = {"spg"};
-          mountedTablet = "itc_land_tablet_spg";
-          loaderType = 1; // semi automatic
+            tabletInterfaces[] = {"spg"};
+            mountedTablet = "itc_land_tablet_spg";
+            loaderType = 1; // semi automatic
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
@@ -96,7 +96,7 @@ class CfgVehicles {
         crew = "B_UAV_AI";
         typicalCargo[] = {"B_UAV_AI"};
         class itc_land: itc_land {
-          loaderType = 2; // fully automatic            
+            loaderType = 2; // fully automatic
         };
     };
 };

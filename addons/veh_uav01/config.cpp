@@ -10,14 +10,14 @@ class CfgPatches {
         weapons[] = {"ITC_Land_B_AR2i_Packed","ITC_Land_O_AR2i_Packed","ITC_Land_I_AR2i_Packed","ITC_Land_B_AR2e_Packed","ITC_Land_O_AR2e_Packed","ITC_Land_I_AR2e_Packed","ITC_Land_B_UAV_Packed","ITC_Land_O_UAV_Packed","ITC_Land_I_UAV_Packed"};
         magazines[] = {};
         VERSION_CONFIG;
-  };
-  class itc_land_veh_darter {
+    };
+    class itc_land_veh_darter {
         requiredaddons[] = {"A3_Drones_F_Air_F_Gamma_UAV_01","itc_land_veh_sights","itc_land_packable"};
         requiredversion = 1.9;
-    units[] = {};
-    weapons[] = {};
-    magazines[] = {};
-    };  
+        units[] = {};
+        weapons[] = {};
+        magazines[] = {};
+    };
 };
 
 #include "CfgVehicles.hpp"

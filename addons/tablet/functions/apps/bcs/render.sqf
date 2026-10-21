@@ -20,11 +20,11 @@
 params ["_display"];
 
 private _fireMissionStrings = GVAR(bcs_missions) apply {
-  if(_x # 6 > time) then {
-    private _text = if(time > (_x # 6) - GVAR(bcs_splash_time)) then [{LLSTRING(Bcs_Splash)},{LLSTRING(Bcs_Shot)}];
-    format["%1 %2", _x # 0, _text];
-  } else {
-    format["%1", _x # 0];
-  };
+    if (_x # 6 > time) then {
+        private _text = if (time > (_x # 6) - GVAR(bcs_splash_time)) then [{LLSTRING(Bcs_Splash)},{LLSTRING(Bcs_Shot)}];
+        format["%1 %2", _x # 0, _text];
+    } else {
+        format["%1", _x # 0];
+    };
 };
 [15114, _fireMissionStrings, -1] call FUNC(fillComboBox);

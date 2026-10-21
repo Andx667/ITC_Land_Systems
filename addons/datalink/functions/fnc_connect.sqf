@@ -21,10 +21,10 @@
 
 params[["_object",player],["_id",""],"_system",["_autoStore", false]];
 
-if(_autoStore) then {
-  [_object, "object_register", "response", {
-    _this call FUNC(receiveIDRegistry);
-  }] call FUNC(registerEvent);
+if (_autoStore) then {
+    [_object, "object_register", "response", {
+        _this call FUNC(receiveIDRegistry);
+    }] call FUNC(registerEvent);
 };
 
 // Pass this machine's ID so transmissions are delivered to where the handlers registered above live

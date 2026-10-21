@@ -36,17 +36,17 @@ private _distanceRemaining = (_projectile distance itc_land_spike_targetPos);
 private _target = itc_land_spike_targetPos;
 private _targetObject = itc_land_spike_lockInformation # 0;
 if (!isNil "_targetObject") then {
-  private _tofRemaining = _distanceRemaining / (vectorMagnitude velocity _projectile);
-  _target = _target vectorAdd ((velocity _targetObject) vectorMultiply _tofRemaining);
+    private _tofRemaining = _distanceRemaining / (vectorMagnitude velocity _projectile);
+    _target = _target vectorAdd ((velocity _targetObject) vectorMultiply _tofRemaining);
 };
 [{itc_land_spike_targetPosCamera = _this}, itc_land_spike_targetPos, 0.05] call CBA_fnc_waitAndExecute;
 if (_progress < 0.3) then {
-  private _vect = [_fullDist, _shooter getDir itc_land_spike_targetPos, 10] call CBA_fnc_polar2vect;
-  _target = (getPosASL _shooter) vectorAdd _vect;
+    private _vect = [_fullDist, _shooter getDir itc_land_spike_targetPos, 10] call CBA_fnc_polar2vect;
+    _target = (getPosASL _shooter) vectorAdd _vect;
 };
 //systemChat str _distanceRemaining;
 if (_distanceRemaining < 200) then {
-  "filmGrain" ppEffectAdjust [0.5, _distanceRemaining / 100, 1, 1, 1];
-  "filmGrain" ppEffectCommit 0;
+    "filmGrain" ppEffectAdjust [0.5, _distanceRemaining / 100, 1, 1, 1];
+    "filmGrain" ppEffectCommit 0;
 };
 _target

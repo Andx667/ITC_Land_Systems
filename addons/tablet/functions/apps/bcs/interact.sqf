@@ -21,34 +21,34 @@
 params ["_action"];
 #include "bcsDefines.hpp"
 ITC_CURVEHICLE
-switch(_action) do {
-  case "side1": {
-    _vehicle setVariable [QGVAR(page), "settings"];
-  };
-  case "side2": {
-    _vehicle setVariable [QGVAR(page), "setup"];
-  };
-  case "side3": {
-    _vehicle setVariable [QGVAR(page), "locStores"];
-  };
-  case "side5": {
-    private _ident = GENIDENT;
-    private _newMission = EMPTYMISSION(_ident);
-    GVAR(bcs_missions) pushBack _newMission;
-    GVAR(bcs_mission_index) = (count GVAR(bcs_missions)) - 1;
-    if(_vehicle getVariable QGVAR(page) == "newMission") then {
-      [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
-    } else {
-      _vehicle setVariable [QGVAR(page), "newMission"];
+switch (_action) do {
+    case "side1": {
+        _vehicle setVariable [QGVAR(page), "settings"];
     };
-  };
-  case "sideList": {
-    GVAR(bcs_mission_index) = lbCurSel 15114;
-    MISSION;
-    if(_vehicle getVariable QGVAR(page) == _mission # 1) then {
-      [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
-    } else {
-      _vehicle setVariable [QGVAR(page), _mission # 1];
+    case "side2": {
+        _vehicle setVariable [QGVAR(page), "setup"];
     };
-  };
+    case "side3": {
+        _vehicle setVariable [QGVAR(page), "locStores"];
+    };
+    case "side5": {
+        private _ident = GENIDENT;
+        private _newMission = EMPTYMISSION(_ident);
+        GVAR(bcs_missions) pushBack _newMission;
+        GVAR(bcs_mission_index) = (count GVAR(bcs_missions)) - 1;
+        if (_vehicle getVariable QGVAR(page) == "newMission") then {
+            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+        } else {
+            _vehicle setVariable [QGVAR(page), "newMission"];
+        };
+    };
+    case "sideList": {
+        GVAR(bcs_mission_index) = lbCurSel 15114;
+        MISSION;
+        if (_vehicle getVariable QGVAR(page) == _mission # 1) then {
+            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+        } else {
+            _vehicle setVariable [QGVAR(page), _mission # 1];
+        };
+    };
 };

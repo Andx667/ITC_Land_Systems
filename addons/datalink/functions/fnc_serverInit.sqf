@@ -16,19 +16,19 @@
  * Public: No
  */
 
-if(!isServer) exitWith {}; //end code if not server
+if (!isServer) exitWith {}; //end code if not server
 
 //create the address list hash, this will consist of IDGR: [object, machine ID that connected it]
 itc_land_datalink_nodes = [] call CBA_fnc_hashCreate;
 
 //drop entries for deleted objects and for machines that left, so transmissions don't go to dead targets
 addMissionEventHandler ["EntityDeleted", {
-  params ["_entity"];
-  [0, _entity] call FUNC(removeNodes);
+    params ["_entity"];
+    [0, _entity] call FUNC(removeNodes);
 }];
 addMissionEventHandler ["PlayerDisconnected", {
-  params ["", "", "", "", "_owner"];
-  [1, _owner] call FUNC(removeNodes);
+    params ["", "", "", "", "_owner"];
+    [1, _owner] call FUNC(removeNodes);
 }];
 
 //add the eventhandlers for connecting and disconnecting clients

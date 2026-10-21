@@ -30,14 +30,14 @@
  */
 
 params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
-if(!local _gunner) exitWith {}; //make sure it doesn't get executed everywhere
-if(!GVAR(enabled)) exitWith {};  //if the CIWS system is turned off, stop the script
+if (!local _gunner) exitWith {}; //make sure it doesn't get executed everywhere
+if (!GVAR(enabled)) exitWith {};  //if the CIWS system is turned off, stop the script
 
 private _interceptable = false;
 { //loop through interceptable ammo base classes
-  if(_ammo isKindOf [_x, configFile >> "cfgAmmo"]) exitWith {_interceptable = true;};
+    if (_ammo isKindOf [_x, configFile >> "cfgAmmo"]) exitWith {_interceptable = true;};
 }forEach GVAR(interceptable);
 
-if(!_interceptable) exitWith {}; //if the ammo can't be intercepted, kill the script;
+if (!_interceptable) exitWith {}; //if the ammo can't be intercepted, kill the script;
 
 _this call FUNC(shellTarget);

@@ -1,35 +1,35 @@
 class CfgVehicles {
     class LandVehicle;
     class Tank: LandVehicle {
-        class ACE_SelfActions;  
+        class ACE_SelfActions;
     };
     class Tank_F: Tank {
-        class ACE_SelfActions: ACE_SelfActions {};      
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets {
             class MainTurret;
         };
         class AnimationSources;
     };
     class MBT_01_base_F: Tank_F {
-        class ACE_SelfActions: ACE_SelfActions {};              
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-                class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {};
         };
         class AnimationSources: AnimationSources {};
     };
     class MBT_01_mlrs_base_F : MBT_01_base_F {
-        class ACE_SelfActions: ACE_SelfActions {};              
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets : Turrets {
             class MainTurret: MainTurret {};
         };
         class AnimationSources: AnimationSources {};
     };
-    class B_MBT_01_mlrs_base_F: MBT_01_mlrs_base_F {        
+    class B_MBT_01_mlrs_base_F: MBT_01_mlrs_base_F {
         class Turrets : Turrets {
             class MainTurret: MainTurret {};
         };
         class AnimationSources: AnimationSources {};
-        class ACE_SelfActions: ACE_SelfActions {};      
+        class ACE_SelfActions: ACE_SelfActions {};
     };
     class itc_land_MLRS01_base: B_MBT_01_mlrs_base_F {
         artilleryScanner = 0;
@@ -39,11 +39,11 @@ class CfgVehicles {
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( gunner _target ) == ACE_Player));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
-            };              
-        };              
+            };
+        };
         class itc_land {
-        tabletInterfaces[] = {"spg"};
-          mountedTablet = "itc_land_tablet_mlrs";
+            tabletInterfaces[] = {"spg"};
+            mountedTablet = "itc_land_tablet_mlrs";
             class fcs {
                 tableList = "b_230";
             };
@@ -66,14 +66,14 @@ class CfgVehicles {
             class muzzle_hide_missiles {
                 source = "reload";
                 weapon = "itc_land_230mm_mlrs";
-            };          
+            };
         };
     };
     class itc_land_b_mlrs_seara2 : itc_land_MLRS01_base {
         author = "Yax";
         displayName = CSTRING(b_mlrs_seara2_DisplayName);
         scope = 2;
-        scopeCurator = 2;       
+        scopeCurator = 2;
         editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_MBT_01_mlrs_F.jpg";
         hiddenSelections[] = {"Camo1","Camo2","CamoNet"};
         hiddenSelectionsTextures[] = {"A3\armor_f_gamma\MBT_01\Data\MBT_01_body_CO.paa","A3\armor_f_gamma\MBT_01\data\MBT_01_MLRS_co.paa","A3\Armor_F\Data\camonet_NATO_Desert_CO.paa"};

@@ -29,8 +29,8 @@ private _fuzeType = _vehicle getVariable ["itc_land_fuzeMode","pd"];
 private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
 
 
-if(isNil{_fuzeType}) exitWith {};
-if(_fuzeType == "" || _fuzeType == "pd") exitWith {};
+if (isNil{_fuzeType}) exitWith {};
+if (_fuzeType == "" || _fuzeType == "pd") exitWith {};
 
 if !(_fuzeType in ["delay", "time", "prox"]) exitWith {};
 

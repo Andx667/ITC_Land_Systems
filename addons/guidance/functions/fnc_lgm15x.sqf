@@ -38,7 +38,7 @@ private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
     _args params ["_ammo", "_position", "_laserCode"];
 
     private _spot = [getPosASL _projectile, velocity _projectile, 20, 10000, [1500, 1550], _laserCode] call ace_laser_fnc_seekerFindLaserSpot;
-    if(!isNil{_spot select 0}) then {
+    if (!isNil{_spot select 0}) then {
         private _targetCoordinates = _spot select 0;
         _position = getPosASL _projectile;
         _args set [1, _position];
@@ -49,7 +49,7 @@ private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
         private _angleTo = atan(_dElev / _distHorizontal);
 
 
-        if((_projectile getDir _targetCoordinates) > getDir _projectile) then {
+        if ((_projectile getDir _targetCoordinates) > getDir _projectile) then {
             _projectile setDir (getDir _projectile + 0.5);
         } else {
             _projectile setDir (getDir _projectile - 0.5);
@@ -57,7 +57,7 @@ private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
 
         private _diff = abs(_pitch - (_angleTo * -1));
         private _turnRate = 2;
-        if(_pitch > (_angleTo * -1)) then {
+        if (_pitch > (_angleTo * -1)) then {
             [_projectile, _pitch - (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;
         } else {
             [_projectile, _pitch + (_diff / _turnRate), 0] call BIS_fnc_setPitchBank;

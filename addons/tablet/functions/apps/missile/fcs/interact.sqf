@@ -25,91 +25,91 @@ params ["_action"];
 ITC_CURVEHICLE
 private _display = findDisplay 32562;
 
-switch(_action) do {
-  case "calc": {
-    //#include "interact_calc.sqf"
-    private _gridField = ctrlText 2400;
-    _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
-    private _elField = parseNumber (ctrlText 2401);
-    private _elTgt =  _elField - ace_common_mapAltitude;
+switch (_action) do {
+    case "calc": {
+        //#include "interact_calc.sqf"
+        private _gridField = ctrlText 2400;
+        _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
+        private _elField = parseNumber (ctrlText 2401);
+        private _elTgt =  _elField - ace_common_mapAltitude;
 
-    _vehicle setVariable ["itc_land_tablet_fcs_tgtelev", _elField, true];
+        _vehicle setVariable ["itc_land_tablet_fcs_tgtelev", _elField, true];
 
-    private _shellType = lbData[2402, (lbCurSel 2402)];
-    private _targetPos = [_gridField, false] call ace_common_fnc_getMapPosFromGrid;
-    private _gunPos = getPosASL _vehicle;
+        private _shellType = lbData[2402, (lbCurSel 2402)];
+        private _targetPos = [_gridField, false] call ace_common_fnc_getMapPosFromGrid;
+        private _gunPos = getPosASL _vehicle;
 
-    private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
+        private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
 
-    itc_land_guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
+        itc_land_guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
 
-    if (itc_land_guidance isNotEqualTo []) then {
-        if (count _solutions > 0) then {
-            _solutions apply {
-                _x set [3,800];
+        if (itc_land_guidance isNotEqualTo []) then {
+            if (count _solutions > 0) then {
+                _solutions apply {
+                    _x set [3,800];
+                };
+            };
+        };
+        _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
+        _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+    };
+    case "prev" : {
+        private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
+        _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex - 1) max 0, true];
+    };
+    case "next" : {
+        private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
+        private _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
+        _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
+    };
+    case "setFG" : {
+        private _fuze = getText (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_fuze");
+        private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc", lbText [1904, lbCurSel 1904]];
+        [_vehicle, lbData [1904, lbCurSel 1904], _fuzeDesc, _fuze, parseNumber (ctrlText 1906), "itc_land_mlrsfci_fuzeTime"] call EFUNC(common,resolveFuzeSetting);
+
+        private _guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
+
+        if (_guidance isNotEqualTo []) then {
+            switch (_guidance # 0) do {
+                case "gps_inertial" : {
+                    private _targetGrid = ctrlText 1909;
+                    private _targetAlt = parseNumber(ctrlText 1911);
+                    private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
+
+                    // grid and altitude are kept so the round type page can show them again
+                    _vehicle setVariable ["itc_land_guidance_targetGrid", _targetGrid, true];
+                    _vehicle setVariable ["itc_land_guidance_targetAlt", _targetAlt, true];
+                    _vehicle setVariable ["itc_land_guidance_targetPos",_targetPos,true];
+                };
+
+                default {   };
+
             };
         };
     };
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
-  };
-  case "prev" : {
-    private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex - 1) max 0, true];
-  };
-  case "next" : {
-    private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
-    private _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
-  };
-  case "setFG" : {
-    private _fuze = getText (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_fuze");
-    private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc", lbText [1904, lbCurSel 1904]];
-    [_vehicle, lbData [1904, lbCurSel 1904], _fuzeDesc, _fuze, parseNumber (ctrlText 1906), "itc_land_mlrsfci_fuzeTime"] call EFUNC(common,resolveFuzeSetting);
-
-    private _guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
-
-    if (_guidance isNotEqualTo []) then {
-        switch (_guidance # 0) do {
-            case "gps_inertial" : {
-                private _targetGrid = ctrlText 1909;
-                private _targetAlt = parseNumber(ctrlText 1911);
-                private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
-
-                // grid and altitude are kept so the round type page can show them again
-                _vehicle setVariable ["itc_land_guidance_targetGrid", _targetGrid, true];
-                _vehicle setVariable ["itc_land_guidance_targetAlt", _targetAlt, true];
-                _vehicle setVariable ["itc_land_guidance_targetPos",_targetPos,true];
-            };
-
-            default {   };
-
-        };
-    };
-  };
 };
 
 if (_action in ["calc","prev","next"]) then {
     private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
 
-    if(count _solutions > 0) then {
-      private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-      private _solution = _solutions # _solutionIndex;
-      private _solutionString = "";
-      _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
+    if (count _solutions > 0) then {
+        private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
+        private _solution = _solutions # _solutionIndex;
+        private _solutionString = "";
+        _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 
-      _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
-      _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
-      _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
 
-      _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
-      _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
-      _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
-      _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
+        _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
 
-      (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
+        (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
     } else {
-      (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
+        (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
     };
     (_display displayCtrl 2403) ctrlCommit 0;
 };

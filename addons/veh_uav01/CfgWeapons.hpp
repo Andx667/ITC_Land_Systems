@@ -2,7 +2,7 @@ class CfgWeapons {
     class CBA_MiscItem_ItemInfo;
     class ACE_ItemCore;
     class itc_land_packableItem: ACE_ItemCore {
-      class ItemInfo: CBA_MiscItem_ItemInfo {};
+        class ItemInfo: CBA_MiscItem_ItemInfo {};
     };
     class ITC_Land_UAV_Packed_base: itc_land_packableItem {
         scope = 0;
@@ -12,7 +12,7 @@ class CfgWeapons {
         model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
         //picture = "\A3\Drones_F\Air_F_Gamma\UAV_01\Data\UI\UAV_01_CA.paa";
         class ItemInfo: ItemInfo {
-                  mass = 75;
+            mass = 75;
             allowedSlots[] = {901};
             scope = 0;
         };

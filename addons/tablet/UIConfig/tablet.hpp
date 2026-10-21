@@ -34,34 +34,34 @@ class itc_land_tablet {
         "page_cbr_settings",
         "page_cbr_data"
     };
-  objects[] = { };
-  controls[]= {
-    "header1",
-    "header2",
-    "workspace_header",
+    objects[] = { };
+    controls[]= {
+        "header1",
+        "header2",
+        "workspace_header",
 
-    "sidebar_button1",
-    "sidebar_button2",
-    "sidebar_button3",
-    "sidebar_button4",
-    "sidebar_button5",
+        "sidebar_button1",
+        "sidebar_button2",
+        "sidebar_button3",
+        "sidebar_button4",
+        "sidebar_button5",
         "fire_mission_list",
 
-    "app1",
-    "app2",
-    "app3",
-    "app4"
-  };
-  class workspace_header_bar: ITC_LAND_RscText {
-    idc = 15103;
-    x = QUOTE((0.396875 + POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.247 + POSYADJUST) * safezoneH + safezoneY);
-    w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
-    h = "0.044 * safezoneH";
-    colorBackground[] = {0.1,0.1,0.1,1};
-    colorActive[] = {0.1,0.1,0.1,1};
+        "app1",
+        "app2",
+        "app3",
+        "app4"
+    };
+    class workspace_header_bar: ITC_LAND_RscText {
+        idc = 15103;
+        x = QUOTE((0.396875 + POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.247 + POSYADJUST) * safezoneH + safezoneY);
+        w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
+        h = "0.044 * safezoneH";
+        colorBackground[] = {0.1,0.1,0.1,1};
+        colorActive[] = {0.1,0.1,0.1,1};
 
-  };
+    };
     class workspace_header: ITC_LAND_RscText {
         idc = 15104;
         text = CSTRING(workspace_header_Text);
@@ -72,26 +72,26 @@ class itc_land_tablet {
 
         sizeEx = 1.5 * GUI_GRID_H;
     };
-  class header1: ITC_LAND_RscText {
-    idc = 15106;
-    text = CSTRING(header1_Text);
-    x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.26+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
+    class header1: ITC_LAND_RscText {
+        idc = 15106;
+        text = CSTRING(header1_Text);
+        x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.26+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
 
-    sizeEx = 1.75 * GUI_GRID_H;
-  };
-  class header2: ITC_LAND_RscText {
-    idc = 15105;
-    text = CSTRING(header2_Text);
-    x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.285+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
+        sizeEx = 1.75 * GUI_GRID_H;
+    };
+    class header2: ITC_LAND_RscText {
+        idc = 15105;
+        text = CSTRING(header2_Text);
+        x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.285+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
 
-    sizeEx = 1.25 * GUI_GRID_H;
-  };
+        sizeEx = 1.25 * GUI_GRID_H;
+    };
 
   #include "workspaces\home\appList.hpp"
 
@@ -112,7 +112,7 @@ class itc_land_tablet {
   #include "workspaces\cbr\settings.hpp"
   #include "workspaces\cbr\data.hpp"
 
-  class screen_image: ITC_LAND_RscPicture {
+    class screen_image: ITC_LAND_RscPicture {
         idc = 15107;
         text = QPATHTOF(UI\screen.paa);
         h = "0.86*SafeZoneW";
@@ -120,105 +120,105 @@ class itc_land_tablet {
         x = "0.5-((0.64*SafeZoneW)/2)";
         y = "0.5-((1.03*SafeZoneW)/2)";
         style = ST_PICTURE;
-  };
-  class screen_image_night: screen_image {
-      idc = 15117;
-      text = QPATHTOF(UI\screen-night.paa);
-  };
-  class homepage_background: ITC_LAND_RscText {
-    idc = 15010;
-    x = "0.2425 * safezoneW + safezoneX";
-    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.51 * safezoneW";
-    h = "0.55 * safezoneH";
-    colorBackground[] = {0.1,0.1,0.1,1};
-    colorActive[] = {0.1,0.1,0.1,1};
-  };
-  class homepage_image: ITC_LAND_RscPicture {
-    idc = 15011;
-    text = QPATHTOF(UI\logo.paa);
-    x = "0.2425 * safezoneW + safezoneX";
-    y = QUOTE((0.3+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.52 * safezoneW";
-    h = "0.26 * safezoneH";
-    //colorBackground[] = {0.1,0.1,0.1,1};
-    style = ST_PICTURE;
-  };
+    };
+    class screen_image_night: screen_image {
+        idc = 15117;
+        text = QPATHTOF(UI\screen-night.paa);
+    };
+    class homepage_background: ITC_LAND_RscText {
+        idc = 15010;
+        x = "0.2425 * safezoneW + safezoneX";
+        y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.51 * safezoneW";
+        h = "0.55 * safezoneH";
+        colorBackground[] = {0.1,0.1,0.1,1};
+        colorActive[] = {0.1,0.1,0.1,1};
+    };
+    class homepage_image: ITC_LAND_RscPicture {
+        idc = 15011;
+        text = QPATHTOF(UI\logo.paa);
+        x = "0.2425 * safezoneW + safezoneX";
+        y = QUOTE((0.3+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.52 * safezoneW";
+        h = "0.26 * safezoneH";
+        //colorBackground[] = {0.1,0.1,0.1,1};
+        style = ST_PICTURE;
+    };
 
-  class sidebar_background: ITC_LAND_RscText {
-    idc = 15101;
-    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = QUOTE((0.506 + WSHADJUST) * safezoneH);
-    colorBackground[] = {0.1,0.1,0.1,1};
-    colorActive[] = {0.1,0.1,0.1,1};
+    class sidebar_background: ITC_LAND_RscText {
+        idc = 15101;
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = QUOTE((0.506 + WSHADJUST) * safezoneH);
+        colorBackground[] = {0.1,0.1,0.1,1};
+        colorActive[] = {0.1,0.1,0.1,1};
 
-  };
-  class workspace_background: ITC_LAND_RscText {
-    idc = 15102;
-    x = QUOTE((0.396875+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
-    w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
-    h = QUOTE((0.506 + WSHADJUST) * safezoneH);
-    colorBackground[] = {0.125,0.125,0.125,1};
-    colorActive[] = {0.125,0.125,0.125,1};
-  };
-  class sidebar_button1: ITC_LAND_RscButton {
-    idc = 15108;
-    text = "Page 1";
-    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.313+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
-    //colorBackground[] = {0,0,0,0.9};
-    //colorActive[] = {0.1,0.1,0.1,0.9};
+    };
+    class workspace_background: ITC_LAND_RscText {
+        idc = 15102;
+        x = QUOTE((0.396875+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.247+ POSYADJUST) * safezoneH + safezoneY);
+        w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
+        h = QUOTE((0.506 + WSHADJUST) * safezoneH);
+        colorBackground[] = {0.125,0.125,0.125,1};
+        colorActive[] = {0.125,0.125,0.125,1};
+    };
+    class sidebar_button1: ITC_LAND_RscButton {
+        idc = 15108;
+        text = "Page 1";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.313+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
+        //colorBackground[] = {0,0,0,0.9};
+        //colorActive[] = {0.1,0.1,0.1,0.9};
         action = QUOTE(['side1'] call FUNC(interact));
-  };
-  class sidebar_button2: ITC_LAND_RscButton {
-    idc = 15109;
-    text = "Page 2";
-    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.335+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
-    //colorBackground[] = {0,0,0,0.9};
-    //colorActive[] = {0.1,0.1,0.1,0.9};
+    };
+    class sidebar_button2: ITC_LAND_RscButton {
+        idc = 15109;
+        text = "Page 2";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.335+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
+        //colorBackground[] = {0,0,0,0.9};
+        //colorActive[] = {0.1,0.1,0.1,0.9};
         action = QUOTE(['side2'] call FUNC(interact));
-  };
-  class sidebar_button3: ITC_LAND_RscButton {
-    idc = 15110;
-    text = "Page 3";
-    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.357+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
-    //colorBackground[] = {0,0,0,0.9};
-    //colorActive[] = {0.1,0.1,0.1,0.9};
+    };
+    class sidebar_button3: ITC_LAND_RscButton {
+        idc = 15110;
+        text = "Page 3";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.357+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
+        //colorBackground[] = {0,0,0,0.9};
+        //colorActive[] = {0.1,0.1,0.1,0.9};
         action = QUOTE(['side3'] call FUNC(interact));
-  };
-  class sidebar_button4: ITC_LAND_RscButton {
-    idc = 15111;
-    text = "Page 4";
-    x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
-    y = QUOTE((0.379+ POSYADJUST) * safezoneH + safezoneY);
-    w = "0.0928125 * safezoneW";
-    h = "0.022 * safezoneH";
-    //colorBackground[] = {0,0,0,0.9};
-    //colorActive[] = {0.1,0.1,0.1,0.9};
-    action = QUOTE(['side4'] call FUNC(interact));
-  };
-  class sidebar_button5: ITC_LAND_RscButton {
-    idc = 15112;
-    text = "Page 5";
+    };
+    class sidebar_button4: ITC_LAND_RscButton {
+        idc = 15111;
+        text = "Page 4";
+        x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
+        y = QUOTE((0.379+ POSYADJUST) * safezoneH + safezoneY);
+        w = "0.0928125 * safezoneW";
+        h = "0.022 * safezoneH";
+        //colorBackground[] = {0,0,0,0.9};
+        //colorActive[] = {0.1,0.1,0.1,0.9};
+        action = QUOTE(['side4'] call FUNC(interact));
+    };
+    class sidebar_button5: ITC_LAND_RscButton {
+        idc = 15112;
+        text = "Page 5";
         x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
         y = QUOTE((0.445+ POSYADJUST) * safezoneH + safezoneY);
         w = "0.0928125 * safezoneW";
         h = "0.044 * safezoneH";
-    //colorBackground[] = {0,0,0,0.9};
-    //colorActive[] = {0.1,0.1,0.1,0.9};
+        //colorBackground[] = {0,0,0,0.9};
+        //colorActive[] = {0.1,0.1,0.1,0.9};
         action = QUOTE(['side5'] call FUNC(interact));
-  };
+    };
     class fire_mission_list: ITC_LAND_RscListBox {
         idc = 15114;
         x = QUOTE((0.304062+ POSXADJUST) * safezoneW + safezoneX);
@@ -230,49 +230,49 @@ class itc_land_tablet {
         onLBSelChanged = "[""sideList""] call itc_land_tablet_fnc_appInteract";
     };
     class app1: ITC_LAND_RscButton {
-      idc = 15600;
-      x = "0.200937 * safezoneW + safezoneX";
-      y = "0.39 * safezoneH + safezoneY";
-      w = "0.0257812 * safezoneW";
-      h = "0.044 * safezoneH";
-      colorBackground[] = {-1,-1,-1,0};
-    colorActive[] = {-1,-1,-1,-1};
+        idc = 15600;
+        x = "0.200937 * safezoneW + safezoneX";
+        y = "0.39 * safezoneH + safezoneY";
+        w = "0.0257812 * safezoneW";
+        h = "0.044 * safezoneH";
+        colorBackground[] = {-1,-1,-1,0};
+        colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',0)] call FUNC(interact));
     };
     class app2: ITC_LAND_RscButton {
-    idc = 15601;
-    x = "0.200937 * safezoneW + safezoneX";
-    y = "0.434 * safezoneH + safezoneY";
-    w = "0.0257812 * safezoneW";
-    h = "0.055 * safezoneH";
-    colorBackground[] = {-1,-1,-1,0};
-    colorActive[] = {-1,-1,-1,-1};
+        idc = 15601;
+        x = "0.200937 * safezoneW + safezoneX";
+        y = "0.434 * safezoneH + safezoneY";
+        w = "0.0257812 * safezoneW";
+        h = "0.055 * safezoneH";
+        colorBackground[] = {-1,-1,-1,0};
+        colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',1)] call FUNC(interact));
     };
     class app3: ITC_LAND_RscButton {
-    idc = 15602;
-    x = "0.200937 * safezoneW + safezoneX";
-    y = "0.489 * safezoneH + safezoneY";
-    w = "0.0257812 * safezoneW";
-    h = "0.044 * safezoneH";
-    colorBackground[] = {-1,-1,-1,0};
-    colorActive[] = {-1,-1,-1,-1};
+        idc = 15602;
+        x = "0.200937 * safezoneW + safezoneX";
+        y = "0.489 * safezoneH + safezoneY";
+        w = "0.0257812 * safezoneW";
+        h = "0.044 * safezoneH";
+        colorBackground[] = {-1,-1,-1,0};
+        colorActive[] = {-1,-1,-1,-1};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,-1};
         action = QUOTE([ARR_2('app',2)] call FUNC(interact));
     };
     class app4: ITC_LAND_RscButton {
-    idc = 15603;
-    x = "0.200937 * safezoneW + safezoneX";
-    y = "0.533 * safezoneH + safezoneY";
-    w = "0.0257812 * safezoneW";
-    h = "0.055 * safezoneH";
-    colorBackground[] = {-1,-1,-1,0};
-    colorActive[] = {-1,-1,-1,0};
+        idc = 15603;
+        x = "0.200937 * safezoneW + safezoneX";
+        y = "0.533 * safezoneH + safezoneY";
+        w = "0.0257812 * safezoneW";
+        h = "0.055 * safezoneH";
+        colorBackground[] = {-1,-1,-1,0};
+        colorActive[] = {-1,-1,-1,0};
         colorBackgroundActive[] = {-1,-1,-1,-1};
         colorFocused[] = {-1,-1,-1,0};
         action = QUOTE([ARR_2('app',3)] call FUNC(interact));

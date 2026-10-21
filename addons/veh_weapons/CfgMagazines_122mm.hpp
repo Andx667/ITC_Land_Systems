@@ -2,8 +2,8 @@
         author = "Toadball";
         displayName = CSTRING(g122hex_DisplayName);
         displayNameShort = CSTRING(g122hex_DisplayNameShort);
-    ammo = "itc_land_122mm";
-    itc_land_submunition = "itc_land_122mm_helper";
+        ammo = "itc_land_122mm";
+        itc_land_submunition = "itc_land_122mm_helper";
         itc_land_charge_format = "itc_land_g122hex_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_122\list.sqf);
     };
@@ -17,8 +17,8 @@
         author = "Toadball";
         displayName = CSTRING(g122smo_DisplayName);
         displayNameShort = CSTRING(g122smo_DisplayNameShort);
-    itc_land_submunition = "itc_land_122mm_smoke";
-    ammo = "itc_land_122mm_inert";
+        itc_land_submunition = "itc_land_122mm_smoke";
+        ammo = "itc_land_122mm_inert";
         itc_land_charge_format = "itc_land_g122smo_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_122\list.sqf);
     };
@@ -32,7 +32,7 @@
         author = "Toadball";
         displayName = CSTRING(g122lgm_DisplayName);
         displayNameShort = CSTRING(g122lgm_DisplayNameShort);
-    ammo = "itc_land_122mm";
+        ammo = "itc_land_122mm";
         itc_land_charge_format = "itc_land_g122lgm_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_122\list.sqf);
     };
@@ -46,8 +46,8 @@
         author = "Toadball";
         displayName = CSTRING(g122ill_DisplayName);
         displayNameShort = CSTRING(g122ill_DisplayNameShort);
-    itc_land_submunition = "itc_land_122mm_illum";
-    ammo = "itc_land_122mm_inert";
+        itc_land_submunition = "itc_land_122mm_illum";
+        ammo = "itc_land_122mm_inert";
         itc_land_charge_format = "itc_land_g122ill_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_122\list.sqf);
     };
@@ -58,7 +58,7 @@
     class itc_land_g122ill_chg5: itc_land_g122ill { initSpeed = 400; itc_land_CountInAH = 0;  };
 
 
-  class itc_land_g122icm: itc_land_how_mag {
+    class itc_land_g122icm: itc_land_how_mag {
         author = "Toadball";
         displayName = CSTRING(g122icm_DisplayName);
         ammo = "itc_land_122mm_inert";
