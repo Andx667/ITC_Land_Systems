@@ -1,4 +1,6 @@
-# ITC Land Systems
+# ITC Land Systems [BETA]
+
+**Beta status:** ITC Land Systems is in beta. Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the issue tracker (see Source & Issues below).
 
 **ITC Land Systems** (ITC) adds and improves Arma 3's land-based weapon systems: artillery with real fire control, air and missile defence, counter-battery radar, active protection, guided munitions and UAVs.
 

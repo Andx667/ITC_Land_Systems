@@ -1,4 +1,4 @@
-# ITC Land Systems
+# ITC Land Systems [BETA]
 
 <p align="center">
     <a href="https://github.com/Andx667/ITC_Land_Systems/issues">
@@ -21,7 +21,9 @@ The project is entirely __open-source__ and any contributions are welcome.
 Discord: <https://discord.gg/ag4v6kxYAa>
 
 > [!NOTE]
-> ITC Land Systems is in pre-release (0.1.0). The current build is being tested in game, see [issue #3](https://github.com/Andx667/ITC_Land_Systems/issues/3). A Steam Workshop release follows once that is done.
+> ITC Land Systems is in __beta__ (0.1.0). Expect bugs and unfinished content, and please report them on the issue tracker.
+>
+> The project is in pre-release. The current build is being tested in game, see [issue #3](https://github.com/Andx667/ITC_Land_Systems/issues/3). A Steam Workshop release follows once that is done.
 
 ## Features
 

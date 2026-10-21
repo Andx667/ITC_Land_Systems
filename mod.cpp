@@ -1,4 +1,4 @@
-name            = "ITC Land Systems v0.0.0";    // Name of your mod
+name            = "ITC Land Systems v0.0.0 [BETA]";    // Name of your mod
 author          = "ITC Addons Team";            // Affects Arma 3 Launcher, when the mod are loaded as local
 logo            = "itc-combo.paa";              // Logo displayed in the main menu
 logoOver        = "itc-combo.paa";              // When the mouse is over, in the main menu
