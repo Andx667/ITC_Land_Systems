@@ -6,3 +6,24 @@ workshop = [
     "3499977893", # Advanced Development Tools
 ]
 mission = "itc_land_vr_test.VR"
+
+# Used by tools/debugMP.bat: a local dedicated server and two clients
+[server]
+extends = "default"
+parameters = [
+    "-server",
+    "-port=2302",
+    "-loadMissionToMemory",
+    "-filePatching",
+    #"-cfg=E:\\SteamLibrary\\steamapps\\common\\Arma 3\\basic.cfg",
+    "-config=E:\\SteamLibrary\\steamapps\\common\\Arma 3\\server.cfg"
+]
+
+[player]
+extends = "default"
+parameters = [
+    "-world=empty",
+    "-connect=127.0.0.1",
+    "-port=2302",
+    "-window"
+]
