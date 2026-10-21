@@ -21,7 +21,7 @@ params ["_display"];
 ITC_CURVEHICLE
 
 private _allDamage = getAllHitPointsDamage _vehicle;
-_allDamage params ["", "_name", "_status"];
+_allDamage params ["_hitPoints", "_selections", "_status"];
 
 private _resString = "";
 
@@ -30,7 +30,12 @@ for "_i" from 0 to (count _status - 1) step 1 do {
   private _stat = LLSTRING(Artillery_StatusOk);
   if(_status select _i > 0) then {_col = "ff7f00"; _stat = LLSTRING(Artillery_StatusDamaged);};
   if(_status select _i > 0.5) then {_col = "ff0000"; _stat = LLSTRING(Artillery_StatusFailed);};
-  _resString = _resString + format["<t align='left' color='#%1'>%2    %3</t>",_col,_name select _i, _stat] + "<br/>";
+  // ACE Repair ships a localized name for the common hitpoint classes (HitEngine -> "Engine")
+  private _hitPoint = _hitPoints select _i;
+  private _key = "STR_ACE_Repair_" + _hitPoint;
+  private _label = [_selections select _i, _hitPoint] select (_hitPoint != "");
+  if (isLocalized _key) then {_label = localize _key};
+  _resString = _resString + format["<t align='left' color='#%1'>%2    %3</t>",_col,_label, _stat] + "<br/>";
 };
 
 (_display displayCtrl 2100) ctrlSetStructuredText parseText _resString;
