@@ -8,35 +8,36 @@
  *
  * Arguments:
  * 0: Tablet weapon config class name <String>
- * 1: Unit using the tablet <Object> (default: player)
  *
  * Return Value:
  * None
  *
  * Example:
- * ["itc_land_tablet_bcs"] call itc_land_tablet_fnc_open
+ * ["itc_land_tablet_fdc"] call itc_land_tablet_fnc_open
  *
  * Public: No
  */
 
-params ["_tabletClass",["_tabletOwner",player]];
+params ["_tabletClass"];
 createDialog "itc_land_tablet";
 
 ITC_CURVEHICLE
 private _display = findDisplay 32562;
-if(!(_vehicle isKindOf "Man")) then {
-  //_tabletClass = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "itc_land" >> "tablet")  call BIS_fnc_getCfgData;
+private _apps = (configFile >> "CfgWeapons" >> _tabletClass >> "apps") call BIS_fnc_getCfgData;
+_vehicle setVariable [QGVAR(apps), _apps];
+// Resume the last app only if this tablet has it (another tablet may have been used here before)
+private _lastApp = _vehicle getVariable [QGVAR(app), "home"];
+if (_lastApp != "home" && {!(_lastApp in _apps)}) then {
+  _vehicle setVariable [QGVAR(page), nil];
+  _lastApp = "home";
 };
-_vehicle setVariable [QGVAR(apps), (configFile >> "CfgWeapons" >> _tabletClass >> "apps")  call BIS_fnc_getCfgData];
-//_vehicle setVariable ["itc_land_tablet_app", (_vehicle getVariable "itc_land_tablet_apps") # 0];
-if(isNil{_vehicle getVariable QGVAR(app)}) then {
-  _vehicle setVariable [QGVAR(app), "home"];
-};
+_vehicle setVariable [QGVAR(app), _lastApp];
 private _page = if(isNil{_vehicle getVariable QGVAR(page)}) then [{""},{"OPEN"}];
 [{
   _this select 0 params ["_display","_vehicle", "_app", "_page"];
-  if(!dialog || !alive player) then { //ensure player is alive and dialog is open
+  if (isNull _display || {!alive player}) exitWith { //stop once the tablet is closed or the player died
     [_this select 1] call CBA_fnc_removePerFrameHandler;
+    if (!isNull _display) then {_display closeDisplay 2};
   };
 
   [_display] call FUNC(render);

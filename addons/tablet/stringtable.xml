@@ -34,11 +34,23 @@
         <Key ID="STR_itc_land_tablet_Bcs_BatterySetupButton">
             <English>Bty Setup</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Direction">
+            <English>Direction</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Distance">
+            <English>Distance</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Elevation">
+            <English>Elevation</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_Engagement">
             <English>%1 ENGAGEMENT</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_FdcSuite">
             <English>FDC Suite</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Grid">
+            <English>Grid</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_LocationStores">
             <English>Location Stores</English>

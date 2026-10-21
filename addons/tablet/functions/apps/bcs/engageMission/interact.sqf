@@ -28,7 +28,7 @@ params ["_action", "_listBox", "_target", "_value"];
 MISSION;MISSIONPARAMS;
 
 if(_action == "back") then {
-  (vehicle player) setVariable [QGVAR(page), "newMission"];
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "newMission"];
 };
 
 if(_action == "save") then {
@@ -37,5 +37,5 @@ if(_action == "save") then {
   _mission set [3, _engagePage];
   SAVEMISSION(_mission);
   _mission set [1, "solutionMission"];
-  (vehicle player) setVariable [QGVAR(page), "solutionMission"];
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "solutionMission"];
 };

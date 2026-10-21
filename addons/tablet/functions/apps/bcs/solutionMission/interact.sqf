@@ -26,10 +26,10 @@ params ["_action"];
 MISSION;MISSIONPARAMS;
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];
 if(_action == "back") then {
-  (vehicle player) setVariable [QGVAR(page), "engageMission"];
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "engageMission"];
 };
 if(_action == "adjust") then {
-  (vehicle player) setVariable [QGVAR(page), "adjustMission"];
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "adjustMission"];
 };
 
 if(_action == "solup") then {
@@ -50,6 +50,6 @@ if("eom" in _action) then {
     GVAR(bcs_locations) pushBack [_ident, [_tgtPos] call EFUNC(common,posToGrid), _tgtPos , round (_tgtPos # 2), false];
   };
   GVAR(bcs_missions) deleteAt GVAR(bcs_mission_index);
-  (vehicle player) setVariable [QGVAR(page), "locStores"];
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "locStores"];
 };
 [findDisplay 32562, false] call itc_land_tablet_fnc_pageInit;

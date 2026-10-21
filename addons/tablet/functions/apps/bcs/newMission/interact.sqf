@@ -33,7 +33,7 @@ if(_action == "targetType") then {
   private _showFields = [];
   switch (_typeIndex) do {
     case 0: {
-      _labelTexts = ["Grid","Elevation","",""];
+      _labelTexts = [LLSTRING(Bcs_Grid),LLSTRING(Bcs_Elevation),"",""];
       _showFields = [6019,6101,6601];
     };
     case 1: {
@@ -41,11 +41,11 @@ if(_action == "targetType") then {
       _showFields = [6403,6404,6019,6101];
     };
     case 2: {
-      _labelTexts = ["Direction","Distance","VI",""];
+      _labelTexts = [LLSTRING(Bcs_Direction),LLSTRING(Bcs_Distance),"VI",""];
       _showFields = [6403,6019,6101];
     };
     case 3: {
-      _labelTexts = ["Direction","Distance","VI",""];
+      _labelTexts = [LLSTRING(Bcs_Direction),LLSTRING(Bcs_Distance),"VI",""];
       _showFields = [6403];
     };
   };
@@ -64,12 +64,12 @@ if(_action == "load") then {
 };
 
 if(_action == "save") then {
-  _targetPage = [_typeIndex, lbCurSel 6101, UITEXT(6401),UITEXT(6402),UITEXT(6403),UITEXT(6404)];
+  private _targetPage = [_typeIndex, lbCurSel 6101, UITEXT(6401),UITEXT(6402),UITEXT(6403),UITEXT(6404)];
   private _targetPos = _targetPage call EFUNC(bcs,calculateTarget);
   _targetPage set [6, _targetPos];
   _mission set [2, _targetPage];
   _mission set [0, UITEXT(6400)];
-  SAVEMISSION(_mission);
   _mission set [1, "engageMission"];
-  (vehicle player) setVariable [QGVAR(page), "engageMission"];
+  SAVEMISSION(_mission);
+  ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "engageMission"];
 };
