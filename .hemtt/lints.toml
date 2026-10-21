@@ -1,0 +1,16 @@
+# Lint configuration for `hemtt check` (see https://hemtt.dev, "Lint Configuration").
+# These bug classes were cleaned up project-wide; failing the check keeps them from coming back.
+
+[sqf]
+command_case = "Error"          # L-S04
+invalid_args = "Error"          # L-S12
+undefined = "Error"             # L-S13
+var_all_caps = "Error"          # L-S17
+function_undefined = "Error"    # L-S29
+direct_private = "Error"        # L-S38
+
+[config]
+math_could_be_unquoted = "Error" # L-C12
+
+[stringtables]
+sorted = "Error"                # L-L01, fix with `hemtt ln sort`

@@ -36,5 +36,6 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
+- CI: key HEMTT lints are now errors, a new check rejects macros inside string literals, and Dependabot keeps the GitHub Actions up to date.
 - COBRA is now server-authoritative: only the server tracks shells and runs the scan, and it publishes COBRAs, firing positions, engagements and predicted impacts to clients (previously every machine ran its own simulation).
 - Rebuilt the repo on HEMTT with modern CI/CD, replacing the old build tooling

@@ -15,4 +15,6 @@ jobs:
     - name: Validate Stringtables
       run: python3 tools/stringtable_validator.py
     - name: Validate Config
-      run: python tools/config_style_checker.py
+      run: python3 tools/config_style_checker.py
+    - name: Check for macros inside strings
+      run: python3 tools/macro_in_string_checker.py
