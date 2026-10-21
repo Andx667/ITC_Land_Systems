@@ -62,11 +62,10 @@ publicVariable "itc_test_board";
 ];
 ["itc_test_artillery", [6160, 7040, 0], "Artillery park (5, 11, 12, 15)"] call itc_test_fnc_marker;
 
-// --- station: packing (an item placed by "another player" = owned by the server) --------
+// --- station: packing (packed UAVs are in the player loadout; empty Strider for the commander optic) ---
 
-["ITC_Land_B_UAV_AR2i", [6170, 7110, 0], 0] call itc_test_fnc_spawn;
-["ITC_Land_B_RemoteGLTD", [6176, 7116, 0], 0] call itc_test_fnc_spawn;
-["itc_test_packing", [6173, 7113, 0], "Packing (10)"] call itc_test_fnc_marker;
+["itc_land_I_StriderRV", [6176, 7124, 0], 0] call itc_test_fnc_spawn;
+["itc_test_packing", [6173, 7113, 0], "Packing (10), empty Strider"] call itc_test_fnc_marker;
 
 // --- station: VLS ------------------------------------------------------------------------
 

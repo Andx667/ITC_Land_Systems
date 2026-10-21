@@ -8,7 +8,7 @@ params ["_player"];
 itc_test_fnc_loadout = {
     player addBackpack "B_Kitbag_mcamo";
     player linkItem "B_UavTerminal";
-    {player addItem _x} forEach ["itc_land_tablet_fdc", "itc_land_tablet_spg", "itc_land_tablet_rover"];
+    {player addItem _x} forEach ["itc_land_tablet_fdc", "itc_land_tablet_spg", "itc_land_tablet_rover", "ITC_Land_B_AR2i_Packed", "ITC_Land_B_RemoteGLTD_Packed", "ITC_Land_B_AL6_Packed"];
 };
 call itc_test_fnc_loadout;
 _player addEventHandler ["Respawn", {call itc_test_fnc_loadout}];
@@ -23,7 +23,7 @@ _player addEventHandler ["Respawn", {call itc_test_fnc_loadout}];
 player createDiaryRecord ["Diary", ["Test stations", "
 Numbers are the sections of the checklist in GitHub issue #3. Use the control board next to the arsenal for teleports, scenarios and diagnostics.<br/><br/>
 <marker name='itc_test_artillery'>Artillery park</marker>: Sholef 2, Sochor 2, Hammer 2 (mod 0/1), Seara 2, Zamak MRLi. SPH loader (5, 15), gunner sights (15), mounted tablets (11), Falat (12). Two players: one gunner, one driver/commander.<br/>
-<marker name='itc_test_packing'>Packing</marker>: deployed AR-2 and Remote GLTD placed by the server (10). Packed items are in the arsenal.<br/>
+<marker name='itc_test_packing'>Packing</marker>: an empty Strider for the commander optic. Packed AR-2i, Remote GLTD and AL-6 are in your inventory: unpack, control, pack again (10).<br/>
 <marker name='itc_test_vls'>VLS</marker>: two empty launchers for players, one with an AI gunner for the unguided AI shot (9).<br/>
 <marker name='itc_test_cobra'>COBRA</marker>: two radars facing the enemy battery, siren at the impact area (3). Use 'Barrage on COBRA impact area'.<br/>
 <marker name='itc_test_ciws'>CIWS</marker>: Praetorian 2 and Centurion 2 (8). Use 'Barrage near CIWS', then 'Show AI units and groups'. Zeus: take the mission-start Zeus or create a new one mid-mission, place a radar vehicle.<br/>
