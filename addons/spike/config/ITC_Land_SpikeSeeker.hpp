@@ -200,9 +200,9 @@ class ITC_Land_SpikeSeeker {
         class ManualText: VisionMode {
             idc = 1016;
             style = 2;
-            x = "27 *   (safezoneW / 64) +  (safeZoneX)";
+            x = "24 *   (safezoneW / 64) +  (safeZoneX)";
             y = "10 *   (safezoneH / 40) +  (safeZoneY)";
-            w = "10 *   (safezoneW / 64)";
+            w = "16 *   (safezoneW / 64)";
             h = "3 *    (safezoneH / 40)";
             text = CSTRING(ManualText_Text);
             font = "EtelkaMonospacePro";

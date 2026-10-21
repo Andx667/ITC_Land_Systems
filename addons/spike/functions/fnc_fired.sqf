@@ -33,6 +33,11 @@ params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projecti
 // The seeker camera and view-based aiming below are for the controlled player only, not AI units local to this machine
 if (!local _unit || _unit != ace_player) exitWith {};
 
+// A camera left over from the previous flight (missile hit, launcher reloaded) must not stay active
+if (!isNil "itc_land_spike_camera") then {
+    call FUNC(stopCamera);
+};
+
 itc_land_spike_currentMissile = _projectile;
 itc_land_spike_launchTime = cba_missionTime;
 itc_land_spike_activationTime = cba_missionTime;
