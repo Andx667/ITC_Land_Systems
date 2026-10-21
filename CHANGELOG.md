@@ -33,6 +33,8 @@ start a fresh empty [Unreleased] section above it. -->
 - Addons that extend ACE config classes (interaction menus, items, explosives, HuntIR, missile guidance) now list those ACE addons in `requiredAddons`, so the load order is guaranteed.
 - `veh_uav06` no longer claims the vanilla AL-6 classes in its `units[]`.
 - Defender and Rhea magazines no longer reference guidance functions that never existed.
+- CIWS: decoys for incoming shells no longer leave their AI crew and group behind. Zeus-placed radar vehicles get their radar switched on also for curators created mid-mission, on the machine that owns the vehicle.
+- VLS: guidance reads the launch target from the vehicle instead of two shared globals, and an AI-fired round without a target flies unguided instead of erroring.
 
 ### Changed
 

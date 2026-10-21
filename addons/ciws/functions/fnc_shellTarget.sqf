@@ -43,7 +43,9 @@
   _target setVelocity (velocity _projectile);
   _target setMass 0;
   _target setObjectTexture [0,""];
+  // The crew gives the decoy a side so CIWS AI treats it as hostile
   createVehicleCrew _target;
+  (group driver _target) deleteGroupWhenEmpty true;
   driver _target disableAI "ALL";
   gunner _target disableAI "ALL";
   _target deleteVehicleCrew (gunner _target);
@@ -53,10 +55,12 @@
       private _descending = (velocity _projectile # 2 < 0);
       if (!alive _projectile || (!alive _target && _canIntercept)) exitWith {
           deleteVehicle _projectile;
+          deleteVehicleCrew _target;
           deleteVehicle _target;
           [_this select 1] call CBA_fnc_removePerFrameHandler;
       };
       if(!_canIntercept && alive _target && _descending) then {
+        deleteVehicleCrew _target;
         deleteVehicle _target;
       } else {
         _target setPos (_projectile modelToWorld [1,-5,1]);

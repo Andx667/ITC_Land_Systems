@@ -28,6 +28,10 @@ Locality fixes:
 - [ ] Spike fired by an AI unit (no camera on the AI's machine) and by a player.
 - [ ] SAM-35 fired from a client explodes.
 - [ ] Packing a deployed item drops the packed item where it stood.
+- [ ] CIWS: Zeus-placed radar vehicles have their radar on, also with a curator created
+      mid-mission; a long barrage leaves no orphan AI units or groups.
+- [ ] VLS: launches from the dialog still hit; an AI-fired VLS round flies unguided
+      without script errors.
 
 Settings, localization and dependencies:
 
@@ -61,11 +65,10 @@ validation errors (never shown to players) stay English. Acronyms and product na
 
 ## 3. Multiplayer / locality (remaining low-priority audit items)
 
-- [ ] CIWS decoy per bullet: each tracked round creates a networked vehicle + crew.
-- [ ] CIWS Zeus hook runs once: `allCurators` handlers added at postInit only and
-      broadcast from every machine; curators created later are missed.
-- [ ] VLS launch data in two globals (`itc_land_target_test`, `itc_land_target_IAtest`)
-      while the same data is already per vehicle (`itc_land_vls_targetPos`/`targetAngl`).
+- [ ] CIWS decoys: every interceptable shell (artillery/mortar/rocket, not every
+      bullet) spawns a networked decoy vehicle with an AI crew so CIWS AI sees a
+      hostile target. The crew leak is fixed; profile a large barrage in MP to see
+      whether the per-shell vehicle/group creation is acceptable.
 
 Only if the datalink gets a live caller (nothing uses it today):
 

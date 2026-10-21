@@ -25,9 +25,7 @@ private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
 
 _vehicle setVariable ["itc_land_vls_targetAngl",  parseNumber (_targetAngl # 1), true];
-itc_land_target_IAtest = _vehicle getVariable "itc_land_vls_targetAngl";
 
 _vehicle setVariable ["itc_land_vls_targetPos", _targetPos, true];
-itc_land_target_test = _vehicle getVariable "itc_land_vls_targetPos";
 
 _vehicle fire (currentWeapon _vehicle);
