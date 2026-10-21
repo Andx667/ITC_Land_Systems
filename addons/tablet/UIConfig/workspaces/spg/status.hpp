@@ -3,7 +3,7 @@ class page_spg_status:ITC_LAND_Workspace {
   class Controls {
     class status_dam_title: ITC_LAND_RscText {
         idc = 2010;
-        text = "Systems"; //--- ToDo: Localize;
+        text = CSTRING(status_dam_title_Text); //--- ToDo: Localize;
         x = "0.355625 * safezoneW + safezoneX";
         y = "0.236 * safezoneH + safezoneY";
         w = "0.0721875 * safezoneW";
@@ -19,7 +19,7 @@ class page_spg_status:ITC_LAND_Workspace {
     };
     class status_info_title: ITC_LAND_RscText {
         idc = 2011;
-        text = "Information"; //--- ToDo: Localize;
+        text = CSTRING(status_info_title_Text); //--- ToDo: Localize;
         x = "0.536094 * safezoneW + safezoneX";
         y = "0.236 * safezoneH + safezoneY";
         w = "0.0721875 * safezoneW";
@@ -28,7 +28,7 @@ class page_spg_status:ITC_LAND_Workspace {
     };
     class status_info_fuel: ITC_LAND_RscText {
         idc = 2012;
-        text = "Fuel level"; //--- ToDo: Localize;
+        text = CSTRING(status_info_fuel_Text); //--- ToDo: Localize;
         x = "0.536094 * safezoneW + safezoneX";
         y = "0.291 * safezoneH + safezoneY";
         w = "0.0464063 * safezoneW";

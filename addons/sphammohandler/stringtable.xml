@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="sphammohandler">
+        <Key ID="STR_itc_land_sphammohandler_AL_COUNT_Text">
+            <English>COUNT:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_AL_Fuze_Text">
+            <English>FUZE:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_AL_GUIDED_Text">
+            <English>GUIDED:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_AL_Header_Text">
+            <English>AUTOLOADER SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_AL_Round_Text">
+            <English>SHELL:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_AmmoCharge">
+            <English>%1 CHG: %2</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_ChargeOf">
+            <English>CHARGE: %1 / %2</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_LaserCode">
+            <English>CODE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_LaserCodes">
+            <English>CODES: %1/%2</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Load">
+            <English>LOAD</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Prepare">
+            <English>PREPARE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_AttachingLanyard">
+            <English>ATTACHING LANYARD</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_ClosingBreech">
+            <English>CLOSING BREECH</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_InsertingCharge">
+            <English>INSERTING CHARGE</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_InsertingPrimer">
+            <English>INSERTING PRIMER</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_PullingShell">
+            <English>PULLING SHELL</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_RammingShell">
+            <English>RAMMING SHELL</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_ReadyToFire">
+            <English>READY TO FIRE</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_RemovingCharge">
+            <English>REMOVING CHARGE</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_RemovingRound">
+            <English>REMOVING ROUND</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_SafingWeapon">
+            <English>SAFING WEAPON</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_StowingRound">
+            <English>STOWING ROUND</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_Waiting">
+            <English>WAITING</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Unload">
+            <English>UNLOAD</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_altText_Text">
+            <English>Elev:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_ammoFuzeSelect_Text">
+            <English>POINT DETONATE</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_applyButton_Text">
+            <English>APPLY SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_charge_number_Text">
+            <English>CHARGE:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_chargebutton_label_Text">
+            <English>CHARGE</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_countText_Text">
+            <English>Count:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_fuzeTime_Text">
+            <English>Time:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_fuze_type_Text">
+            <English>Fuze:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_gridText_Text">
+            <English>Grid:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_laserCode_Text">
+            <English>Code:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_loadButton_Text">
+            <English>LOAD</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_round_name_Text">
+            <English>PREPARE:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_status_Text">
+            <English>STATUS:</English>
+        </Key>
+    </Package>
+</Project>

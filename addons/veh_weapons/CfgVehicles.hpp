@@ -3,7 +3,7 @@ class CfgVehicles {
   class ITC_155Extra: Parachute_02_base_F {
     castDriverShadow = 0;
     destrType = "DestructDefault";
-    displayName = "155Extra";
+    displayName = CSTRING(155Extra_DisplayName);
     model = "\z\ace\addons\huntir\data\huntir.p3d";
     scope = 1;
     class HitPoints {
@@ -37,6 +37,6 @@ class CfgVehicles {
     };
   };
   class ITC_155Falat: ITC_155Extra {
-    displayName = "155Falat";
+    displayName = CSTRING(155Falat_DisplayName);
   };
 };

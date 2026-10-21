@@ -7,8 +7,8 @@ class CfgWeapons {
   class ITC_Land_UAV06_Packed_base: itc_land_packableItem {
         scope = 0;
         author = "Toadball";
-        displayName = "AL-6 Pelican (Packed)";
-        descriptionShort = "AL-6 Pelican packed for carriage";
+        displayName = CSTRING(UAV06_Packed_base_DisplayName);
+        descriptionShort = CSTRING(UAV06_Packed_base_DescriptionShort);
         model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
         class ItemInfo: CBA_MiscItem_ItemInfo {
                   mass = 90;

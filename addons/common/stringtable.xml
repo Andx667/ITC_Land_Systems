@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="common">
+        <Key ID="STR_itc_land_common_LoaderFuze">
+            <English>FUZE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_common_LoaderGuidance">
+            <English>GUIDANCE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_common_LoaderLoad">
+            <English>LOAD: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_common_RoundsComplete">
+            <English>%1 ( %2 / %3 ROUNDS COMPLETE )</English>
+        </Key>
+        <Key ID="STR_itc_land_common_attributes_DisplayName">
+            <English>ITC Land Options</English>
+        </Key>
+    </Package>
+</Project>

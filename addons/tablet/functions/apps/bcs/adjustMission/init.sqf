@@ -3,7 +3,7 @@
 /*
  * Author: ToadBall, Yax, VKing
  * Initializes the BCS adjustMission page: shows the adjustMission workspace panel and
- * sets its header text to "Adjust Mission".
+ * sets its header text to LLSTRING(Bcs_AdjustMission).
  *
  * Arguments:
  * 0: Tablet dialog display <Display>
@@ -22,4 +22,4 @@ params ["_display"];
 #include "..\bcsDefines.hpp"
 ctrlShow [13507, true];
 
-[_display, IDC_workspace_header, "Adjust Mission"] call EFUNC(common,ctrlSetText);
+[_display, IDC_workspace_header, LLSTRING(Bcs_AdjustMission)] call EFUNC(common,ctrlSetText);

@@ -45,12 +45,12 @@ class CfgVehicles {
     class itc_land_SPH02_base: O_MBT_02_arty_base_F {
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_SPHammohandler {
-                displayName = "Open Ammo Handling Interface";
+                displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = "( gunner _target ) == ACE_Player";
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };
             class ITC_Land_CommanderTablet {
-                displayName = "Open Mounted Tablet";
+                displayName = CSTRING(CommanderTablet_DisplayName);
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( commander _target ) == ACE_Player));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
@@ -86,7 +86,7 @@ class CfgVehicles {
     };
     class itc_land_o_sph_sochor2: itc_land_SPH02_base {
         author = "Toadball";
-        displayName = "2S9 mod. 0 Sochor 2";
+        displayName = CSTRING(o_sph_sochor2_DisplayName);
         mapSize = 12.09;
         textureList[] = {"Hex",1};
         editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\O_MBT_02_arty_F.jpg";

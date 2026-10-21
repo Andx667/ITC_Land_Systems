@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_seara">
+        <Key ID="STR_itc_land_veh_seara_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_seara_Olive_DisplayName">
+            <English>Olive</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_seara_Sand_DisplayName">
+            <English>Sand</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_seara_b_mlrs_seara2_DisplayName">
+            <English>M5 mod. 0 Seara 2</English>
+        </Key>
+    </Package>
+</Project>

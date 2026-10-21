@@ -35,7 +35,7 @@ class CfgVehicles {
         artilleryScanner = 0;
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_CommanderTablet {
-                displayName = "Open Mounted Tablet";
+                displayName = CSTRING(CommanderTablet_DisplayName);
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( gunner _target ) == ACE_Player));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
@@ -71,7 +71,7 @@ class CfgVehicles {
     };
     class itc_land_b_mlrs_seara2 : itc_land_MLRS01_base {
         author = "Yax";
-        displayName = "M5 mod. 0 Seara 2";
+        displayName = CSTRING(b_mlrs_seara2_DisplayName);
         scope = 2;
         scopeCurator = 2;       
         editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_MBT_01_mlrs_F.jpg";
@@ -87,13 +87,13 @@ class CfgVehicles {
         };
         class TextureSources {
             class Sand  {
-                displayName = "Sand";
+                displayName = CSTRING(Sand_DisplayName);
                 author = "Bohemia Interactive";
                 textures[] = {"A3\armor_f_gamma\MBT_01\Data\MBT_01_body_CO.paa","A3\armor_f_gamma\MBT_01\data\MBT_01_MLRS_co.paa","A3\Armor_F\Data\camonet_NATO_Desert_CO.paa"};
                 factions[] = {"BLU_F"};
             };
             class Olive {
-                displayName = "Olive";
+                displayName = CSTRING(Olive_DisplayName);
                 author = "Bohemia Interactive";
                 textures[] = {"A3\Armor_F_Exp\MBT_01\data\MBT_01_body_olive_CO.paa","A3\Armor_F_Exp\MBT_01\data\MBT_01_MLRS_olive_co.paa","A3\Armor_F\Data\camonet_NATO_Green_CO.paa"};
                 factions[] = {"BLU_T_F"};

@@ -27,9 +27,9 @@ private _resString = "";
 
 for "_i" from 0 to (count _status - 1) step 1 do {
   private _col = "acff99";
-  private _stat = "OK";
-  if(_status select _i > 0) then {_col = "ff7f00"; _stat = "DAM";};
-  if(_status select _i > 0.5) then {_col = "ff0000"; _stat = "FAIL";};
+  private _stat = LLSTRING(Artillery_StatusOk);
+  if(_status select _i > 0) then {_col = "ff7f00"; _stat = LLSTRING(Artillery_StatusDamaged);};
+  if(_status select _i > 0.5) then {_col = "ff0000"; _stat = LLSTRING(Artillery_StatusFailed);};
   _resString = _resString + format["<t align='left' color='#%1'>%2    %3</t>",_col,_name select _i, _stat] + "<br/>";
 };
 

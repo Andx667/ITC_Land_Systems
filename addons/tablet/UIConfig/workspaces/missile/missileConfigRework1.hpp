@@ -3,7 +3,7 @@ class page_msl_config:itc_land_workspace {
   class Controls {
     class fcs_mode_title: ITC_LAND_RscText {
         idc = 13710;
-        text = "LFCS Solutions:";
+        text = CSTRING(Controls_fcs_mode_title_Text);
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.235 * safezoneH + safezoneY;
         w = 0.15 * safezoneW;
@@ -21,7 +21,7 @@ class page_msl_config:itc_land_workspace {
     };  
     class msl_type: ITC_LAND_RscText {
       idc = 13712;
-      text = "Munition:";
+      text = CSTRING(msl_type_Text);
       x = 0.37625 * safezoneW + safezoneX;
       y = 0.45 * safezoneH + safezoneY;   
       w = 0.07 * safezoneW;
@@ -37,7 +37,7 @@ class page_msl_config:itc_land_workspace {
     };
     class fuse_type: ITC_LAND_RscText {
       idc = 13714;
-      text = "Fuse:";
+      text = CSTRING(fuse_type_Text);
       x = 0.5 * safezoneW + safezoneX;
       y = 0.45 * safezoneH + safezoneY;   
       w = 0.07 * safezoneW;
@@ -53,7 +53,7 @@ class page_msl_config:itc_land_workspace {
     };  
     class target_grid: ITC_LAND_RscText {
       idc = 13716;
-      text = "TGT Grid:";
+      text = CSTRING(fci_guideinputs_tgtgrid_text_Text);
       x = 0.37625 * safezoneW + safezoneX;
       y = 0.483 * safezoneH + safezoneY;      
       w = 0.07 * safezoneW;
@@ -69,7 +69,7 @@ class page_msl_config:itc_land_workspace {
     };
     class fuse_setting: ITC_LAND_RscText {
       idc = 13718;
-      text = "Time:";
+      text = CSTRING(fci_fuzeinputs_time_text_Text);
       x = 0.5 * safezoneW + safezoneX;
       y = 0.483 * safezoneH + safezoneY;      
       w = 0.07 * safezoneW;
@@ -85,7 +85,7 @@ class page_msl_config:itc_land_workspace {
     };  
     class target_el: ITC_LAND_RscText {
       idc = 13720;
-      text = "TGT Elev:";
+      text = CSTRING(target_el_Text);
       x = 0.37625 * safezoneW + safezoneX;
       y = 0.516 * safezoneH + safezoneY;      
       w = 0.07 * safezoneW;
@@ -101,7 +101,7 @@ class page_msl_config:itc_land_workspace {
     };
     class las_code: ITC_LAND_RscText {
       idc = 13722;
-      text = "LAS Code:";
+      text = CSTRING(las_code_Text);
       x = 0.5 * safezoneW + safezoneX;
       y = 0.516 * safezoneH + safezoneY;      
       w = 0.07 * safezoneW;
@@ -117,7 +117,7 @@ class page_msl_config:itc_land_workspace {
     };
     class fcs_calc: ITC_LAND_RscButton {
       idc = 13730;
-      text = "CALC SLN";
+      text = CSTRING(fcs_calc_Text);
       x = 0.54 * safezoneW + safezoneX;
       y = 0.549 * safezoneH + safezoneY;
       w = 0.0515625 * safezoneW;

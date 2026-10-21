@@ -28,7 +28,7 @@ class CfgVehicles {
   };
   class itc_land_b_defender2 : SAM_System_03_base_F {
     author = "Toadball";
-    displayName = "MIM-145 mod. 0 Defender 2";
+    displayName = CSTRING(b_defender2_DisplayName);
     editorSubcategory = "EdSubcat_AAs";
     side = 1;
     faction = "BLU_F";

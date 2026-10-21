@@ -51,7 +51,7 @@ _vehicle setVariable ["ITC_Land_SightEvent", "itc_land_onLoad_RscIGS_SPH", true]
         if (!(ctrlVisible 1700)) then {
             {[_display, _x, 0] call EFUNC(common,ctrlSetFade)} forEach [1700, 1701, 1702, 1703, 1704];
         };
-        (_display displayCtrl 1701) ctrlSetText format ["STATUS: %1", [_vehicle] call EFUNC(common,getGunStatusText)];
+        (_display displayCtrl 1701) ctrlSetText format [LLSTRING(Status), [_vehicle] call EFUNC(common,getGunStatusText)];
         ([_vehicle] call EFUNC(common,getLoaderReadout)) params ["_load", "_fuze", "_guidance"];
         (_display displayCtrl 1702) ctrlSetText _load;
         (_display displayCtrl 1703) ctrlSetText _fuze;
@@ -66,11 +66,11 @@ _vehicle setVariable ["ITC_Land_SightEvent", "itc_land_onLoad_RscIGS_SPH", true]
             {[_display, _x, 0] call EFUNC(common,ctrlSetFade)} forEach [1600, 1601, 1602, 1603, 1604, 1605];
         };
         // fire orders are not implemented yet, so the panel only shows placeholders
-        (_display displayCtrl 1600) ctrlSetText "FCI ORDERS";
-        (_display displayCtrl 1601) ctrlSetText "COUNT: -- N/A --";
-        (_display displayCtrl 1602) ctrlSetText "LOAD: -- N/A --";
-        (_display displayCtrl 1603) ctrlSetText "FUZE: -- N/A --";
-        (_display displayCtrl 1604) ctrlSetText "GUIDANCE: -- N/A --";
+        (_display displayCtrl 1600) ctrlSetText LLSTRING(FciOrders);
+        (_display displayCtrl 1601) ctrlSetText LLSTRING(CountNotAvailable);
+        (_display displayCtrl 1602) ctrlSetText LLSTRING(LoadNotAvailable);
+        (_display displayCtrl 1603) ctrlSetText LLSTRING(FuzeNotAvailable);
+        (_display displayCtrl 1604) ctrlSetText LLSTRING(GuidanceNotAvailable);
         (_display displayCtrl 1605) ctrlSetText "AZ/QD: -- N/A --";
     } else {
         {[_display, _x, 1] call EFUNC(common,ctrlSetFade)} forEach [1600, 1601, 1602, 1603, 1604, 1605];

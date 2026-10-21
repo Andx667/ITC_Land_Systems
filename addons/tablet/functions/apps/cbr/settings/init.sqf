@@ -3,7 +3,7 @@
 /*
  * Author: ToadBall, Yax, VKing
  * Initializes the CBR Settings page: shows the settings panel, populates the COBRA ID text field from
- * the player's stored ID, and sets the page header text to "Settings".
+ * the player's stored ID, and sets the page header text to LLSTRING(Cbr_Settings).
  *
  * Arguments:
  * 0: The tablet dialog's display <DISPLAY>
@@ -21,4 +21,4 @@
 params ["_display"];
 ctrlShow [13600, true];
 ctrlSetText [10400, player getVariable ["itc_land_cobra_id",""]];
-[_display, IDC_workspace_header, "Settings"] call EFUNC(common,ctrlSetText);
+[_display, IDC_workspace_header, LLSTRING(Cbr_Settings)] call EFUNC(common,ctrlSetText);

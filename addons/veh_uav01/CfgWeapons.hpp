@@ -7,8 +7,8 @@ class CfgWeapons {
     class ITC_Land_UAV_Packed_base: itc_land_packableItem {
         scope = 0;
         author = "Toadball";
-        displayName = "AR-2i Darter 2 (Packed)";
-        descriptionShort = "AR-2 Darter packed for carriage";
+        displayName = CSTRING(UAV_Packed_base_DisplayName);
+        descriptionShort = CSTRING(UAV_Packed_base_DescriptionShort);
         model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
         //picture = "\A3\Drones_F\Air_F_Gamma\UAV_01\Data\UI\UAV_01_CA.paa";
         class ItemInfo: ItemInfo {

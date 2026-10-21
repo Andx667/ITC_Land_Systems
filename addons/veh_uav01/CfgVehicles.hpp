@@ -7,7 +7,7 @@ class CfgVehicles {
           class ITC_Land_Unpack {
 
             class ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2 Darter [NATO]";
+              displayName = CSTRING(Unpack_AR2_B_DisplayName);
               condition = "'ITC_Land_B_UAV_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_B_UAV_Packed',_player)] call EFUNC(packable,unpack));
               priority = 1;
@@ -16,44 +16,44 @@ class CfgVehicles {
               enableInside = 0;
             };
             class ITC_Land_Unpack_AR2_O: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2 Tayran [CSAT]";
+              displayName = CSTRING(Unpack_AR2_O_DisplayName);
               condition = "'ITC_Land_O_UAV_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_O_UAV_Packed',_player)] call EFUNC(packable,unpack));
             };
             class ITC_Land_Unpack_AR2_I: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2 Darter [AAF]";
+              displayName = CSTRING(Unpack_AR2_I_DisplayName);
               condition = "'ITC_Land_I_UAV_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_I_UAV_Packed',_player)] call EFUNC(packable,unpack));
             };
 
             class ITC_Land_Unpack_AR2i_B: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2i Darter 2 [NATO]";
+              displayName = CSTRING(Unpack_AR2i_B_DisplayName);
               condition = "'ITC_Land_B_AR2i_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_B_AR2i_Packed',_player)] call EFUNC(packable,unpack));
             };
             class ITC_Land_Unpack_AR2i_O: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2i Tayran 2 [CSAT]";
+              displayName = CSTRING(Unpack_AR2i_O_DisplayName);
               condition = "'ITC_Land_O_AR2i_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_O_AR2i_Packed',_player)] call EFUNC(packable,unpack));
             };
             class ITC_Land_Unpack_AR2i_I: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2i Darter 2 [NATO]";
+              displayName = CSTRING(Unpack_AR2i_B_DisplayName);
               condition = "'ITC_Land_I_AR2i_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_I_AR2i_Packed',_player)] call EFUNC(packable,unpack));
             };
 
             class ITC_Land_Unpack_AR2e_B: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2e Darter [NATO]";
+              displayName = CSTRING(Unpack_AR2e_B_DisplayName);
               condition = "'ITC_Land_B_AR2e_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_B_AR2e_Packed',_player)] call EFUNC(packable,unpack));
             };
             class ITC_Land_Unpack_AR2e_O: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2e Tayran [CSAT]";
+              displayName = CSTRING(Unpack_AR2e_O_DisplayName);
               condition = "'ITC_Land_O_AR2e_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_O_AR2e_Packed',_player)] call EFUNC(packable,unpack));
             };
             class ITC_Land_Unpack_AR2e_I: ITC_Land_Unpack_AR2_B {
-              displayName = "AR-2e Darter [NATO]";
+              displayName = CSTRING(Unpack_AR2e_B_DisplayName);
               condition = "'ITC_Land_I_AR2e_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_I_AR2e_Packed',_player)] call EFUNC(packable,unpack));
             };
@@ -96,7 +96,7 @@ class CfgVehicles {
     };
     class ITC_Land_B_UAV_AR2i: ITC_Land_UAV_AR2i_base {
         author = "Toadball";
-        displayName = "AR-2i Darter 2";
+        displayName = CSTRING(B_UAV_AR2i_DisplayName);
         itc_land_PacksTo = "ITC_Land_B_AR2i_Packed";
         class SimpleObject {
             eden = 1;
@@ -126,7 +126,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -137,7 +137,7 @@ class CfgVehicles {
     };
     class ITC_Land_O_UAV_AR2i: ITC_Land_UAV_AR2i_base {
         author = "Toadball";
-        displayName = "AR-2i Tayran 2";
+        displayName = CSTRING(O_UAV_AR2i_DisplayName);
         itc_land_PacksTo = "ITC_Land_O_AR2i_Packed";
         class SimpleObject {
             eden = 1;
@@ -167,7 +167,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -178,7 +178,7 @@ class CfgVehicles {
     };
     class ITC_Land_I_UAV_AR2i: ITC_Land_UAV_AR2i_base {
         author = "Toadball";
-        displayName = "AR-2i Darter 2";
+        displayName = CSTRING(B_UAV_AR2i_DisplayName);
         itc_land_PacksTo = "ITC_Land_I_AR2i_Packed";
         class SimpleObject {
             eden = 1;
@@ -208,7 +208,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -258,7 +258,7 @@ class CfgVehicles {
     };
     class ITC_Land_B_UAV_AR2e: ITC_Land_UAV_AR2e_base {
         author = "Toadball";
-        displayName = "AR-2e Darter";
+        displayName = CSTRING(B_UAV_AR2e_DisplayName);
         itc_land_PacksTo = "ITC_Land_B_AR2e_Packed";
         class SimpleObject {
             eden = 1;
@@ -291,7 +291,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -302,7 +302,7 @@ class CfgVehicles {
     };
     class ITC_Land_O_UAV_AR2e: ITC_Land_UAV_AR2e_base {
         author = "Toadball";
-        displayName = "AR-2e Trayan";
+        displayName = CSTRING(O_UAV_AR2e_DisplayName);
         itc_land_PacksTo = "ITC_Land_O_AR2e_Packed";
         class SimpleObject {
             eden = 1;
@@ -335,7 +335,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -345,7 +345,7 @@ class CfgVehicles {
     };
     class ITC_Land_I_UAV_AR2e: ITC_Land_UAV_AR2e_base {
         author = "Toadball";
-        displayName = "AR-2e Darter";
+        displayName = CSTRING(B_UAV_AR2e_DisplayName);
         itc_land_PacksTo = "ITC_Land_I_AR2e_Packed";
         class SimpleObject {
             eden = 1;
@@ -378,7 +378,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -400,7 +400,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -413,7 +413,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -435,7 +435,7 @@ class CfgVehicles {
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackDarter {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackDarter_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -455,7 +455,7 @@ class CfgVehicles {
     class Bag_Base;
     class ITC_Land_uav_backpack_base: Bag_Base {
             author = "Toadball";
-            displayName = "UAV Bag";
+            displayName = CSTRING(uav_backpack_base_DisplayName);
             maximumLoad = 300;
             mass = 60;
             mapSize = 0.6;
@@ -467,7 +467,7 @@ class CfgVehicles {
     };
     class ITC_Land_b_uav_backpack: ITC_Land_uav_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag [NATO]";
+            displayName = CSTRING(b_uav_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "BLU_F";
@@ -476,7 +476,7 @@ class CfgVehicles {
     };
     class ITC_Land_i_uav_backpack: ITC_Land_uav_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag [AAF]";
+            displayName = CSTRING(i_uav_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "IND_F";
@@ -485,7 +485,7 @@ class CfgVehicles {
     };
     class ITC_Land_o_uav_backpack: ITC_Land_uav_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag [CSAT]";
+            displayName = CSTRING(o_uav_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "OPF_F";

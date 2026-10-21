@@ -31,7 +31,7 @@ switch(_action) do {
     GVAR(bcs_bty_type) = [_gunIndex, lbData [4304, _gunIndex]];
     private _display = findDisplay 32562;
     private _activeTypeName = getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> (GVAR(bcs_bty_type) # 1) >> "displayName");
-    private _activeTypeText = format["Active Type: %1", _activeTypeName];
+    private _activeTypeText = format[LLSTRING(Bcs_ActiveType), _activeTypeName];
     SETTEXT(4318,_activeTypeText);
   };
   case "addGun": {

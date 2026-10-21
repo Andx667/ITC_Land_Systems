@@ -18,7 +18,7 @@ class CfgVehicles {
     };
   };
   class itc_land_I_StriderRV: I_MRAP_03_F {
-    displayName = "Strider RV";
+    displayName = CSTRING(I_StriderRV_DisplayName);
     class Turrets: Turrets {
       class CommanderTurret: CommanderTurret {
         turretInfoType = "ITC_Land_RscOptics_strider_commander";
@@ -39,7 +39,7 @@ class CfgVehicles {
     };
   };
   class itc_land_I_StriderRV_HMG: I_MRAP_03_hmg_F {
-    displayName = "Strider RV HMG";
+    displayName = CSTRING(I_StriderRV_HMG_DisplayName);
     class Turrets: Turrets {
       class CommanderTurret: CommanderTurret {
         turretInfoType = "ITC_Land_RscOptics_strider_commander";
@@ -61,7 +61,7 @@ class CfgVehicles {
     };
   };
     class itc_land_I_StriderRV_GMG: I_MRAP_03_gmg_F {
-    displayName = "Strider RV GMG";
+    displayName = CSTRING(I_StriderRV_GMG_DisplayName);
     class Turrets: Turrets {
       class CommanderTurret: CommanderTurret {
         turretInfoType = "ITC_Land_RscOptics_strider_commander";

@@ -23,7 +23,7 @@
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
-_vehicle setVariable ["itc_land_ammoHandler_status",[1,0,"WAITING"],true];
+_vehicle setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];
 [] call FUNC(updateStatus);
 
 private _curMagInfo = _vehicle getVariable "itc_land_currentMagInfo";
@@ -32,7 +32,7 @@ private _selectedMagConfig = _curMagInfo # 2;
 
 private _ammoType = getText (_selectedMagConfig >> "displayNameShort");
 private _charge = str (_vehicle getVariable ["itc_land_currentChargeIndex",1]);
-private _ammoText = format ["%1 CHG: %2", _ammoType,_charge];
+private _ammoText = format [LLSTRING(AmmoCharge), _ammoType,_charge];
 ctrlSetText[86019,_ammoText];
 
 //Get fuze settings based on type
@@ -68,13 +68,13 @@ if (_guidance isNotEqualTo []) then {
         case "laser_coded" : {
             private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
             _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
-            _guidanceText = format["CODE: %1",_laserCode];
+            _guidanceText = format[LLSTRING(LaserCode),_laserCode];
         };
         case "laser_coded_2" : {
             private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
             private _laserCode2 = [86024] call EFUNC(common,sanitizeLaserCode);
             _vehicle setVariable ["itc_land_guidance_laserCode_2", _laserCode2, true];
-            _guidanceText = format["CODES: %1/%2", _laserCode, _laserCode2];
+            _guidanceText = format[LLSTRING(LaserCodes), _laserCode, _laserCode2];
         };
         default {
             //Set guidance output as none.

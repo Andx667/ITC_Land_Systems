@@ -32,7 +32,7 @@ private _apps = _vehicle getVariable QGVAR(apps);
     private _name = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "displayName")  call BIS_fnc_getCfgData;
     private _ifaces = (configFile >> "itc_land" >> "apps" >> _apps # _x >> "interfaces")  call BIS_fnc_getCfgData;
 
-    private _displayedName = toUpper (format ["APP %1: %2",_x + 1, _name]);
+    private _displayedName = toUpper (format [LLSTRING(Home_AppEntry),_x + 1, _name]);
     private _displayedifaces = toUpper ( _ifaces );
 
     [_display, 91000 + _x, _displayedName] call EFUNC(common,ctrlSetText);

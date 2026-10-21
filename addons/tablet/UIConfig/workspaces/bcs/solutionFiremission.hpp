@@ -10,7 +10,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_ordinate_label: ITC_LAND_RscText {
         idc = 8004;
-        text = "MAXIMUM ORDINATE"; //--- ToDo: Localize;
+        text = CSTRING(solution_ordinate_label_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.467 * safezoneH + safezoneY";
         w = "0.0825 * safezoneW";
@@ -18,7 +18,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_angle_label: ITC_LAND_RscText {
         idc = 8006;
-        text = "IMPACT ANGLE"; //--- ToDo: Localize;
+        text = CSTRING(solution_angle_label_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.489 * safezoneH + safezoneY";
         w = "0.0825 * safezoneW";
@@ -26,7 +26,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_distance_label: ITC_LAND_RscText {
         idc = 8017;
-        text = "TARGET DISTANCE"; //--- ToDo: Localize;
+        text = CSTRING(solution_distance_label_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.511 * safezoneH + safezoneY";
         w = "0.0825 * safezoneW";
@@ -34,7 +34,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_firemission_back: ITC_LAND_RscButton {
         idc = 8604;
-        text = "Back"; //--- ToDo: Localize;
+        text = CSTRING(firemission_back_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.555 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -43,7 +43,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_shot: ITC_LAND_RscButton {
         idc = 8600;
-        text = "SHOT"; //--- ToDo: Localize;
+        text = CSTRING(solution_shot_Text); //--- ToDo: Localize;
         x = "0.426562 * safezoneW + safezoneX";
         y = "0.555 * safezoneH + safezoneY";
         w = "0.0567187 * safezoneW";
@@ -52,7 +52,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_adj: ITC_LAND_RscButton {
         idc = 8601;
-        text = "ADJUST/FFE"; //--- ToDo: Localize;
+        text = CSTRING(solution_adj_Text); //--- ToDo: Localize;
         x = "0.578906 * safezoneW + safezoneX";
         y = "0.555 * safezoneH + safezoneY";
         w = "0.061875 * safezoneW";
@@ -72,7 +72,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     */
     class itc_land_solution_solup: ITC_LAND_RscButton {
         idc = 1600;
-        text = "SLN+"; //--- ToDo: Localize;
+        text = CSTRING(solution_solup_Text); //--- ToDo: Localize;
         x = "0.6098435 * safezoneW + safezoneX";
         y = "0.467 * safezoneH + safezoneY";
         w = "0.0309375 * safezoneW";
@@ -81,7 +81,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_soldn: ITC_LAND_RscButton {
         idc = 1601;
-        text = "SLN-"; //--- ToDo: Localize;
+        text = CSTRING(solution_soldn_Text); //--- ToDo: Localize;
         x = "0.578906 * safezoneW + safezoneX";
         y = "0.467 * safezoneH + safezoneY";
         w = "0.0309375 * safezoneW";
@@ -122,7 +122,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_solutionCount_text: ITC_LAND_RscText {
         idc = 8022;
-        text = "asdf"; //--- ToDo: Localize;
+        text = CSTRING(solution_solutionCount_text_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.345469 * safezoneW";
@@ -130,7 +130,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_eom: ITC_LAND_RscButton {
         idc = 8602;
-        text = "END MISSION"; //--- ToDo: Localize;
+        text = CSTRING(solution_eom_Text); //--- ToDo: Localize;
         x = "0.578906 * safezoneW + safezoneX";
         y = "0.62 * safezoneH + safezoneY";
         w = "0.061875 * safezoneW";
@@ -139,7 +139,7 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
     };
     class itc_land_solution_eom_save: ITC_LAND_RscButton {
         idc = 8603;
-        text = "END & SAVE"; //--- ToDo: Localize;
+        text = CSTRING(solution_eom_save_Text); //--- ToDo: Localize;
         x = "0.649531 * safezoneW + safezoneX";
         y = "0.62 * safezoneH + safezoneY";
         w = "0.061875 * safezoneW";

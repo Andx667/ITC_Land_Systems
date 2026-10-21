@@ -15,7 +15,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
         shadow = 0;
         font = "EtelkaMonospacePro";
         idc = 1000;
-        text = "RANGE:";
+        text = CSTRING(RangeText_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "13.2 *         (0.025 * SafezoneH)";
         w = "3 *        (0.01875 * SafezoneH)";
@@ -32,7 +32,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
 
       class ModeText: RangeText {
         idc = 1002;
-        text = "MODE:";
+        text = CSTRING(ModeText_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "26.8 *         (0.025 * SafezoneH)";
         w = "3 *        (0.01875 * SafezoneH)";
@@ -41,7 +41,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       class CA_VisionMode: RangeText {
         idc = 179;
         style = 0;
-        text = "VIS";
+        text = CSTRING(CA_VisionMode_Text);
         x = "22.2 *         (0.01875 * SafezoneH)";
         y = "26.8 *         (0.025 * SafezoneH)";
         w = "4 *        (0.01875 * SafezoneH)";
@@ -50,7 +50,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       class CA_FlirMode: RangeText {
         idc = 153;
         style = 0;
-        text = "BHOT";
+        text = CSTRING(CA_FlirMode_Text);
         x = "23.4 *         (0.01875 * SafezoneH)";
         y = "26.8 *         (0.025 * SafezoneH)";
         w = "4.5 *      (0.01875 * SafezoneH)";
@@ -58,7 +58,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class TextSpd: RangeText {
         idc = 1009;
-        text = "SPD [KM/H]:";
+        text = CSTRING(TextSpd_Text);
         x = "5.8 *      (0.01875 * SafezoneH)";
         y = "12.4 *         (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";
@@ -74,7 +74,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class TextAlt: RangeText {
         idc = 1007;
-        text = "ALT [AGL]:";
+        text = CSTRING(TextAlt_Text);
         x = "5.8 *      (0.01875 * SafezoneH)";
         y = "13.2 *         (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";
@@ -90,7 +90,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class ITC_Land_UAVi_Alt_text: RangeText {
         idc = 75010;
-        text = "ALT [ASL]:";
+        text = CSTRING(UAVi_Alt_text_Text);
         x = "5.8 *      (0.01875 * SafezoneH)";
         y = "14 *       (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";
@@ -106,7 +106,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class ITC_Land_UAVi_DIR_text: RangeText {
         idc = 75012;
-        text = "DIR [DEG/MIL]:";
+        text = CSTRING(UAVi_DIR_text_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "32.6 *         (0.025 * SafezoneH)";
         w = "12 *       (0.01875 * SafezoneH)";
@@ -122,7 +122,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class ITC_Land_UAVi_TGT_text: RangeText {
         idc = 75014;
-        text = "TGT GRID:";
+        text = CSTRING(UAVi_TGT_text_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "31.8 *         (0.025 * SafezoneH)";
         w = "8 *        (0.01875 * SafezoneH)";
@@ -138,7 +138,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class ITC_Land_UAVi_TGTalt_text: RangeText {
         idc = 75016;
-        text = "TGT ALT [ASL]:";
+        text = CSTRING(UAVi_TGTalt_text_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "33.4 *         (0.025 * SafezoneH)";
         w = "8 *        (0.01875 * SafezoneH)";
@@ -154,7 +154,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class TextGrid: RangeText {
         idc = 1005;
-        text = "UAS GRID:";
+        text = CSTRING(TextGrid_Text);
         x = "5.8 *      (0.01875 * SafezoneH)";
         y = "31.8 *         (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";
@@ -170,7 +170,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class TextTime: RangeText {
         idc = 1010;
-        text = "TIME [UTC]:";
+        text = CSTRING(TextTime_Text);
         x = "5.8 *      (0.01875 * SafezoneH)";
         y = "32.6 *         (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";
@@ -186,7 +186,7 @@ class ITC_Land_RscOptics_UAV_gunner: RscOptics_UAV_gunner {
       };
       class TextMag: RangeText {
         idc = 1011;
-        text = "CAM MAG:";
+        text = CSTRING(TextMag_Text);
         x = "18.5 *         (0.01875 * SafezoneH)";
         y = "26 *       (0.025 * SafezoneH)";
         w = "5 *        (0.01875 * SafezoneH)";

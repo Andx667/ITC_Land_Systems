@@ -39,7 +39,7 @@
             class targetlist_header_text: ITC_LAND_RscText {
                 idc = 4102;
 
-                text = "TARGET LIST";
+                text = CSTRING(targetlist_header_text_Text);
                 x = "0.386562 * safezoneW + safezoneX";
                 y = "0.654 * safezoneH + safezoneY";
                 w = "0.0979687 * safezoneW";
@@ -61,7 +61,7 @@
             };
             class grid_text: ITC_LAND_RscText {
                 idc = 4105;
-                text = "GRID";
+                text = CSTRING(grid_text_Text);
                 x = "0.386562 * safezoneW + safezoneX";
                 y = "0.83 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -81,7 +81,7 @@
             };
             class alt_text: ITC_LAND_RscText {
                 idc = 4107;
-                text = "ELEV";
+                text = CSTRING(alt_text_Text);
                 x = "0.386562 * safezoneW + safezoneX";
                 y = "0.863 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -101,7 +101,7 @@
             };
             class angle_text: ITC_LAND_RscText {
                 idc = 4109;
-                text = "ANGL";
+                text = CSTRING(angle_text_Text);
                 x = "0.386562 * safezoneW + safezoneX";
                 y = "0.896 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -122,7 +122,7 @@
             };
             class name_text: ITC_LAND_RscText {
                 idc = 4111;
-                text = "NAME";
+                text = CSTRING(name_text_Text);
                 x = "0.386562 * safezoneW + safezoneX";
                 y = "0.929 * safezoneH + safezoneY";
                 w = "0.0928125 * safezoneW";
@@ -143,7 +143,7 @@
             class engageselected_button: ITC_LAND_RscButton {
                 idc = 4104;
 
-                text = "LAUNCH SELECTED";
+                text = CSTRING(engageselected_button_Text);
                 action =  QUOTE([_this] call FUNC(selectedLaunch));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.83 * safezoneH + safezoneY";
@@ -156,7 +156,7 @@
             class saveTgt_button: ITC_LAND_RscButton {
                 idc = 4113;
 
-                text = "SAVE TO LIST";
+                text = CSTRING(saveTgt_button_Text);
                 action =  QUOTE([_this] call FUNC(saveTGT));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.896 * safezoneH + safezoneY";
@@ -169,7 +169,7 @@
             class removefromlist_button: ITC_LAND_RscButton {
                 idc = 4114;
 
-                text = "REMOVE FROM LIST";
+                text = CSTRING(removefromlist_button_Text);
                 action =  QUOTE([_this] call FUNC(removeTGT));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.929 * safezoneH + safezoneY";
@@ -182,7 +182,7 @@
             class adhocLaunch_Button: ITC_LAND_RscButton {
                 idc = 4115;
 
-                text = "ADHOC LAUNCH";
+                text = CSTRING(adhocLaunch_Button_Text);
                 action =  QUOTE([_this] call FUNC(adHocLaunch));
                 x = "0.510312 * safezoneW + safezoneX";
                 y = "0.863 * safezoneH + safezoneY";

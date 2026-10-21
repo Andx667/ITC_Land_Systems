@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_defender">
+        <Key ID="STR_itc_land_veh_defender_b_defender2_DisplayName">
+            <English>MIM-145 mod. 0 Defender 2</English>
+        </Key>
+    </Package>
+</Project>

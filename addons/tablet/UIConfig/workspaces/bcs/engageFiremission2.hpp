@@ -10,7 +10,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1006: ITC_LAND_RscText {
         idc = 7006;
-        text = "ADJ"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1006_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.379 * safezoneH + safezoneY;
         w = 0.0464063 * safezoneW;
@@ -25,7 +25,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1013: ITC_LAND_RscText {
         idc = 7013;
-        text = "GNS"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1013_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0464063 * safezoneW;
@@ -33,7 +33,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1600: ITC_LAND_RscButton {
         idc = 7600;
-        text = "ALL ON"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1600_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.599 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -42,7 +42,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1601: ITC_LAND_RscButton {
         idc = 7601;
-        text = "ALL OFF"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1601_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -51,7 +51,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1602: ITC_LAND_RscButton {
         idc = 7602;
-        text = "SEL TGL"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1602_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -67,7 +67,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1014: ITC_LAND_RscText {
         idc = 7014;
-        text = "SHELL"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1014_Text); //--- ToDo: Localize;
         x = 0.412344 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0464063 * safezoneW;
@@ -75,7 +75,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscEdit_1400: ITC_LAND_RscEdit {
         idc = 7400;
-        text = "HE"; //--- ToDo: Localize;
+        text = CSTRING(RscEdit_1400_Text); //--- ToDo: Localize;
         x = 0.412344 * safezoneW + safezoneX;
         y = 0.599 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -83,7 +83,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1603: ITC_LAND_RscButton {
         idc = 7603;
-        text = "ALL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1603_Text); //--- ToDo: Localize;
         x = 0.412344 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -92,7 +92,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1604: ITC_LAND_RscButton {
         idc = 7604;
-        text = "SEL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1604_Text); //--- ToDo: Localize;
         x = 0.412344 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -101,7 +101,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1015: ITC_LAND_RscText {
         idc = 7015;
-        text = "FFE"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1015_Text); //--- ToDo: Localize;
         x = 0.45875 * safezoneW + safezoneX;
         y = 0.379 * safezoneH + safezoneY;
         w = 0.0464063 * safezoneW;
@@ -109,7 +109,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1016: ITC_LAND_RscText {
         idc = 7016;
-        text = "GNS"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1013_Text); //--- ToDo: Localize;
         x = 0.45875 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0464063 * safezoneW;
@@ -124,7 +124,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1605: ITC_LAND_RscButton {
         idc = 7605;
-        text = "ALL ON"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1600_Text); //--- ToDo: Localize;
         x = 0.45875 * safezoneW + safezoneX;
         y = 0.599 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -133,7 +133,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1606: ITC_LAND_RscButton {
         idc = 7606;
-        text = "ALL OFF"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1601_Text); //--- ToDo: Localize;
         x = 0.45875 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -142,7 +142,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1607: ITC_LAND_RscButton {
         idc = 7607;
-        text = "SEL TGL"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1602_Text); //--- ToDo: Localize;
         x = 0.45875 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -151,7 +151,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1017: ITC_LAND_RscText {
         idc = 7017;
-        text = "SHELL"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1014_Text); //--- ToDo: Localize;
         x = 0.494844 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -159,7 +159,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1018: ITC_LAND_RscText {
         idc = 7018;
-        text = "COUNT"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1018_Text); //--- ToDo: Localize;
         x = 0.530937 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -181,7 +181,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscEdit_1401: ITC_LAND_RscEdit {
         idc = 7401;
-        text = "HE"; //--- ToDo: Localize;
+        text = CSTRING(RscEdit_1400_Text); //--- ToDo: Localize;
         x = 0.494844 * safezoneW + safezoneX;
         y = 0.599 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -189,7 +189,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1608: ITC_LAND_RscButton {
         idc = 7608;
-        text = "ALL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1603_Text); //--- ToDo: Localize;
         x = 0.494844 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -198,7 +198,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1609: ITC_LAND_RscButton {
         idc = 7609;
-        text = "SEL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1604_Text); //--- ToDo: Localize;
         x = 0.494844 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -215,7 +215,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1610: ITC_LAND_RscButton {
         idc = 7610;
-        text = "ALL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1603_Text); //--- ToDo: Localize;
         x = 0.530937 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -224,7 +224,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1611: ITC_LAND_RscButton {
         idc = 7611;
-        text = "SEL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1604_Text); //--- ToDo: Localize;
         x = 0.530937 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -240,7 +240,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1019: ITC_LAND_RscText {
         idc = 7019;
-        text = "FUZE"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1019_Text); //--- ToDo: Localize;
         x = 0.567031 * safezoneW + safezoneX;
         y = 0.401 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -248,7 +248,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscEdit_1403: ITC_LAND_RscEdit {
         idc = 7403;
-        text = "VT"; //--- ToDo: Localize;
+        text = CSTRING(RscEdit_1403_Text); //--- ToDo: Localize;
         x = 0.567031 * safezoneW + safezoneX;
         y = 0.599 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -256,7 +256,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1612: ITC_LAND_RscButton {
         idc = 7612;
-        text = "ALL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1603_Text); //--- ToDo: Localize;
         x = 0.567031 * safezoneW + safezoneX;
         y = 0.621 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -265,7 +265,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscButton_1613: ITC_LAND_RscButton {
         idc = 7613;
-        text = "SEL SET"; //--- ToDo: Localize;
+        text = CSTRING(RscButton_1604_Text); //--- ToDo: Localize;
         x = 0.567031 * safezoneW + safezoneX;
         y = 0.643 * safezoneH + safezoneY;
         w = 0.0360937 * safezoneW;
@@ -274,7 +274,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1020: ITC_LAND_RscText {
         idc = 7020;
-        text = "MOC"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1020_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.247 * safezoneH + safezoneY;
         w = 0.0309375 * safezoneW;
@@ -289,7 +289,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1021: ITC_LAND_RscText {
         idc = 7021;
-        text = "SHEAF"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1021_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.269 * safezoneH + safezoneY;
         w = 0.0309375 * safezoneW;
@@ -304,7 +304,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1022: ITC_LAND_RscText {
         idc = 7022;
-        text = "QUICK"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1022_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.291 * safezoneH + safezoneY;
         w = 0.0309375 * safezoneW;
@@ -312,7 +312,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1023: ITC_LAND_RscText {
         idc = 7023;
-        text = "DIR"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1023_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.313 * safezoneH + safezoneY;
         w = 0.0309375 * safezoneW;
@@ -320,7 +320,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class RscText_1024: ITC_LAND_RscText {
         idc = 7024;
-        text = "LENGTH"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1024_Text); //--- ToDo: Localize;
         x = 0.37625 * safezoneW + safezoneX;
         y = 0.335 * safezoneH + safezoneY;
         w = 0.0309375 * safezoneW;
@@ -351,7 +351,7 @@ class page_bcs_firemission_engage:itc_land_workspace {
     };
     class itc_land_firemission_next: ITC_LAND_RscButton {
         idc = 7650;
-        text = "Next"; //--- ToDo: Localize;
+        text = CSTRING(firemission_next_Text); //--- ToDo: Localize;
         x = 0.561875 * safezoneW + safezoneX;
         y = 0.511 * safezoneH + safezoneY;
         w = 0.0515625 * safezoneW;

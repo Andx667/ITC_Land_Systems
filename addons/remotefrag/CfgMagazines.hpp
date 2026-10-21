@@ -1,8 +1,8 @@
 class CfgMagazines {
   class HandGrenade;
   class ITC_Land_remoteFrag_mag : HandGrenade {
-        displayName = "Remote Frag";
-        displayNameShort = "Remote Frag";
+        displayName = CSTRING(remoteFrag_mag_DisplayName);
+        displayNameShort = CSTRING(remoteFrag_mag_DisplayNameShort);
         ammo = "ITC_Land_RemoteFrag_Ammo";
     ACE_Explosives_SetupObject = "ITC_Land_remoteFrag_Place";
     ACE_Explosives_DelayTime = 0.2;

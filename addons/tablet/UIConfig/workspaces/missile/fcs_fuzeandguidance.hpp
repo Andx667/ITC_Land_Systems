@@ -1,6 +1,6 @@
 class fci_fuzeinputs: ITC_LAND_RscText {
     idc = 1900;
-    text = "FUZE & GUIDANCE SETTINGS";
+    text = CSTRING(fci_fuzeinputs_Text);
     sizeEx = 1.125 * GUI_GRID_H;
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.490 * safezoneH + safezoneY";
@@ -9,7 +9,7 @@ class fci_fuzeinputs: ITC_LAND_RscText {
 };  
 class fci_fuzeinputs_text: ITC_LAND_RscText {
     idc = 1901;
-    text = "Fuze Settings:";
+    text = CSTRING(fci_fuzeinputs_text_Text);
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.523 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -17,7 +17,7 @@ class fci_fuzeinputs_text: ITC_LAND_RscText {
 };
 class fci_fuzeinputs_mode_text: ITC_LAND_RscText {
     idc = 1903;
-    text = "Mode:";
+    text = CSTRING(fci_fuzeinputs_mode_text_Text);
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.556 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -34,7 +34,7 @@ class fci_fuzeinputs_mode_combo: ITC_LAND_RscComboBox {
 
 class fci_fuzeinputs_time_text: ITC_LAND_RscText {
     idc = 1905;
-    text = "Time:";
+    text = CSTRING(fci_fuzeinputs_time_text_Text);
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.589 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -50,7 +50,7 @@ class fci_fuzeinputs_time_edit: ITC_LAND_RscEdit {
 
 class fci_guideinputs_text: ITC_LAND_RscText {
     idc = 1907;
-    text = "Guidance Settings:";
+    text = CSTRING(fci_guideinputs_text_Text);
     x = "0.5 * safezoneW + safezoneX";
     y = "0.523 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -59,7 +59,7 @@ class fci_guideinputs_text: ITC_LAND_RscText {
 
 class fci_guideinputs_tgtgrid_text: ITC_LAND_RscText {
     idc = 1908;
-    text = "TGT Grid:";
+    text = CSTRING(fci_guideinputs_tgtgrid_text_Text);
     x = "0.5 * safezoneW + safezoneX";
     y = "0.556 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -75,7 +75,7 @@ class fci_guideinputs_tgtgrid_edit: ITC_LAND_RscEdit {
 
 class fci_guideinputs_elev_text: ITC_LAND_RscText {
     idc = 1910;
-    text = "Elev:";
+    text = CSTRING(fci_guideinputs_elev_text_Text);
     x = "0.50 * safezoneW + safezoneX";
     y = "0.589 * safezoneH + safezoneY";
     w = "0.0735 * safezoneW";
@@ -107,7 +107,7 @@ class fci_guideinputs_aoi_edit: ITC_LAND_RscEdit {
 */
 class fci_guideinputs_apply_btn: ITC_LAND_RscButton {
     idc = 1603;
-    text = "APPLY SETTINGS";
+    text = CSTRING(fci_guideinputs_apply_btn_Text);
     x = "0.393125 * safezoneW + safezoneX";
     y = "0.622 * safezoneH + safezoneY";
     w = "0.0825 * safezoneW";

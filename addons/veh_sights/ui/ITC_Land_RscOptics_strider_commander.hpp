@@ -55,7 +55,7 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
         colorText[] = {0.706,0.0745,0.0196,1};
         shadow = 0;
         font = "EtelkaMonospacePro";
-        text = "VIS";
+        text = CSTRING(CA_VisionMode_Text);
         x = "6.5 *      (0.01875 * SafezoneH)";
         y = "19.55 *        (0.025 * SafezoneH)";
         w = "4 *        (0.01875 * SafezoneH)";
@@ -82,7 +82,7 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
         colorText[] = {0,0,0,1};
         shadow = 0;
         font = "EtelkaMonospacePro";
-        text = "OWN";
+        text = CSTRING(OGrid_Text);
         x = "10.5 *         (0.01875 * SafezoneH)";
         y = "34.5 *         (0.025 * SafezoneH)";
         w = "14 *       (0.01875 * SafezoneH)";
@@ -103,7 +103,7 @@ class ITC_Land_RscOptics_strider_commander: RscOptics_strider_commander {
       };
       class ITC_Land_TGrid: ITC_Land_OGrid {
         idc = 75016;
-        text = "TGT";
+        text = CSTRING(TGrid_Text);
         x = "28.5 *         (0.01875 * SafezoneH)";
       };
       class ITC_Land_TGrid_text: ITC_Land_OGrid_text {

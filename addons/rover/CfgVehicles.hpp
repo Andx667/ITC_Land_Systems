@@ -15,7 +15,7 @@ class CfgVehicles {
     class ACE_SelfActions {
       class ACE_Equipment {
         class ITC_Land_Rover_Open {
-          displayName = "Open Rover LAD";
+          displayName = CSTRING(Rover_Open_DisplayName);
           condition = "'itc_land_tablet_rover' in (items player)";
           statement = "createDialog ""itc_land_rover_tablet"";";
           priority = 2.6;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="vls">
+        <Key ID="STR_itc_land_vls_CommanderTablet_DisplayName">
+            <English>Open VLS Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_TargetLabel">
+            <English>%1: GRID: %2 - ELEV: %3m - ANGLE: %4</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_adhocLaunch_Button_Text">
+            <English>ADHOC LAUNCH</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_alt_text_Text">
+            <English>ELEV</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_angle_text_Text">
+            <English>ANGL</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_b_vls2_DisplayName">
+            <English>MN230 VLS (Air Defense)</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_b_vls2_slam_DisplayName">
+            <English>MN230 VLS (Cruise Missile)</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_engageselected_button_Text">
+            <English>LAUNCH SELECTED</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_grid_text_Text">
+            <English>GRID</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_name_text_Text">
+            <English>NAME</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_removefromlist_button_Text">
+            <English>REMOVE FROM LIST</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_saveTgt_button_Text">
+            <English>SAVE TO LIST</English>
+        </Key>
+        <Key ID="STR_itc_land_vls_targetlist_header_text_Text">
+            <English>TARGET LIST</English>
+        </Key>
+    </Package>
+</Project>

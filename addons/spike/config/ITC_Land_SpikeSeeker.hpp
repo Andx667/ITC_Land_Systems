@@ -35,7 +35,7 @@ class RscTitles {
               y = "1 *  (safezoneH / 40) +  (0)";
               w = "6 *  (safezoneW / 64)";
               h = "1.5 *    (safezoneH / 40)";
-              text = "HOT";
+              text = CSTRING(VisionMode_Text);
               font = "LCD14";
               colorText[] = {1,1,1,1};
               colorBackground[] = {0,0,0,0};
@@ -82,7 +82,7 @@ class RscTitles {
               y = "10 *     (safezoneH / 40) +  (0)";
               w = "10 *     (safezoneW / 64)";
               h = "3 *  (safezoneH / 40)";
-              text = "MANUAL";
+              text = CSTRING(ManualText_Text);
               font = "EtelkaMonospacePro";
               fixedWidth = 1;
               colorText[] = {1,1,1,1};
@@ -157,7 +157,7 @@ class ITC_Land_SpikeSeeker {
             y = "1 *    (safezoneH / 40) +  (safeZoneY)";
             w = "6 *    (safezoneW / 64)";
             h = "1.5 *  (safezoneH / 40)";
-            text = "HOT";
+            text = CSTRING(VisionMode_Text);
             font = "LCD14";
             colorText[] = {1,1,1,1};
             colorBackground[] = {0,0,0,0};
@@ -204,7 +204,7 @@ class ITC_Land_SpikeSeeker {
             y = "10 *   (safezoneH / 40) +  (safeZoneY)";
             w = "10 *   (safezoneW / 64)";
             h = "3 *    (safezoneH / 40)";
-            text = "MANUAL";
+            text = CSTRING(ManualText_Text);
             font = "EtelkaMonospacePro";
             fixedWidth = 1;
             colorText[] = {1,1,1,1};
@@ -377,7 +377,7 @@ class RscInGameUI {
           y = "1 *  (safezoneH / 40) +  (0)";
           w = "6 *  (safezoneW / 64)";
           h = "1.5 *    (safezoneH / 40)";
-          text = "DTV";
+          text = CSTRING(controls_VisionMode_Text);
           font = "LCD14";
           colorText[] = {1,1,1,1};
           colorBackground[] = {0,0,0,0};

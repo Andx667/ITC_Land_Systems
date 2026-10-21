@@ -4,7 +4,7 @@ class page_msl_controls:ITC_LAND_Workspace {
     class Controls {
         class fcs_mode_title: ITC_LAND_RscText {
             idc = 1511;
-            text = "FCI MODE:";
+            text = CSTRING(fcs_mode_title_Text);
             x = "0.37625 * safezoneW + safezoneX";
             y = "0.235 * safezoneH + safezoneY";
             w = "0.15 * safezoneW";

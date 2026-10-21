@@ -28,7 +28,7 @@
                     //style = 0xA0;                 
                 };
                 class align_header: RscText {
-                    text = "GUN ALIGNMENT";
+                    text = CSTRING(align_header_Text);
                     idc = 82012;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "17.125 *       (0.025 * SafezoneH)";
@@ -38,7 +38,7 @@
                     style = 0;                  
                 };
                 class align_azi_header: RscText {
-                    text = "AZIMUTH";
+                    text = CSTRING(align_azi_header_Text);
                     idc = 82013;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "17.85 *        (0.025 * SafezoneH)";
@@ -58,7 +58,7 @@
                     style = 0;                  
                 };
                 class align_quad_header: RscText {
-                    text = "QUADRANT";
+                    text = CSTRING(align_quad_header_Text);
                     idc = 82015;
                     x = "5 *        (0.01875 * SafezoneH)";
                     y = "17.85 *        (0.025 * SafezoneH)";

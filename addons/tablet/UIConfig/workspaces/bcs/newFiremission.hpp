@@ -19,7 +19,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
     };
     class itc_land_firemission_next: ITC_LAND_RscButton {
         idc = 6600;
-        text = "Next"; //--- ToDo: Localize;
+        text = CSTRING(firemission_next_Text); //--- ToDo: Localize;
         x = "0.561875 * safezoneW + safezoneX";
         y = "0.511 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -59,7 +59,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
     };
     class itc_land_target_knownpoint_load: ITC_LAND_RscButton {
         idc = 6601;
-        text = "Load"; //--- ToDo: Localize;
+        text = CSTRING(target_knownpoint_load_Text); //--- ToDo: Localize;
         x = "0.510312 * safezoneW + safezoneX";
         y = "0.357 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -108,7 +108,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
     };
     class itc_land_target_knownpoint_text: ITC_LAND_RscText {
         idc = 6019;
-        text = "Known Point"; //--- ToDo: Localize;
+        text = CSTRING(target_knownpoint_text_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.357 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -116,7 +116,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
     };
     class itc_land_target_targetType_text: ITC_LAND_RscText {
         idc = 6018;
-        text = "Target Type"; //--- ToDo: Localize;
+        text = CSTRING(target_targetType_text_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.291 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -124,7 +124,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
     };
     class itc_land_firemission_name_text: ITC_LAND_RscText {
         idc = 6017;
-        text = "Firemission Name"; //--- ToDo: Localize;
+        text = CSTRING(firemission_name_text_Text); //--- ToDo: Localize;
         x = "0.350468 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0670312 * safezoneW";

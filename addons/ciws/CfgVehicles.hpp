@@ -4,7 +4,7 @@ class SensorTemplateActiveRadar;
 class CfgVehicles {
   class B_UAV_01_F;
   class itc_land_shell_b : B_UAV_01_F {
-      displayName = "Shell Target";
+      displayName = CSTRING(shell_b_DisplayName);
       //model = "\A3\weapons_F\AmmoBoxes\AmmoBox_F";
       model = "\A3\Weapons_F\Ammoboxes\Supplydrop.p3d";
       hiddenSelectionsTextures[] = {"",""};
@@ -30,17 +30,17 @@ class CfgVehicles {
       side = 2;
   };
   class itc_land_missile_b : itc_land_shell_b {
-    displayName = "Missile Target";
+    displayName = CSTRING(missile_b_DisplayName);
     irTarget = 1;
     irTargetSize = 2;
   };
   class itc_land_missile_o : itc_land_shell_o {
-    displayName = "Missile Target";
+    displayName = CSTRING(missile_b_DisplayName);
     irTarget = 1;
     irTargetSize = 2;
   };
   class itc_land_missile_i : itc_land_shell_i {
-    displayName = "Missile Target";
+    displayName = CSTRING(missile_b_DisplayName);
     irTarget = 1;
     irTargetSize = 1;
   };
@@ -57,7 +57,7 @@ class CfgVehicles {
   };
   class itc_land_cram_praetorian2 : AAA_System_01_base_F {
         author = "Yax ";
-    displayName = "Praetorian 2 Mod 0";
+    displayName = CSTRING(cram_praetorian2_DisplayName);
     side = 1;
     faction = "BLU_F";
     crew = "B_UAV_AI";
@@ -128,7 +128,7 @@ class CfgVehicles {
   class SAM_System_01_base_F;
   class itc_land_ciws_centurion2 : SAM_System_01_base_F {
         author = "Yax ";
-    displayName = "Mk49 Spartan 2 Mod 0";
+    displayName = CSTRING(ciws_centurion2_DisplayName);
     side = 1;
     faction = "BLU_F";
     crew = "B_UAV_AI";

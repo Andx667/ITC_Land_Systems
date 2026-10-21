@@ -4,7 +4,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_bty_callsign_label: ITC_LAND_RscText {
         idc = 4301;
 
-        text = "Battery Callsign: ";
+        text = CSTRING(btysetup_bty_callsign_label_Text);
         x = "0.360781 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.061875 * safezoneW";
@@ -13,7 +13,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_gun_type_label: ITC_LAND_RscText {
         idc = 4302;
 
-        text = "Gun Type: ";
+        text = CSTRING(btysetup_gun_type_label_Text);
         x = "0.381406 * safezoneW + safezoneX";
         y = "0.269 * safezoneH + safezoneY";
         w = "0.04125 * safezoneW";
@@ -22,7 +22,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_bty_callsign_text: ITC_LAND_RscEdit {
         idc = 4303;
 
-        text = "ARCHER";
+        text = CSTRING(btysetup_bty_callsign_text_Text);
         x = "0.438125 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.118594 * safezoneW";
@@ -43,7 +43,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_save_button: ITC_LAND_RscButton {
         idc = 4316;
 
-        text = "SAVE BTY TYPE";
+        text = CSTRING(btysetup_save_button_Text);
         x = "0.566719 * safezoneW + safezoneX";
         y = "0.269 * safezoneH + safezoneY";
         w = "0.081875 * safezoneW";
@@ -65,7 +65,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_gun_number_label: ITC_LAND_RscText {
         idc = 4305;
 
-        text = "Gun #";
+        text = CSTRING(btysetup_gun_number_label_Text);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.313 * safezoneH + safezoneY";
         w = "0.0257812 * safezoneW";
@@ -86,7 +86,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_position_label: ITC_LAND_RscText {
         idc = 4307;
 
-        text = "Position";
+        text = CSTRING(locstores_position_label_Text);
         x = "0.427812 * safezoneW + safezoneX";
         y = "0.313 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -107,7 +107,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_elevation_label: ITC_LAND_RscText {
         idc = 4309;
 
-        text = "Elevation";
+        text = CSTRING(locstores_elevation_label_Text);
         x = "0.525781 * safezoneW + safezoneX";
         y = "0.313 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -128,7 +128,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_direction_label: ITC_LAND_RscText {
         idc = 4311;
 
-        text = "Direction";
+        text = CSTRING(engagement_direction_text_Text);
         x = "0.603125 * safezoneW + safezoneX";
         y = "0.313 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -149,7 +149,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_addnew_button: ITC_LAND_RscButton {
         idc = 4313;
 
-        text = "SAVE GUN";
+        text = CSTRING(btysetup_addnew_button_Text);
         x = "0.5825 * safezoneW + safezoneX";
         y = "0.533 * safezoneH + safezoneY";
         w = "0.04125 * safezoneW";
@@ -161,7 +161,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
     class btysetup_remove_button: ITC_LAND_RscButton {
         idc = 4314;
 
-        text = "REMOVE";
+        text = CSTRING(locstores_remove_button_Text);
         x = "0.634062 * safezoneW + safezoneX";
         y = "0.533 * safezoneH + safezoneY";
         w = "0.04125 * safezoneW";

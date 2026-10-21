@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_gltd">
+        <Key ID="STR_itc_land_veh_gltd_PackGLTD_DisplayName">
+            <English>Repack GLTD</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_gltd_RemoteGLTD_Packed_base_DescriptionShort">
+            <English>Remote GLTD packed for carriage</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_gltd_RemoteGLTD_Packed_base_DisplayName">
+            <English>Remote GLTD (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_gltd_Unpack_RemoteGLTD_BW_DisplayName">
+            <English>Remote GLTD (Green) [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_gltd_Unpack_RemoteGLTD_B_DisplayName">
+            <English>Remote GLTD [NATO]</English>
+        </Key>
+    </Package>
+</Project>

@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes the CBR Map page: shows the map panel and sets its header text to "Map".
+ * Initializes the CBR Map page: shows the map panel and sets its header text to LLSTRING(Cbr_Map).
  *
  * Arguments:
  * 0: The tablet dialog's display <DISPLAY>
@@ -20,4 +20,4 @@
 params ["_display"];
 ctrlShow [13601, true];
 
-[_display, IDC_workspace_header, "Map"] call EFUNC(common,ctrlSetText);
+[_display, IDC_workspace_header, LLSTRING(Cbr_Map)] call EFUNC(common,ctrlSetText);

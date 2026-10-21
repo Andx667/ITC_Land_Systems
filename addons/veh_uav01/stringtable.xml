@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_uav01">
+        <Key ID="STR_itc_land_veh_uav01_B_UAV_AR2e_DisplayName">
+            <English>AR-2e Darter</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_B_UAV_AR2i_DisplayName">
+            <English>AR-2i Darter 2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_O_UAV_AR2e_DisplayName">
+            <English>AR-2e Trayan</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_O_UAV_AR2i_DisplayName">
+            <English>AR-2i Tayran 2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_PackDarter_DisplayName">
+            <English>Repack UAV</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_UAV_Packed_base_DescriptionShort">
+            <English>AR-2 Darter packed for carriage</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_UAV_Packed_base_DisplayName">
+            <English>AR-2i Darter 2 (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2_B_DisplayName">
+            <English>AR-2 Darter [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2_I_DisplayName">
+            <English>AR-2 Darter [AAF]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2_O_DisplayName">
+            <English>AR-2 Tayran [CSAT]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2e_B_DisplayName">
+            <English>AR-2e Darter [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2e_O_DisplayName">
+            <English>AR-2e Tayran [CSAT]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2i_B_DisplayName">
+            <English>AR-2i Darter 2 [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_Unpack_AR2i_O_DisplayName">
+            <English>AR-2i Tayran 2 [CSAT]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_b_uav_backpack_DisplayName">
+            <English>UAV Bag [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_i_uav_backpack_DisplayName">
+            <English>UAV Bag [AAF]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_o_uav_backpack_DisplayName">
+            <English>UAV Bag [CSAT]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_uav_backpack_base_DisplayName">
+            <English>UAV Bag</English>
+        </Key>
+    </Package>
+</Project>

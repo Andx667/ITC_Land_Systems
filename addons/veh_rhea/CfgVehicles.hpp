@@ -30,7 +30,7 @@ class CfgVehicles {
   };
   class itc_land_o_rhea2 : SAM_System_04_base_F {
     author = "Yax";
-    displayName = "S750 mod. 0 Rhea 2";
+    displayName = CSTRING(o_rhea2_DisplayName);
     editorSubcategory = "EdSubcat_AAs";
     side = 0;
     faction = "OPF_F";

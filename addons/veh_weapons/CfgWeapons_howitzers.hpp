@@ -2,7 +2,7 @@
     class mortar_155mm_AMOS: CannonCore { class Single1; };
     class itc_land_howitzer_base: mortar_155mm_AMOS {
         scope = 0;
-        displayName = "Howitzer 155 mm";
+        displayName = CSTRING(howitzer_base_DisplayName);
         autoReload = 0;
         modes[] = {"Single"};
         reloadTime = 1;
@@ -53,7 +53,7 @@
     class itc_land_127mm_navalgunsystem: itc_land_howitzer_base {
         scope = 1;
         #include "CfgWeapons_howitzers_magazines127mm.hpp"
-        displayName = "NG127 L/54";
+        displayName = CSTRING(127mm_navalgunsystem_DisplayName);
         class Single: Single1 {
             displayName = "";
             artilleryCharge = 1;

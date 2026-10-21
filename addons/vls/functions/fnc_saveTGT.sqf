@@ -29,7 +29,7 @@ private _targetName = ctrlText 4112;
 _vehicle setVariable ["ITC_Land_VLS_adHocData_name", _targetName, true];
 
 private _TGTData = [_targetName,_targetPos,_targetAnglNum];
-private _TGTLabel = format ["%1: GRID: %2 - ELEV: %3m - ANGLE: %4",_targetName,_targetGrid,_targetElev,_targetAngl # 1];
+private _TGTLabel = format [LLSTRING(TargetLabel),_targetName,_targetGrid,_targetElev,_targetAngl # 1];
 
 private _index = lbAdd [4103, format["%1", _TGTLabel]];
 lbSetData [4103, _index, str _TGTData];

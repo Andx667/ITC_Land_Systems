@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_sights">
+        <Key ID="STR_itc_land_veh_sights_AutoLoaderFuze_text_Text">
+            <English>FUZE:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_AutoLoaderGuidance_text_Text">
+            <English>GUIDANCE:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_AutoLoaderStatus_text_Text">
+            <English>STATUS:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_AutoLoader_Text">
+            <English>AUTOLOADER SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CA_FlirMode_Text">
+            <English>BHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CA_VisionMode_Text">
+            <English>VIS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CAutoLoaderAmmo_text_Text">
+            <English>LOAD:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CURAzimuth_text_Text">
+            <English>CUR</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CountNotAvailable">
+            <English>COUNT: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CurrentAzimuth_text_Text">
+            <English>CA:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_CurrentQuadrant_text_Text">
+            <English>CQ:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_FciOrders">
+            <English>FCI ORDERS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_FuzeNotAvailable">
+            <English>FUZE: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_GuidanceNotAvailable">
+            <English>GUIDANCE: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_LoadNotAvailable">
+            <English>LOAD: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_MISAzimuth_text_Text">
+            <English>MIS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_MissionAzimuth_text_Text">
+            <English>MA:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_MissionQuadrant_text_Text">
+            <English>MQ:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_ModeText_Text">
+            <English>MODE:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OGrid_Text">
+            <English>OWN</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersFuze_Text">
+            <English>FUZE: POINT DETONATE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersGuided_Text">
+            <English>GUIDED: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_Orders_Text">
+            <English>FCI ORDERS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_RangeText_Text">
+            <English>RANGE:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_Status">
+            <English>STATUS: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TGrid_Text">
+            <English>TGT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TextAlt_Text">
+            <English>ALT [AGL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TextGrid_Text">
+            <English>UAS GRID:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TextMag_Text">
+            <English>CAM MAG:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TextSpd_Text">
+            <English>SPD [KM/H]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_TextTime_Text">
+            <English>TIME [UTC]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_UAVi_Alt_text_Text">
+            <English>ALT [ASL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_UAVi_DIR_text_Text">
+            <English>DIR [DEG/MIL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_UAVi_TGT_text_Text">
+            <English>TGT GRID:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_UAVi_TGTalt_text_Text">
+            <English>TGT ALT [ASL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_align_azi_header_Text">
+            <English>AZIMUTH</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_align_header_Text">
+            <English>GUN ALIGNMENT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_align_quad_header_Text">
+            <English>QUADRANT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_controls_AutoLoader_Text">
+            <English>AUTOLOADER</English>
+        </Key>
+    </Package>
+</Project>

@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes the CBR app: sets the static header text ("COBRA" / "Radar Suite"), un-fades and labels
+ * Initializes the CBR app: sets the static header text ("COBRA" / LLSTRING(Cbr_RadarSuite)), un-fades and labels
  * the Map and Data sidebar buttons (the Settings and refresh-data buttons are currently disabled), and
  * selects "map" as the app's default landing page.
  *
@@ -22,14 +22,14 @@ params ["_display"];
 #include "..\..\BCS_idc_defines.hpp"
 
 [_display, IDC_header1, "COBRA"] call EFUNC(common,ctrlSetText);
-[_display, IDC_header2, "Radar Suite"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header2, LLSTRING(Cbr_RadarSuite)] call EFUNC(common,ctrlSetText);
 
 //[_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);
 [_display, IDC_sidebar_button2, 0] call EFUNC(common,ctrlSetFade);
 [_display, IDC_sidebar_button3, 0] call EFUNC(common,ctrlSetFade);
 //[_display, IDC_sidebar_button1, "COBRA Settings"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button2, "Map view"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button3, "Data view"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button2, LLSTRING(Cbr_MapView)] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button3, LLSTRING(Cbr_DataView)] call EFUNC(common,ctrlSetText);
 
 //[_display, IDC_sidebar_button5, 0] call EFUNC(common,ctrlSetFade);
 //[_display, IDC_sidebar_button5, "Refresh data"] call EFUNC(common,ctrlSetText);

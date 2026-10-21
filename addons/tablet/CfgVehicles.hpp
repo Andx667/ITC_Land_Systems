@@ -4,7 +4,7 @@ class CfgVehicles {
     class ACE_SelfActions {
       class ACE_Equipment {
         class itc_land_tablet_spg {
-          displayName = "SPG Tablet";
+          displayName = CSTRING(tablet_spg_DisplayName);
           condition = "[_player,""itc_land_tablet_spg""] call ace_common_fnc_hasItem";
           statement = QUOTE(['itc_land_tablet_spg'] call FUNC(open));
           icon = QPATHTOF(UI\arty-icon.paa);
@@ -13,7 +13,7 @@ class CfgVehicles {
           exceptions[] = {"isNotInside","isNotSitting"};
         };
         class itc_land_tablet_fdc {
-          displayName = "FDC Tablet";
+          displayName = CSTRING(tablet_fdc_DisplayName);
           condition = "[_player,""itc_land_tablet_fdc""] call ace_common_fnc_hasItem";
           statement = QUOTE(['itc_land_tablet_fdc'] call FUNC(open));
           icon = QPATHTOF(UI\arty-icon.paa);

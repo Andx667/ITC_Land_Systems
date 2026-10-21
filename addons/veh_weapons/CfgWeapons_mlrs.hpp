@@ -4,7 +4,7 @@ class rockets_230mm_GAT : RocketPods {
 };
 class itc_land_230mm_mlrs : rockets_230mm_GAT {
   modes[] = {"Mode_16"};
-  displayName = "M230 MLRS";  
+  displayName = CSTRING(230mm_mlrs_DisplayName);  
   magazineReloadTime = 30;
   magazines[] = {
     "itc_land_m230hex_12rnd",
@@ -14,7 +14,7 @@ class itc_land_230mm_mlrs : rockets_230mm_GAT {
     "itc_land_m230mat_12rnd","itc_land_m230map_12rnd"
   };
   class Mode_16 : Mode_16 {
-    displayName = "MLRS";
+    displayName = CSTRING(Mode_16_DisplayName);
     artilleryCharge = 1;
        reloadTime = 0.5;
        

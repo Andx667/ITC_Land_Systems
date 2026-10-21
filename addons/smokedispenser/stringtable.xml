@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="smokedispenser">
+        <Key ID="STR_itc_land_smokedispenser_smokeDispenser_mag_DisplayName">
+            <English>CM Smoke Dispenser</English>
+        </Key>
+        <Key ID="STR_itc_land_smokedispenser_smokeDispenser_mag_DisplayNameShort">
+            <English>CM Smoke Dispenser</English>
+        </Key>
+    </Package>
+</Project>

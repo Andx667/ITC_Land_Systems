@@ -3,16 +3,16 @@ class itc_land_m230hex_12rnd : 12Rnd_230mm_rockets {
   author = "Yax";
   initSpeed = 600;
   ammo = "itc_land_230mm_he";
-  displayName = "M230 HE";
-  displayNameShort = "M230 HE";  
+  displayName = CSTRING(m230hex_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230hex_12rnd_DisplayNameShort);  
   itc_land_fuze = "mof35_mod2";
   itc_land_submunition = "itc_land_230mm_helper";
   itc_land_btabListFile = QPATHTOEF(ballistics,tables\b_230\list.sqf);
 };
 class itc_land_m230pgm_12rnd : itc_land_m230hex_12rnd {
   itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};
-  displayName = "M230 PGM";
-  displayNameShort = "M230 PGM";
+  displayName = CSTRING(m230pgm_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230pgm_12rnd_DisplayNameShort);
 };
 class itc_land_m230pgm_6rnd : itc_land_m230pgm_12rnd {
   count = 6;
@@ -20,8 +20,8 @@ class itc_land_m230pgm_6rnd : itc_land_m230pgm_12rnd {
 class itc_land_m230icm_12rnd : itc_land_m230hex_12rnd {
   author = "Toadball";
   ammo = "itc_land_230mm_inert";
-  displayName = "M230 ICM";
-  displayNameShort = "M230 ICM";  
+  displayName = CSTRING(m230icm_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230icm_12rnd_DisplayNameShort);  
   itc_land_fuze = "mof35_mod1";
   itc_land_submunition = "itc_land_230mm_icm_helper";
 };
@@ -29,8 +29,8 @@ class itc_land_m230icm_6rnd : itc_land_m230icm_12rnd {
   count = 6;
 };
 class itc_land_m230gicm_12rnd : itc_land_m230icm_12rnd {
-  displayName = "M230 G-ICM";
-  displayNameShort = "M230 G-ICM";
+  displayName = CSTRING(m230gicm_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230gicm_12rnd_DisplayNameShort);
   itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};  
 };
 class itc_land_m230gicm_6rnd : itc_land_m230gicm_12rnd {
@@ -39,16 +39,16 @@ class itc_land_m230gicm_6rnd : itc_land_m230gicm_12rnd {
 class itc_land_m230mat_12rnd : itc_land_m230hex_12rnd {
   author = "Toadball";
   ammo = "itc_land_230mm_inert";
-  displayName = "M230 MINE-AT";
-  displayNameShort = "M230 MAT";  
+  displayName = CSTRING(m230mat_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230mat_12rnd_DisplayNameShort);  
   itc_land_fuze = "mof35_mod1";
   itc_land_submunition = "itc_land_230mm_fascam_at_helper";
 };
 class itc_land_m230map_12rnd : itc_land_m230hex_12rnd {
   author = "Toadball";
   ammo = "itc_land_230mm_inert";
-  displayName = "M230 MINE-AP";
-  displayNameShort = "M230 MAP";  
+  displayName = CSTRING(m230map_12rnd_DisplayName);
+  displayNameShort = CSTRING(m230map_12rnd_DisplayNameShort);  
   itc_land_fuze = "mof35_mod1";
   itc_land_submunition = "itc_land_230mm_fascam_ap_helper";
 };

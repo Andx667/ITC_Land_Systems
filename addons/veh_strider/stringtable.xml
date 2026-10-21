@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_strider">
+        <Key ID="STR_itc_land_veh_strider_I_StriderRV_DisplayName">
+            <English>Strider RV</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_strider_I_StriderRV_GMG_DisplayName">
+            <English>Strider RV GMG</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_strider_I_StriderRV_HMG_DisplayName">
+            <English>Strider RV HMG</English>
+        </Key>
+    </Package>
+</Project>

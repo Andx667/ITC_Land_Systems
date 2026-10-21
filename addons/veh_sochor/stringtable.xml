@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_sochor">
+        <Key ID="STR_itc_land_veh_sochor_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sochor_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sochor_o_sph_sochor2_DisplayName">
+            <English>2S9 mod. 0 Sochor 2</English>
+        </Key>
+    </Package>
+</Project>

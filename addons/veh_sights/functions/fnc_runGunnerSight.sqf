@@ -60,7 +60,7 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     ["misQd", _solutionQuadrant] call _setText;
 
     if ("status" in _layout) then {
-        ["status", format ["STATUS: %1", [_vehicle, _layout getOrDefault ["statusRounds", true]] call EFUNC(common,getGunStatusText)]] call _setText;
+        ["status", format [LLSTRING(Status), [_vehicle, _layout getOrDefault ["statusRounds", true]] call EFUNC(common,getGunStatusText)]] call _setText;
     };
     if ("load" in _layout) then {
         ([_vehicle] call EFUNC(common,getLoaderReadout)) params ["_load", "_fuze", "_guidance"];

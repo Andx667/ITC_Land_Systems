@@ -96,18 +96,18 @@ if (_action in ["calc","prev","next"]) then {
       private _solutionString = "";
       _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 
-      _solutionString = _solutionString + format ["SLN: %1 / %2<br/>", _solutionIndex+1,(count _solutions)];
-      _solutionString = _solutionString + format ["AZIMUTH: %1<br/>",round _az];
-      _solutionString = _solutionString + format ["DEFLECTION: %1<br/>",_df];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
 
-      _solutionString = _solutionString + format ["QUADRANT: %1<br/>",round _qd];
-      _solutionString = _solutionString + format ["TOF: %1<br/>",round _tof];
-      _solutionString = _solutionString + format ["MAXIMUM ORDINATE: %1<br/>",round _maxOrd];
-      _solutionString = _solutionString + format ["TARGET DISTANCE: %1<br/>",round _dist];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
+      _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
 
       (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
     } else {
-      (_display displayCtrl 2403) ctrlSetStructuredText parseText "NO SLN";
+      (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
     };
     (_display displayCtrl 2403) ctrlCommit 0;
 };

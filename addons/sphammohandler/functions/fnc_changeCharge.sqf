@@ -33,7 +33,7 @@ private _maxChargeIndex = getNumber (_selectedMagConfig >> "itc_land_maxChargeIn
 //generate new charge value ensuring it is not bellow 1 or above maximum charge
 _curChargeIndex = ((_curChargeIndex + _increment) min _maxChargeIndex) max 1;
 
-ctrlSetText [86003, format["CHARGE: %1 / %2", _curChargeIndex, _maxChargeIndex]];
+ctrlSetText [86003, format[LLSTRING(ChargeOf), _curChargeIndex, _maxChargeIndex]];
 
 _vehicle setVariable ["itc_land_currentChargeIndex",_curChargeIndex,true];
 

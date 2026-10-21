@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="packable">
+        <Key ID="STR_itc_land_packable_Packing">
+            <English>Packing: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_packable_Unpack_DisplayName">
+            <English>Unpack</English>
+        </Key>
+        <Key ID="STR_itc_land_packable_Unpacking">
+            <English>Unpacking: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_packable_packableItem_DescriptionShort">
+            <English>Packable Item (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_packable_packableItem_DisplayName">
+            <English>Packable Item (Packed)</English>
+        </Key>
+    </Package>
+</Project>

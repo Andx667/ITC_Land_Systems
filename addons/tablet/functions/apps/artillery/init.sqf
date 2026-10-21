@@ -32,13 +32,13 @@ if(!_canOpen) exitWith {
   [_display] call FUNC(appClear);
 
   [_display, IDC_header1, getText (_appConfig >> "title")] call EFUNC(common,ctrlSetText);
-  [_display, IDC_header2, "NO INTERFACE"] call EFUNC(common,ctrlSetText);
+  [_display, IDC_header2, LLSTRING(Artillery_NoInterface)] call EFUNC(common,ctrlSetText);
   [_display, IDC_sidebar_button5, 1] call EFUNC(common,ctrlSetFade);
-  [_display, IDC_workspace_header, "Self Propelled Gun Interface not found"] call EFUNC(common,ctrlSetText);
+  [_display, IDC_workspace_header, LLSTRING(Artillery_InterfaceNotFound)] call EFUNC(common,ctrlSetText);
   ""
 };
 
-[_display, IDC_header1, "Vehicle"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header1, LLSTRING(Artillery_Vehicle)] call EFUNC(common,ctrlSetText);
 [_display, IDC_header2, getText (_appConfig >> "subtitle")] call EFUNC(common,ctrlSetText);
 
 [_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);

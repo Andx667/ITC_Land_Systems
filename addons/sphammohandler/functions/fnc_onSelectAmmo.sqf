@@ -35,12 +35,12 @@ _vehicle setVariable ["itc_land_currentMagInfo",[_selectedMagIndex,_selectedMagC
 
 //Get Displayname and set header text
 private _displayName = getText(_selectedMagConfig >> "displayName");
-ctrlSetText [86002, format["PREPARE: %1", _displayName]];
+ctrlSetText [86002, format[LLSTRING(Prepare), _displayName]];
 
 //Set current Charge label
 private _maxChargeIndex =  getNumber(_selectedMagConfig >> "itc_land_maxChargeIndex");
 private _curChargeIndex = _vehicle getVariable ["itc_land_currentChargeIndex",1];
-ctrlSetText [86003, format["CHARGE: %1 / %2", _curChargeIndex, _maxChargeIndex]];
+ctrlSetText [86003, format[LLSTRING(ChargeOf), _curChargeIndex, _maxChargeIndex]];
 
 [] call FUNC(fillFuzeList);
 private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];

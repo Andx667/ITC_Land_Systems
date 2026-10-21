@@ -28,7 +28,7 @@ itc_land_SPHammoHandler_open = true;
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
-private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,"WAITING"]];
+private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
 _vehicle setVariable ["itc_land_ammoHandler_status",_status,true];
 [] call FUNC(updateStatus);
 

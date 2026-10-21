@@ -25,7 +25,7 @@ if (_settings isEqualTo []) exitWith {
 };
 
 [
-    format ["LOAD: %1", (_settings # 0) # 0],
-    format ["FUZE: %1", toUpper ((_settings # 1) # 0)],
-    format ["GUIDANCE: %1", toUpper ((_settings # 2) # 0)]
+    format [LLSTRING(LoaderLoad), (_settings # 0) # 0],
+    format [LLSTRING(LoaderFuze), toUpper ((_settings # 1) # 0)],
+    format [LLSTRING(LoaderGuidance), toUpper ((_settings # 2) # 0)]
 ]

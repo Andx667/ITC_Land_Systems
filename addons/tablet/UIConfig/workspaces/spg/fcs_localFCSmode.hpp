@@ -1,6 +1,6 @@
 class fcs_target_title: ITC_LAND_RscText {
     idc = 1012;
-    text = "LOCAL FCS TARGETING";
+    text = CSTRING(fcs_target_title_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.285 * safezoneH + safezoneY";
     w = "0.15 * safezoneW";
@@ -9,7 +9,7 @@ class fcs_target_title: ITC_LAND_RscText {
 };      
 class fcs_target_pos: ITC_LAND_RscText {
   idc = 1010;
-    text = "Target Position";
+    text = CSTRING(fcs_target_pos_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.329 * safezoneH + safezoneY";
     w = "0.103125 * safezoneW";
@@ -24,7 +24,7 @@ class fcs_edit_target_pos: ITC_LAND_RscEdit {
 };  
 class fcs_target_elev: ITC_LAND_RscText {
     idc = 1011;
-    text = "Target Elevation";
+    text = CSTRING(fcs_target_elev_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.362 * safezoneH + safezoneY";
     w = "0.103125 * safezoneW";
@@ -39,7 +39,7 @@ class fcs_edit_target_el: ITC_LAND_RscEdit {
 };  
 class fcs_round_type: ITC_LAND_RscText {
     idc = 1012;
-    text = "Round Type";
+    text = CSTRING(fcs_round_type_Text2);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.395 * safezoneH + safezoneY";
     w = "0.103125 * safezoneW";
@@ -72,7 +72,7 @@ class fcs_results_frame: ITC_LAND_RscFrame {
 };  
 class fcs_next: ITC_LAND_RscButton {
     idc = 1601;
-    text = "NXT SLN";
+    text = CSTRING(fcs_next_Text);
     x = "0.494844 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";
     w = "0.0464063 * safezoneW";
@@ -81,7 +81,7 @@ class fcs_next: ITC_LAND_RscButton {
 };
 class fcs_prev: ITC_LAND_RscButton {
     idc = 1602;
-    text = "PRV SLN";
+    text = CSTRING(fcs_prev_Text);
     x = "0.438125 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";
     w = "0.0464063 * safezoneW";
@@ -90,7 +90,7 @@ class fcs_prev: ITC_LAND_RscButton {
 };
 class fcs_calc: ITC_LAND_RscButton {
     idc = 1600;
-    text = "CALC SLN";
+    text = CSTRING(fcs_calc_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.432 * safezoneH + safezoneY";
     w = "0.0515625 * safezoneW";

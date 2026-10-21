@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_uav02">
+        <Key ID="STR_itc_land_veh_uav02_B_UAV_MQ4i_DisplayName">
+            <English>MQ-4I Greyhawk</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav02_O_UAV_K40i_DisplayName">
+            <English>K40i Ababil-3</English>
+        </Key>
+    </Package>
+</Project>

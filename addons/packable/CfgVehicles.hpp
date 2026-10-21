@@ -5,7 +5,7 @@ class CfgVehicles {
     class ACE_SelfActions {
       class ACE_Equipment {
         class ITC_Land_Unpack {
-          displayName = "Unpack";
+          displayName = CSTRING(Unpack_DisplayName);
           condition = QUOTE([ACE_player] call FUNC(canunpack));
           statement = "";
           exceptions[] = {"isNotDragging", "notOnMap", "isNotInside", "isNotSitting"};

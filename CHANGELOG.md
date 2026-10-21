@@ -15,6 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
+- Stringtables for every addon: vehicle, weapon and magazine names, dialog labels and script-generated UI text can now be translated. The SPH loader status is published as a stringtable key, so every crew member sees it in their own language.
 - CBA settings under "ITC Land Systems": enable/disable APS, COBRA detection range and engagement window, Spike camera sensitivity (per player). The CIWS toggle moved to the same category.
 
 ### Fixed

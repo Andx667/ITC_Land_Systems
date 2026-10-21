@@ -4,7 +4,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_referenceID_label: ITC_LAND_RscText {
         idc = 5401;
 
-        text = "Reference ID";
+        text = CSTRING(locstores_referenceID_label_Text);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -24,7 +24,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_position_label: ITC_LAND_RscText {
         idc = 5403;
 
-        text = "Position";
+        text = CSTRING(locstores_position_label_Text);
         x = "0.463906 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -44,7 +44,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_elevation_label: ITC_LAND_RscText {
         idc = 5405;
 
-        text = "Elevation";
+        text = CSTRING(locstores_elevation_label_Text);
         x = "0.551562 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -64,7 +64,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_isFriendly_label: ITC_LAND_RscText {
         idc = 5407;
 
-        text = "Friendly";
+        text = CSTRING(locstores_isFriendly_label_Text);
         x = "0.62375 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0360937 * safezoneW";
@@ -73,7 +73,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_isFriendly_combobox: ITC_LAND_RscComboBox {
         idc = 5408;
 
-        text = "No";
+        text = CSTRING(locstores_isFriendly_combobox_Text);
         x = "0.659844 * safezoneW + safezoneX";
         y = "0.247 * safezoneH + safezoneY";
         w = "0.0309375 * safezoneW";
@@ -84,7 +84,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_addnew_button: ITC_LAND_RscButton {
         idc = 5409;
 
-        text = "ADD NEW";
+        text = CSTRING(locstores_addnew_button_Text);
         x = "0.603125 * safezoneW + safezoneX";
         y = "0.566 * safezoneH + safezoneY";
         w = "0.04125 * safezoneW";
@@ -96,7 +96,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class locstores_remove_button: ITC_LAND_RscButton {
         idc = 5410;
 
-        text = "REMOVE";
+        text = CSTRING(locstores_remove_button_Text);
         x = "0.649531 * safezoneW + safezoneX";
         y = "0.566 * safezoneH + safezoneY";
         w = "0.04125 * safezoneW";

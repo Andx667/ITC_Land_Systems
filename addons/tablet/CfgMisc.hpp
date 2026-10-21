@@ -1,7 +1,7 @@
 class itc_land {
   class apps {
     class spg {
-      displayName = "Self Propelled Gun";
+      displayName = CSTRING(spg_DisplayName);
       interfaces = "ITC Self Propelled Gun";
       sharedApp = "artillery";
       title = "SPG APP";
@@ -9,15 +9,15 @@ class itc_land {
       sidebar2 = "INS / DATA";
     };
     class bcs {
-      displayName = "Battery Control System";
+      displayName = CSTRING(bcs_DisplayName);
       interfaces = "-";
     };
     class cbr {
-      displayName = "Counter Battery Radar";
+      displayName = CSTRING(cbr_DisplayName);
       interfaces = "Datalink";
     };
     class missile {
-      displayName = "Guided Missile Configuration";
+      displayName = CSTRING(missile_DisplayName);
       interfaces = "ITC Self Propelled Gun";
       sharedApp = "artillery";
       title = "MLRS APP";

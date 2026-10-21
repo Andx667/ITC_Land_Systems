@@ -1,8 +1,8 @@
     class itc_land_g127hex: itc_land_g155hex {
         author = "Toadball";
-        displayName = "G127 HE";
+        displayName = CSTRING(g127hex_DisplayName);
         muzzleImpulseFactor[] = {1e-006,1e-006};
-        displayNameShort = "G127 HE";
+        displayNameShort = CSTRING(g127hex_DisplayNameShort);
     ammo = "itc_land_127mm";
     itc_land_submunition = "itc_land_127mm_helper";
         itc_land_charge_format = "itc_land_g127hex_chg%1";
@@ -16,9 +16,9 @@
 
     class itc_land_g127smo: itc_land_g155smo {
         author = "Toadball";
-        displayName = "G127 SMOKE";
+        displayName = CSTRING(g127smo_DisplayName);
         muzzleImpulseFactor[] = {1e-006,1e-006};
-        displayNameShort = "G127 SMOKE";
+        displayNameShort = CSTRING(g127smo_DisplayNameShort);
     ammo = "itc_land_127mm_inert";
     itc_land_submunition = "itc_land_127mm_smoke";
         itc_land_charge_format = "itc_land_g127smo_chg%1";
@@ -32,9 +32,9 @@
 
     class itc_land_g127pgm: itc_land_g155pgm {
         author = "Toadball";
-        displayName = "G127 GPS GUIDED";
+        displayName = CSTRING(g127pgm_DisplayName);
         muzzleImpulseFactor[] = {1e-006,1e-006};
-        displayNameShort = "G127 PGM";
+        displayNameShort = CSTRING(g127pgm_DisplayNameShort);
     ammo = "itc_land_127mm";
         itc_land_charge_format = "itc_land_g127pgm_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_127\list.sqf);
@@ -47,9 +47,9 @@
 
     class itc_land_g127lgm: itc_land_g155lgm {
         author = "Toadball";
-        displayName = "G127 LASER GUIDED";
+        displayName = CSTRING(g127lgm_DisplayName);
         muzzleImpulseFactor[] = {1e-006,1e-006};
-        displayNameShort = "G127 LGM";
+        displayNameShort = CSTRING(g127lgm_DisplayNameShort);
     ammo = "itc_land_127mm";
         itc_land_charge_format = "itc_land_g127lgm_chg%1";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_127\list.sqf);
@@ -62,9 +62,9 @@
 
     class itc_land_g127ill: itc_land_g155ill {
         author = "Toadball";
-        displayName = "G127 ILLUM";
+        displayName = CSTRING(g127ill_DisplayName);
         muzzleImpulseFactor[] = {1e-006,1e-006};
-        displayNameShort = "G127 ILLUM";
+        displayNameShort = CSTRING(g127ill_DisplayNameShort);
     ammo = "itc_land_127mm_inert";
     itc_land_submunition = "itc_land_127mm_illum";
         itc_land_charge_format = "itc_land_g127ill_chg%1";

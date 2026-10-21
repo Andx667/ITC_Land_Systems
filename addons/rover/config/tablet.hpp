@@ -56,7 +56,7 @@ class itc_land_rover_tablet {
         */
         class TextSpd: RangeText {
           idc = 1009;
-          text = "SPD [KM/H]:";
+          text = CSTRING(TextSpd_Text);
           x = "COL_1 * safeZoneW";
           y = "ROW_1 * safeZoneH + ROW_H";
         };
@@ -68,7 +68,7 @@ class itc_land_rover_tablet {
         };
         class TextAlt: RangeText {
           idc = 1007;
-          text = "ALT [AGL]:";
+          text = CSTRING(TextAlt_Text);
           x = "COL_1 * safeZoneW";
           y = "ROW_1 * safeZoneH + (ROW_H*2)";
         };
@@ -80,7 +80,7 @@ class itc_land_rover_tablet {
         };
         class ITC_Land_UAVi_Alt_text: RangeText {
           idc = 75010;
-          text = "ALT [ASL]:";
+          text = CSTRING(UAVi_Alt_text_Text);
           x = "COL_1 * safeZoneW";
           y = "ROW_1 * safeZoneH + (ROW_H*3)";
         };
@@ -92,7 +92,7 @@ class itc_land_rover_tablet {
         };
         class ITC_Land_UAVi_DIR_text: RangeText {
           idc = 75012;
-          text = "DIR [DEG/MIL]:";
+          text = CSTRING(UAVi_DIR_text_Text);
           x = "COL_2 * safeZoneW";
           y = "ROW_2 * safeZoneH + (ROW_H*1)";
         };
@@ -104,7 +104,7 @@ class itc_land_rover_tablet {
         };
         class ITC_Land_UAVi_TGT_text: RangeText {
           idc = 75014;
-          text = "TGT GRID:";
+          text = CSTRING(UAVi_TGT_text_Text);
           x = "COL_2 * safeZoneW";
           y = "ROW_2 * safeZoneH + (ROW_H*0)";
         };
@@ -116,7 +116,7 @@ class itc_land_rover_tablet {
         };
         class ITC_Land_UAVi_TGTalt_text: RangeText {
           idc = 75016;
-          text = "TGT ALT [ASL]:";
+          text = CSTRING(UAVi_TGTalt_text_Text);
           x = "COL_2 * safeZoneW";
           y = "ROW_2 * safeZoneH + (ROW_H*2)";
         };
@@ -128,7 +128,7 @@ class itc_land_rover_tablet {
         };
         class TextGrid: RangeText {
           idc = 19005;
-          text = "OWN GRID:";
+          text = CSTRING(TextGrid_Text);
           x = "COL_1 * safeZoneW";
           y = "ROW_2 * safeZoneH + (ROW_H*0)";
         };
@@ -140,7 +140,7 @@ class itc_land_rover_tablet {
         };
         class TextTime: RangeText {
           idc = 1010;
-          text = "TIME [UTC]:";
+          text = CSTRING(TextTime_Text);
           x = "COL_1 * safeZoneW";
           y = "ROW_2 * safeZoneH + (ROW_H*1)";
         };
@@ -239,7 +239,7 @@ class itc_land_rover_tablet {
     };
     class Text_base: RscText {
         idc = 1000;
-        text = "Transmitter:"; //--- ToDo: Localize;
+        text = CSTRING(Text_base_Text); //--- ToDo: Localize;
         x = "0.21125 * safezoneW + safezoneX";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -293,7 +293,7 @@ class itc_land_rover_tablet {
     */
     class RscText_1006: Text_base {
         idc = 1006;
-        text = "ZOOM"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1006_Text); //--- ToDo: Localize;
         x = "0.38 * safezoneW + safezoneX";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "0.025625 * safezoneW";
@@ -310,7 +310,7 @@ class itc_land_rover_tablet {
     #define VISMODE_BTN_W (0.028*safeZoneW)
     class RscText_999: RscButton {
         idc = 999;
-        text = "DTV"; //--- ToDo: Localize;
+        text = CSTRING(RscText_999_Text); //--- ToDo: Localize;
         x = "0.557 * safezoneW + safezoneX";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
@@ -319,7 +319,7 @@ class itc_land_rover_tablet {
     };
     class RscText_1001: RscButton {
         idc = 1001;
-        text = "NVG"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1001_Text); //--- ToDo: Localize;
         x = "0.557 * safezoneW + safezoneX + VISMODE_BTN_W";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
@@ -328,7 +328,7 @@ class itc_land_rover_tablet {
     };
     class RscText_1002: RscButton {
         idc = 1002;
-        text = "WHOT"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1002_Text); //--- ToDo: Localize;
         x = "0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*2)";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
@@ -337,7 +337,7 @@ class itc_land_rover_tablet {
     };
     class RscText_1003: RscButton {
         idc = 1003;
-        text = "BHOT"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1003_Text); //--- ToDo: Localize;
         x = "0.557 * safezoneW + safezoneX + (VISMODE_BTN_W*3)";
         y = "TOP_BAR_Y * safezoneH + safezoneY";
         w = "VISMODE_BTN_W";
@@ -346,7 +346,7 @@ class itc_land_rover_tablet {
     };
     class RscText_1004: Text_base {
         idc = 1004;
-        text = "NO CONNECTION"; //--- ToDo: Localize;
+        text = CSTRING(RscText_1004_Text); //--- ToDo: Localize;
         x = "0.469062 * safezoneW + safezoneX";
         y = "0.478 * safezoneH + safezoneY";
         w = "0.0670312 * safezoneW";
@@ -355,7 +355,7 @@ class itc_land_rover_tablet {
     };
     class RscText_1005: Text_base {
         idc = 1005;
-        text = "Aircraft must have laser designator enabled to broadcast rover."; //--- ToDo: Localize;
+        text = CSTRING(RscText_1005_Text); //--- ToDo: Localize;
         x = "0.386562 * safezoneW + safezoneX";
         y = "0.5 * safezoneH + safezoneY";
         w = "0.221719 * safezoneW";

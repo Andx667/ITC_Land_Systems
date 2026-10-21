@@ -50,12 +50,12 @@ class CfgVehicles {
     class itc_land_SPH01_base: B_MBT_01_arty_base_F {
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_SPHammohandler {
-                displayName = "Open Ammo Handling Interface";
+                displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = "( gunner _target ) == ACE_Player";
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };
             class ITC_Land_CommanderTablet {
-                displayName = "Open Mounted Tablet";
+                displayName = CSTRING(CommanderTablet_DisplayName);
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( commander _target ) == ACE_Player));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
@@ -111,7 +111,7 @@ class CfgVehicles {
         author = "Toadball";
         scope = 2;
         scopeCurator = 2;
-        displayName = "M4 mod. 0 Sholef 2";
+        displayName = CSTRING(b_SPH_Sholef2_DisplayName);
         mapSize = 11.83;
         class SimpleObject {
             eden = 1;
@@ -126,13 +126,13 @@ class CfgVehicles {
         hiddenSelectionsTextures[] = {"A3\armor_f_gamma\MBT_01\Data\MBT_01_body_CO.paa","A3\armor_f_gamma\MBT_01\data\MBT_01_scorcher_co.paa","A3\Data_F\Vehicles\Turret_CO.paa","A3\Armor_F\Data\camonet_NATO_Desert_CO.paa"};
         class TextureSources {
             class Sand {
-                displayName = "Sand";
+                displayName = CSTRING(Sand_DisplayName);
                 author = "Bohemia Interactive";
                 textures[] = {"A3\armor_f_gamma\MBT_01\Data\MBT_01_body_CO.paa","A3\armor_f_gamma\MBT_01\data\MBT_01_scorcher_co.paa","A3\Data_F\Vehicles\Turret_CO.paa","A3\Armor_F\Data\camonet_NATO_Desert_CO.paa"};
                 factions[] = {"BLU_F"};
             };
             class Olive {
-                displayName = "Olive";
+                displayName = CSTRING(Olive_DisplayName);
                 author = "Bohemia Interactive";
                 textures[] = {"A3\Armor_F_Exp\MBT_01\data\MBT_01_body_olive_CO.paa","A3\Armor_F_Exp\MBT_01\data\MBT_01_scorcher_olive_CO.paa","A3\Data_F_Exp\Vehicles\Turret_olive_CO.paa","A3\Armor_F\Data\camonet_NATO_Green_CO.paa"};
                 factions[] = {"BLU_T_F"};

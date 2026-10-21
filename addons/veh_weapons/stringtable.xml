@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_weapons">
+        <Key ID="STR_itc_land_veh_weapons_127mm_navalgunsystem_DisplayName">
+            <English>NG127 L/54</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_155Extra_DisplayName">
+            <English>155Extra</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_155Falat_DisplayName">
+            <English>155Falat</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_230mm_mlrs_DisplayName">
+            <English>M230 MLRS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_Mode_16_DisplayName">
+            <English>MLRS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105hex_DisplayName">
+            <English>G105 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105hex_DisplayNameShort">
+            <English>G105 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105icm_DisplayName">
+            <English>G105 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105icm_DisplayNameShort">
+            <English>G105 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105ill_DisplayName">
+            <English>G105 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105ill_DisplayNameShort">
+            <English>G105 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105smo_DisplayName">
+            <English>G105 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g105smo_DisplayNameShort">
+            <English>G105 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122hex_DisplayName">
+            <English>g122 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122hex_DisplayNameShort">
+            <English>G122 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122icm_DisplayName">
+            <English>G122 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122icm_DisplayNameShort">
+            <English>G122 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122ill_DisplayName">
+            <English>G122 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122ill_DisplayNameShort">
+            <English>G122 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122lgm_DisplayName">
+            <English>G122 LASER GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122lgm_DisplayNameShort">
+            <English>G122 LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122smo_DisplayName">
+            <English>g122 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g122smo_DisplayNameShort">
+            <English>g122 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127hex_DisplayName">
+            <English>G127 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127hex_DisplayNameShort">
+            <English>G127 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127ill_DisplayName">
+            <English>G127 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127ill_DisplayNameShort">
+            <English>G127 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127lgm_DisplayName">
+            <English>G127 LASER GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127lgm_DisplayNameShort">
+            <English>G127 LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127pgm_DisplayName">
+            <English>G127 GPS GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127pgm_DisplayNameShort">
+            <English>G127 PGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127smo_DisplayName">
+            <English>G127 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g127smo_DisplayNameShort">
+            <English>G127 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152hex_DisplayName">
+            <English>G152 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152hex_DisplayNameShort">
+            <English>G152 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152icm_DisplayName">
+            <English>G152 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152icm_DisplayNameShort">
+            <English>G152 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152ill_DisplayName">
+            <English>G152 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152ill_DisplayNameShort">
+            <English>G152 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152lgm_DisplayName">
+            <English>G152 LASER GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152lgm_DisplayNameShort">
+            <English>G152 LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152map_DisplayName">
+            <English>G152 MINE-AP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152map_DisplayNameShort">
+            <English>G152 MAP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152mat_DisplayName">
+            <English>G152 MINE-AT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152mat_DisplayNameShort">
+            <English>G152 MAT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152pgm_DisplayName">
+            <English>G152 GPS GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152pgm_DisplayNameShort">
+            <English>G152 PGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152smo_DisplayName">
+            <English>G152 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g152smo_DisplayNameShort">
+            <English>G152 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155ext_DisplayName">
+            <English>G155 EXTRA</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155ext_DisplayNameShort">
+            <English>G155 EXTRA</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155falat_DisplayName">
+            <English>G155 FALAT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155falat_DisplayNameShort">
+            <English>G155 FALAT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155hex_DisplayName">
+            <English>G155 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155hex_DisplayNameShort">
+            <English>G155 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155icm_DisplayName">
+            <English>G155 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155icm_DisplayNameShort">
+            <English>G155 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155ill_DisplayName">
+            <English>G155 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155ill_DisplayNameShort">
+            <English>G155 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155lgm_DisplayName">
+            <English>G155 LASER GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155lgm_DisplayNameShort">
+            <English>G155 LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155map_DisplayName">
+            <English>G155 MINE-AP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155map_DisplayNameShort">
+            <English>G155 MAP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155mat_DisplayName">
+            <English>G155 MINE-AT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155mat_DisplayNameShort">
+            <English>G155 MAT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155pgm_DisplayName">
+            <English>G155 GPS GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155pgm_DisplayNameShort">
+            <English>G155 PGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155smo_DisplayName">
+            <English>G155 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_g155smo_DisplayNameShort">
+            <English>G155 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_howitzer_base_DisplayName">
+            <English>Howitzer 155 mm</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230gicm_12rnd_DisplayName">
+            <English>M230 G-ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230gicm_12rnd_DisplayNameShort">
+            <English>M230 G-ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230hex_12rnd_DisplayName">
+            <English>M230 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230hex_12rnd_DisplayNameShort">
+            <English>M230 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230icm_12rnd_DisplayName">
+            <English>M230 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230icm_12rnd_DisplayNameShort">
+            <English>M230 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230map_12rnd_DisplayName">
+            <English>M230 MINE-AP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230map_12rnd_DisplayNameShort">
+            <English>M230 MAP</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230mat_12rnd_DisplayName">
+            <English>M230 MINE-AT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230mat_12rnd_DisplayNameShort">
+            <English>M230 MAT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230pgm_12rnd_DisplayName">
+            <English>M230 PGM</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_weapons_m230pgm_12rnd_DisplayNameShort">
+            <English>M230 PGM</English>
+        </Key>
+    </Package>
+</Project>

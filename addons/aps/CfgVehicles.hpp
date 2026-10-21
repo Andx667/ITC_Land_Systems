@@ -15,7 +15,7 @@ class CfgVehicles {
     APS_INIT_EH
     class itc_land_aps {
       class TROPHY_L {
-        displayName = "Trophy Left";
+        displayName = CSTRING(TROPHY_L_DisplayName);
         position[] = {-1,0,1.5};
         turret[] = {0};
         direction = -90;
@@ -28,7 +28,7 @@ class CfgVehicles {
         trigger = 1;
       };
       class TROPHY_R: TROPHY_L {
-        displayName = "Trophy Right";
+        displayName = CSTRING(TROPHY_R_DisplayName);
         position[] = {1,0,1.5};
         direction = 90;
       };
@@ -44,7 +44,7 @@ class CfgVehicles {
     APS_INIT_EH
     class itc_land_aps {
       class DROZD_L {
-        displayName = "Drozd L";
+        displayName = CSTRING(DROZD_L_DisplayName);
         direction = -40;
         traverse = 45;
         elevate = 15;
@@ -57,7 +57,7 @@ class CfgVehicles {
         turret[] = {0};
       };
       class DROZD_R {
-        displayName = "Drozd R";
+        displayName = CSTRING(DROZD_R_DisplayName);
         direction = 40;
         traverse = 45;
         elevate = 15;
@@ -81,7 +81,7 @@ class CfgVehicles {
     APS_INIT_EH
     class itc_land_aps {
       class AFGHANIT_L {
-        displayName = "Afghanit L";
+        displayName = CSTRING(AFGHANIT_L_DisplayName);
         direction = -50;
         traverse = 55;
         elevate = 10;
@@ -94,7 +94,7 @@ class CfgVehicles {
         turret[] = {0};
       };
       class AFGHANIT_R {
-        displayName = "Afghanit R";
+        displayName = CSTRING(AFGHANIT_R_DisplayName);
         direction = 50;
         traverse = 55;
         elevate = 10;

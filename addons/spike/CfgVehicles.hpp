@@ -25,7 +25,7 @@ class CfgVehicles {
     };
   };
   class ITC_Land_B_SpikeLR: B_static_AT_F {
-    displayName = "Spike LR ATGM [NATO]";
+    displayName = CSTRING(B_SpikeLR_DisplayName);
     model = "\A3\Static_F_Gamma\AA_01\AA_01.p3d";
 
     class SimpleObject: SimpleObject {};

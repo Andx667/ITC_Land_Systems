@@ -4,7 +4,7 @@
  * Author: ToadBall, Yax, VKing
  * Initializes the BCS solutionMission page: shows the solutionMission workspace panel and
  * sets its header. Unless told not to, recalculates the battery/gun firing solutions for the
- * current mission; if no solutions exist, shows "NO SOLUTIONS" and the range to target,
+ * current mission; if no solutions exist, shows LLSTRING(Bcs_NoSolutions) and the range to target,
  * otherwise displays the currently selected solution's max ordinate, impact angle, distance
  * and a per-gun breakdown (charge, azimuth, deflection, quadrant, time of flight).
  *
@@ -27,7 +27,7 @@ params ["_display", ["_calculate", true]];
 MISSION;MISSIONPARAMS;
 ctrlShow [13506, true];
 
-[_display, IDC_workspace_header, format["%1 Solutions", _ident]] call EFUNC(common,ctrlSetText);
+[_display, IDC_workspace_header, format[LLSTRING(Bcs_Solutions), _ident]] call EFUNC(common,ctrlSetText);
 
 if(_calculate) then {
   GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage]  call EFUNC(bcs,calcSolutions);
@@ -35,7 +35,7 @@ if(_calculate) then {
 
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];
 if(count _btySolutions == 0) exitWith {
-  SETTEXT(8022,"NO SOLUTIONS");
+  SETTEXT(8022,LLSTRING(Bcs_NoSolutions));
   lbClear 8500;
   SETTEXT(8018,"");//ordinate
   SETTEXT(8019,"");//angle
@@ -50,7 +50,7 @@ _mission set [5, (count _btySolutions) - 1];
 SETTEXT(8018,str (round _maxOrd));//ordinate
 SETTEXT(8019,str (round _impAng));//angle
 SETTEXT(8020,str (round _dist));//distance
-private _text = format["SOLUTION %1 OUT OF %2", (_curSolution + 1), count (GVAR(bcs_solutions) # 0)];
+private _text = format[LLSTRING(Bcs_SolutionOf), (_curSolution + 1), count (GVAR(bcs_solutions) # 0)];
 SETTEXT(8022,_text);
 
 lbClear 8500;

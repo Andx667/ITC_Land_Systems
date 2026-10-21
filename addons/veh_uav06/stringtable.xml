@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_uav06">
+        <Key ID="STR_itc_land_veh_uav06_PackAL6_DisplayName">
+            <English>Repack UAV</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_UAV06_Packed_base_DescriptionShort">
+            <English>AL-6 Pelican packed for carriage</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_UAV06_Packed_base_DisplayName">
+            <English>AL-6 Pelican (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_Unpack_AL6_B_DisplayName">
+            <English>AL-6 Pelican [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_b_uav06_backpack_DisplayName">
+            <English>UAV Bag (AL-6) [NATO]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_i_uav06_backpack_DisplayName">
+            <English>UAV Bag (AL-6) [AAF]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_o_uav06_backpack_DisplayName">
+            <English>UAV Bag (AL-6) [CSAT]</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_uav06_backpack_base_DisplayName">
+            <English>UAV Bag (AL-6)</English>
+        </Key>
+    </Package>
+</Project>

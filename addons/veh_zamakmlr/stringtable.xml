@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_zamakmlr">
+        <Key ID="STR_itc_land_veh_zamakmlr_MountedTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_zamakmlr_i_mlrs_zamak_DisplayName">
+            <English>Zamak MRLi</English>
+        </Key>
+    </Package>
+</Project>

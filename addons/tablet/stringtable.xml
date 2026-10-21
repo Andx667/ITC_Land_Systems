@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="tablet">
+        <Key ID="STR_itc_land_tablet_Artillery_InterfaceNotFound">
+            <English>Self Propelled Gun Interface not found</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_NoInterface">
+            <English>NO INTERFACE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_StatusDamaged">
+            <English>DAM</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_StatusFailed">
+            <English>FAIL</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_StatusOk">
+            <English>OK</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_Vehicle">
+            <English>Vehicle</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Artillery_VehicleStatus">
+            <English>Vehicle Status</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_ActiveType">
+            <English>Active Type: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_AdjustMission">
+            <English>Adjust Mission</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_BatterySetup">
+            <English>Battery Setup</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_BatterySetupButton">
+            <English>Bty Setup</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Engagement">
+            <English>%1 ENGAGEMENT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_FdcSuite">
+            <English>FDC Suite</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_LocationStores">
+            <English>Location Stores</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NewFiremission">
+            <English>New Firemission</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NoSolutions">
+            <English>NO SOLUTIONS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Settings">
+            <English>Battery Control System Settings</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_SettingsButton">
+            <English>BCS Settings</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Shot">
+            <English>SHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_SolutionOf">
+            <English>SOLUTION %1 OUT OF %2</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Solutions">
+            <English>%1 Solutions</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_Splash">
+            <English>SPLASH</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_TimeToImpact">
+            <English>TTI %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_Data">
+            <English>Data</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_DataView">
+            <English>Data view</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_EngagementEntry">
+            <English>%1            POS %2           Shots %3         Last Shot %4</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_Map">
+            <English>Map</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_MapView">
+            <English>Map view</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_RadarSuite">
+            <English>Radar Suite</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Cbr_Settings">
+            <English>Settings</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_CfgWeapons_tablet_fdc_DisplayName">
+            <English>Fire Direction Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_CfgWeapons_tablet_spg_DisplayName">
+            <English>SPG Vehicle Management Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Controls_fcs_mode_title_Text">
+            <English>LFCS Solutions:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Azimuth">
+            <English>AZIMUTH: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Charge">
+            <English>CHARGE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Deflection">
+            <English>DEFLECTION: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Header">
+            <English>FIRING COMMAND INTERFACE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_LocalTargeting">
+            <English>L-FCS TARGETING</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_MaxOrdinate">
+            <English>MAXIMUM ORDINATE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_NoSolution">
+            <English>NO SLN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Quadrant">
+            <English>QUADRANT: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_Solution">
+            <English>SLN: %1 / %2</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_TargetDistance">
+            <English>TARGET DISTANCE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_TimeOfFlight">
+            <English>TOF: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Home_AppEntry">
+            <English>APP %1: %2</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscButton_1600_Text">
+            <English>ALL ON</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscButton_1601_Text">
+            <English>ALL OFF</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscButton_1602_Text">
+            <English>SEL TGL</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscButton_1603_Text">
+            <English>ALL SET</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscButton_1604_Text">
+            <English>SEL SET</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscEdit_1400_Text">
+            <English>HE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscEdit_1403_Text">
+            <English>VT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1006_Text">
+            <English>ADJ</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1013_Text">
+            <English>GNS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1014_Text">
+            <English>SHELL</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1015_Text">
+            <English>FFE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1018_Text">
+            <English>COUNT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1019_Text">
+            <English>FUZE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1020_Text">
+            <English>MOC</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1021_Text">
+            <English>SHEAF</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1022_Text">
+            <English>QUICK</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1023_Text">
+            <English>DIR</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_RscText_1024_Text">
+            <English>LENGTH</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_app1_ifaces_label_Text">
+            <English>INTERFACES:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_app3_name_Text">
+            <English>Blue Force Tracker</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_DisplayName">
+            <English>Battery Control System</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_alerttosplash_label_Text">
+            <English>Alert To Splash:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_label_Text">
+            <English>Firemission Code:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_text_Text">
+            <English>FM</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_firemission_start_label_Text">
+            <English>Firemission Start:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_save_button_Text">
+            <English>Save</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_addnew_button_Text">
+            <English>SAVE GUN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_bty_callsign_label_Text">
+            <English>Battery Callsign:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_bty_callsign_text_Text">
+            <English>ARCHER</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_gun_number_label_Text">
+            <English>Gun #</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_gun_type_label_Text">
+            <English>Gun Type:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_save_button_Text">
+            <English>SAVE BTY TYPE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_DisplayName">
+            <English>Counter Battery Radar</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_data_saveOriginPos_Text">
+            <English>Save to BCS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_settings_id_button_Text">
+            <English>connect</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_settings_id_text_Text">
+            <English>COBRA Datalink ID</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engage_ammoType_text_Text">
+            <English>Ammo Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_direction_text_Text">
+            <English>Direction</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_length_text_Text">
+            <English>Length</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_quick_text_Text">
+            <English>Quick Sheaf</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_sheaf_text_Text">
+            <English>Sheaf Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_Text">
+            <English>FUZE &amp; GUIDANCE SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_mode_text_Text">
+            <English>Mode:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_text_Text">
+            <English>Fuze Settings:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_time_text_Text">
+            <English>Time:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_guideinputs_apply_btn_Text">
+            <English>APPLY SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_guideinputs_elev_text_Text">
+            <English>Elev:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_guideinputs_text_Text">
+            <English>Guidance Settings:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_guideinputs_tgtgrid_text_Text">
+            <English>TGT Grid:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_calc_Text">
+            <English>CALC SLN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_mode_title_Text">
+            <English>FCI MODE:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_next_Text">
+            <English>NXT SLN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_prev_Text">
+            <English>PRV SLN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_round_type_Text">
+            <English>Munition Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_round_type_Text2">
+            <English>Round Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_elev_Text">
+            <English>Target Elevation</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_pos_Text">
+            <English>Target Position</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_title_Text">
+            <English>LOCAL FCS TARGETING</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_firemission_back_Text">
+            <English>Back</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_firemission_name_text_Text">
+            <English>Firemission Name</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_firemission_next_Text">
+            <English>Next</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fuse_type_Text">
+            <English>Fuse:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_header1_Text">
+            <English>FDC SUITE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_header2_Text">
+            <English>ILS - AIFMS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_las_code_Text">
+            <English>LAS Code:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_addnew_button_Text">
+            <English>ADD NEW</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_elevation_label_Text">
+            <English>Elevation</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_isFriendly_combobox_Text">
+            <English>No</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_isFriendly_label_Text">
+            <English>Friendly</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_position_label_Text">
+            <English>Position</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_referenceID_label_Text">
+            <English>Reference ID</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_remove_button_Text">
+            <English>REMOVE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_manual_azimuth_Text">
+            <English>Mission Azimuth</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_manual_azimuth_button_Text">
+            <English>APPLY</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_manual_quadrant_Text">
+            <English>Mission Quadrant</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_manual_title_Text">
+            <English>MANUAL TARGETING</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_missile_DisplayName">
+            <English>Guided Missile Configuration</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_msl_type_Text">
+            <English>Munition:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_adj_Text">
+            <English>ADJUST/FFE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_angle_label_Text">
+            <English>IMPACT ANGLE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_distance_label_Text">
+            <English>TARGET DISTANCE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_eom_Text">
+            <English>END MISSION</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_eom_save_Text">
+            <English>END &amp; SAVE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_ordinate_label_Text">
+            <English>MAXIMUM ORDINATE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_shot_Text">
+            <English>SHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_soldn_Text">
+            <English>SLN-</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_solup_Text">
+            <English>SLN+</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_solutionCount_text_Text">
+            <English>asdf</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_spg_DisplayName">
+            <English>Self Propelled Gun</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_status_dam_title_Text">
+            <English>Systems</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_status_info_fuel_Text">
+            <English>Fuel level</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_status_info_title_Text">
+            <English>Information</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_fdc_DescriptionShort">
+            <English>Fire Direction Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_fdc_DisplayName">
+            <English>FDC Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_mlrs_DescriptionShort">
+            <English>MLRS Vehicle Management Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_mlrs_DisplayName">
+            <English>MLRS Vehicle Management Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_spg_DescriptionShort">
+            <English>SPG Vehicle Management Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_tablet_spg_DisplayName">
+            <English>SPG Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_el_Text">
+            <English>TGT Elev:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field1_text_Text">
+            <English>OT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field1_text_Tooltip">
+            <English>Observer-Target direction: compass direction from the observer to the target, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field2_text_Text">
+            <English>AD</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field2_text_Tooltip">
+            <English>Add/Drop: range correction along the OT line, in meters (positive adds range, negative drops it)</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field3_text_Text">
+            <English>LR</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field3_text_Tooltip">
+            <English>Left/Right: lateral correction perpendicular to the OT line, in meters</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field4_text_Text">
+            <English>UD</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_field4_text_Tooltip">
+            <English>Up/Down: vertical/elevation correction, in meters</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_knownpoint_load_Text">
+            <English>Load</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_knownpoint_text_Text">
+            <English>Known Point</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_targetType_text_Text">
+            <English>Target Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_workspace_header_Text">
+            <English>Workspace Header</English>
+        </Key>
+    </Package>
+</Project>

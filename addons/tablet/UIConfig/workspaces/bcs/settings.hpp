@@ -3,7 +3,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
   class Controls {
     class bcs_settings_alerttosplash_label: ITC_LAND_RscText {
         idc = 3201;
-        text = "Alert To Splash: ";
+        text = CSTRING(bcs_settings_alerttosplash_label_Text);
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
         y = QUOTE((0.313 + POSYADJUST) * safezoneH + safezoneY);
         w = "0.061875 * safezoneW";
@@ -12,7 +12,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
     };
     class bcs_settings_firemission_code_label: ITC_LAND_RscText {
         idc = 3203;
-        text = "Firemission Code: ";
+        text = CSTRING(bcs_settings_firemission_code_label_Text);
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
         y = QUOTE((0.379 + POSYADJUST) * safezoneH + safezoneY);
         w = "0.0670312 * safezoneW";
@@ -21,7 +21,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
     };
     class bcs_settings_firemission_start_label: ITC_LAND_RscText {
         idc = 3204;
-        text = "Firemission Start: ";
+        text = CSTRING(bcs_settings_firemission_start_label_Text);
         x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
         y = QUOTE((0.412 + POSYADJUST) * safezoneH + safezoneY);
         w = "0.0670312 * safezoneW";
@@ -44,7 +44,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
     };
     class bcs_settings_firemission_code_text: ITC_LAND_RscEdit {
         idc = 3206;
-        text = "FM";
+        text = CSTRING(bcs_settings_firemission_code_text_Text);
         x = QUOTE((0.479375 + POSXADJUST) * safezoneW + safezoneX);
         y = QUOTE((0.379 + POSYADJUST) * safezoneH + safezoneY);
         w = "0.0721875 * safezoneW";
@@ -67,7 +67,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
     class bcs_settings_save_button: ITC_LAND_RscButton {
         idc = 3209;
 
-        text = "Save";
+        text = CSTRING(bcs_settings_save_button_Text);
         x = "0.659844 * safezoneW + safezoneX";
         y = "0.685 * safezoneH + safezoneY";
         w = "0.061875 * safezoneW";

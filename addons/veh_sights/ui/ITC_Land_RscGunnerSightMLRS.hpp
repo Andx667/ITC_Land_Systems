@@ -16,7 +16,7 @@
                     sizeEx = "0.028*SafezoneH";
                     shadow = 0;
                     font = "EtelkaMonospacePro";
-                    text = "VIS";
+                    text = CSTRING(CA_VisionMode_Text);
                     x = "11.5 *         (0.01875 * SafezoneH)";
                     y = "19.46 *        (0.025 * SafezoneH)";
                     w = "3.5 *      (0.01875 * SafezoneH)";
@@ -42,7 +42,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83012;
-                    text = "AZIMUTH";
+                    text = CSTRING(align_azi_header_Text);
                     x = "10.8 *         (0.01875 * SafezoneH)";
                     y = "27.8 *         (0.025 * SafezoneH)";
                     w = "7.5 *      (0.01875 * SafezoneH)";
@@ -55,7 +55,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83013;
-                    text = "CUR";
+                    text = CSTRING(CURAzimuth_text_Text);
                     x = "10.8 *         (0.01875 * SafezoneH)";
                     y = "29.3 *         (0.025 * SafezoneH)";
                     w = "3 *        (0.01875 * SafezoneH)";
@@ -81,7 +81,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83015;
-                    text = "MIS";
+                    text = CSTRING(MISAzimuth_text_Text);
                     x = "10.8 *         (0.01875 * SafezoneH)";
                     y = "30.8 *         (0.025 * SafezoneH)";
                     w = "3 *        (0.01875 * SafezoneH)";
@@ -107,7 +107,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83017;
-                    text = "QUADRANT";
+                    text = CSTRING(align_quad_header_Text);
                     x = "33.8 *         (0.01875 * SafezoneH)";
                     y = "27.8 *         (0.025 * SafezoneH)";
                     w = "7.5 *      (0.01875 * SafezoneH)";
@@ -120,7 +120,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83018;
-                    text = "CUR";
+                    text = CSTRING(CURAzimuth_text_Text);
                     x = "33.8 *         (0.01875 * SafezoneH)";
                     y = "29.3 *         (0.025 * SafezoneH)";
                     w = "3 *        (0.01875 * SafezoneH)";
@@ -146,7 +146,7 @@
                     shadow = 0;
                     font = "EtelkaMonospacePro";
                     idc = 83020;
-                    text = "MIS";
+                    text = CSTRING(MISAzimuth_text_Text);
                     x = "33.8 *         (0.01875 * SafezoneH)";
                     y = "30.8 *         (0.025 * SafezoneH)";
                     w = "3 *        (0.01875 * SafezoneH)";

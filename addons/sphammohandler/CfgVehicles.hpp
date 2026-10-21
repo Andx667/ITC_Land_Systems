@@ -22,7 +22,7 @@ class CfgVehicles {
     class itc_land_b_SPH_Sholef2: itc_land_SPH01_base {
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_SPHammohandler {
-                displayName = "Open Ammo Handling Interface";
+                displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = "( gunner _target ) == ACE_Player";
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };
@@ -45,7 +45,7 @@ class CfgVehicles {
     class itc_land_o_sph_sochor2: itc_land_SPH02_base { 
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_SPHammohandler {
-                displayName = "Open Ammo Handling Interface";
+                displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = "( gunner _target ) == ACE_Player";
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };

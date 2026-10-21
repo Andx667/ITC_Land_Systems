@@ -74,7 +74,7 @@
             };
             class round_name: ITC_LAND_RscText {
                 idc = 86002;
-                text = "PREPARE: ";
+                text = CSTRING(round_name_Text);
                 x = "0.422656 * safezoneW + safezoneX";
                 y = "0.577 * safezoneH + safezoneY";
                 w = "0.175313 * safezoneW";
@@ -82,7 +82,7 @@
             };
             class charge_number: ITC_LAND_RscText {
                 idc = 86003;
-                text = "CHARGE: ";
+                text = CSTRING(charge_number_Text);
                 x = "0.422656 * safezoneW + safezoneX";
                 y = "0.599 * safezoneH + safezoneY";
                 w = "0.175313 * safezoneW";
@@ -90,7 +90,7 @@
             };
 
             class chargebutton_label: ITC_LAND_RscText {
-                text = "CHARGE";
+                text = CSTRING(chargebutton_label_Text);
                 x = "0.649531 * safezoneW + safezoneX";
                 y = "0.599 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";
@@ -113,7 +113,7 @@
                 action = QUOTE([1]  call FUNC(changeCharge));
             };
             class fuze_type: ITC_LAND_RscText {
-                text = "Fuze: ";
+                text = CSTRING(fuze_type_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.0257812 * safezoneW";
@@ -121,7 +121,7 @@
             };
             class ammoFuzeSelect: ITC_LAND_RscComboBox {
                 idc = 86004;
-                text = "POINT DETONATE";
+                text = CSTRING(ammoFuzeSelect_Text);
                 x = "0.45875 * safezoneW + safezoneX";
                 y = "0.643 * safezoneH + safezoneY";
                 w = "0.0825 * safezoneW";
@@ -130,7 +130,7 @@
             };
             class fuzeTime: ITC_LAND_RscText {
                 idc = 86005;
-                text = "Time: ";
+                text = CSTRING(fuzeTime_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.676 * safezoneH + safezoneY";
                 w = "0.0257812 * safezoneW";
@@ -147,7 +147,7 @@
             };
             class laserCode: ITC_LAND_RscText {
                 idc = 86007;
-                text = "Code:  ";
+                text = CSTRING(laserCode_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.70 * safezoneH + safezoneY";
                 w = "0.0257812 * safezoneW";
@@ -164,7 +164,7 @@
             };
             class laserCode2: ITC_LAND_RscText {
                 idc = 86023;
-                text = "Code:  ";
+                text = CSTRING(laserCode_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.720 * safezoneH + safezoneY";
                 w = "0.0257812 * safezoneW";
@@ -181,7 +181,7 @@
             };
             class gridText: ITC_LAND_RscText {
                 idc = 86012;
-                text = "Grid:  ";
+                text = CSTRING(gridText_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.709 * safezoneH + safezoneY";
                 w = "0.020625 * safezoneW";
@@ -197,7 +197,7 @@
             };
             class altText: ITC_LAND_RscText {
                 idc = 86014;
-                text = "Elev: ";
+                text = CSTRING(altText_Text);
                 x = "0.525781 * safezoneW + safezoneX";
                 y = "0.709 * safezoneH + safezoneY";
                 w = "0.020625 * safezoneW";
@@ -213,7 +213,7 @@
             };
             class countText: ITC_LAND_RscText {
                 idc = 86021;
-                text = "Count: ";
+                text = CSTRING(countText_Text);
                 x = "0.427812 * safezoneW + safezoneX";
                 y = "0.742 * safezoneH + safezoneY";
                 w = "0.0257812 * safezoneW";
@@ -232,7 +232,7 @@
             //main buttons
             class applyButton: ITC_LAND_RscButton {
                 idc = 86009;
-                text = "APPLY SETTINGS";
+                text = CSTRING(applyButton_Text);
                 x = "0.469062 * safezoneW + safezoneX";
                 y = "0.772 * safezoneH + safezoneY";
                 w = "0.113437 * safezoneW";
@@ -241,7 +241,7 @@
             };
             class loadButton: ITC_LAND_RscButton {
                 idc = 86010;
-                text = "LOAD";
+                text = CSTRING(loadButton_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.772 * safezoneH + safezoneY";
                 w = "0.113437 * safezoneW";
@@ -250,14 +250,14 @@
             };
             //Autoloader Settings displays
             class AL_Header: ITC_LAND_RscText {
-                text = "AUTOLOADER SETTINGS";
+                text = CSTRING(AL_Header_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.638 * safezoneH + safezoneY";
                 w = "0.095 * safezoneW";
                 h = "0.022 * safezoneH";
             };
             class AL_Round: ITC_LAND_RscText {
-                text = "SHELL: ";
+                text = CSTRING(AL_Round_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.658 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";
@@ -271,7 +271,7 @@
                 h = "0.022 * safezoneH";
             };
             class AL_Fuze: ITC_LAND_RscText {
-                text = "FUZE: ";
+                text = CSTRING(AL_Fuze_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.674 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";
@@ -285,7 +285,7 @@
                 h = "0.022 * safezoneH";
             };
             class AL_GUIDED: ITC_LAND_RscText {
-                text = "GUIDED: ";
+                text = CSTRING(AL_GUIDED_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.69 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";
@@ -299,7 +299,7 @@
                 h = "0.022 * safezoneH";
             };
             class AL_COUNT: ITC_LAND_RscText {
-                text = "COUNT: ";
+                text = CSTRING(AL_COUNT_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.709 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";
@@ -314,7 +314,7 @@
             };
             //Status stuff
             class status: ITC_LAND_RscText {
-                text = "STATUS: ";
+                text = CSTRING(status_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.739 * safezoneH + safezoneY";
                 w = "0.0360937 * safezoneW";

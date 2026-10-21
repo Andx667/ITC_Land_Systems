@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_hammer">
+        <Key ID="STR_itc_land_veh_hammer_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_hammer_NGS01_hammer2_DisplayName">
+            <English>Mk45 mod. 0 Hammer 2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_hammer_NGS01_hammer2_mod1_DisplayName">
+            <English>Mk45 mod. 1 Hammer 2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_hammer_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+    </Package>
+</Project>

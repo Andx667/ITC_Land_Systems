@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_rhea">
+        <Key ID="STR_itc_land_veh_rhea_o_rhea2_DisplayName">
+            <English>S750 mod. 0 Rhea 2</English>
+        </Key>
+    </Package>
+</Project>

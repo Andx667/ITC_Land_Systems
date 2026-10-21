@@ -23,13 +23,13 @@ params ["_display"];
 ITC_CURVEHICLE
 
 [_display, IDC_header1, "AIFMS"] call EFUNC(common,ctrlSetText);
-[_display, IDC_header2, "FDC Suite"] call EFUNC(common,ctrlSetText);
+[_display, IDC_header2, LLSTRING(Bcs_FdcSuite)] call EFUNC(common,ctrlSetText);
 
-[_display, IDC_sidebar_button1, "BCS Settings"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button2, "Bty Setup"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button3, "Location Stores"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button1, LLSTRING(Bcs_SettingsButton)] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button2, LLSTRING(Bcs_BatterySetupButton)] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button3, LLSTRING(Bcs_LocationStores)] call EFUNC(common,ctrlSetText);
 //[_display, IDC_sidebar_button4, "Ammo Stores"] call EFUNC(common,ctrlSetText);
-[_display, IDC_sidebar_button5, "New Firemission"] call EFUNC(common,ctrlSetText);
+[_display, IDC_sidebar_button5, LLSTRING(Bcs_NewFiremission)] call EFUNC(common,ctrlSetText);
 
 [_display, IDC_sidebar_button1, 0] call EFUNC(common,ctrlSetFade);
 [_display, IDC_sidebar_button2, 0] call EFUNC(common,ctrlSetFade);

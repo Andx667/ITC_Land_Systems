@@ -7,7 +7,7 @@ class CfgVehicles {
           class ITC_Land_Unpack {
 
             class ITC_Land_Unpack_AL6_B {
-              displayName = "AL-6 Pelican [NATO]";
+              displayName = CSTRING(Unpack_AL6_B_DisplayName);
               condition = "'ITC_Land_B_AL6_Packed' in (items _player)";
               statement = QUOTE([ARR_2('ITC_Land_B_AL6_Packed',_player)] call EFUNC(packable,unpack));
               priority = 1;
@@ -35,7 +35,7 @@ class CfgVehicles {
     class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class ITC_Land_PackAL6 {
-                    displayName = "Repack UAV";
+                    displayName = CSTRING(PackAL6_DisplayName);
                     condition = "((alive _target) && ( ACE_Player distance _target ) < 3) && ( count (( UAVControl _target) select 1 ) < 1 )";
                     statement = QUOTE([ARR_2(_target,_player)] call EFUNC(packable,pack));
                 };
@@ -149,7 +149,7 @@ class CfgVehicles {
     class Bag_Base;
     class ITC_Land_uav06_backpack_base: Bag_Base {
             author = "Toadball";
-            displayName = "UAV Bag (AL-6)";
+            displayName = CSTRING(uav06_backpack_base_DisplayName);
             maximumLoad = 300;
             mass = 60;
             mapSize = 0.6;
@@ -162,7 +162,7 @@ class CfgVehicles {
 
     class ITC_Land_b_uav06_backpack: ITC_Land_uav06_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag (AL-6) [NATO]";
+            displayName = CSTRING(b_uav06_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "BLU_F";
@@ -171,7 +171,7 @@ class CfgVehicles {
     };
     class ITC_Land_i_uav06_backpack: ITC_Land_uav06_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag (AL-6) [AAF]";
+            displayName = CSTRING(i_uav06_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "IND_F";
@@ -180,7 +180,7 @@ class CfgVehicles {
     };
     class ITC_Land_o_uav06_backpack: ITC_Land_uav06_backpack_base {
             author = "Toadball";
-            displayName = "UAV Bag (AL-6) [CSAT]";
+            displayName = CSTRING(o_uav06_backpack_DisplayName);
             scope = 2;
             scopeCurator = 2;
             faction = "OPF_F";

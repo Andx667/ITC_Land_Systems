@@ -39,13 +39,13 @@ class CfgVehicles {
     class itc_land_NGS01_base: B_Ship_Gun_01_base_F {
         class ACE_SelfActions: ACE_SelfActions {
             class ITC_Land_CommanderTablet {
-                displayName = "Open Mounted Tablet";
+                displayName = CSTRING(CommanderTablet_DisplayName);
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
             };
             class ITC_Land_SPHammohandler {
-                displayName = "Open Ammo Handling Interface";
+                displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
                 statement = "createDialog 'ITC_Land_SPHammohandler'";
             };
@@ -76,7 +76,7 @@ class CfgVehicles {
     class itc_land_NGS01_hammer2: itc_land_NGS01_base {
         scope = 2;
         author = "Toadball";
-        displayName = "Mk45 mod. 0 Hammer 2";
+        displayName = CSTRING(NGS01_hammer2_DisplayName);
         scopeCurator = 2;
         side = 1;
         faction = "BLU_F";
@@ -89,7 +89,7 @@ class CfgVehicles {
     class itc_land_NGS01_hammer2_mod1: itc_land_NGS01_base {
         scope = 2;
         author = "Toadball";
-        displayName = "Mk45 mod. 1 Hammer 2";
+        displayName = CSTRING(NGS01_hammer2_mod1_DisplayName);
         scopeCurator = 2;
         side = 1;
         faction = "BLU_F";

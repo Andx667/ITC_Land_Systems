@@ -17,7 +17,7 @@ class CfgVehicles {
   };
   class ITC_Land_B_UAV_MQ4i: B_UAV_02_dynamicLoadout_F {
     author = "Toadball";
-    displayName = "MQ-4I Greyhawk";
+    displayName = CSTRING(B_UAV_MQ4i_DisplayName);
     class Turrets: Turrets {
       class MainTurret: MainTurret {
         turretInfoType = "ITC_Land_RscOptics_UAV_gunner";
@@ -31,7 +31,7 @@ class CfgVehicles {
   };
   class ITC_Land_O_UAV_K40i: O_UAV_02_dynamicLoadout_F{
     author = "Toadball";
-    displayName = "K40i Ababil-3";
+    displayName = CSTRING(O_UAV_K40i_DisplayName);
     class Turrets: Turrets {
       class MainTurret: MainTurret {
         turretInfoType = "ITC_Land_RscOptics_UAV_gunner";
@@ -45,7 +45,7 @@ class CfgVehicles {
   };
   class ITC_Land_I_UAV_K40i: I_UAV_02_dynamicLoadout_F {
     author = "Toadball";
-    displayName = "K40i Ababil-3";
+    displayName = CSTRING(O_UAV_K40i_DisplayName);
     class Turrets: Turrets {
       class MainTurret: MainTurret {
         turretInfoType = "ITC_Land_RscOptics_UAV_gunner";

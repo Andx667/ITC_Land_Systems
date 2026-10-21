@@ -12,7 +12,7 @@ class CfgVehicles {
   };
   class ITC_Land_B_UAV_UCAVi: B_UAV_05_F {
     author = "Toadball";
-    displayName = "UCAVi Sentinel 2";
+    displayName = CSTRING(B_UAV_UCAVi_DisplayName);
     class Turrets: Turrets {
       class MainTurret: MainTurret {
         turretInfoType = "ITC_Land_RscOptics_UAV_gunner";

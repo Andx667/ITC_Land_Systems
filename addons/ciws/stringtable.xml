@@ -10,5 +10,17 @@
         <Key ID="STR_itc_land_ciws_Enabled_DisplayName">
             <English>Enable CIWS</English>
         </Key>
+        <Key ID="STR_itc_land_ciws_ciws_centurion2_DisplayName">
+            <English>Mk49 Spartan 2 Mod 0</English>
+        </Key>
+        <Key ID="STR_itc_land_ciws_cram_praetorian2_DisplayName">
+            <English>Praetorian 2 Mod 0</English>
+        </Key>
+        <Key ID="STR_itc_land_ciws_missile_b_DisplayName">
+            <English>Missile Target</English>
+        </Key>
+        <Key ID="STR_itc_land_ciws_shell_b_DisplayName">
+            <English>Shell Target</English>
+        </Key>
     </Package>
 </Project>

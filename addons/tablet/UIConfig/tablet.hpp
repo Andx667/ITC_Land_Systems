@@ -64,7 +64,7 @@ class itc_land_tablet {
   };
     class workspace_header: ITC_LAND_RscText {
         idc = 15104;
-        text = "Workspace Header";
+        text = CSTRING(workspace_header_Text);
         x = QUOTE((0.402031 + POSXADJUST) * safezoneW + safezoneX);
         y = "0.1825 * safezoneH + safezoneY";
         w = QUOTE((0.299062 + WSWADJUST) * safezoneW);
@@ -74,7 +74,7 @@ class itc_land_tablet {
     };
   class header1: ITC_LAND_RscText {
     idc = 15106;
-    text = "FDC SUITE";
+    text = CSTRING(header1_Text);
     x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
     y = QUOTE((0.26+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";
@@ -84,7 +84,7 @@ class itc_land_tablet {
   };
   class header2: ITC_LAND_RscText {
     idc = 15105;
-    text = "ILS - AIFMS";
+    text = CSTRING(header2_Text);
     x = QUOTE((0.31+ POSXADJUST) * safezoneW + safezoneX);
     y = QUOTE((0.285+ POSYADJUST) * safezoneH + safezoneY);
     w = "0.0928125 * safezoneW";

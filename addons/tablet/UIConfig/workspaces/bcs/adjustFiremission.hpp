@@ -3,7 +3,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
   class Controls {
     class itc_land_firemission_next: ITC_LAND_RscButton {
         idc = 9600;
-        text = "Next"; //--- ToDo: Localize;
+        text = CSTRING(firemission_next_Text); //--- ToDo: Localize;
         x = "0.561875 * safezoneW + safezoneX";
         y = "0.511 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -12,7 +12,7 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
     };
     class itc_land_firemission_back: ITC_LAND_RscButton {
         idc = 9604;
-        text = "Back"; //--- ToDo: Localize;
+        text = CSTRING(firemission_back_Text); //--- ToDo: Localize;
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.555 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -21,8 +21,8 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
     };
     class itc_land_target_field1_text: ITC_LAND_RscText {
         idc = 9020;
-        text = "OT"; //--- ToDo: Localize;
-        tooltip = "Observer-Target direction: compass direction from the observer to the target, in mils";
+        text = CSTRING(target_field1_text_Text); //--- ToDo: Localize;
+        tooltip = CSTRING(target_field1_text_Tooltip);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.379 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -62,8 +62,8 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
     };
     class itc_land_target_field2_text: ITC_LAND_RscText {
         idc = 9021;
-        text = "AD"; //--- ToDo: Localize;
-        tooltip = "Add/Drop: range correction along the OT line, in meters (positive adds range, negative drops it)";
+        text = CSTRING(target_field2_text_Text); //--- ToDo: Localize;
+        tooltip = CSTRING(target_field2_text_Tooltip);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.401 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -71,8 +71,8 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
     };
     class itc_land_target_field3_text: ITC_LAND_RscText {
         idc = 9022;
-        text = "LR"; //--- ToDo: Localize;
-        tooltip = "Left/Right: lateral correction perpendicular to the OT line, in meters";
+        text = CSTRING(target_field3_text_Text); //--- ToDo: Localize;
+        tooltip = CSTRING(target_field3_text_Tooltip);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.423 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";
@@ -80,8 +80,8 @@ class page_bcs_firemission_adjust:ITC_LAND_Workspace {
     };
     class itc_land_target_field4_text: ITC_LAND_RscText {
         idc = 9023;
-        text = "UD"; //--- ToDo: Localize;
-        tooltip = "Up/Down: vertical/elevation correction, in meters";
+        text = CSTRING(target_field4_text_Text); //--- ToDo: Localize;
+        tooltip = CSTRING(target_field4_text_Tooltip);
         x = "0.365937 * safezoneW + safezoneX";
         y = "0.445 * safezoneH + safezoneY";
         w = "0.0515625 * safezoneW";

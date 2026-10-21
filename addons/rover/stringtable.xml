@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="rover">
+        <Key ID="STR_itc_land_rover_Rover_Open_DisplayName">
+            <English>Open Rover LAD</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1001_Text">
+            <English>NVG</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1002_Text">
+            <English>WHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1003_Text">
+            <English>BHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1004_Text">
+            <English>NO CONNECTION</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1005_Text">
+            <English>Aircraft must have laser designator enabled to broadcast rover.</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_1006_Text">
+            <English>ZOOM</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_RscText_999_Text">
+            <English>DTV</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_TextAlt_Text">
+            <English>ALT [AGL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_TextGrid_Text">
+            <English>OWN GRID:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_TextSpd_Text">
+            <English>SPD [KM/H]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_TextTime_Text">
+            <English>TIME [UTC]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_Text_base_Text">
+            <English>Transmitter:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_UAVi_Alt_text_Text">
+            <English>ALT [ASL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_UAVi_DIR_text_Text">
+            <English>DIR [DEG/MIL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_UAVi_TGT_text_Text">
+            <English>TGT GRID:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_UAVi_TGTalt_text_Text">
+            <English>TGT ALT [ASL]:</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_tablet_rover_DescriptionShort">
+            <English>Rover LAD Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_rover_tablet_rover_DisplayName">
+            <English>Rover LAD Tablet</English>
+        </Key>
+    </Package>
+</Project>

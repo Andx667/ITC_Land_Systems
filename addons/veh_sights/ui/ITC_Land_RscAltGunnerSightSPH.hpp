@@ -28,7 +28,7 @@
                     //style = 0xA0;                 
                 };
                 class align_header: RscText {
-                    text = "GUN ALIGNMENT";
+                    text = CSTRING(align_header_Text);
                     idc = 82012;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "17.125 *       (0.025 * SafezoneH)";
@@ -38,7 +38,7 @@
                     style = 0;                  
                 };
                 class align_azi_header: RscText {
-                    text = "AZIMUTH";
+                    text = CSTRING(align_azi_header_Text);
                     idc = 82013;
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "17.85 *        (0.025 * SafezoneH)";
@@ -58,7 +58,7 @@
                     style = 0;                  
                 };
                 class align_quad_header: RscText {
-                    text = "QUADRANT";
+                    text = CSTRING(align_quad_header_Text);
                     idc = 82015;
                     x = "5 *        (0.01875 * SafezoneH)";
                     y = "17.85 *        (0.025 * SafezoneH)";
@@ -100,7 +100,7 @@
                 };
 
                 class ITC_Land_AutoLoader: RscText {
-                    text = "AUTOLOADER SETTINGS";
+                    text = CSTRING(AutoLoader_Text);
                     idc = 82019;                    
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "21.125 *       (0.025 * SafezoneH)";
@@ -111,7 +111,7 @@
                 };
                 class ITC_Land_AutoLoaderStatus_text: RscText {
                     idc = 82020;
-                    text = "STATUS:";
+                    text = CSTRING(AutoLoaderStatus_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "21.95 *        (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
@@ -122,7 +122,7 @@
                 
                 class ITC_Land_CAutoLoaderAmmo_text: RscText {
                     idc = 82021;
-                    text = "LOAD:";
+                    text = CSTRING(CAutoLoaderAmmo_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "22.65 *        (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
@@ -132,7 +132,7 @@
                 };              
                 class ITC_Land_AutoLoaderFuze_text: RscText {
                     idc = 82022;
-                    text = "FUZE:";
+                    text = CSTRING(AutoLoaderFuze_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "23.45 *        (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
@@ -142,7 +142,7 @@
                 };
                 class ITC_Land_AutoLoaderGuidance_text: RscText {
                     idc = 82023;
-                    text = "GUIDANCE:";
+                    text = CSTRING(AutoLoaderGuidance_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
                     y = "24.25 *        (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";

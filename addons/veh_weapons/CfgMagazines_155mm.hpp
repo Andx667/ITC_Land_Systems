@@ -1,9 +1,9 @@
     class itc_land_g155hex: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 HE";
+        displayName = CSTRING(g155hex_DisplayName);
         ammo = "itc_land_155mm";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 HE";
+        displayNameShort = CSTRING(g155hex_DisplayNameShort);
         itc_land_fuze = "mof35_mod0";
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g155hex_chg%1";
@@ -19,11 +19,11 @@
 
     class itc_land_g155smo: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 SMOKE";
+        displayName = CSTRING(g155smo_DisplayName);
         //ammo = "itc_land_155mm_inert";
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 SMOKE";
+        displayNameShort = CSTRING(g155smo_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g155smo_chg%1";
         itc_land_CountInAH = 1;
@@ -40,11 +40,11 @@
 
     class itc_land_g155icm: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 ICM";
+        displayName = CSTRING(g155icm_DisplayName);
         ammo = "itc_land_155mm_inert";
         itc_land_submunition = "itc_land_155mm_dpicm_helper";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 ICM";
+        displayNameShort = CSTRING(g155icm_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g155icm_chg%1";
         itc_land_CountInAH = 1;
@@ -60,10 +60,10 @@
 
     class itc_land_g155mat: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 MINE-AT";
+        displayName = CSTRING(g155mat_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 MAT";
+        displayNameShort = CSTRING(g155mat_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g155mat_chg%1";
         itc_land_CountInAH = 1;
@@ -80,10 +80,10 @@
 
     class itc_land_g155map: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 MINE-AP";
+        displayName = CSTRING(g155map_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 MAP";
+        displayNameShort = CSTRING(g155map_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g155map_chg%1";
         itc_land_CountInAH = 1;
@@ -101,10 +101,10 @@
     class itc_land_g155pgm: itc_land_how_mag {
         author = "Toadball";
         initSpeed = 162;
-        displayName = "G155 GPS GUIDED";
+        displayName = CSTRING(g155pgm_DisplayName);
         ammo = "itc_land_155mm";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 PGM";
+        displayNameShort = CSTRING(g155pgm_DisplayNameShort);
         itc_land_fuze = "mof35_mod2";
         itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
@@ -121,10 +121,10 @@
 
     class itc_land_g155lgm: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G155 LASER GUIDED";
+        displayName = CSTRING(g155lgm_DisplayName);
         ammo = "itc_land_155mm";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 LGM";
+        displayNameShort = CSTRING(g155lgm_DisplayNameShort);
         itc_land_fuze = "mof35_mod2";
         itc_land_guidance[] = {"laser_coded",QEFUNC(guidance,lgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
@@ -142,10 +142,10 @@
     class itc_land_g155ill: itc_land_how_mag {
         author = "Toadball";
         initSpeed = 162;
-        displayName = "G155 ILLUM";
+        displayName = CSTRING(g155ill_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 ILLUM";
+        displayNameShort = CSTRING(g155ill_DisplayNameShort);
         itc_land_submunition = "itc_land_155mm_illum";
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g155ill_chg%1";
@@ -163,14 +163,14 @@
     class itc_land_g155ext: itc_land_how_mag {
         author = "Yax";
         initSpeed = 162;
-        displayName = "G155 EXTRA";
+        displayName = CSTRING(g155ext_DisplayName);
         ammo = "itc_land_155mm_inert";
         itc_land_submunitionCount = 2;
         itc_land_submunitionScript = QFUNC(deployExtra);
         itc_land_heightModifier = 50;
         itc_land_timeModifier = -5;
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 EXTRA";
+        displayNameShort = CSTRING(g155ext_DisplayNameShort);
         itc_land_fuze = "mof35_mod3";
         itc_land_charge_format = "itc_land_g155ext_chg%1";
         itc_land_CountInAH = 1;
@@ -186,7 +186,7 @@
     class itc_land_g155falat: itc_land_how_mag {
         author = "Yax";
         initSpeed = 162;
-        displayName = "G155 FALAT";
+        displayName = CSTRING(g155falat_DisplayName);
         ammo = "itc_land_155mm_inert";
         itc_land_submunitionCount = 2;
         itc_land_submunitionScript = QFUNC(deployFalat);
@@ -194,7 +194,7 @@
         itc_land_heightModifier = 50;
         itc_land_timeModifier = -5;
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G155 FALAT";
+        displayNameShort = CSTRING(g155falat_DisplayNameShort);
         itc_land_fuze = "mof35_mod3";
         itc_land_charge_format = "itc_land_g155falat_chg%1";
         itc_land_CountInAH = 1;

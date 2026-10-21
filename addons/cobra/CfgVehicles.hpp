@@ -6,7 +6,7 @@ class CfgVehicles {
   };
   class itc_land_COBRA01 : B_Radar_System_01_F {
         author = "Yax";
-    displayName = "AN/TPQ-105 COBRA";
+    displayName = CSTRING(COBRA01_DisplayName);
     side = 1;
     editorSubcategory = "EdSubcat_Artillery";
     scope = 2;
@@ -27,7 +27,7 @@ class CfgVehicles {
   };
   class itc_land_COBRA02 : O_Radar_System_02_F {
         author = "Yax";
-    displayName = "R-750 Mod 2. COBRA";
+    displayName = CSTRING(COBRA02_DisplayName);
     side = 0;
     editorSubcategory = "EdSubcat_Artillery";
     scope = 2;
@@ -45,7 +45,7 @@ class CfgVehicles {
   class Land_Loudspeakers_F : NonStrategic {
   };
   class ITC_Land_Loudspeakers : Land_Loudspeakers_F {
-    displayName = "COBRA Siren";
+    displayName = CSTRING(Loudspeakers_DisplayName);
     class ITC_Land_COBRA_SirenParams {
       soundClass = "alarmCar";
       soundDistance = 200;
@@ -80,7 +80,7 @@ class CfgVehicles {
     };*/
   };
   class ITC_Land_Loudspeakers2 : ITC_Land_Loudspeakers {
-    displayName = "COBRA Siren 2";
+    displayName = CSTRING(Loudspeakers2_DisplayName);
     class ITC_Land_COBRA_SirenParams: ITC_Land_COBRA_SirenParams {
       soundClass = "vtolAlarm";
       soundDistance = 400;

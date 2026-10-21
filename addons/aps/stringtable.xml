@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="aps">
+        <Key ID="STR_itc_land_aps_AFGHANIT_L_DisplayName">
+            <English>Afghanit L</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_AFGHANIT_R_DisplayName">
+            <English>Afghanit R</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_DROZD_L_DisplayName">
+            <English>Drozd L</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_DROZD_R_DisplayName">
+            <English>Drozd R</English>
+        </Key>
         <Key ID="STR_itc_land_aps_DisplayName">
             <English>Active Protection System</English>
         </Key>
@@ -9,6 +21,12 @@
         </Key>
         <Key ID="STR_itc_land_aps_Enabled_DisplayName">
             <English>Enable APS</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_TROPHY_L_DisplayName">
+            <English>Trophy Left</English>
+        </Key>
+        <Key ID="STR_itc_land_aps_TROPHY_R_DisplayName">
+            <English>Trophy Right</English>
         </Key>
     </Package>
 </Project>

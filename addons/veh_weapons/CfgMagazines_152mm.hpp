@@ -1,9 +1,9 @@
     class itc_land_g152hex: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 HE";
+        displayName = CSTRING(g152hex_DisplayName);
         ammo = "itc_land_155mm";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 HE";
+        displayNameShort = CSTRING(g152hex_DisplayNameShort);
         itc_land_fuze = "mof35_mod0";
         itc_land_submunition = "itc_land_155mm_helper";
         itc_land_charge_format = "itc_land_g152hex_chg%1";
@@ -19,10 +19,10 @@
 
     class itc_land_g152smo: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 SMOKE";
+        displayName = CSTRING(g152smo_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 SMOKE";
+        displayNameShort = CSTRING(g152smo_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g152smo_chg%1";
         itc_land_CountInAH = 1;
@@ -39,11 +39,11 @@
 
     class itc_land_g152icm: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 ICM";
+        displayName = CSTRING(g152icm_DisplayName);
         ammo = "itc_land_155mm_inert";
         itc_land_submunition = "itc_land_155mm_dpicm_helper";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 ICM";
+        displayNameShort = CSTRING(g152icm_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g152icm_chg%1";
         itc_land_CountInAH = 1;
@@ -59,10 +59,10 @@
 
     class itc_land_g152mat: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 MINE-AT";
+        displayName = CSTRING(g152mat_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 MAT";
+        displayNameShort = CSTRING(g152mat_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g152mat_chg%1";
         itc_land_CountInAH = 1;
@@ -79,10 +79,10 @@
 
     class itc_land_g152map: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 MINE-AP";
+        displayName = CSTRING(g152map_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 MAP";
+        displayNameShort = CSTRING(g152map_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g152map_chg%1";
         itc_land_CountInAH = 1;
@@ -99,10 +99,10 @@
 
     class itc_land_g152pgm: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 GPS GUIDED";
+        displayName = CSTRING(g152pgm_DisplayName);
         ammo = "Sh_155mm_AMOS";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 PGM";
+        displayNameShort = CSTRING(g152pgm_DisplayNameShort);
         itc_land_fuze = "mof35_mod2";
         itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
@@ -119,10 +119,10 @@
 
     class itc_land_g152lgm: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 LASER GUIDED";
+        displayName = CSTRING(g152lgm_DisplayName);
         ammo = "Sh_155mm_AMOS";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 LGM";
+        displayNameShort = CSTRING(g152lgm_DisplayNameShort);
         itc_land_fuze = "mof35_mod2";
         itc_land_guidance[] = {"laser_coded",QEFUNC(guidance,lgm15x)};
         itc_land_submunition = "itc_land_155mm_helper";
@@ -139,10 +139,10 @@
 
     class itc_land_g152ill: itc_land_how_mag {
         author = "Toadball";
-        displayName = "G152 ILLUM";
+        displayName = CSTRING(g152ill_DisplayName);
         ammo = "itc_land_155mm_inert";
         muzzleImpulseFactor[] = {15, 30};
-        displayNameShort = "G152 ILLUM";
+        displayNameShort = CSTRING(g152ill_DisplayNameShort);
         itc_land_fuze = "mof35_mod1";
         itc_land_charge_format = "itc_land_g152ill_chg%1";
         itc_land_CountInAH = 1;

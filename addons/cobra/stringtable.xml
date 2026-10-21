@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="cobra">
+        <Key ID="STR_itc_land_cobra_COBRA01_DisplayName">
+            <English>AN/TPQ-105 COBRA</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_COBRA02_DisplayName">
+            <English>R-750 Mod 2. COBRA</English>
+        </Key>
         <Key ID="STR_itc_land_cobra_DisplayName">
             <English>COBRA Counter-Battery Radar</English>
         </Key>
@@ -9,6 +15,12 @@
         </Key>
         <Key ID="STR_itc_land_cobra_EngagementTime_DisplayName">
             <English>Engagement window</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_Loudspeakers2_DisplayName">
+            <English>COBRA Siren 2</English>
+        </Key>
+        <Key ID="STR_itc_land_cobra_Loudspeakers_DisplayName">
+            <English>COBRA Siren</English>
         </Key>
         <Key ID="STR_itc_land_cobra_Range_Description">
             <English>Maximum distance in meters at which a COBRA radar detects incoming rounds.</English>

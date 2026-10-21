@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="remotefrag">
+        <Key ID="STR_itc_land_remotefrag_remoteFrag_Place_DisplayName">
+            <English>Remote Frag Grenade</English>
+        </Key>
+        <Key ID="STR_itc_land_remotefrag_remoteFrag_mag_DisplayName">
+            <English>Remote Frag</English>
+        </Key>
+        <Key ID="STR_itc_land_remotefrag_remoteFrag_mag_DisplayNameShort">
+            <English>Remote Frag</English>
+        </Key>
+    </Package>
+</Project>

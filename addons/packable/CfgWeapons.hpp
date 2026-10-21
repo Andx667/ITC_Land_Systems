@@ -3,8 +3,8 @@ class ACE_ItemCore;
 class itc_land_packableItem: ACE_ItemCore {
     scope = 0;
     author = "Toadball";
-    displayName = "Packable Item (Packed)";
-    descriptionShort = "Packable Item (Packed)";
+    displayName = CSTRING(packableItem_DisplayName);
+    descriptionShort = CSTRING(packableItem_DescriptionShort);
     model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
 
     class ItemInfo: CBA_MiscItem_ItemInfo {

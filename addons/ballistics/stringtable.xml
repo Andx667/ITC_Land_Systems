@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="ballistics">
+        <Key ID="STR_itc_land_ballistics_G152_DisplayName">
+            <English>G152 152mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_ballistics_G155_DisplayName">
+            <English>G155 155mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_ballistics_M230_DisplayName">
+            <English>M230 227mm MLRS</English>
+        </Key>
+        <Key ID="STR_itc_land_ballistics_Mk6_DisplayName">
+            <English>Mk6 82mm Mortar</English>
+        </Key>
+        <Key ID="STR_itc_land_ballistics_NG127_DisplayName">
+            <English>NG127 127mm Naval Gun</English>
+        </Key>
+    </Package>
+</Project>

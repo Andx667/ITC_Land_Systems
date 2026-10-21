@@ -1,7 +1,7 @@
 //Manual Mode Controls
 class manual_title: ITC_LAND_RscText {
     idc = 1800;
-    text = "MANUAL TARGETING";
+    text = CSTRING(manual_title_Text);
     x = 0.37625 * safezoneW + safezoneX;
     y = 0.285 * safezoneH + safezoneY;
     w = 0.15 * safezoneW;
@@ -10,7 +10,7 @@ class manual_title: ITC_LAND_RscText {
 };
 class manual_azimuth: ITC_LAND_RscText {
   idc = 1801;
-    text = "Mission Azimuth";
+    text = CSTRING(manual_azimuth_Text);
     x = 0.37625 * safezoneW + safezoneX;
     y = 0.329 * safezoneH + safezoneY;
     w = 0.103125 * safezoneW;
@@ -25,7 +25,7 @@ class manual_azimuth_edit: ITC_LAND_RscEdit {
 };  
 class manual_azimuth_button: ITC_LAND_RscButton {
     idc = 1803;
-    text = "APPLY";
+    text = CSTRING(manual_azimuth_button_Text);
     x = 0.55 * safezoneW + safezoneX;
     y = 0.329 * safezoneH + safezoneY;
     w = 0.0457812 * safezoneW;
@@ -33,7 +33,7 @@ class manual_azimuth_button: ITC_LAND_RscButton {
 };      
 class manual_quadrant: ITC_LAND_RscText {
     idc = 1804;
-    text = "Mission Quadrant";
+    text = CSTRING(manual_quadrant_Text);
     x = 0.37625 * safezoneW + safezoneX;
     y = 0.362 * safezoneH + safezoneY;
     w = 0.103125 * safezoneW;
@@ -48,7 +48,7 @@ class manual_quadrant_edit: ITC_LAND_RscEdit {
 };  
 class manual_quadrant_button: ITC_LAND_RscButton {
     idc = 1603;
-    text = "APPLY";
+    text = CSTRING(manual_azimuth_button_Text);
     x = 0.55 * safezoneW + safezoneX;
     y = 0.362 * safezoneH + safezoneY;
     w = 0.0457812 * safezoneW;

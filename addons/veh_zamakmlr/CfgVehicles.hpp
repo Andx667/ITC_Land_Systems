@@ -39,7 +39,7 @@ class CfgVehicles {
         artilleryScanner = 0;
         class ACE_SelfActions : ACE_SelfActions {
             class ITC_Land_MountedTablet {
-                displayName = "Open Mounted Tablet";
+                displayName = CSTRING(MountedTablet_DisplayName);
                 icon = QPATHTOEF(tablet,UI\tableticon256.paa);
                 condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( gunner _target ) == ACE_Player));
                 statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet));
@@ -73,7 +73,7 @@ class CfgVehicles {
         editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\I_Truck_02_MRL_F.jpg";
         scope = 2;
         scopeCurator = 2;
-        displayName = "Zamak MRLi";
+        displayName = CSTRING(i_mlrs_zamak_DisplayName);
         side = 2;
         faction = "IND_F";
         crew = "I_Soldier_F";
@@ -84,7 +84,7 @@ class CfgVehicles {
         editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\I_Truck_02_MRL_F.jpg";
         scope = 2;
         scopeCurator = 2;
-        displayName = "Zamak MRLi";
+        displayName = CSTRING(i_mlrs_zamak_DisplayName);
         side = 0;
         faction = "OPF_F";
         crew = "O_Soldier_F";

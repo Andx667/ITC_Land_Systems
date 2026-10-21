@@ -7,8 +7,8 @@ class CfgWeapons {
     class ITC_Land_RemoteGLTD_Packed_base: itc_land_packableItem {
         scope = 0;
         author = "Toadball";
-        displayName = "Remote GLTD (Packed)";
-        descriptionShort = "Remote GLTD packed for carriage";
+        displayName = CSTRING(RemoteGLTD_Packed_base_DisplayName);
+        descriptionShort = CSTRING(RemoteGLTD_Packed_base_DescriptionShort);
         model = "\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d";
         //picture = "\A3\Drones_F\Air_F_Gamma\UAV_01\Data\UI\UAV_01_CA.paa";
         class ItemInfo: ItemInfo {

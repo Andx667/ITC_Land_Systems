@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_sholef">
+        <Key ID="STR_itc_land_veh_sholef_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sholef_Olive_DisplayName">
+            <English>Olive</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sholef_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sholef_Sand_DisplayName">
+            <English>Sand</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sholef_b_SPH_Sholef2_DisplayName">
+            <English>M4 mod. 0 Sholef 2</English>
+        </Key>
+    </Package>
+</Project>

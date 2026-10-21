@@ -22,7 +22,7 @@ class CfgVehicles {
   };
   class itc_land_b_vls2 : B_Ship_MRLS_01_base_F {
         author = "Yax ";
-    displayName = "MN230 VLS (Air Defense)";
+    displayName = CSTRING(b_vls2_DisplayName);
     side = 1;
     faction = "BLU_F";
     crew = "B_UAV_AI";
@@ -69,7 +69,7 @@ class CfgVehicles {
   };
   class itc_land_b_vls2_slam : B_Ship_MRLS_01_base_F {
     author = "Toadball";
-    displayName = "MN230 VLS (Cruise Missile)";
+    displayName = CSTRING(b_vls2_slam_DisplayName);
     class Turrets : Turrets {
       class MainTurret: MainTurret {
         weapons[] = {"itc_land_mn230slam_launcher"};
@@ -78,7 +78,7 @@ class CfgVehicles {
     };
     class ACE_SelfActions: ACE_SelfActions {
         class ITC_Land_CommanderTablet {
-            displayName = "Open VLS Interface";
+            displayName = CSTRING(CommanderTablet_DisplayName);
             icon = "";
             condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
             statement = "createDialog 'ITC_Land_RscVLSlaunch'";
