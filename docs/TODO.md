@@ -48,6 +48,11 @@ User-flow fixes from the code review:
 - [ ] Spike: dying, switching weapon or the missile hitting during camera flight returns
       to the normal view without colour/grain effects stuck on.
 - [ ] BCS page buttons work while controlling a UAV.
+- [ ] BCS new/engage fire mission pages: "Next", "Back" and "Load" known point buttons
+      show and hide correctly (duplicate control IDs removed).
+- [ ] ROVER tablet: labels and values sit in their intended rows/columns and the vision
+      mode buttons are placed correctly (51 positions were broken by macros inside
+      strings); no `Undefined variable` errors for `col_`/`row_`/`top_bar_y` in the RPT.
 - [ ] Saved list selections (SPH ammo/fuze, VLS angle, MLRS fuze) restore correctly,
       including the last entry; the MLRS round type page shows the applied PGM grid/altitude.
 
@@ -137,16 +142,21 @@ tracker, which has to follow its shell every frame.
 - [ ] `common/CfgUI.hpp` and `tablet/UIConfig/ControlBaseClasses.hpp` both define the
       root classes `ITC_LAND_RscText`, `RscEdit`, `RscStructuredText`, `RscPicture`,
       `ScrollBar`, `RscListBox`, `RscComboBox`, `RscButton`; the tablet versions have no
-      parent, so the engine merges both and drops the `RscText`/... base classes. Pick
-      one definition (or rename the tablet ones) and check the tablet, VLS and SPH
+      parent, so the engine merges both and drops the `RscText`/... base classes. The
+      tablet file is marked "VESTIGIAL: to be removed following retesting" by its author.
+      Pick one definition (or rename the tablet ones) and check the tablet, VLS and SPH
       dialogs in game. `sphammohandler` and `vls` use these classes, so they depend on
       whichever definition loads last.
+- [ ] Tablet and dialog layout doesn't scale consistently: the tablet frame image is sized
+      from the screen width only while the content uses width and height, and text sizes
+      use a fixed `GUI_GRID_H` while boxes scale with the screen. Known; long-term rework.
 
 ## 6. Linting and CI
 
 Done: `.hemtt/lints.toml` sets S04/S12/S13/S29/S38, C12 and stringtable sorting to
 errors (verified by planting violations; S17 is set too but did not fire on a test
-global), `tools/macro_in_string_checker.py` runs in the Validate workflow, Dependabot
+global), `tools/macro_in_string_checker.py` runs in the Validate workflow (CBA/ACE
+macros and every macro `#define`d in the project, inside double-quoted strings), Dependabot
 covers GitHub Actions, checks are documented in `CONTRIBUTING.md`. The Python
 stringtable and config-style checkers stay, they check conventions HEMTT does not.
 `hemtt check -p` is clean except the dormant `veh_weapons/fuzeProxFOV.sqf` (5);

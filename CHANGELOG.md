@@ -40,6 +40,8 @@ start a fresh empty [Unreleased] section above it. -->
 - Gunner sights no longer leave a per-frame handler running every time the player leaves the vehicle.
 - Spike: the missile camera and its screen effects are always removed when the player dies, switches weapon or the missile hits.
 - BCS page buttons work while controlling a UAV; the BCS target-type labels are translatable.
+- ROVER tablet: 51 control positions used layout macros inside quoted strings, so the game received undefined names instead of numbers; the controls now sit where they were designed to.
+- Tablet: the BCS new/engage fire mission pages, the BCS solution page and the MLRS page no longer share control IDs with other pages, so showing or hiding a control by ID can no longer hit the wrong page.
 - Saved list selections (SPH ammo/fuze, VLS impact angle, MLRS fuze) restore correctly, including the last entry; the MLRS round-type page shows the applied PGM grid and altitude.
 
 ### Changed
@@ -47,6 +49,6 @@ start a fresh empty [Unreleased] section above it. -->
 - Ballistic tables are compiled once and cached instead of on every firing solution (BCS computed them per gun).
 - Tablet app and page scripts are compiled once and cached instead of on every app/page switch (recompiled each time when `DISABLE_COMPILE_CACHE` is set).
 - The MOF35 Mod3 time fuze waits with `CBA_fnc_waitAndExecute` instead of checking every frame.
-- CI: key HEMTT lints are now errors, a new check rejects macros inside string literals, and Dependabot keeps the GitHub Actions up to date.
+- CI: key HEMTT lints are now errors, a new check rejects macros inside string literals (CBA/ACE macros and the project's own defines), and Dependabot keeps the GitHub Actions up to date.
 - COBRA is now server-authoritative: only the server tracks shells and runs the scan, and it publishes COBRAs, firing positions, engagements and predicted impacts to clients (previously every machine ran its own simulation).
 - Rebuilt the repo on HEMTT with modern CI/CD, replacing the old build tooling
