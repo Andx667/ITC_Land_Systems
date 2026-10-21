@@ -3,6 +3,7 @@ class page_spg_status:ITC_LAND_Workspace {
     class Controls {
         class status_dam_title: ITC_LAND_RscText {
             idc = 2010;
+            tooltip = CSTRING(status_dam_list_Tooltip);
             text = CSTRING(status_dam_title_Text); //--- ToDo: Localize;
             x = "0.355625 * safezoneW + safezoneX";
             y = "0.236 * safezoneH + safezoneY";
@@ -12,6 +13,7 @@ class page_spg_status:ITC_LAND_Workspace {
         };
         class status_dam_list: ITC_LAND_RscStructuredText {
             idc = 2100;
+            tooltip = CSTRING(status_dam_list_Tooltip);
             x = "0.355625 * safezoneW + safezoneX";
             y = "0.269 * safezoneH + safezoneY";
             w = "0.170156 * safezoneW";

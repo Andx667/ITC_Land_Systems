@@ -1,5 +1,6 @@
 class fcs_target_title: ITC_LAND_RscText {
     idc = 1013;
+    tooltip = CSTRING(fcs_target_title_Tooltip);
     text = CSTRING(fcs_target_title_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.285 * safezoneH + safezoneY";
@@ -9,6 +10,7 @@ class fcs_target_title: ITC_LAND_RscText {
 };
 class fcs_target_pos: ITC_LAND_RscText {
     idc = 2510;
+    tooltip = CSTRING(fcs_target_pos_Tooltip);
     text = CSTRING(fcs_target_pos_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.329 * safezoneH + safezoneY";
@@ -24,6 +26,7 @@ class fcs_edit_target_pos: ITC_LAND_RscEdit {
 };
 class fcs_target_elev: ITC_LAND_RscText {
     idc = 2511;
+    tooltip = CSTRING(fcs_target_elev_Tooltip);
     text = CSTRING(fcs_target_elev_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.362 * safezoneH + safezoneY";
@@ -39,6 +42,7 @@ class fcs_edit_target_el: ITC_LAND_RscEdit {
 };
 class fcs_round_type: ITC_LAND_RscText {
     idc = 2512;
+    tooltip = CSTRING(fcs_round_type_Tooltip);
     text = CSTRING(fcs_round_type_Text);
     x = "0.37625 * safezoneW + safezoneX";
     y = "0.395 * safezoneH + safezoneY";
@@ -55,6 +59,7 @@ class fcs_combo_round_type: ITC_LAND_RscComboBox {
 };
 class fcs_results: ITC_LAND_RscStructuredText {
     idc = 2403;
+    tooltip = CSTRING(fcs_results_Tooltip);
     text = "";
     x = "0.551562 * safezoneW + safezoneX";
     y = "0.285 * safezoneH + safezoneY";

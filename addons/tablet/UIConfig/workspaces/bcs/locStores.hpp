@@ -3,6 +3,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
     class Controls {
         class locstores_referenceID_label: ITC_LAND_RscText {
             idc = 5401;
+            tooltip = CSTRING(locstores_referenceID_Tooltip);
 
             text = CSTRING(locstores_referenceID_label_Text);
             x = "0.365937 * safezoneW + safezoneX";
@@ -23,6 +24,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
         };
         class locstores_position_label: ITC_LAND_RscText {
             idc = 5403;
+            tooltip = CSTRING(Grid_Tooltip);
 
             text = CSTRING(locstores_position_label_Text);
             x = "0.463906 * safezoneW + safezoneX";
@@ -43,6 +45,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
         };
         class locstores_elevation_label: ITC_LAND_RscText {
             idc = 5405;
+            tooltip = CSTRING(Altitude_Tooltip);
 
             text = CSTRING(locstores_elevation_label_Text);
             x = "0.551562 * safezoneW + safezoneX";
@@ -63,6 +66,7 @@ class page_bcs_locations:ITC_LAND_Workspace {
         };
         class locstores_isFriendly_label: ITC_LAND_RscText {
             idc = 5407;
+            tooltip = CSTRING(locstores_isFriendly_Tooltip);
 
             text = CSTRING(locstores_isFriendly_label_Text);
             x = "0.62375 * safezoneW + safezoneX";

@@ -3,6 +3,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
     class Controls {
         class bcs_settings_alerttosplash_label: ITC_LAND_RscText {
             idc = 3201;
+            tooltip = CSTRING(bcs_settings_alerttosplash_Tooltip);
             text = CSTRING(bcs_settings_alerttosplash_label_Text);
             x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
             y = QUOTE((0.313 + POSYADJUST) * safezoneH + safezoneY);
@@ -12,6 +13,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
         };
         class bcs_settings_firemission_code_label: ITC_LAND_RscText {
             idc = 3203;
+            tooltip = CSTRING(bcs_settings_firemission_code_Tooltip);
             text = CSTRING(bcs_settings_firemission_code_label_Text);
             x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
             y = QUOTE((0.379 + POSYADJUST) * safezoneH + safezoneY);
@@ -21,6 +23,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
         };
         class bcs_settings_firemission_start_label: ITC_LAND_RscText {
             idc = 3204;
+            tooltip = CSTRING(bcs_settings_firemission_start_Tooltip);
             text = CSTRING(bcs_settings_firemission_start_label_Text);
             x = QUOTE((0.407187 + POSXADJUST) * safezoneW + safezoneX);
             y = QUOTE((0.412 + POSYADJUST) * safezoneH + safezoneY);

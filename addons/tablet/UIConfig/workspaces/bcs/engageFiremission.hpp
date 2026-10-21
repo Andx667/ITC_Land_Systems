@@ -19,6 +19,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         };
         class itc_land_engagement_sheaf_text: ITC_LAND_RscText {
             idc = 7019;
+            tooltip = CSTRING(engagement_sheaf_Tooltip);
             text = CSTRING(engagement_sheaf_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.357 * safezoneH + safezoneY";
@@ -35,6 +36,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         };
         class itc_land_engagement_quick_text: ITC_LAND_RscText {
             idc = 7020;
+            tooltip = CSTRING(engagement_quick_Tooltip);
             text = CSTRING(engagement_quick_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.379 * safezoneH + safezoneY";
@@ -50,6 +52,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         };
         class itc_land_engagement_direction_text: ITC_LAND_RscText {
             idc = 7021;
+            tooltip = CSTRING(engagement_direction_Tooltip);
             text = CSTRING(engagement_direction_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.401 * safezoneH + safezoneY";
@@ -66,6 +69,7 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
         };
         class itc_land_engagement_length_text: ITC_LAND_RscText {
             idc = 7022;
+            tooltip = CSTRING(engagement_length_Tooltip);
             text = CSTRING(engagement_length_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.423 * safezoneH + safezoneY";

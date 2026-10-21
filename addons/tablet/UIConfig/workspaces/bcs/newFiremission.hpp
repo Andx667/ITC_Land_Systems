@@ -108,6 +108,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
         };
         class itc_land_target_knownpoint_text: ITC_LAND_RscText {
             idc = 6019;
+            tooltip = CSTRING(target_knownpoint_Tooltip);
             text = CSTRING(target_knownpoint_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.357 * safezoneH + safezoneY";
@@ -116,6 +117,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
         };
         class itc_land_target_targetType_text: ITC_LAND_RscText {
             idc = 6018;
+            tooltip = CSTRING(target_targetType_Tooltip);
             text = CSTRING(target_targetType_text_Text); //--- ToDo: Localize;
             x = "0.365937 * safezoneW + safezoneX";
             y = "0.291 * safezoneH + safezoneY";
@@ -124,6 +126,7 @@ class page_bcs_firemission_new:ITC_LAND_Workspace {
         };
         class itc_land_firemission_name_text: ITC_LAND_RscText {
             idc = 6017;
+            tooltip = CSTRING(firemission_name_Tooltip);
             text = CSTRING(firemission_name_text_Text); //--- ToDo: Localize;
             x = "0.350468 * safezoneW + safezoneX";
             y = "0.247 * safezoneH + safezoneY";

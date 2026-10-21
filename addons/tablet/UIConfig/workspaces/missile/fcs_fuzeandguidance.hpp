@@ -1,5 +1,6 @@
 class fci_fuzeinputs: ITC_LAND_RscText {
     idc = 1900;
+    tooltip = CSTRING(fci_fuzeinputs_Tooltip);
     text = CSTRING(fci_fuzeinputs_Text);
     sizeEx = 1.125 * GUI_GRID_H;
     x = "0.363125 * safezoneW + safezoneX";
@@ -17,6 +18,7 @@ class fci_fuzeinputs_text: ITC_LAND_RscText {
 };
 class fci_fuzeinputs_mode_text: ITC_LAND_RscText {
     idc = 1903;
+    tooltip = CSTRING(fci_fuzeinputs_mode_Tooltip);
     text = CSTRING(fci_fuzeinputs_mode_text_Text);
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.556 * safezoneH + safezoneY";
@@ -34,6 +36,7 @@ class fci_fuzeinputs_mode_combo: ITC_LAND_RscComboBox {
 
 class fci_fuzeinputs_time_text: ITC_LAND_RscText {
     idc = 1905;
+    tooltip = CSTRING(fci_fuzeinputs_time_Tooltip);
     text = CSTRING(fci_fuzeinputs_time_text_Text);
     x = "0.363125 * safezoneW + safezoneX";
     y = "0.589 * safezoneH + safezoneY";
@@ -50,6 +53,7 @@ class fci_fuzeinputs_time_edit: ITC_LAND_RscEdit {
 
 class fci_guideinputs_text: ITC_LAND_RscText {
     idc = 1907;
+    tooltip = CSTRING(fci_guideinputs_Tooltip);
     text = CSTRING(fci_guideinputs_text_Text);
     x = "0.5 * safezoneW + safezoneX";
     y = "0.523 * safezoneH + safezoneY";
@@ -59,6 +63,7 @@ class fci_guideinputs_text: ITC_LAND_RscText {
 
 class fci_guideinputs_tgtgrid_text: ITC_LAND_RscText {
     idc = 1908;
+    tooltip = CSTRING(Grid_Tooltip);
     text = CSTRING(fci_guideinputs_tgtgrid_text_Text);
     x = "0.5 * safezoneW + safezoneX";
     y = "0.556 * safezoneH + safezoneY";
@@ -75,6 +80,7 @@ class fci_guideinputs_tgtgrid_edit: ITC_LAND_RscEdit {
 
 class fci_guideinputs_elev_text: ITC_LAND_RscText {
     idc = 1910;
+    tooltip = CSTRING(Altitude_Tooltip);
     text = CSTRING(fci_guideinputs_elev_text_Text);
     x = "0.50 * safezoneW + safezoneX";
     y = "0.589 * safezoneH + safezoneY";

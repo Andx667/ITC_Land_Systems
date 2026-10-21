@@ -12,6 +12,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
         };
         class btysetup_gun_type_label: ITC_LAND_RscText {
             idc = 4302;
+            tooltip = CSTRING(btysetup_gun_type_Tooltip);
 
             text = CSTRING(btysetup_gun_type_label_Text);
             x = "0.381406 * safezoneW + safezoneX";
@@ -64,6 +65,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
         };
         class btysetup_gun_number_label: ITC_LAND_RscText {
             idc = 4305;
+            tooltip = CSTRING(btysetup_gun_number_Tooltip);
 
             text = CSTRING(btysetup_gun_number_label_Text);
             x = "0.365937 * safezoneW + safezoneX";
@@ -85,6 +87,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
         };
         class btysetup_position_label: ITC_LAND_RscText {
             idc = 4307;
+            tooltip = CSTRING(Grid_Tooltip);
 
             text = CSTRING(locstores_position_label_Text);
             x = "0.427812 * safezoneW + safezoneX";
@@ -106,6 +109,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
         };
         class btysetup_elevation_label: ITC_LAND_RscText {
             idc = 4309;
+            tooltip = CSTRING(Altitude_Tooltip);
 
             text = CSTRING(locstores_elevation_label_Text);
             x = "0.525781 * safezoneW + safezoneX";
@@ -127,6 +131,7 @@ class page_bcs_setup:ITC_LAND_Workspace {
         };
         class btysetup_direction_label: ITC_LAND_RscText {
             idc = 4311;
+            tooltip = CSTRING(btysetup_direction_Tooltip);
 
             text = CSTRING(engagement_direction_text_Text);
             x = "0.603125 * safezoneW + safezoneX";

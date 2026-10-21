@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="tablet">
+        <Key ID="STR_itc_land_tablet_Altitude_Tooltip">
+            <English>Height above sea level, in metres</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Artillery_InterfaceNotFound">
             <English>Self Propelled Gun Interface not found</English>
         </Key>
@@ -145,8 +148,14 @@
         <Key ID="STR_itc_land_tablet_Fcs_TimeOfFlight">
             <English>TOF: %1</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Grid_Tooltip">
+            <English>Grid reference (6, 8 or 10 digits)</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Home_AppEntry">
             <English>APP %1: %2</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Home_Interfaces_Tooltip">
+            <English>Vehicle systems the app needs: it only works inside a vehicle that has them (- means none)</English>
         </Key>
         <Key ID="STR_itc_land_tablet_RscButton_1600_Text">
             <English>ALL ON</English>
@@ -211,14 +220,23 @@
         <Key ID="STR_itc_land_tablet_bcs_DisplayName">
             <English>Battery Control System</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_alerttosplash_Tooltip">
+            <English>Seconds before impact at which a fired mission switches from SHOT to SPLASH</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_alerttosplash_label_Text">
             <English>Alert To Splash:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_Tooltip">
+            <English>Prefix of new fire mission names, followed by a 4-digit number (FM0001)</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_label_Text">
             <English>Firemission Code:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_text_Text">
             <English>FM</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_bcs_settings_firemission_start_Tooltip">
+            <English>Number of the next fire mission; it counts up with every new mission</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_firemission_start_label_Text">
             <English>Firemission Start:</English>
@@ -235,8 +253,17 @@
         <Key ID="STR_itc_land_tablet_btysetup_bty_callsign_text_Text">
             <English>ARCHER</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_direction_Tooltip">
+            <English>Direction the gun points, in degrees. Deflections are given relative to it</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_gun_number_Tooltip">
+            <English>Number of the gun in the battery. Saving a number that exists updates that gun</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_btysetup_gun_number_label_Text">
             <English>Gun #</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_gun_type_Tooltip">
+            <English>Battery type: the weapon and ammunition the BCS computes for. SAVE BTY TYPE applies it</English>
         </Key>
         <Key ID="STR_itc_land_tablet_btysetup_gun_type_label_Text">
             <English>Gun Type:</English>
@@ -250,6 +277,9 @@
         <Key ID="STR_itc_land_tablet_cbr_data_saveOriginPos_Text">
             <English>Save to BCS</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_cbr_settings_id_Tooltip">
+            <English>Not needed: the Map and Data pages show what every COBRA detects without connecting</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_cbr_settings_id_button_Text">
             <English>connect</English>
         </Key>
@@ -259,14 +289,26 @@
         <Key ID="STR_itc_land_tablet_engage_ammoType_text_Text">
             <English>Ammo Type</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_engagement_direction_Tooltip">
+            <English>Special sheaf with Quick Sheaf off: the direction in mils the guns spread at right angles to</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_engagement_direction_text_Text">
             <English>Direction</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_length_Tooltip">
+            <English>Special sheaf: width of the spread in metres, divided evenly between the guns</English>
         </Key>
         <Key ID="STR_itc_land_tablet_engagement_length_text_Text">
             <English>Length</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_engagement_quick_Tooltip">
+            <English>Special sheaf only. On: the guns spread at right angles to the gun-target line. Off: at right angles to the entered Direction</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_engagement_quick_text_Text">
             <English>Quick Sheaf</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engagement_sheaf_Tooltip">
+            <English>Where each gun aims: Parallel keeps the battery's layout on the target, Converged puts every gun on the target point, Linear and Open spread the guns 40 m and 60 m apart across the gun-target line, Special spreads them over Length</English>
         </Key>
         <Key ID="STR_itc_land_tablet_engagement_sheaf_text_Text">
             <English>Sheaf Type</English>
@@ -274,14 +316,26 @@
         <Key ID="STR_itc_land_tablet_fci_fuzeinputs_Text">
             <English>FUZE &amp; GUIDANCE SETTINGS</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_Tooltip">
+            <English>Fuze and guidance of the rockets, applied with APPLY SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_mode_Tooltip">
+            <English>Fuze mode, as far as the rocket allows: point detonate, proximity, time or delay</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_fci_fuzeinputs_mode_text_Text">
             <English>Mode:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fci_fuzeinputs_text_Text">
             <English>Fuze Settings:</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fci_fuzeinputs_time_Tooltip">
+            <English>Time fuze: seconds after launch until the payload is released. Delay fuze: seconds after impact</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_fci_fuzeinputs_time_text_Text">
             <English>Time:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_guideinputs_Tooltip">
+            <English>For GPS-guided rockets (PGM, G-ICM): the target grid and height they fly to</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fci_guideinputs_apply_btn_Text">
             <English>APPLY SETTINGS</English>
@@ -301,11 +355,17 @@
         <Key ID="STR_itc_land_tablet_fcs_mode_title_Text">
             <English>FCI MODE:</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fcs_mode_title_Tooltip">
+            <English>Fire control interface mode. L-FCS TARGETING computes firing solutions on this tablet from a target grid and elevation</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_fcs_next_Text">
             <English>NXT SLN</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fcs_prev_Text">
             <English>PRV SLN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_results_Tooltip">
+            <English>Selected solution: charge, azimuth, deflection and quadrant in mils, time of flight in seconds, maximum ordinate and target distance in metres. NXT SLN and PRV SLN step through the solutions</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fcs_round_type_Text">
             <English>Munition Type</English>
@@ -313,17 +373,32 @@
         <Key ID="STR_itc_land_tablet_fcs_round_type_Text2">
             <English>Round Type</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fcs_round_type_Tooltip">
+            <English>Round to compute for; a solution is calculated for every charge that reaches the target</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_fcs_target_elev_Text">
             <English>Target Elevation</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_elev_Tooltip">
+            <English>Target height as shown on the map, in metres</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fcs_target_pos_Text">
             <English>Target Position</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_pos_Tooltip">
+            <English>Target grid reference (6, 8 or 10 digits)</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_fcs_target_title_Text">
             <English>LOCAL FCS TARGETING</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_fcs_target_title_Tooltip">
+            <English>Solutions are computed for the vehicle you are in; the selected one is shown in its gunner sight as MA/MQ</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_firemission_back_Text">
             <English>Back</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_firemission_name_Tooltip">
+            <English>Name of the mission, from the fire mission code and number in the BCS settings</English>
         </Key>
         <Key ID="STR_itc_land_tablet_firemission_name_text_Text">
             <English>Firemission Name</English>
@@ -349,6 +424,9 @@
         <Key ID="STR_itc_land_tablet_locstores_elevation_label_Text">
             <English>Elevation</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_locstores_isFriendly_Tooltip">
+            <English>Whether the point is a friendly position (own guns, observers) or a target</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_locstores_isFriendly_combobox_Text">
             <English>No</English>
         </Key>
@@ -357,6 +435,9 @@
         </Key>
         <Key ID="STR_itc_land_tablet_locstores_position_label_Text">
             <English>Position</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_locstores_referenceID_Tooltip">
+            <English>Number of the known point. Adding a number that exists updates that point</English>
         </Key>
         <Key ID="STR_itc_land_tablet_locstores_referenceID_label_Text">
             <English>Reference ID</English>
@@ -385,8 +466,14 @@
         <Key ID="STR_itc_land_tablet_solution_adj_Text">
             <English>ADJUST/FFE</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_solution_angle_Tooltip">
+            <English>Angle of the round's path at impact, in degrees from the horizontal</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_solution_angle_label_Text">
             <English>IMPACT ANGLE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_distance_Tooltip">
+            <English>Horizontal distance from the battery centre to the target, in metres</English>
         </Key>
         <Key ID="STR_itc_land_tablet_solution_distance_label_Text">
             <English>TARGET DISTANCE</English>
@@ -397,11 +484,17 @@
         <Key ID="STR_itc_land_tablet_solution_eom_save_Text">
             <English>END &amp; SAVE</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_solution_ordinate_Tooltip">
+            <English>Highest point of the trajectory above the guns, in metres</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_solution_ordinate_label_Text">
             <English>MAXIMUM ORDINATE</English>
         </Key>
         <Key ID="STR_itc_land_tablet_solution_shot_Text">
             <English>SHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_shot_Tooltip">
+            <English>Seconds until the rounds land, counting down after SHOT</English>
         </Key>
         <Key ID="STR_itc_land_tablet_solution_soldn_Text">
             <English>SLN-</English>
@@ -409,11 +502,17 @@
         <Key ID="STR_itc_land_tablet_solution_solup_Text">
             <English>SLN+</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_solution_solutionCount_Tooltip">
+            <English>Selected solution and the number of solutions (one per charge, low and high angle). SLN+ and SLN- step through them</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_solution_solutionCount_text_Text">
             <English>asdf</English>
         </Key>
         <Key ID="STR_itc_land_tablet_spg_DisplayName">
             <English>Self Propelled Gun</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_status_dam_list_Tooltip">
+            <English>State of each vehicle system: OK undamaged, DAM damaged, FAIL more than half destroyed</English>
         </Key>
         <Key ID="STR_itc_land_tablet_status_dam_title_Text">
             <English>Systems</English>
@@ -469,14 +568,35 @@
         <Key ID="STR_itc_land_tablet_target_field4_text_Tooltip">
             <English>Up/Down: vertical/elevation correction, in meters</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_target_knownpoint_Tooltip">
+            <English>A stored location: the reference point for Shift and Polar. LOAD copies its grid and elevation into a Grid target</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_target_knownpoint_load_Text">
             <English>Load</English>
         </Key>
         <Key ID="STR_itc_land_tablet_target_knownpoint_text_Text">
             <English>Known Point</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_target_polar_direction_Tooltip">
+            <English>Direction from the known point to the target, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_polar_distance_Tooltip">
+            <English>Distance from the known point to the target, in metres</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_quicklay_direction_Tooltip">
+            <English>Direction from the battery centre to the target, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_quicklay_distance_Tooltip">
+            <English>Distance from the battery centre to the target, in metres</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_targetType_Tooltip">
+            <English>How the target is entered: Grid, Shift (corrections from a known point), Polar (direction and distance from a known point) or QuickLay (direction and distance from the battery)</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_target_targetType_text_Text">
             <English>Target Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_target_vi_Tooltip">
+            <English>Vertical interval: height of the target above (+) or below (-) the reference, in metres</English>
         </Key>
         <Key ID="STR_itc_land_tablet_workspace_header_Text">
             <English>Workspace Header</English>

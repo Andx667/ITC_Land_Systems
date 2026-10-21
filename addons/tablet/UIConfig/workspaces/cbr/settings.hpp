@@ -3,6 +3,7 @@ class page_cbr_settings:ITC_LAND_Workspace {
     class Controls {
         class cbr_settings_id_text: ITC_LAND_RscText {
             idc = 10006;
+            tooltip = CSTRING(cbr_settings_id_Tooltip);
             text = CSTRING(cbr_settings_id_text_Text); //--- ToDo: Localize;
             x = "0.360781 * safezoneW + safezoneX";
             y = "0.247 * safezoneH + safezoneY";

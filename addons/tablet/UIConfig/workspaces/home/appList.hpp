@@ -16,6 +16,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app1_ifaces_label: ITC_LAND_RscText {
             idc = 91020;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             text = CSTRING(app1_ifaces_label_Text); //--- ToDo: Localize;
             x = "0.31 * safezoneW + safezoneX";
             y = "0.57 * safezoneH + safezoneY";
@@ -24,6 +25,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app1_ifaces: ITC_LAND_RscText {
             idc = 91010;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             text = ""; //--- ToDo: Localize;
             x = "0.36 * safezoneW + safezoneX";
             y = "0.57 * safezoneH + safezoneY";
@@ -41,6 +43,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app2_ifaces_label: ITC_LAND_RscText {
             idc = 91021;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             text = CSTRING(app1_ifaces_label_Text); //--- ToDo: Localize;
             x = "0.31 * safezoneW + safezoneX";
             y = "0.625 * safezoneH + safezoneY";
@@ -49,6 +52,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app2_ifaces: ITC_LAND_RscText {
             idc = 91011;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             x = "0.36 * safezoneW + safezoneX";
             y = "0.625 * safezoneH + safezoneY";
             w = "0.103125 * safezoneW";
@@ -65,6 +69,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app3_ifaces_label: ITC_LAND_RscText {
             idc = 91022;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             text = CSTRING(app1_ifaces_label_Text); //--- ToDo: Localize;
             x = "0.31 * safezoneW + safezoneX";
             y = "0.68 * safezoneH + safezoneY";
@@ -73,6 +78,7 @@ class page_home_list:ITC_LAND_Workspace {
         };
         class itc_land_app3_ifaces: ITC_LAND_RscText {
             idc = 91012;
+            tooltip = CSTRING(Home_Interfaces_Tooltip);
             x = "0.36 * safezoneW + safezoneX";
             y = "0.68 * safezoneH + safezoneY";
             w = "0.103125 * safezoneW";
