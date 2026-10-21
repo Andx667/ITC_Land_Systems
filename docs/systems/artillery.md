@@ -72,7 +72,9 @@ The gunner sight of the guns shows:
 - **MA / MQ** — the mission azimuth and quadrant from the tablet (**FCI ORDERS**)
 - **LOAD**, **FUZE**, **GUIDANCE** and **STATUS** of the [ammunition handler](#ammunition-handler)
 
-Lay the gun until the current values match the mission values, then fire. Within 100 mils of the mission azimuth, a bar shows how far the gun is still off.
+Lay the gun until the current values match the mission values, then fire. All four values are in mils.
+
+While a solution is selected, the crosshair is an alignment guide. A circle on the horizontal arm shows the azimuth error and one on the vertical arm the quadrant error; the dots are 25 mils apart, and both circles sit in the centre when the gun is laid. More than 100 mils off, an arrow at the end of the arm points the way to traverse or elevate instead.
 
 ## Ammunition handler
 
