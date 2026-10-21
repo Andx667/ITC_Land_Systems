@@ -8,7 +8,7 @@ params ["_player"];
 itc_test_fnc_loadout = {
     player addBackpack "B_Kitbag_mcamo";
     player linkItem "B_UavTerminal";
-    {player addItem _x} forEach ["itc_land_tablet_fdc", "itc_land_tablet_spg", "itc_land_tablet_rover", "ITC_Land_B_AR2i_Packed", "ITC_Land_B_RemoteGLTD_Packed", "ITC_Land_B_AL6_Packed"];
+    {player addItem _x} forEach ["itc_land_tablet_fdc", "itc_land_tablet_rover", "ITC_Land_B_AR2i_Packed", "ITC_Land_B_RemoteGLTD_Packed", "ITC_Land_B_AL6_Packed"];
 };
 call itc_test_fnc_loadout;
 _player addEventHandler ["Respawn", {call itc_test_fnc_loadout}];
@@ -31,7 +31,7 @@ Numbers are the sections of the checklist in GitHub issue #3. Use the control bo
 <marker name='itc_test_aps'>APS</marker>: crewed tank without ammo (4). Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines.<br/>
 <marker name='itc_test_spike'>Spike</marker>: player Spike from the arsenal or 'AI Spike shot' against the target APC (6).<br/>
 <marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (16).<br/>
-Tablets (FDC, SPG, ROVER) and a UAV terminal are in your inventory (11, 15, 16).<br/><br/>
+Tablets (FDC, ROVER) and a UAV terminal are in your inventory; the SPG tablet is mounted in the guns (11, 15, 16).<br/><br/>
 Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems (1).
 "]];
 

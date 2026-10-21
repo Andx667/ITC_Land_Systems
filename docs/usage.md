@@ -10,7 +10,7 @@ Most ITC actions are in the ACE interaction menu:
 
 | Action | Where | Who |
 | --- | --- | --- |
-| **FDC Tablet**, **SPG Tablet** | Self interaction → Equipment | You carry the tablet |
+| **FDC Tablet** | Self interaction → Equipment | You carry the tablet |
 | **Open Rover LAD** | Self interaction → Equipment | You carry the ROVER tablet |
 | **Unpack** → item | Self interaction → Equipment | You carry a packed UAV or GLTD |
 | **Repack UAV**, **Repack GLTD** | Interaction on the deployed object | Within 3 m |
@@ -28,11 +28,11 @@ The tablets run apps. Which apps a tablet has depends on the tablet:
 | Tablet | Item | Apps |
 | --- | --- | --- |
 | FDC Tablet (Fire Direction Tablet) | `itc_land_tablet_fdc` | [Battery Control System](systems/bcs.md), [Counter Battery Radar](systems/cobra.md#counter-battery-radar-app) |
-| SPG Tablet | `itc_land_tablet_spg` | [Self Propelled Gun](systems/artillery.md#fire-control-on-the-tablet), [Battery Control System](systems/bcs.md) |
+| SPG tablet (mounted only) | `itc_land_tablet_spg` | [Self Propelled Gun](systems/artillery.md#fire-control-on-the-tablet), [Battery Control System](systems/bcs.md) |
 | MLRS tablet (mounted only) | `itc_land_tablet_mlrs` | [Guided Missile Configuration](systems/artillery.md#rocket-artillery), [Battery Control System](systems/bcs.md) |
 | Rover LAD Tablet | `itc_land_tablet_rover` | [ROVER video feed](systems/uavs.md#rover-tablet) |
 
-The vehicles carry a **mounted tablet**: the SPG tablet in the Sholef 2, Sochor 2 and Hammer 2, the MLRS tablet in the Seara 2 and Zamak MRLi. The mounted tablet works on the vehicle you sit in, a handheld SPG tablet on the vehicle you are in when you open it.
+The vehicles carry a **mounted tablet**: the SPG tablet in the Sholef 2, Sochor 2 and Hammer 2, the MLRS tablet in the Seara 2 and Zamak MRLi. The mounted tablet works on the vehicle you sit in. Only the FDC and ROVER tablets are carried as items.
 
 ## Settings
 

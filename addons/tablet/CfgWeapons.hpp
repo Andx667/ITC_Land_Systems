@@ -5,7 +5,8 @@ class CfgWeapons {
         descriptionShort = CSTRING(tablet_spg_DescriptionShort);
         picture = QPATHTOF(UI\tableticon256.paa);
         apps[] = {"spg", "bcs"};
-        scope = 1;
+        // only the mounted tablet for now: as a handheld item it duplicates it (see docs/TODO.md)
+        scope = 0;
     };
     class itc_land_tablet_mlrs : ACE_HuntIR_monitor {
         displayName = CSTRING(tablet_mlrs_DisplayName);

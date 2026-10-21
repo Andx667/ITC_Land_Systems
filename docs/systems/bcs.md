@@ -1,6 +1,6 @@
 # Battery Computer (BCS)
 
-The **Battery Control System** app plans fire missions for a whole battery. It runs on every tablet (FDC, SPG and MLRS tablet, see [Tablets](../usage.md#tablets)), typically on the FDC tablet of the fire direction centre.
+The **Battery Control System** app plans fire missions for a whole battery. It runs on the FDC tablet of the fire direction centre and on the mounted SPG and MLRS tablets (see [Tablets](../usage.md#tablets)).
 
 The BCS is a fire direction computer: it gives you the firing data for every gun of the battery, which the fire direction centre passes on to the gun crews. Each gun lays with its own [gunner sight](artillery.md#gunner-sight) and [ammunition handler](artillery.md#ammunition-handler).
 

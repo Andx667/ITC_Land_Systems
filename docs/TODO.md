@@ -183,6 +183,13 @@ tracker, which has to follow its shell every frame.
     solutions for these guns.
   - document for mod makers what a vehicle needs (weapon class, magazines, tablet and
     ammo-handler config) and test it on a vanilla-based example vehicle.
+- [ ] Handheld SPG tablet (`itc_land_tablet_spg`): set to `scope = 0` for now, only the
+      mounted tablet uses the class. As an item it duplicated the mounted tablet: its SPG app
+      only works inside an ITC artillery vehicle (any seat, where the mounted one is tied to the
+      commander/gunner seat), and on foot it is a BCS without the CBR app, i.e. a weaker FDC
+      tablet. Find it a purpose (e.g. remote fire control for a gun it is linked to, via the
+      datalink) or drop it for good: then remove its "SPG Tablet" ACE self action and let the
+      mounted tablet open from both the commander and gunner seats instead.
 - [ ] Code-review leftovers (low priority): SPH `onLoad` re-broadcasts the unchanged loader
       status on every open; ROVER `ui_init` sets the slider/FOV twice and its open condition
       uses `items player` instead of the ACE player; the tablet's re-open logic relies on an

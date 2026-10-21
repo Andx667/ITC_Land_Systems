@@ -50,7 +50,7 @@ Each round type has five propellant charges per gun.
 
 ## Fire control on the tablet
 
-The **Self Propelled Gun** app of the [SPG tablet](../usage.md#tablets) computes firing solutions for the vehicle you are in. Open it from the mounted tablet, or carry an SPG tablet.
+The **Self Propelled Gun** app of the [mounted SPG tablet](../usage.md#tablets) computes firing solutions for the vehicle you are in.
 
 1. Enter the **Target Position** (grid) and **Target Elevation**.
 2. Pick the **Munition Type**.
