@@ -253,6 +253,23 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     now
   - Zeus module and/or ACE interaction to fit an APS to a vehicle
   - document the config keys and the API for mod makers (with section 9)
+- [ ] BCS battery solutions to the gunner sights. Today only the SPG app's local solution
+      reaches a gun's sight (it writes `itc_land_tablet_fcs_solutions`/`_index` on the vehicle,
+      which `common_fnc_getFireSolution` reads for MA/MQ and the alignment guide). The BCS
+      cannot write anything: a gun in Battery Setup is just a number with a hand-typed grid,
+      elevation and direction, not a vehicle, so its per-gun solutions stay on the tablet and
+      are relayed by voice. To do:
+  - Battery Setup: "add gun" links a real ITC artillery vehicle (the one you sit in, or one
+    picked from nearby ones) and fills its grid, elevation and direction from it; keep manual
+    entry for guns without a link (e.g. other mods' guns, vanilla mortars).
+  - Solution page: a SEND button that writes each linked gun's line of the battery solution to
+    its own vehicle (public variables, works in MP), in the format of
+    `ballistics_fnc_calcShellTypeSolutions` so the sight, the alignment guide and the SPG app
+    need no change. Decide what happens to a local solution already on the vehicle (newest
+    wins is the simplest) and whether SLN+/SLN- on the FDC resends.
+  - Optional: preset the shell, charge, fuze and count of the mission in the gun's ammunition
+    handler.
+  - Update the BCS docs (`docs/systems/bcs.md`), which describe the voice relay.
 
 ## 9. Documentation (after in-game testing, issue #1)
 
