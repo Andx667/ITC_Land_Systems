@@ -194,3 +194,20 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       show no solution) until a target grid is entered.
 - [ ] Artillery tablet status page: some glass hitpoints still show the raw class name because
       ACE Repair has no `STR_ACE_Repair_<hitpoint>` string for them; add own strings or a mapping.
+- [ ] Fire solutions are wrong for targets near the top of the trajectory (low-angle fire at
+      short/medium range, or targets high above the gun): `ballistics_fnc_calcBtabSolution`
+      interpolates linearly between 100 m height slices, but range follows a square-root curve
+      near the apex, and the generator (`tables\calcBallistics.sqf`) stores the apex itself as an
+      extra slice that the lookup reads as the next 100 m gate. Measured against exact
+      ballistics: ch2 LA 1000 m / +30 m misses by -85 m, ch3 LA 1500 m / +40 m by -166 m, ch4 LA
+      2500 m / +60 m by +390 m; 9-13 % of reachable ch2/ch3 LA targets wrongly get "no
+      solution". High-angle fire and targets well below the apex are fine (1-10 m).
+      Fix: every table uses `airFriction = 0`, so replace the table lookup with the exact vacuum
+      solution and drop the tables:
+      `tan q = (v^2 -/+ sqrt(v^4 - g (g R^2 + 2 h v^2))) / (g R)` (- low angle, + high angle;
+      no solution if the root is negative), `TOF = R / (v cos q)`,
+      `impact speed = sqrt(v^2 - 2 g h)`, `impact angle = atan((v sin q - g TOF) / (v cos q))`,
+      `max ordinate = (v sin q)^2 / (2 g)`, with `g = 9.80665`, `v` = the charge magazine's
+      `initSpeed`, `R` = horizontal distance, `h` = target height minus muzzle height. Keep the
+      output format of `calcBtabSolution`. Also use the muzzle position instead of
+      `getPosASL _vehicle` for the gun height (a few metres). Revisit if shells ever get drag.
