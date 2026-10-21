@@ -44,7 +44,7 @@ ctrlSetText [86003, format[LLSTRING(ChargeOf), _curChargeIndex, _maxChargeIndex]
 
 [] call FUNC(fillFuzeList);
 private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
-if ( _selectedFuzeIndex <= (lbSize 86004)) then {
+if ( _selectedFuzeIndex < (lbSize 86004)) then {
     //Recall last selection in ComboBox
     lbSetCurSel [86004, _selectedFuzeIndex];
 } else {

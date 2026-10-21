@@ -38,12 +38,12 @@ private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]
 private _selectedMagIndex = (_currentMagInfo # 0);
 private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
 
-if ( _selectedMagIndex <= (lbSize 86001)) then {
+if ( _selectedMagIndex < (lbSize 86001)) then {
     lbSetCurSel [86001, _selectedMagIndex];
 } else {
     lbSetCurSel [86001, 0];
 };
-if ( _selectedFuzeIndex <= (lbSize 86004)) then {
+if ( _selectedFuzeIndex < (lbSize 86004)) then {
     //Recall last selection in ComboBox
     lbSetCurSel [86004, _selectedFuzeIndex];
 } else {

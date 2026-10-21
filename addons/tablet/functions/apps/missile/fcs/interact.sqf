@@ -73,10 +73,12 @@ switch(_action) do {
         switch (_guidance # 0) do {
             case "gps_inertial" : {
                 private _targetGrid = ctrlText 1909;
-                //player sidechat itc_land_guidance_targetGrid;
                 private _targetAlt = parseNumber(ctrlText 1911);
                 private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
 
+                // grid and altitude are kept so the round type page can show them again
+                _vehicle setVariable ["itc_land_guidance_targetGrid", _targetGrid, true];
+                _vehicle setVariable ["itc_land_guidance_targetAlt", _targetAlt, true];
                 _vehicle setVariable ["itc_land_guidance_targetPos",_targetPos,true];
             };
 

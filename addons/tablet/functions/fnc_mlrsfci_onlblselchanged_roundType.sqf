@@ -23,6 +23,7 @@
  */
 
 params ["_control","_index"];
+ITC_CURVEHICLE
 
 //Generate globals
 private _selectedMagClass = lbData [2402,_index];
@@ -34,9 +35,11 @@ private _fuze = getText (_selectedMagConfig >> "itc_land_fuze");
 private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modes"); 
 private _fuzeDescArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modeDesc");
 
-if ( !(isNil "itc_land_selectedFuzeIndex") && {itc_land_selectedFuzeIndex <= (lbSize 1904)}) then {
+// The fuze selection is stored on the vehicle (see EFUNC(common,applyFuzeSelection))
+private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex", -1];
+if (_selectedFuzeIndex >= 0 && {_selectedFuzeIndex < count _fuzeDescArray}) then {
     //Recall last selection in ComboBox
-    [1904, _fuzeDescArray, itc_land_selectedFuzeIndex, _fuzeModeArray] call FUNC(fillComboBox);
+    [1904, _fuzeDescArray, _selectedFuzeIndex, _fuzeModeArray] call FUNC(fillComboBox);
     [1904, lbCurSel 1904] call FUNC(mlrsfci_onlblselchanged_fuzemode);    
 } else {
     //select first item in ComboBox
@@ -48,6 +51,6 @@ if ( !(isNil "itc_land_selectedFuzeIndex") && {itc_land_selectedFuzeIndex <= (lb
 private _isPgm = ((getArray (_selectedMagConfig >> "itc_land_guidance")) param [0, ""]) == "gps_inertial";
 [[1907, 1908, 1909, 1910, 1911], _isPgm] call EFUNC(common,ctrlShowMany);
 if (_isPgm) then {
-    ctrlSetText [1909, format ["%1", missionNamespace getVariable ["itc_land_guidance_targetGrid", "0000000000"]]];
-    ctrlSetText [1911, format ["%1", missionNamespace getVariable ["itc_land_guidance_targetAlt", 0]]];
+    ctrlSetText [1909, format ["%1", _vehicle getVariable ["itc_land_guidance_targetGrid", "0000000000"]]];
+    ctrlSetText [1911, format ["%1", _vehicle getVariable ["itc_land_guidance_targetAlt", 0]]];
 };

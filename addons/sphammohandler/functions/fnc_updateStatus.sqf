@@ -76,7 +76,7 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
             private _selectedMagIndex = (_currentMagInfo # 0);                      
             if ((_status # 1) == 3) then {
                 [] call FUNC(fillAmmoList);
-                if ( _selectedMagIndex <= (lbSize 86001)) then {
+                if ( _selectedMagIndex < (lbSize 86001)) then {
                     lbSetCurSel [86001, _selectedMagIndex];
                 } else {
                     lbSetCurSel [86001, 0];
@@ -108,7 +108,7 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
                 private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
                 private _selectedMagIndex = (_currentMagInfo # 0); 
                 [] call FUNC(fillAmmoList);
-                if ( _selectedMagIndex <= (lbSize 86001)) then {
+                if ( _selectedMagIndex < (lbSize 86001)) then {
                     lbSetCurSel [86001, _selectedMagIndex];
                 } else {
                     lbSetCurSel [86001, 0];

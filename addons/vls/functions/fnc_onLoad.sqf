@@ -62,7 +62,7 @@ lbClear 4110;
 
 private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
 
-if ( (_targetAngl # 0) <= (lbSize 4110)) then {
+if ( (_targetAngl # 0) < (lbSize 4110)) then {
     //Recall last selection in ComboBox
     lbSetCurSel [4110, (_targetAngl # 0)];
 } else {
