@@ -8,9 +8,8 @@ Section numbers are kept stable so commits and issues can refer to them.
 1. In-game verification (below), together with regression issue #1.
 2. Decide on the dormant content (5).
 3. Fix the duplicate UI base classes (5), it needs the in-game check anyway.
-4. Ballistics and tablet compile caching (4).
-5. Tests (7).
-6. Translations (1), compatibility (8), then documentation (9).
+4. Tests (7).
+5. Translations (1), compatibility (8), then documentation (9).
 
 ## In-game verification
 
@@ -32,6 +31,9 @@ Locality fixes:
       mid-mission; a long barrage leaves no orphan AI units or groups.
 - [ ] VLS: launches from the dialog still hit; an AI-fired VLS round flies unguided
       without script errors.
+- [ ] MOF35 Mod3 (Falat) rounds release their submunitions at the set fuze time.
+- [ ] Tablet: switching apps/pages still works (scripts now cached); first firing
+      solution per shell type may hitch once while its tables compile.
 
 Settings, localization and dependencies:
 
@@ -77,16 +79,13 @@ Only if the datalink gets a live caller (nothing uses it today):
 
 ## 4. Runtime performance
 
-- [ ] `ballistics/fnc_calcShellTypeSolutions.sqf` runs `compile preprocessFile` on the
-      table list and every table on each call. Load the tables once (preInit, cached
-      hashmap) or generate them at build time.
-- [ ] The tablet recompiles 7 app/page files with `compile preprocessFileLineNumbers` on
-      every app or page switch (`fnc_compileApp`, `fnc_compilePage`); compile once and
-      cache per app/page.
-- [ ] `tablet/functions/util/arrayToPage.sqf` compiles a code string on every call.
-- [ ] Every-frame handlers: the sight/tablet/UI ones are correct; check whether the CIWS
-      decoy tracker (`ciws/fnc_shellTarget`) and the MOF35 Mod3 fuze
-      (`veh_weapons/fnc_firedMof35Mod3`) need to run every frame.
+Done: ballistic tables and tablet app/page scripts are compiled once and cached; the
+MOF35 Mod3 time fuze uses `CBA_fnc_waitAndExecute` instead of an every-frame handler.
+The remaining every-frame handlers are sights/tablet/UI displays and the CIWS decoy
+tracker, which has to follow its shell every frame.
+
+- [ ] Optional: generate the ballistic tables at build time instead of compiling 3.8 MB of
+      SQF on first use (first firing solution per shell type still pays that cost).
 
 ## 5. Config hygiene
 
@@ -101,7 +100,8 @@ Only if the datalink gets a live caller (nothing uses it today):
     never included)
   - remote-frag detonator item (CfgWeapons commented out)
   - tablet: SADL app, handheld MLRS tablet (no action), UI prototypes
-    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`)
+    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`), the unregistered
+    helpers `functions/util/arrayToPage.sqf` and `vehicleHasInterface.sqf`
   - UAV02/UAV05 custom UI (includes of missing files)
   - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
     `vls` getGuidanceOptions (never registered)

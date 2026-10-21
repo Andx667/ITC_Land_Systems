@@ -4,6 +4,7 @@
  * Author: ToadBall, Yax, VKing
  * Computes firing solutions for every available charge of a given shell type, from a gun position/elevation/direction to a target position/elevation.
  * Loads the magazine's ballistic table list from its config, then interpolates a solution per charge via calcBtabSolution.
+ * Compiled table lists and tables are cached in itc_land_ballistics_tableCache after first use.
  *
  * Arguments:
  * 0: Shell/magazine classname (CfgMagazines) <STRING>
@@ -30,7 +31,10 @@ private _elevDiff = _targetEl - _gunElev;
 private _df = [_gunDir, _gunPos getDir _targetPos] call EFUNC(common,getDeflection);
 private _relDirMils = (_gunPos getDir _targetPos) / 360 * 6400;
 private _tableListFile = getText (configFile >> "CfgMagazines" >> _shellType >> "itc_land_btabListFile");
-private _tableList = []  call compile preprocessFile format[_tableListFile, _shellType];
+if (_tableListFile == "") exitWith {[]};
+private _tableListPath = format [_tableListFile, _shellType];
+// Table files are large; compile each once and reuse it (the arrays are only read)
+private _tableList = GVAR(tableCache) getOrDefaultCall [_tableListPath, {[] call compile preprocessFile _tableListPath}, true];
 //_tableList = [vehicle player] call itc_land_fcs_fnc_get_vehicle_tables;
 _tableList params ["_charges", "_tables"];
 
@@ -38,7 +42,7 @@ if(isNil{_tables}) exitWith {[]};
 private _solutions = [];
 for "_i" from 0 to (count _charges) - 1 step 1 do {
   private _table = _tables # _i;
-  private _btab = []  call compile preprocessFile _table;
+  private _btab = GVAR(tableCache) getOrDefaultCall [_table, {[] call compile preprocessFile _table}, true];
   private _solution = [_btab, _distance, _elevDiff] call FUNC(calcBtabSolution);
   if(count _solution > 0) then {
     _solutions pushBack ([_charges # _i,_relDirMils,_df] + _solution);

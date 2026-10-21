@@ -11,3 +11,4 @@ PREP(openVehicleTablet);
 PREP(fcimode_onlblselchanged);
 PREP(mlrsfci_onlblselchanged_roundType);
 PREP(mlrsfci_onlblselchanged_fuzemode);
+PREP(compileScript);
