@@ -43,7 +43,7 @@ Loaded only when the other mod is loaded too:
 
 ## Also included
 
-Active Protection System and a smoke dispenser magazine for vehicle mods.
+Active Protection System: intercepts incoming rockets and missiles.
 
 ## Settings
 

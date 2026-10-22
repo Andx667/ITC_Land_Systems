@@ -27,7 +27,6 @@ ITC follows the ACE-style addon layout: the functionality is split across severa
 | `itc_land_vls` | [Vertical launch system](systems/air-defence.md#vertical-launch-system) and its interface |
 | `itc_land_rover` | [ROVER tablet](systems/uavs.md#rover-tablet) |
 | `itc_land_packable` | [Packing and unpacking](systems/uavs.md#packable-equipment) of equipment |
-| `itc_land_smokedispenser` | [Smoke dispenser](systems/equipment.md#smoke-dispenser) magazine |
 
 ## Vehicles
 

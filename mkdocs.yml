@@ -86,7 +86,6 @@ nav:
       - Air & Missile Defence: systems/air-defence.md
       - Active Protection: systems/aps.md
       - UAVs & Recon: systems/uavs.md
-      - Other Equipment: systems/equipment.md
   - Compatibility: compatibility.md
   - Mission Makers & Modders: scripting.md
   - Components: components.md
