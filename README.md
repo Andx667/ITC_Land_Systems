@@ -14,7 +14,7 @@
 
 __Requires__ [CBA_A3](https://github.com/CBATeam/CBA_A3) and [ACE3](https://github.com/acemod/ACE3).
 
-__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based weapon systems: artillery with real fire control, air and missile defence, counter-battery radar, active protection, guided munitions and UAVs.
+__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based artillery: observers and UAVs, fire control, howitzers, rocket and naval artillery, and the counter-artillery systems against incoming fire (counter-battery radar, CIWS, SAM sites). Active protection and the Spike ATGM come along as extras.
 
 The project is entirely __open-source__ and any contributions are welcome.
 
@@ -27,9 +27,18 @@ Discord: <https://discord.gg/ag4v6kxYAa>
 
 ## Features
 
+ITC Land Systems is about the artillery fight: finding targets, putting rounds on them, and detecting and stopping the enemy's incoming fire.
+
+### Observation
+
+- __UAVs__: AR-2i/AR-2e Darter 2 and Tayran 2, MQ-4I Greyhawk and K40i Ababil-3, UCAVi Sentinel 2, and the AL-6 as a carryable UAV bag.
+- __ROVER tablet__ showing the video feed of laser-designating aircraft.
+- __Packable equipment__: pack and unpack UAVs and the Remote GLTD laser designator through ACE interactions.
+
 ### Artillery and fire control
 
 - __Self-propelled guns and rocket artillery__: M4 Sholef 2 and 2S9 Sochor 2 howitzers, Mk45 Hammer 2 naval gun (mod. 0 and mod. 1), M5 Seara 2 MLRS and Zamak MRLi.
+- __Vertical Launch System__ (MN230 cruise missile variant) with a target dialog for ad-hoc and saved targets and a selectable impact angle.
 - __Munitions__ for 152/155 mm, 127 mm naval and 230 mm MLRS: HE, ICM, smoke, illumination, AP/AT mines, laser-guided (LGM) and GPS-guided (PGM) rounds, and the Extra and Falat submunition rounds. Proximity, time and delay fuzes.
 - __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence. The loader status is shared with the whole crew.
 - __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
@@ -38,26 +47,17 @@ Discord: <https://discord.gg/ag4v6kxYAa>
 - __BWMod compatibility__ (loads only with BWMod): ITC versions of the Panzerhaubitze 2000 with ammunition handler and mounted tablet, BCS firing tables for the MRS120 mortar.
 - __CUP compatibility__ (loads only with CUP Units / Vehicles): ITC versions of the D-30 and M119 with ITC sights and firing tables, of the M270 MLRS with ITC rockets, sight and mounted tablet, and of the M1129 Stryker mortar carrier with proper 120 mm rounds.
 
-### Air and missile defence
-
-- __CIWS__ (Mk49 Spartan 2, Praetorian 2) that track and shoot down incoming artillery, mortar and rocket rounds.
-- __SAM sites__: MIM-145 Defender 2 and S750 Rhea 2 with proximity-fuzed missiles.
-- __Vertical Launch System__ (MN230, air defence and cruise missile variants) with a target dialog for ad-hoc and saved targets and a selectable impact angle.
-
-### Counter-battery
+### Counter-artillery
 
 - __COBRA counter-battery radar__ (AN/TPQ-105, R-750): detects incoming shells, predicts their impact point and back-traces the firing position. Results show on a tablet map and data page, and alarm sirens sound near predicted impacts.
+- __CIWS__ (Mk49 Spartan 2, Praetorian 2) that track and shoot down incoming artillery, mortar and rocket rounds.
+- __SAM sites__: MIM-145 Defender 2 and S750 Rhea 2 with proximity-fuzed missiles.
+- __Vertical Launch System__ air defence variant (MN230).
 
-### Vehicle protection and anti-tank
+### Also included
 
 - __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
 - __Spike LR__ man-portable ATGM with a camera seeker you steer and lock in flight.
-
-### UAVs, recon and support
-
-- __UAVs__: AR-2i/AR-2e Darter 2 and Tayran 2, MQ-4I Greyhawk and K40i Ababil-3, UCAVi Sentinel 2, and the AL-6 as a carryable UAV bag.
-- __Packable equipment__: pack and unpack UAVs and the Remote GLTD laser designator through ACE interactions.
-- __ROVER tablet__ showing the video feed of laser-designating aircraft.
 - __Strider RV__ variants (unarmed, HMG, GMG).
 - __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
 
