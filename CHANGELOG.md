@@ -17,6 +17,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 - GTK Boxer compatibility (`compat_gtk_boxer`), loaded only with the GTK Boxer: ITC versions of the Boxer RCH 155 (`itc_land_gtk_boxer_rch155`, `_sand`) with the Sholef 2's 155 mm L/52 gun and rounds, automatic loader, ammunition handler and mounted tablet for the commander (the RCH 155's gun seat), and the ITC sight readouts over the Boxer's optics. `.hemtt/launch.toml` has a `gtk` profile.
 
+### Changed
+
+- Panzerhaubitze 2000: the ammunition handler moved from the gunner to the loader (BWMod's gunner 2 seat). While the loader seat is empty, the gunner still opens it.
+
 ### Fixed
 
 - CUP compatibility: the M1129 config gave `Wheeled_APC_F`'s turrets a parent class they don't have, which re-parented the turrets of every wheeled APC as soon as CUP was loaded (RPT `Updating base class`).

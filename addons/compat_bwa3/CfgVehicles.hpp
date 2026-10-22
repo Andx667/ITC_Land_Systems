@@ -11,13 +11,15 @@
         class MainTurret: MainTurret {}; \
     }
 
-// BWMod ties the gun's reload and muzzle flash animations to its own weapon: repointed below
+// BWMod ties the gun's reload and muzzle flash animations to its own weapon: repointed below.
+// The ammunition handler belongs to the loader (BWMod's "gunner 2", turret [0,1]); while that seat is
+// empty the gunner runs it, so a smaller crew can still load.
 #define ITC_PZH2000 \
     scopeCurator = 2; \
     class ACE_SelfActions: ACE_SelfActions { \
         class ITC_Land_SPHammohandler { \
             displayName = CSTRING(SPHammohandler_DisplayName); \
-            condition = "( gunner _target ) == ACE_Player"; \
+            condition = "(_target turretUnit [0,1]) == ACE_Player || {isNull (_target turretUnit [0,1]) && {(gunner _target) == ACE_Player}}"; \
             statement = "createDialog 'ITC_Land_SPHammohandler'"; \
         }; \
         class ITC_Land_CommanderTablet { \
