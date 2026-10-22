@@ -14,7 +14,7 @@
 
 __Requires__ [CBA_A3](https://github.com/CBATeam/CBA_A3) and [ACE3](https://github.com/acemod/ACE3).
 
-__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based artillery: observers and UAVs, fire control, howitzers, rocket and naval artillery, and the counter-artillery systems against incoming fire (counter-battery radar, CIWS, SAM sites). Active protection and the Spike ATGM come along as extras.
+__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based artillery: observers and UAVs, fire control, howitzers, rocket and naval artillery, and the counter-artillery systems against incoming fire (counter-battery radar, CIWS, SAM sites). Active protection comes along as an extra.
 
 The project is entirely __open-source__ and any contributions are welcome.
 
@@ -59,7 +59,6 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 ### Also included
 
 - __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
-- __Spike LR__ man-portable ATGM with a camera seeker you steer and lock in flight.
 - __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
 
 ## Documentation
@@ -80,7 +79,6 @@ Under __Addon Options → ITC Land Systems__ (CBA settings, can be forced by the
 | CIWS | Enable CIWS |
 | Active Protection System | Enable APS |
 | COBRA | Detection range, engagement window |
-| Spike | Camera sensitivity (per player) |
 
 ## Languages
 

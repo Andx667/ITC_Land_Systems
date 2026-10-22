@@ -25,7 +25,6 @@ ITC follows the ACE-style addon layout: the functionality is split across severa
 | `itc_land_ciws` | [CIWS](systems/air-defence.md#ciws) and the shell decoys they track |
 | `itc_land_cobra` | [Counter-battery radar](systems/cobra.md) and sirens |
 | `itc_land_vls` | [Vertical launch system](systems/air-defence.md#vertical-launch-system) and its interface |
-| `itc_land_spike` | [Spike LR](systems/spike.md) |
 | `itc_land_rover` | [ROVER tablet](systems/uavs.md#rover-tablet) |
 | `itc_land_packable` | [Packing and unpacking](systems/uavs.md#packable-equipment) of equipment |
 | `itc_land_remotefrag` | [Remote frag grenade](systems/equipment.md#remote-frag-grenade) |

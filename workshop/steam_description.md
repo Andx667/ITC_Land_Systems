@@ -43,11 +43,11 @@ Loaded only when the other mod is loaded too:
 
 ## Also included
 
-Active Protection System, Spike LR with a steerable camera seeker, remote frag grenade and smoke dispenser.
+Active Protection System, remote frag grenade and smoke dispenser.
 
 ## Settings
 
-CBA settings to toggle CIWS and APS, tune the COBRA detection range and engagement window, and set the Spike camera sensitivity.
+CBA settings to toggle CIWS and APS, and tune the COBRA detection range and engagement window.
 
 # Documentation
 

@@ -29,7 +29,6 @@ Numbers are the sections of the checklist in GitHub issue #3. Use the control bo
 <marker name='itc_test_ciws'>CIWS</marker>: Praetorian 2 and Centurion 2 (10). Use 'Barrage near CIWS', then 'Show AI units and groups'. Zeus: take the mission-start Zeus or create a new one mid-mission, place a radar vehicle.<br/>
 <marker name='itc_test_sam'>SAM-35</marker>: two Defender 2, crewed by UAV AI: one engages on its own, take the other with the UAV terminal for the player shot (11). Use 'Air target'.<br/>
 <marker name='itc_test_aps'>APS</marker>: crewed tank without ammo. Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines (12).<br/>
-<marker name='itc_test_spike'>Spike</marker>: player Spike from the arsenal or 'AI Spike shot' against the target APC (13).<br/>
 <marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (14, 16).<br/>
 Tablets (FDC, ROVER) and a UAV terminal are in your inventory; the SPG tablet is mounted in the guns (4, 15, 16).<br/><br/>
 Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems (1).
@@ -64,7 +63,6 @@ Diagnostics: 'Show per-frame handler count' should not keep growing after enteri
         ["CIWS", [6620, 7188, 0]],
         ["SAM-35", [6620, 6888, 0]],
         ["APS tank", [6400, 6720, 0]],
-        ["Spike post", [6200, 6712, 0]],
         ["UAV apron", [6260, 7165, 0]]
     ];
 
@@ -79,7 +77,6 @@ Diagnostics: 'Show per-frame handler count' should not keep growing after enteri
         ["CIWS radar: forced on (mod default)", "itc_test_ciwsRadar", [1]],
         ["CIWS: show sensor targets and decoys (run during a barrage)", "itc_test_ciwsDebug", []],
         ["APS attack (2 AI AT soldiers)", "itc_test_apsAttack", []],
-        ["AI Spike shot", "itc_test_aiSpike", []],
         ["Air target for the SAM-35", "itc_test_airTarget", []],
         ["AI VLS shot without target", "itc_test_aiVls", []],
         ["Take mission-start Zeus", "itc_test_zeus", [false]],

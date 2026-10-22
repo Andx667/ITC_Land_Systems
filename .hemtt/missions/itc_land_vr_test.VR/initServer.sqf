@@ -189,13 +189,6 @@ itc_test_apsTank = ["B_MBT_01_cannon_F", [6400, 6700, 0], 180, true] call itc_te
 ["itc_test_aps", [6400, 6700, 0], "APS tank (12)"] call itc_test_fnc_marker;
 ["itc_test_apsShooters", [6400, 6400, 0], "APS shooters", "o_inf"] call itc_test_fnc_marker;
 
-// --- station: Spike (AI shooter post and a target APC) -------------------------------------
-
-itc_test_spikeTarget = ["O_APC_Tracked_02_cannon_F", [6200, 6100, 0], 0, true] call itc_test_fnc_spawn;
-[itc_test_spikeTarget] call itc_test_fnc_pacify;
-["itc_test_spike", [6200, 6700, 0], "Spike post (13)"] call itc_test_fnc_marker;
-["itc_test_spikeTarget", [6200, 6100, 0], "Spike target", "o_mech_inf"] call itc_test_fnc_marker;
-
 // --- UAV apron: the bigger UAVs parked facing north, flown with the UAV terminal ----------
 // (the MQ-4I is the laser-capable one for ROVER; nothing is in the take-off path)
 
@@ -260,24 +253,6 @@ itc_test_startCurator = call itc_test_fnc_createCurator;
     } forEach [[6380, 6400, 0], [6420, 6400, 0]];
     [{{deleteVehicle _x} forEach units _this; deleteGroup _this}, _group, 90] call CBA_fnc_waitAndExecute;
     ["itc_test_notify", ["APS attack: 2 AT soldiers for 90 s"], _caller] call CBA_fnc_targetEvent;
-}] call CBA_fnc_addEventHandler;
-
-["itc_test_aiSpike", {
-    params ["_caller"];
-    private _unit = (createGroup west) createUnit ["B_Soldier_F", [6200, 6700, 0], [], 0, "NONE"];
-    _unit addBackpack "B_Carryall_mcamo";
-    _unit addMagazines ["itc_land_spikeLR_1rnd", 2];
-    _unit addWeapon "itc_land_spikeLR";
-    _unit selectWeapon "itc_land_spikeLR";
-    _unit disableAI "PATH";
-    _unit setDir 180;
-    _unit reveal [itc_test_spikeTarget, 4];
-    [{
-        _this doTarget itc_test_spikeTarget;
-        _this doFire itc_test_spikeTarget;
-    }, _unit, 3] call CBA_fnc_waitAndExecute;
-    [{deleteVehicle _this}, _unit, 90] call CBA_fnc_waitAndExecute;
-    ["itc_test_notify", ["AI Spike gunner spawned, fires in a few seconds"], _caller] call CBA_fnc_targetEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["itc_test_airTarget", {

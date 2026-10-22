@@ -12,7 +12,8 @@ Primary, in this order of the fight:
   gun and the VLS.
 - **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
 
-Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
+Secondary, maintenance only: APS, remote frag grenade, smoke dispenser. The Spike LR was removed
+(2026-10-22): ACE ships its own.
 
 ## Next up
 
@@ -76,9 +77,8 @@ Secondary systems:
 - [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
       The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
       check that top-attack coverage is still acceptable.
-- [ ] Optional (AI crews are nice to have, the mod targets player crews): Spike fired by
-      an AI unit (no camera on the AI's machine); SPH loader with an AI driver or an AI
-      gunner on the server.
+- [ ] Optional (AI crews are nice to have, the mod targets player crews): SPH loader with an
+      AI driver or an AI gunner on the server.
 
 User-flow fixes from the code review:
 
@@ -132,7 +132,6 @@ validation errors (never shown to players) stay English. Acronyms and product na
     which only COBRA uses). Off: plain radar vehicles, CBR app hidden.
   - SAM-35 proximity fuze (`veh_weapons` / `veh_rhea` fired): vanilla hit-to-kill missiles.
   - VLS: target dialog, ad-hoc/saved targets, guidance. Off: vanilla VLS behaviour.
-  - Spike LR camera seeker (`fired`, `selectSpike`): missile flies as configured.
   - SPH ammo handler (dialog, ACE action, fired reload cycle): guns fire their charge
     magazines directly, like vanilla.
   - ROVER tablet: action hidden, no video feed.
@@ -187,7 +186,6 @@ Dormant on purpose (decided 2026-10-22; the dead leftovers were deleted): conten
 exists but cannot be reached in game, kept to be finished later.
 
   - 105 mm and 122 mm howitzers: framework only (see below)
-  - static Spike LR (`spike/CfgVehicles.hpp` include commented out)
   - tablet: SADL app, handheld MLRS tablet (no action)
   - `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered)
   - the datalink system (see 3)
@@ -236,7 +234,7 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 - [x] Test range mission (`.hemtt/missions/itc_land_vr_test.VR`, started by `hemtt launch`):
       stations for every issue #3 section, a control board with teleports, scenarios
-      (enemy barrage, APS attack, AI Spike/VLS shots, air target, Zeus) and diagnostics.
+      (enemy barrage, APS attack, AI VLS shot, air target, Zeus) and diagnostics.
 - [ ] Automate parts of it (scripted pass/fail checks) once the manual run is done.
 
 ## 8. Compatibility and polish

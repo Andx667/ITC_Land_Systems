@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Removed
+
+- The Spike LR (`itc_land_spike`: the `itc_land_spikeLR` launcher and its missile, the missile camera and its CBA setting). ACE ships its own Spike LR (`ace_spike`), and the BWMod MELLS is based on the ITC one. Missions that use the ITC launcher no longer find it.
+
 ### Added
 
 - GTK Boxer compatibility (`compat_gtk_boxer`), loaded only with the GTK Boxer: ITC versions of the Boxer RCH 155 (`itc_land_gtk_boxer_rch155`, `_sand`) with the Sholef 2's 155 mm L/52 gun and rounds, automatic loader, ammunition handler and mounted tablet for the commander (the RCH 155's gun seat), and the ITC sight readouts over the Boxer's optics. `.hemtt/launch.toml` has a `gtk` profile.

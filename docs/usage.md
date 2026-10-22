@@ -44,7 +44,6 @@ Under **Addon Options → ITC Land Systems** (CBA settings):
 | CIWS | **Enable CIWS** — [CIWS](systems/air-defence.md#ciws) turrets track and shoot down incoming artillery, mortar and rocket rounds | On | Server-wide |
 | COBRA Counter-Battery Radar | **Detection range** — maximum distance at which a [COBRA](systems/cobra.md) detects incoming rounds | 10 000 m (1 000–20 000) | Server-wide |
 | COBRA Counter-Battery Radar | **Engagement window** — seconds after the last detected shot during which new shots from within 300 m are added to the same engagement | 30 s (5–300) | Server-wide |
-| Spike | **Camera sensitivity** — how fast the [Spike](systems/spike.md) missile camera turns with the aim keys | 0.02 (0.005–0.2) | Per player |
 
 Server-wide settings can be forced by the server or the mission.
 

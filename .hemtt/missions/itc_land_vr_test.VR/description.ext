@@ -8,7 +8,7 @@ class Header {
     maxPlayers = 4;
 };
 
-// Several checks need dying (Spike camera, tablet) and two players on different machines
+// Several checks need dying (tablet) and two players on different machines
 respawn = "BASE";
 respawnDelay = 5;
 respawnOnStart = -1;

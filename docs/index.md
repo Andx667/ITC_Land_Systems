@@ -20,7 +20,6 @@ The project is entirely open-source and any contributions are welcome — see [C
 - **[Counter-battery radar](systems/cobra.md)** — COBRA radars detect incoming shells, predict their impact and back-trace the firing position. Sirens sound near predicted impacts.
 - **[Air & missile defence](systems/air-defence.md)** — CIWS that shoot down incoming shells, rockets and missiles, SAM sites with proximity-fuzed missiles, and a vertical launch system with a target dialog.
 - **[Active protection](systems/aps.md)** — Trophy, Drozd and Afghanit systems on the vanilla main battle tanks intercept incoming rockets and missiles.
-- **[Spike LR](systems/spike.md)** — a man-portable anti-tank missile with a camera seeker you steer and lock in flight.
 - **[UAVs & recon](systems/uavs.md)** — new UAVs, packable UAVs and laser designators, the ROVER tablet with the video feed of laser-designating aircraft, and the Strider RV.
 - Every system that can be switched off has a [CBA setting](usage.md#settings).
 
