@@ -47,3 +47,11 @@ workshop = [
 workshop = [
     "843577117", # RHSUSAF
 ]
+
+# CUP compatibility (addons/compat_cup_*), chained the same way: hemtt launch default cup
+[cup]
+workshop = [
+    "497660133", # CUP Weapons
+    "497661914", # CUP Units
+    "541888371", # CUP Vehicles
+]

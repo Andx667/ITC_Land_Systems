@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="compat_cup_units">
+        <Key ID="STR_itc_land_compat_cup_units_Battery_D30_DisplayName">
+            <English>D-30 - 122mm Howitzer (CUP)</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_units_Battery_M119_DisplayName">
+            <English>M119 - 105mm Howitzer (CUP)</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_units_d30_DisplayName">
+            <English>D-30 mod. 0</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_units_m119_DisplayName">
+            <English>M119 mod. 0</English>
+        </Key>
+    </Package>
+</Project>

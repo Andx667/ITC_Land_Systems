@@ -42,6 +42,9 @@ Locality fixes:
       flash; D-30, M119, 2B14 and M252 solutions from the BCS hit for every charge; the 2B14
       and M252 bags assemble the ITC version. RPT has no `Updating base class` lines for RHS
       classes. `hemtt launch default rhs_usaf`: no errors from the skipped AFRF compat.
+- [ ] CUP compat (`hemtt launch default cup`): BCS solutions for the ITC D-30 and M119 hit for
+      every charge (the D-30 AT round gets none); the ITC M270 fires the ITC rockets from the right
+      launch points, its tablet and MLRS sight work; a CUP 2B14/M252 gets Mk6 solutions that hit.
 - [ ] BCS Mk6 battery with the vanilla `8Rnd_82mm_*` rounds (ACE mortar ammunition handling off):
       solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the

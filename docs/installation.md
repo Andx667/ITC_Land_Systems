@@ -9,7 +9,7 @@ ITC depends on:
 
 Both must be loaded **before** ITC.
 
-The RHS compatibility (ITC versions of RHS artillery) is part of the mod and switches itself on when RHS: AFRF or RHS: USAF is loaded. The old standalone "ITC Land Systems - RHS AFRF/USAF Compatibility" mods are replaced by it: unload them. Missions made with them keep working, the class names are unchanged.
+The RHS and CUP compatibility (ITC versions of their artillery) is part of the mod and switches itself on when RHS: AFRF, RHS: USAF, CUP Units or CUP Vehicles is loaded. The old standalone "ITC Land Systems - RHS AFRF/USAF Compatibility" mods are replaced by it: unload them. Missions made with them keep working, the class names are unchanged.
 
 ## Players
 
@@ -39,4 +39,4 @@ hemtt build
 
 Run `hemtt check` to validate configs, scripts and stringtables without producing a build.
 
-`hemtt launch` starts Arma with the mod; `hemtt launch default rhs` adds RHS: AFRF and USAF (`rhs_afrf` / `rhs_usaf` for one of them, see `.hemtt/launch.toml`). The test range mission `.hemtt/missions/itc_land_vr_test.VR` has a station for every system and a control board for teleports, scenarios (enemy barrages, AT attacks, air targets) and diagnostics.
+`hemtt launch` starts Arma with the mod; `hemtt launch default rhs` adds RHS: AFRF and USAF (`rhs_afrf` / `rhs_usaf` for one of them), `hemtt launch default cup` the CUP mods (see `.hemtt/launch.toml`). The test range mission `.hemtt/missions/itc_land_vr_test.VR` has a station for every system and a control board for teleports, scenarios (enemy barrages, AT attacks, air targets) and diagnostics.

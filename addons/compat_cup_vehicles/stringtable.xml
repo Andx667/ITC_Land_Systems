@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="compat_cup_vehicles">
+        <Key ID="STR_itc_land_compat_cup_vehicles_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m270_DisplayName">
+            <English>M270 MLRS mod. 0</English>
+        </Key>
+    </Package>
+</Project>
