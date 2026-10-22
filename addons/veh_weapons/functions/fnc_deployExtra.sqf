@@ -12,8 +12,9 @@
  * 0: Index of the submunition being deployed, used to offset its spawn position <NUMBER>
  * 1: World position to spawn the submunition at <ARRAY>
  * 2: Velocity vector of the parent projectile at deployment <ARRAY>
- * 3: Pitch of the parent projectile at deployment <NUMBER>
- * 4: Bank of the parent projectile at deployment <NUMBER>
+ * 3: Pitch of the parent projectile at deployment <NUMBER> (unused)
+ * 4: Bank of the parent projectile at deployment <NUMBER> (unused)
+ * 5: Guidance info of the parent projectile <ARRAY> (unused)
  *
  * Return Value:
  * None

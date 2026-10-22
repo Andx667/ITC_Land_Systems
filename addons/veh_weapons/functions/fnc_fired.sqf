@@ -9,10 +9,13 @@
  *
  * Arguments:
  * 0: Unit/vehicle that fired the weapon <OBJECT>
- * 1: Ammo/simulation class of the fired round <STRING>
- * 2: Magazine class fired <STRING>
- * 3: Fired projectile <OBJECT>
- * 4: Gunner occupying the firing turret; function exits if not local <OBJECT>
+ * 1: Weapon <STRING> (unused)
+ * 2: Muzzle <STRING> (unused)
+ * 3: Fire mode <STRING> (unused)
+ * 4: Ammo class of the fired round <STRING>
+ * 5: Magazine class fired <STRING>
+ * 6: Fired projectile <OBJECT>
+ * 7: Gunner occupying the firing turret; function exits if not local <OBJECT>
  *
  * Return Value:
  * None
