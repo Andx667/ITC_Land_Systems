@@ -187,8 +187,7 @@ tracker, which has to follow its shell every frame.
 - [ ] Decide per item: finish, keep dormant, or delete. Inventory of content that
       exists but cannot be reached in game (from 2026-09-29, re-verify before deleting):
   - 105 mm and 122 mm howitzers: decided, framework only (see below)
-  - static Spike LR (`spike/CfgVehicles.hpp` include commented out), `spike/fnc_reloaded`
-    (no-op, registered but never called)
+  - static Spike LR (`spike/CfgVehicles.hpp` include commented out)
   - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
     never included)
   - remote-frag detonator item (CfgWeapons commented out)
@@ -198,8 +197,6 @@ tracker, which has to follow its shell every frame.
   - UAV02/UAV05 custom UI (includes of missing files)
   - `veh_uav01/fnc_drawCompass.sqf` (3D compass ticks via `drawIcon3D`): never registered,
     its only caller (`itc_land_veh_darter_fnc_drawCompass` in `rover/fnc_ui_draw`) is commented out
-  - registered but never called: `ballistics/fnc_getVehicleShellType` (reads
-    `fcs >> tableList`, which nothing else uses), `rover/fnc_ui_curPlane`
   - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
     `vls` getGuidanceOptions (never registered)
   - the datalink system (see 3)

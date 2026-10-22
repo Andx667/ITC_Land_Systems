@@ -98,9 +98,6 @@ class itc_land {
     tabletInterfaces[] = {"spg"};
     mountedTablet = "itc_land_tablet_spg";   // or "itc_land_tablet_mlrs"
     loaderType = 1;                          // ammunition handler: 0 manual, 1 semi-automatic, 2 automatic
-    class fcs {
-        tableList = "g_152";                 // ballistic table set of the weapon
-    };
 };
 ```
 

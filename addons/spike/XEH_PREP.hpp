@@ -11,5 +11,4 @@ PREP(intersectAtPolar);
 PREP(startCamera);
 PREP(guidance);
 PREP(handleCameraAiming);
-PREP(reloaded);
 PREP(stopCamera);

@@ -44,9 +44,6 @@ class CfgVehicles {
         class itc_land {
             tabletInterfaces[] = {"spg"};
             mountedTablet = "itc_land_tablet_mlrs";
-            class fcs {
-                tableList = "b_230";
-            };
         };
         class Turrets : Turrets {
             class MainTurret : MainTurret {
