@@ -32,23 +32,27 @@ parameters = [
 #   hemtt launch default rhs_usaf     USAF only: the AFRF compat must be skipped without errors
 #   hemtt launch server rhs / player rhs
 [rhs]
+extends = "default"
 workshop = [
     "843425103", # RHSAFRF
     "843577117", # RHSUSAF
 ]
 
 [rhs_afrf]
+extends = "default"
 workshop = [
     "843425103", # RHSAFRF
 ]
 
 [rhs_usaf]
+extends = "default"
 workshop = [
     "843577117", # RHSUSAF
 ]
 
 # CUP compatibility (addons/compat_cup_*), chained the same way: hemtt launch default cup
 [cup]
+extends = "default"
 workshop = [
     "497660133", # CUP Weapons
     "497661914", # CUP Units
@@ -57,12 +61,14 @@ workshop = [
 
 # BWMod compatibility (addons/compat_bwa3): hemtt launch default bwa3
 [bwa3]
+extends = "default"
 workshop = [
     "1200127537", # BWMod
 ]
 
 # GTK Boxer compatibility (addons/compat_gtk_boxer): hemtt launch default gtk
 [gtk]
+extends = "default"
 workshop = [
     "3780478952", # GTK Boxer
 ]
