@@ -323,8 +323,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 10. Known bugs
 
-- [ ] Artillery tablet status page: some glass hitpoints still show the raw class name because
-      ACE Repair has no `STR_ACE_Repair_<hitpoint>` string for them; add own strings or a mapping.
 - [ ] Firing solutions use the gun's `getPosASL` as the muzzle height (a few metres low);
       use the muzzle position instead (`calcShellTypeSolutions` callers: SPG/MLRS apps, BCS).
 

@@ -24,17 +24,22 @@ private _allDamage = getAllHitPointsDamage _vehicle;
 _allDamage params ["_hitPoints", "_selections", "_status"];
 
 private _resString = "";
+// ACE Repair names hitpoints like its repair menu: the closest localized part name (HitGlass3 -> "Glass"),
+// numbered when a part repeats ("Glass 2"); the track array carries that count from one hitpoint to the next
+private _hitPointTrack = [[], [], []];
 
 for "_i" from 0 to (count _status - 1) step 1 do {
     private _col = "acff99";
     private _stat = LLSTRING(Artillery_StatusOk);
     if (_status select _i > 0) then {_col = "ff7f00"; _stat = LLSTRING(Artillery_StatusDamaged);};
     if (_status select _i > 0.5) then {_col = "ff0000"; _stat = LLSTRING(Artillery_StatusFailed);};
-    // ACE Repair ships a localized name for the common hitpoint classes (HitEngine -> "Engine")
     private _hitPoint = _hitPoints select _i;
-    private _key = "STR_ACE_Repair_" + _hitPoint;
     private _label = [_selections select _i, _hitPoint] select (_hitPoint != "");
-    if (isLocalized _key) then {_label = localize _key};
+    if (_hitPoint != "" && {!isNil "ace_repair_fnc_getHitPointString"}) then {
+        ([_hitPoint, "%1", _label, _hitPointTrack] call ace_repair_fnc_getHitPointString) params ["_text", "_track"];
+        _label = _text;
+        _hitPointTrack = _track;
+    };
     _resString = _resString + format["<t align='left' color='#%1'>%2    %3</t>",_col,_label, _stat] + "<br/>";
 };
 
