@@ -10,4 +10,4 @@ Every system of ITC with its vehicles and items. Classnames are given for missio
 | [Air & Missile Defence](air-defence.md) | `itc_land_ciws`, `itc_land_veh_defender`, `itc_land_veh_rhea`, `itc_land_vls` | CIWS, SAM sites, vertical launch system |
 | [Active Protection](aps.md) | `itc_land_aps` | Trophy, Drozd and Afghanit on the vanilla main battle tanks |
 | [UAVs & Recon](uavs.md) | `itc_land_veh_uav01`, `itc_land_veh_uav02`, `itc_land_veh_uav05`, `itc_land_veh_uav06`, `itc_land_packable`, `itc_land_veh_gltd`, `itc_land_rover`, `itc_land_veh_strider` | UAVs, packable equipment, remote laser designator, ROVER tablet, Strider RV |
-| [Other Equipment](equipment.md) | `itc_land_remotefrag`, `itc_land_smokedispenser` | Remote frag grenade, smoke dispenser |
+| [Other Equipment](equipment.md) | `itc_land_smokedispenser` | Smoke dispenser |

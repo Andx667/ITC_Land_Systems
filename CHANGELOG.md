@@ -15,6 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Removed
 
+- The remote frag grenade (`itc_land_remotefrag`, `ITC_Land_remoteFrag_mag`): a hand grenade placed and set off like an ACE explosive. Outside the mod's artillery scope; ACE has its own placeable charges. Missions that use it no longer find it.
 - The Spike LR (`itc_land_spike`: the `itc_land_spikeLR` launcher and its missile, the missile camera and its CBA setting). ACE ships its own Spike LR (`ace_spike`), and the BWMod MELLS is based on the ITC one. Missions that use the ITC launcher no longer find it.
 
 ### Added

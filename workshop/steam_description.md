@@ -43,7 +43,7 @@ Loaded only when the other mod is loaded too:
 
 ## Also included
 
-Active Protection System, remote frag grenade and smoke dispenser.
+Active Protection System and a smoke dispenser magazine for vehicle mods.
 
 ## Settings
 

@@ -59,7 +59,7 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 ### Also included
 
 - __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
-- __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
+- Countermeasure __smoke dispenser__ magazine for vehicle mods.
 
 ## Documentation
 

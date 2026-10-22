@@ -12,8 +12,8 @@ Primary, in this order of the fight:
   gun and the VLS.
 - **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
 
-Secondary, maintenance only: APS, remote frag grenade, smoke dispenser. The Spike LR was removed
-(2026-10-22): ACE ships its own.
+Secondary, maintenance only: APS, smoke dispenser. Removed on 2026-10-22: the Spike LR (ACE ships
+its own) and the remote frag grenade (ACE has placeable charges).
 
 ## Next up
 
@@ -145,7 +145,7 @@ validation errors (never shown to players) stay English. Acronyms and product na
   - Special munitions (fuzes, ICM, mines, smoke, illumination, Extra/Falat): inert shells
     plus a scripted effect, off turns them into duds.
   - Packable equipment: off makes packed items in loadouts useless.
-- No switch possible: vehicles/UAVs, Strider, remote frag, smoke dispenser, Mk6 ammo are
+- No switch possible: vehicles/UAVs, Strider, smoke dispenser, Mk6 ammo are
   config only (would need separate optional PBOs); `main`, `common`, `ballistics` and
   `datalink` follow their users.
 - Rollout: macro + helper in `main`/`common`, then one commit per clean switch; test-range
