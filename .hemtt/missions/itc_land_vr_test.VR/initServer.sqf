@@ -18,7 +18,8 @@ itc_test_fnc_spawn = {
     private _vehicle = createVehicle [_class, _pos, [], 0, _special];
     _vehicle setDir _dir;
     if (_special != "FLY") then {_vehicle setPosATL _pos};
-    if (_crewed) then {createVehicleCrew _vehicle};
+    // UAV-type vehicles (VLS, Hammer 2, Defender 2) only work with their UAV AI inside, players connect with a UAV terminal
+    if (_crewed || {getNumber (configOf _vehicle >> "isUav") == 1}) then {createVehicleCrew _vehicle};
     _vehicle
 };
 
@@ -64,26 +65,26 @@ publicVariable "itc_test_board";
     ["itc_land_b_mlrs_seara2", 6220],
     ["itc_land_i_mlrs_zamak", 6260]
 ];
-["itc_test_artillery", [6160, 7040, 0], "Artillery park (5, 11, 12, 15)"] call itc_test_fnc_marker;
+["itc_test_artillery", [6160, 7040, 0], "Artillery park (3, 4, 5, 15)"] call itc_test_fnc_marker;
 
 // --- station: packing (packed UAVs are in the player loadout; empty Strider for the commander optic) ---
 
 ["itc_land_I_StriderRV", [6176, 7124, 0], 0] call itc_test_fnc_spawn;
-["itc_test_packing", [6173, 7113, 0], "Packing (10), empty Strider"] call itc_test_fnc_marker;
+["itc_test_packing", [6173, 7113, 0], "Packing (8), empty Strider"] call itc_test_fnc_marker;
 
-// --- station: VLS ------------------------------------------------------------------------
+// --- station: VLS (all UAV-crewed; the right one is the AI-shot launcher) ------------------------------------------------------------------------
 
 ["itc_land_b_vls2", [6060, 6960, 0], 270] call itc_test_fnc_spawn;
 ["itc_land_b_vls2_slam", [6100, 6960, 0], 270] call itc_test_fnc_spawn;
 itc_test_vlsAi = ["itc_land_b_vls2_slam", [6140, 6960, 0], 270, true] call itc_test_fnc_spawn;
-["itc_test_vls", [6100, 6960, 0], "VLS (9); right launcher has an AI gunner"] call itc_test_fnc_marker;
+["itc_test_vls", [6100, 6960, 0], "VLS (6); UAV terminal, right one for the AI shot"] call itc_test_fnc_marker;
 
 // --- station: COBRA (two radars facing the enemy battery, siren near the impact area) ---
 
 ["itc_land_COBRA01", [6080, 7400, 0], 270, true] call itc_test_fnc_spawn;
 ["itc_land_COBRA01", [6120, 7400, 0], 270, true] call itc_test_fnc_spawn;
 ["ITC_Land_Loudspeakers", [5600, 7650, 0], 0] call itc_test_fnc_spawn;
-["itc_test_cobra", [6100, 7400, 0], "COBRA x2 (3)"] call itc_test_fnc_marker;
+["itc_test_cobra", [6100, 7400, 0], "COBRA x2 (9)"] call itc_test_fnc_marker;
 ["itc_test_cobraImpact", [5600, 7700, 0], "COBRA barrage impact + siren", "mil_destroy"] call itc_test_fnc_marker;
 
 // --- station: CIWS -------------------------------------------------------------------------
@@ -157,7 +158,7 @@ itc_test_fnc_trackRound = {
         _unit setVariable ["itc_test_lastShot", time];
     }];
 } forEach itc_test_ciwsUnits;
-["itc_test_ciws", [6620, 7200, 0], "CIWS (8)"] call itc_test_fnc_marker;
+["itc_test_ciws", [6620, 7200, 0], "CIWS (10)"] call itc_test_fnc_marker;
 ["itc_test_ciwsImpact", [6620, 7400, 0], "CIWS barrage impact", "mil_destroy"] call itc_test_fnc_marker;
 
 // --- enemy battery (fires the barrages for COBRA and CIWS) ---------------------------------
@@ -170,11 +171,13 @@ itc_test_battery = [];
 } forEach [[2400, 7400, 0], [2400, 7460, 0]];
 ["itc_test_battery", [2400, 7430, 0], "Enemy battery", "o_art"] call itc_test_fnc_marker;
 
-// --- station: SAM (one AI-crewed Defender, one empty for a player) -------------------------
+// --- station: SAM (two UAV-crewed Defenders: one fires on its own, one a player controls via UAV terminal) -------------------------
 
 ["itc_land_b_defender2", [6600, 6900, 0], 90, true] call itc_test_fnc_spawn;
-["itc_land_b_defender2", [6640, 6900, 0], 90] call itc_test_fnc_spawn;
-["itc_test_sam", [6620, 6900, 0], "SAM-35 (7); left AI, right empty"] call itc_test_fnc_marker;
+private _playerSam = ["itc_land_b_defender2", [6640, 6900, 0], 90] call itc_test_fnc_spawn;
+// holds fire so the player shot is the player's, not the UAV AI's
+(group effectiveCommander _playerSam) setCombatMode "BLUE";
+["itc_test_sam", [6620, 6900, 0], "SAM-35 (11); UAV terminal"] call itc_test_fnc_marker;
 
 // --- station: APS (crewed tank without ammo, shooters spawn on demand) ---------------------
 
@@ -183,14 +186,14 @@ missionNamespace setVariable ["itc_land_aps_debug", true, true];
 
 itc_test_apsTank = ["B_MBT_01_cannon_F", [6400, 6700, 0], 180, true] call itc_test_fnc_spawn;
 [itc_test_apsTank] call itc_test_fnc_pacify;
-["itc_test_aps", [6400, 6700, 0], "APS tank (4)"] call itc_test_fnc_marker;
+["itc_test_aps", [6400, 6700, 0], "APS tank (12)"] call itc_test_fnc_marker;
 ["itc_test_apsShooters", [6400, 6400, 0], "APS shooters", "o_inf"] call itc_test_fnc_marker;
 
 // --- station: Spike (AI shooter post and a target APC) -------------------------------------
 
 itc_test_spikeTarget = ["O_APC_Tracked_02_cannon_F", [6200, 6100, 0], 0, true] call itc_test_fnc_spawn;
 [itc_test_spikeTarget] call itc_test_fnc_pacify;
-["itc_test_spike", [6200, 6700, 0], "Spike post (6)"] call itc_test_fnc_marker;
+["itc_test_spike", [6200, 6700, 0], "Spike post (13)"] call itc_test_fnc_marker;
 ["itc_test_spikeTarget", [6200, 6100, 0], "Spike target", "o_mech_inf"] call itc_test_fnc_marker;
 
 // --- UAV apron: the bigger UAVs parked facing north, flown with the UAV terminal ----------

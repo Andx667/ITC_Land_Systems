@@ -22,16 +22,16 @@ _player addEventHandler ["Respawn", {call itc_test_fnc_loadout}];
 
 player createDiaryRecord ["Diary", ["Test stations", "
 Numbers are the sections of the checklist in GitHub issue #3. Use the control board next to the arsenal for teleports, scenarios and diagnostics.<br/><br/>
-<marker name='itc_test_artillery'>Artillery park</marker>: Sholef 2, Sochor 2, Hammer 2 (mod 0/1), Seara 2, Zamak MRLi. SPH loader (5, 15), gunner sights (15), mounted tablets (11), Falat (12). Two players: one gunner, one driver/commander.<br/>
-<marker name='itc_test_packing'>Packing</marker>: an empty Strider for the commander optic. Packed AR-2i, Remote GLTD and AL-6 are in your inventory: unpack, control, pack again (10).<br/>
-<marker name='itc_test_vls'>VLS</marker>: two empty launchers for players, one with an AI gunner for the unguided AI shot (9). The AI launcher must never fire by itself, even with the enemy battery in range.<br/>
-<marker name='itc_test_cobra'>COBRA</marker>: two radars facing the enemy battery, siren at the impact area (3). Use 'Barrage on COBRA impact area'.<br/>
-<marker name='itc_test_ciws'>CIWS</marker>: Praetorian 2 and Centurion 2 (8). Use 'Barrage near CIWS', then 'Show AI units and groups'. Zeus: take the mission-start Zeus or create a new one mid-mission, place a radar vehicle.<br/>
-<marker name='itc_test_sam'>SAM-35</marker>: AI-crewed and empty Defender 2 (7). Use 'Air target'.<br/>
-<marker name='itc_test_aps'>APS</marker>: crewed tank without ammo (4). Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines.<br/>
-<marker name='itc_test_spike'>Spike</marker>: player Spike from the arsenal or 'AI Spike shot' against the target APC (6).<br/>
-<marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (16).<br/>
-Tablets (FDC, ROVER) and a UAV terminal are in your inventory; the SPG tablet is mounted in the guns (11, 15, 16).<br/><br/>
+<marker name='itc_test_artillery'>Artillery park</marker>: Sholef 2, Sochor 2, Hammer 2 (mod 0/1), Seara 2, Zamak MRLi. SPH loader (3, 15), gunner sights (15), mounted tablets (4), Falat (5). Two players: one gunner, one driver/commander. The Hammer 2s are UAV-crewed: connect with the UAV terminal.<br/>
+<marker name='itc_test_packing'>Packing</marker>: an empty Strider for the commander optic. Packed AR-2i, Remote GLTD and AL-6 are in your inventory: unpack, control, pack again (8).<br/>
+<marker name='itc_test_vls'>VLS</marker>: three launchers crewed by UAV AI, like the vanilla ones: connect with the UAV terminal to use them. The right one is for the unguided AI shot (6). No launcher may fire by itself, even with the enemy battery in range.<br/>
+<marker name='itc_test_cobra'>COBRA</marker>: two radars facing the enemy battery, siren at the impact area (9). Use 'Barrage on COBRA impact area'.<br/>
+<marker name='itc_test_ciws'>CIWS</marker>: Praetorian 2 and Centurion 2 (10). Use 'Barrage near CIWS', then 'Show AI units and groups'. Zeus: take the mission-start Zeus or create a new one mid-mission, place a radar vehicle.<br/>
+<marker name='itc_test_sam'>SAM-35</marker>: two Defender 2, crewed by UAV AI: one engages on its own, take the other with the UAV terminal for the player shot (11). Use 'Air target'.<br/>
+<marker name='itc_test_aps'>APS</marker>: crewed tank without ammo. Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines (12).<br/>
+<marker name='itc_test_spike'>Spike</marker>: player Spike from the arsenal or 'AI Spike shot' against the target APC (13).<br/>
+<marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (14, 16).<br/>
+Tablets (FDC, ROVER) and a UAV terminal are in your inventory; the SPG tablet is mounted in the guns (4, 15, 16).<br/><br/>
 Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems (1).
 "]];
 
