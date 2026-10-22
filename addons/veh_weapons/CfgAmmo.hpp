@@ -77,21 +77,6 @@ class CfgAmmo {
     class itc_land_155mm_fascam_at_helper : AT_Mine_155mm_AMOS_range {
         triggerTime = 0.05;
     };
-    /*
-      class itc_land_155mm_apf_helper: Cluster_155mm_AMOS {
-          triggerTime = 0.05;
-          triggerDistance = 0.1;
-          submunitionConeType[] = {"poissondisc",1500};
-          submunitionAmmo[] = {"ITC_APF_Submunition",0.33};
-          submunitionConeAngle = 7;
-          submunitionInitSpeed = 880;
-      };
-      class B_127x99_Ball;
-      class ITC_APF_Submunition : B_127x99_Ball {
-          caliber = 3.5;
-          initSpeed = 880;
-      };
-    */
 
     //105mm
     class itc_land_105mm: itc_land_155mm {

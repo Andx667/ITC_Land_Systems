@@ -187,8 +187,6 @@ tracker, which has to follow its shell every frame.
 - [ ] Decide per item: finish, keep dormant, or delete. Inventory of content that
       exists but cannot be reached in game (from 2026-09-29, re-verify before deleting):
   - 105 mm and 122 mm howitzers: decided, framework only (see below)
-  - 155 APF round, CIWS RIM-116 launcher (not mounted): dropped from the roadmap, not
-    planned; candidates for deletion
   - static Spike LR (`spike/CfgVehicles.hpp` include commented out), `spike/fnc_reloaded`
     (no-op, registered but never called)
   - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
