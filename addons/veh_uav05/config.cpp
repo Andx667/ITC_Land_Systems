@@ -13,6 +13,4 @@ class CfgPatches {
 
 class NewTurret;
 
-//#include "RscInGameUI.hpp"
-//#include "CfgFunctions.hpp"
 #include "CfgVehicles.hpp"

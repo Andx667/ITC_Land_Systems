@@ -192,13 +192,8 @@ tracker, which has to follow its shell every frame.
     never included)
   - remote-frag detonator item (CfgWeapons commented out)
   - tablet: SADL app, handheld MLRS tablet (no action), UI prototypes
-    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`), the unregistered
-    helpers `functions/util/arrayToPage.sqf` and `vehicleHasInterface.sqf`
-  - UAV02/UAV05 custom UI (includes of missing files)
-  - `veh_uav01/fnc_drawCompass.sqf` (3D compass ticks via `drawIcon3D`): never registered,
-    its only caller (`itc_land_veh_darter_fnc_drawCompass` in `rover/fnc_ui_draw`) is commented out
-  - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
-    `vls` getGuidanceOptions (never registered)
+    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`)
+  - `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered)
   - the datalink system (see 3)
 - [ ] 105 mm / 122 mm framework for other mods (ITC adds no vehicle for them). Missing so
       far:
