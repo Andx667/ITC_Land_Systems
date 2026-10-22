@@ -4,9 +4,9 @@
 #define mag_5(a) a, a, a, a, a
 #define mag_28(a) a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a
 
-#define ITC_STATIC(DISPLAYNAME) \
+#define ITC_STATIC(DISPLAYNAME,CURATOR) \
     displayName = DISPLAYNAME; \
-    scopeCurator = 2; \
+    scopeCurator = CURATOR; \
     artilleryScanner = 0; \
     class Turrets: Turrets { \
         class MainTurret: MainTurret { \
@@ -22,6 +22,10 @@
         dissasembleTo[] = {"itc_rhsusf_M252_Bipod_Bag", "itc_rhsusf_M252_Gun_Bag"}; \
         displayName = ""; \
     }
+
+// Mortars: the BCS covers the RHS originals and ACE does the rest, so the ITC versions are only
+// kept, hidden, for missions made with the old compatibility mod
+#define LEGACY_HIDDEN scope = 1; scopeArsenal = 0
 
 #define TURRETS_STUB \
     class Turrets: Turrets { \
@@ -142,13 +146,13 @@ class CfgVehicles {
         TURRETS_STUB;
     };
     class itc_land_rhsusf_m119_d: RHS_M119_D {
-        ITC_STATIC(CSTRING(m119_DisplayName));
+        ITC_STATIC(CSTRING(m119_DisplayName),2);
     };
     class itc_land_rhsusf_m119_wd: RHS_M119_WD {
-        ITC_STATIC(CSTRING(m119_DisplayName));
+        ITC_STATIC(CSTRING(m119_DisplayName),2);
     };
 
-    // M252, assembled from its own bags
+    // M252: hidden legacy classes (see LEGACY_HIDDEN)
     class RHS_M252_Base: StaticMortar {
         TURRETS_STUB;
     };
@@ -159,16 +163,20 @@ class CfgVehicles {
         TURRETS_STUB;
     };
     class itc_land_rhsusf_m252_d: RHS_M252_D {
-        ITC_STATIC(CSTRING(m252_DisplayName));
+        ITC_STATIC(CSTRING(m252_DisplayName),0);
         ITC_M252_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
     class itc_land_rhsusf_m252_wd: RHS_M252_WD {
-        ITC_STATIC(CSTRING(m252_DisplayName));
+        ITC_STATIC(CSTRING(m252_DisplayName),0);
         ITC_M252_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
 
     class rhs_M252_Gun_Bag;
     class itc_rhsusf_M252_Gun_Bag: rhs_M252_Gun_Bag {
+        LEGACY_HIDDEN;
+        scopeCurator = 0;
         displayName = CSTRING(m252_GunBag_DisplayName);
     };
     class RHS_M2_Tripod_Bag;
@@ -176,6 +184,8 @@ class CfgVehicles {
         class assembleInfo;
     };
     class itc_rhsusf_M252_Bipod_Bag: rhs_M252_Bipod_Bag {
+        LEGACY_HIDDEN;
+        scopeCurator = 0;
         displayName = CSTRING(m252_BipodBag_DisplayName);
         class assembleInfo: assembleInfo {
             displayName = CSTRING(m252_DisplayName);

@@ -25,9 +25,9 @@
         loaderType = 1; \
     }
 
-#define ITC_STATIC(DISPLAYNAME) \
+#define ITC_STATIC(DISPLAYNAME,CURATOR) \
     displayName = DISPLAYNAME; \
-    scopeCurator = 2; \
+    scopeCurator = CURATOR; \
     artilleryScanner = 0; \
     class Turrets: Turrets { \
         class MainTurret: MainTurret { \
@@ -43,6 +43,10 @@
         dissasembleTo[] = {"itc_land_rhsafrf_2b14_Gun_Bag", "itc_land_rhsafrf_2b14_Bipod_Bag"}; \
         displayName = ""; \
     }
+
+// Mortars: the BCS covers the RHS originals and ACE does the rest, so the ITC versions are only
+// kept, hidden, for missions made with the old compatibility mod
+#define LEGACY_HIDDEN scope = 1; scopeArsenal = 0
 
 #define TURRETS_STUB \
     class Turrets: Turrets { \
@@ -197,19 +201,19 @@ class CfgVehicles {
         TURRETS_STUB;
     };
     class itc_land_rhsafrf_d30_msv: rhs_D30_msv {
-        ITC_STATIC(CSTRING(d30_DisplayName));
+        ITC_STATIC(CSTRING(d30_DisplayName),2);
     };
     class itc_land_rhsafrf_d30_vdv: rhs_D30_vdv {
-        ITC_STATIC(CSTRING(d30_DisplayName));
+        ITC_STATIC(CSTRING(d30_DisplayName),2);
     };
     class itc_land_rhsafrf_d30_vmf: rhs_D30_vmf {
-        ITC_STATIC(CSTRING(d30_DisplayName));
+        ITC_STATIC(CSTRING(d30_DisplayName),2);
     };
     class itc_land_rhsafrf_d30_ins: rhs_D30_ins {
-        ITC_STATIC(CSTRING(d30_DisplayName));
+        ITC_STATIC(CSTRING(d30_DisplayName),2);
     };
 
-    // 2B14 Podnos, assembled from its own bags
+    // 2B14 Podnos: hidden legacy classes (see LEGACY_HIDDEN)
     class rhs_2b14_82mm_Base: StaticMortar {
         TURRETS_STUB;
     };
@@ -226,24 +230,30 @@ class CfgVehicles {
         TURRETS_STUB;
     };
     class itc_land_rhsafrf_2b14_msv: rhs_2b14_82mm_msv {
-        ITC_STATIC(CSTRING(2b14_DisplayName));
+        ITC_STATIC(CSTRING(2b14_DisplayName),0);
         ITC_2B14_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
     class itc_land_rhsafrf_2b14_vdv: rhs_2b14_82mm_vdv {
-        ITC_STATIC(CSTRING(2b14_DisplayName));
+        ITC_STATIC(CSTRING(2b14_DisplayName),0);
         ITC_2B14_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
     class itc_land_rhsafrf_2b14_vmf: rhs_2b14_82mm_vmf {
-        ITC_STATIC(CSTRING(2b14_DisplayName));
+        ITC_STATIC(CSTRING(2b14_DisplayName),0);
         ITC_2B14_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
     class itc_land_rhsafrf_2b14_ins: rhs_2b14_82mm_ins {
-        ITC_STATIC(CSTRING(2b14_DisplayName));
+        ITC_STATIC(CSTRING(2b14_DisplayName),0);
         ITC_2B14_ASSEMBLY;
+        LEGACY_HIDDEN;
     };
 
     class RHS_Podnos_Gun_Bag;
     class itc_land_rhsafrf_2b14_Gun_Bag: RHS_Podnos_Gun_Bag {
+        LEGACY_HIDDEN;
+        scopeCurator = 0;
         displayName = CSTRING(2b14_GunBag_DisplayName);
     };
     class RHS_DShkM_TripodHigh_Bag;
@@ -251,6 +261,8 @@ class CfgVehicles {
         class assembleInfo;
     };
     class itc_land_rhsafrf_2b14_Bipod_Bag: RHS_Podnos_Bipod_Bag {
+        LEGACY_HIDDEN;
+        scopeCurator = 0;
         displayName = CSTRING(2b14_BipodBag_DisplayName);
         class assembleInfo: assembleInfo {
             displayName = CSTRING(2b14_DisplayName);

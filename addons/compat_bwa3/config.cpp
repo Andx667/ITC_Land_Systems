@@ -10,8 +10,7 @@ class CfgPatches {
         // Loaded only when BWMod is loaded
         skipWhenMissingDependencies = 1;
         units[] = {
-            "itc_land_bwa3_pzh2000", "itc_land_bwa3_pzh2000d",
-            "itc_land_bwa3_mrs120_fleck", "itc_land_bwa3_mrs120_tropen", "itc_land_bwa3_mrs120_multi"
+            "itc_land_bwa3_pzh2000", "itc_land_bwa3_pzh2000d"
         };
         weapons[] = {"itc_land_bwa3_weap_RH155"};
         VERSION_CONFIG;

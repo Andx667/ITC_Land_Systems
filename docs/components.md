@@ -58,8 +58,8 @@ Other mods' 82 mm mortars that use the vanilla `mortar_82mm` and its rounds (the
 
 | PBO | Needs | Purpose |
 | --- | --- | --- |
-| `itc_land_compat_rhs_afrf` | RHS: AFRF | ITC versions of the 2S1 Gvozdika and 2S3 Akatsiya (ammunition handler, mounted tablet, ITC sight), ITC sights and firing tables for the D-30 and 2B14 Podnos, BCS battery types for all four |
-| `itc_land_compat_rhs_usaf` | RHS: USAF | ITC versions of the M109A6 Paladin (ammunition handler, mounted tablet, ITC sight), ITC sights and firing tables for the M119A2 and M252, BCS battery types for all three |
-| `itc_land_compat_bwa3` | BWMod | ITC versions of the Panzerhaubitze 2000 (ammunition handler, mounted tablet, ITC sight, ITC 155 mm L/52 rounds with German designations) and the MRS120 mortar (ITC sight, firing tables), BCS battery types for both |
+| `itc_land_compat_rhs_afrf` | RHS: AFRF | ITC versions of the 2S1 Gvozdika and 2S3 Akatsiya (ammunition handler, mounted tablet, ITC sight), ITC sights for the D-30, firing tables and BCS battery types for the D-30 and the 2B14 Podnos mortar (the old ITC 2B14 stays hidden for old missions) |
+| `itc_land_compat_rhs_usaf` | RHS: USAF | ITC versions of the M109A6 Paladin (ammunition handler, mounted tablet, ITC sight), ITC sights for the M119A2, firing tables and BCS battery types for the M119A2 and the M252 mortar (the old ITC M252 stays hidden for old missions) |
+| `itc_land_compat_bwa3` | BWMod | ITC versions of the Panzerhaubitze 2000 (ammunition handler, mounted tablet, ITC sight, ITC 155 mm L/52 rounds with German designations), firing tables and a BCS battery type for the MRS120 mortar |
 | `itc_land_compat_cup_units` | CUP Units (and CUP Weapons) | ITC versions of the D-30 and M119 (ITC sight, no vanilla artillery computer), firing tables and BCS battery types for both |
 | `itc_land_compat_cup_vehicles` | CUP Vehicles | ITC versions of the M270 MLRS (ITC 230 mm rockets, MLRS sight and mounted tablet, like the Seara 2) and of the M1129 Stryker mortar carrier (ITC 120 mm mortar rounds, ITC sight, firing tables and BCS battery type) |

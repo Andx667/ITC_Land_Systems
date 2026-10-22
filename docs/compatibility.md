@@ -10,9 +10,20 @@ The ITC versions are separate vehicles next to the originals, in the same factio
 | --- | --- | --- |
 | **Self-propelled guns** (2S1, 2S3, M109A6, Panzerhaubitze 2000) | [Ammunition handler](systems/artillery.md#ammunition-handler) with ITC rounds, fuzes and charges, mounted tablet for the commander with firing solutions, ITC gunner sight, vanilla artillery computer off | Sholef 2, Sochor 2 |
 | **Rocket launcher** (M270 MLRS) | ITC 230 mm rockets (ICM, guided, mines, ...), mounted tablet for the gunner, ITC MLRS sight, vanilla artillery computer off | Seara 2 |
-| **Towed guns and mortars** (D-30, M119, 2B14, M252, MRS120, M1129 mortar carrier) | ITC gunner sight, firing tables for the [BCS](systems/bcs.md), vanilla artillery computer off. They keep their own rounds. | — |
+| **Towed guns** (D-30, M119) and the **M1129 mortar carrier** | ITC gunner sight, firing tables for the [BCS](systems/bcs.md), vanilla artillery computer off. The towed guns keep their own rounds. | — |
 
-For the towed guns and mortars, the BCS lists the charges with the same names as the gun's fire modes, so you select the charge the solution names.
+For these, the BCS lists the charges with the same names as the gun's fire modes, so you select the charge the solution names.
+
+## Mortars
+
+Stationary mortars get no ITC version: ACE already covers them with range tables and crew served weapons. What ITC adds is the [BCS](systems/bcs.md): the rounds of these mortars carry firing tables and have a battery type, so the BCS computes fire missions for the original mortars, also across several of them.
+
+| Mortar | BCS battery type |
+| --- | --- |
+| RHS 2B14 'Podnos' | 2B14 - 82mm Mortar |
+| RHS M252 | M252 - 81mm Mortar (RHS M821 rounds only: the vanilla 82 mm rounds it can also fire have tables for the Mk6's three charges, not the M252's five) |
+| BWMod MRS120 | MRS120 - 120mm Mortar |
+| Vanilla Mk6, CUP 2B14, M252, L16A2, FV432 mortar carrier and Hilux mortar | Mk6 (they all fire the vanilla 82 mm rounds) |
 
 ## RHS: AFRF
 
@@ -21,9 +32,6 @@ For the towed guns and mortars, the BCS lists the charges with the same names as
 | **2S1 mod. 0 Gvozdika 2** | `itc_land_rhsafrf_2s1_tv`, `itc_land_rhsafrf_2s1_vmf` | ITC 122 mm: HE, smoke, laser guided, illumination | 2A31 - 122mm Howitzer |
 | **2S3 mod. 0 Akatsiya 2** | `itc_land_rhsafrf_2s3_tv` | ITC 152 mm: HE, smoke, ICM, laser guided, illumination | 2A33 - 152mm Howitzer |
 | **D-30 mod. 0** | `itc_land_rhsafrf_d30_msv`, `_vdv`, `_vmf`, `_ins` | RHS 122 mm (OF-462, 3OF56, D-462, S-463, 3OF69M) | 2A18M (D-30) - 122mm Howitzer |
-| **2B14 mod. 0 'Podnos'** | `itc_land_rhsafrf_2b14_msv`, `_vdv`, `_vmf`, `_ins` | RHS 82 mm | 2B14 - 82mm Mortar |
-
-The 2B14 packs into its own bags (`itc_land_rhsafrf_2b14_Gun_Bag`, `itc_land_rhsafrf_2b14_Bipod_Bag`), which assemble the ITC version again.
 
 ## RHS: USAF
 
@@ -31,9 +39,6 @@ The 2B14 packs into its own bags (`itc_land_rhsafrf_2b14_Gun_Bag`, `itc_land_rhs
 | --- | --- | --- | --- |
 | **M109A6 mod. 0 Paladin 2** | `itc_land_rhsusf_m109_usarmy` (woodland), `itc_land_rhsusf_m109d_usarmy` (desert) | ITC 155 mm: HE, smoke, ICM, AT and AP mines, GPS and laser guided, illumination | M109A6 - 155mm Howitzer |
 | **M119A2 mod. 0** | `itc_land_rhsusf_m119_d`, `itc_land_rhsusf_m119_wd` | RHS 105 mm (HE, illumination, smoke) | M119 - 105mm Howitzer |
-| **M252 mod. 0** | `itc_land_rhsusf_m252_d`, `itc_land_rhsusf_m252_wd` | RHS M821 HE | M252 - 81mm Mortar |
-
-The M252 packs into its own bags (`itc_rhsusf_M252_Gun_Bag`, `itc_rhsusf_M252_Bipod_Bag`). Its battery type lists only the RHS rounds: the vanilla 82 mm rounds it can also fire have tables for the Mk6's three charges, not the M252's five.
 
 ## CUP
 
@@ -48,14 +53,11 @@ The D-30 and M119 need CUP Units (with CUP Weapons), the M270 and M1129 need CUP
 
 CUP's own M1129 fires the vanilla ship cannon round, which is a 155 mm shell. The ITC M1129 fires a 120 mm mortar shell instead (`itc_land_120mm_mortar`, part of the mod's ammunition: less damage and a smaller radius than the 155 mm, more than the 82 mm). CUP's M1129 and its rounds stay unchanged.
 
-CUP's 82 mm mortars (2B14, M252, L16A2, FV432 mortar carrier, the Hilux mortar) need no ITC version: they fire the vanilla 82 mm rounds, which the BCS's **Mk6** battery type covers.
-
 ## BWMod
 
 | Vehicle | Classnames | Rounds | BCS battery type |
 | --- | --- | --- | --- |
 | **ITC Panzerhaubitze 2000** | `itc_land_bwa3_pzh2000` (Fleck), `itc_land_bwa3_pzh2000d` (Tropen) | ITC 155 mm L/52 with German designations: DM121 HE, DM125 smoke, DM106 illumination, M718 AT mines, DM702 GPS and laser guided | PzH2000 - 155mm Howitzer |
-| **MRS120 mod. 0** | `itc_land_bwa3_mrs120_fleck`, `_tropen`, `_multi` | BWMod 120 mm | MRS120 - 120mm Mortar |
 
 The Panzerhaubitze 2000 fires with the same ballistics as the Sholef 2 (155 mm L/52).
 
@@ -63,11 +65,11 @@ The Panzerhaubitze 2000 fires with the same ballistics as the Sholef 2 (155 mm L
 
 The standalone **ITC Land Systems - RHS AFRF Compatibility** and **RHS USAF Compatibility** mods and the ITC Panzerhaubitze 2000 of the TTT mod are replaced by the above. Unload them: if both are loaded they define the same vehicles, and whichever loads last wins.
 
-Missions made with them keep working. The vehicle, weapon and magazine classnames are unchanged, and the addon names of the old RHS mods still exist, so missions that list them still load.
+Missions made with them keep working. The vehicle, weapon and magazine classnames are unchanged, and the addon names of the old RHS mods still exist, so missions that list them still load. The ITC mortars of the old RHS mods (`itc_land_rhsafrf_2b14_*`, `itc_land_rhsusf_m252_*` and their bags) stay for those missions, hidden in Eden, Zeus and the Arsenal.
 
 ## Known limits
 
-- **ACE advanced assembly** (ACE crew served weapons, off by default): with it on, packing an ITC 2B14 or M252 gives ACE's carry items, and those assemble the RHS original instead of the ITC version.
+- **ACE advanced assembly** (ACE crew served weapons, off by default): with it on, packing one of the hidden ITC 2B14 or M252 from an old mission gives ACE's carry items, and those assemble the RHS original.
 - **CUP M119** depresses to -20°, the firing tables start at -9°: targets that need more depression get no solution.
 - **Not covered:** the CUP BM-21 Grad and RM-70 (their rockets' flight is not verified yet), the Hilux rocket technicals and the CUP frigate's gun. They keep the vanilla artillery computer.
 

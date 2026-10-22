@@ -49,10 +49,6 @@
             <English>M718 (M-AT)</English>
             <German>M718 (M-AT)</German>
         </Key>
-        <Key ID="STR_itc_land_compat_bwa3_mrs120_DisplayName">
-            <English>MRS120 mod. 0</English>
-            <German>MRS120 mod. 0</German>
-        </Key>
         <Key ID="STR_itc_land_compat_bwa3_pgm_DisplayName">
             <English>DM702 SMArt-Shell GPS Guided</English>
             <German>DM702 SMArt-Granate GPS gelenkt</German>

@@ -58,22 +58,6 @@
         }; \
     }
 
-// ITC version of the MRS120: ITC sight, no vanilla artillery computer (the BCS replaces it)
-#define ITC_MRS120(BWCLASS,ITCCLASS) \
-    class BWCLASS: BWA3_MRS120_base { \
-        TURRETS_STUB; \
-    }; \
-    class ITCCLASS: BWCLASS { \
-        displayName = CSTRING(mrs120_DisplayName); \
-        scopeCurator = 2; \
-        artilleryScanner = 0; \
-        class Turrets: Turrets { \
-            class MainTurret: MainTurret { \
-                turretInfoType = "ITC_Land_RscGunnerSightBasic"; \
-            }; \
-        }; \
-    }
-
 class CfgVehicles {
     class LandVehicle;
     class Tank: LandVehicle {
@@ -111,23 +95,4 @@ class CfgVehicles {
         displayName = CSTRING(pzh2000_tropen_DisplayName);
         ITC_PZH2000;
     };
-
-    // MRS120 mortar
-    class StaticWeapon: LandVehicle {
-        class Turrets;
-    };
-    class StaticMortar: StaticWeapon {
-        class Turrets: Turrets {
-            class MainTurret;
-        };
-    };
-    class Mortar_01_base_F: StaticMortar {
-        TURRETS_STUB;
-    };
-    class BWA3_MRS120_base: Mortar_01_base_F {
-        TURRETS_STUB;
-    };
-    ITC_MRS120(BWA3_MRS120_Fleck,itc_land_bwa3_mrs120_fleck);
-    ITC_MRS120(BWA3_MRS120_Tropen,itc_land_bwa3_mrs120_tropen);
-    ITC_MRS120(BWA3_MRS120_Multi,itc_land_bwa3_mrs120_multi);
 };
