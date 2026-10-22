@@ -73,7 +73,20 @@ if (_action == "load") then {
 
 if (_action == "save") then {
     private _targetPage = [_typeIndex, lbCurSel 6101, UITEXT(6401),UITEXT(6402),UITEXT(6403),UITEXT(6404)];
-    private _targetPos = _targetPage call EFUNC(bcs,calculateTarget);
+    // Without its input a target type has no position: Grid needs a grid, Shift and Polar a known point,
+    // QuickLay the battery's guns. Stay on the page instead of saving a mission the solutions cannot use.
+    private _kpi = lbCurSel 6101;
+    private _validInput = switch (_typeIndex) do {
+        case 0: {UITEXT(6401) regexMatch "^([0-9][0-9]){2,5}$"};
+        case 1;
+        case 2: {_kpi > -1 && {_kpi < count GVAR(bcs_locations)}};
+        case 3: {GVAR(bcs_bty_guns) isNotEqualTo []};
+        default {false};
+    };
+    private _targetPos = if (_validInput) then {_targetPage call EFUNC(bcs,calculateTarget)} else {[]};
+    if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {
+        [LLSTRING(Bcs_InvalidTarget)] call ace_common_fnc_displayTextStructured;
+    };
     _targetPage set [6, _targetPos];
     _mission set [2, _targetPage];
     _mission set [0, UITEXT(6400)];

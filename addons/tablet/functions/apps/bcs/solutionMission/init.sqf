@@ -40,7 +40,7 @@ if (count _btySolutions == 0) exitWith {
     SETTEXT(8018,"");//ordinate
     SETTEXT(8019,"");//angle
     SETTEXT(8020,"");//distance
-    if (count GVAR(bcs_bty_guns) > 0) then {
+    if (count GVAR(bcs_bty_guns) > 0 && {_tgtPos isEqualTypeArray [0, 0, 0]}) then {
         private _btyPos = [GVAR(bcs_bty_guns)] call EFUNC(bcs,getBatteryPosition);
         SETTEXT(8020,str round (_btyPos distance _tgtPos));//distance
     };

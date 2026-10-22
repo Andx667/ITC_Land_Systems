@@ -25,6 +25,8 @@
  */
 
 params ["_guns", "_shellType", "_targetPos", "_engagement"];
+// a mission saved without a valid target (before the new mission page checked it) gets no solutions
+if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {[[], []]};
 _engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex","_magazine"];
 
 private _magazineHeightModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_heightModifier";

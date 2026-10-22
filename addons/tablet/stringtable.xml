@@ -55,6 +55,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_Grid">
             <English>Grid</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_InvalidTarget">
+            <English>No target: enter a grid of 4 to 10 digits, pick a known point for Shift and Polar, or set up the battery for QuickLay.</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_LocationStores">
             <English>Location Stores</English>
         </Key>

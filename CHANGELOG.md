@@ -23,6 +23,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- BCS: a fire mission saved without a valid target (no or a malformed grid, Shift or Polar without a known point, QuickLay without guns) threw script errors on the solution page. The new fire mission page now stays put and says what is missing; missions saved that way show NO SOLUTIONS.
 - Gunner sight of the Panzerhaubitze 2000 and Boxer RCH 155: the loader status line was half height and clipped under the AUTOLOADER SETTINGS title.
 - CUP compatibility: the M1129 config gave `Wheeled_APC_F`'s turrets a parent class they don't have, which re-parented the turrets of every wheeled APC as soon as CUP was loaded (RPT `Updating base class`).
 
