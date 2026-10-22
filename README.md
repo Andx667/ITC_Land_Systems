@@ -33,6 +33,7 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 
 - __UAVs__: AR-2i/AR-2e Darter 2 and Tayran 2, MQ-4I Greyhawk and K40i Ababil-3, UCAVi Sentinel 2, and the AL-6 as a carryable UAV bag.
 - __ROVER tablet__ showing the video feed of laser-designating aircraft.
+- __Strider RV__ recon vehicle (unarmed, HMG, GMG) with ITC optics readouts.
 - __Packable equipment__: pack and unpack UAVs and the Remote GLTD laser designator through ACE interactions.
 
 ### Artillery and fire control
@@ -58,7 +59,6 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 
 - __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
 - __Spike LR__ man-portable ATGM with a camera seeker you steer and lock in flight.
-- __Strider RV__ variants (unarmed, HMG, GMG).
 - __Remote frag grenade__ (triggered with ACE detonators) and a countermeasure __smoke dispenser__.
 
 ## Documentation

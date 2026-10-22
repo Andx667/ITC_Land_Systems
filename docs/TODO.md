@@ -8,11 +8,11 @@ Section numbers are kept stable so commits and issues can refer to them.
 Primary, in this order of the fight:
 
 - **Artillery**, the whole chain from observer to round on target: observers and drones (UAVs,
-  ROVER, GLTD), fire direction (BCS, tablets), and the shooters: howitzers, MLRS, the naval
+  ROVER, GLTD, Strider), fire direction (BCS, tablets), and the shooters: howitzers, MLRS, the naval
   gun and the VLS.
 - **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
 
-Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser, Strider.
+Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
 
 ## Next up
 
