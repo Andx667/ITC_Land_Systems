@@ -31,5 +31,5 @@ private _sirenTypes = [0] call FUNC(sirenTypes);
 
 {
     [_x, _position, _impactTime] call FUNC(sirenTrigger);
-}forEach (nearestObjects [_position, _sirenTypes,500]);
+}forEach (nearestObjects [ASLToAGL _position, _sirenTypes, 500, true]); // the impact is ASL, nearestObjects reads AGL
 //["0000",_cbr getVariable "itc_land_datalink_id","cobra","shellDetected",_impact] call EFUNC(datalink,transmit);

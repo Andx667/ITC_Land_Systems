@@ -25,7 +25,7 @@
 params ["_siren","_position","_impactTime"];
 private _sirenTriggerDist = _siren getVariable [QGVAR(sirenTriggerDist), 500];
 
-if (_siren distance _position < _sirenTriggerDist) then {
+if (_siren distance2D _position < _sirenTriggerDist) then { // _position is ASL, distance would read it as AGL
 
     private _sirenActive = _siren getVariable [QGVAR(sirenActive), false];
     private _sirenEndTime = _siren getVariable [QGVAR(sirenEndTime), cba_missionTime];

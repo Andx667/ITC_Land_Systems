@@ -32,7 +32,7 @@ _firedEH params ["_shooter","","","","","","_projectile"];
 private _fullDist = _shooter distance2D itc_land_spike_targetPos;
 private _traveledDist = _projectile distance _shooter;
 private _progress = _traveledDist / _fullDist;
-private _distanceRemaining = (_projectile distance itc_land_spike_targetPos);
+private _distanceRemaining = (getPosASL _projectile) vectorDistance itc_land_spike_targetPos; // target pos is ASL
 private _target = itc_land_spike_targetPos;
 private _targetObject = itc_land_spike_lockInformation # 0;
 if (!isNil "_targetObject") then {

@@ -38,6 +38,9 @@ start a fresh empty [Unreleased] section above it. -->
 - Datalink: transmissions are delivered to the machine that connected the target (where its handlers are registered), and registry entries are removed when the object is deleted or its player disconnects.
 - Addons that extend ACE config classes (interaction menus, items, explosives, HuntIR, missile guidance) now list those ACE addons in `requiredAddons`, so the load order is guaranteed.
 - `veh_uav06` no longer claims the vanilla AL-6 classes in its `units[]`.
+- COBRA: sirens near a predicted impact did not sound on high ground. The impact position is ASL but the siren search read it as AGL, so the 500 m trigger radius shrank with terrain height and nothing triggered above 500 m ASL.
+- Spike: the lead on moving targets and the minimum target distance used an ASL target position as AGL, so on high ground the missile over-led its target. The launcher sight also threw a script error every frame while a locked target was off screen.
+- ROVER and Spike camera clocks now show minutes with two digits (14:05 instead of 14:5).
 - Defender and Rhea magazines no longer reference guidance functions that never existed.
 - CIWS: decoys for incoming shells no longer leave their AI crew and group behind. Zeus-placed radar vehicles get their radar switched on also for curators created mid-mission, on the machine that owns the vehicle.
 - VLS: guidance reads the launch target from the vehicle instead of two shared globals, and an AI-fired round without a target flies unguided instead of erroring.

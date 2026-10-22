@@ -66,4 +66,4 @@ ctrlSetText [189, _uavAGLDisplayed];
 //Draw Situational Awareness Compass
 //[_tgtposWorld] call itc_land_veh_darter_fnc_drawCompass;
 (uiNamespace getVariable "itc_land_rover_ui_nArrow") ctrlSetAngle [(_viewDir) * -1, 0.5, 0.5];
-ctrlSetText [19357, (format ["%1:%2", date # 3, date # 4])];
+ctrlSetText [19357, (format ["%1:%2", [date # 3, 2] call CBA_fnc_formatNumber, [date # 4, 2] call CBA_fnc_formatNumber])];

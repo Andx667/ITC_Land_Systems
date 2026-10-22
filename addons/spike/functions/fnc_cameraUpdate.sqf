@@ -45,11 +45,11 @@ itc_land_spike_camera camCommit 0;
 
 (_ui displayCtrl 1011) ctrlShow false;
 (_ui displayCtrl 1018) ctrlShow false;
-(_ui displayCtrl -1) ctrlShow false;
 (_ui displayCtrl 1020) ctrlShow false;
 (_ui displayCtrl 1015) ctrlShow (time < (itc_land_spike_launchTime + 5));
 (_ui displayCtrl 1013) ctrlSetText str (round ((time - itc_land_spike_activationTime) * 100));
-(_ui displayCtrl 1015) ctrlSetText (format ["%1/%2/%3 %4:%5", date # 2, date # 1, date # 0, date # 3, date # 4]);
+date params ["_year", "_month", "_day", "_hour", "_minute"];
+(_ui displayCtrl 1015) ctrlSetText (format ["%1/%2/%3 %4:%5", _day, _month, _year, [_hour, 2] call CBA_fnc_formatNumber, [_minute, 2] call CBA_fnc_formatNumber]);
 itc_land_spike_lockInformation params ["_lockObject", "_lockPosition", "_lockLostTime", "_originalLockPosition"];
 private _screenPos = (worldToScreen (ASLToAGL itc_land_spike_targetPos));
 if (!isNil "_lockObject") then {

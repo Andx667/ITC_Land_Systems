@@ -32,6 +32,12 @@ Locality fixes:
       longer reports ground vehicles over datalink (the shell check in issue #3 predates
       this change).
 - [ ] MOF35 Mod3 (Falat) rounds release their submunitions at the set fuze time.
+- [ ] Guided shells (155/152 mm LGM and PGM, 230 mm PGM) actually steer to the target. The
+      guidance turns the shell with `setDir`, which per the wiki resets velocity, and never
+      restores it; if the shells stall or fall short, re-apply the velocity along the new
+      direction after each turn.
+- [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the
+      config's blank textures have to cover the rest, else use `setObjectTextureGlobal`).
 - [ ] Tablet: firing solutions match the ones before caching; the first solution per shell
       type may hitch once while its tables compile.
 
