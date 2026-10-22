@@ -1,6 +1,6 @@
 # Compatibility with other mods
 
-ITC Land Systems brings its fire control to the artillery of RHS, CUP and BWMod. The compatibility is part of the mod: there is nothing extra to download, and each part switches itself on only when the other mod is loaded. Without that mod it is skipped silently.
+ITC Land Systems brings its fire control to the artillery of RHS, CUP, BWMod and the GTK Boxer. The compatibility is part of the mod: there is nothing extra to download, and each part switches itself on only when the other mod is loaded. Without that mod it is skipped silently.
 
 The ITC versions are separate vehicles next to the originals, in the same factions, with **mod. 0** in their names (e.g. **2S1 mod. 0 Gvozdika 2**). The original vehicles of the other mod stay as they are.
 
@@ -8,7 +8,7 @@ The ITC versions are separate vehicles next to the originals, in the same factio
 
 | Kind | What changes | Works like |
 | --- | --- | --- |
-| **Self-propelled guns** (2S1, 2S3, M109A6, Panzerhaubitze 2000) | [Ammunition handler](systems/artillery.md#ammunition-handler) with ITC rounds, fuzes and charges, mounted tablet for the commander with firing solutions, ITC gunner sight, vanilla artillery computer off | Sholef 2, Sochor 2 |
+| **Self-propelled guns** (2S1, 2S3, M109A6, Panzerhaubitze 2000, Boxer RCH 155) | [Ammunition handler](systems/artillery.md#ammunition-handler) with ITC rounds, fuzes and charges, mounted tablet for the commander with firing solutions, ITC gunner sight, vanilla artillery computer off | Sholef 2, Sochor 2 |
 | **Rocket launcher** (M270 MLRS) | ITC 230 mm rockets (ICM, guided, mines, ...), mounted tablet for the gunner, ITC MLRS sight, vanilla artillery computer off | Seara 2 |
 | **Towed guns** (D-30, M119) and the **M1129 mortar carrier** | ITC gunner sight, firing tables for the [BCS](systems/bcs.md), vanilla artillery computer off. The towed guns keep their own rounds. | — |
 
@@ -61,6 +61,14 @@ CUP's own M1129 fires the vanilla ship cannon round, which is a 155 mm shell. Th
 
 The Panzerhaubitze 2000 fires with the same ballistics as the Sholef 2 (155 mm L/52). Like the real gun it loads automatically, about 5 s per round.
 
+## GTK Boxer
+
+| Vehicle | Classnames | Rounds | BCS battery type |
+| --- | --- | --- | --- |
+| **ITC GTK Boxer (RCH 155)** | `itc_land_gtk_boxer_rch155`, `itc_land_gtk_boxer_rch155_sand` | ITC 155 mm L/52: HE, smoke, illumination, ICM, GPS guided | G155 155mm Howitzer (as the Sholef 2) |
+
+The RCH 155 carries the Panzerhaubitze 2000's gun, so the ITC version fires the Sholef 2's 155 mm L/52 rounds and loads automatically. It needs no BWMod. Its crew is two: the commander's seat lays the gun, so the commander opens both the ammunition handler and the mounted tablet. The gunner sight keeps the Boxer's own optics, with the ITC azimuth, quadrant and loader readouts on top.
+
 ## Moving from the old compatibility mods
 
 The standalone **ITC Land Systems - RHS AFRF Compatibility** and **RHS USAF Compatibility** mods and the ITC Panzerhaubitze 2000 of the TTT mod are replaced by the above. Unload them: if both are loaded they define the same vehicles, and whichever loads last wins.
@@ -71,11 +79,12 @@ Missions made with them keep working. The vehicle, weapon and magazine classname
 
 - **ACE advanced assembly** (ACE crew served weapons, off by default): with it on, packing one of the hidden ITC 2B14 or M252 from an old mission gives ACE's carry items, and those assemble the RHS original.
 - **CUP M119** depresses to -20°, the firing tables start at -9°: targets that need more depression get no solution.
+- **Panzerhaubitze 2000 and Boxer RCH 155** elevate to 72° and 65°, the 155 mm high-angle tables go to 80°: the tablet can offer high-angle solutions the gun cannot lay. Pick a lower charge or low angle.
 - **Not covered:** the CUP BM-21 Grad and RM-70 (their rockets' flight is not verified yet), the Hilux rocket technicals and the CUP frigate's gun. They keep the vanilla artillery computer.
 
 ## For developers
 
-The compatibility addons are `addons/compat_rhs_afrf`, `compat_rhs_usaf`, `compat_cup_units`, `compat_cup_vehicles` and `compat_bwa3` (see [Components](components.md#compatibility)). Each sets `skipWhenMissingDependencies = 1` and lists the other mod's addons in `requiredAddons`.
+The compatibility addons are `addons/compat_rhs_afrf`, `compat_rhs_usaf`, `compat_cup_units`, `compat_cup_vehicles`, `compat_bwa3` and `compat_gtk_boxer` (see [Components](components.md#compatibility)). Each sets `skipWhenMissingDependencies = 1` and lists the other mod's addons in `requiredAddons`.
 
 `.hemtt/launch.toml` has a profile per mod, to chain after another profile:
 
@@ -83,6 +92,7 @@ The compatibility addons are `addons/compat_rhs_afrf`, `compat_rhs_usaf`, `compa
 hemtt launch default rhs        & rem RHS: AFRF and USAF (rhs_afrf / rhs_usaf for one of them)
 hemtt launch default cup        & rem CUP Weapons, Units and Vehicles
 hemtt launch default bwa3       & rem BWMod
+hemtt launch default gtk        & rem GTK Boxer
 hemtt launch server rhs         & rem works with the multiplayer profiles too
 ```
 

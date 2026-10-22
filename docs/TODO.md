@@ -241,10 +241,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 8. Compatibility and polish
 
-- [ ] Compat: GTK Boxer RCH 155 (https://steamcommunity.com/sharedfiles/filedetails/?id=3780478952).
-      Check its classes and gun like the BWMod PzH 2000 (`compat_bwa3`): an ITC version with the
-      ammunition handler, mounted tablet and ITC sight, the ITC 155 mm L/52 rounds and tables
-      (the real RCH 155 carries the PzH 2000's gun and automatic loader), a launch profile, docs.
 - [ ] Zeus Enhanced / ACE Zeus modules, editor categories and subcategories.
 - [ ] ACE Arsenal / cargo sizes for packable items.
 - [ ] Use newer commands where it helps (`getOrDefault`, ...).
@@ -306,6 +302,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 10. Known bugs
 
+- [ ] Solutions beyond the gun's elevation limit: the 155 mm high-angle tables go to 80°, but the
+      PzH 2000 elevates to 72° and the Boxer RCH 155 to 65°, so the tablet offers solutions the gun
+      cannot lay. Drop solutions above the turret's `maxElev` in the SPG app (the BCS knows no
+      vehicle per gun yet; with linked guns, see 8, it can do the same).
 - [ ] Firing solutions use the gun's `getPosASL` as the muzzle height (a few metres low);
       use the muzzle position instead (`calcShellTypeSolutions` callers: SPG/MLRS apps, BCS).
 

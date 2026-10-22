@@ -46,6 +46,7 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 - __Gunner sights__ with azimuth, quadrant, firing solution and loader readouts.
 - __RHS compatibility__ (loads only with RHS: AFRF / USAF): ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30 and M119A2, BCS firing tables for the RHS mortars.
 - __BWMod compatibility__ (loads only with BWMod): ITC versions of the Panzerhaubitze 2000 with ammunition handler and mounted tablet, BCS firing tables for the MRS120 mortar.
+- __GTK Boxer compatibility__ (loads only with the GTK Boxer): ITC versions of the Boxer RCH 155 with ammunition handler, mounted tablet and the ITC 155 mm rounds.
 - __CUP compatibility__ (loads only with CUP Units / Vehicles): ITC versions of the D-30 and M119 with ITC sights and firing tables, of the M270 MLRS with ITC rockets, sight and mounted tablet, and of the M1129 Stryker mortar carrier with proper 120 mm rounds.
 
 ### Counter-artillery
@@ -67,7 +68,7 @@ The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:
 
 - [Systems](https://andx667.github.io/ITC_Land_Systems/systems/) — every system with its vehicles, classnames and how to use it
 - [Usage](https://andx667.github.io/ITC_Land_Systems/usage/) — tablets, interactions and settings
-- [Compatibility](https://andx667.github.io/ITC_Land_Systems/compatibility/) — the ITC versions of RHS, CUP and BWMod artillery
+- [Compatibility](https://andx667.github.io/ITC_Land_Systems/compatibility/) — the ITC versions of RHS, CUP, BWMod and GTK Boxer artillery
 - [Mission Makers & Modders](https://andx667.github.io/ITC_Land_Systems/scripting/) — what to place, and the config to add ITC features to your own vehicles
 
 ## Settings

@@ -39,6 +39,7 @@ Loaded only when the other mod is loaded too:
 - **RHS: AFRF / USAF** — ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30 and M119A2, BCS firing tables for the RHS mortars.
 - **CUP** — ITC versions of the D-30, M119, M270 MLRS and the M1129 Stryker mortar carrier.
 - **BWMod** — ITC versions of the Panzerhaubitze 2000, BCS firing tables for the MRS120 mortar.
+- **GTK Boxer** — ITC versions of the Boxer RCH 155.
 
 ## Also included
 
@@ -50,7 +51,7 @@ CBA settings to toggle CIWS and APS, tune the COBRA detection range and engageme
 
 # Documentation
 
-[Documentation](https://andx667.github.io/ITC_Land_Systems/): every system with its vehicles and how to use it, tablets and interactions, the RHS/CUP/BWMod compatibility, and what mission makers and modders need.
+[Documentation](https://andx667.github.io/ITC_Land_Systems/): every system with its vehicles and how to use it, tablets and interactions, the RHS/CUP/BWMod/GTK Boxer compatibility, and what mission makers and modders need.
 
 # Source & Issues
 

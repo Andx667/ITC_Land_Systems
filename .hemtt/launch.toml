@@ -60,3 +60,9 @@ workshop = [
 workshop = [
     "1200127537", # BWMod
 ]
+
+# GTK Boxer compatibility (addons/compat_gtk_boxer): hemtt launch default gtk
+[gtk]
+workshop = [
+    "3780478952", # GTK Boxer
+]

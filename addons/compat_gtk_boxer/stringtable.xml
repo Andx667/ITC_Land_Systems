@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="compat_gtk_boxer">
+        <Key ID="STR_itc_land_compat_gtk_boxer_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+            <German>Feuerleitrechner</German>
+        </Key>
+        <Key ID="STR_itc_land_compat_gtk_boxer_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+            <German>Munitionsverwaltung</German>
+        </Key>
+        <Key ID="STR_itc_land_compat_gtk_boxer_rch155_DisplayName">
+            <English>ITC GTK Boxer (RCH 155)</English>
+            <German>ITC GTK Boxer (RCH 155)</German>
+        </Key>
+        <Key ID="STR_itc_land_compat_gtk_boxer_rch155_sand_DisplayName">
+            <English>ITC GTK Boxer (RCH 155, Sand)</English>
+            <German>ITC GTK Boxer (RCH 155, Sand)</German>
+        </Key>
+    </Package>
+</Project>
