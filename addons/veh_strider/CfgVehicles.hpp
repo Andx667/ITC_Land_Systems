@@ -5,16 +5,15 @@ class CfgVehicles {
             class MainTurret: NewTurret {};
         };
     };
+    // the unarmed Strider has only the commander turret
     class MRAP_03_base_F: Car_F {
         class Turrets: Turrets {
             class CommanderTurret: MainTurret {};
-            class MainTurret: MainTurret {};
         };
     };
     class I_MRAP_03_F: MRAP_03_base_F {
         class Turrets: Turrets {
             class CommanderTurret: CommanderTurret {};
-            class MainTurret: MainTurret {};
         };
     };
     class itc_land_I_StriderRV: I_MRAP_03_F {
