@@ -35,7 +35,7 @@ start a fresh empty [Unreleased] section above it. -->
 - APS: a module's traverse arc did not wrap across north, so depending on the vehicle's heading a module (e.g. the left Trophy on a north-facing Slammer) covered almost nothing. Incoming rounds are now checked every frame instead of every 0.05 s and are no longer tracked once killed (a second module could fire at the same dying round), and every lost rocket no longer resets time acceleration to 1.
 - Packing a deployed item spawned the weapon holder at `[0,0,0]` and did nothing if the item was not local.
 - Datalink: removed leftover debug chat output on client connect.
-- SPH autoloader: magazine changes are now sent to the vehicle's owner, so the loader works when the gunner is not on the machine that owns the vehicle.
+- SPH autoloader: with driver and gunner on different machines, the loading sequence finished but the round never reached the gun. Magazine changes are now applied to the main turret on the gunner's machine, where the turret is local (the vehicle itself is local to the driver).
 - APS: module ammo/reload state is now applied by the vehicle's owner via an event instead of being overwritten by each shooter; modules with no ammo left no longer intercept, and joining clients no longer reset APS state.
 - Spike: the seeker camera only starts for the player-controlled shooter, not for AI units local to the machine.
 - COBRA: placing a second COBRA no longer wipes the first one's data, and a shell is no longer missed by one COBRA because another already consumed it. Sirens are now heard by all players, not only the host.

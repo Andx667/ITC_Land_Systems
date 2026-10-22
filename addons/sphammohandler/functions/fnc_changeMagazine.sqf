@@ -2,9 +2,10 @@
 
 /*
  * Author: ITC Addons Team
- * Requests a magazine change on the SPH gun. Magazine commands only work where
- * the vehicle is local, but the loader runs on the gunner's machine, so the change
- * is sent to the vehicle's owner (run immediately if that is this machine).
+ * Requests a magazine change on the SPH gun. Turret magazine and weapon commands only
+ * work where the main turret is local, which is the gunner's machine, not the vehicle's
+ * owner (the driver's). The change is sent to the main turret's unit, or to the vehicle
+ * when the gunner seat is empty (run immediately if that is this machine).
  *
  * Arguments:
  * 0: SPH vehicle <OBJECT>
@@ -23,4 +24,7 @@
 
 params ["_vehicle", "_action", "_magClass"];
 
-[QGVAR(changeMagazine), [_vehicle, _action, _magClass], _vehicle] call CBA_fnc_targetEvent;
+private _target = _vehicle turretUnit [0];
+if (isNull _target) then {_target = _vehicle};
+
+[QGVAR(changeMagazine), [_vehicle, _action, _magClass], _target] call CBA_fnc_targetEvent;

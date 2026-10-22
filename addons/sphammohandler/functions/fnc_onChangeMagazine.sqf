@@ -2,8 +2,8 @@
 
 /*
  * Author: ITC Addons Team
- * Handles the changeMagazine event on the machine that owns the SPH vehicle and
- * applies the requested magazine change.
+ * Handles the changeMagazine event on the machine where the SPH's main turret is local
+ * and applies the requested magazine change to that turret.
  *
  * Arguments:
  * 0: SPH vehicle <OBJECT>
@@ -21,22 +21,22 @@
 
 params ["_vehicle", "_action", "_magClass"];
 
-if (!local _vehicle) exitWith {};
+if !(_vehicle turretLocal [0]) exitWith {};
 
 switch (_action) do {
     case "remove": {
-        _vehicle removeMagazine _magClass;
+        _vehicle removeMagazineTurret [_magClass, [0]];
     };
     case "add": {
-        _vehicle addMagazine _magClass;
+        _vehicle addMagazineTurret [_magClass, [0]];
     };
     case "closeBreech": {
         // Re-adding the weapon is what makes it pick up the magazine as chambered
         // the gun of the main turret; weapons _vehicle can list hull weapons first (RHS M109 smoke generator)
         private _weapon = (_vehicle weaponsTurret [0]) param [0, ""];
-        _vehicle removeWeapon _weapon;
-        _vehicle addMagazine _magClass;
-        _vehicle addWeapon _weapon;
-        _vehicle selectWeapon _weapon;
+        _vehicle removeWeaponTurret [_weapon, [0]];
+        _vehicle addMagazineTurret [_magClass, [0]];
+        _vehicle addWeaponTurret [_weapon, [0]];
+        _vehicle selectWeaponTurret [_weapon, [0]];
     };
 };
