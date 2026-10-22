@@ -59,15 +59,14 @@ class CfgVehicles {
     ITC_M270(CUP_I_M270_HE_RACS,itc_land_cup_m270_racs);
 
     // M1129 Stryker mortar carrier: ITC 120 mm rounds, ITC sight, no vanilla artillery computer
+    // As vanilla (and CUP) declare them: Wheeled_APC_F's Turrets have no parent, its MainTurret is a NewTurret
     class Car;
     class Car_F: Car {
-        class Turrets {
-            class MainTurret;
-        };
+        class NewTurret;
     };
     class Wheeled_APC_F: Car_F {
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {};
+        class Turrets {
+            class MainTurret: NewTurret {};
         };
     };
     class CUP_StrykerBase: Wheeled_APC_F {

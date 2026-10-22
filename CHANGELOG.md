@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Fixed
+
+- CUP compatibility: the M1129 config gave `Wheeled_APC_F`'s turrets a parent class they don't have, which re-parented the turrets of every wheeled APC as soon as CUP was loaded (RPT `Updating base class`).
+
 ## [0.1.0] - 2026-10-22
 
 ### Added
