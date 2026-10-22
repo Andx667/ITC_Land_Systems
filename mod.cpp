@@ -1,4 +1,4 @@
-name            = "ITC Land Systems [BETA]";            // Name of your mod
+name            = "ITC Land Systems v0.0.0 [BETA]";    // Name of your mod; the version placeholder is filled in by .hemtt/hooks/pre_build/set_version.rhai
 author          = "ITC Addons Team";            // Affects Arma 3 Launcher, when the mod are loaded as local
 logo            = "itc-combo.paa";              // Logo displayed in the main menu
 logoOver        = "itc-combo.paa";              // When the mouse is over, in the main menu
