@@ -34,6 +34,7 @@ Discord: <https://discord.gg/ag4v6kxYAa>
 - __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence. The loader status is shared with the whole crew.
 - __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
 - __Gunner sights__ with azimuth, quadrant, firing solution and loader readouts.
+- __RHS compatibility__ (loads only with RHS: AFRF / USAF): ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30, M119A2, 2B14 and M252.
 
 ### Air and missile defence
 

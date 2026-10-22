@@ -49,3 +49,12 @@ ITC follows the ACE-style addon layout: the functionality is split across severa
 | `itc_land_veh_uav02` | MQ-4I Greyhawk, K40i Ababil-3 |
 | `itc_land_veh_uav05` | UCAVi Sentinel 2 |
 | `itc_land_veh_uav06` | AL-6 Pelican packing, UAV bags (AL-6) |
+
+## Compatibility
+
+These PBOs ship with the mod and load only when the other mod is loaded too (`skipWhenMissingDependencies`); without it they are skipped silently.
+
+| PBO | Needs | Purpose |
+| --- | --- | --- |
+| `itc_land_compat_rhs_afrf` | RHS: AFRF | ITC versions of the 2S1 Gvozdika and 2S3 Akatsiya (ammunition handler, mounted tablet, ITC sight), ITC sights and firing tables for the D-30 and 2B14 Podnos, BCS battery types for all four |
+| `itc_land_compat_rhs_usaf` | RHS: USAF | ITC versions of the M109A6 Paladin (ammunition handler, mounted tablet, ITC sight), ITC sights and firing tables for the M119A2 and M252, BCS battery types for all three |

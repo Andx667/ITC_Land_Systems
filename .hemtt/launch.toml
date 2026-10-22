@@ -27,3 +27,23 @@ parameters = [
     "-port=2302",
     "-window"
 ]
+
+# RHS compatibility (addons/compat_rhs_*). Overlays, chain them after another profile:
+#   hemtt launch default rhs          both RHS mods
+#   hemtt launch default rhs_usaf     USAF only: the AFRF compat must be skipped without errors
+#   hemtt launch server rhs / player rhs
+[rhs]
+workshop = [
+    "843425103", # RHSAFRF
+    "843577117", # RHSUSAF
+]
+
+[rhs_afrf]
+workshop = [
+    "843425103", # RHSAFRF
+]
+
+[rhs_usaf]
+workshop = [
+    "843577117", # RHSUSAF
+]

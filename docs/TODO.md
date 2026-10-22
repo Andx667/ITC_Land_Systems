@@ -36,6 +36,12 @@ Locality fixes:
       guidance turns the shell with `setDir`, which per the wiki resets velocity, and never
       restores it; if the shells stall or fall short, re-apply the velocity along the new
       direction after each turn.
+- [ ] RHS compat (`hemtt launch default rhs`): ITC 2S1, 2S3 and M109 load, fire and reload
+      through the ammunition handler, the mounted tablet opens and the SPG app gives solutions
+      that hit, also on the M109 (hull smoke generator); the guns recoil and show their muzzle
+      flash; D-30, M119, 2B14 and M252 solutions from the BCS hit for every charge; the 2B14
+      and M252 bags assemble the ITC version. RPT has no `Updating base class` lines for RHS
+      classes. `hemtt launch default rhs_usaf`: no errors from the skipped AFRF compat.
 - [ ] BCS Mk6 battery with the vanilla `8Rnd_82mm_*` rounds (ACE mortar ammunition handling off):
       solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="compat_rhs_afrf">
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31hex_DisplayName">
+            <English>3OF56 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31hex_DisplayNameShort">
+            <English>122mm HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31ill_DisplayName">
+            <English>S-463 Flare</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31ill_DisplayNameShort">
+            <English>122mm ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31lgm_DisplayName">
+            <English>3OF69M LG</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31lgm_DisplayNameShort">
+            <English>122mm LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31smo_DisplayName">
+            <English>D-462 Smoke</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a31smo_DisplayNameShort">
+            <English>122mm SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33hex_DisplayName">
+            <English>53-VOF-27 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33hex_DisplayNameShort">
+            <English>152mm HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33icm_DisplayName">
+            <English>G152 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33icm_DisplayNameShort">
+            <English>152mm ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33ill_DisplayName">
+            <English>3VS-23 Flare</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33ill_DisplayNameShort">
+            <English>152mm ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33lgm_DisplayName">
+            <English>3VOF93 LG</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33lgm_DisplayNameShort">
+            <English>152mm LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33smo_DisplayName">
+            <English>53-VD-546 Smoke</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2a33smo_DisplayNameShort">
+            <English>152mm SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2b14_BipodBag_DisplayName">
+            <English>2B14 mod. 0 'Podnos' Bipod Bag</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2b14_DisplayName">
+            <English>2B14 mod. 0 'Podnos'</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2b14_GunBag_DisplayName">
+            <English>2B14 mod. 0 'Podnos' Gun Bag</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2s1_DisplayName">
+            <English>2S1 mod. 0 Gvozdika 2</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_2s3_DisplayName">
+            <English>2S3 mod. 0 Akatsiya 2</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_Battery_2A31_DisplayName">
+            <English>2A31 - 122mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_Battery_2A33_DisplayName">
+            <English>2A33 - 152mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_Battery_2B14_DisplayName">
+            <English>2B14 - 82mm Mortar</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_Battery_D30_DisplayName">
+            <English>2A18M (D-30) - 122mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_afrf_d30_DisplayName">
+            <English>D-30 mod. 0</English>
+        </Key>
+    </Package>
+</Project>

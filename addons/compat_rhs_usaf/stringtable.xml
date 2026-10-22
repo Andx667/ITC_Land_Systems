@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="compat_rhs_usaf">
+        <Key ID="STR_itc_land_compat_rhs_usaf_Battery_M119_DisplayName">
+            <English>M119 - 105mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_Battery_M252_DisplayName">
+            <English>M252 - 81mm Mortar</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_Battery_M284_DisplayName">
+            <English>M109A6 - 155mm Howitzer</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_CommanderTablet_DisplayName">
+            <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109_d_DisplayName">
+            <English>M109A6 mod. 0 Paladin 2 (DES)</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109_wd_DisplayName">
+            <English>M109A6 mod. 0 Paladin 2 (WD)</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109hex_DisplayName">
+            <English>M795 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109hex_DisplayNameShort">
+            <English>M795 HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109icm_DisplayName">
+            <English>M864 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109icm_DisplayNameShort">
+            <English>M864 ICM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109ill_DisplayName">
+            <English>M485 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109ill_DisplayNameShort">
+            <English>M485 ILLUM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109lgm_DisplayName">
+            <English>M712 LASER GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109lgm_DisplayNameShort">
+            <English>M712 LGM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109map_DisplayName">
+            <English>M731 MINE-AP</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109map_DisplayNameShort">
+            <English>M731 MAP</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109mat_DisplayName">
+            <English>M718 MINE-AT</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109mat_DisplayNameShort">
+            <English>M718 MAT</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109pgm_DisplayName">
+            <English>M982 GPS GUIDED</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109pgm_DisplayNameShort">
+            <English>M982 PGM</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109smo_DisplayName">
+            <English>M825A1 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m109smo_DisplayNameShort">
+            <English>M825A1 SMOKE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m119_DisplayName">
+            <English>M119A2 mod. 0</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m252_BipodBag_DisplayName">
+            <English>M252 mod. 0 Bipod Bag</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m252_DisplayName">
+            <English>M252 mod. 0</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_rhs_usaf_m252_GunBag_DisplayName">
+            <English>M252 mod. 0 Gun Bag</English>
+        </Key>
+    </Package>
+</Project>
