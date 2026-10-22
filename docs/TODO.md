@@ -24,9 +24,8 @@ Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
 4. Observers and the radar to fire direction: target handoff from observers and drones,
    COBRA detections as counter-fire missions (11).
 5. Decide on the dormant content (5).
-6. Tests (7).
-7. Translations (1), compatibility (8), then documentation (9).
-8. Secondary systems: fixes only; the APS framework (8) comes last.
+6. Translations (1), compatibility (8), then documentation (9).
+7. Secondary systems: fixes only; the APS framework (8) comes last.
 
 ## In-game verification
 
@@ -249,8 +248,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 7. Testing
 
-- [ ] CBA unit tests for pure functions in `common` (getDeflection, gridToPos/posToGrid,
-      simulateTrajectory, fuze resolution).
 - [x] Test range mission (`.hemtt/missions/itc_land_vr_test.VR`, started by `hemtt launch`):
       stations for every issue #3 section, a control board with teleports, scenarios
       (enemy barrage, APS attack, AI Spike/VLS shots, air target, Zeus) and diagnostics.
