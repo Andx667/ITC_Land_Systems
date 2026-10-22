@@ -31,15 +31,13 @@ Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
 
 ## In-game verification
 
-Partly tested in game (issue #3, ticks up to 2026-10-21 21:14). What is still open is below;
+Partly tested in game (issue #3, ticks up to 2026-10-22 18:05). What is still open is below;
 full checklist with setup and expected behaviour: issue #3.
 
 Locality fixes:
 
-- [ ] COBRA on a dedicated server: the server receives fired shells; markers and
-      engagements show on clients; a shell is counted once with two COBRAs; all
-      players hear the sirens.
-- [ ] SPH autoloader with gunner and driver on different clients.
+- [ ] COBRA: a client joining mid-mission sees the current COBRA data (the rest of the
+      dedicated-server checks pass, 2026-10-22).
 - [ ] VLS: launches from the dialog still hit; a scripted VLS round without a dialog
       target flies unguided without script errors (AI gunners no longer launch).
 - [ ] CIWS: still engages shells and aircraft without the ground sensor bands, and no
@@ -79,7 +77,9 @@ Secondary systems:
 - [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
       The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
       check that top-attack coverage is still acceptable.
-- [ ] Spike fired by an AI unit (no camera on the AI's machine).
+- [ ] Optional (AI crews are nice to have, the mod targets player crews): Spike fired by
+      an AI unit (no camera on the AI's machine); SPH loader with an AI driver or an AI
+      gunner on the server.
 
 User-flow fixes from the code review:
 
