@@ -12,6 +12,9 @@ class CfgVehicles {
         scope = 2;
         crew = "B_UAV_AI";
         faction = "BLU_F";
+        // the vanilla radars set these as strings ("CM_none", "CM_Missile"), which the game cannot evaluate
+        lockDetectionSystem = 0;
+        incomingMissileDetectionSystem = 16;
         class Components {};
         class EventHandlers : EventHandlers {
             class itc_land_cobra_eventHandlers {
@@ -33,6 +36,9 @@ class CfgVehicles {
         scope = 2;
         crew = "O_UAV_AI";
         faction = "OPF_F";
+        // the vanilla radars set these as strings ("CM_none", "CM_Missile"), which the game cannot evaluate
+        lockDetectionSystem = 0;
+        incomingMissileDetectionSystem = 16;
         class Components {};
         class EventHandlers : EventHandlers {
             class itc_land_cobra_eventHandlers {
