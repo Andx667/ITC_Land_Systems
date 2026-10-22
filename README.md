@@ -67,6 +67,7 @@ The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:
 
 - [Systems](https://andx667.github.io/ITC_Land_Systems/systems/) — every system with its vehicles, classnames and how to use it
 - [Usage](https://andx667.github.io/ITC_Land_Systems/usage/) — tablets, interactions and settings
+- [Compatibility](https://andx667.github.io/ITC_Land_Systems/compatibility/) — the ITC versions of RHS, CUP and BWMod artillery
 - [Mission Makers & Modders](https://andx667.github.io/ITC_Land_Systems/scripting/) — what to place, and the config to add ITC features to your own vehicles
 
 ## Settings

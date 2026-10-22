@@ -9,7 +9,7 @@ ITC depends on:
 
 Both must be loaded **before** ITC.
 
-The RHS, CUP and BWMod compatibility (ITC versions of their artillery) is part of the mod and switches itself on when RHS: AFRF, RHS: USAF, CUP Units, CUP Vehicles or BWMod is loaded. The old standalone "ITC Land Systems - RHS AFRF/USAF Compatibility" mods and the ITC part of the TTT mod's BWMod compatibility (the ITC Panzerhaubitze 2000) are replaced by it: unload them. Missions made with them keep working, the class names are unchanged.
+The RHS, CUP and BWMod compatibility (ITC versions of their artillery) is part of the mod and switches itself on when RHS: AFRF, RHS: USAF, CUP Units, CUP Vehicles or BWMod is loaded. The old standalone "ITC Land Systems - RHS AFRF/USAF Compatibility" mods and the ITC part of the TTT mod's BWMod compatibility (the ITC Panzerhaubitze 2000) are replaced by it: unload them. Missions made with them keep working, the class names are unchanged. See [Compatibility](compatibility.md) for the vehicles.
 
 ## Players
 

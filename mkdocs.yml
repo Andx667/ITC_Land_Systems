@@ -88,6 +88,7 @@ nav:
       - Spike LR: systems/spike.md
       - UAVs & Recon: systems/uavs.md
       - Other Equipment: systems/equipment.md
+  - Compatibility: compatibility.md
   - Mission Makers & Modders: scripting.md
   - Components: components.md
   - Contributing: contributing.md
