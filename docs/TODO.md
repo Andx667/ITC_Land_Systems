@@ -265,6 +265,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 8. Compatibility and polish
 
+- [ ] Compat: GTK Boxer RCH 155 (https://steamcommunity.com/sharedfiles/filedetails/?id=3780478952).
+      Check its classes and gun like the BWMod PzH 2000 (`compat_bwa3`): an ITC version with the
+      ammunition handler, mounted tablet and ITC sight, the ITC 155 mm L/52 rounds and tables
+      (the real RCH 155 carries the PzH 2000's gun and automatic loader), a launch profile, docs.
 - [ ] Zeus Enhanced / ACE Zeus modules, editor categories and subcategories.
 - [ ] ACE Arsenal / cargo sizes for packable items.
 - [ ] Use newer commands where it helps (`getOrDefault`, ...).
