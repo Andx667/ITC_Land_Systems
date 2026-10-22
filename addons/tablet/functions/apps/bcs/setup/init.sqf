@@ -30,8 +30,6 @@ SETTEXT(4303,GVAR(bcs_bty_name));
 private _batteryTypes = (configFile >> "itc_land_ballistics" >> "batteryTypes")  call BIS_fnc_getCfgSubClasses;
 GVAR(bcs_availableTables) = _batteryTypes;
 private _gunNames = _batteryTypes apply {((configFile >> "itc_land_ballistics" >> "batteryTypes" >> _x >> "displayName")  call BIS_fnc_getCfgData)};
-private _shellTypes = _batteryTypes apply {((configFile >> "itc_land_ballistics" >> "batteryTypes" >> _x >> "ammunition")  call BIS_fnc_getCfgData)};
-GVAR(bcs_shellTypes) = _shellTypes;
 [4304,_gunNames,(GVAR(bcs_bty_type) # 0),_batteryTypes] call FUNC(fillComboBox);
 private _activeTypeName = getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> (GVAR(bcs_bty_type) # 1) >> "displayName");
 private _activeTypeText = format[LLSTRING(Bcs_ActiveType), _activeTypeName];

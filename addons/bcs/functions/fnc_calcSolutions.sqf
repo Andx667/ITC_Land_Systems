@@ -24,10 +24,11 @@
  * Public: No
  */
 
-params ["_guns", "_shellType", "_targetPos", "_engagement"];
-// a mission saved without a valid target (before the new mission page checked it) gets no solutions
+params ["_guns", ["_shellType", ""], "_targetPos", "_engagement"];
+_engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex",["_magazine", ""]];
+// a mission saved without a valid target or ammunition (before the pages checked them) gets no solutions
 if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {[[], []]};
-_engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex","_magazine"];
+if (_shellType isEqualTo "" || {_magazine isEqualTo ""}) exitWith {[[], []]};
 
 private _magazineHeightModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_heightModifier";
 _magazineHeightModifier = if (isNumber _magazineHeightModifier) then [{getNumber _magazineHeightModifier}, {0}];

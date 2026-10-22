@@ -25,7 +25,8 @@ MISSION;MISSIONPARAMS;
 ctrlShow [13505, true];
 [_display, IDC_workspace_header, format [LLSTRING(Bcs_Engagement),_ident]] call EFUNC(common,ctrlSetText);
 
-private _shellTypes = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0);
+// the active battery type's ammunition, by name: Bty Setup need not have been opened in this session
+private _shellTypes = getArray (configFile >> "itc_land_ballistics" >> "batteryTypes" >> (GVAR(bcs_bty_type) # 1) >> "ammunition");
 private _shellNames = _shellTypes apply {((configFile >> "CfgMagazines" >> _x >> "displayName")  call BIS_fnc_getCfgData)};
 [7100,_shellNames,_shellTypeIndex,_shellTypes] call FUNC(fillComboBox);
 

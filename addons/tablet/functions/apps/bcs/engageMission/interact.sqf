@@ -32,7 +32,12 @@ if (_action == "back") then {
 };
 
 if (_action == "save") then {
-    private _magType = GVAR(bcs_shellTypes) # (GVAR(bcs_bty_type) # 0) # (lbCurSel 7100);
+    private _shellTypes = getArray (configFile >> "itc_land_ballistics" >> "batteryTypes" >> (GVAR(bcs_bty_type) # 1) >> "ammunition");
+    private _ammoIndex = lbCurSel 7100;
+    private _magType = if (_ammoIndex < 0) then {""} else {_shellTypes param [_ammoIndex, ""]};
+    if (_magType == "") exitWith {
+        [LLSTRING(Bcs_NoAmmoSelected)] call ace_common_fnc_displayTextStructured;
+    };
     _engagePage = [lbCurSel 7101, lbCurSel 7401, UINUMBER(7402), UINUMBER(7403), lbCurSel 7100, _magType];
     _mission set [3, _engagePage];
     SAVEMISSION(_mission);

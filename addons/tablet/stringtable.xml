@@ -64,6 +64,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_NewFiremission">
             <English>New Firemission</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NoAmmoSelected">
+            <English>Select the ammunition for the fire mission.</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_NoSolutions">
             <English>NO SOLUTIONS</English>
         </Key>
