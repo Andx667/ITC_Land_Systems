@@ -113,9 +113,9 @@
                     idc = 82020;
                     text = CSTRING(AutoLoaderStatus_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
-                    y = "21.95 *        (0.025 * SafezoneH)";
+                    y = "21.925 *       (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
-                    h = "0.011 * safezoneH";
+                    h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
                     style = 0;
                 };
@@ -124,7 +124,7 @@
                     idc = 82021;
                     text = CSTRING(CAutoLoaderAmmo_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
-                    y = "22.65 *        (0.025 * SafezoneH)";
+                    y = "22.725 *       (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
@@ -134,7 +134,7 @@
                     idc = 82022;
                     text = CSTRING(AutoLoaderFuze_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
-                    y = "23.45 *        (0.025 * SafezoneH)";
+                    y = "23.525 *       (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};
@@ -144,7 +144,7 @@
                     idc = 82023;
                     text = CSTRING(AutoLoaderGuidance_text_Text);
                     x = "0 *        (0.01875 * SafezoneH)";
-                    y = "24.25 *        (0.025 * SafezoneH)";
+                    y = "24.325 *       (0.025 * SafezoneH)";
                     w = "0.149531 * safezoneW";
                     h = "0.022 * safezoneH";
                     colorText[] = {0.67451,1,0.6,1};

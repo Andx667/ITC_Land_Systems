@@ -23,6 +23,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- Gunner sight of the Panzerhaubitze 2000 and Boxer RCH 155: the loader status line was half height and clipped under the AUTOLOADER SETTINGS title.
 - CUP compatibility: the M1129 config gave `Wheeled_APC_F`'s turrets a parent class they don't have, which re-parented the turrets of every wheeled APC as soon as CUP was loaded (RPT `Updating base class`).
 
 ## [0.1.0] - 2026-10-22
