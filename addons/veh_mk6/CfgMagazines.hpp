@@ -20,7 +20,7 @@ class CfgMagazines {
     class 8Rnd_82mm_Mo_LG: 8Rnd_82mm_Mo_shells {
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\b_82\list.sqf);
     };
-    class ACE_1Rnd_82mm_Mo_Illum: 8Rnd_82mm_Mo_Flare_white {
+    class ACE_1Rnd_82mm_Mo_Illum: 8Rnd_82mm_Mo_Flare_white_illumination {
         ammo = "itc_82mm_flare";
     };
 };
