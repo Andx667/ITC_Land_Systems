@@ -30,6 +30,12 @@ switch (_action) do {
         //#include "interact_calc.sqf"
         private _gridField = ctrlText 2400;
         _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
+
+        // no solution without a grid of 4 to 10 digits; ACE reads an empty grid as the map origin
+        if !(_gridField regexMatch "^([0-9][0-9]){2,5}$") exitWith {
+            _vehicle setVariable ["itc_land_tablet_fcs_solutions", [], true];
+            _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+        };
         private _elField = parseNumber (ctrlText 2401);
         private _elTgt =  _elField - ace_common_mapAltitude;
 
