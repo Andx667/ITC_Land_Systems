@@ -20,8 +20,6 @@ class page_msl_controls:ITC_LAND_Workspace {
             y = "0.24 * safezoneH + safezoneY";
             //onLBSelChanged = "call FUNC(fcimode_onlblselchanged)";
         };
-        //Manual Mode Controls
-        //#include "fcs_manualmode.hpp"
         //Local FCS Controls
         #include "fcs_localFCSmode.hpp"
         #include "fcs_fuzeandguidance.hpp"

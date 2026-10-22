@@ -5,8 +5,8 @@
  * Handles BCS engageMission page interactions: "back" returns to the newMission page without
  * saving, "save" reads the sheaf type, quick/normal, direction/length and shell selections
  * from the UI controls, stores them as the mission's engagement data, and advances the
- * mission to the solutionMission page. (_listBox/_target/_value are passed by the "list"
- * toggle actions bound in the engageFiremission2 workspace but are not currently consumed.)
+ * mission to the solutionMission page. (_listBox/_target/_value are passed by "list" toggle
+ * actions but are not currently consumed.)
  *
  * Arguments:
  * 0: Action identifier ("back", "save" or "list") <String>

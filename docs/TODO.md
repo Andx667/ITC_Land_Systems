@@ -191,8 +191,7 @@ tracker, which has to follow its shell every frame.
   - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
     never included)
   - remote-frag detonator item (CfgWeapons commented out)
-  - tablet: SADL app, handheld MLRS tablet (no action), UI prototypes
-    (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`)
+  - tablet: SADL app, handheld MLRS tablet (no action)
   - `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered)
   - the datalink system (see 3)
 - [ ] 105 mm / 122 mm framework for other mods (ITC adds no vehicle for them). Missing so
