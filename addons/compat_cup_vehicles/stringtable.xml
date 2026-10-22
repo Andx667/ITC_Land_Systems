@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="compat_cup_vehicles">
+        <Key ID="STR_itc_land_compat_cup_vehicles_Battery_M121_DisplayName">
+            <English>M121 - 120mm Mortar (CUP)</English>
+        </Key>
         <Key ID="STR_itc_land_compat_cup_vehicles_CommanderTablet_DisplayName">
             <English>Open Mounted Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m1129_DisplayName">
+            <English>M1129 Mortar Carrier mod. 0</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m121_he_DisplayName">
+            <English>M934 120mm HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m121_he_DisplayNameShort">
+            <English>120mm HE</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m121_smoke_DisplayName">
+            <English>M929 120mm Smoke</English>
+        </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_m121_smoke_DisplayNameShort">
+            <English>120mm SMOKE</English>
         </Key>
         <Key ID="STR_itc_land_compat_cup_vehicles_m270_DisplayName">
             <English>M270 MLRS mod. 0</English>

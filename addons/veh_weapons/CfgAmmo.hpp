@@ -6,6 +6,7 @@ class CfgAmmo {
     class Mine_155mm_AMOS_range;
     class AT_Mine_155mm_AMOS_range;
     class Cluster_155mm_AMOS;
+    class Sh_82mm_AMOS;
     //Base Classes - Missile
 
 
@@ -145,6 +146,21 @@ class CfgAmmo {
     };
     class itc_land_122mm_dpicm_helper: itc_land_105mm_dpicm_helper {
         ace_rearm_caliber = 122;
+    };
+
+    //120mm mortar: mortar shell between the vanilla 82 mm mortar and the 122 mm howitzer, for
+    //other mods' 120 mm mortars that only have stand-in rounds (e.g. the CUP Stryker's 155 mm shell)
+    class itc_land_120mm_mortar: Sh_82mm_AMOS {
+        hit = 230;
+        indirectHit = 80;
+        indirectHitRange = 21;
+        ace_frag_enabled = 1;
+        ace_frag_classes[] = {"ACE_frag_large", "ACE_frag_large", "ACE_frag_large_HD", "ACE_frag_large", "ACE_frag_medium_HD", "ACE_frag_medium_HD", "ACE_frag_medium"};
+        ace_frag_metal = 10000;
+        ace_frag_charge = 2200;
+        ace_frag_gurney_c = 2440;
+        ace_frag_gurney_k = 1/2;
+        ace_rearm_caliber = 120;
     };
 
     //127mm

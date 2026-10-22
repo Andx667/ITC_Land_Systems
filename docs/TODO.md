@@ -45,6 +45,10 @@ Locality fixes:
 - [ ] CUP compat (`hemtt launch default cup`): BCS solutions for the ITC D-30 and M119 hit for
       every charge (the D-30 AT round gets none); the ITC M270 fires the ITC rockets from the right
       launch points, its tablet and MLRS sight work; a CUP 2B14/M252 gets Mk6 solutions that hit.
+- [ ] ITC M1129 Stryker: note the real elevation range of the M121 in the gunner sight (the
+      config says -5 to 35, the tables assume 45 to 85 degrees as on the other mortars) and
+      regenerate the tables if it differs; BCS solutions hit for every charge; the 120 mm HE
+      damage feels right between the 82 mm mortar and the 122 mm howitzer.
 - [ ] BWMod compat (`hemtt launch default bwa3`, without the TTT mod's old ITC PzH 2000): the
       ITC PzH 2000 loads, fires and reloads through the ammunition handler, its tablet SPG app
       gives solutions that hit, the gun recoils and shows its muzzle flash; BCS solutions for the
