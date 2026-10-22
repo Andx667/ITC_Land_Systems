@@ -8,7 +8,8 @@ Self-propelled guns, a naval gun and rocket launchers, with firing solutions com
 | --- | --- | --- | --- |
 | **M4 mod. 0 Sholef 2** | `itc_land_b_SPH_Sholef2`, `itc_land_b_t_SPH_Sholef2` | 155 mm howitzer (G155) | Semi-automatic |
 | **2S9 mod. 0 Sochor 2** | `itc_land_o_sph_sochor2`, `itc_land_o_t_sph_sochor2` | 152 mm howitzer (G152) | Semi-automatic |
-| **Mk45 mod. 0 Hammer 2**, **Mk45 mod. 1 Hammer 2** | `itc_land_NGS01_hammer2`, `itc_land_NGS01_hammer2_mod1` | 127 mm naval gun (NG127) | Semi-automatic |
+| **Mk45 mod. 0 Hammer 2** | `itc_land_NGS01_hammer2` | 127 mm naval gun (NG127) | Semi-automatic |
+| **Mk45 mod. 1 Hammer 2** | `itc_land_NGS01_hammer2_mod1` | 127 mm naval gun (NG127) | Automatic |
 | **M5 mod. 0 Seara 2** | `itc_land_b_mlrs_seara2`, `itc_land_b_t_mlrs_seara2` | 230 mm rockets (M230) | — |
 | **Zamak MRLi** | `itc_land_i_mlrs_zamak`, `itc_land_o_mlrs_zamak` | 230 mm rockets (M230) | — |
 
@@ -30,7 +31,7 @@ The guns hold one round at a time: every combination of round and charge is its 
 | **EXTRA** | ✔ | — | — | Time | — |
 | **FALAT** | ✔ | — | — | Time | Two laser codes |
 
-- **Fuzes**: *point detonate* on impact, *proximity* once the shell descends below the set height above ground, *time* once the set time since firing has passed (the cargo rounds release their payload then), *delay* the set time after impact.
+- **Fuzes**: *point detonate* on impact, *proximity* once the shell descends below 9 m above ground, *time* once the time set in the ammunition handler has passed since firing (the cargo rounds release their payload then), *delay* shortly after impact. Only the time is set by the crew.
 - **Laser guided** rounds steer to a laser spot with the matching ACE laser code.
 - **GPS guided** rounds fly to the target grid and altitude set in the [ammunition handler](#ammunition-handler).
 - **Extra** releases a loitering submunition when the time fuze runs out. It searches for armoured targets below it and fires a HEAT charge at the first one it finds, or destroys itself when it gets too low.
@@ -58,6 +59,8 @@ The **Self Propelled Gun** app of the [mounted SPG tablet](../usage.md#tablets) 
 4. Step through them with **PRV SLN** / **NXT SLN**. Each shows **SLN** (number of solutions), **CHARGE**, **AZIMUTH**, **DEFLECTION**, **QUADRANT**, **TOF** (time of flight), **MAXIMUM ORDINATE** and **TARGET DISTANCE**.
 
 The selected solution is sent to the gunner sight as the mission azimuth and quadrant.
+
+**DEFLECTION** follows the US convention: 3200 mils when the target lies in the direction the gun is set to (the vehicle's direction in this app, the gun's direction in the [BCS](bcs.md) battery setup), more to the left and less to the right ("left add, right subtract"). The gun is laid by azimuth, so it is only for reference.
 
 The **Vehicle Status** page shows the fuel level and the state of the vehicle's systems.
 

@@ -20,8 +20,7 @@ Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
    primary systems first.
 2. Firing solutions that hit: the exact solution instead of the table lookup (10).
 3. Fire direction to the guns: BCS solutions to the gunner sights and FCI ORDERS (8),
-   time fuze settings and the other realism items (8), the deflection sign (10), the
-   PzH 2000 autoloader (8).
+   time fuze settings and the other realism items (8).
 4. Observers and the radar to fire direction: target handoff from observers and drones,
    COBRA detections as counter-fire missions (11).
 5. Decide on the dormant content (5); fix the duplicate UI base classes (5), it needs the
@@ -65,9 +64,9 @@ Locality fixes:
       regenerate the tables if it differs; BCS solutions hit for every charge; the 120 mm HE
       damage feels right between the 82 mm mortar and the 122 mm howitzer.
 - [ ] BWMod compat (`hemtt launch default bwa3`, without the TTT mod's old ITC PzH 2000): the
-      ITC PzH 2000 loads, fires and reloads through the ammunition handler, its tablet SPG app
-      gives solutions that hit, the gun recoils and shows its muzzle flash; BCS solutions for the
-      BWMod MRS120 hit for every charge.
+      ITC PzH 2000 loads, fires and reloads automatically through the ammunition handler (with
+      the reload animation), its tablet SPG app gives solutions that hit, the gun recoils and
+      shows its muzzle flash; BCS solutions for the BWMod MRS120 hit for every charge.
 - [ ] BCS Mk6 battery with the vanilla `8Rnd_82mm_*` rounds (ACE mortar ammunition handling off):
       solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the
@@ -305,12 +304,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
   - Fill the gunner sight's FCI ORDERS panel (`veh_sights/fnc_onLoad_RscIGS_SPH`, controls
     1600-1605, today placeholders behind `itc_land_IGS_showOrders`) with the sent mission:
     count, round, fuze, guidance, azimuth and quadrant, like a real gun display.
-- [ ] PzH 2000 autoloader: the ITC Panzerhaubitze 2000 (`compat_bwa3/CfgVehicles.hpp`) has
-      `loaderType = 1`, the semi-automatic sequence (pull and ram the shell, charge, breech,
-      primer, lanyard: about 4 rounds/min). The real gun loads automatically, 3 rounds in
-      9 s and about 10 rounds/min, which the automatic sequence (`loaderType = 2`, about 5 s
-      per round) matches. Switch it, check the reload animation still follows the ITC gun,
-      and update `docs/compatibility.md` and the CHANGELOG entry.
 - [ ] Realism, compared with real guns (2026-10-22):
   - Loader types: every real Mk45 loads automatically from its drum (16-20 rounds/min);
     the Hammer 2 mod. 0 is semi-automatic with primer and lanyard steps a naval gun does
@@ -321,13 +314,11 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     crew guesses and usually bursts too late. Add an FS column for time-fuzed rounds
     (TOF to the burst point, from a burst height per magazine in config).
   - Delay fuze: `common_fnc_resolveFuzeSetting` sets 0.005 s; real delay fuzes use about
-    0.05 s. Proximity bursts at the fuze's fixed `proxHOB` (9 m, realistic), but
-    `docs/systems/artillery.md` says "the set height".
+    0.05 s. Not a one-line change: the delay places the burst along the last flight
+    path, so ten times the delay puts it about 15 m past the impact point, often
+    underground. Proximity bursts at the fuze's fixed `proxHOB` (9 m, realistic).
   - Russian guns (D-30, 2S1, 2S3, Sochor 2) use 6000 mils in reality; everything here
     shows NATO 6400. Optional, per battery type or vehicle.
-  - The M230 battery type is labelled "227mm MLRS"; the rockets are 230 mm.
-  - `ITC_Land_CfgFuzes >> ph_fuze` points its `firedEvent` at `ph_fuzeFunc`, which does
-    not exist; nothing uses the fuze class, so delete it.
 
 ## 9. Documentation (after in-game testing, issue #1)
 
@@ -337,12 +328,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       pages against the game after in-game testing.
 
 ## 10. Known bugs
-
-- [ ] Deflection has the opposite sign of the US convention ("left add, right subtract":
-      DF = 3200 + gun direction - target direction). `common_fnc_getDeflection` computes
-      3200 - (gun direction - target direction), so a target 200 mils left of the gun shows
-      3000 instead of 3400. Only the readout is wrong, guns are laid by azimuth. Also drop
-      its north-wrap special case for a plain modulo 6400.
 
 - [ ] MLRS calculates a firing solution when no input grid is given; it should refuse (or
       show no solution) until a target grid is entered.
