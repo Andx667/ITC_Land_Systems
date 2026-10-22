@@ -22,9 +22,18 @@ start a fresh empty [Unreleased] section above it. -->
 - CUP compatibility, loaded only with CUP: `compat_cup_units` adds ITC versions of the CUP D-30 and M119 (ITC sight, BCS battery types, firing tables shared with the vanilla AMOS), `compat_cup_vehicles` ITC versions of the CUP M270 MLRS set up like the Seara 2 (ITC 230 mm rockets, MLRS sight, mounted tablet). `.hemtt/launch.toml` has a `cup` profile.
 - RHS compatibility moved into the mod as `compat_rhs_afrf` and `compat_rhs_usaf`, which load only when RHS: AFRF / USAF is loaded (`skipWhenMissingDependencies`); the standalone "ITC Land Systems - RHS AFRF/USAF Compatibility" mods are no longer needed. Class names are unchanged and the old addon names are kept, so existing missions still load. Fixed on the way: the D-30 used the M119's firing tables (wrong speeds and only 3 of its 6 charges) and has its own now; the M109 and 2S3 charge 1 rounds left the barrel at 92 m/s but were computed for 85 m/s; the 2S3 high-angle tables started at 15° and gave two answers per distance; the 2S1 fired 155 mm ammunition and now uses the ITC 122 mm rounds; the M109 config rewired RHS's own Paladin to the wrong parent class; the M252 gun bag was an M2 gun bag; the M252 battery type no longer offers the vanilla/ACE 82 mm rounds, whose tables are for the Mk6's charges; the 2S1, 2S3 and M109 lost their recoil and muzzle flash animations, which RHS ties to its own weapon. The ITC 2B14 and M252 mortars are hidden in Eden, Zeus and the Arsenal and only kept for old missions: ACE covers mortars, and the BCS works with the RHS originals through their firing tables and battery types. `.hemtt/launch.toml` has `rhs`, `rhs_afrf` and `rhs_usaf` profiles.
 - Tablet: tooltips on the labels and readouts whose meaning or unit is not obvious (fire control, BCS setup, fire missions and solutions, rocket fuze and guidance, vehicle status, app interfaces). The new fire mission fields change their tooltip with the target type.
+- BCS battery setup shows the active battery type (not just the one selected in the list), and each gun in the gun list carries the battery callsign it was saved with.
+- Documentation site (MkDocs Material, `docs/`): every system with its vehicles and classnames, usage (tablets, interactions, settings), the RHS/CUP/BWMod compatibility, and a page for mission makers and modders.
+- Test range mission (`.hemtt/missions/itc_land_vr_test.VR`, started by `hemtt launch`) with a station per section of the in-game checklist, a control board with teleports, scenarios and diagnostics, and `tools/debugMP.bat` with launch profiles for a local dedicated server and two clients.
 
 ### Fixed
 
+- CIWS: Praetorian 2 and Spartan 2 placed by script or Zeus started with their radar off; the shell decoys are radar-only targets, so those CIWS never engaged incoming shells. Every one now switches its radar on at init.
+- Falat: the first submunition used the second laser code and the second fell back to 1111; each now uses its own entered code.
+- Tablet: panel backgrounds were transparent and controls overlapped on every tablet page (the shared base classes were not included, and layout macros sat inside strings); the BCS battery-type list crashed on Save Bty Type, and loading a known point with nothing selected errored.
+- The mod logo was missing in the launcher, and packed items could not be unpacked (`itc_land_packableItem` was not defined in `CfgWeapons`).
+- Clipped text: the GLTD and Strider optics' heading and grid readouts, the SPH sight's azimuth and quadrant readouts (they ran into the reticle), the ROVER no-connection hint and the Spike MANUAL label.
+- The CIWS, Rhea, Defender and VLS addons declared the vanilla static turret base without its parent, so the RPT logged `Updating base class` notes against other addons.
 - COBRA: no more `Cannot evaluate 'CM_none'` / `'CM_Missile'` RPT warnings for every placed radar; the vanilla radars set these values as strings.
 - Mk6: the ACE illumination round (`ACE_1Rnd_82mm_Mo_Illum`) was given the wrong parent class (RPT `Updating base class`).
 - Strider: the config gave the unarmed Strider (vanilla and ITC StriderRV) a second turret it doesn't have, and re-parented the HMG Strider's gun turret (RPT `Updating base class`).
@@ -63,7 +72,7 @@ start a fresh empty [Unreleased] section above it. -->
 - SPH loader: loading and fuzing now use the applied settings; changing the ammo, charge or fuze selection afterwards no longer changes the loaded round or its fuze until Apply is pressed again. Dual-laser rounds now keep laser code 1.
 - Tablet: opening a different tablet no longer resumes an app that tablet doesn't have, app buttons without an app return to the home screen, and the tablet stops cleanly when closed or when the player dies.
 - Gunner sights no longer leave a per-frame handler running every time the player leaves the vehicle.
-- Spike: the missile camera and its screen effects are always removed when the player dies, switches weapon or the missile hits.
+- Spike: the missile camera and its screen effects are always removed when the player dies, switches weapon or the missile hits, and a camera left over from an earlier flight is removed before the next one starts.
 - BCS page buttons work while controlling a UAV; the BCS target-type labels are translatable.
 - ROVER tablet: 51 control positions used layout macros inside quoted strings, so the game received undefined names instead of numbers; the controls now sit where they were designed to.
 - Tablet: the BCS new/engage fire mission pages, the BCS solution page and the MLRS page no longer share control IDs with other pages, so showing or hiding a control by ID can no longer hit the wrong page.
@@ -71,6 +80,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
+- No more `remoteExec`, `spawn`, `sleep` or `waitUntil`: everything runs unscheduled through CBA events and timers, so servers with a `CfgRemoteExec` whitelist need no entries for ITC.
+- The handheld SPG tablet (`itc_land_tablet_spg`) is hidden for now (scope 0): its SPG app only works inside an ITC artillery vehicle, which carries the mounted tablet anyway.
+- Spike: slower default camera sensitivity.
+- Marked as beta (0.1.0) in the README, `mod.cpp` and the Workshop text.
 - The base dialog controls (`ITC_LAND_RscText`, `RscButton`, ...) are defined once, in `itc_land_common`. They were defined twice, and the tablet's versions silently replaced the common ones (RPT `Updating base class`), so the SPH loader and VLS dialogs depended on the tablet loading last. The controls are the ones the game used before, nothing looks different.
 - Sholef 2 and Sochor 2 load automatically (about 5 s per round) instead of semi-automatically (11 to 17 s); the vanilla guns they are built on reload in 7 s. The Hammer 2 mod. 0 and the ITC versions of the RHS guns stay semi-automatic, the Hammer 2 mod. 1 automatic.
 - Ballistic tables are compiled once and cached instead of on every firing solution (BCS computed them per gun).
@@ -78,4 +91,10 @@ start a fresh empty [Unreleased] section above it. -->
 - The MOF35 Mod3 time fuze waits with `CBA_fnc_waitAndExecute` instead of checking every frame.
 - CI: key HEMTT lints are now errors, a new check rejects macros inside string literals (CBA/ACE macros and the project's own defines), and Dependabot keeps the GitHub Actions up to date.
 - COBRA is now server-authoritative: only the server tracks shells and runs the scan, and it publishes COBRAs, firing positions, engagements and predicted impacts to clients (previously every machine ran its own simulation).
-- Rebuilt the repo on HEMTT with modern CI/CD, replacing the old build tooling
+- Rebuilt the repo on HEMTT with modern CI/CD, replacing the old build tooling.
+
+### Removed
+
+- `itc_land >> fcs >> tableList` in vehicle configs: the fire control never read it, the tables come from the magazine's `itc_land_btabListFile`.
+- BCS settings: the Voice Warning option, which had no function behind it.
+- The empty `itc_land_towedAmmoHandling` addon.
