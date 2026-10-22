@@ -3,13 +3,32 @@
 Open work for ITC Land Systems. Finished items are in git history and `CHANGELOG.md`.
 Section numbers are kept stable so commits and issues can refer to them.
 
+## Scope
+
+Primary, in this order of the fight:
+
+- **Artillery**, the whole chain from observer to round on target: observers and drones (UAVs,
+  ROVER, GLTD), fire direction (BCS, tablets), and the shooters: howitzers, MLRS, the naval
+  gun and the VLS.
+- **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
+
+Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser, Strider.
+
 ## Next up
 
-1. In-game verification: issue #3 (full checklist; the list below is the short version).
-2. Decide on the dormant content (5).
-3. Fix the duplicate UI base classes (5), it needs the in-game check anyway.
-4. Tests (7).
-5. Translations (1), compatibility (8), then documentation (9).
+1. In-game verification: issue #3 (full checklist; the list below is the short version),
+   primary systems first.
+2. Firing solutions that hit: the exact solution instead of the table lookup (10).
+3. Fire direction to the guns: BCS solutions to the gunner sights and FCI ORDERS (8),
+   time fuze settings and the other realism items (8), the deflection sign (10), the
+   PzH 2000 autoloader (8).
+4. Observers and the radar to fire direction: target handoff from observers and drones,
+   COBRA detections as counter-fire missions (11).
+5. Decide on the dormant content (5); fix the duplicate UI base classes (5), it needs the
+   in-game check anyway.
+6. Tests (7).
+7. Translations (1), compatibility (8), then documentation (9).
+8. Secondary systems: fixes only; the APS framework (8) comes last.
 
 ## In-game verification
 
@@ -22,10 +41,6 @@ Locality fixes:
       engagements show on clients; a shell is counted once with two COBRAs; all
       players hear the sirens.
 - [ ] SPH autoloader with gunner and driver on different clients.
-- [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
-      The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
-      check that top-attack coverage is still acceptable.
-- [ ] Spike fired by an AI unit (no camera on the AI's machine).
 - [ ] VLS: launches from the dialog still hit; a scripted VLS round without a dialog
       target flies unguided without script errors (AI gunners no longer launch).
 - [ ] CIWS: still engages shells and aircraft without the ground sensor bands, and no
@@ -59,6 +74,13 @@ Locality fixes:
       config's blank textures have to cover the rest, else use `setObjectTextureGlobal`).
 - [ ] Tablet: firing solutions match the ones before caching; the first solution per shell
       type may hitch once while its tables compile.
+
+Secondary systems:
+
+- [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
+      The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
+      check that top-attack coverage is still acceptable.
+- [ ] Spike fired by an AI unit (no camera on the AI's machine).
 
 User-flow fixes from the code review:
 
@@ -343,3 +365,15 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       `initSpeed`, `R` = horizontal distance, `h` = target height minus muzzle height. Keep the
       output format of `calcBtabSolution`. Also use the muzzle position instead of
       `getPosASL _vehicle` for the gun height (a few metres). Revisit if shells ever get drag.
+
+## 11. Observers and the radar to fire direction
+
+- [ ] Target handoff from observers and drones. Today an observer reads a grid from the map,
+      a laser rangefinder or the UAV optics readouts and the FDC types it into a new fire
+      mission. Add a way to send it: a target (grid and elevation) from the UAV optics or a
+      designator lands in the FDC tablet as a new fire mission or a location store entry,
+      like a digital call for fire. Same for the observer's corrections during adjust fire.
+- [ ] COBRA detections as counter-fire missions. The COBRA app can save a back-traced firing
+      position as a known point, but the BCS operator still loads it and builds the mission by
+      hand. Add "counter-fire" from a COBRA engagement: a new BCS fire mission on the firing
+      position, ready to compute, as real counter-battery radar hands targets to fire direction.
