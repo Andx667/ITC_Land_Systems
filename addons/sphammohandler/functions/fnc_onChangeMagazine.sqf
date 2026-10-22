@@ -32,7 +32,8 @@ switch (_action) do {
     };
     case "closeBreech": {
         // Re-adding the weapon is what makes it pick up the magazine as chambered
-        private _weapon = (weapons _vehicle) select 0;
+        // the gun of the main turret; weapons _vehicle can list hull weapons first (RHS M109 smoke generator)
+        private _weapon = (_vehicle weaponsTurret [0]) param [0, ""];
         _vehicle removeWeapon _weapon;
         _vehicle addMagazine _magClass;
         _vehicle addWeapon _weapon;

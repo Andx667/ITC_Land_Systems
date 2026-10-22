@@ -41,7 +41,7 @@ if ((!(isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtgrid"}))&&(!(isNil {_
     ctrlSetText [1401,""];
 };
 private _magazineTypes = (((
-    format ["getText (_x >> 'weaponClass') == '%1'", (weapons _vehicle) # 0]
+    format ["getText (_x >> 'weaponClass') == '%1'", (_vehicle weaponsTurret [0]) param [0, ""]]
     configClasses
     (configFile >> "itc_land_ballistics" >> "batteryTypes")
     ) # 0) >> "ammunition") call BIS_fnc_getCfgData;
