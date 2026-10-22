@@ -36,6 +36,8 @@ Locality fixes:
       guidance turns the shell with `setDir`, which per the wiki resets velocity, and never
       restores it; if the shells stall or fall short, re-apply the velocity along the new
       direction after each turn.
+- [ ] BCS Mk6 battery with the vanilla `8Rnd_82mm_*` rounds (ACE mortar ammunition handling off):
+      solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the
       config's blank textures have to cover the rest, else use `setObjectTextureGlobal`).
 - [ ] Tablet: firing solutions match the ones before caching; the first solution per shell
