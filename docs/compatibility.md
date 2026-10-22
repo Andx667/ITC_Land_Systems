@@ -79,7 +79,7 @@ Missions made with them keep working. The vehicle, weapon and magazine classname
 
 - **ACE advanced assembly** (ACE crew served weapons, off by default): with it on, packing one of the hidden ITC 2B14 or M252 from an old mission gives ACE's carry items, and those assemble the RHS original.
 - **CUP M119** depresses to -20°, the firing tables start at -9°: targets that need more depression get no solution.
-- **Panzerhaubitze 2000 and Boxer RCH 155** elevate to 72° and 65°, the 155 mm high-angle tables go to 80°: the tablet can offer high-angle solutions the gun cannot lay. Pick a lower charge or low angle.
+- **Panzerhaubitze 2000 and Boxer RCH 155** elevate to 72° and 65°, the 155 mm high-angle tables go to 80°. The mounted tablet only offers solutions the gun can lay; the BCS, which does not know the gun yet, can still list steeper ones. Pick a lower charge or low angle there.
 - **Not covered:** the CUP BM-21 Grad and RM-70 (their rockets' flight is not verified yet), the Hilux rocket technicals and the CUP frigate's gun. They keep the vanilla artillery computer.
 
 ## For developers

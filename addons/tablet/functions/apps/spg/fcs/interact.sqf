@@ -47,6 +47,8 @@ switch (_action) do {
         private _gunPos = getPosASL _vehicle;
 
         private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
+        // the tables can reach steeper or flatter than this gun can lay
+        _solutions = [_vehicle, _solutions] call EFUNC(common,filterSolutionsByElevation);
         _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
     };

@@ -56,6 +56,8 @@ switch (_action) do {
                 };
             };
         };
+        // the tables can reach steeper or flatter than this launcher can lay (guided rockets: after their fixed 800 mils)
+        _solutions = [_vehicle, _solutions] call EFUNC(common,filterSolutionsByElevation);
         _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
     };

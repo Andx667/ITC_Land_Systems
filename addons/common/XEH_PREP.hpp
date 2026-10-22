@@ -10,6 +10,7 @@ PREP(posToGrid);
 PREP(getAltitudeMSL);
 PREP(getAimAngles);
 PREP(getFireSolution);
+PREP(filterSolutionsByElevation);
 PREP(getSolutionText);
 PREP(getGunStatusText);
 PREP(getLoaderReadout);

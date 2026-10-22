@@ -29,6 +29,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- SPG and MLRS tablet apps: solutions the gun cannot lay are no longer offered. The firing tables reach steeper than some guns (155 mm high angle to 80°, PzH 2000 72°, Boxer RCH 155 65°, Hammer 2 70°, Seara 2, Zamak and CUP M270 66°); the apps now drop solutions outside the gun turret's elevation limits.
 - BCS: without opening Bty Setup first, the engagement page offered no ammunition, and the solution page then threw script errors. The ammunition now comes straight from the active battery type. The new fire mission and engagement pages also stay put and say what is missing when the target has no valid position (no or a malformed grid, Shift or Polar without a known point, QuickLay without guns) or no ammunition is selected; missions saved that way show NO SOLUTIONS.
 - Gunner sight of the Panzerhaubitze 2000 and Boxer RCH 155: the loader status line was half height and clipped under the AUTOLOADER SETTINGS title.
 - CUP compatibility: the M1129 config gave `Wheeled_APC_F`'s turrets a parent class they don't have, which re-parented the turrets of every wheeled APC as soon as CUP was loaded (RPT `Updating base class`).

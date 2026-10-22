@@ -318,10 +318,11 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 10. Known bugs
 
-- [ ] Solutions beyond the gun's elevation limit: the 155 mm high-angle tables go to 80°, but the
-      PzH 2000 elevates to 72° and the Boxer RCH 155 to 65°, so the tablet offers solutions the gun
-      cannot lay. Drop solutions above the turret's `maxElev` in the SPG app (the BCS knows no
-      vehicle per gun yet; with linked guns, see 8, it can do the same).
+- [ ] Solutions beyond the gun's elevation limit in the BCS: the tables can reach steeper than some
+      guns (155 mm high angle to 80°, PzH 2000 72°, RCH 155 65°, Hammer 2 70°, the MLRS 66°). The
+      SPG and MLRS apps drop them (`common_fnc_filterSolutionsByElevation`, turret minElev/maxElev);
+      the BCS knows no vehicle per gun yet. With linked guns (section 8, phase 1) it can filter
+      per gun too.
 - [ ] Firing solutions use the gun's `getPosASL` as the muzzle height (a few metres low);
       use the muzzle position instead (`calcShellTypeSolutions` callers: SPG/MLRS apps, BCS).
 
