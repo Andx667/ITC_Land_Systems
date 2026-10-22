@@ -158,6 +158,8 @@ tracker, which has to follow its shell every frame.
     (`fcs_manualmode`, `missileConfigRework1`, `engageFiremission2`), the unregistered
     helpers `functions/util/arrayToPage.sqf` and `vehicleHasInterface.sqf`
   - UAV02/UAV05 custom UI (includes of missing files)
+  - `veh_uav01/fnc_drawCompass.sqf` (3D compass ticks via `drawIcon3D`): never registered,
+    its only caller (`itc_land_veh_darter_fnc_drawCompass` in `rover/fnc_ui_draw`) is commented out
   - `guidance/igm15x.sqf` (dual GPS/laser guidance), `veh_weapons/fuzeProxFOV.sqf`,
     `vls` getGuidanceOptions (never registered)
   - the datalink system (see 3)
