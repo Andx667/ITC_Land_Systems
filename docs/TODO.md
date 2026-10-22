@@ -38,8 +38,8 @@ Locality fixes:
 
 - [ ] COBRA: a client joining mid-mission sees the current COBRA data (the rest of the
       dedicated-server checks pass, 2026-10-22).
-- [ ] VLS: launches from the dialog still hit; a scripted VLS round without a dialog
-      target flies unguided without script errors (AI gunners no longer launch).
+- [ ] VLS: a scripted round without a dialog target flies unguided without script errors
+      (dialog launches, typing and no AI self-launch pass, 2026-10-22).
 - [ ] CIWS: still engages shells and aircraft without the ground sensor bands, and no
       longer reports ground vehicles over datalink (the shell check in issue #3 predates
       this change).
