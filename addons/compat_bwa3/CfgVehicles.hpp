@@ -31,7 +31,7 @@
     class itc_land { \
         tabletInterfaces[] = {"spg"}; \
         mountedTablet = "itc_land_tablet_spg"; \
-        loaderType = 1; \
+        loaderType = 2; \
     }; \
     class Turrets: Turrets { \
         class MainTurret: MainTurret { \
