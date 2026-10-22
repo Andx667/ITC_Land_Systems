@@ -23,9 +23,8 @@ Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
    time fuze settings and the other realism items (8).
 4. Observers and the radar to fire direction: target handoff from observers and drones,
    COBRA detections as counter-fire missions (11).
-5. Decide on the dormant content (5).
-6. Translations (1), compatibility (8), then documentation (9).
-7. Secondary systems: fixes only; the APS framework (8) comes last.
+5. Translations (1), compatibility (8), then documentation (9).
+6. Secondary systems: fixes only; the APS framework (8) comes last.
 
 ## In-game verification
 
@@ -184,13 +183,11 @@ tracker, which has to follow its shell every frame.
 
 ## 5. Config hygiene
 
-- [ ] Decide per item: finish, keep dormant, or delete. Inventory of content that
-      exists but cannot be reached in game (from 2026-09-29, re-verify before deleting):
-  - 105 mm and 122 mm howitzers: decided, framework only (see below)
+Dormant on purpose (decided 2026-10-22; the dead leftovers were deleted): content that
+exists but cannot be reached in game, kept to be finished later.
+
+  - 105 mm and 122 mm howitzers: framework only (see below)
   - static Spike LR (`spike/CfgVehicles.hpp` include commented out)
-  - SPH ammo handler on the vanilla Scorcher/Sochor (`sphammohandler/CfgVehicles.hpp`,
-    never included)
-  - remote-frag detonator item (CfgWeapons commented out)
   - tablet: SADL app, handheld MLRS tablet (no action)
   - `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered)
   - the datalink system (see 3)
