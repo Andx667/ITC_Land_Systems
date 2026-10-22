@@ -13,7 +13,8 @@ Section numbers are kept stable so commits and issues can refer to them.
 
 ## In-game verification
 
-Only checked by `hemtt check` so far. Full checklist with setup and expected behaviour: issue #3.
+Partly tested in game (issue #3, ticks up to 2026-10-21 21:14). What is still open is below;
+full checklist with setup and expected behaviour: issue #3.
 
 Locality fixes:
 
@@ -24,49 +25,29 @@ Locality fixes:
 - [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
       The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
       check that top-attack coverage is still acceptable.
-- [ ] Spike fired by an AI unit (no camera on the AI's machine) and by a player.
-- [ ] SAM-35 fired from a client explodes.
-- [ ] Packing a deployed item drops the packed item where it stood.
-- [ ] CIWS: Zeus-placed radar vehicles have their radar on, also with a curator created
-      mid-mission; a long barrage leaves no orphan AI units or groups.
-- [ ] VLS: launches from the dialog still hit; an AI-fired VLS round flies unguided
-      without script errors.
+- [ ] Spike fired by an AI unit (no camera on the AI's machine).
+- [ ] VLS: launches from the dialog still hit; a scripted VLS round without a dialog
+      target flies unguided without script errors (AI gunners no longer launch).
 - [ ] CIWS: still engages shells and aircraft without the ground sensor bands, and no
-      longer reports ground vehicles over datalink.
+      longer reports ground vehicles over datalink (the shell check in issue #3 predates
+      this change).
 - [ ] MOF35 Mod3 (Falat) rounds release their submunitions at the set fuze time.
-- [ ] Tablet: switching apps/pages still works (scripts now cached); first firing
-      solution per shell type may hitch once while its tables compile.
+- [ ] Tablet: firing solutions match the ones before caching; the first solution per shell
+      type may hitch once while its tables compile.
 
 User-flow fixes from the code review:
 
-- [ ] SPH loader: changing ammo, charge or fuze after Apply (without applying again) no
-      longer changes what gets loaded or how it is fuzed; Apply is what counts.
 - [ ] SPH dual-laser (Falat) rounds use both laser codes entered at Apply.
-- [ ] Tablet: opening a different tablet (handheld FDC after the mounted SPG one, or the
-      other way round) starts on the home screen; app buttons without an app return to it.
-- [ ] Tablet closes cleanly (no errors in the frame it closes, closes when the player dies).
-- [ ] Gunner sights: entering and leaving the gun several times doesn't slow the game
-      (old sight handlers now stop).
-- [ ] Spike: dying, switching weapon or the missile hitting during camera flight returns
-      to the normal view without colour/grain effects stuck on.
-- [ ] BCS page buttons work while controlling a UAV.
-- [ ] BCS new/engage fire mission pages: "Next", "Back" and "Load" known point buttons
-      show and hide correctly (duplicate control IDs removed).
-- [ ] ROVER tablet: labels and values sit in their intended rows/columns and the vision
-      mode buttons are placed correctly (51 positions were broken by macros inside
-      strings); no `Undefined variable` errors for `col_`/`row_`/`top_bar_y` in the RPT.
 - [ ] Saved list selections (SPH ammo/fuze, VLS angle, MLRS fuze) restore correctly,
-      including the last entry; the MLRS round type page shows the applied PGM grid/altitude.
+      including the last entry.
 
-Settings, localization and dependencies:
+Settings and dependencies:
 
-- [ ] CBA settings show under "ITC Land Systems" and can be forced by the server;
-      COBRA range/engagement window and APS/CIWS toggles take effect.
-- [ ] No raw `STR_itc_land_...` keys anywhere: tablet apps, sights, SPH loader dialog,
-      VLS dialog, Arsenal/editor names, ACE interaction menus.
+- [ ] CBA settings can be forced by the server; COBRA range/engagement window and APS/CIWS
+      toggles take effect.
 - [ ] SPH loader status text shows correctly for the other crew members.
-- [ ] RPT at startup has no missing-class or `Updating base class` warnings (the
-      second confirms the duplicate UI classes in 5).
+- [ ] Record the startup RPT's `Updating base class` lines for `ITC_LAND_Rsc*` in issue #3;
+      the duplicate UI classes fix (5) needs them.
 
 ## 1. Localization
 
