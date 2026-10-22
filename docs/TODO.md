@@ -280,6 +280,32 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
   - Optional: preset the shell, charge, fuze and count of the mission in the gun's ammunition
     handler.
   - Update the BCS docs (`docs/systems/bcs.md`), which describe the voice relay.
+  - Fill the gunner sight's FCI ORDERS panel (`veh_sights/fnc_onLoad_RscIGS_SPH`, controls
+    1600-1605, today placeholders behind `itc_land_IGS_showOrders`) with the sent mission:
+    count, round, fuze, guidance, azimuth and quadrant, like a real gun display.
+- [ ] PzH 2000 autoloader: the ITC Panzerhaubitze 2000 (`compat_bwa3/CfgVehicles.hpp`) has
+      `loaderType = 1`, the semi-automatic sequence (pull and ram the shell, charge, breech,
+      primer, lanyard: about 4 rounds/min). The real gun loads automatically, 3 rounds in
+      9 s and about 10 rounds/min, which the automatic sequence (`loaderType = 2`, about 5 s
+      per round) matches. Switch it, check the reload animation still follows the ITC gun,
+      and update `docs/compatibility.md` and the CHANGELOG entry.
+- [ ] Realism, compared with real guns (2026-10-22):
+  - Loader types: every real Mk45 loads automatically from its drum (16-20 rounds/min);
+    the Hammer 2 mod. 0 is semi-automatic with primer and lanyard steps a naval gun does
+    not have. Keep the mod. 0 / mod. 1 difference only if it is wanted for gameplay.
+  - Fuze setting: real fire direction gives a time fuze setting (FS) that bursts the shell
+    at the right height (illumination about 600 m above the target, M825 smoke about 100 m,
+    cargo rounds per round type). The SPG app and BCS only give the time of flight, so the
+    crew guesses and usually bursts too late. Add an FS column for time-fuzed rounds
+    (TOF to the burst point, from a burst height per magazine in config).
+  - Delay fuze: `common_fnc_resolveFuzeSetting` sets 0.005 s; real delay fuzes use about
+    0.05 s. Proximity bursts at the fuze's fixed `proxHOB` (9 m, realistic), but
+    `docs/systems/artillery.md` says "the set height".
+  - Russian guns (D-30, 2S1, 2S3, Sochor 2) use 6000 mils in reality; everything here
+    shows NATO 6400. Optional, per battery type or vehicle.
+  - The M230 battery type is labelled "227mm MLRS"; the rockets are 230 mm.
+  - `ITC_Land_CfgFuzes >> ph_fuze` points its `firedEvent` at `ph_fuzeFunc`, which does
+    not exist; nothing uses the fuze class, so delete it.
 
 ## 9. Documentation (after in-game testing, issue #1)
 
@@ -289,6 +315,12 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       pages against the game after in-game testing.
 
 ## 10. Known bugs
+
+- [ ] Deflection has the opposite sign of the US convention ("left add, right subtract":
+      DF = 3200 + gun direction - target direction). `common_fnc_getDeflection` computes
+      3200 - (gun direction - target direction), so a target 200 mils left of the gun shows
+      3000 instead of 3400. Only the readout is wrong, guns are laid by azimuth. Also drop
+      its north-wrap special case for a plain modulo 6400.
 
 - [ ] MLRS calculates a firing solution when no input grid is given; it should refuse (or
       show no solution) until a target grid is entered.
