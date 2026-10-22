@@ -2,7 +2,8 @@
 
 /*
  * Author: ToadBall, Yax
- * Takes two directions in degrees, converts them to mils, and calculates the deflection between them.
+ * Takes two directions in degrees and calculates the deflection between them in mils, with the US
+ * convention: 3200 along the fixed direction, more to the left, less to the right.
  *
  * Arguments:
  * 0: Direction to fixed point <NUMBER>
@@ -19,16 +20,9 @@
 
 params ["_fixed","_deflecting"];
 
-//convert degrees to mills
-_fixed = (_fixed / 360) * 6400;
-_deflecting = (_deflecting / 360) * 6400;
-if ((_fixed < 1) && (_deflecting > 3200)) then {_fixed = 6400};
-
-//calculate deflection using mills
-private _df = 3200 - (_fixed - _deflecting);
-
-// ensure numbers are in range 0 - 6400
-_df = if (_df < 0) then [{_df + 6400}, {_df}];
-_df = if (_df > 6400) then [{_df - 6400}, {_df}];
+// Deflection as on a US panoramic telescope: 3200 when the target lies along the fixed direction,
+// counting up to the left and down to the right ("left add, right subtract")
+private _df = 3200 + (_fixed - _deflecting) / 360 * 6400;
+_df = (_df % 6400 + 6400) % 6400;
 
 [_df,4,0] call CBA_fnc_formatNumber;
