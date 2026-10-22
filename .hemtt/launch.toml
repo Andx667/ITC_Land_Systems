@@ -24,8 +24,7 @@ extends = "default"
 parameters = [
     "-world=empty",
     "-connect=127.0.0.1",
-    "-port=2302",
-    "-window"
+    "-port=2302"
 ]
 
 # RHS compatibility (addons/compat_rhs_*). Overlays, chain them after another profile:
