@@ -19,7 +19,7 @@
     class ACE_SelfActions: ACE_SelfActions { \
         class ITC_Land_SPHammohandler { \
             displayName = CSTRING(SPHammohandler_DisplayName); \
-            condition = "(_target turretUnit [0,1]) == ACE_Player || {isNull (_target turretUnit [0,1]) && {(gunner _target) == ACE_Player}}"; \
+            condition = "((_target turretUnit [0,1]) == ACE_Player || {isNull (_target turretUnit [0,1]) && {(gunner _target) == ACE_Player}})"; \
             statement = "createDialog 'ITC_Land_SPHammohandler'"; \
         }; \
         class ITC_Land_CommanderTablet { \
