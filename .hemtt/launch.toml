@@ -55,3 +55,9 @@ workshop = [
     "497661914", # CUP Units
     "541888371", # CUP Vehicles
 ]
+
+# BWMod compatibility (addons/compat_bwa3): hemtt launch default bwa3
+[bwa3]
+workshop = [
+    "1200127537", # BWMod
+]

@@ -45,6 +45,10 @@ Locality fixes:
 - [ ] CUP compat (`hemtt launch default cup`): BCS solutions for the ITC D-30 and M119 hit for
       every charge (the D-30 AT round gets none); the ITC M270 fires the ITC rockets from the right
       launch points, its tablet and MLRS sight work; a CUP 2B14/M252 gets Mk6 solutions that hit.
+- [ ] BWMod compat (`hemtt launch default bwa3`, without the TTT mod's old ITC PzH 2000): the
+      ITC PzH 2000 loads, fires and reloads through the ammunition handler, its tablet SPG app
+      gives solutions that hit, the gun recoils and shows its muzzle flash; BCS solutions for the
+      ITC MRS120 hit for every charge.
 - [ ] BCS Mk6 battery with the vanilla `8Rnd_82mm_*` rounds (ACE mortar ammunition handling off):
       solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the

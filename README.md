@@ -35,6 +35,7 @@ Discord: <https://discord.gg/ag4v6kxYAa>
 - __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
 - __Gunner sights__ with azimuth, quadrant, firing solution and loader readouts.
 - __RHS compatibility__ (loads only with RHS: AFRF / USAF): ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30, M119A2, 2B14 and M252.
+- __BWMod compatibility__ (loads only with BWMod): ITC versions of the Panzerhaubitze 2000 with ammunition handler and mounted tablet, and of the MRS120 mortar with ITC sight and firing tables.
 - __CUP compatibility__ (loads only with CUP Units / Vehicles): ITC versions of the D-30 and M119 with ITC sights and firing tables, and of the M270 MLRS with ITC rockets, sight and mounted tablet.
 
 ### Air and missile defence
