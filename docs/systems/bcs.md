@@ -11,7 +11,7 @@ The BCS is a fire direction computer: it gives you the firing data for every gun
 | **G155 155mm Howitzer** | M4 Sholef 2 |
 | **G152 152mm Howitzer** | 2S9 Sochor 2 |
 | **NG127 127mm Naval Gun** | Mk45 Hammer 2 |
-| **M230 227mm MLRS** | M5 Seara 2, Zamak MRLi |
+| **M230 230mm MLRS** | M5 Seara 2, Zamak MRLi |
 | **Mk6 82mm Mortar** | Vanilla Mk6 mortar |
 
 ## Workflow
