@@ -64,9 +64,6 @@ The selected solution is sent to the gunner sight as the mission azimuth and qua
 
 The **Vehicle Status** page shows the fuel level and the state of the vehicle's systems.
 
-!!! note "Known limitation"
-    Solutions for low-angle fire at a target close to the shell's highest point (short range, or a target well above the gun) can be off by tens to hundreds of metres. High-angle fire and targets well below the trajectory's peak are accurate to a few metres. Use high angle for such targets until this is fixed.
-
 ## Gunner sight
 
 The gunner sight of the guns shows:

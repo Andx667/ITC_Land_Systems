@@ -3,7 +3,7 @@
 /*
  * Author: ToadBall, Yax, VKing
  * Computes firing solutions for every available charge of a given shell type, from a gun position/elevation/direction to a target position/elevation.
- * Loads the magazine's ballistic table list from its config, then interpolates a solution per charge via calcBtabSolution.
+ * Loads the magazine's ballistic table list from its config, then computes a solution per charge via calcBtabSolution.
  * Compiled table lists and tables are cached in itc_land_ballistics_tableCache after first use.
  *
  * Arguments:

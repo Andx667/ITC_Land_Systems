@@ -112,7 +112,7 @@ Every round-and-charge combination is a one-round magazine. The magazines carry 
 
 | Key | Meaning |
 | --- | --- |
-| `itc_land_btabListFile` | Path to the ballistic table list of the round (one table per charge, low and high angle) |
+| `itc_land_btabListFile` | Path to the ballistic table list of the round (one table per charge, low and high angle). Generate the tables with `addons\ballistics\tables\calcBallistics.sqf` and no air friction: the fire control reads the charge's muzzle velocity and elevation range from them and computes the exact trajectory. A table starting at 45° or more gives high-angle solutions |
 | `itc_land_charge_format` | Format of the charge magazines, for example `"itc_land_g155hex_chg%1"` |
 | `itc_land_maxChargeIndex` | Highest charge |
 | `itc_land_CountInAH` | `1` for the base magazine counted by the ammunition handler, `0` for the charge magazines |

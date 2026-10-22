@@ -25,6 +25,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- Firing solutions: low-angle fire at targets near the top of the trajectory (short range, or targets well above the gun) was off by up to hundreds of metres, and about one in ten reachable low-angle targets got no solution at all. Every gun and mortar now gets the exact solution (all ITC tables are computed without air friction) instead of an interpolation between the table's 100 m height steps.
 - 105 mm: charge 5 HE, smoke and illumination rounds left the barrel at the charge 4 speed (320 m/s) while the fire control computed charge 5 for 400 m/s, so they landed kilometres short.
 - COBRA: impact/engagement/siren timing used the per-machine `time` in some places and `cba_missionTime` in others; everything now uses `cba_missionTime` so clients agree with the host.
 - SAM-35: proximity detonation only spawned on the server, so client-fired missiles disappeared without exploding.
