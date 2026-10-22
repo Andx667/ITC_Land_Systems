@@ -50,7 +50,6 @@ start a fresh empty [Unreleased] section above it. -->
 - The mod logo was missing in the launcher, and packed items could not be unpacked (`itc_land_packableItem` was not defined in `CfgWeapons`).
 - Clipped text: the GLTD and Strider optics' heading and grid readouts, the SPH sight's azimuth and quadrant readouts (they ran into the reticle), the ROVER no-connection hint and the Spike MANUAL label.
 - The CIWS, Rhea, Defender and VLS addons declared the vanilla static turret base without its parent, so the RPT logged `Updating base class` notes against other addons.
-- COBRA: no more `Cannot evaluate 'CM_none'` / `'CM_Missile'` RPT warnings for every placed radar; the vanilla radars set these values as strings.
 - Mk6: the ACE illumination round (`ACE_1Rnd_82mm_Mo_Illum`) was given the wrong parent class (RPT `Updating base class`).
 - Strider: the config gave the unarmed Strider (vanilla and ITC StriderRV) a second turret it doesn't have, and re-parented the HMG Strider's gun turret (RPT `Updating base class`).
 - Tablet vehicle status page: numbered hitpoints (glass, wheels, ...) showed their raw class names. They are now named like in the ACE repair menu ("Glass", "Glass 2").
