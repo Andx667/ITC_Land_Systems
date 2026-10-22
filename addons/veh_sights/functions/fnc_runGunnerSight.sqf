@@ -41,7 +41,10 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     // the display is gone (left the seat/vehicle); its next onLoad starts a new handler
     if (isNull _display) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
 
-    private _viewOk = [_display, _layout get "group", _this select 1, ACE_player call CBA_fnc_vehicleRole, "GUNNER"] call EFUNC(common,sightViewCheck);
+    // The primary gunner seat counts as gunner also where it is the commander's seat too: fullCrew (and so
+    // CBA_fnc_vehicleRole) calls the GTK Boxer RCH 155's only gun seat "commander"
+    private _role = [ACE_player call CBA_fnc_vehicleRole, "GUNNER"] select (gunner vehicle ACE_player == ACE_player);
+    private _viewOk = [_display, _layout get "group", _this select 1, _role, "GUNNER"] call EFUNC(common,sightViewCheck);
     if (!_viewOk) exitWith {};
 
     private _vehicle = vehicle ACE_player;

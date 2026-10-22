@@ -36,7 +36,8 @@ _vehicle setVariable ["ITC_Land_SightEvent", "itc_land_onLoad_RscIGS_SPH", true]
     if (isNull _display) exitWith {[_pfID] call CBA_fnc_removePerFrameHandler};
 
     private _vehicle = [] call EFUNC(common,getCurVehicle);
-    private _role = if (_vehicle in allUnitsUAV) then {(UAVControl _vehicle) # 1} else {ACE_player call CBA_fnc_vehicleRole};
+    // the primary gunner seat counts as gunner also where it is the commander's seat too (see runGunnerSight)
+    private _role = if (_vehicle in allUnitsUAV) then {(UAVControl _vehicle) # 1} else {[ACE_player call CBA_fnc_vehicleRole, "GUNNER"] select (gunner _vehicle == ACE_player)};
     if !([_display, 81001, _pfID, _role, "GUNNER"] call EFUNC(common,sightViewCheck)) exitWith {};
 
     ([_vehicle] call EFUNC(common,getAimAngles)) params ["_azimuth", "_quadrant"];
