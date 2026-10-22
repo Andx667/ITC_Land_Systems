@@ -39,6 +39,7 @@ start a fresh empty [Unreleased] section above it. -->
 - Addons that extend ACE config classes (interaction menus, items, explosives, HuntIR, missile guidance) now list those ACE addons in `requiredAddons`, so the load order is guaranteed.
 - `veh_uav06` no longer claims the vanilla AL-6 classes in its `units[]`.
 - BCS: the vanilla 82 mm mortar rounds had no firing tables (only the ACE single rounds did), so the Mk6 battery type gave no solution for them. The tables now sit on the vanilla rounds, which also covers every other mod's mortar built on `mortar_82mm` and its rounds (e.g. the CUP 2B14, M252, L16A2).
+- Ballistics: the vanilla AMOS tables (`b_155`, 810 m/s, the five `mortar_155mm_AMOS` charges) start at -9° elevation instead of 0° and are labelled with the game's fire mode names.
 - COBRA: sirens near a predicted impact did not sound on high ground. The impact position is ASL but the siren search read it as AGL, so the 500 m trigger radius shrank with terrain height and nothing triggered above 500 m ASL.
 - Spike: the lead on moving targets and the minimum target distance used an ASL target position as AGL, so on high ground the missile over-led its target. The launcher sight also threw a script error every frame while a locked target was off screen.
 - ROVER and Spike camera clocks now show minutes with two digits (14:05 instead of 14:5).
