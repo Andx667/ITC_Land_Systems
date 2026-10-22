@@ -13,6 +13,8 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-22
+
 ### Added
 
 - Stringtables for every addon: vehicle, weapon and magazine names, dialog labels and script-generated UI text can now be translated. The SPH loader status is published as a stringtable key, so every crew member sees it in their own language.
