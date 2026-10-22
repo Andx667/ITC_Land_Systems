@@ -6,8 +6,8 @@ Self-propelled guns, a naval gun and rocket launchers, with firing solutions com
 
 | Vehicle | Classnames | Weapon | Loader |
 | --- | --- | --- | --- |
-| **M4 mod. 0 Sholef 2** | `itc_land_b_SPH_Sholef2`, `itc_land_b_t_SPH_Sholef2` | 155 mm howitzer (G155) | Semi-automatic |
-| **2S9 mod. 0 Sochor 2** | `itc_land_o_sph_sochor2`, `itc_land_o_t_sph_sochor2` | 152 mm howitzer (G152) | Semi-automatic |
+| **M4 mod. 0 Sholef 2** | `itc_land_b_SPH_Sholef2`, `itc_land_b_t_SPH_Sholef2` | 155 mm howitzer (G155) | Automatic |
+| **2S9 mod. 0 Sochor 2** | `itc_land_o_sph_sochor2`, `itc_land_o_t_sph_sochor2` | 152 mm howitzer (G152) | Automatic |
 | **Mk45 mod. 0 Hammer 2** | `itc_land_NGS01_hammer2` | 127 mm naval gun (NG127) | Semi-automatic |
 | **Mk45 mod. 1 Hammer 2** | `itc_land_NGS01_hammer2_mod1` | 127 mm naval gun (NG127) | Automatic |
 | **M5 mod. 0 Seara 2** | `itc_land_b_mlrs_seara2`, `itc_land_b_t_mlrs_seara2` | 230 mm rockets (M230) | — |
@@ -90,7 +90,7 @@ The gunner opens it with **Open Ammo Handling Interface** (self interaction). It
 5. Set the **COUNT**: how many rounds to fire with these settings, 0 for no limit.
 6. **APPLY SETTINGS**, then **LOAD**.
 
-The **STATUS** follows the loading sequence (pulling and ramming the shell, inserting the charge, closing the breech, inserting the primer, attaching the lanyard) until **READY TO FIRE**. After each shot the handler loads the next round until the count is reached or the selected shell runs out. **UNLOAD** removes the loaded round again.
+The **STATUS** follows the loading sequence until **READY TO FIRE**. An automatic loader (Sholef 2, Sochor 2, Hammer 2 mod. 1) pulls and rams the shell, inserts the charge and closes the breech, about 5 s per round. A semi-automatic one (Hammer 2 mod. 0, the ITC versions of the RHS guns) also has the crew insert the primer and attach the lanyard, about 11 to 17 s per round. After each shot the handler loads the next round until the count is reached or the selected shell runs out. **UNLOAD** removes the loaded round again.
 
 The handler state is shared: every crew member sees the same status, and the gunner sight shows it too.
 

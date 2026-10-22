@@ -305,9 +305,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     1600-1605, today placeholders behind `itc_land_IGS_showOrders`) with the sent mission:
     count, round, fuze, guidance, azimuth and quadrant, like a real gun display.
 - [ ] Realism, compared with real guns (2026-10-22):
-  - Loader types: every real Mk45 loads automatically from its drum (16-20 rounds/min);
-    the Hammer 2 mod. 0 is semi-automatic with primer and lanyard steps a naval gun does
-    not have. Keep the mod. 0 / mod. 1 difference only if it is wanted for gameplay.
   - Fuze setting: real fire direction gives a time fuze setting (FS) that bursts the shell
     at the right height (illumination about 600 m above the target, M825 smoke about 100 m,
     cargo rounds per round type). The SPG app and BCS only give the time of flight, so the

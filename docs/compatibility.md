@@ -59,7 +59,7 @@ CUP's own M1129 fires the vanilla ship cannon round, which is a 155 mm shell. Th
 | --- | --- | --- | --- |
 | **ITC Panzerhaubitze 2000** | `itc_land_bwa3_pzh2000` (Fleck), `itc_land_bwa3_pzh2000d` (Tropen) | ITC 155 mm L/52 with German designations: DM121 HE, DM125 smoke, DM106 illumination, M718 AT mines, DM702 GPS and laser guided | PzH2000 - 155mm Howitzer |
 
-The Panzerhaubitze 2000 fires with the same ballistics as the Sholef 2 (155 mm L/52). Like the real gun it loads automatically: about 5 s per round instead of the semi-automatic sequence of the Sholef 2.
+The Panzerhaubitze 2000 fires with the same ballistics as the Sholef 2 (155 mm L/52). Like the real gun it loads automatically, about 5 s per round.
 
 ## Moving from the old compatibility mods
 

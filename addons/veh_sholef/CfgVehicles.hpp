@@ -65,7 +65,7 @@ class CfgVehicles {
         class itc_land {
             tabletInterfaces[] = {"spg"};
             mountedTablet = "itc_land_tablet_spg";
-            loaderType = 1; // semi automatic
+            loaderType = 2; // fully automatic
         };
         class Turrets: Turrets {
             class MainTurret: MainTurret {
