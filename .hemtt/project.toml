@@ -5,12 +5,22 @@ mainprefix = "z"
 
 [version]
 path = "addons/main/script_version.hpp"
-git_hash = 0
+git_hash = 0                # releases carry the plain version (0.1.0), no commit hash
 
+# `hemtt release` and `hemtt publish` (which builds with `hemtt release` first)
+[hemtt.release]
+sign = true                 # sign the PBOs and create the bikey; public releases must be signed
+archive = true              # zip for the GitHub release
+
+# Signing authority: HEMTT's default {prefix}_{version}, e.g. itc_land_0.1.0, so every release has its own bikey
+
+# `hemtt publish` uploads to the Workshop item whose ID is in meta.cpp (publishedid = 0: it offers to create
+# the item and writes the ID there; commit it). Title, tags, visibility and preview image are set on Steam.
 [hemtt.publish]
-description = "workshop/steam_description.md"
-changelog = "CHANGELOG.md"
+description = "workshop/steam_description.md"   # replaces the Workshop description on every publish
+changelog = "CHANGELOG.md"                       # change note: the section whose heading matches the version
 
+# Copied into the build next to the addons (mod.cpp and meta.cpp are included by default anyway)
 [files]
 include = [
     "mod.cpp",
