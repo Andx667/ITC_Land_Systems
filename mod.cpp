@@ -1,4 +1,4 @@
-name            = "ITC Land Systems v0.0.0 [BETA]";    // Name of your mod
+name            = "ITC Land Systems [BETA]";            // Name of your mod
 author          = "ITC Addons Team";            // Affects Arma 3 Launcher, when the mod are loaded as local
 logo            = "itc-combo.paa";              // Logo displayed in the main menu
 logoOver        = "itc-combo.paa";              // When the mouse is over, in the main menu
@@ -7,7 +7,7 @@ tooltipOwned    = "ITC Land Systems";           // Tool tip displayed when the m
 picture         = "itc-combo.paa";              // Picture displayed from the expansions menu. Optimal size is 2048x1024
 actionName      = "GitHub";
 action          = "https://github.com/Andx667/ITC_Land_Systems";    // Website URL, that can be accessed from the expansions menu
-overview        = "Artillery with real fire control, air and missile defence, counter-battery radar, active protection, guided munitions and UAVs for Arma 3's land forces.";   // Supports structured text
+overview        = "The artillery fight: observers and UAVs, fire control, howitzers, rocket and naval artillery, and counter-artillery against incoming fire (counter-battery radar, CIWS, SAM sites).";   // Supports structured text
 hideName        = 0;                            // Hide the extension name
 hidePicture     = 0;                            // Hide the extension menu
 logoSmall       = "itc-combo.paa";              // Display in creative lists, next to the entities added by the mod
