@@ -16,9 +16,17 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 
+// Base controls, defined in itc_land_common (CfgUI.hpp)
 class ITC_LAND_RscFrame;
+class ITC_LAND_RscText;
+class ITC_LAND_RscEdit;
+class ITC_LAND_RscStructuredText;
+class ITC_LAND_RscPicture;
+class ITC_LAND_Workspace;
+class ITC_LAND_RscListBox;
+class ITC_LAND_RscComboBox;
+class ITC_LAND_RscButton;
 
-#include "UIConfig\ControlBaseClasses.hpp"
 #include "UIConfig\tablet.hpp"
 
 #include "CfgVehicles.hpp"

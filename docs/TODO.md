@@ -23,8 +23,7 @@ Secondary, maintenance only: APS, Spike, remote frag grenade, smoke dispenser.
    time fuze settings and the other realism items (8).
 4. Observers and the radar to fire direction: target handoff from observers and drones,
    COBRA detections as counter-fire missions (11).
-5. Decide on the dormant content (5); fix the duplicate UI base classes (5), it needs the
-   in-game check anyway.
+5. Decide on the dormant content (5).
 6. Tests (7).
 7. Translations (1), compatibility (8), then documentation (9).
 8. Secondary systems: fixes only; the APS framework (8) comes last.
@@ -94,8 +93,8 @@ Settings and dependencies:
 - [ ] CBA settings can be forced by the server; COBRA range/engagement window and APS/CIWS
       toggles take effect.
 - [ ] SPH loader status text shows correctly for the other crew members.
-- [ ] Record the startup RPT's `Updating base class` lines for `ITC_LAND_Rsc*` in issue #3;
-      the duplicate UI classes fix (5) needs them.
+- [ ] UI base classes now defined once (in `common`): the RPT has no `Updating base class`
+      lines for `ITC_LAND_Rsc*`, and the tablet, SPH loader and VLS dialogs look as before.
 
 ## 1. Localization
 
@@ -229,14 +228,6 @@ tracker, which has to follow its shell every frame.
       `"OPEN"` placeholder page; commented-out mounted-tablet block in
       `tablet/CfgVehicles.hpp` and the unused `action_tablet_open` macro in
       `rover/CfgVehicles.hpp`; packable files `fnc_Pack`/`fnc_unPack` vs `PREP(pack/unpack)`.
-- [ ] `common/CfgUI.hpp` and `tablet/UIConfig/ControlBaseClasses.hpp` both define the
-      root classes `ITC_LAND_RscText`, `RscEdit`, `RscStructuredText`, `RscPicture`,
-      `ScrollBar`, `RscListBox`, `RscComboBox`, `RscButton`; the tablet versions have no
-      parent, so the engine merges both and drops the `RscText`/... base classes. The
-      tablet file is marked "VESTIGIAL: to be removed following retesting" by its author.
-      Pick one definition (or rename the tablet ones) and check the tablet, VLS and SPH
-      dialogs in game. `sphammohandler` and `vls` use these classes, so they depend on
-      whichever definition loads last.
 - [ ] Tablet and dialog layout doesn't scale consistently: the tablet frame image is sized
       from the screen width only while the content uses width and height, and text sizes
       use a fixed `GUI_GRID_H` while boxes scale with the screen. Known; long-term rework.

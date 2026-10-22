@@ -66,6 +66,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
+- The base dialog controls (`ITC_LAND_RscText`, `RscButton`, ...) are defined once, in `itc_land_common`. They were defined twice, and the tablet's versions silently replaced the common ones (RPT `Updating base class`), so the SPH loader and VLS dialogs depended on the tablet loading last. The controls are the ones the game used before, nothing looks different.
 - Sholef 2 and Sochor 2 load automatically (about 5 s per round) instead of semi-automatically (11 to 17 s); the vanilla guns they are built on reload in 7 s. The Hammer 2 mod. 0 and the ITC versions of the RHS guns stay semi-automatic, the Hammer 2 mod. 1 automatic.
 - Ballistic tables are compiled once and cached instead of on every firing solution (BCS computed them per gun).
 - Tablet app and page scripts are compiled once and cached instead of on every app/page switch (recompiled each time when `DISABLE_COMPILE_CACHE` is set).
