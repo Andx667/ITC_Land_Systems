@@ -51,7 +51,7 @@ private _ammoToLoad = ((_sphloadersettings # 0) # 1);
 private _roundCount = ((_sphloadersettings # 0) # 3);
 
 if ((_ammoToLoad in _gunMags) && {(_roundCount < 1) || ((_roundCount >= 1) && (_roundsFired < _roundCount))}) then {
-    [] call FUNC(loadGun);
+    [_gun] call FUNC(loadGun);
 } else {
     if (_ammoToLoad in _gunMags) then {
         _gun setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];

@@ -13,19 +13,22 @@
  * and stowing the round.
  *
  * Arguments:
- * None
+ * 0: Vehicle <OBJECT> (default: the player's current vehicle)
  *
  * Return Value:
  * None
  *
  * Example:
- * call itc_land_sphammohandler_fnc_loadGun
+ * [_vehicle] call itc_land_sphammohandler_fnc_loadGun
  *
  * Public: No
  */
 
-//private _vehicle = vehicle ace_player;
-private _vehicle = [] call EFUNC(common,getCurVehicle);
+params [["_vehicle", objNull, [objNull]]];
+// The fired EH runs where the gunner is local, which is not the player's machine with an AI gunner
+if (isNull _vehicle) then {
+    _vehicle = [] call EFUNC(common,getCurVehicle);
+};
 private _status = (_vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]]) # 0;
 
 private _loaderType = getNumber (configOf _vehicle >> "itc_land" >> "loaderType");
