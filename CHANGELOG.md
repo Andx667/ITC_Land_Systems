@@ -21,6 +21,8 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
+- BCS fire data over the datalink: every ITC cannon with an ITC gunner sight joins the datalink. Battery Setup lists those of the active battery type on your side (**Link gun**, nearest first) and **LINK** adds one as the next gun; a linked gun's position, elevation and direction come from the vehicle before each calculation, and it only gets the solutions its turret can lay. On the solution page **SEND ADJ** (the selected gun) and **SEND FFE** (all guns) put each gun's firing line into its gunner sight and SPG app, with a beep and a hint for the crew; the SPG app shows **FDC FM0001 FFE** and the round. A local CALC SLN replaces the FDC's data and new FDC data replaces a local solution.
+- BCS fire orders: the engagement page has **Fuze** and **Count** (rounds per gun), sent with the firing data. The gun's sight shows them in the **FCI ORDERS** panel, which appears by itself (mission, ADJ/FFE, count, round and charge, fuze with the time of flight for a time fuze, GPS target grid, azimuth/quadrant), and **FDC ORDERS** in the ammunition handler fills in the round, charge, fuze, count and GPS target for the crew to apply and load. The first shot of a gun's data starts SHOT and the splash alert on the FDC's tablet, the FDC's solution page shows each linked gun's loader status, and END MISSION clears the guns' orders.
 - GTK Boxer compatibility (`compat_gtk_boxer`), loaded only with the GTK Boxer: ITC versions of the Boxer RCH 155 (`itc_land_gtk_boxer_rch155`, `_sand`) with the Sholef 2's 155 mm L/52 gun and rounds, automatic loader, ammunition handler and mounted tablet for the commander (the RCH 155's gun seat), and the ITC sight readouts over the Boxer's optics. `.hemtt/launch.toml` has a `gtk` profile.
 
 ### Changed
@@ -31,6 +33,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- BCS solution page: each gun's line was taken by the battery solution's index, so a gun with fewer solutions (out of range for a charge) showed the wrong charge or a script error. It is now the gun's solution for the same charge and angle, or **NO SLN**.
 - SPG and MLRS tablet apps: solutions the gun cannot lay are no longer offered. The firing tables reach steeper than some guns (155 mm high angle to 80°, PzH 2000 72°, Boxer RCH 155 65°, Hammer 2 70°, Seara 2, Zamak and CUP M270 66°); the apps now drop solutions outside the gun turret's elevation limits.
 - BCS: without opening Bty Setup first, the engagement page offered no ammunition, and the solution page then threw script errors. The ammunition now comes straight from the active battery type. The new fire mission and engagement pages also stay put and say what is missing when the target has no valid position (no or a malformed grid, Shift or Polar without a known point, QuickLay without guns) or no ammunition is selected; missions saved that way show NO SOLUTIONS.
 - Gunner sight of the Panzerhaubitze 2000 and Boxer RCH 155: the loader status line was half height and clipped under the AUTOLOADER SETTINGS title.

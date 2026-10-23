@@ -60,6 +60,16 @@ The **Self Propelled Gun** app of the [mounted SPG tablet](../usage.md#tablets) 
 
 The selected solution is sent to the gunner sight as the mission azimuth and quadrant.
 
+### Fire data from the FDC
+
+The guns are on the datalink, so a fire direction centre can link them in the [BCS](bcs.md#1-battery-setup) and send their firing data (**SEND ADJ** / **SEND FFE**). When it arrives, the crew hears a beep and gets a hint (`FDC: fire data FM0001 FFE`), the data becomes the selected solution in the gunner sight (mission azimuth and quadrant), and the SPG app shows where it came from (**FDC FM0001 FFE** and the round) above it. The newest data wins: new data from the FDC replaces your own solution, and **CALC SLN** replaces the FDC's.
+
+The data comes with fire orders:
+
+- The gunner sight's **FCI ORDERS** panel appears by itself and shows the mission and ADJ/FFE, the **COUNT** of rounds, the round and charge to **LOAD**, the **FUZE** (with the time of flight for a time fuze), the target grid for a GPS round, and the azimuth and quadrant. It goes away when the FDC ends the mission or you compute your own solution.
+- **FDC ORDERS** in the [ammunition handler](#ammunition-handler) fills in the round, charge, fuze, count and GPS target. Check them, set a time fuze yourself, then **APPLY** and **LOAD** as usual.
+- The first shot after the data arrived is reported to the FDC, which starts its SHOT and SPLASH countdown. While the FDC's solution page is open, it sees your loader status.
+
 **DEFLECTION** follows the US convention: 3200 mils when the target lies in the direction the gun is set to (the vehicle's direction in this app, the gun's direction in the [BCS](bcs.md) battery setup), more to the left and less to the right ("left add, right subtract"). The gun is laid by azimuth, so it is only for reference.
 
 The **Vehicle Status** page shows the fuel level and the state of the vehicle's systems.

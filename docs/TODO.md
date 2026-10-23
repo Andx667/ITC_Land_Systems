@@ -20,8 +20,8 @@ remote frag grenade (ACE has placeable charges) and the unreachable smoke dispen
 1. In-game verification: issue #3 (full checklist; the list below is the short version),
    primary systems first.
 2. In-game check of the exact firing solutions (in-game verification above).
-3. Fire direction to the guns: the battery fire solution distribution (8, over the datalink),
-   time fuze settings and the other realism items (8).
+3. Fire direction to the guns: test the fire data distribution with fire orders and shot
+   reports (8, all four phases done), then time fuze settings and the other realism items (8).
 4. Observers and the radar to fire direction: target handoff from observers and drones,
    COBRA detections as counter-fire missions (11).
 5. Translations (1), compatibility (8), then documentation (9).
@@ -67,6 +67,19 @@ Locality fixes:
       solutions appear and hit, labelled with the mortar's mode names.
 - [ ] CIWS decoys stay invisible on the other machines (`setObjectTexture` is local; the
       config's blank textures have to cover the rest, else use `setObjectTextureGlobal`).
+- [ ] BCS fire data over the datalink: Battery Setup's Link gun lists the Sholef 2s (G155),
+      LINK adds them with the right grid/elevation/direction and the ID in the gun list; moving
+      a linked gun updates its data at the next calculation; SEND FFE puts each gun's MA/MQ in
+      its sight (beep and hint for the crew, "FDC FM0001 FFE" in the SPG app) and the rounds
+      hit; SEND ADJ only reaches the selected gun; CALC SLN on the gun replaces the FDC data; a
+      Hammer 2 operator gets the hint; the D-30/M119 basic sight shows the sent MA/MQ.
+      Multiplayer: FDC and gun crews on different machines, and a crew joining mid-mission.
+- [ ] BCS fire orders: Fuze and Count on the engagement page reach the gun; the FCI ORDERS
+      panel appears on the Sholef 2 and PzH 2000 with the right round, charge, fuze and count
+      (TOF for a time fuze, grid for a GPS round) and goes away at END MISSION or CALC SLN; FDC
+      ORDERS in the ammunition handler fills in round, charge, fuze, count and GPS target, and
+      the loaded rounds hit; the first shot starts SHOT/SPLASH on the FDC tablet (later shots
+      and the other guns do not restart it); the solution page shows each gun's loader status.
 - [ ] Firing solutions (exact vacuum solution instead of the table lookup): SPG app and BCS
       rounds hit with low and high angle, also near a charge's maximum range and at targets
       well above the gun; the first solution per shell type may hitch once while its tables
@@ -165,10 +178,9 @@ validation errors (never shown to players) stay English. Acronyms and product na
 - [ ] VLS `onChar` broadcasts the grid/elevation/name to every machine on each keystroke;
       launch and save read the fields themselves, so store locally or drop it.
 
-Before the battery fire solution distribution (section 8) makes the datalink live:
-
-- [ ] Respawn leaves the registration on the old body.
-- [ ] Replace the CBA hashes in the datalink registry with native hashmaps.
+- [ ] Datalink: a respawned FDC player gets a new ID when the BCS opens again, but the old
+      body's node stays in the registry until the body is deleted. Harmless while only guns
+      receive; matters once players receive (target handoff, phase 4 feedback).
 
 ## 4. Runtime performance
 
@@ -188,7 +200,6 @@ exists but cannot be reached in game, kept to be finished later.
   - 105 mm and 122 mm howitzers: framework only (see below)
   - tablet: SADL app, handheld MLRS tablet (no action)
   - `guidance/igm15x.sqf` (dual GPS/laser guidance, never registered)
-  - the datalink system (see 3)
 - [ ] 105 mm / 122 mm framework for other mods (ITC adds no vehicle for them). Missing so
       far:
   - `veh_weapons/CfgMagazines_105mm.hpp` is never included in `CfgMagazines.hpp`, so
@@ -284,45 +295,40 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
     breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
     BWMod (`compat_bwa3`).
-- [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, presses
-      SEND, and every gun of the battery gets its own firing data in the gunner sight, like a real
-      fire direction system sending to the gun display. Today the BCS only knows guns as hand-typed
-      grid/elevation/direction and the crews get their data by voice; only the SPG app's local
-      solution reaches a sight (`itc_land_tablet_fcs_solutions`/`_index` on the vehicle, read by
-      `common_fnc_getFireSolution` for MA/MQ and the alignment guide). The BCS already computes
-      each gun's line in that format, so a sent line needs no change in the sights, the alignment
-      guide or the SPG app; the towed guns' basic sight reads it too.
-  - Phase 1, link guns: Battery Setup scans the map for ITC-enabled guns of the FDC's side (a
-    gunner sight or mounted tablet from ITC, and a battery type for their weapon) and offers them
-    in a list; a picked gun is linked and its position, elevation and direction come from the
-    vehicle, refreshed before each calculation. Hand entry stays for guns without ITC (other
-    mods' guns, mortars). Fix on the way: the solution page reads each gun's line by the
-    battery's solution index, so a gun with fewer solutions shows nothing or the wrong charge;
-    match by charge and angle (low/high) instead and show NO SLN for a gun without one.
-  - Transport over the datalink (addon `datalink`, dormant so far): every ITC gun connects at
-    init and gets an ID; the battery is a datalink group, each linked gun a node, the FDC
-    transmits to the gun's ID (or the group, "00" node, for FFE to all). The gun's handler, on
-    the machine that connected it, writes the received line and orders onto the vehicle as
-    public variables. This gives the datalink its first live caller, so the section 3 items
-    (respawn keeps the registration on the old body, CBA hashes to native hashmaps) come first.
-  - Phase 2, SEND: a SEND button on the solution page transmits the matched line per gun with
-    the mission number; ADJ goes to the adjusting guns picked on the engagement page, FFE to the
-    FFE guns, and an adjustment resends. The newest data wins over a local SPG app solution; the
-    SPG app and the sight show the source ("FDC FM0001").
-  - Phase 3, fire orders at the gun: the IGS sight's FCI ORDERS panel (Sholef 2, Sochor 2,
-    Hammer 2; controls 1600-1605, placeholders behind `itc_land_IGS_showOrders` today) shows
-    mission, count, round, charge, fuze and azimuth/quadrant and appears by itself when orders
-    arrive; the shared PzH 2000/RCH 155/RHS sight (`ITC_Land_RscAltGunnerSightSPH`) has the same
-    panel (controls 82030-82037), both filled by `veh_sights_fnc_runGunnerSight`. The
-    ammunition handler gets "Apply FDC orders", which only pre-fills round, charge, fuze and
-    count: the crew still applies, loads and lays.
-  - Phase 4, feedback (optional): each gun's loader status (already public on the vehicle) back
-    to the FDC's gun list, and the first shot of a sent mission sets SHOT and the splash warning.
+- [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, sends
+      it, and every gun of the battery gets its own firing data in the gunner sight, like a real
+      fire direction system sending to the gun display.
+  - Done (2026-10-23, phases 1 and 2): every ITC cannon with an ITC gunner sight connects to the
+    datalink at init on the server (`bcs_fnc_gunInit`, ID public as `itc_land_datalink_id`);
+    Battery Setup links them (**Link gun** / LINK, refreshed from the vehicle before each
+    calculation, elevation-filtered per gun); the solution page matches each gun's line by
+    charge and angle (NO SLN otherwise) and SEND ADJ (the gun selected in the list) / SEND FFE
+    (all guns) transmit it to each gun's ID. The server-side handler (`bcs_fnc_onFireData`) makes
+    it the gun's selected solution (`itc_land_tablet_fcs_solutions`/`_index`), stores the source
+    in `itc_land_bcs_fireData` and alerts the crew; the SPG app shows "FDC FM0001 FFE" and
+    redraws live. Changed from the plan: ADJ goes to the gun selected on the solution page, not
+    to guns picked on the engagement page (which has no gun selection); each gun is sent to its
+    own ID, not to a group broadcast.
+  - Done (2026-10-23, phases 3 and 4): the engagement page has Fuze and Count, sent with the
+    line (fire data = mission, phase, line, magazine, count, fuze mode, target position; stored
+    on the gun as `itc_land_bcs_fireData` with its receive time). The IGS and overlay sights'
+    FCI ORDERS panel appears with orders (`veh_sights_fnc_getFireOrdersText`; GPS rounds show the
+    target grid, a time fuze the time of flight); the ammunition handler's FDC ORDERS button
+    (`sphammohandler_fnc_applyFdcOrders`) pre-fills round, charge, fuze, count and GPS target.
+    Feedback: every machine adds a Fired handler to the ITC guns, and where the gun is local the
+    first shot of each fire data reports "fdc"/"shot" to the FDC's ID, which starts SHOT and
+    the splash alert there (`tablet_fnc_bcsShot`, shared with the SHOT button); the solution
+    page shows each linked gun's loader status; END MISSION sends "fdc"/"endMission", which
+    clears the gun's orders. Changed from the plan: the loader status is in the solution page's
+    gun list, not in Battery Setup's.
+  - Open: the fuze time of a time fuze is left to the crew until the BCS computes fuze settings
+    (realism item below); laser codes are not sent (they come from the observer); the towed
+    guns' basic sight (D-30, M119, M1129) has no orders panel and no ammunition handler, so they
+    get the line (MA/MQ) only.
   - Later: the MLRS (different solution format, missile app).
-  - Docs: `docs/systems/bcs.md` (describes the voice relay today), usage and the gun pages.
-  - Test (singleplayer for phases 1-3): a test range station with two Sholef 2 and a D-30; set up
-    the battery on the FDC tablet, send, switch to the gunner seat. Then multiplayer: FDC and gun
-    crews on different machines, and a player joining mid-mission.
+  - Test: a test range station with two Sholef 2 and a D-30; set up the battery on the FDC
+    tablet, send, switch to the gunner seat. Then multiplayer: FDC and gun crews on different
+    machines, and a player joining mid-mission.
 - [ ] Realism, compared with real guns (2026-10-22):
   - Fuze setting: real fire direction gives a time fuze setting (FS) that bursts the shell
     at the right height (illumination about 600 m above the target, M825 smoke about 100 m,
@@ -348,8 +354,8 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 - [ ] Solutions beyond the gun's elevation limit in the BCS: the tables can reach steeper than some
       guns (155 mm high angle to 80°, PzH 2000 72°, RCH 155 65°, Hammer 2 70°, the MLRS 66°). The
       SPG and MLRS apps drop them (`common_fnc_filterSolutionsByElevation`, turret minElev/maxElev);
-      the BCS knows no vehicle per gun yet. With linked guns (section 8, phase 1) it can filter
-      per gun too.
+      the BCS filters linked guns per gun, but knows no vehicle for hand-entered guns, so those
+      can still get them.
 - [ ] Firing solutions use the gun's `getPosASL` as the muzzle height (a few metres low);
       use the muzzle position instead (`calcShellTypeSolutions` callers: SPG/MLRS apps, BCS).
 
