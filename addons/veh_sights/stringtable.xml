@@ -61,11 +61,29 @@
         <Key ID="STR_itc_land_veh_sights_OGrid_Text">
             <English>OWN</English>
         </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersCount">
+            <English>COUNT: %1 ROUNDS</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersFuzeMode">
+            <English>FUZE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersFuzeTime">
+            <English>FUZE: %1 TOF %2</English>
+        </Key>
         <Key ID="STR_itc_land_veh_sights_OrdersFuze_Text">
             <English>FUZE: POINT DETONATE</English>
         </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersGuidanceGps">
+            <English>GPS: %1 ALT %2</English>
+        </Key>
         <Key ID="STR_itc_land_veh_sights_OrdersGuided_Text">
             <English>GUIDED: -- N/A --</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersLoad">
+            <English>LOAD: %1 CHG %2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_OrdersTitle">
+            <English>FCI ORDERS %1 %2</English>
         </Key>
         <Key ID="STR_itc_land_veh_sights_Orders_Text">
             <English>FCI ORDERS</English>

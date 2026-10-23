@@ -5,7 +5,7 @@
  * Starts the RscIGS_SPH integrated gunnery sight HUD (works for both manned turrets and
  * UAV-controlled gunner positions). It shows the same information as the overlay sight of other
  * mods' guns (RscAltGunnerSightSPH, see runGunnerSight): current and mission azimuth and quadrant,
- * the autoloader panel and the FCI orders panel (placeholder). On top it has the alignment guide:
+ * the autoloader panel and the FCI orders panel (the FDC's fire orders). On top it has the alignment guide:
  * azimuth and quadrant marks on the crosshair within 100 mils of the selected solution, arrows
  * beyond, toggled by the itc_land_IGS_showAlignmentGuides global.
  *

@@ -9,8 +9,9 @@
  * handler removed once the player leaves the gunner seat (or the UAV gunner seat).
  * The artillery sights (IGS and the overlay for other mods' guns) use the same layout keys, so
  * they show the same information; only their look and the IGS alignment guide ("onFrame") differ.
- * The loader and orders panels are toggled by the itc_land_IGS_showAutoloader (default on)
- * and itc_land_IGS_showOrders (default off) globals.
+ * The loader panel is toggled by the itc_land_IGS_showAutoloader global (default on). The orders
+ * panel shows the FDC's fire orders while the vehicle has them (getFireOrdersText), and always
+ * with the itc_land_IGS_showOrders global (default off).
  *
  * Arguments:
  * 0: Sight name, e.g. "RscGunnerSightSPH" <STRING>
@@ -25,7 +26,7 @@
  *    "load", "fuze", "guidance": IDCs of the loader readout lines (optional) <NUMBER>
  *    "loaderPanel": IDCs of the loader panel, shown with itc_land_IGS_showAutoloader (optional) <ARRAY>
  *    "orders": IDCs of the orders title, count, load, fuze, guidance and AZ/QD lines (optional) <ARRAY>
- *    "ordersPanel": IDCs of the orders panel, shown with itc_land_IGS_showOrders (default: "orders") <ARRAY>
+ *    "ordersPanel": IDCs of the orders panel, shown with fire orders or itc_land_IGS_showOrders (default: "orders") <ARRAY>
  *    "onFrame": code run each frame after the texts, receives [display, vehicle, azimuth, quadrant] (optional) <CODE>
  *
  * Return Value:
@@ -95,19 +96,18 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     };
 
     if ("orders" in _layout) then {
+        // shown while the FDC's fire orders are there, or always with itc_land_IGS_showOrders (placeholders without orders)
         if (isNil "itc_land_IGS_showOrders") then {itc_land_IGS_showOrders = false};
-        if ([_layout getOrDefault ["ordersPanel", _layout get "orders"], itc_land_IGS_showOrders] call _showPanel) then {
-            // fire orders are not implemented yet, so the panel only shows placeholders
-            {
-                (_display displayCtrl ((_layout get "orders") select _forEachIndex)) ctrlSetText _x;
-            } forEach [
-                LLSTRING(FciOrders),
-                LLSTRING(CountNotAvailable),
-                LLSTRING(LoadNotAvailable),
-                LLSTRING(FuzeNotAvailable),
-                LLSTRING(GuidanceNotAvailable),
-                "AZ/QD: -- N/A --"
-            ];
+        private _fireData = _vehicle getVariable ["itc_land_bcs_fireData", []];
+        if ([_layout getOrDefault ["ordersPanel", _layout get "orders"], itc_land_IGS_showOrders || {_fireData isNotEqualTo []}] call _showPanel) then {
+            // the lines only change with new orders
+            private _shown = _display getVariable [QGVAR(ordersShown), [nil]];
+            if !(_shown isEqualTo [_vehicle, _fireData]) then {
+                _display setVariable [QGVAR(ordersShown), [_vehicle, _fireData]];
+                {
+                    (_display displayCtrl ((_layout get "orders") select _forEachIndex)) ctrlSetText _x;
+                } forEach ([_vehicle] call FUNC(getFireOrdersText));
+            };
         };
     };
 
