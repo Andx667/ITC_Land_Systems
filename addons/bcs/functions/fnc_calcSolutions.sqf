@@ -10,7 +10,8 @@
  * EFUNC(ballistics,calcShellTypeSolutions).
  *
  * Arguments:
- * 0: Guns in the battery <ARRAY> of [gun number <NUMBER>, position string <STRING>, position <ARRAY> (Position ASL), elevation <NUMBER>, direction <NUMBER>]
+ * 0: Guns in the battery <ARRAY> of [gun number <STRING>, position string <STRING>, position <ARRAY> (Position ASL), elevation <NUMBER>, direction (degrees) <NUMBER>, battery name <STRING>, linked vehicle <OBJECT> (optional)];
+ *    a linked gun only gets the solutions its turret can lay
  * 1: Shell type <STRING> (CfgAmmo/CfgMagazines classname)
  * 2: Fire-mission target position <ARRAY> (Position ASL)
  * 3: Engagement settings <ARRAY> of [sheaf type <NUMBER> (0: Parallel, 1: Converged, 2: Linear, 3: Open, 4: Special), sheaf quick flag <NUMBER>/<BOOLEAN>, sheaf direction <NUMBER>, sheaf size <NUMBER>, shell type index <NUMBER>, magazine <STRING>]
@@ -72,9 +73,12 @@ switch (_sheafType) do { //0: Parralel, 1: Converged, 2: Linear, 3: Open, 4: Spe
 
 private _gunSolutions = [];
 {
-    _x params ["_num", "_posStr", "_pos", "_elev", "_dir"];
+    _x params ["_num", "_posStr", "_pos", "_elev", "_dir", "", ["_vehicle", objNull]];
     private _gunSolution = [_shellType, _pos, _pos # 2, _dir, (_gunTargets # _forEachIndex), (_gunTargets # _forEachIndex) # 2] call EFUNC(ballistics,calcShellTypeSolutions);
     _gunSolution apply {_x set [4, (_x # 4) + _magazineTimeModifier]};
+    if (!isNull _vehicle) then {
+        _gunSolution = [_vehicle, _gunSolution] call EFUNC(common,filterSolutionsByElevation);
+    };
     _gunSolutions pushBack [_num, _gunSolution];
 }forEach _guns;
 

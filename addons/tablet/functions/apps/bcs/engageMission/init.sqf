@@ -33,3 +33,7 @@ private _shellNames = _shellTypes apply {((configFile >> "CfgMagazines" >> _x >>
 [7101,["Parallel","Converged","Linear","Open","Special"],_sheafTypeIndex] call FUNC(fillComboBox);
 
 [7401,["On","Off"],_quick] call FUNC(fillComboBox);
+
+// fire orders: the selected round's fuze modes and the round count
+[7102, _shellTypes param [_shellTypeIndex, ""], _fuzeMode] call FUNC(bcsFillFuzes);
+ctrlSetText [7404, str _roundCount];

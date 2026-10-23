@@ -37,6 +37,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_BatterySetupButton">
             <English>Bty Setup</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_DatalinkNotConnected">
+            <English>Datalink not connected yet. Try again in a moment.</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_Direction">
             <English>Direction</English>
         </Key>
@@ -55,6 +58,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_Grid">
             <English>Grid</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_GunLost">
+            <English>LOST</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_InvalidSplashTime">
             <English>Alert To Splash: enter the seconds before impact, more than 0. Nothing was saved.</English>
         </Key>
@@ -70,8 +76,20 @@
         <Key ID="STR_itc_land_tablet_Bcs_NoAmmoSelected">
             <English>Select the ammunition for the fire mission.</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NoGunsToLink">
+            <English>No ITC guns of this battery type to link</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NoSolutionFor">
+            <English>No solution: %1</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_NoSolutions">
             <English>NO SOLUTIONS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_NotLinked">
+            <English>Not linked: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_SentTo">
+            <English>%1 %2 sent to guns: %3</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_Settings">
             <English>Battery Control System Settings</English>
@@ -81,6 +99,9 @@
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_Shot">
             <English>SHOT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_ShotReported">
+            <English>%1: SHOT reported by the guns, TTI %2 s</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_SolutionOf">
             <English>SOLUTION %1 OUT OF %2</English>
@@ -135,6 +156,9 @@
         </Key>
         <Key ID="STR_itc_land_tablet_Fcs_Deflection">
             <English>DEFLECTION: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_FromFdc">
+            <English>FDC %1 %2: %3</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Fcs_Header">
             <English>FIRING COMMAND INTERFACE</English>
@@ -280,6 +304,15 @@
         <Key ID="STR_itc_land_tablet_btysetup_gun_type_label_Text">
             <English>Gun Type:</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_link_Tooltip">
+            <English>ITC guns of the active battery type on the datalink, nearest first. LINK adds the selected one as the next gun; its position, elevation and direction come from the vehicle before each calculation, and SEND ADJ / SEND FFE reach its gunner sight.</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_link_button_Text">
+            <English>LINK</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_btysetup_link_label_Text">
+            <English>Link gun:</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_btysetup_save_button_Text">
             <English>SAVE BTY TYPE</English>
         </Key>
@@ -300,6 +333,18 @@
         </Key>
         <Key ID="STR_itc_land_tablet_engage_ammoType_text_Text">
             <English>Ammo Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engage_count_Tooltip">
+            <English>Rounds per gun, sent to the linked guns with their fire orders</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engage_count_text_Text">
+            <English>Count:</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engage_fuze_Tooltip">
+            <English>Fuze of the round, sent to the linked guns with their fire orders</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_engage_fuze_text_Text">
+            <English>Fuze:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_engagement_direction_Tooltip">
             <English>Special sheaf with Quick Sheaf off: the direction in mils the guns spread at right angles to</English>
@@ -501,6 +546,18 @@
         </Key>
         <Key ID="STR_itc_land_tablet_solution_ordinate_label_Text">
             <English>MAXIMUM ORDINATE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_send_adj_Text">
+            <English>SEND ADJ</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_send_adj_Tooltip">
+            <English>Send the firing data of the gun selected in the list (the first gun if none is) to its gunner sight, to adjust fire</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_send_ffe_Text">
+            <English>SEND FFE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_solution_send_ffe_Tooltip">
+            <English>Send every linked gun its firing data, for fire for effect</English>
         </Key>
         <Key ID="STR_itc_land_tablet_solution_shot_Text">
             <English>SHOT</English>

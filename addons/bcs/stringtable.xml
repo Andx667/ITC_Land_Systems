@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="bcs">
+        <Key ID="STR_itc_land_bcs_FireDataReceived">
+            <English>FDC: fire data %1 %2</English>
+        </Key>
+    </Package>
+</Project>

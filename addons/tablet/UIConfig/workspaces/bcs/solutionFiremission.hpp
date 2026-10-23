@@ -62,17 +62,27 @@ class page_bcs_firemission_solution:ITC_LAND_Workspace {
             h = "0.044 * safezoneH";
             action = "[""adjust""] call itc_land_tablet_fnc_pageInteract";
         };
-        /*
-        class itc_land_solution_datalink: ITC_LAND_RscButton {
-            idc = 8603;
-            text = "SEND ORDERS"; //--- ToDo: Localize;
-            x = 0.649531 * safezoneW + safezoneX;
-            y = 0.467 * safezoneH + safezoneY;
-            w = 0.061875 * safezoneW;
-            h = 0.044 * safezoneH;
-            colorText[] = {0,0,0,0.5};
+        // send the firing data over the datalink to the linked guns' sights
+        class itc_land_solution_send_adj: ITC_LAND_RscButton {
+            idc = 8605;
+            tooltip = CSTRING(solution_send_adj_Tooltip);
+            text = CSTRING(solution_send_adj_Text);
+            x = "0.649531 * safezoneW + safezoneX";
+            y = "0.467 * safezoneH + safezoneY";
+            w = "0.061875 * safezoneW";
+            h = "0.044 * safezoneH";
+            action = "[""sendadj""] call itc_land_tablet_fnc_pageInteract";
         };
-    */
+        class itc_land_solution_send_ffe: ITC_LAND_RscButton {
+            idc = 8606;
+            tooltip = CSTRING(solution_send_ffe_Tooltip);
+            text = CSTRING(solution_send_ffe_Text);
+            x = "0.649531 * safezoneW + safezoneX";
+            y = "0.555 * safezoneH + safezoneY";
+            w = "0.061875 * safezoneW";
+            h = "0.044 * safezoneH";
+            action = "[""sendffe""] call itc_land_tablet_fnc_pageInteract";
+        };
         class itc_land_solution_solup: ITC_LAND_RscButton {
             idc = 8040;
             text = CSTRING(solution_solup_Text); //--- ToDo: Localize;

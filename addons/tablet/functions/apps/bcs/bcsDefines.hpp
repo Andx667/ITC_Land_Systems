@@ -4,7 +4,7 @@
 #define SAVEMISSION(MSN) GVAR(bcs_missions) set [GVAR(bcs_mission_index), MSN]
 #define MISSIONPARAMS _mission params ["_ident", "_page","_targetPage","_engagePage", "_curSolution", "_solutionLimit", "_shotEnd"]; \
 _targetPage params ["_targetTypeIndex","_kpi","_in0","_in1","_in2","_in3","_tgtPos"]; \
-_engagePage params ["_sheafTypeIndex","_quick","_sheafdir","_sheaflength","_shellTypeIndex","_magazineType"]
+_engagePage params ["_sheafTypeIndex","_quick","_sheafdir","_sheaflength","_shellTypeIndex","_magazineType",["_roundCount",1],["_fuzeMode",""]]
 #define UINUMBER(IDC) parseNumber (ctrlText IDC)
 #define UITEXT(IDC) ctrlText IDC
 #define SETTEXT(IDC,TXT) (_display displayCtrl IDC) ctrlSetText TXT

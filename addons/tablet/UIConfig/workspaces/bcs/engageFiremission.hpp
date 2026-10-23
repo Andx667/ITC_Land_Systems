@@ -17,6 +17,42 @@ class page_bcs_firemission_engage:ITC_LAND_Workspace {
             h = "0.022 * safezoneH";
             onLBSelChanged = "[""ammoType""] call itc_land_tablet_fnc_pageInteract";
         };
+        // fuze and round count for the guns' fire orders (sent with SEND ADJ / SEND FFE)
+        class itc_land_engage_fuze_text: ITC_LAND_RscText {
+            idc = 7023;
+            tooltip = CSTRING(engage_fuze_Tooltip);
+            text = CSTRING(engage_fuze_text_Text);
+            x = "0.365937 * safezoneW + safezoneX";
+            y = "0.313 * safezoneH + safezoneY";
+            w = "0.0515625 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
+        class itc_land_engage_fuze_input: ITC_LAND_RscComboBox {
+            idc = 7102;
+            tooltip = CSTRING(engage_fuze_Tooltip);
+            x = "0.427812 * safezoneW + safezoneX";
+            y = "0.313 * safezoneH + safezoneY";
+            w = "0.0825 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
+        class itc_land_engage_count_text: ITC_LAND_RscText {
+            idc = 7024;
+            tooltip = CSTRING(engage_count_Tooltip);
+            text = CSTRING(engage_count_text_Text);
+            x = "0.365937 * safezoneW + safezoneX";
+            y = "0.335 * safezoneH + safezoneY";
+            w = "0.0515625 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
+        class itc_land_engage_count_input: ITC_LAND_RscEdit {
+            idc = 7404;
+            tooltip = CSTRING(engage_count_Tooltip);
+            text = "1";
+            x = "0.427812 * safezoneW + safezoneX";
+            y = "0.335 * safezoneH + safezoneY";
+            w = "0.0825 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
         class itc_land_engagement_sheaf_text: ITC_LAND_RscText {
             idc = 7019;
             tooltip = CSTRING(engagement_sheaf_Tooltip);

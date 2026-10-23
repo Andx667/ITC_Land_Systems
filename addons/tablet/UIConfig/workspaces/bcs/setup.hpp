@@ -186,6 +186,40 @@ class page_bcs_setup:ITC_LAND_Workspace {
             colorActive[] = {0,0,0,0.9};
         };
 
+        // ITC guns of the active battery type found on the datalink; LINK adds one as the next gun
+        class btysetup_link_label: ITC_LAND_RscText {
+            idc = 4319;
+            tooltip = CSTRING(btysetup_link_Tooltip);
+
+            text = CSTRING(btysetup_link_label_Text);
+            x = "0.365937 * safezoneW + safezoneX";
+            y = "0.566 * safezoneH + safezoneY";
+            w = "0.0567187 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
+        class btysetup_link_combo: ITC_LAND_RscComboBox {
+            idc = 4320;
+            tooltip = CSTRING(btysetup_link_Tooltip);
+
+            x = "0.427812 * safezoneW + safezoneX";
+            y = "0.566 * safezoneH + safezoneY";
+            w = "0.195937 * safezoneW";
+            h = "0.022 * safezoneH";
+        };
+        class btysetup_link_button: ITC_LAND_RscButton {
+            idc = 4321;
+            tooltip = CSTRING(btysetup_link_Tooltip);
+
+            text = CSTRING(btysetup_link_button_Text);
+            x = "0.634062 * safezoneW + safezoneX";
+            y = "0.566 * safezoneH + safezoneY";
+            w = "0.04125 * safezoneW";
+            h = "0.022 * safezoneH";
+            colorBackground[] = {0,0,0,0.9};
+            colorActive[] = {0,0,0,0.9};
+            action = "[""linkGun""] call itc_land_tablet_fnc_pageInteract";
+        };
+
         /*
         class btysetup_discard_button: ITC_LAND_RscButton {
             idc = 4317;

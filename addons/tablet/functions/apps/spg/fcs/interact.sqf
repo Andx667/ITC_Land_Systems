@@ -4,8 +4,8 @@
  * Author: ToadBall, Yax, VKing
  * Handles interactions on the SPG FCS page. On "calc" it reads the entered target grid/elevation, computes
  * ballistic firing solutions for the selected magazine, and stores the results on the vehicle. On "prev"/"next"
- * it steps through the stored solutions. After any of these actions it refreshes the on-screen firing
- * solution readout.
+ * it steps through the stored solutions. The page's render.sqf redraws the readout. A local solution
+ * drops the fire data the FDC sent (itc_land_bcs_fireData).
  *
  * Arguments:
  * 0: The interaction action identifier ("calc", "prev", "next") <String>
@@ -21,13 +21,14 @@
 
 params ["_action"];
 ITC_CURVEHICLE
-private _display = findDisplay 32562;
 
 switch (_action) do {
     case "calc": {
         //#include "interact_calc.sqf"
         private _gridField = ctrlText 1400;
         _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
+        // a local solution replaces the one the FDC sent
+        _vehicle setVariable [QEGVAR(bcs,fireData), nil, true];
 
         // no solution without a grid of 4 to 10 digits; ACE reads an empty grid as the map origin
         if !(_gridField regexMatch "^([0-9][0-9]){2,5}$") exitWith {
@@ -61,28 +62,4 @@ switch (_action) do {
         private _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
     };
-};
-
-if (_action in ["calc","prev","next"]) then {
-    private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
-    if (count _solutions > 0) then {
-        private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-        private _solution = _solutions # _solutionIndex;
-        private _solutionString = "";
-        _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
-
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Charge) + "<br/>", _charge];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
-
-        (_display displayCtrl 1100) ctrlSetStructuredText parseText _solutionString;
-    } else {
-        (_display displayCtrl 1100) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
-    };
-    (_display displayCtrl 1100) ctrlCommit 0;
 };
