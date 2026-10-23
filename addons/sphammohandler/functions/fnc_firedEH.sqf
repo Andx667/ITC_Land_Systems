@@ -42,6 +42,9 @@ if (_firedIndex != -1) then {
 private _roundsFired = _gun getVariable ["itc_land_roundsFired",0];
 _roundsFired = _roundsFired +1;
 _gun setVariable ["itc_land_roundsFired",_roundsFired,true];
+if (getNumber (configOf _gun >> "itc_land" >> "loaderType") == 3) then {
+    [_gun, true] call FUNC(tubeHeat);
+};
 
 _gun setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];
 [] call FUNC(updateStatus);

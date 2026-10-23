@@ -87,8 +87,8 @@ if (_guidance isNotEqualTo []) then {
 };
 ctrlSetText [86017, _guidanceText];
 
-//round count
-private _roundCount = parseNumber(ctrlText 86022);
+//round count; a mortar has none, its crew fires every round by hand
+private _roundCount = [parseNumber(ctrlText 86022), 0] select (getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3);
 //set limit of rounds to load:
 _vehicle setVariable ["itc_land_roundCount", _roundCount, true];
 //reset count of fired rounds

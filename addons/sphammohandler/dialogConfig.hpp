@@ -24,6 +24,7 @@
                 colorActive[] = {0.125,0.125,0.125,1};
             };
             class headertext: ITC_LAND_RscText {
+                idc = 86028;
                 text = "G15X: AMMO HANDLER & AUTOLOADER";
                 x = "0.29375 * safezoneW + safezoneX";
                 y = "0.555 * safezoneH + safezoneY";
@@ -260,8 +261,19 @@
                 h = "0.022 * safezoneH";
                 action = QUOTE([] call FUNC(loadGun));
             };
+            // a mortar only (see updateStatus): puts a prepared round back
+            class stowButton: ITC_LAND_RscButton {
+                idc = 86026;
+                text = CSTRING(stowButton_Text);
+                x = "0.427812 * safezoneW + safezoneX";
+                y = "0.772 * safezoneH + safezoneY";
+                w = "0.0381 * safezoneW";
+                h = "0.022 * safezoneH";
+                action = QUOTE([ARR_2(objNull,true)] call FUNC(loadGun));
+            };
             //Autoloader Settings displays
             class AL_Header: ITC_LAND_RscText {
+                idc = 86027;
                 text = CSTRING(AL_Header_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.638 * safezoneH + safezoneY";
@@ -311,6 +323,7 @@
                 h = "0.022 * safezoneH";
             };
             class AL_COUNT: ITC_LAND_RscText {
+                idc = 86029;
                 text = CSTRING(AL_COUNT_Text);
                 x = "0.587656 * safezoneW + safezoneX";
                 y = "0.709 * safezoneH + safezoneY";

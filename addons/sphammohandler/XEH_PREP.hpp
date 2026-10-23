@@ -12,3 +12,6 @@ PREP(runSequence);
 PREP(firedEH);
 PREP(changeMagazine);
 PREP(onChangeMagazine);
+PREP(tubeHeat);
+PREP(getLoader);
+PREP(canOpen);

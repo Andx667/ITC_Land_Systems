@@ -28,6 +28,9 @@
         <Key ID="STR_itc_land_sphammohandler_FdcRoundMissing">
             <English>The FDC ordered %1, which this gun does not carry</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_FireRound">
+            <English>FIRE</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_LaserCode">
             <English>CODE: %1</English>
         </Key>
@@ -37,11 +40,23 @@
         <Key ID="STR_itc_land_sphammohandler_Load">
             <English>LOAD</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_LoaderHeader">
+            <English>LOADER SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_MortarHeader">
+            <English>MORTAR: AMMO HANDLER &amp; LOADER</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_NoFdcOrders">
             <English>No fire orders from the FDC</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_NoGunner">
+            <English>No gunner: the gunner fires the mortar</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_Prepare">
             <English>PREPARE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_PrepareRound">
+            <English>PREPARE</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_SPHammohandler_DisplayName">
             <English>Open Ammo Handling Interface</English>
@@ -52,11 +67,20 @@
         <Key ID="STR_itc_land_sphammohandler_Status_ClosingBreech">
             <English>CLOSING BREECH</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_HangingRound">
+            <English>HANG</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_InsertingCharge">
             <English>INSERTING CHARGE</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_InsertingPrimer">
             <English>INSERTING PRIMER</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_Misfire">
+            <English>MISFIRE - FIRE BY TRIGGER</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_PreparingRound">
+            <English>PREPARING ROUND</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_PullingShell">
             <English>PULLING SHELL</English>
@@ -73,11 +97,23 @@
         <Key ID="STR_itc_land_sphammohandler_Status_RemovingRound">
             <English>REMOVING ROUND</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_RoundAway">
+            <English>ROUND AWAY</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_RoundPrepared">
+            <English>ROUND PREPARED</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_SafingWeapon">
             <English>SAFING WEAPON</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_SettingFuze">
+            <English>SETTING FUZE AND CHARGE</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_StowingRound">
             <English>STOWING ROUND</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_Status_TubeCooling">
+            <English>TUBE HOT - COOLING</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_Waiting">
             <English>WAITING</English>
@@ -129,6 +165,9 @@
         </Key>
         <Key ID="STR_itc_land_sphammohandler_status_Text">
             <English>STATUS:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_stowButton_Text">
+            <English>STOW</English>
         </Key>
     </Package>
 </Project>

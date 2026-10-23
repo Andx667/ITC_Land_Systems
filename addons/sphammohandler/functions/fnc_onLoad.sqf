@@ -28,6 +28,14 @@ itc_land_SPHammoHandler_open = true;
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
+// a mortar has a loader, not an autoloader
+if (getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3) then {
+    ctrlSetText [86028, LLSTRING(MortarHeader)];
+    ctrlSetText [86027, LLSTRING(LoaderHeader)];
+    // no round count: the crew fires every round by hand
+    {ctrlShow [_x, false]} forEach [86020, 86021, 86022, 86029];
+};
+
 private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
 _vehicle setVariable ["itc_land_ammoHandler_status",_status,true];
 [] call FUNC(updateStatus);

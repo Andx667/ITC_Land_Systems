@@ -9,8 +9,9 @@
  *
  * Arguments:
  * 0: SPH vehicle <OBJECT>
- * 1: Action: "remove" (remove a magazine), "add" (add a magazine) or
- *    "closeBreech" (reload the gun with a magazine in its chamber) <STRING>
+ * 1: Action: "remove" (remove a magazine), "add" (add a magazine),
+ *    "closeBreech" (reload the gun with a magazine in its chamber) or
+ *    "drop" (a mortar: chamber the round and fire it) <STRING>
  * 2: Magazine classname <STRING>
  *
  * Return Value:

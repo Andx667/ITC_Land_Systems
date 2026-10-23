@@ -94,19 +94,31 @@ class CfgVehicles {
     class CUP_B_M1129_MC_MK19_Desert: CUP_B_M1126_ICV_MK19_Desert {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-            class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {
+                class ViewOptics;
+            };
+            class CargoTurret_01;
         };
     };
     class CUP_B_M1129_MC_MK19_Woodland: CUP_B_M1129_MC_MK19_Desert {
         class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
-            class MainTurret: MainTurret {};
+            class MainTurret: MainTurret {
+                class ViewOptics;
+            };
+            class CargoTurret_01;
         };
     };
     #define MAG_2(a) a, a
     #define MAG_6(a) MAG_2(a), MAG_2(a), MAG_2(a)
     #define MAG_32(a) MAG_6(a), MAG_6(a), MAG_6(a), MAG_6(a), MAG_6(a), MAG_2(a)
-    // an SPH like the ITC guns: ammunition handler (gunner), mounted tablet (commander), datalink, ITC sight readouts over CUP's optics
+    // an ITC mortar: hand-loaded through the ammunition handler by the loader (or, slower, the gunner alone),
+    // laid by hand by the gunner against CA/MA and CQ/MQ in the ITC gunnery sight (IGS, with the alignment guide: CUP's optic is empty);
+    // mounted tablet (commander), datalink.
+    // The loader seat gets a fixed view: CUP makes it a turret (isPersonTurret 0) without ViewOptics,
+    // and the zoom grew with every switch into it.
+    // CUP's minElev/maxElev (-5 to 35) count from the barrel raised by elevationOffset (50 degrees, for the sight);
+    // elevationLimits[] is the real quadrant it lays, measured on flat ground: 808 to 1519 mils
     #define ITC_M1129 \
         displayName = CSTRING(m1129_DisplayName); \
         scopeCurator = 2; \
@@ -114,7 +126,7 @@ class CfgVehicles {
         class ACE_SelfActions: ACE_SelfActions { \
             class ITC_Land_SPHammohandler { \
                 displayName = CSTRING(SPHammohandler_DisplayName); \
-                condition = "( gunner _target ) == ACE_Player"; \
+                condition = QUOTE([ARR_2(_target,ACE_Player)] call EFUNC(sphammohandler,canOpen)); \
                 statement = "createDialog 'ITC_Land_SPHammohandler'"; \
             }; \
             class ITC_Land_CommanderTablet { \
@@ -127,14 +139,38 @@ class CfgVehicles {
         class itc_land { \
             tabletInterfaces[] = {"spg"}; \
             mountedTablet = "itc_land_tablet_spg"; \
-            loaderType = 1; \
+            loaderType = 3; \
+            loaderTurret = "CargoTurret_01"; \
+            mortarRapidRounds = 16; \
+            mortarSustainedRate = 4; \
+            elevationLimits[] = {45.45, 85.45}; \
+            elevationOffset = 50; \
         }; \
         class Turrets: Turrets { \
             class MainTurret: MainTurret { \
-                turretInfoType = "ITC_Land_RscAltGunnerSightSPH"; \
+                turretInfoType = "ITC_Land_RscIGS_SPH"; \
                 weapons[] = {"itc_land_cup_m121"}; \
                 magazines[] = {MAG_32("itc_land_cup_m121_he"), MAG_6("itc_land_cup_m121_smoke")}; \
                 lockWhenVehicleSpeed = 5; \
+                class ViewOptics: ViewOptics { \
+                    initFov = 0.75; \
+                    minFov = 0.25; \
+                    maxFov = 0.75; \
+                }; \
+            }; \
+            class CargoTurret_01: CargoTurret_01 { \
+                gunnerName = CSTRING(m1129_Loader); \
+                class ViewOptics { \
+                    initAngleX = 0; \
+                    minAngleX = -30; \
+                    maxAngleX = 30; \
+                    initAngleY = 0; \
+                    minAngleY = -100; \
+                    maxAngleY = 100; \
+                    initFov = 1.25; \
+                    minFov = 1.25; \
+                    maxFov = 1.25; \
+                }; \
             }; \
         }
     class itc_land_cup_m1129_desert: CUP_B_M1129_MC_MK19_Desert {

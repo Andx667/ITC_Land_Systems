@@ -4,7 +4,9 @@
  * Author: ToadBall, Yax
  * Gets the gun's current azimuth and quadrant elevation in degrees. When the player's camera
  * is looking at something other than the ground (e.g. the sky), the shell will not follow the
- * gun, so the angles are derived from the camera direction instead.
+ * gun, so the angles are derived from the camera direction instead. The elevation then comes
+ * from the turret animation, counted from the barrel's rest position; a vehicle whose barrel
+ * rests raised (the CUP M1129) adds that angle, itc_land >> elevationOffset in degrees.
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -34,7 +36,8 @@ if ((terrainIntersectASL [_seekerPosASL, _testPoint]) || {lineIntersects [_seeke
     _weaponDir = (_lookVector select 0) atan2 (_lookVector select 1);
     private _upVectorDir = ((vectorUp _vehicle) select 0) atan2 ((vectorUp _vehicle) select 1);
     private _elevationDiff = (cos (_weaponDir - _upVectorDir)) * acos ((vectorUp _vehicle) select 2);
-    _weaponQuad = ((180 / pi) * (_vehicle animationPhase _elevationSource)) - _elevationDiff;
+    private _elevationOffset = getNumber (configOf _vehicle >> "itc_land" >> "elevationOffset");
+    _weaponQuad = ((180 / pi) * (_vehicle animationPhase _elevationSource)) + _elevationOffset - _elevationDiff;
     if (_weaponDir <= 0) then {_weaponDir = _weaponDir + 360};
 };
 

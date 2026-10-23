@@ -20,6 +20,11 @@
  * Public: No
  */
 
+// a mortar has a loader, not an autoloader
+if (getNumber (configOf ([] call EFUNC(common,getCurVehicle)) >> "itc_land" >> "loaderType") == 3) then {
+    ((uiNamespace getVariable ["ITC_Land_RscAltGunnerSightSPH", displayNull]) displayCtrl 82019) ctrlSetText LLSTRING(Loader_Text);
+};
+
 ["RscAltGunnerSightSPH", createHashMapFromArray [
     ["group", 82001],
     ["az", 82014],

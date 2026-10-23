@@ -33,6 +33,8 @@ if((!alive ace_player) || (!itc_land_SPHammoHandler_open)) then {
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
+// a mortar prepares a round, then fires (drops) or stows it
+private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3;
 //Only run code required to update if status has changed.
 //if (!(_status isEqualTo _lastStatus)) then {
 
@@ -56,7 +58,7 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
             //Can apply settings
             ctrlEnable [86009, true]; //can apply settings
 
-            ctrlSetText [86010, LLSTRING(Load)];
+            ctrlSetText [86010, [LLSTRING(Load), LLSTRING(PrepareRound)] select _mortar];
             ctrlEnable [86010, true];   //can load
 
         };
@@ -90,8 +92,8 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
             //Can unload
             ctrlEnable [86009, false]; //can apply settings
 
-            ctrlSetText [86010, LLSTRING(Unload)];
-            ctrlEnable [86010, true];   //can unload
+            ctrlSetText [86010, [LLSTRING(Unload), LLSTRING(FireRound)] select _mortar];
+            ctrlEnable [86010, true];   //can unload (a mortar: fire)
         };
         case 4: {
             //LSTRING(Status_SafingWeapon) 0
@@ -118,6 +120,8 @@ private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRI
         };
     };
 
+    ctrlShow [86026, _mortar];
+    ctrlEnable [86026, _mortar && {(_status # 0) == 3}]; //a prepared mortar round can be stowed
     ctrlSetText [86011, localize (_status # 2)]; //updating status label
     _vehicle setVariable ["itc_land_ammoHandler_lastStatus",_status,true];
 //};

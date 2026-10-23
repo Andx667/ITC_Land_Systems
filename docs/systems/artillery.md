@@ -104,6 +104,8 @@ The gunner opens it with **Open Ammo Handling Interface** (self interaction). It
 
 The **STATUS** follows the loading sequence until **READY TO FIRE**. An automatic loader (Sholef 2, Sochor 2, Hammer 2 mod. 1) pulls and rams the shell, inserts the charge and closes the breech, about 5 s per round. A semi-automatic one (Hammer 2 mod. 0, the ITC versions of the RHS guns) also has the crew insert the primer and attach the lanyard, about 11 to 17 s per round. After each shot the handler loads the next round until the count is reached or the selected shell runs out. **UNLOAD** removes the loaded round again.
 
+A mortar (the CUP M1129) is loaded by hand from the muzzle. **PREPARE** has the loader take a round and set its fuze and charge, until **ROUND PREPARED**: the round is in the loader's hands, not in the tube, so the gun can't fire yet. **FIRE** hangs the round and drops it, and the gun fires by itself. The next round is prepared right away. **STOW** puts a prepared round back. A mortar has no **COUNT**: the crew fires every round by hand. The loader seat and the gunner both open the handler; without a loader, the gunner prepares the rounds alone, half again as slow. The tube takes about 16 rounds at the crew's pace (about 4 to 5 s a round), then holds to 4 rounds a minute (**TUBE HOT - COOLING**). The gunner lays by hand: turn until **CA** matches **MA** and **CQ** matches **MQ**.
+
 The handler state is shared: every crew member sees the same status, and the gunner sight shows it too.
 
 ## Rocket artillery

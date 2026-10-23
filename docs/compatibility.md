@@ -51,7 +51,7 @@ Stationary mortars get no ITC version: ACE already covers them with range tables
 
 The D-30 and M119 need CUP Units (with CUP Weapons), the M270 and M1129 need CUP Vehicles. The D-30's anti-tank round fires directly and has no firing tables.
 
-The ITC M1129 is set up like the other self-propelled guns: the gunner loads round, charge and fuze with the ammunition handler, the commander has the mounted tablet, and it is on the datalink for the BCS. CUP's own M1129 fires the vanilla ship cannon round, which is a 155 mm shell. The ITC M1129 fires a 120 mm mortar shell instead (`itc_land_120mm_mortar`, part of the mod's ammunition: less damage and a smaller radius than the 155 mm, more than the 82 mm). CUP's M1129 and its rounds stay unchanged.
+The ITC M1129 is a mortar: the loader (CUP's back seat, named **Loader**) or the gunner prepares round, charge and fuze with the ammunition handler and drops each round on **FIRE** (see [ammunition handler](systems/artillery.md#ammunition-handler)). The gunner lays by hand in the ITC gunnery sight with its alignment guide, as on the Sholef 2 (1x to 3x). The commander has the mounted tablet, and it is on the datalink for the BCS. CUP's own M1129 fires the vanilla ship cannon round, which is a 155 mm shell. The ITC M1129 fires a 120 mm mortar shell instead (`itc_land_120mm_mortar`, part of the mod's ammunition: less damage and a smaller radius than the 155 mm, more than the 82 mm). CUP's M1129 and its rounds stay unchanged.
 
 ## BWMod
 

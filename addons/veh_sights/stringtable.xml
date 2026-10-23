@@ -46,6 +46,9 @@
         <Key ID="STR_itc_land_veh_sights_LoadNotAvailable">
             <English>LOAD: -- N/A --</English>
         </Key>
+        <Key ID="STR_itc_land_veh_sights_Loader_Text">
+            <English>LOADER SETTINGS</English>
+        </Key>
         <Key ID="STR_itc_land_veh_sights_MISAzimuth_text_Text">
             <English>MIS</English>
         </Key>
@@ -153,6 +156,9 @@
         </Key>
         <Key ID="STR_itc_land_veh_sights_controls_AutoLoader_Text">
             <English>AUTOLOADER</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_controls_Loader_Text">
+            <English>LOADER</English>
         </Key>
     </Package>
 </Project>

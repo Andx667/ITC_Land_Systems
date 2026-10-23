@@ -97,9 +97,22 @@ ITC's fire control, ammunition handler and mounted tablet read an `itc_land` cla
 class itc_land {
     tabletInterfaces[] = {"spg"};
     mountedTablet = "itc_land_tablet_spg";   // or "itc_land_tablet_mlrs"
-    loaderType = 1;                          // ammunition handler: 0 manual, 1 semi-automatic, 2 automatic
+    loaderType = 1;                          // ammunition handler: 0 manual, 1 semi-automatic, 2 automatic, 3 mortar
+    elevationLimits[] = {45.45, 85.45};      // optional: the real quadrant range in degrees, where the main turret's
+                                             // minElev/maxElev count from a raised barrel (the CUP M1129)
+    elevationOffset = 50;                    // optional: that raised barrel's angle in degrees, for the sight's CQ
 };
 ```
+
+A mortar (`loaderType = 3`) prepares a round and drops it on **FIRE**; it also reads, optionally:
+
+```cpp
+    loaderTurret = "CargoTurret_01";         // config class of the loader seat; its unit opens the handler too
+    mortarRapidRounds = 16;                  // rounds at the crew's pace before the tube needs to cool (default 16)
+    mortarSustainedRate = 4;                 // rounds a minute once it does (default 4)
+```
+
+Its ACE action condition is `[_target, ACE_Player] call itc_land_sphammohandler_fnc_canOpen` (the gunner or the loader).
 
 Add the **Open Mounted Tablet** and **Open Ammo Handling Interface** ACE self actions to the vehicle (see the ITC vehicles, for example `itc_land_veh_sholef`), and set the gunner's `turretInfoType` to an ITC sight such as `ITC_Land_RscIGS_SPH`.
 

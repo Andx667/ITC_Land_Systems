@@ -55,13 +55,16 @@ Locality fixes:
 - [ ] CUP compat (`hemtt launch default cup`): BCS solutions for the ITC D-30 and M119 hit for
       every charge (the D-30 AT round gets none); the ITC M270 fires the ITC rockets from the right
       launch points, its tablet and MLRS sight work; a CUP 2B14/M252 gets Mk6 solutions that hit.
-- [ ] ITC M1129 Stryker: note the real elevation range of the M121 in the gunner sight (the
-      config says -5 to 35, the tables assume 45 to 85 degrees as on the other mortars) and
-      regenerate the tables if it differs; BCS solutions hit for every charge; the 120 mm HE
-      damage feels right between the 82 mm mortar and the 122 mm howitzer. Now an SPH: the
-      gunner's ammunition handler lists 32 HE and 6 smoke, loads charge 1-3 and the HE fuzes
-      (proximity, time, delay burst with the 120 mm helper), the commander's tablet SPG app and
-      the overlay sight (MA/MQ, orders) work, it links in the BCS, and CUP's own M1129 is unchanged.
+- [ ] ITC M1129 Stryker, still open: the smoke round and each HE fuze (proximity, time, delay burst with
+      the 120 mm helper); preparing takes 1.5x without a loader; FIRE with no gunner gives the
+      hint; 16 quick rounds, then TUBE HOT - COOLING holds to 4 a minute; multiplayer with loader
+      and gunner on different machines; CUP's own M1129 is unchanged.
+      Tested 2026-10-23: the M121 lays 808 to 1519 mils on flat ground (CQ and ACE agree with
+      `elevationOffset = 50`, `elevationLimits[] = {45.45, 85.45}`); it links in the BCS, which
+      gives solutions that hit; the full PREPARE → FIRE → next round cycle works; the IGS
+      alignment guide works; STOW works; the Loader seat opens the handler and keeps a steady
+      wide view. The 120 mm HE damage (hit 230, indirectHit 80, 21 m; CUP's stand-in is the
+      155 mm's 340 / 125 / 30 m) stays until players say otherwise.
 - [ ] BWMod compat (`hemtt launch default bwa3`, without the TTT mod's old ITC PzH 2000): the
       ITC PzH 2000 loads, fires and reloads automatically through the ammunition handler (with
       the reload animation), its tablet SPG app gives solutions that hit, the gun recoils and
