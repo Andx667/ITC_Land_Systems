@@ -4,6 +4,8 @@
  * Author: ToadBall, Yax, VKing
  * Handles interactions on the CBR Data page. On the "savePos" action, reads the currently selected
  * engagement from the combo box and pushes its grid position as a new entry onto the BCS stored-locations list.
+ * On "counterFire" it hands the engagement's firing position to the BCS and switches to it: the BCS opens
+ * a new fire mission on it at the engagement step (see the BCS app's init.sqf).
  *
  * Arguments:
  * 0: The interaction identifier dispatched from the page's UI controls <STRING>
@@ -27,5 +29,12 @@ switch (_action) do {
         private _pos = _engagements # _posIndex;
         if (isNil{GVAR(bcs_locations)}) then {GVAR(bcs_locations) = [];};
         GVAR(bcs_locations) pushBack [_pos # 0, [_pos # 2 # 0] call EFUNC(common,posToGrid), _pos # 2 # 0 , round (_pos # 2 # 0 # 2), false];
+    };
+    case "counterFire": {
+        private _posIndex = lbCurSel 136001;
+        private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
+        if (_posIndex < 0 || {_posIndex >= count _engagements}) exitWith {};
+        GVAR(bcs_pendingTarget) = [(_engagements # _posIndex) # 2 # 0];
+        ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(app), "bcs"];
     };
 };

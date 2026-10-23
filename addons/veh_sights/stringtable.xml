@@ -91,6 +91,18 @@
         <Key ID="STR_itc_land_veh_sights_RangeText_Text">
             <English>RANGE:</English>
         </Key>
+        <Key ID="STR_itc_land_veh_sights_SendTargetConnecting">
+            <English>Datalink connecting, send the target again in a moment</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_SendTargetSent">
+            <English>Target sent to the FDC: %1, altitude %2 m</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_SendTarget_Description">
+            <English>In the ITC UAV, GLTD or Strider optics: sends the lased spot (or the point in the centre of the view) to the friendly FDCs' BCS Location Stores</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_SendTarget_DisplayName">
+            <English>Send target to FDC</English>
+        </Key>
         <Key ID="STR_itc_land_veh_sights_Status">
             <English>STATUS: %1</English>
         </Key>

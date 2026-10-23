@@ -27,6 +27,9 @@
 
 params ["_sightName", "_layout"];
 
+// the observer sends targets to the FDC over the datalink (sendTarget)
+[ACE_player] call EFUNC(datalink,connectPlayer);
+
 [{
     (_this select 0) params ["_displayVar", "_layout"];
     disableSerialization;

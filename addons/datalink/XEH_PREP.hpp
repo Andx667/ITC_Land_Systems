@@ -6,6 +6,7 @@ PREP(onClientTX);
 PREP(findIDTargets);
 PREP(receiveIDRegistry);
 PREP(connect);
+PREP(connectPlayer);
 PREP(disconnect);
 PREP(transmit);
 PREP(onClientRX);

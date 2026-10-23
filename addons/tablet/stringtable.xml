@@ -115,6 +115,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_SplashAlert">
             <English>%1: SPLASH (%2 s)</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_TargetReceived">
+            <English>%1 from %2: %3, altitude %4 m (Location Stores)</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_TimeToImpact">
             <English>TTI %1</English>
         </Key>
@@ -330,6 +333,12 @@
         </Key>
         <Key ID="STR_itc_land_tablet_cbr_DisplayName">
             <English>Counter Battery Radar</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_data_counterFire_Text">
+            <English>COUNTER-FIRE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_cbr_data_counterFire_Tooltip">
+            <English>A new BCS fire mission on the selected engagement's firing position, opened at the engagement step</English>
         </Key>
         <Key ID="STR_itc_land_tablet_cbr_data_saveOriginPos_Text">
             <English>Save to BCS</English>

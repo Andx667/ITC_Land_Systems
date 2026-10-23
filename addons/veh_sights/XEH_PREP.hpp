@@ -11,3 +11,4 @@ PREP(onLoad_RscOptics_strider_commander);
 PREP(runGunnerSight);
 PREP(getFireOrdersText);
 PREP(runOptics);
+PREP(sendTarget);

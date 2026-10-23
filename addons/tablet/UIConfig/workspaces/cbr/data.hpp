@@ -23,5 +23,19 @@ class page_cbr_data:ITC_LAND_Workspace {
             colorActive[] = {0,0,0,0.9};
             action = "[""savePos""] call itc_land_tablet_fnc_pageInteract";
         };
+        // a BCS fire mission on the selected engagement's firing position
+        class cbr_data_counterFire: ITC_LAND_RscButton {
+            idc = 136003;
+            tooltip = CSTRING(cbr_data_counterFire_Tooltip);
+
+            text = CSTRING(cbr_data_counterFire_Text);
+            x = "0.567343 * safezoneW + safezoneX";
+            y = "0.533 * safezoneH + safezoneY";
+            w = "0.05125 * safezoneW";
+            h = "0.022 * safezoneH";
+            colorBackground[] = {0,0,0,0.9};
+            colorActive[] = {0,0,0,0.9};
+            action = "[""counterFire""] call itc_land_tablet_fnc_pageInteract";
+        };
     };
 };

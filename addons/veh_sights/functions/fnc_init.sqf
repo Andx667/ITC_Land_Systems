@@ -28,6 +28,14 @@
 ["itc_land_onLoad_RscOptics_GLTD_gunner", FUNC(onLoad_RscOptics_GLTD_gunner)] call CBA_fnc_addEventHandler;
 ["itc_land_onLoad_RscOptics_strider_commander", FUNC(onLoad_RscOptics_strider_commander)] call CBA_fnc_addEventHandler;
 
+// observers send the target in the ITC optics to the FDC (default Ctrl+Shift+T)
+[
+    LELSTRING(main,Category), QGVAR(sendTarget),
+    [LLSTRING(SendTarget_DisplayName), LLSTRING(SendTarget_Description)],
+    {call FUNC(sendTarget)}, {},
+    [20, [true, true, false]]
+] call CBA_fnc_addKeybind;
+
 ["vehicle", {
     params ["_player", "_newVehicle"];
     if (count (currentWeapon _player) > 0) exitWith {};
