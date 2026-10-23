@@ -53,7 +53,7 @@ Set how the battery engages:
 
 The solution page shows the selected solution's **MAXIMUM ORDINATE**, **IMPACT ANGLE** and **TARGET DISTANCE**, and per gun the charge, azimuth, deflection, quadrant and time of flight. **SLN+** / **SLN-** step through the solutions (charges, low and high angle). **NO SOLUTIONS** with the range means the target is out of reach for this battery type.
 
-- **SHOT** records when the rounds were fired; with **Alert To Splash** set in the [BCS settings](#settings), you are warned before they land (**SPLASH**).
+- **SHOT**: press it when the guns report the rounds fired. The page counts down the time to impact (**TTI**) and the mission list shows the mission as **SHOT**. **Alert To Splash** seconds before impact (5 by default, [BCS settings](#settings)) it turns to **SPLASH**, with a beep and a hint, also while the tablet is closed: the moment to call "splash" to the observer. If the time of flight is shorter, the alert comes right away. Ending the mission or pressing SHOT again cancels the pending alert.
 - **ADJUST/FFE** opens the adjustment page: enter the observer's correction (OT, add/drop, left/right, up/down) to move the target and recalculate.
 - **END MISSION** ends the mission; **END & SAVE** first stores its target as a known point.
 
@@ -63,4 +63,4 @@ The solution page shows the selected solution's **MAXIMUM ORDINATE**, **IMPACT A
 
 ## Settings
 
-**BCS Settings**: the **Firemission Code** and **Firemission Start** number name new missions, **Alert To Splash** sets how long before impact the splash warning comes. **Save** stores them.
+**BCS Settings**: the **Firemission Code** and **Firemission Start** number name new missions, **Alert To Splash** sets how many seconds before impact the splash warning comes (more than 0, default 5). **Save** stores them; with an invalid Alert To Splash nothing is saved and a hint says why.

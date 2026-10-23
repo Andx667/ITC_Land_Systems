@@ -33,7 +33,7 @@ class page_bcs_settings:ITC_LAND_Workspace {
         };
         class bcs_settings_alerttosplash_text: ITC_LAND_RscEdit {
             idc = 3205;
-            text = "10";
+            text = "5";
             x = QUOTE((0.479375 + POSXADJUST) * safezoneW + safezoneX);
             y = QUOTE((0.313 + POSYADJUST) * safezoneH + safezoneY);
             w = "0.0721875 * safezoneW";

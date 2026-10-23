@@ -38,7 +38,7 @@ params ["_display"];
 [_display, IDC_fire_mission_list, 0] call EFUNC(common,ctrlSetFade);
 
 private _defaults = [
-    [QGVAR(bcs_splash_time), 10],
+    [QGVAR(bcs_splash_time), 5], // the FDC calls SPLASH 5 s before impact
     [QGVAR(bcs_mission_code), "FM"],
     [QGVAR(bcs_mission_start), 1],
 

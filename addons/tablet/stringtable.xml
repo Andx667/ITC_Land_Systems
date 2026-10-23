@@ -55,6 +55,9 @@
         <Key ID="STR_itc_land_tablet_Bcs_Grid">
             <English>Grid</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_InvalidSplashTime">
+            <English>Alert To Splash: enter the seconds before impact, more than 0. Nothing was saved.</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Bcs_InvalidTarget">
             <English>No target: enter a grid of 4 to 10 digits, pick a known point for Shift and Polar, or set up the battery for QuickLay.</English>
         </Key>
@@ -87,6 +90,9 @@
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_Splash">
             <English>SPLASH</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Bcs_SplashAlert">
+            <English>%1: SPLASH (%2 s)</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_TimeToImpact">
             <English>TTI %1</English>
@@ -227,7 +233,7 @@
             <English>Battery Control System</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_alerttosplash_Tooltip">
-            <English>Seconds before impact at which a fired mission switches from SHOT to SPLASH</English>
+            <English>Seconds before impact at which a fired mission switches from SHOT to SPLASH, with a beep and a hint (default 5)</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_alerttosplash_label_Text">
             <English>Alert To Splash:</English>

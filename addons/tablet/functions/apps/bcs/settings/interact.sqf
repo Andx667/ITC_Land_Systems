@@ -21,7 +21,12 @@ params ["_action"];
 #include "..\bcsDefines.hpp"
 
 if (_action == "save") then {
-    GVAR(bcs_splash_time) = UINUMBER(3205);
+    // seconds before impact, more than 0 (at 0 SPLASH would never show); nothing is saved until it is valid
+    private _splashText = UITEXT(3205);
+    if (!(_splashText regexMatch "\s*\d+(\.\d+)?\s*") || {parseNumber _splashText <= 0}) exitWith {
+        [LLSTRING(Bcs_InvalidSplashTime)] call ace_common_fnc_displayTextStructured;
+    };
+    GVAR(bcs_splash_time) = parseNumber _splashText;
     GVAR(bcs_mission_code) = UITEXT(3206);
     GVAR(bcs_mission_start) = UINUMBER(3207);
 };

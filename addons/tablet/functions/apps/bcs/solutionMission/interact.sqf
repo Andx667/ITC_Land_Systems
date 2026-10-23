@@ -42,7 +42,16 @@ if (_action == "soldn") then {
 };
 
 if (_action == "shot") then {
-    _mission set [6, time + ((_btySolutions # _curSolution) # 4)];
+    private _impactTime = time + ((_btySolutions # _curSolution) # 4);
+    _mission set [6, _impactTime];
+    // SPLASH alert, also with the tablet closed; a time of flight shorter than the alert time alerts right away.
+    // Skipped when the mission was ended or SHOT pressed again in the meantime (that one alerts itself).
+    [{
+        params ["_ident", "_impactTime"];
+        if (GVAR(bcs_missions) findIf {_x # 0 == _ident && {_x # 6 == _impactTime}} == -1) exitWith {};
+        playSound "FD_Timer_F";
+        [format [LLSTRING(Bcs_SplashAlert), _ident, round (_impactTime - time)]] call ace_common_fnc_displayTextStructured;
+    }, [_ident, _impactTime], (_impactTime - time - GVAR(bcs_splash_time)) max 0] call CBA_fnc_waitAndExecute;
 };
 
 if ("eom" in _action) then {
