@@ -103,7 +103,7 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
         if ([_layout getOrDefault ["ordersPanel", _layout get "orders"], itc_land_IGS_showOrders || {_fireData isNotEqualTo []}] call _showPanel) then {
             // the lines only change with new orders
             private _shown = _display getVariable [QGVAR(ordersShown), [nil]];
-            if !(_shown isEqualTo [_vehicle, _fireData]) then {
+            if (_shown isNotEqualTo [_vehicle, _fireData]) then {
                 _display setVariable [QGVAR(ordersShown), [_vehicle, _fireData]];
                 {
                     (_display displayCtrl ((_layout get "orders") select _forEachIndex)) ctrlSetText _x;
