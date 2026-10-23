@@ -26,6 +26,7 @@ start a fresh empty [Unreleased] section above it. -->
 ### Changed
 
 - Panzerhaubitze 2000: the ammunition handler moved from the gunner to the loader (BWMod's gunner 2 seat). While the loader seat is empty, the gunner still opens it.
+- Gunner sight of other mods' guns (Panzerhaubitze 2000, Boxer RCH 155, RHS 2S1/2S3/M109): it now shows the same information as the sight of the ITC guns. Added: heading, laser range, the round count of the current mission in the loader status, and the FCI orders panel (hidden like on the ITC guns until fire orders exist). Both sights now run on the same update loop, so they stay in step; only the look and the alignment guide of the ITC guns differ.
 
 ### Fixed
 

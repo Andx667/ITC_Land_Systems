@@ -112,8 +112,14 @@
         <Key ID="STR_itc_land_veh_sights_align_header_Text">
             <English>GUN ALIGNMENT</English>
         </Key>
+        <Key ID="STR_itc_land_veh_sights_align_heading_header_Text">
+            <English>HEADING</English>
+        </Key>
         <Key ID="STR_itc_land_veh_sights_align_quad_header_Text">
             <English>QUADRANT</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_sights_align_range_header_Text">
+            <English>LASER RANGE</English>
         </Key>
         <Key ID="STR_itc_land_veh_sights_controls_AutoLoader_Text">
             <English>AUTOLOADER</English>

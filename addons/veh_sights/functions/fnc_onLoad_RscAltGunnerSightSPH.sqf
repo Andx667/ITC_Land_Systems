@@ -2,11 +2,11 @@
 
 /*
  * Author: ToadBall, Yax
- * Installs a per-frame handler that keeps the RscAltGunnerSightSPH gunner-sight HUD
- * updated while the player remains in the vehicle's gunner seat: current and mission
- * azimuth, current and mission quadrant, autoloader/gun status, and the currently
- * selected ammo, fuze and guidance readout. Hides the control group and removes the
- * per-frame handler once the player leaves the gunner seat or camera view.
+ * Starts the RscAltGunnerSightSPH gunner-sight HUD, the overlay over other mods' gun optics
+ * (PzH 2000, Boxer RCH 155, RHS guns). It shows the same information as the IGS of the ITC guns
+ * (see runGunnerSight): current and mission azimuth and quadrant, heading and laser range,
+ * the autoloader panel and the FCI orders panel (placeholder); only the IGS alignment guide
+ * is left out, the host mod's reticle stays.
  *
  * Arguments:
  * None
@@ -27,8 +27,10 @@
     ["qd", 82016],
     ["qdFormat", "CQ: %1 MQ: %2"],
     ["status", 82020],
-    ["statusRounds", false],
     ["load", 82021],
     ["fuze", 82022],
-    ["guidance", 82023]
+    ["guidance", 82023],
+    ["loaderPanel", [82017, 82018, 82019, 82020, 82021, 82022, 82023]],
+    ["orders", [82032, 82033, 82034, 82035, 82036, 82037]],
+    ["ordersPanel", [82030, 82031, 82032, 82033, 82034, 82035, 82036, 82037]]
 ]] call FUNC(runGunnerSight);

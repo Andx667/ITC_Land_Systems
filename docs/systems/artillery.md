@@ -70,11 +70,14 @@ The gunner sight of the guns shows:
 
 - **CA / CQ** — the current azimuth and quadrant of the gun
 - **MA / MQ** — the mission azimuth and quadrant from the tablet (**FCI ORDERS**)
-- **LOAD**, **FUZE**, **GUIDANCE** and **STATUS** of the [ammunition handler](#ammunition-handler)
+- the heading of the gun and the laser range
+- **LOAD**, **FUZE**, **GUIDANCE** and **STATUS** of the [ammunition handler](#ammunition-handler), with the round count of the current mission (`3 / 5`)
 
 Lay the gun until the current values match the mission values, then fire. All four values are in mils.
 
-While a solution is selected, the crosshair is an alignment guide. A circle on the horizontal arm shows the azimuth error and one on the vertical arm the quadrant error; the dots are 25 mils apart, and both circles sit in the centre when the gun is laid. More than 100 mils off, an arrow at the end of the arm points the way to traverse or elevate instead.
+The guns of other mods ([compatibility](../compatibility.md)) keep their own optics and reticle; the same readouts sit in boxes at the left of their sight.
+
+On the ITC guns, while a solution is selected, the crosshair is an alignment guide. A circle on the horizontal arm shows the azimuth error and one on the vertical arm the quadrant error; the dots are 25 mils apart, and both circles sit in the centre when the gun is laid. More than 100 mils off, an arrow at the end of the arm points the way to traverse or elevate instead.
 
 ## Ammunition handler
 

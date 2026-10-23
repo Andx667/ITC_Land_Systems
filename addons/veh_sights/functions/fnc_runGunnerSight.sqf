@@ -5,8 +5,12 @@
  * Starts the per-frame handler of a gunner sight HUD and remembers it on the vehicle so the
  * HUD is restored when the player re-enters. Each frame it shows the current azimuth and
  * quadrant, the azimuth and quadrant of the selected fire solution, and optionally the
- * autoloader status and loader readout. The HUD is hidden and the handler removed once the
- * player leaves the gunner seat.
+ * autoloader status and loader readout and the fire orders panel. The HUD is hidden and the
+ * handler removed once the player leaves the gunner seat (or the UAV gunner seat).
+ * The artillery sights (IGS and the overlay for other mods' guns) use the same layout keys, so
+ * they show the same information; only their look and the IGS alignment guide ("onFrame") differ.
+ * The loader and orders panels are toggled by the itc_land_IGS_showAutoloader (default on)
+ * and itc_land_IGS_showOrders (default off) globals.
  *
  * Arguments:
  * 0: Sight name, e.g. "RscGunnerSightSPH" <STRING>
@@ -19,6 +23,10 @@
  *    "status": IDC of the autoloader status text (optional) <NUMBER>
  *    "statusRounds": append round progress to the status (default true) <BOOL>
  *    "load", "fuze", "guidance": IDCs of the loader readout lines (optional) <NUMBER>
+ *    "loaderPanel": IDCs of the loader panel, shown with itc_land_IGS_showAutoloader (optional) <ARRAY>
+ *    "orders": IDCs of the orders title, count, load, fuze, guidance and AZ/QD lines (optional) <ARRAY>
+ *    "ordersPanel": IDCs of the orders panel, shown with itc_land_IGS_showOrders (default: "orders") <ARRAY>
+ *    "onFrame": code run each frame after the texts, receives [display, vehicle, azimuth, quadrant] (optional) <CODE>
  *
  * Return Value:
  * None
@@ -41,17 +49,26 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     // the display is gone (left the seat/vehicle); its next onLoad starts a new handler
     if (isNull _display) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
 
+    private _vehicle = [] call EFUNC(common,getCurVehicle);
     // The primary gunner seat counts as gunner also where it is the commander's seat too: fullCrew (and so
     // CBA_fnc_vehicleRole) calls the GTK Boxer RCH 155's only gun seat "commander"
-    private _role = [ACE_player call CBA_fnc_vehicleRole, "GUNNER"] select (gunner vehicle ACE_player == ACE_player);
+    private _role = if (_vehicle in allUnitsUAV) then {(UAVControl _vehicle) # 1} else {[ACE_player call CBA_fnc_vehicleRole, "GUNNER"] select (gunner _vehicle == ACE_player)};
     private _viewOk = [_display, _layout get "group", _this select 1, _role, "GUNNER"] call EFUNC(common,sightViewCheck);
     if (!_viewOk) exitWith {};
 
-    private _vehicle = vehicle ACE_player;
     private _setText = {
         params ["_key", "_text"];
         private _idc = _layout getOrDefault [_key, -1];
         if (_idc >= 0) then {(_display displayCtrl _idc) ctrlSetText _text};
+    };
+    // shows or hides a panel, touching its controls only when that changes
+    private _showPanel = {
+        params ["_idcs", "_show"];
+        private _fade = parseNumber !_show;
+        if (ctrlFade (_display displayCtrl (_idcs select 0)) != _fade) then {
+            {[_display, _x, _fade] call EFUNC(common,ctrlSetFade)} forEach _idcs;
+        };
+        _show
     };
 
     ([_vehicle, _layout getOrDefault ["elevationSource", "mainGun"]] call EFUNC(common,getAimAngles)) params ["_azimuth", "_quadrant"];
@@ -63,13 +80,38 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     ["qd", format [_layout getOrDefault ["qdFormat", "%1"], [_quadrant, 0, 4] call EFUNC(common,FormatAsMils), _solutionQuadrant]] call _setText;
     ["misQd", _solutionQuadrant] call _setText;
 
-    if ("status" in _layout) then {
-        ["status", format [LLSTRING(Status), [_vehicle, _layout getOrDefault ["statusRounds", true]] call EFUNC(common,getGunStatusText)]] call _setText;
+    if (isNil "itc_land_IGS_showAutoloader") then {itc_land_IGS_showAutoloader = true};
+    private _loaderShown = if ("loaderPanel" in _layout) then {[_layout get "loaderPanel", itc_land_IGS_showAutoloader] call _showPanel} else {true};
+    if (_loaderShown) then {
+        if ("status" in _layout) then {
+            ["status", format [LLSTRING(Status), [_vehicle, _layout getOrDefault ["statusRounds", true]] call EFUNC(common,getGunStatusText)]] call _setText;
+        };
+        if ("load" in _layout) then {
+            ([_vehicle] call EFUNC(common,getLoaderReadout)) params ["_load", "_fuze", "_guidance"];
+            ["load", _load] call _setText;
+            ["fuze", _fuze] call _setText;
+            ["guidance", _guidance] call _setText;
+        };
     };
-    if ("load" in _layout) then {
-        ([_vehicle] call EFUNC(common,getLoaderReadout)) params ["_load", "_fuze", "_guidance"];
-        ["load", _load] call _setText;
-        ["fuze", _fuze] call _setText;
-        ["guidance", _guidance] call _setText;
+
+    if ("orders" in _layout) then {
+        if (isNil "itc_land_IGS_showOrders") then {itc_land_IGS_showOrders = false};
+        if ([_layout getOrDefault ["ordersPanel", _layout get "orders"], itc_land_IGS_showOrders] call _showPanel) then {
+            // fire orders are not implemented yet, so the panel only shows placeholders
+            {
+                (_display displayCtrl ((_layout get "orders") select _forEachIndex)) ctrlSetText _x;
+            } forEach [
+                LLSTRING(FciOrders),
+                LLSTRING(CountNotAvailable),
+                LLSTRING(LoadNotAvailable),
+                LLSTRING(FuzeNotAvailable),
+                LLSTRING(GuidanceNotAvailable),
+                "AZ/QD: -- N/A --"
+            ];
+        };
+    };
+
+    if ("onFrame" in _layout) then {
+        [_display, _vehicle, _azimuth, _quadrant] call (_layout get "onFrame");
     };
 }, 0, ["ITC_Land_" + _sightName, _layout]] call CBA_fnc_addPerFrameHandler;

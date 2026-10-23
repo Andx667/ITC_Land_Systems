@@ -286,9 +286,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
   - Phase 3, fire orders at the gun: the IGS sight's FCI ORDERS panel (Sholef 2, Sochor 2,
     Hammer 2; controls 1600-1605, placeholders behind `itc_land_IGS_showOrders` today) shows
     mission, count, round, charge, fuze and azimuth/quadrant and appears by itself when orders
-    arrive; the shared PzH 2000/RCH 155/RHS sight (`ITC_Land_RscAltGunnerSightSPH`) gets such a
-    panel. The ammunition handler gets "Apply FDC orders", which only pre-fills round, charge,
-    fuze and count: the crew still applies, loads and lays.
+    arrive; the shared PzH 2000/RCH 155/RHS sight (`ITC_Land_RscAltGunnerSightSPH`) has the same
+    panel (controls 82030-82037), both filled by `veh_sights_fnc_runGunnerSight`. The
+    ammunition handler gets "Apply FDC orders", which only pre-fills round, charge, fuze and
+    count: the crew still applies, loads and lays.
   - Phase 4, feedback (optional): each gun's loader status (already public on the vehicle) back
     to the FDC's gun list, and the first shot of a sent mission sets SHOT and the splash warning.
   - Later: the MLRS (different solution format, missile app).
