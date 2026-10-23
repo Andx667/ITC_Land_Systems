@@ -147,6 +147,10 @@ class CfgAmmo {
         ace_frag_gurney_k = 1/2;
         ace_rearm_caliber = 120;
     };
+    // spawned by the fuzes (proximity, time, delay): bursts where it is created
+    class itc_land_120mm_mortar_helper: itc_land_120mm_mortar {
+        explosionTime = 0.0001;
+    };
 
     //127mm
     class itc_land_127mm: itc_land_155mm {

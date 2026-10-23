@@ -1,7 +1,34 @@
+#define CHARGES(MAG) QUOTE(DOUBLES(MAG,chg1)), QUOTE(DOUBLES(MAG,chg2)), QUOTE(DOUBLES(MAG,chg3))
+
 class CfgWeapons {
-    class CUP_Vmortar_M121;
-    // CUP's M121 with the ITC 120 mm rounds; charges and fire modes unchanged
+    class mortar_155mm_AMOS;
+    class weapon_ShipCannon_120mm: mortar_155mm_AMOS {};
+    class CUP_Vmortar_M121: weapon_ShipCannon_120mm {
+        class Single1;
+    };
+    // Like itc_land_howitzer_base: one mode, the charge comes from the loaded magazine
     class itc_land_cup_m121: CUP_Vmortar_M121 {
-        magazines[] = {"itc_land_cup_m121_he", "itc_land_cup_m121_smoke"};
+        scope = 1;
+        autoReload = 0;
+        modes[] = {"Single"};
+        reloadTime = 1;
+        magazineReloadTime = 4;
+        magazines[] = {
+            CHARGES(itc_land_cup_m121_he),
+            CHARGES(itc_land_cup_m121_smoke)
+        };
+        class Single: Single1 {
+            displayName = "";
+            artilleryCharge = 1;
+            reloadTime = 4;
+        };
+        class EventHandlers {
+            class itc_land_veh_weapons {
+                fired = QUOTE(call EFUNC(veh_weapons,fired));
+            };
+            class itc_land_sphammohandler {
+                fired = QUOTE(call EFUNC(sphammohandler,firedEH));
+            };
+        };
     };
 };

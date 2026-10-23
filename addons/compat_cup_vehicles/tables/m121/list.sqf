@@ -1,8 +1,9 @@
 #include "..\..\script_component.hpp"
 
-// CUP_Vmortar_M121: charges 0.13 / 0.23 / 0.33 at 810 m/s, labelled with its mode names
+// M121: charges 1 / 2 / 3 = 0.13 / 0.23 / 0.33 of 810 m/s (the ITC M1129's charge magazines; CUP's
+// own M121 fires them as its three modes)
 [
-  [localize "STR_A3_mortar_82mm_Single10", localize "STR_A3_mortar_82mm_Single20", localize "STR_A3_mortar_82mm_Single30"],
+  ["1", "2", "3"],
   [
     QPATHTOF(tables\m121\m121_ch1_ha.sqf),
     QPATHTOF(tables\m121\m121_ch2_ha.sqf),

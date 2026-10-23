@@ -7,6 +7,9 @@
         <Key ID="STR_itc_land_compat_cup_vehicles_CommanderTablet_DisplayName">
             <English>Open Mounted Tablet</English>
         </Key>
+        <Key ID="STR_itc_land_compat_cup_vehicles_SPHammohandler_DisplayName">
+            <English>Open Ammo Handling Interface</English>
+        </Key>
         <Key ID="STR_itc_land_compat_cup_vehicles_m1129_DisplayName">
             <English>M1129 Mortar Carrier mod. 0</English>
         </Key>

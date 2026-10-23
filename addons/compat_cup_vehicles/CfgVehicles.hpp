@@ -58,51 +58,83 @@ class CfgVehicles {
     ITC_M270(CUP_I_M270_HE_AAF,itc_land_cup_m270_aaf);
     ITC_M270(CUP_I_M270_HE_RACS,itc_land_cup_m270_racs);
 
-    // M1129 Stryker mortar carrier: ITC 120 mm rounds, ITC sight, no vanilla artillery computer
+    // M1129 Stryker mortar carrier: an ITC SPH with ITC 120 mm rounds, no vanilla artillery computer
     // As vanilla (and CUP) declare them: Wheeled_APC_F's Turrets have no parent, its MainTurret is a NewTurret
-    class Car;
+    class Car: LandVehicle {
+        class ACE_SelfActions;
+    };
     class Car_F: Car {
         class NewTurret;
+        class ACE_SelfActions: ACE_SelfActions {};
     };
     class Wheeled_APC_F: Car_F {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets {
             class MainTurret: NewTurret {};
         };
     };
     class CUP_StrykerBase: Wheeled_APC_F {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
             class MainTurret: MainTurret {};
         };
     };
     class CUP_M1126_ICV_BASE: CUP_StrykerBase {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
             class MainTurret: MainTurret {};
         };
     };
     class CUP_B_M1126_ICV_MK19_Desert: CUP_M1126_ICV_BASE {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
             class MainTurret: MainTurret {};
         };
     };
     class CUP_B_M1129_MC_MK19_Desert: CUP_B_M1126_ICV_MK19_Desert {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
             class MainTurret: MainTurret {};
         };
     };
     class CUP_B_M1129_MC_MK19_Woodland: CUP_B_M1129_MC_MK19_Desert {
+        class ACE_SelfActions: ACE_SelfActions {};
         class Turrets: Turrets {
             class MainTurret: MainTurret {};
         };
     };
+    #define MAG_2(a) a, a
+    #define MAG_6(a) MAG_2(a), MAG_2(a), MAG_2(a)
+    #define MAG_32(a) MAG_6(a), MAG_6(a), MAG_6(a), MAG_6(a), MAG_6(a), MAG_2(a)
+    // an SPH like the ITC guns: ammunition handler (gunner), mounted tablet (commander), datalink, ITC sight readouts over CUP's optics
     #define ITC_M1129 \
         displayName = CSTRING(m1129_DisplayName); \
         scopeCurator = 2; \
         artilleryScanner = 0; \
+        class ACE_SelfActions: ACE_SelfActions { \
+            class ITC_Land_SPHammohandler { \
+                displayName = CSTRING(SPHammohandler_DisplayName); \
+                condition = "( gunner _target ) == ACE_Player"; \
+                statement = "createDialog 'ITC_Land_SPHammohandler'"; \
+            }; \
+            class ITC_Land_CommanderTablet { \
+                displayName = CSTRING(CommanderTablet_DisplayName); \
+                icon = QPATHTOEF(tablet,UI\tableticon256.paa); \
+                condition = QUOTE(([_target] call EFUNC(tablet,vehicleHasTablet)) && (( commander _target ) == ACE_Player)); \
+                statement = QUOTE([_target] call EFUNC(tablet,openVehicleTablet)); \
+            }; \
+        }; \
+        class itc_land { \
+            tabletInterfaces[] = {"spg"}; \
+            mountedTablet = "itc_land_tablet_spg"; \
+            loaderType = 1; \
+        }; \
         class Turrets: Turrets { \
             class MainTurret: MainTurret { \
-                turretInfoType = "ITC_Land_RscGunnerSightBasic"; \
+                turretInfoType = "ITC_Land_RscAltGunnerSightSPH"; \
                 weapons[] = {"itc_land_cup_m121"}; \
-                magazines[] = {"itc_land_cup_m121_he", "itc_land_cup_m121_smoke"}; \
+                magazines[] = {MAG_32("itc_land_cup_m121_he"), MAG_6("itc_land_cup_m121_smoke")}; \
+                lockWhenVehicleSpeed = 5; \
             }; \
         }
     class itc_land_cup_m1129_desert: CUP_B_M1129_MC_MK19_Desert {
