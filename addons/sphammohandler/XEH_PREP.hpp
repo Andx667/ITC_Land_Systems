@@ -6,6 +6,7 @@ PREP(onSelectAmmo);
 PREP(onSelectFuze);
 PREP(changeCharge);
 PREP(applySettings);
+PREP(applyFdcOrders);
 PREP(loadGun);
 PREP(runSequence);
 PREP(firedEH);

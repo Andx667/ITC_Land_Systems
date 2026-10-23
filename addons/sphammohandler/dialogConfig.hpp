@@ -229,6 +229,18 @@
                 colorBackground[] = {0,0,0,1};
             };
 
+            // fills in the FDC's fire orders; the crew still applies, loads and lays
+            class fdcOrdersButton: ITC_LAND_RscButton {
+                idc = 86025;
+                text = CSTRING(fdcOrdersButton_Text);
+                tooltip = CSTRING(fdcOrdersButton_Tooltip);
+                x = "0.4985 * safezoneW + safezoneX";
+                y = "0.742 * safezoneH + safezoneY";
+                w = "0.085 * safezoneW";
+                h = "0.022 * safezoneH";
+                action = QUOTE([] call FUNC(applyFdcOrders));
+            };
+
             //main buttons
             class applyButton: ITC_LAND_RscButton {
                 idc = 86009;

@@ -22,6 +22,12 @@
         <Key ID="STR_itc_land_sphammohandler_ChargeOf">
             <English>CHARGE: %1 / %2</English>
         </Key>
+        <Key ID="STR_itc_land_sphammohandler_FdcOrdersApplied">
+            <English>%1: FDC orders filled in. Check them, then APPLY and LOAD.</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_FdcRoundMissing">
+            <English>The FDC ordered %1, which this gun does not carry</English>
+        </Key>
         <Key ID="STR_itc_land_sphammohandler_LaserCode">
             <English>CODE: %1</English>
         </Key>
@@ -30,6 +36,9 @@
         </Key>
         <Key ID="STR_itc_land_sphammohandler_Load">
             <English>LOAD</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_NoFdcOrders">
+            <English>No fire orders from the FDC</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_Prepare">
             <English>PREPARE: %1</English>
@@ -93,6 +102,12 @@
         </Key>
         <Key ID="STR_itc_land_sphammohandler_countText_Text">
             <English>Count:</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_fdcOrdersButton_Text">
+            <English>FDC ORDERS</English>
+        </Key>
+        <Key ID="STR_itc_land_sphammohandler_fdcOrdersButton_Tooltip">
+            <English>Fill in the round, charge, fuze, count and GPS target of the FDC's fire orders. Check them, then APPLY and LOAD; set a time fuze yourself.</English>
         </Key>
         <Key ID="STR_itc_land_sphammohandler_fuzeTime_Text">
             <English>Time:</English>
