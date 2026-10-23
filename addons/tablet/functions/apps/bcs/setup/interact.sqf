@@ -46,6 +46,7 @@ switch (_action) do {
         if (_gun == -1) then {
             lbAdd [4315, _gunString];
             GVAR(bcs_bty_guns) pushBack _gunData;
+            ctrlSetText [4306, [] call FUNC(bcsNextGunNumber)];
         } else {
             GVAR(bcs_bty_guns) set [_gun, _gunData];
             [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
@@ -56,13 +57,14 @@ switch (_action) do {
         if (!alive _vehicle) exitWith {
             [LLSTRING(Bcs_NoGunsToLink)] call ace_common_fnc_displayTextStructured;
         };
-        // the next gun number; position, elevation and direction come from the vehicle
-        private _num = str (selectMax ((GVAR(bcs_bty_guns) apply {parseNumber (_x # 0)}) + [0]) + 1);
+        // the next free gun number; position, elevation and direction come from the vehicle
+        private _num = [] call FUNC(bcsNextGunNumber);
         GVAR(bcs_bty_guns) append ([[[_num, "", [0, 0, 0], 0, 0, GVAR(bcs_bty_name), _vehicle]]] call EFUNC(bcs,refreshLinkedGuns));
         [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     };
     case "removeGun": {
         GVAR(bcs_bty_guns) deleteAt _listIndex;
         lbDelete [4315, _listIndex];
+        ctrlSetText [4306, [] call FUNC(bcsNextGunNumber)];
     };
 };

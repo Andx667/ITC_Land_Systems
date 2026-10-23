@@ -17,3 +17,4 @@ PREP(bcsFillFuzes);
 PREP(bcsShot);
 PREP(bcsInit);
 PREP(cbrDrawMap);
+PREP(bcsNextGunNumber);

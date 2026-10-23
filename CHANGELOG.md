@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- BCS Battery Setup: a new gun, linked or entered by hand, gets the lowest free gun number from 1 up (a removed gun's number is used again), and **Gun #** shows it; linking before took the highest number + 1.
+
 ## [0.2.0] - 2026-10-23
 
 ### Added

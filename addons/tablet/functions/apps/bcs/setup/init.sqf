@@ -25,6 +25,8 @@ ctrlShow [13502, true];
 
 [_display, IDC_workspace_header, LLSTRING(Bcs_BatterySetup)] call EFUNC(common,ctrlSetText);
 SETTEXT(4303,GVAR(bcs_bty_name));
+// the next free gun number, so guns are numbered 1, 2, 3, ...
+SETTEXT(4306,([] call FUNC(bcsNextGunNumber)));
 
 //_tables = (configFile >> "itc_land_ballistics" >> "availableTables")  call BIS_fnc_getCfgData;
 private _batteryTypes = (configFile >> "itc_land_ballistics" >> "batteryTypes")  call BIS_fnc_getCfgSubClasses;
