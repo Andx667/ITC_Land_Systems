@@ -6,7 +6,10 @@
  * mode triggers, removes itself and releases the magazine's submunition:
  *  - "prox": once the shell descends below the set height above ground
  *  - "time": once the set time has passed since firing, keeping the shell's heading and speed
- *  - "delay": when the shell has been destroyed, extrapolating its last velocity by the set delay
+ *  - "delay": just before the shell hits, it is removed (no burst on impact) and the submunition
+ *    bursts the set delay later where the shell would be by then: half a metre into the ground,
+ *    or past a roof or wall it went through, short of the ground beyond. A shell that hits
+ *    something without being seen coming (inside a frame) bursts on impact, as point detonating.
  *
  * Arguments:
  * 0: Per-frame handler values <ARRAY>
@@ -30,6 +33,38 @@
 
 params ["_pfhValues", "_pfhId"];
 _pfhValues params ["_projectile", "_magazine", "_position", "_fuzeMode", "_fuzeValue", "_firedTime", "_velocity"];
+
+if (_fuzeMode == "delay") exitWith {
+    if (!alive _projectile) exitWith {[_pfhId] call CBA_fnc_removePerFrameHandler};
+    // look ahead about two frames for the surface the shell is about to hit
+    private _start = getPosASL _projectile;
+    private _currentVelocity = velocity _projectile;
+    private _speed = vectorMagnitude _currentVelocity;
+    private _hits = lineIntersectsSurfaces [_start, _start vectorAdd (_currentVelocity vectorMultiply ((2 * diag_deltaTime) max 0.05)), _projectile, objNull, true, 1, "GEOM", "FIRE"];
+    if (_hits isEqualTo [] || {_speed < 1}) exitWith {};
+
+    [_pfhId] call CBA_fnc_removePerFrameHandler;
+    (_hits # 0) params ["_impact", "", "_hitObject"];
+    private _direction = vectorNormalized _currentVelocity;
+    // into the ground it only digs in; through a roof or wall it goes on for the delay, short of the ground beyond
+    private _depth = 0.5;
+    if (!isNull _hitObject) then {
+        private _travel = _speed * _fuzeValue;
+        private _beyond = lineIntersectsSurfaces [_impact vectorAdd (_direction vectorMultiply 0.05), _impact vectorAdd (_direction vectorMultiply _travel), objNull, objNull, true, -1, "GEOM", "FIRE"];
+        private _ground = _beyond findIf {isNull (_x # 2)};
+        _depth = if (_ground == -1) then {_travel} else {((_impact distance (_beyond # _ground # 0)) - 0.5) max 0.5};
+    };
+    deleteVehicle _projectile;
+
+    [{
+        params ["_submunitionClass", "_burst"];
+        private _submunition = createVehicle [_submunitionClass, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+        _submunition setPosASL _burst;
+    }, [
+        getText (configFile >> "CfgMagazines" >> _magazine >> "itc_land_submunition"),
+        _impact vectorAdd (_direction vectorMultiply _depth)
+    ], ((_start distance _impact) / _speed) + _fuzeValue] call CBA_fnc_waitAndExecute;
+};
 
 if (alive _projectile) then {
     _position = getPosATL _projectile;
@@ -66,10 +101,5 @@ switch (_fuzeMode) do {
         _submunition setDir _heading;
         ([_submunition] + _pitchBank) call BIS_fnc_setPitchBank;
         _submunition setVelocity _currentVelocity;
-    };
-    default {
-        // the shell is gone, so extend its last known flight path by the delay
-        private _travel = (vectorNormalized _velocity) vectorMultiply (_fuzeValue * vectorMagnitude _velocity);
-        _submunitionClass createVehicle (_position vectorAdd _travel);
     };
 };

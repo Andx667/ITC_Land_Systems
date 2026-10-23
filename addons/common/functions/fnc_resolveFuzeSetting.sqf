@@ -40,7 +40,8 @@ switch (_mode) do {
         _text = format ["%1: %2s", _description, _time];
     };
     case "delay": {
-        _vehicle setVariable ["itc_land_fuzeValues", 0.005, true];
+        // about the delay of real delay fuzes (fnc_fuze lets the shell dig in or go through a roof first)
+        _vehicle setVariable ["itc_land_fuzeValues", 0.05, true];
     };
 };
 
