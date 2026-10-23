@@ -1,4 +1,4 @@
-    // Overlay over another mod's gunner optics. Shows the same information as the IGS (ITC_Land_RscIGS_SPH):
+    // Overlay over another mod's gunner optics. Shows the same information as the IGS (ITC_Land_RscIGS_SPH), alignment guide included:
     // keep the two in step when adding a readout (see veh_sights_fnc_runGunnerSight); macros in ITC_Land_sightMacros.hpp
     class ITC_Land_RscAltGunnerSightSPH {
         onLoad = "uiNamespace setVariable ['ITC_Land_RscAltGunnerSightSPH', _this select 0]; ['itc_land_onLoad_RscAltGunnerSightSPH', []] call CBA_fnc_localEvent;";
@@ -88,6 +88,9 @@
 
                 // FCI orders, shown while the gun has the FDC's fire orders
                 SIGHT_ORDERS_PANEL(0,28.45,SIGHT_GREEN);
+
+                // alignment guide, shown while a solution is selected (the group starts 5 units left of the IGS's)
+                SIGHT_ALIGNMENT_GUIDE(25.4,14);
             };
         };
     };

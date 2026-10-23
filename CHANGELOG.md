@@ -21,6 +21,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
+- Alignment guide on the other mods' guns: the gunner sight of the Panzerhaubitze 2000, Boxer RCH 155 and the ITC RHS 2S1, 2S3 and M109 now has the IGS's CQ/MQ and CA/MA marks and arrows over the host mod's reticle while a solution is selected.
 - Rocket launchers on the datalink: the Seara 2, Zamak MRLi and CUP M270 can be linked in the BCS and get fire data and orders like the guns. The MLRS app shows the FDC's data and the fuze setting and has **FDC ORDERS** on its fuze page; the MLRS sights have the **FCI ORDERS** panel. Guided rockets get their fixed 800 mils quadrant in the BCS too.
 - Target handoff: **Send target to FDC** (Ctrl+Shift+T) in the ITC UAV, GLTD and Strider optics sends the lased spot or the point under the crosshair over the datalink to every friendly FDC, where it lands in the BCS Location Stores (TGT01, TGT02, ...) with a ping and a hint.
 - COBRA counter-fire: **COUNTER-FIRE** on the COBRA data page opens a new BCS fire mission on the selected engagement's firing position, at the engagement step.

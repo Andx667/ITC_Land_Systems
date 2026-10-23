@@ -309,76 +309,7 @@
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
 
-                class crosshair_image: RscPicture {
-                    idc = 1800;
-                    text = QPATHTOF(ui\data\crosshair_ca.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "20.375 *       (0.01875 * SafezoneH)";
-                    y = "14 *       (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class horizontalmark_image: RscPicture {
-                    idc = 1801;
-                    text = QPATHTOF(ui\data\mark.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "20.4 *         (0.01875 * SafezoneH)";
-                    y = "(14) *         (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class verticalmark_image: RscPicture {
-                    idc = 1802;
-                    text = QPATHTOF(ui\data\mark.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "20.4 *         (0.01875 * SafezoneH)";
-                    y = "(14) *         (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class arrowLeft_image: RscPicture {
-                    idc = 1803;
-                    text = QPATHTOF(ui\data\arrowmark_l.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "26 *       (0.01875 * SafezoneH)";
-                    y = "(14) *         (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class arrowRight_image: RscPicture {
-                    idc = 1804;
-                    text = QPATHTOF(ui\data\arrowmark_r.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "14.75 *        (0.01875 * SafezoneH)";
-                    y = "(14) *         (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class arrowUp_image: RscPicture {
-                    idc = 1805;
-                    text = QPATHTOF(ui\data\arrowmark_u.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "20.4 *         (0.01875 * SafezoneH)";
-                    y = "(19.8) *       (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
-                class arrowDown_image: RscPicture {
-                    idc = 1806;
-                    text = QPATHTOF(ui\data\arrowmark_d.paa);
-                    style = 2096;
-                    shadow = 0;
-                    x = "20.4 *         (0.01875 * SafezoneH)";
-                    y = "(8.2) *        (0.025 * SafezoneH)";
-                    w = "12.5 *         (0.01875 * SafezoneH)";
-                    h = "12 *       (0.025 * SafezoneH)";
-                };
+                SIGHT_ALIGNMENT_GUIDE(20.4,14);
             };
         };
     };

@@ -8,7 +8,7 @@
  * autoloader status and loader readout and the fire orders panel. The HUD is hidden and the
  * handler removed once the player leaves the gunner seat (or the UAV gunner seat).
  * The artillery sights (IGS and the overlay for other mods' guns) use the same layout keys, so
- * they show the same information; only their look and the IGS alignment guide ("onFrame") differ.
+ * they show the same information and both draw the alignment guide ("onFrame"); only their look differs.
  * The loader panel is toggled by the itc_land_IGS_showAutoloader global (default on). The orders
  * panel shows the FDC's fire orders while the vehicle has them (getFireOrdersText), and always
  * with the itc_land_IGS_showOrders global (default off).

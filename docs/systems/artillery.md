@@ -89,7 +89,7 @@ Lay the gun until the current values match the mission values, then fire. All fo
 
 The guns of other mods ([compatibility](../compatibility.md)) keep their own optics and reticle; the same readouts sit in boxes at the left of their sight.
 
-On the ITC guns, while a solution is selected, the crosshair is an alignment guide. A circle on the horizontal arm shows the azimuth error and one on the vertical arm the quadrant error; the dots are 25 mils apart, and both circles sit in the centre when the gun is laid. More than 100 mils off, an arrow at the end of the arm points the way to traverse or elevate instead.
+On the ITC guns and the ITC versions of other mods' guns (Panzerhaubitze 2000, Boxer RCH 155, RHS 2S1, 2S3 and M109), while a solution is selected, an ITC crosshair shows as an alignment guide (over the other mod's reticle). A circle on the horizontal arm shows the azimuth error and one on the vertical arm the quadrant error; the dots are 25 mils apart, and both circles sit in the centre when the gun is laid. More than 100 mils off, an arrow at the end of the arm points the way to traverse or elevate instead.
 
 ## Ammunition handler
 

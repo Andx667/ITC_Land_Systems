@@ -46,3 +46,26 @@
     SIGHT_ORDERS_LINE(ITC_Land_OrdersFuze,82035,X,(Y + 2.525),COLOR); \
     SIGHT_ORDERS_LINE(ITC_Land_OrdersGuided,82036,X,(Y + 3.325),COLOR); \
     SIGHT_ORDERS_LINE(ITC_Land_FCIalign,82037,X,(Y + 4.125),COLOR)
+
+// Alignment guide (veh_sights_fnc_drawAlignmentGuide): the crosshair, the azimuth and quadrant marks
+// and the arrows beyond 100 mils. X, Y place the marks, centred on the screen: 20.4, 14 in a group
+// starting at the left of the centred square (the IGS), 25.4, 14 in one 5 units further left (the overlay)
+#define SIGHT_GUIDE_PICTURE(NAME,IDC,IMAGE,X,Y) \
+    class NAME: RscPicture { \
+        idc = IDC; \
+        text = QPATHTOF(ui\data\IMAGE.paa); \
+        style = 2096; \
+        shadow = 0; \
+        x = SIGHT_X(X); \
+        y = SIGHT_Y(Y); \
+        w = SIGHT_X(12.5); \
+        h = SIGHT_Y(12); \
+    }
+#define SIGHT_ALIGNMENT_GUIDE(X,Y) \
+    SIGHT_GUIDE_PICTURE(crosshair_image,1800,crosshair_ca,(X - 0.025),Y); \
+    SIGHT_GUIDE_PICTURE(horizontalmark_image,1801,mark,X,Y); \
+    SIGHT_GUIDE_PICTURE(verticalmark_image,1802,mark,X,Y); \
+    SIGHT_GUIDE_PICTURE(arrowLeft_image,1803,arrowmark_l,(X + 5.6),Y); \
+    SIGHT_GUIDE_PICTURE(arrowRight_image,1804,arrowmark_r,(X - 5.65),Y); \
+    SIGHT_GUIDE_PICTURE(arrowUp_image,1805,arrowmark_u,X,(Y + 5.8)); \
+    SIGHT_GUIDE_PICTURE(arrowDown_image,1806,arrowmark_d,X,(Y - 5.8))

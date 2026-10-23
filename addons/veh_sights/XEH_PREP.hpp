@@ -9,6 +9,7 @@ PREP(onLoad_RscOptics_UAV_gunner);
 PREP(onLoad_RscOptics_GLTD_gunner);
 PREP(onLoad_RscOptics_strider_commander);
 PREP(runGunnerSight);
+PREP(drawAlignmentGuide);
 PREP(getFireOrdersText);
 PREP(runOptics);
 PREP(sendTarget);

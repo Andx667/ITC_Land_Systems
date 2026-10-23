@@ -5,8 +5,8 @@
  * Starts the RscAltGunnerSightSPH gunner-sight HUD, the overlay over other mods' gun optics
  * (PzH 2000, Boxer RCH 155, RHS guns). It shows the same information as the IGS of the ITC guns
  * (see runGunnerSight): current and mission azimuth and quadrant, heading and laser range,
- * the autoloader panel and the FCI orders panel (the FDC's fire orders); only the IGS alignment guide
- * is left out, the host mod's reticle stays.
+ * the autoloader panel, the FCI orders panel (the FDC's fire orders) and the alignment guide
+ * (see drawAlignmentGuide) over the host mod's reticle.
  *
  * Arguments:
  * None
@@ -36,5 +36,9 @@ if (getNumber (configOf ([] call EFUNC(common,getCurVehicle)) >> "itc_land" >> "
     ["fuze", 82022],
     ["guidance", 82023],
     ["loaderPanel", [82017, 82018, 82019, 82020, 82021, 82022, 82023]],
-    SIGHT_ORDERS_LAYOUT
+    SIGHT_ORDERS_LAYOUT,
+    ["onFrame", {
+        params ["_display", "_vehicle", "_azimuth", "_quadrant"];
+        [_display, _vehicle, _azimuth, _quadrant, [25.4, 14]] call FUNC(drawAlignmentGuide);
+    }]
 ]] call FUNC(runGunnerSight);
