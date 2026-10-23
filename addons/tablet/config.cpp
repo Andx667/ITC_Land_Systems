@@ -28,6 +28,19 @@ class ITC_LAND_RscComboBox;
 class ITC_LAND_RscButton;
 
 #include "UIConfig\tablet.hpp"
+#include "UIConfig\tablet_web.hpp"
+
+// The HTML tablet page (tablet_fnc_webOpen). A page loaded from a path not listed here renders but
+// gets no A3API, so it cannot send anything back. Which spelling the engine matches for an addon
+// path is not documented (missions write "ui\\html\\*"): all four until tested
+class CfgCommands {
+    allowedHTMLLoadURIs[] += {
+        "\z\itc_land\addons\tablet\html\*",
+        "z\itc_land\addons\tablet\html\*",
+        "\\z\\itc_land\\addons\\tablet\\html\\*",
+        "z\\itc_land\\addons\\tablet\\html\\*"
+    };
+};
 
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"

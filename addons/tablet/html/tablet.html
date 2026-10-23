@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ITC Tablet</title>
+<!--
+    ITC tablet in HTML (CT_WEBBROWSER, Arma 3 2.20+). One self-contained file: the browser sandbox
+    allows no <script src>, external CSS, fonts, fetch or localStorage.
+
+    The page draws the whole tablet: the frame (its texture from the addon), the APP keys on the
+    frame as the app navigation, and the screen. What the screen shows is described by the game
+    (tablet_fnc_webState and the tablet_fnc_webView* functions) and drawn here by a small set of
+    blocks: fields, buttons, lists, readouts and a slot for the native map control.
+
+      SQF -> page  ITC.receive('<base64 JSON state>') through ctrlWebBrowserAction "ExecJS"
+      page -> SQF  A3API.SendAlert('<JSON {a: action, v: value, k: view key, f: {field: value}}>')
+
+    Everything typed but not sent yet is kept while new states come in (twice a second at most);
+    it is dropped when the page or the game's form revision changes. A3API only exists when the
+    page came from a path in CfgCommands >> allowedHTMLLoadURIs; every value is checked again in
+    SQF (tablet_fnc_webReceive).
+-->
+<style>
+:root {
+    --screen: #181818;
+    --panel: #202020;
+    --bar: #121212;
+    --line: #3a3a3a;
+    --text: #d9d9d9;
+    --dim: #8c8c8c;
+    --green: #acff99;
+    --amber: #ffc857;
+    --red: #ff6b5b;
+    --font: "Consolas", "Lucida Console", monospace;
+}
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+    color: var(--text);
+    font: 1.1vw/1.3 var(--font);
+}
+/* the browser control has the classic tablet frame's size; the frame is the native picture behind it */
+#frame { position: absolute; inset: 0; }
+.key {
+    position: absolute;
+    left: 3.27%;
+    width: 4.03%;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    border-radius: 0.3em;
+}
+button.key:hover { box-shadow: 0 0 0.4em var(--green) inset; }
+/* the screen: the glass of the frame texture */
+#screen {
+    position: absolute;
+    /* the glass, the transparent hole of the frame texture (measured on screen.paa, 1024 px) */
+    left: 12.01%;
+    top: 32.52%;
+    width: 76.95%;
+    height: 46.29%;
+    background: var(--screen);
+    display: grid;
+    grid-template-columns: 18% 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+}
+#brand {
+    background: var(--bar);
+    padding: 0.4em 0.6em;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+#header1 { color: var(--green); font-size: 1.35em; letter-spacing: 0.05em; }
+#header2 { color: var(--dim); font-size: 0.85em; }
+#titlebar {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.4em 0.8em;
+    background: var(--bar);
+    border-bottom: 1px solid var(--line);
+}
+#title { color: var(--green); font-size: 1.15em; letter-spacing: 0.04em; }
+.spacer { flex: 1; }
+#side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    padding: 0.5em;
+    background: var(--bar);
+    border-right: 1px solid var(--line);
+    overflow-y: auto;
+    min-height: 0;
+}
+#side .list { margin-top: 0.6em; flex: 1; min-height: 4em; }
+#work { position: relative; padding: 0.7em 0.9em; overflow: auto; min-height: 0; }
+#work > * { position: relative; }
+#status {
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 1.5em;
+    padding: 0.15em 0.8em;
+    background: var(--bar);
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 0.75em;
+}
+.warn { color: var(--amber); }
+.bad { color: var(--red); }
+.ok { color: var(--green); }
+.dim { color: var(--dim); }
+button {
+    font: inherit;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 0.3em 0.6em;
+    text-align: left;
+    cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+button.active { background: #2e3a2b; border-color: var(--green); color: var(--green); }
+button:disabled { color: #555; cursor: default; }
+input, select {
+    font: inherit;
+    color: var(--text);
+    background: #0d0d0d;
+    border: 1px solid var(--line);
+    padding: 0.2em 0.4em;
+    width: 100%;
+    min-width: 0;
+}
+input:focus, select:focus { outline: none; border-color: var(--green); }
+.block { margin-bottom: 0.7em; }
+.section { color: var(--green); margin: 0.4em 0 0.4em; letter-spacing: 0.04em; }
+.fields { display: grid; grid-template-columns: max-content minmax(6em, 16em); gap: 0.3em 0.8em; align-items: center; }
+.fields label { color: var(--dim); }
+/* a fields block with long entries (link gun: ID, vehicle and grid) */
+.fields.wide { grid-template-columns: max-content minmax(12em, 36em); }
+.buttons { display: flex; flex-wrap: wrap; gap: 0.4em; }
+.row { display: flex; gap: 1.2em; align-items: flex-start; }
+.row > * { flex: 1; min-width: 0; }
+.list { border: 1px solid var(--line); background: #0d0d0d; overflow-y: auto; max-height: 14em; }
+.list table { border-collapse: collapse; width: 100%; }
+.list th, .list td { padding: 0.15em 0.6em 0.15em 0.4em; text-align: left; white-space: nowrap; }
+.list th { color: var(--dim); font-weight: normal; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #0d0d0d; }
+.list tr.item { cursor: pointer; }
+.list tr.item:hover td { color: var(--green); }
+.list tr.sel td { background: #2e3a2b; color: var(--green); }
+.list .empty { color: var(--dim); padding: 0.4em; }
+.lines div { white-space: pre-wrap; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.15em 1.2em; }
+.kv .k { color: var(--dim); }
+.big { font-size: 1.5em; color: var(--green); }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6em; }
+.tile { padding: 0.8em; display: flex; flex-direction: column; gap: 0.25em; min-height: 4.5em; }
+.tile .note { color: var(--dim); font-size: 0.85em; }
+/* the home screen's logo, behind the app tiles as on the classic tablet */
+#work > .logo { position: absolute; inset: 12% 8% 4%; background: center / contain no-repeat; opacity: 0.35; pointer-events: none; }
+.map { border: 1px solid var(--line); height: 100%; min-height: 18em; }
+/* tooltips are drawn by the page: the game's browser shows no native ones for title attributes */
+#tip {
+    position: fixed;
+    z-index: 10;
+    max-width: 24em;
+    padding: 0.35em 0.55em;
+    background: #0b0b0b;
+    border: 1px solid var(--green);
+    color: var(--text);
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    pointer-events: none;
+    display: none;
+}
+[data-tip] { cursor: help; }
+button[data-tip], tr[data-tip], input[data-tip], select[data-tip] { cursor: pointer; }
+input[data-tip] { cursor: text; }
+</style>
+</head>
+<body>
+<div id="frame">
+    <!-- the keys drawn on the frame texture: APP 1-3 and Input Lock (home) -->
+    <button class="key" style="top: 50.2%; height: 3.9%;" data-tip="APP 1" data-key="0"></button>
+    <button class="key" style="top: 54.5%; height: 3.9%;" data-tip="APP 2" data-key="1"></button>
+    <!-- APP 3 has no function: no tablet has a third app -->
+    <div class="key" style="top: 58.8%; height: 3.9%; cursor: default;"></div>
+    <button class="key" style="top: 63.1%; height: 3.9%;" data-tip="HOME" data-key="3"></button>
+    <div id="screen">
+        <div id="brand"><div id="header1"></div><div id="header2"></div></div>
+        <div id="titlebar"><span id="title"></span><span class="spacer"></span><span id="tti" class="big"></span></div>
+        <div id="side"></div>
+        <div id="work"><div class="dim">...</div></div>
+        <div id="status"><span id="bridge"></span><span class="spacer"></span><span id="updated"></span></div>
+    </div>
+</div>
+<div id="tip"></div>
+
+<script>
+"use strict";
+
+// global for ExecJS: the game calls window.ITC.receive
+window.ITC = (() => {
+    const hasApi = typeof A3API !== "undefined" && typeof A3API.SendAlert === "function";
+    let state = null;
+    let updates = 0;
+    // typed but not sent: field id -> value, for one view key and form revision
+    let drafts = new Map();
+    let draftScope = "";
+    let mapRect = "";
+
+    const $ = (id) => document.getElementById(id);
+    // text only: every value from the game is set as textContent or a property, never as markup
+    const el = (tag, props = {}, children = []) => {
+        const node = document.createElement(tag);
+        for (const [key, value] of Object.entries(props)) {
+            if (value === undefined || value === null) continue;
+            if (key === "class") node.className = value;
+            else if (key === "text") node.textContent = value;
+            else if (key === "title") { if (value) node.dataset.tip = value; }
+            else if (key === "onclick") node.addEventListener("click", value);
+            else if (key === "disabled") node.disabled = !!value;
+            else node.setAttribute(key, value);
+        }
+        for (const child of children) if (child) node.appendChild(child);
+        return node;
+    };
+
+    function send(action, value, fields) {
+        if (!hasApi) return;
+        const message = {a: action};
+        if (value !== undefined) message.v = value;
+        if (fields) message.f = fields;
+        if (state && state.view) message.k = state.view.key;
+        A3API.SendAlert(JSON.stringify(message));
+    }
+
+    // the field values a button sends; the game stores them, so their drafts can go
+    function collect(ids) {
+        if (!ids || !ids.length) return undefined;
+        const fields = {};
+        for (const id of ids) {
+            fields[id] = drafts.has(id) ? drafts.get(id) : fieldValue(id);
+            drafts.delete(id);
+        }
+        return fields;
+    }
+    function fieldValue(id) {
+        const form = (state && state.view && state.view.form) || {};
+        return form[id];
+    }
+    function current(id, fallback) {
+        if (drafts.has(id)) return drafts.get(id);
+        const value = fieldValue(id);
+        return value === undefined ? fallback : value;
+    }
+
+    function decode(b64) {
+        const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+        return JSON.parse(new TextDecoder().decode(bytes));
+    }
+
+    function receive(b64) {
+        try {
+            state = decode(b64);
+        } catch (e) {
+            $("bridge").textContent = "Bad state from the game: " + e.message;
+            return;
+        }
+        updates++;
+        render();
+        // the redraw replaced the element under the pointer: find its successor
+        if (tipOwner && !document.body.contains(tipOwner)) retip();
+    }
+
+    function render() {
+        if (!state) return;
+        const view = state.view || {};
+        const scope = view.key + "#" + view.rev;
+        if (scope !== draftScope) {
+            drafts = new Map();
+            draftScope = scope;
+        }
+        // keep the focus and caret over the redraw
+        const active = document.activeElement;
+        const focusId = active && active.dataset ? active.dataset.field : null;
+        const caret = focusId && typeof active.selectionStart === "number" ? [active.selectionStart, active.selectionEnd] : null;
+
+        $("header1").textContent = view.header1 || "";
+        $("header2").textContent = view.header2 || "";
+        $("title").textContent = view.title || "";
+        $("tti").textContent = view.tti || "";
+        renderSide(view);
+        const work = $("work");
+        work.replaceChildren(...(view.blocks || []).map(renderBlock));
+
+        if (focusId) {
+            const node = document.querySelector('[data-field="' + CSS.escape(focusId) + '"]');
+            if (node) {
+                node.focus();
+                if (caret && typeof node.setSelectionRange === "function") {
+                    try { node.setSelectionRange(caret[0], caret[1]); } catch (e) { /* select boxes */ }
+                }
+            }
+        }
+        $("bridge").textContent = hasApi ? "Linked to the game" : "Read-only: the page is not whitelisted (no A3API)";
+        $("bridge").className = hasApi ? "" : "warn";
+        $("updated").textContent = "Update " + updates;
+        // after layout; not requestAnimationFrame: the game's browser paints only when something changes
+        setTimeout(reportMap, 0);
+    }
+
+    function renderSide(view) {
+        const side = $("side");
+        const items = (view.side || []).map((b) => el("button", {
+            text: b.label,
+            title: b.tip,
+            class: b.active ? "active" : "",
+            disabled: b.disabled,
+            onclick: () => send(b.a, b.v)
+        }));
+        if (view.sideList) items.push(renderList(view.sideList));
+        side.replaceChildren(...items);
+    }
+
+    function renderBlock(block) {
+        switch (block.t) {
+            case "section": return el("div", {class: "section", text: block.text, title: block.tip});
+            case "note": return el("div", {class: "block " + (block.c || "dim"), text: block.text});
+            case "fields": return renderFields(block);
+            case "buttons": return el("div", {class: "block buttons"}, (block.items || []).map(renderButton));
+            case "list": return el("div", {class: "block"}, [renderList(block)]);
+            case "lines": return el("div", {class: "block lines", title: block.tip}, (block.lines || []).map((line) =>
+                typeof line === "string" ? el("div", {text: line}) : el("div", {text: line.text, class: line.c})));
+            case "kv": {
+                const kv = el("div", {class: "block kv"});
+                for (const [k, v, c, tip] of block.rows || []) {
+                    kv.appendChild(el("span", {class: "k", text: k, title: tip}));
+                    kv.appendChild(el("span", {class: c, text: String(v)}));
+                }
+                return kv;
+            }
+            case "row": return el("div", {class: "block row"}, (block.blocks || []).map((b) => el("div", {}, [renderBlock(b)])));
+            case "tiles": return el("div", {class: "block tiles"}, (block.items || []).map((tile) =>
+                el("button", {class: "tile", title: tile.tip, onclick: () => send(tile.a, tile.v)}, [
+                    el("span", {text: tile.label}),
+                    el("span", {class: "note", text: tile.note})
+                ])));
+            case "image": {
+                const logo = el("div", {class: "logo"});
+                if (hasApi && A3API.RequestTexture) A3API.RequestTexture(block.path, 512).then((data) => { logo.style.backgroundImage = "url('" + data + "')"; });
+                return logo;
+            }
+            case "map": return el("div", {class: "map", id: "mapslot"});
+            default: return el("div", {class: "block dim", text: "?" + block.t});
+        }
+    }
+
+    function renderButton(b) {
+        return el("button", {
+            text: b.label,
+            title: b.tip,
+            disabled: b.disabled,
+            onclick: () => send(b.a, b.v, collect(b.send))
+        });
+    }
+
+    function renderFields(block) {
+        const grid = el("div", {class: "block fields" + (block.wide ? " wide" : "")});
+        for (const f of block.items || []) {
+            grid.appendChild(el("label", {text: f.label, title: f.tip}));
+            let input;
+            if (f.options) {
+                input = el("select", {title: f.tip});
+                f.options.forEach((option, i) => input.appendChild(el("option", {value: String(i), text: option})));
+                input.value = String(current(f.id, 0));
+                input.addEventListener("change", () => {
+                    drafts.set(f.id, Number(input.value));
+                    // a choice that changes the page (round, fuze, target type) goes to the game at once
+                    if (f.change) send(f.change, undefined, collect(f.send || [f.id]));
+                });
+            } else {
+                input = el("input", {type: "text", title: f.tip, spellcheck: "false"});
+                input.value = String(current(f.id, ""));
+                if (f.max) input.maxLength = f.max;
+                input.addEventListener("input", () => drafts.set(f.id, input.value));
+                input.addEventListener("keydown", (e) => {
+                    // Enter presses the block's default button
+                    if (e.key === "Enter" && block.enter) send(block.enter.a, block.enter.v, collect(block.enter.send));
+                });
+            }
+            input.dataset.field = f.id;
+            grid.appendChild(input);
+        }
+        return grid;
+    }
+
+    // a list is a field too: its value is the selected row
+    function renderList(block) {
+        const wrap = el("div", {class: "list"});
+        const rows = block.rows || [];
+        if (!rows.length) {
+            wrap.appendChild(el("div", {class: "empty", text: block.empty || "-"}));
+            return wrap;
+        }
+        const selected = block.id ? current(block.id, block.selected === undefined ? -1 : block.selected) : -1;
+        const table = el("table");
+        if (block.header) table.appendChild(el("tr", {}, block.header.map((h, i) => el("th", {text: h, title: (block.tips || [])[i]}))));
+        rows.forEach((row, i) => {
+            const cells = Array.isArray(row) ? row : [row];
+            const tr = el("tr", {class: "item" + (i === selected ? " sel" : "")}, cells.map((cell) =>
+                cell && typeof cell === "object" ? el("td", {text: cell.text, class: cell.c}) : el("td", {text: String(cell)})));
+            tr.addEventListener("click", () => {
+                if (!block.id) return;
+                drafts.set(block.id, i);
+                if (block.a) send(block.a, i, collect([block.id]));
+                else render();
+            });
+            table.appendChild(tr);
+        });
+        wrap.appendChild(table);
+        return wrap;
+    }
+
+    // the map is a native control over the page: tell the game where its slot is (fractions of the page)
+    function reportMap() {
+        const slot = $("mapslot");
+        let rect = [];
+        if (slot) {
+            const r = slot.getBoundingClientRect();
+            const w = window.innerWidth, h = window.innerHeight;
+            rect = [r.left / w, r.top / h, r.width / w, r.height / h].map((n) => Math.round(n * 10000) / 10000);
+        }
+        const json = JSON.stringify(rect);
+        if (json !== mapRect) {
+            mapRect = json;
+            send("mapRect", rect);
+        }
+    }
+    window.addEventListener("resize", () => { mapRect = ""; reportMap(); });
+    // and again now and then, in case a report was lost (the map is a native control over the slot)
+    setInterval(() => { if ($("mapslot")) { mapRect = ""; reportMap(); } }, 2000);
+
+    // tooltips: the nearest element with data-tip under the pointer, next to the pointer and inside the page
+    const tip = $("tip");
+    let tipOwner = null;
+    let pointer = [0, 0];
+    const showTip = (target) => {
+        const owner = target && target.closest ? target.closest("[data-tip]") : null;
+        if (owner === tipOwner) return;
+        tipOwner = owner;
+        if (!owner) { tip.style.display = "none"; return; }
+        tip.textContent = owner.dataset.tip;
+        tip.style.display = "block";
+    };
+    const retip = () => { tipOwner = null; showTip(document.elementFromPoint(pointer[0], pointer[1])); };
+    document.addEventListener("mouseover", (e) => showTip(e.target));
+    document.addEventListener("mousemove", (e) => {
+        pointer = [e.clientX, e.clientY];
+        if (!tipOwner) return;
+        const w = tip.offsetWidth, h = tip.offsetHeight;
+        tip.style.left = Math.min(e.clientX + 14, window.innerWidth - w - 4) + "px";
+        tip.style.top = (e.clientY + 18 + h > window.innerHeight ? e.clientY - h - 8 : e.clientY + 18) + "px";
+    });
+
+    for (const key of document.querySelectorAll(".key")) {
+        key.addEventListener("click", () => send("key", Number(key.dataset.key)));
+    }
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") send("close");
+    });
+
+    $("bridge").textContent = hasApi ? "Linked to the game" : "Read-only: the page is not whitelisted (no A3API)";
+    if (!hasApi) $("bridge").className = "warn";
+    // the page announces itself; the game answers with the full state
+    send("hello");
+
+    return {receive};
+})();
+</script>
+</body>
+</html>

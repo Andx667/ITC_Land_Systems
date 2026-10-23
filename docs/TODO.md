@@ -339,30 +339,35 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
     breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
     BWMod (`compat_bwa3`).
-- [ ] Maybe, future upgrade: tablet pages as HTML (researched 2026-10-23). Arma 3 2.20 added
-      `CT_WEBBROWSER` (type 106, vanilla `RscWebBrowser` with `url`/`allowExternalURL`), an
-      embedded Chromium page in a normal dialog. SQF to page with `ctrlWebBrowserAction
-      ["ExecJS", ...]`, page to SQF with `A3API.SendAlert`/`SendConfirm` (the `JSDialog` event,
-      about 10 KB per message), files and textures with `A3API.RequestFile`/`RequestTexture`.
-      Pages load only from paths in `CfgCommands >> allowedHTMLLoadURIs[]` (empty in vanilla)
-      and must be one self-contained file: no `<script src>`, external CSS/fonts, `fetch` or
-      `localStorage`. Source: the community framework <https://github.com/doombadroid/arma-webui>
-      (single author, Linux/Proton measurements); the BI wiki pages were not readable.
-  - Fit: the tablet app pages (BCS, SPG app, COBRA lists, settings): text, forms and tables over
-    SQF state; CSS layout would also fix the scaling problem (section 5). Keep Rsc for the tablet
-    map (mix a map control with the browser in one display), the ROVER video feed (render to
-    texture) and the gunner sights (`RscInGameUI`, per frame, just redone).
-  - Risks: browser clamped to about 1 fps when Arma is not started through Steam (and Steam's
-    "GPU-accelerated web rendering" setting can freeze it); a bundling step to inline JS/CSS
-    before HEMTT packs the page (HEMTT does not lint HTML/JS); stringtable texts passed into the
-    page; anything in the page can call every registered SQF handler, so validation stays in
-    SQF; rebuilding the tablet framework is a large job outside the artillery scope.
-  - First a spike (about an hour): a hello-world browser control in the tablet dialog, loaded
-    from an ITC addon path. Check that an addon can whitelist its own path
-    (`allowedHTMLLoadURIs[] += {...}` in `config.cpp`; the framework loads from the mission),
-    mouse/focus next to Rsc controls and ACE interaction, Esc, the frame rate on Windows with and
-    without Steam, and an ExecJS/SendAlert round trip. If it passes, convert the BCS solution
-    page first (text-heavy, live loader status and TTI), then decide about the rest.
+- [ ] Tablet in HTML (built 2026-10-23, setting "Tablet in HTML", off by default; then
+      `tablet_fnc_open` opens `tablet_fnc_webOpen`): every tablet app in a CT_WEBBROWSER page
+      (Arma 3 2.20, `tablet\html\tablet.html`), over the classic frame pictures (native, so they show
+      at once while the browser starts; the night one fades in after dark): the browser has their
+      size and a transparent page with the screen in the glass (measured on `screen.paa`), APP 1-2
+      and Input Lock (home) as the app keys (APP 3 has no function), and a sidebar of pages. Only
+      the COBRA map stays native (`RscMapControl` over the page's map slot, `tablet_fnc_webPlaceMap`,
+      drawn by `tablet_fnc_cbrDrawMap`, shared with the classic map). The pages are described in SQF
+      (`tablet_fnc_webView*`: fields, select boxes, buttons, lists, readouts) and their actions run
+      there (`tablet_fnc_webAction*`, ports of the classic pages' interact scripts, every value
+      checked); the BCS start is shared (`tablet_fnc_bcsInit`). App and page are the vehicle's, so
+      either tablet opens where the other left; CLASSIC TABLET on home opens the classic one.
+      Checked in a headless browser: layout on the frame, typed text kept over state updates,
+      buttons send the page's fields. To test in game, per app:
+      - Home: APP 1-3 and Input Lock, CLASSIC TABLET, the night screen after dark, Esc and the X.
+      - SPG / MLRS (mounted): CALC SLN, PRV/NXT reach the gunner sight; MLRS round, fuze mode
+        (time field), GPS target, APPLY SETTINGS, FDC ORDERS; the status page; no SPG interface.
+      - BCS: settings save (and the invalid splash time hint), battery type, guns by hand and
+        LINK, remove; location stores add/remove; a fire mission through all its pages (Grid,
+        Shift, Polar, QuickLay, LOAD), the engagement (round changes the fuzes), solutions, SHOT
+        and TTI, SEND ADJ (selected gun) / FFE, ADJUST, END and END & SAVE; observer targets and
+        a respawned FDC (the datalink reconnects).
+      - COBRA: the map in its slot with the radars, firing positions and impacts, zoom and pan;
+        Save to BCS and COUNTER-FIRE (opens the BCS engagement).
+      - Which of the four whitelist spellings in `tablet\config.cpp` matched (drop the rest); the
+        frame rate with and without Steam; a transparent page background around the frame.
+      Notes: HEMTT does not know `ctrlWebBrowserAction` (missing from the arma3-wiki data), so it
+      is compiled from a string in preInit (`tablet_webAction`); JSDialog/PageLoaded give two
+      L-S02 warnings. When it holds up: default on, then drop the classic tablet.
 - [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, sends
       it, and every gun of the battery gets its own firing data in the gunner sight, like a real
       fire direction system sending to the gun display.

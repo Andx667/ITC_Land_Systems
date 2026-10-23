@@ -262,6 +262,45 @@
         <Key ID="STR_itc_land_tablet_RscText_1024_Text">
             <English>LENGTH</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Tablet">
+            <English>Tablet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebClassic">
+            <English>CLASSIC TABLET</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebClassic_Tooltip">
+            <English>Open the classic tablet where this one is</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTablet_Description">
+            <English>The tablets open as a web page in the game\'s browser control (Arma 3 2.20): the frame, its APP keys and every app. Off: the classic tablet. Launch the game through Steam, or the page updates only about once a second.</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTablet_DisplayName">
+            <English>Tablet in HTML</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Azimuth">
+            <English>Azimuth to the target, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Charge">
+            <English>Charge</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Deflection">
+            <English>Deflection: the azimuth relative to the gun's direction, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_FuzeSetting">
+            <English>Fuze setting: the time for a time fuze, in seconds</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Gun">
+            <English>Gun number in the battery</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Loader">
+            <English>Loader status of a linked gun, as its crew sees it</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_Quadrant">
+            <English>Quadrant elevation to lay, in mils</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebTip_TimeOfFlight">
+            <English>Time of flight, in seconds</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_app1_ifaces_label_Text">
             <English>INTERFACES:</English>
         </Key>

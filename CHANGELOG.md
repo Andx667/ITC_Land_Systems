@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Added
+
+- Tablet in HTML (Arma 3 2.20+): the new setting **Tablet in HTML** (off by default) opens the tablets as a web page in the game's browser control, frame and all: the APP keys on the frame switch the apps, the sidebar the pages, and every app is there (SPG and MLRS fire control and status, the whole BCS, COBRA with its map). Fields keep what you type while the tablet updates. **CLASSIC TABLET** on the home screen opens the classic one, which stays the default for now. Launch the game through Steam, otherwise the page updates only about once a second.
+
 ### Changed
 
 - BCS Battery Setup: a new gun, linked or entered by hand, gets the lowest free gun number from 1 up (a removed gun's number is used again), and **Gun #** shows it; linking before took the highest number + 1.

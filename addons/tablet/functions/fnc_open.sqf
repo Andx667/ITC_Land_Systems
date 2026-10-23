@@ -4,10 +4,12 @@
  * Author: ToadBall, Yax, VKing
  * Opens the tablet dialog and sets up a per-frame handler that drives the
  * tablet's rendering and app/page switching for the current vehicle for
- * as long as the dialog stays open.
+ * as long as the dialog stays open. With the setting "Tablet in HTML" it opens that instead
+ * (tablet_fnc_webOpen).
  *
  * Arguments:
  * 0: Tablet weapon config class name <String>
+ * 1: The classic tablet also with the setting "Tablet in HTML" <BOOL> (default: false)
  *
  * Return Value:
  * None
@@ -18,7 +20,8 @@
  * Public: No
  */
 
-params ["_tabletClass"];
+params ["_tabletClass", ["_classic", false]];
+if (GVAR(webTablet) && {!_classic}) exitWith {[_tabletClass] call FUNC(webOpen)};
 createDialog "itc_land_tablet";
 
 ITC_CURVEHICLE
