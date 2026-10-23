@@ -15,3 +15,5 @@ PREP(compileScript);
 PREP(fcsSolutionText);
 PREP(bcsFillFuzes);
 PREP(bcsShot);
+PREP(bcsInit);
+PREP(cbrDrawMap);
