@@ -224,7 +224,8 @@ exists but cannot be reached in game, kept to be finished later.
       `rover/CfgVehicles.hpp`; packable files `fnc_Pack`/`fnc_unPack` vs `PREP(pack/unpack)`.
 - [ ] Tablet and dialog layout doesn't scale consistently: the tablet frame image is sized
       from the screen width only while the content uses width and height, and text sizes
-      use a fixed `GUI_GRID_H` while boxes scale with the screen. Known; long-term rework.
+      use a fixed `GUI_GRID_H` while boxes scale with the screen. Known; long-term rework
+      (possibly as HTML pages, see the HTML tablet item in section 8).
 
 ## 6. Linting and CI
 
@@ -312,6 +313,30 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
     breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
     BWMod (`compat_bwa3`).
+- [ ] Maybe, future upgrade: tablet pages as HTML (researched 2026-10-23). Arma 3 2.20 added
+      `CT_WEBBROWSER` (type 106, vanilla `RscWebBrowser` with `url`/`allowExternalURL`), an
+      embedded Chromium page in a normal dialog. SQF to page with `ctrlWebBrowserAction
+      ["ExecJS", ...]`, page to SQF with `A3API.SendAlert`/`SendConfirm` (the `JSDialog` event,
+      about 10 KB per message), files and textures with `A3API.RequestFile`/`RequestTexture`.
+      Pages load only from paths in `CfgCommands >> allowedHTMLLoadURIs[]` (empty in vanilla)
+      and must be one self-contained file: no `<script src>`, external CSS/fonts, `fetch` or
+      `localStorage`. Source: the community framework <https://github.com/doombadroid/arma-webui>
+      (single author, Linux/Proton measurements); the BI wiki pages were not readable.
+  - Fit: the tablet app pages (BCS, SPG app, COBRA lists, settings): text, forms and tables over
+    SQF state; CSS layout would also fix the scaling problem (section 5). Keep Rsc for the tablet
+    map (mix a map control with the browser in one display), the ROVER video feed (render to
+    texture) and the gunner sights (`RscInGameUI`, per frame, just redone).
+  - Risks: browser clamped to about 1 fps when Arma is not started through Steam (and Steam's
+    "GPU-accelerated web rendering" setting can freeze it); a bundling step to inline JS/CSS
+    before HEMTT packs the page (HEMTT does not lint HTML/JS); stringtable texts passed into the
+    page; anything in the page can call every registered SQF handler, so validation stays in
+    SQF; rebuilding the tablet framework is a large job outside the artillery scope.
+  - First a spike (about an hour): a hello-world browser control in the tablet dialog, loaded
+    from an ITC addon path. Check that an addon can whitelist its own path
+    (`allowedHTMLLoadURIs[] += {...}` in `config.cpp`; the framework loads from the mission),
+    mouse/focus next to Rsc controls and ACE interaction, Esc, the frame rate on Windows with and
+    without Steam, and an ExecJS/SendAlert round trip. If it passes, convert the BCS solution
+    page first (text-heavy, live loader status and TTI), then decide about the rest.
 - [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, sends
       it, and every gun of the battery gets its own firing data in the gunner sight, like a real
       fire direction system sending to the gun display.
