@@ -26,9 +26,8 @@ private _targetGroupID = [_id, 0, 2] call CBA_fnc_substr;
 private _targetNodeID = [_id, 2, 2] call CBA_fnc_substr;
 
 //loop through all IDs
-private _allIDs = [itc_land_datalink_nodes] call CBA_fnc_hashKeys;
 {
-    _target = [itc_land_datalink_nodes, _x] call CBA_fnc_hashGet;
+    _target = _y;
     if (_x == _id) then {
         //if ID matches the target ID then push back target
         _targets pushBack _target;
@@ -46,6 +45,6 @@ private _allIDs = [itc_land_datalink_nodes] call CBA_fnc_hashKeys;
             };
         };
     };
-}forEach _allIDs;
+}forEach itc_land_datalink_nodes;
 
 _targets

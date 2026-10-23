@@ -32,6 +32,7 @@ if (!_broadCastAllowed) then {
     private _groupString = [_IDString, 0, 2] call CBA_fnc_substr;
     private _IDString = [_IDString, 2, 2] call CBA_fnc_substr;
     if (_groupString == "00" || _IDString == "00") then {
+        _isValid = false;
         _errors pushBack "Illegal broadcasting combination 00 found";
     };
 };

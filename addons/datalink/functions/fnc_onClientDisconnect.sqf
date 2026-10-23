@@ -23,5 +23,5 @@ params ["_player","_id"];
 if (isNil {_id} || _id == "") then {
     [0, _player] call FUNC(removeNodes);
 } else {
-    [itc_land_datalink_nodes,_id] call CBA_fnc_hashRem;
+    itc_land_datalink_nodes deleteAt _id;
 };

@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Handles the response to an ID registration request; if the registration succeeded, stores the assigned datalink ID on the target object.
+ * Handles the response to an ID registration request; if the registration succeeded, stores the assigned datalink ID on the target object (public, as itc_land_datalink_id).
  *
  * Arguments:
  * 0: Target object that requested the ID <Object>
@@ -22,5 +22,6 @@ _transmission params ["_destination","_origin","_header","_type","_data"];
 
 _data params ["_success","_info"];
 if (_success) then {
-    _target setVariable [QGVAR(id),_destination];
+    // public: others address the object by it (the FDC reads a gun's ID to send it fire data)
+    _target setVariable [QGVAR(id),_destination,true];
 };

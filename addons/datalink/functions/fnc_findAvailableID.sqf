@@ -30,8 +30,8 @@ for "_firstCharIndex" from 0 to _characterHighestIndex do {
         _secondChar = itc_land_datalink_allowedIDCharacters # _secondCharIndex;
         //generate ID
         _id = _groupID + _firstChar + _secondChar;
-        //check if ID is free
-        _isAvailableID = !([itc_land_datalink_nodes, _id] call CBA_fnc_hashHasKey);
+        //check if ID is free; node 00 addresses the whole group, so it is never assigned
+        _isAvailableID = !(_id in itc_land_datalink_nodes) && {(_firstChar + _secondChar) != "00"};
         //exit if free
         if (_isAvailableID) exitWith {};
     };

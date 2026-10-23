@@ -2,7 +2,7 @@
 
 /*
  * Author: ToadBall, Yax, VKing
- * Initializes the datalink server: creates the node registry hash, registers the CBA event handlers for client connect, client disconnect, and client transmit events, and removes registry entries whose object is deleted or whose connecting player disconnects. Server-side only.
+ * Initializes the datalink server: creates the node registry hashmap, registers the CBA event handlers for client connect, client disconnect, and client transmit events, and removes registry entries whose object is deleted or whose connecting player disconnects. Server-side only.
  *
  * Arguments:
  * None
@@ -18,8 +18,8 @@
 
 if (!isServer) exitWith {}; //end code if not server
 
-//create the address list hash, this will consist of IDGR: [object, machine ID that connected it]
-itc_land_datalink_nodes = [] call CBA_fnc_hashCreate;
+//create the address list, a hashmap of ID: [object, machine ID that connected it]
+itc_land_datalink_nodes = createHashMap;
 
 //drop entries for deleted objects and for machines that left, so transmissions don't go to dead targets
 addMissionEventHandler ["EntityDeleted", {
