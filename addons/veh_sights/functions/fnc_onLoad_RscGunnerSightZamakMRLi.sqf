@@ -27,5 +27,6 @@
     ["misAz", 83116],
     ["qd", 83119],
     ["misQd", 83121],
-    ["elevationSource", "tower_fake"]
+    ["elevationSource", "tower_fake"],
+    SIGHT_ORDERS_LAYOUT
 ]] call FUNC(runGunnerSight);

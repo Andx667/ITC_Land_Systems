@@ -43,7 +43,8 @@ if (_action == "save") then {
     if (_magType == "") exitWith {
         [LLSTRING(Bcs_NoAmmoSelected)] call ace_common_fnc_displayTextStructured;
     };
-    _engagePage = [lbCurSel 7101, lbCurSel 7401, UINUMBER(7402), UINUMBER(7403), lbCurSel 7100, _magType, (floor UINUMBER(7404)) max 1, lbData [7102, lbCurSel 7102]];
+    private _sheafDirection = [UITEXT(7402), [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);
+    _engagePage = [lbCurSel 7101, lbCurSel 7401, _sheafDirection, UINUMBER(7403), lbCurSel 7100, _magType, (floor UINUMBER(7404)) max 1, lbData [7102, lbCurSel 7102]];
     _mission set [3, _engagePage];
     SAVEMISSION(_mission);
     _mission set [1, "solutionMission"];

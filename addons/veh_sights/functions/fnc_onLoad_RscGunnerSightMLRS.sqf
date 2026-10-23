@@ -24,5 +24,6 @@
     ["az", 83014],
     ["misAz", 83016],
     ["qd", 83019],
-    ["misQd", 83021]
+    ["misQd", 83021],
+    SIGHT_ORDERS_LAYOUT
 ]] call FUNC(runGunnerSight);

@@ -165,6 +165,8 @@
                     w = "5.2 *      (0.01875 * SafezoneH)";
                     h = "1.2 *      (0.025 * SafezoneH)";
                 };
+                // FCI orders, shown while the launcher has the FDC's fire orders
+                SIGHT_ORDERS_PANEL(38,26,SIGHT_RED);
             };
         };
     };

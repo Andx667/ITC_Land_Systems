@@ -32,7 +32,7 @@ ctrlShow [13506, true];
 if (_calculate) then {
     // linked guns are where their vehicles are now
     GVAR(bcs_bty_guns) = [GVAR(bcs_bty_guns)] call EFUNC(bcs,refreshLinkedGuns);
-    GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage]  call EFUNC(bcs,calcSolutions);
+    GVAR(bcs_solutions) = [GVAR(bcs_bty_guns),_magazineType,_tgtPos,_engagePage,GVAR(bcs_bty_type) # 1]  call EFUNC(bcs,calcSolutions);
 };
 
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];
@@ -59,15 +59,21 @@ SETTEXT(8022,_text);
 // each gun's line for the selected charge and angle; a gun without one (out of range, cannot lay it) shows NO SLN.
 // Linked guns with an ammunition handler get its status appended by render.sqf
 lbClear 8500;
+private _milSystem = [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem);
 {
     _x params ["_num", "_gunSolutionList"];
     private _solution = [_gunSolutionList, _btySolutions # _curSolution] call EFUNC(bcs,matchGunSolution);
     private _solText = if (_solution isEqualTo []) then {
         format ["G: %1     %2", _num, LLSTRING(Fcs_NoSolution)]
     } else {
-        format [
+        private _text = format [
             "G: %1     CH: %2     AZ: %3     DF: %4     QD: %5     TOF: %6",
-            _num, _solution # 0, round (_solution # 1), _solution # 2, round (_solution # 3), [( _solution # 4),1,2] call CBA_fnc_formatNumber]
+            _num, _solution # 0, [_solution # 1, _milSystem] call EFUNC(common,formatMils), [parseNumber (_solution # 2), _milSystem] call EFUNC(common,formatMils),
+            [_solution # 3, _milSystem] call EFUNC(common,formatMils), [( _solution # 4),1,2] call CBA_fnc_formatNumber];
+        // the time fuze setting, for rounds with a time fuze
+        private _fuzeSetting = _solution param [10, -1];
+        if (_fuzeSetting >= 0) then {_text = format ["%1     FS: %2", _text, [_fuzeSetting, 1, 1] call CBA_fnc_formatNumber]};
+        _text
     };
     (_display displayCtrl 8500) lbAdd _solText;
     private _vehicle = (GVAR(bcs_bty_guns) param [GVAR(bcs_bty_guns) findIf {_x # 0 == _num}, []]) param [6, objNull];

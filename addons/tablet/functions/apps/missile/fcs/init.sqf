@@ -65,26 +65,8 @@ private _magazineNames = _magazines apply {
 [2402,_magazineNames,0,_magazines] call FUNC(fillComboBox);
 [2402, lbCurSel 2402] call FUNC(mlrsfci_onlblselchanged_roundType);
 
-private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
-if (count _solutions > 0) then {
-    private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-    private _solution = _solutions # _solutionIndex;
-    private _solutionString = "";
-    _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
-
-    _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
-    _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
-
-    (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
-} else {
-    (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
-};
-(_display displayCtrl 2403) ctrlCommit 0;
+// the readout is drawn by render.sqf; forget what it last drew so it draws on this page again
+_display setVariable [QGVAR(fcsShown), nil];
 
 
 /*

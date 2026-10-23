@@ -10,6 +10,7 @@ class itc_land_m230hex_12rnd : 12Rnd_230mm_rockets {
     itc_land_btabListFile = QPATHTOEF(ballistics,tables\b_230\list.sqf);
 };
 class itc_land_m230pgm_12rnd : itc_land_m230hex_12rnd {
+    itc_land_fixedQuadrant = 800; // guided: launched at 800 mils, the guidance flies it to the target
     itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};
     displayName = CSTRING(m230pgm_12rnd_DisplayName);
     displayNameShort = CSTRING(m230pgm_12rnd_DisplayNameShort);
@@ -24,11 +25,13 @@ class itc_land_m230icm_12rnd : itc_land_m230hex_12rnd {
     displayNameShort = CSTRING(m230icm_12rnd_DisplayNameShort);
     itc_land_fuze = "mof35_mod1";
     itc_land_submunition = "itc_land_230mm_icm_helper";
+    itc_land_burstHeight = 400;
 };
 class itc_land_m230icm_6rnd : itc_land_m230icm_12rnd {
     count = 6;
 };
 class itc_land_m230gicm_12rnd : itc_land_m230icm_12rnd {
+    itc_land_fixedQuadrant = 800; // guided: launched at 800 mils, the guidance flies it to the target
     displayName = CSTRING(m230gicm_12rnd_DisplayName);
     displayNameShort = CSTRING(m230gicm_12rnd_DisplayNameShort);
     itc_land_guidance[] = {"gps_inertial",QEFUNC(guidance,pgm230)};
@@ -43,6 +46,7 @@ class itc_land_m230mat_12rnd : itc_land_m230hex_12rnd {
     displayNameShort = CSTRING(m230mat_12rnd_DisplayNameShort);
     itc_land_fuze = "mof35_mod1";
     itc_land_submunition = "itc_land_230mm_fascam_at_helper";
+    itc_land_burstHeight = 300;
 };
 class itc_land_m230map_12rnd : itc_land_m230hex_12rnd {
     author = "Toadball";
@@ -51,4 +55,5 @@ class itc_land_m230map_12rnd : itc_land_m230hex_12rnd {
     displayNameShort = CSTRING(m230map_12rnd_DisplayNameShort);
     itc_land_fuze = "mof35_mod1";
     itc_land_submunition = "itc_land_230mm_fascam_ap_helper";
+    itc_land_burstHeight = 400;
 };

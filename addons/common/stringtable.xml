@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="common">
+        <Key ID="STR_itc_land_common_FireControl">
+            <English>Fire control</English>
+        </Key>
         <Key ID="STR_itc_land_common_LoaderFuze">
             <English>FUZE: %1</English>
         </Key>
@@ -12,6 +15,12 @@
         </Key>
         <Key ID="STR_itc_land_common_RoundsComplete">
             <English>%1 ( %2 / %3 ROUNDS COMPLETE )</English>
+        </Key>
+        <Key ID="STR_itc_land_common_RussianMils_Description">
+            <English>Shows the angles of the Russian guns (Sochor 2, 2S1, 2S3, D-30, 2B14) and their BCS batteries in the Russian 6000 mil system, written 15-00, and reads the BCS mil inputs of those batteries in it. Off: NATO 6400 mils everywhere.</English>
+        </Key>
+        <Key ID="STR_itc_land_common_RussianMils_DisplayName">
+            <English>Russian guns in 6000 mils</English>
         </Key>
         <Key ID="STR_itc_land_common_attributes_DisplayName">
             <English>ITC Land Options</English>

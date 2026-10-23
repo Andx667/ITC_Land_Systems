@@ -4,6 +4,8 @@ class RscFrame;
 class RscPicture;
 class RscControlsGroup;
 
+#include "ui\ITC_Land_sightMacros.hpp"
+
 
 
 class RscInGameUI {

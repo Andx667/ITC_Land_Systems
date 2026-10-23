@@ -11,6 +11,7 @@ class itc_land_ballistics {
             type = "cannon";
             ammunition[] = {"itc_land_g152hex","itc_land_g152smo","itc_land_g152icm","itc_land_g152mat","itc_land_g152map","itc_land_g152pgm","itc_land_g152lgm","itc_land_g152ill"};
             weaponClass = "itc_land_152mm_howitzer";
+            milSystem = 6000; // Russian gun, see common_fnc_getMilSystem
         };
         class NG127 {
             displayName = CSTRING(NG127_DisplayName);

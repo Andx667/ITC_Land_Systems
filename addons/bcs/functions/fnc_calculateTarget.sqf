@@ -39,6 +39,8 @@ if (_targetTypeIndex == 3) then {
 if (_targetTypeIndex > 0) then {
     private _lr = if (_targetTypeIndex == 1) then [{_in2},{"0"}];
     private _ud = if (_targetTypeIndex == 1) then [{_in3},{_in2}];
-    _targetPos = [_targetPos, parseNumber _in0, parseNumber _in1, parseNumber _lr, parseNumber _ud] call FUNC(adjustGrid);
+    // the OT direction in the battery's mil system (Russian batteries: 6000, also as 15-00)
+    private _ot = [_in0, [EGVAR(tablet,bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);
+    _targetPos = [_targetPos, _ot, parseNumber _in1, parseNumber _lr, parseNumber _ud] call FUNC(adjustGrid);
 };
 _targetPos

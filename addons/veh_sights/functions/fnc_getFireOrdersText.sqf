@@ -4,7 +4,7 @@
  * Author: ITC Addons Team
  * Builds the six lines of the gunner sight's FCI ORDERS panel from the fire orders the FDC sent
  * the vehicle (itc_land_bcs_fireData) and the firing line they came with: mission and ADJ/FFE,
- * round count, round and charge, fuze (with the time of flight for a time fuze), guidance (the
+ * round count, round and charge, fuze (with the fuze setting for a time fuze), guidance (the
  * target grid for a GPS round) and azimuth/quadrant. Without orders the lines are placeholders.
  *
  * Arguments:
@@ -41,7 +41,7 @@ private _fuzeIndex = getArray (_fuze >> "modes") find _fuzeMode;
 private _fuzeName = if (_fuzeIndex == -1) then {""} else {getArray (_fuze >> "modeDesc") param [_fuzeIndex, ""]};
 private _fuzeText = switch (true) do {
     case (_fuzeName == ""): {LLSTRING(FuzeNotAvailable)};
-    case (_fuzeMode == "time"): {format [LLSTRING(OrdersFuzeTime), toUpper _fuzeName, [_line param [4, 0], 1, 1] call CBA_fnc_formatNumber]};
+    case (_fuzeMode == "time"): {format [LLSTRING(OrdersFuzeTime), toUpper _fuzeName, [(_line param [10, -1]) max 0, 1, 1] call CBA_fnc_formatNumber]};
     default {format [LLSTRING(OrdersFuzeMode), toUpper _fuzeName]};
 };
 

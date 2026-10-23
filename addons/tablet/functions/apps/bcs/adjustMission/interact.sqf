@@ -26,7 +26,8 @@ if (_action == "back") then {
 };
 
 if (_action == "save") then {
-    _tgtPos = [_tgtPos,UINUMBER(9401),UINUMBER(9402),UINUMBER(9403),UINUMBER(9404)] call EFUNC(bcs,adjustGrid);
+    private _ot = [UITEXT(9401), [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);
+    _tgtPos = [_tgtPos,_ot,UINUMBER(9402),UINUMBER(9403),UINUMBER(9404)] call EFUNC(bcs,adjustGrid);
     _targetPage set [6, _tgtPos];
     _mission set [2, _targetPage];
     SAVEMISSION(_mission);

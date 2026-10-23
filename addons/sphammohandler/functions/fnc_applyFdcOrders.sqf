@@ -3,10 +3,10 @@
 /*
  * Author: ITC Addons Team
  * FDC ORDERS button of the ammunition handler: fills in the fire orders the FDC sent the vehicle
- * (itc_land_bcs_fireData): the round, the charge of the sent firing line, the fuze, the round
- * count and, for a GPS round, the target grid and altitude. It only pre-fills the dialog: the
- * crew still checks it, then APPLY and LOAD, and lays the gun. The fuze time of a time fuze is
- * left to the crew (the sight's orders show the time of flight).
+ * (itc_land_bcs_fireData): the round, the charge of the sent firing line, the fuze (a time fuze
+ * with the line's fuze setting), the round count and, for a GPS round, the target grid and
+ * altitude. It only pre-fills the dialog: the crew still checks it, then APPLY and LOAD, and lays
+ * the gun.
  *
  * Arguments:
  * None
@@ -47,6 +47,11 @@ for "_i" from 0 to (lbSize 86004) - 1 do {
     if (lbData [86004, _i] == _fuzeMode) exitWith {_fuzeIndex = _i};
 };
 if (_fuzeIndex != -1) then {
+    // a time fuze gets the fuze setting of the sent line, shown in the time field when the fuze is selected
+    private _fuzeSetting = _line param [10, -1];
+    if (_fuzeMode == "time" && {_fuzeSetting >= 0}) then {
+        _vehicle setVariable ["itc_land_fuzeTime", parseNumber ([_fuzeSetting, 1, 1] call CBA_fnc_formatNumber), true];
+    };
     lbSetCurSel [86004, _fuzeIndex];
     [controlNull, _fuzeIndex] call FUNC(onSelectFuze);
 };

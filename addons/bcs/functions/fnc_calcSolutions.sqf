@@ -4,17 +4,18 @@
  * Author: ToadBall, Yax, VKing
  * Calculates a full battery fire-mission solution: derives each gun's
  * individual aim point from the sheaf pattern (parallel, converged, linear,
- * open or special/custom) selected in the engagement settings, applies any
- * magazine height/time-of-flight config modifiers, and computes both a
+ * open or special/custom) selected in the engagement settings, and computes both a
  * battery-centre ballistic solution and a per-gun ballistic solution via
- * EFUNC(ballistics,calcShellTypeSolutions).
+ * EFUNC(ballistics,calcShellTypeSolutions), which applies the round's aim height
+ * and adds its fuze setting.
  *
  * Arguments:
  * 0: Guns in the battery <ARRAY> of [gun number <STRING>, position string <STRING>, position <ARRAY> (Position ASL), elevation <NUMBER>, direction (degrees) <NUMBER>, battery name <STRING>, linked vehicle <OBJECT> (optional)];
- *    a linked gun only gets the solutions its turret can lay
+ *    a linked gun's solutions start at its muzzle and only include those its turret can lay
  * 1: Shell type <STRING> (CfgAmmo/CfgMagazines classname)
  * 2: Fire-mission target position <ARRAY> (Position ASL)
  * 3: Engagement settings <ARRAY> of [sheaf type <NUMBER> (0: Parallel, 1: Converged, 2: Linear, 3: Open, 4: Special), sheaf quick flag <NUMBER>/<BOOLEAN>, sheaf direction <NUMBER>, sheaf size <NUMBER>, shell type index <NUMBER>, magazine <STRING>]
+ * 4: Battery type, whose elevation limits filter the battery solution and the hand-entered guns (default: "", no filter) <STRING>
  *
  * Return Value:
  * Battery and per-gun solutions <ARRAY> in the format [battery solution <ARRAY>, gun solutions <ARRAY> of [gun number <NUMBER>, gun solution <ARRAY>]]
@@ -25,20 +26,18 @@
  * Public: No
  */
 
-params ["_guns", ["_shellType", ""], "_targetPos", "_engagement"];
+params ["_guns", ["_shellType", ""], "_targetPos", "_engagement", ["_batteryType", ""]];
 _engagement params ["_sheafType", "_sheafQuick", "_sheafDir", "_sheafSize","_shellTypeIndex",["_magazine", ""]];
 // a mission saved without a valid target or ammunition (before the pages checked them) gets no solutions
 if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {[[], []]};
 if (_shellType isEqualTo "" || {_magazine isEqualTo ""}) exitWith {[[], []]};
 
-private _magazineHeightModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_heightModifier";
-_magazineHeightModifier = if (isNumber _magazineHeightModifier) then [{getNumber _magazineHeightModifier}, {0}];
-_targetPos = _targetPos vectorAdd [0,0,_magazineHeightModifier];
-private _magazineTimeModifier = configFile >> "CfgMagazines" >> _magazine >> "itc_land_timeModifier";
-_magazineTimeModifier = if (isNumber _magazineTimeModifier) then [{getNumber _magazineTimeModifier}, {0}];
-
+// the round's aim height (illumination) and fuze setting come with each solution (ballistics_fnc_calcShellTypeSolutions)
 private _batteryPos = [_guns] call FUNC(getBatteryPosition);
+// guns without a vehicle are held to the battery type's elevation limits (the widest of its vehicles)
+private _batteryLimits = if (_batteryType == "") then {[]} else {[_batteryType] call FUNC(getBatteryElevationLimits)};
 private _batterySolution = [_shellType, _batteryPos, _batteryPos # 2, 0, _targetPos, _targetPos # 2] call EFUNC(ballistics,calcShellTypeSolutions);
+_batterySolution = [_batteryLimits, _batterySolution] call EFUNC(common,filterSolutionsByElevation);
 
 private _gunTargets = [];
 private _gunTargetLine = ((_batteryPos getDir _targetPos)/360*6400);
@@ -74,11 +73,8 @@ switch (_sheafType) do { //0: Parralel, 1: Converged, 2: Linear, 3: Open, 4: Spe
 private _gunSolutions = [];
 {
     _x params ["_num", "_posStr", "_pos", "_elev", "_dir", "", ["_vehicle", objNull]];
-    private _gunSolution = [_shellType, _pos, _pos # 2, _dir, (_gunTargets # _forEachIndex), (_gunTargets # _forEachIndex) # 2] call EFUNC(ballistics,calcShellTypeSolutions);
-    _gunSolution apply {_x set [4, (_x # 4) + _magazineTimeModifier]};
-    if (!isNull _vehicle) then {
-        _gunSolution = [_vehicle, _gunSolution] call EFUNC(common,filterSolutionsByElevation);
-    };
+    private _gunSolution = [_shellType, _pos, _pos # 2, _dir, (_gunTargets # _forEachIndex), (_gunTargets # _forEachIndex) # 2, _vehicle] call EFUNC(ballistics,calcShellTypeSolutions);
+    _gunSolution = [[_batteryLimits, _vehicle] select !isNull _vehicle, _gunSolution] call EFUNC(common,filterSolutionsByElevation);
     _gunSolutions pushBack [_num, _gunSolution];
 }forEach _guns;
 

@@ -52,8 +52,8 @@
         itc_land_charge_format = "itc_land_g105icm_chg%1";
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
-        itc_land_timeModifier = -2;
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_105\list.sqf);
+        itc_land_burstHeight = 400;
     };
     class itc_land_g105icm_chg1: itc_land_g105icm { initSpeed = 86; itc_land_CountInAH = 0;  };
     class itc_land_g105icm_chg2: itc_land_g105icm { initSpeed = 160; itc_land_CountInAH = 0;  };

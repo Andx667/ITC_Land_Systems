@@ -10,6 +10,7 @@
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 15;
     };
     class itc_land_g155hex_chg1: itc_land_g155hex { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155hex_chg2: itc_land_g155hex { initSpeed = 200; itc_land_CountInAH = 0;  };
@@ -29,8 +30,8 @@
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
         itc_land_submunition = "itc_land_155mm_smoke";
-        itc_land_timeModifier = -1.5;
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 100;
     };
     class itc_land_g155smo_chg1: itc_land_g155smo { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155smo_chg2: itc_land_g155smo { initSpeed = 200; itc_land_CountInAH = 0;  };
@@ -49,8 +50,8 @@
         itc_land_charge_format = "itc_land_g155icm_chg%1";
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
-        itc_land_timeModifier = -2;
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 400;
     };
     class itc_land_g155icm_chg1: itc_land_g155icm { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155icm_chg2: itc_land_g155icm { initSpeed = 200; itc_land_CountInAH = 0;  };
@@ -68,9 +69,9 @@
         itc_land_charge_format = "itc_land_g155mat_chg%1";
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
-        itc_land_timeModifier = -1.2;
         itc_land_submunition = "itc_land_155mm_fascam_at_helper";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 300;
     };
     class itc_land_g155mat_chg1: itc_land_g155mat { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155mat_chg2: itc_land_g155mat { initSpeed = 200; itc_land_CountInAH = 0;  };
@@ -88,9 +89,9 @@
         itc_land_charge_format = "itc_land_g155map_chg%1";
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
-        itc_land_timeModifier = -1.5;
         itc_land_submunition = "itc_land_155mm_fascam_ap_helper";
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 400;
     };
     class itc_land_g155map_chg1: itc_land_g155map { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155map_chg2: itc_land_g155map { initSpeed = 200; itc_land_CountInAH = 0;  };
@@ -151,8 +152,9 @@
         itc_land_charge_format = "itc_land_g155ill_chg%1";
         itc_land_CountInAH = 1;
         itc_land_maxChargeIndex = 5;
-        itc_land_heightModifier = 200;
+        itc_land_heightModifier = 600; // aimed at the burst point
         itc_land_btabListFile = QPATHTOEF(ballistics,tables\g_155\list.sqf);
+        itc_land_burstHeight = 600;
     };
     class itc_land_g155ill_chg1: itc_land_g155ill { initSpeed = 100; itc_land_CountInAH = 0;  };
     class itc_land_g155ill_chg2: itc_land_g155ill { initSpeed = 200; itc_land_CountInAH = 0;  };

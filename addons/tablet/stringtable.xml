@@ -157,8 +157,17 @@
         <Key ID="STR_itc_land_tablet_Fcs_Deflection">
             <English>DEFLECTION: %1</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_FdcOrdersApplied">
+            <English>%1: FDC orders filled in. Check them, then APPLY.</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_FdcRoundMissing">
+            <English>The FDC ordered %1, which this launcher does not carry</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_Fcs_FromFdc">
             <English>FDC %1 %2: %3</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_FuzeSetting">
+            <English>FUZE SETTING: %1</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Fcs_Header">
             <English>FIRING COMMAND INTERFACE</English>
@@ -168,6 +177,9 @@
         </Key>
         <Key ID="STR_itc_land_tablet_Fcs_MaxOrdinate">
             <English>MAXIMUM ORDINATE: %1</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_Fcs_NoFdcOrders">
+            <English>No fire orders from the FDC</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Fcs_NoSolution">
             <English>NO SLN</English>
@@ -369,6 +381,12 @@
         </Key>
         <Key ID="STR_itc_land_tablet_engagement_sheaf_text_Text">
             <English>Sheaf Type</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fdcorders_btn_Text">
+            <English>FDC ORDERS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_fci_fdcorders_btn_Tooltip">
+            <English>Fill in the round, fuze (with the fuze setting) and GPS target of the FDC's fire orders. Check them, then APPLY.</English>
         </Key>
         <Key ID="STR_itc_land_tablet_fci_fuzeinputs_Text">
             <English>FUZE &amp; GUIDANCE SETTINGS</English>

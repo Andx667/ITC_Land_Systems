@@ -23,13 +23,14 @@
 
 params ["_action"];
 ITC_CURVEHICLE
-private _display = findDisplay 32562;
 
 switch (_action) do {
     case "calc": {
         //#include "interact_calc.sqf"
         private _gridField = ctrlText 2400;
         _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _gridField, true];
+        // a local solution replaces the one the FDC sent
+        _vehicle setVariable [QEGVAR(bcs,fireData), nil, true];
 
         // no solution without a grid of 4 to 10 digits; ACE reads an empty grid as the map origin
         if !(_gridField regexMatch "^([0-9][0-9]){2,5}$") exitWith {
@@ -45,18 +46,9 @@ switch (_action) do {
         private _targetPos = [_gridField, false] call ace_common_fnc_getMapPosFromGrid;
         private _gunPos = getPosASL _vehicle;
 
-        private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt] call EFUNC(ballistics,calcShellTypeSolutions);
+        private _solutions = [_shellType, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elTgt, _vehicle] call EFUNC(ballistics,calcShellTypeSolutions);
 
-        itc_land_guidance = getArray (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_guidance");
-
-        if (itc_land_guidance isNotEqualTo []) then {
-            if (count _solutions > 0) then {
-                _solutions apply {
-                    _x set [3,800];
-                };
-            };
-        };
-        // the tables can reach steeper or flatter than this launcher can lay (guided rockets: after their fixed 800 mils)
+        // the tables can reach steeper or flatter than this launcher can lay (guided rockets: after their fixed quadrant)
         _solutions = [_vehicle, _solutions] call EFUNC(common,filterSolutionsByElevation);
         _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
@@ -69,6 +61,39 @@ switch (_action) do {
         private _solutionIndex = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
         private _solutions = _vehicle getVariable "itc_land_tablet_fcs_solutions";
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_solutionIndex + 1) min ((count _solutions) - 1), true];
+    };
+    case "fdcOrders": {
+        // fill in the FDC's fire orders: round, fuze (a time fuze with the line's fuze setting) and GPS target; APPLY stays with the crew
+        (_vehicle getVariable [QEGVAR(bcs,fireData), []]) params [["_mission", ""], "", ["_magazine", ""], "", "", ["_fuzeMode", ""], ["_targetPos", []]];
+        if (_mission == "") exitWith {
+            [LLSTRING(Fcs_NoFdcOrders)] call ace_common_fnc_displayTextStructured;
+        };
+        private _roundIndex = -1;
+        for "_i" from 0 to (lbSize 2402) - 1 do {
+            if (lbData [2402, _i] == _magazine) exitWith {_roundIndex = _i};
+        };
+        if (_roundIndex == -1) exitWith {
+            [format [LLSTRING(Fcs_FdcRoundMissing), getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]] call ace_common_fnc_displayTextStructured;
+        };
+        lbSetCurSel [2402, _roundIndex];
+        [2402, _roundIndex] call FUNC(mlrsfci_onlblselchanged_roundType);
+        private _fuzeIndex = -1;
+        for "_i" from 0 to (lbSize 1904) - 1 do {
+            if (lbData [1904, _i] == _fuzeMode) exitWith {_fuzeIndex = _i};
+        };
+        if (_fuzeIndex != -1) then {
+            private _fuzeSetting = ([_vehicle] call EFUNC(common,getFireSolution)) param [10, -1];
+            if (_fuzeMode == "time" && {_fuzeSetting >= 0}) then {
+                _vehicle setVariable ["itc_land_mlrsfci_fuzeTime", parseNumber ([_fuzeSetting, 1, 1] call CBA_fnc_formatNumber), true];
+            };
+            lbSetCurSel [1904, _fuzeIndex];
+            [1904, _fuzeIndex] call FUNC(mlrsfci_onlblselchanged_fuzemode);
+        };
+        if ((getArray (configFile >> "CfgMagazines" >> _magazine >> "itc_land_guidance")) param [0, ""] == "gps_inertial" && {_targetPos isEqualTypeArray [0, 0, 0]}) then {
+            ctrlSetText [1909, ([_targetPos] call ace_common_fnc_getMapGridFromPos) joinString ""];
+            ctrlSetText [1911, str round (_targetPos # 2)];
+        };
+        [format [LLSTRING(Fcs_FdcOrdersApplied), _mission]] call ace_common_fnc_displayTextStructured;
     };
     case "setFG" : {
         private _fuze = getText (configFile >> "CfgMagazines" >> lbData [2402, lbCurSel 2402] >> "itc_land_fuze");
@@ -95,29 +120,4 @@ switch (_action) do {
             };
         };
     };
-};
-
-if (_action in ["calc","prev","next"]) then {
-    private _solutions = (_vehicle getVariable "itc_land_tablet_fcs_solutions");
-
-    if (count _solutions > 0) then {
-        private _solutionIndex = (_vehicle getVariable "itc_land_tablet_fcs_solutions_index");
-        private _solution = _solutions # _solutionIndex;
-        private _solutionString = "";
-        _solution params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
-
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex+1,(count _solutions)];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Azimuth) + "<br/>",round _az];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Deflection) + "<br/>",_df];
-
-        _solutionString = _solutionString + format [LLSTRING(Fcs_Quadrant) + "<br/>",round _qd];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_TimeOfFlight) + "<br/>",round _tof];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_MaxOrdinate) + "<br/>",round _maxOrd];
-        _solutionString = _solutionString + format [LLSTRING(Fcs_TargetDistance) + "<br/>",round _dist];
-
-        (_display displayCtrl 2403) ctrlSetStructuredText parseText _solutionString;
-    } else {
-        (_display displayCtrl 2403) ctrlSetStructuredText parseText LLSTRING(Fcs_NoSolution);
-    };
-    (_display displayCtrl 2403) ctrlCommit 0;
 };

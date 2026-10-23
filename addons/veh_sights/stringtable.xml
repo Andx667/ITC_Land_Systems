@@ -68,7 +68,7 @@
             <English>FUZE: %1</English>
         </Key>
         <Key ID="STR_itc_land_veh_sights_OrdersFuzeTime">
-            <English>FUZE: %1 TOF %2</English>
+            <English>FUZE: %1 FS %2</English>
         </Key>
         <Key ID="STR_itc_land_veh_sights_OrdersFuze_Text">
             <English>FUZE: POINT DETONATE</English>

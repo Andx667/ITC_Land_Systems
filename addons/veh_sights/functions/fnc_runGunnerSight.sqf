@@ -76,9 +76,10 @@ _vehicle setVariable ["ITC_Land_SightEvent", format ["itc_land_onLoad_%1", _sigh
     private _solutionAzimuth = [_vehicle, 1] call EFUNC(common,getSolutionText);
     private _solutionQuadrant = [_vehicle, 3] call EFUNC(common,getSolutionText);
 
-    ["az", format [_layout getOrDefault ["azFormat", "%1"], [_azimuth, 0, 4] call EFUNC(common,FormatAsMils), _solutionAzimuth]] call _setText;
+    private _milSystem = [_vehicle] call EFUNC(common,getMilSystem);
+    ["az", format [_layout getOrDefault ["azFormat", "%1"], [_azimuth, 0, 4, _milSystem] call EFUNC(common,FormatAsMils), _solutionAzimuth]] call _setText;
     ["misAz", _solutionAzimuth] call _setText;
-    ["qd", format [_layout getOrDefault ["qdFormat", "%1"], [_quadrant, 0, 4] call EFUNC(common,FormatAsMils), _solutionQuadrant]] call _setText;
+    ["qd", format [_layout getOrDefault ["qdFormat", "%1"], [_quadrant, 0, 4, _milSystem] call EFUNC(common,FormatAsMils), _solutionQuadrant]] call _setText;
     ["misQd", _solutionQuadrant] call _setText;
 
     if (isNil "itc_land_IGS_showAutoloader") then {itc_land_IGS_showAutoloader = true};

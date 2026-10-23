@@ -120,6 +120,17 @@ class fci_guideinputs_apply_btn: ITC_LAND_RscButton {
     h = "0.022 * safezoneH";
     action = "[""setFG""] call itc_land_tablet_fnc_pageInteract";
 };
+// fills in the FDC's fire orders (round, fuze, fuze setting, GPS target); APPLY stays with the crew
+class fci_fdcorders_btn: ITC_LAND_RscButton {
+    idc = 1604;
+    text = CSTRING(fci_fdcorders_btn_Text);
+    tooltip = CSTRING(fci_fdcorders_btn_Tooltip);
+    x = "0.480312 * safezoneW + safezoneX";
+    y = "0.622 * safezoneH + safezoneY";
+    w = "0.0825 * safezoneW";
+    h = "0.022 * safezoneH";
+    action = "[""fdcOrders""] call itc_land_tablet_fnc_pageInteract";
+};
 /*class fci_AHinputs_button1: ITC_LAND_RscButton {
     idc = 1918;
     text = "BUTTON 1";

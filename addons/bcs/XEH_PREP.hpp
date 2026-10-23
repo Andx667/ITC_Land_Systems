@@ -1,3 +1,4 @@
+PREP(getBatteryElevationLimits);
 PREP(getBatteryPosition);
 PREP(adjustGrid);
 PREP(calculateTarget);
