@@ -41,13 +41,14 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 - __Self-propelled guns and rocket artillery__: M4 Sholef 2 and 2S9 Sochor 2 howitzers, Mk45 Hammer 2 naval gun (mod. 0 and mod. 1), M5 Seara 2 MLRS and Zamak MRLi.
 - __Vertical Launch System__ (MN230 cruise missile variant) with a target dialog for ad-hoc and saved targets and a selectable impact angle.
 - __Munitions__ for 152/155 mm, 127 mm naval and 230 mm MLRS: HE, ICM, smoke, illumination, AP/AT mines, laser-guided (LGM) and GPS-guided (PGM) rounds, and the Extra and Falat submunition rounds. Proximity, time and delay fuzes.
-- __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence. The loader status is shared with the whole crew.
-- __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
-- __Gunner sights__ with azimuth, quadrant, firing solution and loader readouts.
+- __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence, or prepare and drop each round by hand on a mortar. The loader status is shared with the whole crew.
+- __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, with the time fuze setting, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
+- __Datalink__: the FDC links guns and rocket launchers into its battery and sends them firing data and fire orders, observers hand targets from UAV, GLTD and Strider optics to the FDC, and COBRA engagements become counter-fire missions.
+- __Gunner sights__ with azimuth, quadrant, firing solution, fire orders and loader readouts, and an alignment guide on the crosshair. Russian guns read in 6000 mils.
 - __RHS compatibility__ (loads only with RHS: AFRF / USAF): ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30 and M119A2, BCS firing tables for the RHS mortars.
 - __BWMod compatibility__ (loads only with BWMod): ITC versions of the Panzerhaubitze 2000 with ammunition handler and mounted tablet, BCS firing tables for the MRS120 mortar.
 - __GTK Boxer compatibility__ (loads only with the GTK Boxer): ITC versions of the Boxer RCH 155 with ammunition handler, mounted tablet and the ITC 155 mm rounds.
-- __CUP compatibility__ (loads only with CUP Units / Vehicles): ITC versions of the D-30 and M119 with ITC sights and firing tables, of the M270 MLRS with ITC rockets, sight and mounted tablet, and of the M1129 Stryker mortar carrier with proper 120 mm rounds.
+- __CUP compatibility__ (loads only with CUP Units / Vehicles): ITC versions of the D-30 and M119 with ITC sights and firing tables, of the M270 MLRS with ITC rockets, sight and mounted tablet, and of the M1129 Stryker mortar carrier as a hand-loaded 120 mm mortar.
 
 ### Counter-artillery
 

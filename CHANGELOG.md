@@ -13,11 +13,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
-### Removed
-
-- The smoke dispenser (`itc_land_smokedispenser`, `itc_land_smokeDispenser_mag`): hidden, carried by no vehicle and not deployable, despite the docs calling it a vehicle magazine. Smoke screens stay with the vanilla vehicles' smoke launchers.
-- The remote frag grenade (`itc_land_remotefrag`, `ITC_Land_remoteFrag_mag`): a hand grenade placed and set off like an ACE explosive. Outside the mod's artillery scope; ACE has its own placeable charges. Missions that use it no longer find it.
-- The Spike LR (`itc_land_spike`: the `itc_land_spikeLR` launcher and its missile, the missile camera and its CBA setting). ACE ships its own Spike LR (`ace_spike`), and the BWMod MELLS is based on the ITC one. Missions that use the ITC launcher no longer find it.
+## [0.2.0] - 2026-10-23
 
 ### Added
 
@@ -37,6 +33,12 @@ start a fresh empty [Unreleased] section above it. -->
 - BCS Alert To Splash: SPLASH now beeps (the vanilla firing drill timer, `FD_Timer_F`) and shows a hint with the mission and seconds to impact, also while the tablet is closed; before, only the word in the mission list changed. The default is 5 s (was 10), as the FDC calls splash 5 s before impact. Saving the settings with an Alert To Splash that is not a number above 0 is refused with a hint (before, it silently became 0 and SPLASH never showed).
 - Panzerhaubitze 2000: the ammunition handler moved from the gunner to the loader (BWMod's gunner 2 seat). While the loader seat is empty, the gunner still opens it.
 - Gunner sight of other mods' guns (Panzerhaubitze 2000, Boxer RCH 155, RHS 2S1/2S3/M109): it now shows the same information as the sight of the ITC guns. Added: heading, laser range, the round count of the current mission in the loader status, and the FCI orders panel (hidden like on the ITC guns until fire orders exist). Both sights now run on the same update loop, so they stay in step; only the look and the alignment guide of the ITC guns differ.
+
+### Removed
+
+- The smoke dispenser (`itc_land_smokedispenser`, `itc_land_smokeDispenser_mag`): hidden, carried by no vehicle and not deployable, despite the docs calling it a vehicle magazine. Smoke screens stay with the vanilla vehicles' smoke launchers.
+- The remote frag grenade (`itc_land_remotefrag`, `ITC_Land_remoteFrag_mag`): a hand grenade placed and set off like an ACE explosive. Outside the mod's artillery scope; ACE has its own placeable charges. Missions that use it no longer find it.
+- The Spike LR (`itc_land_spike`: the `itc_land_spikeLR` launcher and its missile, the missile camera and its CBA setting). ACE ships its own Spike LR (`ace_spike`), and the BWMod MELLS is based on the ITC one. Missions that use the ITC launcher no longer find it.
 
 ### Fixed
 

@@ -22,9 +22,10 @@
 
 - **Guns and rockets** — M4 Sholef 2 and 2S9 Sochor 2 howitzers, Mk45 Hammer 2 naval gun, M5 Seara 2 MLRS and Zamak MRLi, and the MN230 Vertical Launch System with cruise missiles.
 - **Munitions** — HE, ICM, smoke, illumination, mines, laser- and GPS-guided rounds and submunition rounds, with proximity, time and delay fuzes.
-- **Ammunition handler** — choose round, charge, fuze and guidance, then follow the automatic or semi-automatic loading sequence; the status is shared with the whole crew.
-- **Fire control tablet** — exact firing solutions for every charge, low and high angle, a battery computer (BCS) for planning and adjusting multi-gun fire missions, and stored target locations.
-- **Gunner sights** — azimuth, quadrant and solution readouts with an alignment guide on the crosshair.
+- **Ammunition handler** — choose round, charge, fuze and guidance, then follow the automatic or semi-automatic loading sequence, or prepare and drop each round by hand on a mortar; the status is shared with the whole crew.
+- **Fire control tablet** — exact firing solutions for every charge, low and high angle, with the time fuze setting, a battery computer (BCS) for planning and adjusting multi-gun fire missions, and stored target locations.
+- **Datalink** — the FDC sends firing data and fire orders to linked guns and rocket launchers, observers hand targets from UAV, GLTD and Strider optics to the FDC, and COBRA engagements become counter-fire missions.
+- **Gunner sights** — azimuth, quadrant, solution and fire order readouts with an alignment guide on the crosshair; Russian guns read in 6000 mils.
 
 ## Counter-artillery
 
@@ -37,7 +38,7 @@
 Loaded only when the other mod is loaded too:
 
 - **RHS: AFRF / USAF** — ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30 and M119A2, BCS firing tables for the RHS mortars.
-- **CUP** — ITC versions of the D-30, M119, M270 MLRS and the M1129 Stryker mortar carrier.
+- **CUP** — ITC versions of the D-30, M119, M270 MLRS and the M1129 Stryker mortar carrier (a hand-loaded 120 mm mortar).
 - **BWMod** — ITC versions of the Panzerhaubitze 2000, BCS firing tables for the MRS120 mortar.
 - **GTK Boxer** — ITC versions of the Boxer RCH 155.
 
