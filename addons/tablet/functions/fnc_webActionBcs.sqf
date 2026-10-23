@@ -11,7 +11,10 @@
  *   bcsLocAdd/Remove                location stores
  *   bcsNmLoad/Save                  the target: a known point's grid, then on to the engagement
  *   bcsEngAmmo/Back/Save            the engagement: round (its fuzes), sheaf, fire orders
- *   bcsSolUp/Down, bcsShot, bcsSendAdj/Ffe, bcsAdjust, bcsSolBack, bcsEom, bcsEomSave   solutions
+ *   bcsSolStep d, bcsAdjGun i, bcsShot, bcsSendAdj/Ffe, bcsAdjust, bcsSolBack, bcsEom, bcsEomSave
+ *                                 solutions: one back or on, the adjusting gun, SHOT, fire commands
+ *                                 (adjust fire with one round), end of mission
+ *   bcsEngSheaf, bcsNmType        a choice that changes the page (only stored)
  *   bcsAdjSave/Back                 an adjustment to the target
  *
  * Arguments:
@@ -45,7 +48,13 @@ private _index = {
 private _setPage = {_vehicle setVariable [QGVAR(page), _this]};
 private _mission = GVAR(bcs_missions) param [GVAR(bcs_mission_index), []];
 
+// a step through the solutions is SLN- / SLN+
+if (_action == "bcsSolStep") then {_action = ["", "bcsSolDown", "bcsSolUp"] select ([0, -1, 1] find _value max 0)};
+
 switch (_action) do {
+    case "bcsAdjGun": {
+        // stored with the message: the adjusting gun the page marks and SEND ADJ sends
+    };
     case "bcsNewMission": {
         private _ident = GENIDENT;
         GVAR(bcs_missions) pushBack EMPTYMISSION(_ident);
@@ -63,11 +72,12 @@ switch (_action) do {
         // seconds before impact, more than 0 (at 0 SPLASH would never show); nothing is saved until it is valid
         private _splashText = ["splash"] call _text;
         if (!(_splashText regexMatch "\s*\d+(\.\d+)?\s*") || {parseNumber _splashText <= 0}) exitWith {
-            [LLSTRING(Bcs_InvalidSplashTime)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_InvalidSplashTime), "bad"] call FUNC(webNotice);
         };
         GVAR(bcs_splash_time) = parseNumber _splashText;
         GVAR(bcs_mission_code) = ["code"] call _text;
         GVAR(bcs_mission_start) = parseNumber (["start"] call _text);
+        [LLSTRING(WebSaved)] call FUNC(webNotice);
     };
 
     case "bcsSetupSave": {
@@ -77,6 +87,7 @@ switch (_action) do {
         if (_type >= 0 && {_type < count _types}) then {
             GVAR(bcs_bty_type) = [_type, _types # _type];
         };
+        [LLSTRING(WebSaved)] call FUNC(webNotice);
     };
     case "bcsSetupAddGun": {
         private _num = ["num"] call _text;
@@ -86,6 +97,7 @@ switch (_action) do {
         private _gunData = [_num, _posStr, _pos, _elev, parseNumber (["dir"] call _text), GVAR(bcs_bty_name)];
         private _gun = GVAR(bcs_bty_guns) findIf {_x # 0 == _num};
         if (_gun == -1) then {GVAR(bcs_bty_guns) pushBack _gunData} else {GVAR(bcs_bty_guns) set [_gun, _gunData]};
+        [format [LLSTRING(WebGunSaved), _num]] call FUNC(webNotice);
         _form set ["num", [] call FUNC(bcsNextGunNumber)];
         GVAR(web) set ["formRev", (GVAR(web) get "formRev") + 1];
     };
@@ -101,11 +113,12 @@ switch (_action) do {
     case "bcsSetupLink": {
         private _gunVehicle = (GVAR(web) getOrDefault ["linkable", []]) param [["link"] call _index, objNull];
         if (!alive _gunVehicle || {_gunVehicle in (GVAR(bcs_bty_guns) apply {_x param [6, objNull]})}) exitWith {
-            [LLSTRING(Bcs_NoGunsToLink)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_NoGunsToLink), "warn"] call FUNC(webNotice);
         };
         // the next free gun number; position, elevation and direction come from the vehicle
         private _num = [] call FUNC(bcsNextGunNumber);
         GVAR(bcs_bty_guns) append ([[[_num, "", [0, 0, 0], 0, 0, GVAR(bcs_bty_name), _gunVehicle]]] call EFUNC(bcs,refreshLinkedGuns));
+        [format [LLSTRING(WebGunSaved), _num]] call FUNC(webNotice);
         _form set ["link", 0];
         _form set ["num", [] call FUNC(bcsNextGunNumber)];
         GVAR(web) set ["formRev", (GVAR(web) get "formRev") + 1];
@@ -116,9 +129,13 @@ switch (_action) do {
         private _posStr = ["grid"] call _text;
         private _elev = parseNumber (["elev"] call _text);
         private _pos = ([_posStr, false] call ace_common_fnc_getMapPosFromGrid) vectorAdd [0, 0, _elev];
-        private _locData = [_num, _posStr, _pos, _elev, ["no", "yes"] param [["friendly"] call _index, "no"]];
+        // the checkbox stored as the classic list's "no" / "yes"
+        private _locData = [_num, _posStr, _pos, _elev, ["no", "yes"] select ((["friendly"] call _index) == 1)];
         private _location = GVAR(bcs_locations) findIf {_x # 0 == _num};
         if (_location == -1) then {GVAR(bcs_locations) pushBack _locData} else {GVAR(bcs_locations) set [_location, _locData]};
+        [format [LLSTRING(WebPointSaved), _num]] call FUNC(webNotice);
+        _form set ["id", [] call FUNC(webNextPointId)];
+        GVAR(web) set ["formRev", (GVAR(web) get "formRev") + 1];
     };
     case "bcsLocRemove": {
         private _location = ["loc"] call _index;
@@ -151,7 +168,7 @@ switch (_action) do {
         };
         private _targetPos = if (_validInput) then {_targetPage call EFUNC(bcs,calculateTarget)} else {[]};
         if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {
-            [LLSTRING(Bcs_InvalidTarget)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_InvalidTarget), "bad"] call FUNC(webNotice);
         };
         _targetPage set [6, _targetPos];
         _mission set [2, _targetPage];
@@ -176,12 +193,13 @@ switch (_action) do {
         private _ammoIndex = ["ammo"] call _index;
         private _magType = _shellTypes param [_ammoIndex, ""];
         if (_ammoIndex < 0 || {_magType == ""}) exitWith {
-            [LLSTRING(Bcs_NoAmmoSelected)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_NoAmmoSelected), "bad"] call FUNC(webNotice);
         };
         private _modes = getArray (configFile >> "ITC_Land_CfgFuzes" >> getText (configFile >> "CfgMagazines" >> _magType >> "itc_land_fuze") >> "modes");
         private _sheafDirection = [["dir"] call _text, [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);
+        // Quick Sheaf from its checkbox: the classic list's index, 0 On, 1 Off
         _mission set [3, [
-            (["sheaf"] call _index) max 0, (["quick"] call _index) max 0, _sheafDirection, parseNumber (["length"] call _text),
+            (["sheaf"] call _index) max 0, [1, 0] select ((["quick"] call _index) == 1), _sheafDirection, parseNumber (["length"] call _text),
             _ammoIndex, _magType, (floor parseNumber (["count"] call _text)) max 1, _modes param [["fuze"] call _index, ""]
         ]];
         _mission set [1, "solutionMission"];
@@ -221,14 +239,16 @@ switch (_action) do {
         // the FDC's datalink ID is the origin; the BCS connects the player when it opens
         private _origin = ACE_player getVariable [QEGVAR(datalink,id), ""];
         if (_origin == "") exitWith {
-            [LLSTRING(Bcs_DatalinkNotConnected)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_DatalinkNotConnected), "warn"] call FUNC(webNotice);
         };
         private _batterySolution = _btySolutions param [_curSolution min (count _btySolutions - 1) max 0, []];
         if (_batterySolution isEqualTo []) exitWith {
-            [LLSTRING(Bcs_NoSolutions)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Bcs_NoSolutions), "bad"] call FUNC(webNotice);
         };
         private _ffe = _action == "bcsSendFfe";
         private _phase = ["ADJ", "FFE"] select _ffe;
+        // adjust fire: the adjusting gun fires one round per correction; the count is for fire for effect
+        if (!_ffe) then {_roundCount = 1};
         private _selectedGun = _gunSolutions param [(["gun"] call _index) max 0, []];
         private _lines = if (_ffe) then {_gunSolutions} else {[_selectedGun] select {_x isNotEqualTo []}};
         private _sent = [];
@@ -252,7 +272,7 @@ switch (_action) do {
         private _report = [format [LLSTRING(Bcs_SentTo), _ident, _phase, [_sent joinString ", ", "-"] select (_sent isEqualTo [])]];
         if (_notLinked isNotEqualTo []) then {_report pushBack format [LLSTRING(Bcs_NotLinked), _notLinked joinString ", "]};
         if (_noSolution isNotEqualTo []) then {_report pushBack format [LLSTRING(Bcs_NoSolutionFor), _noSolution joinString ", "]};
-        [_report joinString "<br/>", 1 + count _report] call ace_common_fnc_displayTextStructured;
+        [_report joinString "  -  ", ["", "warn"] select (_notLinked isNotEqualTo [] || {_noSolution isNotEqualTo []})] call FUNC(webNotice);
     };
     case "bcsEom";
     case "bcsEomSave": {
@@ -286,6 +306,9 @@ switch (_action) do {
         private _targetPage = _mission # 2;
         private _ot = [["ot"] call _text, [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);
         private _tgtPos = [_targetPage # 6, _ot, parseNumber (["ad"] call _text), parseNumber (["lr"] call _text), parseNumber (["ud"] call _text)] call EFUNC(bcs,adjustGrid);
+        // the observer's direction stays for the next correction
+        if (isNil QGVAR(bcs_lastOT)) then {GVAR(bcs_lastOT) = createHashMap};
+        GVAR(bcs_lastOT) set [_mission # 0, ["ot"] call _text];
         _targetPage set [6, _tgtPos];
         _mission set [2, _targetPage];
         "solutionMission" call _setPage;

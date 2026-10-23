@@ -5,7 +5,8 @@
  * The HTML tablet's SPG and MLRS actions, as the classic FCI page's (the form holds the values the
  * page sent, see tablet_fnc_webReceive):
  *   artCalc       firing solutions on the target grid and elevation for the selected round
- *   artPrev/Next  the solution shown in the gunner sight
+ *   artStep d     the solution shown in the gunner sight, one back (-1) or on (1)
+ *   artApplyCalc  MLRS: artApply, then artCalc: the rockets' settings and the solution of one round
  *   artRound      another round (the MLRS's fuze modes follow it)
  *   artFuze       another fuze mode
  *   artApply      MLRS: the fuze and guidance of the rockets
@@ -27,6 +28,16 @@
  */
 
 params ["_vehicle", "_app", "_action", "_value"];
+
+// MLRS: one press applies the fuze and guidance and calculates, so both are of the same round
+if (_action == "artApplyCalc") exitWith {
+    [_vehicle, _app, "artApply", _value] call FUNC(webActionArtillery);
+    [_vehicle, _app, "artCalc", _value] call FUNC(webActionArtillery);
+};
+if (_action == "artStep") exitWith {
+    if (_value isEqualTo -1) then {[_vehicle, _app, "artPrev", _value] call FUNC(webActionArtillery)};
+    if (_value isEqualTo 1) then {[_vehicle, _app, "artNext", _value] call FUNC(webActionArtillery)};
+};
 
 private _form = GVAR(web) get "form";
 private _rounds = GVAR(web) getOrDefault ["rounds", []];
@@ -56,6 +67,7 @@ switch (_action) do {
         _solutions = [_vehicle, _solutions] call EFUNC(common,filterSolutionsByElevation);
         _vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
         _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+        if (_solutions isEqualTo []) then {[LLSTRING(Fcs_NoSolution), "warn"] call FUNC(webNotice)};
     };
     case "artPrev": {
         private _index = _vehicle getVariable ["itc_land_tablet_fcs_solutions_index", 0];
@@ -101,11 +113,11 @@ switch (_action) do {
         // fill in the FDC's fire orders: round, fuze (a time fuze with the line's fuze setting) and GPS target; APPLY stays with the crew
         (_vehicle getVariable [QEGVAR(bcs,fireData), []]) params [["_mission", ""], "", ["_magazine", ""], "", "", ["_fuzeMode", ""], ["_targetPos", []]];
         if (_mission == "") exitWith {
-            [LLSTRING(Fcs_NoFdcOrders)] call ace_common_fnc_displayTextStructured;
+            [LLSTRING(Fcs_NoFdcOrders), "warn"] call FUNC(webNotice);
         };
         private _ordered = _rounds find _magazine;
         if (_ordered == -1) exitWith {
-            [format [LLSTRING(Fcs_FdcRoundMissing), getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]] call ace_common_fnc_displayTextStructured;
+            [format [LLSTRING(Fcs_FdcRoundMissing), getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")], "bad"] call FUNC(webNotice);
         };
         _form set ["round", _ordered];
         private _fuzeIndex = getArray (configFile >> "ITC_Land_CfgFuzes" >> getText (configFile >> "CfgMagazines" >> _magazine >> "itc_land_fuze") >> "modes") find _fuzeMode;
@@ -122,6 +134,6 @@ switch (_action) do {
         };
         // the page drops what was typed and shows these
         GVAR(web) set ["formRev", (GVAR(web) get "formRev") + 1];
-        [format [LLSTRING(Fcs_FdcOrdersApplied), _mission]] call ace_common_fnc_displayTextStructured;
+        [format [LLSTRING(Fcs_FdcOrdersApplied), _mission]] call FUNC(webNotice);
     };
 };

@@ -52,6 +52,12 @@ private _app = _vehicle getVariable [QGVAR(app), "home"];
 private _shared = getText (configFile >> "itc_land" >> "apps" >> _app >> "sharedApp");
 private _appType = [_app, _shared] select (_shared != "");
 
+// the ammunition handler: its own actions (sphammohandler_fnc_webAction) besides hello, close and classic
+if ((GVAR(web) get "kind") == "ammo" && {!(_action in ["hello", "close", "classic"])}) exitWith {
+    [_vehicle, _action, _value] call EFUNC(sphammohandler,webAction);
+    [_ctrl] call FUNC(webSend);
+};
+
 switch (_action) do {
     case "hello": {
         GVAR(web) set ["sent", ""];
@@ -86,10 +92,10 @@ switch (_action) do {
     };
     case "classic": {
         [{
-            params ["_ctrl", "_tabletClass"];
+            params ["_ctrl", "_tabletClass", "_kind"];
             if (!isNull _ctrl) then {(ctrlParent _ctrl) closeDisplay 2};
-            [_tabletClass, true] call FUNC(open);
-        }, [_ctrl, GVAR(web) get "tablet"]] call CBA_fnc_execNextFrame;
+            if (_kind == "ammo") then {createDialog "ITC_Land_SPHammohandler"} else {[_tabletClass, true] call FUNC(open)};
+        }, [_ctrl, GVAR(web) get "tablet", GVAR(web) get "kind"]] call CBA_fnc_execNextFrame;
     };
     default {
         switch (_appType) do {

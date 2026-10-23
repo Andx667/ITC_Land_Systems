@@ -265,11 +265,140 @@
         <Key ID="STR_itc_land_tablet_Tablet">
             <English>Tablet</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebAddGun">
+            <English>Add or update a gun</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebAddPoint">
+            <English>Add or update a known point</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebAdjust">
+            <English>ADJUST</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebAdjustingGunTip">
+            <English>The adjusting gun: SEND ADJ sends its line. Click a gun to make it the adjusting gun</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebApplied">
+            <English>SETTINGS APPLIED</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebApplyCalculate">
+            <English>APPLY &amp; CALCULATE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebApplyCorrection">
+            <English>APPLY CORRECTION</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebBattery">
+            <English>Battery</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCalculate">
+            <English>CALCULATE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCheckCount">
+            <English>A whole number, 0 for no limit</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCheckGrid">
+            <English>A grid of 4 to 10 digits, an even number of them</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCheckLaser">
+            <English>A laser code from 1111 to 1788, digits 1 to 8</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCheckNumber">
+            <English>A number</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCheckWhole">
+            <English>A whole number, 1 or more</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebClassic">
             <English>CLASSIC TABLET</English>
         </Key>
         <Key ID="STR_itc_land_tablet_WebClassic_Tooltip">
             <English>Open the classic tablet where this one is</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebConfirm">
+            <English>PRESS AGAIN</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebCountTip">
+            <English>Rounds to load with these settings, one after the other; 0 for no limit</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebEomRecord">
+            <English>END, RECORD AS TARGET</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebFireMissions">
+            <English>Fire missions</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebGunSaved">
+            <English>Gun %1 saved</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebGuns">
+            <English>Guns</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebHintGrid">
+            <English>8 or 10 digits</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebKnownPoints">
+            <English>Known points</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebLinkGun">
+            <English>Link a gun over the datalink</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebLoadNeedsApply">
+            <English>Apply the settings first</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebMto">
+            <English>%1, %2 rounds per gun, %3, time of flight %4 s</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebMtoLabel">
+            <English>MTO</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebMtoTip">
+            <English>Message to observer: the battery firing, rounds per gun, the target and the time of flight</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNewMission">
+            <English>+ NEW FIRE MISSION</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNextMissionNumber">
+            <English>Next mission number</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNoEngagements">
+            <English>No firing positions located</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNoGuns">
+            <English>No guns yet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNoPoints">
+            <English>No known points yet</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNoSolutionYet">
+            <English>No solution: enter the target grid and elevation, pick the round, then CALCULATE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebNotApplied">
+            <English>NOT APPLIED: press APPLY SETTINGS</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebPointSaved">
+            <English>Known point %1 saved</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebRoundsPerGun">
+            <English>rds per gun</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSaveBattery">
+            <English>SAVE BATTERY</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSaveKnownPoint">
+            <English>SAVE AS KNOWN POINT</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSaveKnownPointTip">
+            <English>The firing position into the BCS known points, as a target</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSaved">
+            <English>Saved</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSendAdjGun">
+            <English>SEND ADJ (GUN %1)</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebSolution">
+            <English>Solution</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebStatusId">
+            <English>FDC ID %1</English>
         </Key>
         <Key ID="STR_itc_land_tablet_WebTablet_Description">
             <English>The tablets open as a web page in the game\'s browser control (Arma 3 2.20): the frame, its APP keys and every app. Off: the classic tablet. Launch the game through Steam, or the page updates only about once a second.</English>

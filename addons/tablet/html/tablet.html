@@ -98,7 +98,7 @@ button.key:hover { box-shadow: 0 0 0.4em var(--green) inset; }
     overflow-y: auto;
     min-height: 0;
 }
-#side .list { margin-top: 0.6em; flex: 1; min-height: 4em; }
+#side .list { flex: 1; min-height: 4em; max-height: none; }
 #work { position: relative; padding: 0.7em 0.9em; overflow: auto; min-height: 0; }
 #work > * { position: relative; }
 #status {
@@ -127,6 +127,20 @@ button {
 button:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
 button.active { background: #2e3a2b; border-color: var(--green); color: var(--green); }
 button:disabled { color: #555; cursor: default; }
+/* one main action per page; destructive ones ask to be pressed again */
+button.primary { background: #2e4a28; border-color: var(--green); color: var(--green); }
+button.primary:hover:not(:disabled) { background: #3a5e33; }
+button.danger { border-color: #6b2a24; color: #ffb3ab; }
+button.danger:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
+button.armed { background: #5a1e19; border-color: var(--red); color: #fff; }
+button:disabled.primary { background: var(--panel); border-color: var(--line); }
+/* one label style: upper case, no colons (the page strips them) */
+.fields label, .kv .k, .section, button, .list th, .stepper .k, .sidehead { text-transform: uppercase; }
+input[type="checkbox"] { width: 1.1em; height: 1.1em; accent-color: var(--green); }
+input.invalid { border-color: var(--red); }
+.fieldmsg { grid-column: 2 / 5; color: var(--red); font-size: 0.8em; margin-top: -0.2em; }
+.fieldmsg:empty { display: none; }
+.unit { color: var(--dim); white-space: nowrap; }
 input, select {
     font: inherit;
     color: var(--text);
@@ -139,14 +153,26 @@ input, select {
 input:focus, select:focus { outline: none; border-color: var(--green); }
 .block { margin-bottom: 0.7em; }
 .section { color: var(--green); margin: 0.4em 0 0.4em; letter-spacing: 0.04em; }
-.fields { display: grid; grid-template-columns: max-content minmax(6em, 16em); gap: 0.3em 0.8em; align-items: center; }
+/* label, box, unit, a button of the field: the boxes of a block line up, the grid hugs the left */
+.fields { display: grid; grid-template-columns: max-content minmax(8em, 22em) max-content max-content; justify-content: start; gap: 0.3em 0.8em; align-items: center; }
+.fields > button { justify-self: start; }
 .fields label { color: var(--dim); }
 /* a fields block with long entries (link gun: ID, vehicle and grid) */
-.fields.wide { grid-template-columns: max-content minmax(12em, 36em); }
+.fields.wide { grid-template-columns: max-content minmax(14em, 42em) max-content max-content; }
 .buttons { display: flex; flex-wrap: wrap; gap: 0.4em; }
+.bar { display: flex; flex-wrap: wrap; gap: 0.4em; align-items: center; }
+.bar .group { display: flex; flex-wrap: wrap; gap: 0.4em; }
+.bar .group + .group { margin-left: 1.2em; }
+.stepper { display: flex; align-items: center; gap: 0.5em; }
+.stepper .k { color: var(--dim); min-width: 7em; }
+.stepper .v { min-width: 4.5em; text-align: center; color: var(--green); }
+.notice { padding: 0.35em 0.6em; border-left: 0.25em solid var(--green); background: #1d261b; margin-bottom: 0.7em; }
+.notice.warn { border-color: var(--amber); background: #2a2416; }
+.notice.bad { border-color: var(--red); background: #2b1a18; }
+.sidehead { color: var(--dim); font-size: 0.85em; margin-top: 0.8em; }
 .row { display: flex; gap: 1.2em; align-items: flex-start; }
 .row > * { flex: 1; min-width: 0; }
-.list { border: 1px solid var(--line); background: #0d0d0d; overflow-y: auto; max-height: 14em; }
+.list { border: 1px solid var(--line); background: #0d0d0d; overflow-y: auto; max-height: 18em; }
 .list table { border-collapse: collapse; width: 100%; }
 .list th, .list td { padding: 0.15em 0.6em 0.15em 0.4em; text-align: left; white-space: nowrap; }
 .list th { color: var(--dim); font-weight: normal; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #0d0d0d; }
@@ -179,6 +205,14 @@ input:focus, select:focus { outline: none; border-color: var(--green); }
     display: none;
 }
 [data-tip] { cursor: help; }
+/* a panel (the ammunition handler): no frame keys or sidebar, the screen is the whole page */
+body.panel { font-size: 1.55vw; }
+body.panel .key, body.panel #brand, body.panel #side { display: none; }
+body.panel #screen { left: 0; top: 0; width: 100%; height: 100%; grid-template-columns: 1fr; }
+body.panel #titlebar, body.panel #work, body.panel #status { grid-column: 1; }
+/* room for the native close button over the title bar's right end */
+body.panel #titlebar { padding-right: 5%; }
+body.panel .list { max-height: 11em; }
 button[data-tip], tr[data-tip], input[data-tip], select[data-tip] { cursor: pointer; }
 input[data-tip] { cursor: text; }
 </style>
@@ -196,7 +230,7 @@ input[data-tip] { cursor: text; }
         <div id="titlebar"><span id="title"></span><span class="spacer"></span><span id="tti" class="big"></span></div>
         <div id="side"></div>
         <div id="work"><div class="dim">...</div></div>
-        <div id="status"><span id="bridge"></span><span class="spacer"></span><span id="updated"></span></div>
+        <div id="status"><span id="info"></span><span class="spacer"></span><span id="bridge"></span></div>
     </div>
 </div>
 <div id="tip"></div>
@@ -208,7 +242,10 @@ input[data-tip] { cursor: text; }
 window.ITC = (() => {
     const hasApi = typeof A3API !== "undefined" && typeof A3API.SendAlert === "function";
     let state = null;
-    let updates = 0;
+    // a destructive button pressed once: [action, value, time it lapses]
+    let armed = null;
+    // the fields of the view shown, for their checks
+    let fieldSpecs = new Map();
     // typed but not sent: field id -> value, for one view key and form revision
     let drafts = new Map();
     let draftScope = "";
@@ -240,9 +277,20 @@ window.ITC = (() => {
         A3API.SendAlert(JSON.stringify(message));
     }
 
-    // the field values a button sends; the game stores them, so their drafts can go
+    // a field's value against its check; the message if it fails
+    function invalid(id, value) {
+        const f = fieldSpecs.get(id);
+        if (!f || !f.check) return "";
+        return new RegExp(f.check.re).test(String(value === undefined ? "" : value).trim()) ? "" : (f.check.msg || "?");
+    }
+    // the field values a button sends (null when one fails its check); the game stores them, so their drafts can go
     function collect(ids) {
         if (!ids || !ids.length) return undefined;
+        const failed = ids.filter((id) => fieldSpecs.has(id) && invalid(id, drafts.has(id) ? drafts.get(id) : fieldValue(id)));
+        if (failed.length) {
+            for (const id of failed) markField(id);
+            return null;
+        }
         const fields = {};
         for (const id of ids) {
             fields[id] = drafts.has(id) ? drafts.get(id) : fieldValue(id);
@@ -272,7 +320,6 @@ window.ITC = (() => {
             $("bridge").textContent = "Bad state from the game: " + e.message;
             return;
         }
-        updates++;
         render();
         // the redraw replaced the element under the pointer: find its successor
         if (tipOwner && !document.body.contains(tipOwner)) retip();
@@ -291,13 +338,19 @@ window.ITC = (() => {
         const focusId = active && active.dataset ? active.dataset.field : null;
         const caret = focusId && typeof active.selectionStart === "number" ? [active.selectionStart, active.selectionEnd] : null;
 
+        document.body.classList.toggle("panel", view.layout === "panel");
+        fieldSpecs = new Map();
         $("header1").textContent = view.header1 || "";
         $("header2").textContent = view.header2 || "";
         $("title").textContent = view.title || "";
         $("tti").textContent = view.tti || "";
         renderSide(view);
         const work = $("work");
-        work.replaceChildren(...(view.blocks || []).map(renderBlock));
+        const blocks = (view.blocks || []).map(renderBlock);
+        // the result of the last action, in the page
+        if (view.notice) blocks.unshift(el("div", {class: "notice " + (view.notice.c || ""), text: view.notice.text}));
+        work.replaceChildren(...blocks);
+        for (const id of fieldSpecs.keys()) if (drafts.has(id)) markField(id);
 
         if (focusId) {
             const node = document.querySelector('[data-field="' + CSS.escape(focusId) + '"]');
@@ -308,44 +361,60 @@ window.ITC = (() => {
                 }
             }
         }
-        $("bridge").textContent = hasApi ? "Linked to the game" : "Read-only: the page is not whitelisted (no A3API)";
-        $("bridge").className = hasApi ? "" : "warn";
-        $("updated").textContent = "Update " + updates;
+        $("info").textContent = (view.status || []).join("   \u00b7   ");
+        showBridge();
         // after layout; not requestAnimationFrame: the game's browser paints only when something changes
         setTimeout(reportMap, 0);
     }
 
+    // the status bar only warns when the page cannot reach the game
+    function showBridge() {
+        $("bridge").textContent = hasApi ? "" : "Not linked to the game: the page shows, but cannot send";
+        $("bridge").className = hasApi ? "" : "warn";
+    }
+    const plain = (text) => String(text === undefined || text === null ? "" : text).replace(/\s*:\s*$/, "");
+
     function renderSide(view) {
         const side = $("side");
-        const items = (view.side || []).map((b) => el("button", {
-            text: b.label,
-            title: b.tip,
-            class: b.active ? "active" : "",
-            disabled: b.disabled,
-            onclick: () => send(b.a, b.v)
-        }));
-        if (view.sideList) items.push(renderList(view.sideList));
+        const items = (view.side || []).map((b) => renderButton(b, b.active ? "active" : ""));
+        if (view.sideList) {
+            if (view.sideList.title) items.push(el("div", {class: "sidehead", text: view.sideList.title}));
+            if (view.sideList.button) items.push(renderButton(view.sideList.button));
+            items.push(renderList(view.sideList));
+        }
         side.replaceChildren(...items);
     }
 
     function renderBlock(block) {
         switch (block.t) {
-            case "section": return el("div", {class: "section", text: block.text, title: block.tip});
+            case "section": return el("div", {class: "section", text: plain(block.text), title: block.tip});
             case "note": return el("div", {class: "block " + (block.c || "dim"), text: block.text});
             case "fields": return renderFields(block);
-            case "buttons": return el("div", {class: "block buttons"}, (block.items || []).map(renderButton));
+            case "buttons": return el("div", {class: "block buttons"}, (block.items || []).map((b) => renderButton(b)));
+            case "bar": return el("div", {class: "block bar"}, [
+                el("div", {class: "group"}, (block.left || []).map((b) => renderButton(b))),
+                el("span", {class: "spacer"}),
+                ...(block.groups || []).map((g) => el("div", {class: "group"}, g.map((b) => renderButton(b))))
+            ]);
+            case "stepper": return el("div", {class: "block stepper"}, [
+                el("span", {class: "k", text: plain(block.label), title: block.tip}),
+                renderButton({label: "\u25C0", a: block.a, v: -1, tip: block.tip, disabled: block.disabled}),
+                el("span", {class: "v " + (block.c || ""), text: String(block.value)}),
+                renderButton({label: "\u25B6", a: block.a, v: 1, tip: block.tip, disabled: block.disabled})
+            ]);
             case "list": return el("div", {class: "block"}, [renderList(block)]);
             case "lines": return el("div", {class: "block lines", title: block.tip}, (block.lines || []).map((line) =>
                 typeof line === "string" ? el("div", {text: line}) : el("div", {text: line.text, class: line.c})));
             case "kv": {
                 const kv = el("div", {class: "block kv"});
                 for (const [k, v, c, tip] of block.rows || []) {
-                    kv.appendChild(el("span", {class: "k", text: k, title: tip}));
+                    kv.appendChild(el("span", {class: "k", text: plain(k), title: tip}));
                     kv.appendChild(el("span", {class: c, text: String(v)}));
                 }
                 return kv;
             }
             case "row": return el("div", {class: "block row"}, (block.blocks || []).map((b) => el("div", {}, [renderBlock(b)])));
+            case "col": return el("div", {}, (block.blocks || []).map(renderBlock));
             case "tiles": return el("div", {class: "block tiles"}, (block.items || []).map((tile) =>
                 el("button", {class: "tile", title: tile.tip, onclick: () => send(tile.a, tile.v)}, [
                     el("span", {text: tile.label}),
@@ -361,21 +430,54 @@ window.ITC = (() => {
         }
     }
 
-    function renderButton(b) {
+    // kind "primary": the page's main action; "danger": pressed twice (the second within 3 s)
+    function renderButton(b, extra) {
+        const isArmed = !!(armed && armed[0] === b.a && armed[1] === b.v && armed[2] > Date.now());
+        const classes = [b.kind || "", extra || "", isArmed ? "armed" : ""].join(" ").trim();
         return el("button", {
-            text: b.label,
+            text: isArmed ? (b.confirm || "PRESS AGAIN") : b.label,
             title: b.tip,
+            class: classes,
             disabled: b.disabled,
-            onclick: () => send(b.a, b.v, collect(b.send))
+            onclick: () => {
+                if (b.kind === "danger" && !isArmed) {
+                    armed = [b.a, b.v, Date.now() + 3000];
+                    render();
+                    setTimeout(() => { if (armed && armed[2] <= Date.now()) { armed = null; render(); } }, 3100);
+                    return;
+                }
+                armed = null;
+                const fields = collect(b.send);
+                if (fields === null) return;
+                send(b.a, b.v, fields);
+            }
         });
+    }
+
+    // shows or clears a field's check failure under it
+    function markField(id) {
+        const node = document.querySelector('[data-field="' + CSS.escape(id) + '"]');
+        if (!node) return;
+        const message = invalid(id, current(id, ""));
+        node.classList.toggle("invalid", !!message);
+        const box = document.querySelector('[data-msg="' + CSS.escape(id) + '"]');
+        if (box) box.textContent = message;
     }
 
     function renderFields(block) {
         const grid = el("div", {class: "block fields" + (block.wide ? " wide" : "")});
         for (const f of block.items || []) {
-            grid.appendChild(el("label", {text: f.label, title: f.tip}));
+            fieldSpecs.set(f.id, f);
+            grid.appendChild(el("label", {text: plain(f.label), title: f.tip}));
             let input;
-            if (f.options) {
+            if (f.kind === "check") {
+                input = el("input", {type: "checkbox", title: f.tip});
+                input.checked = Number(current(f.id, 0)) === 1;
+                input.addEventListener("change", () => {
+                    drafts.set(f.id, input.checked ? 1 : 0);
+                    if (f.change) send(f.change, undefined, collect(f.send || [f.id]));
+                });
+            } else if (f.options) {
                 input = el("select", {title: f.tip});
                 f.options.forEach((option, i) => input.appendChild(el("option", {value: String(i), text: option})));
                 input.value = String(current(f.id, 0));
@@ -385,17 +487,27 @@ window.ITC = (() => {
                     if (f.change) send(f.change, undefined, collect(f.send || [f.id]));
                 });
             } else {
-                input = el("input", {type: "text", title: f.tip, spellcheck: "false"});
+                input = el("input", {type: "text", title: f.tip, spellcheck: "false", placeholder: f.hint});
                 input.value = String(current(f.id, ""));
                 if (f.max) input.maxLength = f.max;
-                input.addEventListener("input", () => drafts.set(f.id, input.value));
+                input.addEventListener("input", () => {
+                    drafts.set(f.id, input.value);
+                    markField(f.id);
+                });
                 input.addEventListener("keydown", (e) => {
                     // Enter presses the block's default button
-                    if (e.key === "Enter" && block.enter) send(block.enter.a, block.enter.v, collect(block.enter.send));
+                    if (e.key === "Enter" && block.enter) {
+                        const fields = collect(block.enter.send);
+                        if (fields !== null) send(block.enter.a, block.enter.v, fields);
+                    }
                 });
             }
             input.dataset.field = f.id;
             grid.appendChild(input);
+            grid.appendChild(el("span", {class: "unit", text: f.unit || ""}));
+            // a button that belongs to this field (LOAD next to the known point)
+            grid.appendChild(f.button ? renderButton(f.button) : el("span"));
+            if (f.check) grid.appendChild(el("div", {class: "fieldmsg", "data-msg": f.id}));
         }
         return grid;
     }
@@ -468,15 +580,14 @@ window.ITC = (() => {
         tip.style.top = (e.clientY + 18 + h > window.innerHeight ? e.clientY - h - 8 : e.clientY + 18) + "px";
     });
 
-    for (const key of document.querySelectorAll(".key")) {
+    for (const key of document.querySelectorAll("button.key")) {
         key.addEventListener("click", () => send("key", Number(key.dataset.key)));
     }
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") send("close");
     });
 
-    $("bridge").textContent = hasApi ? "Linked to the game" : "Read-only: the page is not whitelisted (no A3API)";
-    if (!hasApi) $("bridge").className = "warn";
+    showBridge();
     // the page announces itself; the game answers with the full state
     send("hello");
 

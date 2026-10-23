@@ -5,6 +5,23 @@
 // over the browser: the COBRA map, placed over the page's map slot by tablet_fnc_webPlaceMap, and
 // a close button that works also when the page cannot reach the game. The page is loaded by
 // script after the event handlers are on, so the control has no url.
+// the browser control both dialogs use
+class itc_land_browser_base {
+    type = 106; // CT_WEBBROWSER
+    idc = 32571;
+    style = 0;
+    // read for every control type: without them the RPT warns on opening (No entry ... colorBackground)
+    colorBackground[] = {0, 0, 0, 0};
+    colorText[] = {1, 1, 1, 1};
+    font = "RobotoCondensed";
+    sizeEx = 0.03;
+    text = "";
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
+};
+
 class itc_land_tablet_web {
     idd = 32570;
     movingEnable = 0;
@@ -25,16 +42,7 @@ class itc_land_tablet_web {
         text = QPATHTOF(UI\screen-night.paa);
     };
 
-    class browser {
-        type = 106; // CT_WEBBROWSER
-        idc = 32571;
-        style = 0;
-        // read for every control type: without them the RPT warns on opening (No entry ... colorBackground)
-        colorBackground[] = {0, 0, 0, 0};
-        colorText[] = {1, 1, 1, 1};
-        font = "RobotoCondensed";
-        sizeEx = 0.03;
-        text = "";
+    class browser: itc_land_browser_base {
         x = "0.5-((0.64*SafeZoneW)/2)";
         y = "0.5-((1.03*SafeZoneW)/2)";
         w = "0.64*SafeZoneW";
@@ -56,6 +64,30 @@ class itc_land_tablet_web {
         y = "0.5 - 0.2585*SafeZoneW";
         w = "0.02*SafeZoneW";
         h = "0.02*SafeZoneW";
+        action = "closeDialog 0";
+    };
+};
+
+// The ammunition handler in HTML (sphammohandler_fnc_open with "Tablet in HTML"): the same page as a
+// panel, where the classic handler is (sphammohandler dialogConfig.hpp), with a native close button.
+class itc_land_ammo_web {
+    idd = 32580;
+    movingEnable = 0;
+    controls[] = {"browser", "closeButton"};
+
+    class browser: itc_land_browser_base {
+        x = "0.29375 * safezoneW + safezoneX";
+        y = "0.555 * safezoneH + safezoneY";
+        w = "0.4125 * safezoneW";
+        h = "0.3 * safezoneH";
+    };
+    class closeButton: ITC_LAND_RscButton {
+        idc = 32573;
+        text = "X";
+        x = "0.690781 * safezoneW + safezoneX";
+        y = "0.555 * safezoneH + safezoneY";
+        w = "0.0154688 * safezoneW";
+        h = "0.022 * safezoneH";
         action = "closeDialog 0";
     };
 };

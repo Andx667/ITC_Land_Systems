@@ -114,7 +114,7 @@ A mortar (`loaderType = 3`) prepares a round and drops it on **FIRE**; it also r
 
 Its ACE action condition is `[_target, ACE_Player] call itc_land_sphammohandler_fnc_canOpen` (the gunner or the loader).
 
-Add the **Open Mounted Tablet** and **Open Ammo Handling Interface** ACE self actions to the vehicle (see the ITC vehicles, for example `itc_land_veh_sholef`), and set the gunner's `turretInfoType` to an ITC sight such as `ITC_Land_RscIGS_SPH`.
+Add the **Open Mounted Tablet** and **Open Ammo Handling Interface** ACE self actions to the vehicle (see the ITC vehicles, for example `itc_land_veh_sholef`; the handler's statement is `[] call itc_land_sphammohandler_fnc_open`, which follows the **Tablet in HTML** setting), and set the gunner's `turretInfoType` to an ITC sight such as `ITC_Land_RscIGS_SPH`.
 
 ### Ammunition
 

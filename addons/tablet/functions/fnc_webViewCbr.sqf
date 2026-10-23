@@ -37,10 +37,10 @@ if (_page == "data") exitWith {
     };
     _view set ["title", LLSTRING(Cbr_Data)];
     _view set ["blocks", [
-        createHashMapFromArray [["t", "list"], ["id", "engagement"], ["header", ["ID", "POS", "SHOTS", "LAST SHOT"]], ["rows", _rows]],
+        createHashMapFromArray [["t", "list"], ["id", "engagement"], ["header", ["ID", "POS", "SHOTS", "LAST SHOT"]], ["rows", _rows], ["empty", LLSTRING(WebNoEngagements)]],
         createHashMapFromArray [["t", "buttons"], ["items", [
-            [LLSTRING(cbr_data_saveOriginPos_Text), "cbrSave", ["engagement"]] call FUNC(webButton),
-            [LLSTRING(cbr_data_counterFire_Text), "cbrCounterFire", ["engagement"], LLSTRING(cbr_data_counterFire_Tooltip)] call FUNC(webButton)
+            [LLSTRING(WebSaveKnownPoint), "cbrSave", ["engagement"], LLSTRING(WebSaveKnownPointTip)] call FUNC(webButton),
+            [LLSTRING(cbr_data_counterFire_Text), "cbrCounterFire", ["engagement"], LLSTRING(cbr_data_counterFire_Tooltip), nil, false, "primary"] call FUNC(webButton)
         ]]]
     ]];
     _view

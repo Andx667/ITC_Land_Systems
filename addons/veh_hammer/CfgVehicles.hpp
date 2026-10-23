@@ -47,7 +47,7 @@ class CfgVehicles {
             class ITC_Land_SPHammohandler {
                 displayName = CSTRING(SPHammohandler_DisplayName);
                 condition = QUOTE(( _target ) == ([] call EFUNC(common,getCurVehicle)));
-                statement = "createDialog 'ITC_Land_SPHammohandler'";
+                statement = "[] call itc_land_sphammohandler_fnc_open";
             };
         };
         artilleryScanner = 0;

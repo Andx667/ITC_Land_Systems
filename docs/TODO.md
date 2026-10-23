@@ -339,8 +339,10 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
     breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
     BWMod (`compat_bwa3`).
-- [ ] Tablet in HTML (built 2026-10-23, setting "Tablet in HTML", off by default; then
-      `tablet_fnc_open` opens `tablet_fnc_webOpen`): every tablet app in a CT_WEBBROWSER page
+- [ ] Tablet in HTML (built 2026-10-23, setting "Tablet in HTML", on by default; then
+      `tablet_fnc_open` opens `tablet_fnc_webOpen`, and `sphammohandler_fnc_open` (the vehicles'
+      ammunition handler action) the handler as a panel of the same page, its view and actions in
+      `sphammohandler_fnc_webView/webAction`): every tablet app in a CT_WEBBROWSER page
       (Arma 3 2.20, `tablet\html\tablet.html`), over the classic frame pictures (native, so they show
       at once while the browser starts; the night one fades in after dark): the browser has their
       size and a transparent page with the screen in the glass (measured on `screen.paa`), APP 1-2
@@ -356,11 +358,21 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       - Home: APP 1-3 and Input Lock, CLASSIC TABLET, the night screen after dark, Esc and the X.
       - SPG / MLRS (mounted): CALC SLN, PRV/NXT reach the gunner sight; MLRS round, fuze mode
         (time field), GPS target, APPLY SETTINGS, FDC ORDERS; the status page; no SPG interface.
+      - Usability pass (2026-10-23): one primary button per page, END/REMOVE pressed twice, inline
+        checks (grid, numbers, laser codes) block the send, units, results as notices in the page,
+        the status bar (FDC ID, battery, time), MTO line, fire command column order, the
+        adjusting gun (click a gun line), ADJ one round, OT kept, Special-only sheaf fields, Quick
+        Sheaf and Friendly as checkboxes (stored as before for the classic tablet), known point
+        IDs AB0001 on, MLRS APPLY & CALCULATE, the handler's NOT APPLIED line and charge stepper.
       - BCS: settings save (and the invalid splash time hint), battery type, guns by hand and
         LINK, remove; location stores add/remove; a fire mission through all its pages (Grid,
         Shift, Polar, QuickLay, LOAD), the engagement (round changes the fuzes), solutions, SHOT
         and TTI, SEND ADJ (selected gun) / FFE, ADJUST, END and END & SAVE; observer targets and
         a respawned FDC (the datalink reconnects).
+      - Ammunition handler (gunner and loader seats, PzH 2000 loader, M1129 mortar): round list
+        and counts, charge -/+, fuze (time field), laser codes and GPS target, count, APPLY,
+        LOAD / UNLOAD and the autoloader running, mortar PREPARE / FIRE / STOW, FDC ORDERS; the
+        classic dialog open by another crew member at the same time shows the same.
       - COBRA: the map in its slot with the radars, firing positions and impacts, zoom and pan;
         Save to BCS and COUNTER-FIRE (opens the BCS engagement).
       - Which of the four whitelist spellings in `tablet\config.cpp` matched (drop the rest); the

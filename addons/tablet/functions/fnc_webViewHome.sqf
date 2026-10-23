@@ -27,7 +27,8 @@ private _tiles = [];
     private _config = configFile >> "itc_land" >> "apps" >> _x;
     _tiles pushBack createHashMapFromArray [
         ["label", toUpper format [LLSTRING(Home_AppEntry), _forEachIndex + 1, getText (_config >> "displayName")]],
-        ["note", toUpper getText (_config >> "interfaces")],
+        // the vehicle systems the app needs; none ("-") is left out
+        ["note", [toUpper getText (_config >> "interfaces"), ""] select (getText (_config >> "interfaces") in ["", "-"])],
         ["tip", LLSTRING(Home_Interfaces_Tooltip)],
         ["a", "key"],
         ["v", _forEachIndex]
@@ -41,7 +42,7 @@ createHashMapFromArray [
     ["side", []],
     ["blocks", [
         createHashMapFromArray [["t", "tiles"], ["items", _tiles]],
-        createHashMapFromArray [["t", "buttons"], ["items", [[LLSTRING(WebClassic), "classic", [], LLSTRING(WebClassic_Tooltip)] call FUNC(webButton)]]],
+        createHashMapFromArray [["t", "bar"], ["groups", [[[LLSTRING(WebClassic), "classic", [], LLSTRING(WebClassic_Tooltip)] call FUNC(webButton)]]]],
         createHashMapFromArray [["t", "image"], ["path", QPATHTOF(UI\logo.paa) select [1]]]
     ]]
 ]

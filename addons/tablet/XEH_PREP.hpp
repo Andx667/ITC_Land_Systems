@@ -34,3 +34,5 @@ PREP(webViewCbr);
 PREP(webActionArtillery);
 PREP(webActionBcs);
 PREP(webActionCbr);
+PREP(webNotice);
+PREP(webNextPointId);

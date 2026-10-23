@@ -15,3 +15,6 @@ PREP(onChangeMagazine);
 PREP(tubeHeat);
 PREP(getLoader);
 PREP(canOpen);
+PREP(open);
+PREP(webView);
+PREP(webAction);

@@ -32,6 +32,7 @@ switch (_action) do {
         if (isNil QGVAR(bcs_locations)) then {GVAR(bcs_locations) = []};
         private _pos = _engagement # 2 # 0;
         GVAR(bcs_locations) pushBack [_engagement # 0, [_pos] call EFUNC(common,posToGrid), _pos, round (_pos # 2), false];
+        [format [LLSTRING(WebPointSaved), _engagement # 0]] call FUNC(webNotice);
     };
     case "cbrCounterFire": {
         GVAR(bcs_pendingTarget) = [_engagement # 2 # 0];

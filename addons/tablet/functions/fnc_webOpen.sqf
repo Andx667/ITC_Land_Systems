@@ -7,9 +7,12 @@
  * page's messages to tablet_fnc_webReceive, draws the COBRA picture on the native map control,
  * and sends the page the state (tablet_fnc_webState) twice a second while it is open. The app
  * and page are the vehicle's, as in the classic tablet, so it opens where either tablet left.
+ * The same page serves the ammunition handler (kind "ammo", sphammohandler_fnc_open): a panel
+ * (itc_land_ammo_web) with the views and actions of sphammohandler_fnc_webView/webAction.
  *
  * Arguments:
- * 0: Tablet weapon config class name <STRING> (default: "itc_land_tablet_fdc")
+ * 0: Tablet weapon config class name <STRING> (default: "itc_land_tablet_fdc"; "" for the ammunition handler)
+ * 1: Kind: "tablet" or "ammo" <STRING> (default: "tablet")
  *
  * Return Value:
  * None
@@ -20,17 +23,21 @@
  * Public: No
  */
 
-params [["_tabletClass", "itc_land_tablet_fdc", [""]]];
+params [["_tabletClass", "itc_land_tablet_fdc", [""]], ["_kind", "tablet", [""]]];
 
-if !(isArray (configFile >> "CfgWeapons" >> _tabletClass >> "apps")) exitWith {};
-if !(createDialog "itc_land_tablet_web") exitWith {};
-private _display = findDisplay 32570;
+private _ammo = _kind == "ammo";
+if (!_ammo && {!isArray (configFile >> "CfgWeapons" >> _tabletClass >> "apps")}) exitWith {};
+if !(createDialog (["itc_land_tablet_web", "itc_land_ammo_web"] select _ammo)) exitWith {};
+private _display = findDisplay ([32570, 32580] select _ammo);
 private _ctrl = _display displayCtrl 32571;
 
 ITC_CURVEHICLE
-_vehicle setVariable [QGVAR(apps), getArray (configFile >> "CfgWeapons" >> _tabletClass >> "apps")];
+if (!_ammo) then {
+    _vehicle setVariable [QGVAR(apps), getArray (configFile >> "CfgWeapons" >> _tabletClass >> "apps")];
+};
 
 GVAR(web) = createHashMapFromArray [
+    ["kind", _kind],
     ["tablet", _tabletClass],
     ["sent", ""],
     ["form", createHashMap],
@@ -41,11 +48,14 @@ GVAR(web) = createHashMapFromArray [
     ["solutions", [[], []]]
 ];
 
+// the tablet's night frame and COBRA map (the ammunition handler has neither)
 (_display displayCtrl 32576) ctrlSetFade ([] call ace_common_fnc_ambientBrightness);
 (_display displayCtrl 32576) ctrlCommit 0;
 private _map = _display displayCtrl 32574;
-_map ctrlShow false;
-_map ctrlAddEventHandler ["Draw", {[_this select 0] call FUNC(cbrDrawMap)}];
+if (!isNull _map) then {
+    _map ctrlShow false;
+    _map ctrlAddEventHandler ["Draw", {[_this select 0] call FUNC(cbrDrawMap)}];
+};
 
 // the handlers go on before the page loads, so PageLoaded cannot fire into a control without them
 _ctrl ctrlAddEventHandler ["JSDialog", {

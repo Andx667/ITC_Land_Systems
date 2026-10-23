@@ -127,7 +127,7 @@ class CfgVehicles {
             class ITC_Land_SPHammohandler { \
                 displayName = CSTRING(SPHammohandler_DisplayName); \
                 condition = QUOTE([ARR_2(_target,ACE_Player)] call EFUNC(sphammohandler,canOpen)); \
-                statement = "createDialog 'ITC_Land_SPHammohandler'"; \
+                statement = "[] call itc_land_sphammohandler_fnc_open"; \
             }; \
             class ITC_Land_CommanderTablet { \
                 displayName = CSTRING(CommanderTablet_DisplayName); \
