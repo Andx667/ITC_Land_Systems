@@ -12,6 +12,10 @@
 
 The ITC camera readouts show the view direction in degrees and mils, the grid and altitude of the point under the crosshair and of the UAV, its speed, the camera magnification and the time.
 
+### Sending a target to the FDC
+
+In the ITC optics of a UAV, the GLTD or the Strider, **Send target to FDC** (++ctrl+shift+t++, under Configure → Controls → Configure Addons → ITC Land Systems) sends the target over the datalink to every friendly FDC: the lased spot while the laser is on, else the point under the crosshair. It arrives in their BCS [Location Stores](bcs.md#location-stores) as **TGT01**, **TGT02**, … with a ping and a hint, ready as the known point of a fire mission. An FDC receives targets once it has opened the BCS. Corrections during adjust fire still go by voice.
+
 ## Packable equipment
 
 Small UAVs and the remote laser designator are carried as an item and set up where you need them, through the ACE interaction menu:

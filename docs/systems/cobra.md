@@ -35,4 +35,4 @@ Any other object can be made a siren too, see [Mission Makers & Modders](../scri
 The **Counter Battery Radar** app on the [FDC tablet](../usage.md#tablets) shows what the COBRAs see:
 
 - **Map view** — every COBRA with the edges of its arc, the detected firing positions in red with the number of rounds fired from them, and the predicted impacts with the seconds until they land
-- **Data view** — the list of engagements with their position, number of shots and the time of the last shot. **Save to BCS** stores the selected firing position in the [BCS location stores](bcs.md#location-stores), ready for a counter-battery fire mission
+- **Data view** — the list of engagements with their position, number of shots and the time of the last shot. **Save to BCS** stores the selected firing position in the [BCS location stores](bcs.md#location-stores); **COUNTER-FIRE** opens a new BCS fire mission on it at the engagement step, so you only pick the round and sheaf and compute

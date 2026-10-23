@@ -31,7 +31,7 @@ The guns hold one round at a time: every combination of round and charge is its 
 | **EXTRA** | ✔ | — | — | Time | — |
 | **FALAT** | ✔ | — | — | Time | Two laser codes |
 
-- **Fuzes**: *point detonate* on impact, *proximity* once the shell descends below 9 m above ground, *time* once the time set in the ammunition handler has passed since firing (the cargo rounds release their payload then), *delay* shortly after impact. Only the time is set by the crew.
+- **Fuzes**: *point detonate* on impact, *proximity* once the shell descends below 9 m above ground, *time* once the time set in the ammunition handler has passed since firing (the cargo rounds release their payload then), *delay* 0.05 s after impact: in the ground the shell digs in about half a metre first, through a roof or wall it bursts inside, short of the ground beyond. Only the time is set by the crew (the tablet gives the fuze setting).
 - **Laser guided** rounds steer to a laser spot with the matching ACE laser code.
 - **GPS guided** rounds fly to the target grid and altitude set in the [ammunition handler](#ammunition-handler).
 - **Extra** releases a loitering submunition when the time fuze runs out. It searches for armoured targets below it and fires a HEAT charge at the first one it finds, or destroys itself when it gets too low.
@@ -56,7 +56,9 @@ The **Self Propelled Gun** app of the [mounted SPG tablet](../usage.md#tablets) 
 1. Enter the **Target Position** (grid) and **Target Elevation**.
 2. Pick the **Munition Type**.
 3. **CALC SLN** computes a solution for every charge, low and high angle, that reaches the target.
-4. Step through them with **PRV SLN** / **NXT SLN**. Each shows **SLN** (number of solutions), **CHARGE**, **AZIMUTH**, **DEFLECTION**, **QUADRANT**, **TOF** (time of flight), **MAXIMUM ORDINATE** and **TARGET DISTANCE**.
+4. Step through them with **PRV SLN** / **NXT SLN**. Each shows **SLN** (number of solutions), **CHARGE**, **AZIMUTH**, **DEFLECTION**, **QUADRANT**, **TOF** (time of flight), **FUZE SETTING** (rounds with a time fuze), **MAXIMUM ORDINATE** and **TARGET DISTANCE**.
+
+The **FUZE SETTING** (FS) is the time fuze setting that bursts the round at its height above the target: smoke 100 m, ICM 400 m, FASCAM AT 300 m and AP 400 m, illumination 600 m (illumination is also aimed at that point), HE on time 15 m. Set it as the fuze time in the [ammunition handler](#ammunition-handler). The Extra and Falat cargo rounds keep a fixed offset from the time of flight for their carriers.
 
 The selected solution is sent to the gunner sight as the mission azimuth and quadrant.
 
@@ -66,8 +68,8 @@ The guns are on the datalink, so a fire direction centre can link them in the [B
 
 The data comes with fire orders:
 
-- The gunner sight's **FCI ORDERS** panel appears by itself and shows the mission and ADJ/FFE, the **COUNT** of rounds, the round and charge to **LOAD**, the **FUZE** (with the time of flight for a time fuze), the target grid for a GPS round, and the azimuth and quadrant. It goes away when the FDC ends the mission or you compute your own solution.
-- **FDC ORDERS** in the [ammunition handler](#ammunition-handler) fills in the round, charge, fuze, count and GPS target. Check them, set a time fuze yourself, then **APPLY** and **LOAD** as usual.
+- The gunner sight's **FCI ORDERS** panel appears by itself and shows the mission and ADJ/FFE, the **COUNT** of rounds, the round and charge to **LOAD**, the **FUZE** (with the fuze setting for a time fuze), the target grid for a GPS round, and the azimuth and quadrant. It goes away when the FDC ends the mission or you compute your own solution.
+- **FDC ORDERS** in the [ammunition handler](#ammunition-handler) fills in the round, charge, fuze (a time fuze with the fuze setting), count and GPS target. Check them, then **APPLY** and **LOAD** as usual.
 - The first shot after the data arrived is reported to the FDC, which starts its SHOT and SPLASH countdown. While the FDC's solution page is open, it sees your loader status.
 
 **DEFLECTION** follows the US convention: 3200 mils when the target lies in the direction the gun is set to (the vehicle's direction in this app, the gun's direction in the [BCS](bcs.md) battery setup), more to the left and less to the right ("left add, right subtract"). The gun is laid by azimuth, so it is only for reference.
@@ -83,7 +85,7 @@ The gunner sight of the guns shows:
 - the heading of the gun and the laser range
 - **LOAD**, **FUZE**, **GUIDANCE** and **STATUS** of the [ammunition handler](#ammunition-handler), with the round count of the current mission (`3 / 5`)
 
-Lay the gun until the current values match the mission values, then fire. All four values are in mils.
+Lay the gun until the current values match the mission values, then fire. All four values are in mils: NATO 6400 mils, or on the Russian guns (Sochor 2 and the ITC 2S1, 2S3; the D-30's current azimuth and quadrant too) the Russian 6000 mils, written `15-00` (the **Russian guns in 6000 mils** [setting](../usage.md#settings)). The SPG app shows the same system.
 
 The guns of other mods ([compatibility](../compatibility.md)) keep their own optics and reticle; the same readouts sit in boxes at the left of their sight.
 
@@ -107,6 +109,8 @@ The handler state is shared: every crew member sees the same status, and the gun
 ## Rocket artillery
 
 The Seara 2 and the Zamak MRLi have the **Guided Missile Configuration** app on their mounted tablet (gunner seat). It computes firing solutions like the gun app, and sets the **fuze** (mode and time) and the **guidance** (target grid and elevation) of the rockets before you **APPLY SETTINGS**.
+
+The launchers are on the datalink like the guns ([Fire data from the FDC](#fire-data-from-the-fdc)): the app shows where FDC data came from and the fuze setting, the MLRS sight has the **FCI ORDERS** panel, and **FDC ORDERS** on the fuze and guidance page fills in the round, the fuze (a time fuze with the fuze setting) and a GPS target before you **APPLY SETTINGS**.
 
 ## Battery fire
 

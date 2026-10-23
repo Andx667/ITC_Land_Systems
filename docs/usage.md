@@ -20,6 +20,7 @@ Most ITC actions are in the ACE interaction menu:
 | **Open Ammo Handling Interface** | Self interaction in Sholef 2, Sochor 2 | Gunner |
 | **Open Ammo Handling Interface** | Self interaction in Hammer 2 | Any crew seat |
 | **Open VLS Interface** | Self interaction in the MN230 VLS (Cruise Missile) | Any crew seat |
+| **Send target to FDC** (key, ++ctrl+shift+t++) | In the ITC optics of a UAV, the GLTD or the Strider | Observer ([details](systems/uavs.md#sending-a-target-to-the-fdc)) |
 
 ## Tablets
 
@@ -43,6 +44,7 @@ Under **Addon Options → ITC Land Systems** (CBA settings):
 | Active Protection System | **Enable APS** — vehicles with an [active protection system](systems/aps.md) intercept incoming rockets and missiles | On | Server-wide |
 | CIWS | **Enable CIWS** — [CIWS](systems/air-defence.md#ciws) turrets track and shoot down incoming artillery, mortar and rocket rounds | On | Server-wide |
 | COBRA Counter-Battery Radar | **Detection range** — maximum distance at which a [COBRA](systems/cobra.md) detects incoming rounds | 10 000 m (1 000–20 000) | Server-wide |
+| Fire control | **Russian guns in 6000 mils** — the Russian guns (Sochor 2, 2S1, 2S3, D-30, 2B14) and their BCS batteries show angles in the Russian 6000 mil system, written `15-00`, and the BCS reads those batteries' mil inputs (OT and sheaf direction) in it; off: NATO 6400 mils everywhere | On | Server-wide |
 | COBRA Counter-Battery Radar | **Engagement window** — seconds after the last detected shot during which new shots from within 300 m are added to the same engagement | 30 s (5–300) | Server-wide |
 
 Server-wide settings can be forced by the server or the mission.

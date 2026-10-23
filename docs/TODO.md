@@ -20,10 +20,10 @@ remote frag grenade (ACE has placeable charges) and the unreachable smoke dispen
 1. In-game verification: issue #3 (full checklist; the list below is the short version),
    primary systems first.
 2. In-game check of the exact firing solutions (in-game verification above).
-3. Fire direction to the guns: test the fire data distribution with fire orders and shot
-   reports (8, all four phases done), then time fuze settings and the other realism items (8).
-4. Observers and the radar to fire direction: target handoff from observers and drones,
-   COBRA detections as counter-fire missions (11).
+3. Test the fire direction work of 2026-10-23 (in-game verification below): fire data, orders
+   and shot reports, the MLRS on the datalink, fuze settings, the delay fuze,
+   muzzle origin and elevation limits, Russian mils, observer handoff and COBRA counter-fire.
+4. Observers to fire direction, the rest (11): corrections during adjust fire over the datalink.
 5. Translations (1), compatibility (8), then documentation (9).
 6. Secondary systems: fixes only; the APS framework (8) comes last.
 
@@ -58,7 +58,10 @@ Locality fixes:
 - [ ] ITC M1129 Stryker: note the real elevation range of the M121 in the gunner sight (the
       config says -5 to 35, the tables assume 45 to 85 degrees as on the other mortars) and
       regenerate the tables if it differs; BCS solutions hit for every charge; the 120 mm HE
-      damage feels right between the 82 mm mortar and the 122 mm howitzer.
+      damage feels right between the 82 mm mortar and the 122 mm howitzer. Now an SPH: the
+      gunner's ammunition handler lists 32 HE and 6 smoke, loads charge 1-3 and the HE fuzes
+      (proximity, time, delay burst with the 120 mm helper), the commander's tablet SPG app and
+      the overlay sight (MA/MQ, orders) work, it links in the BCS, and CUP's own M1129 is unchanged.
 - [ ] BWMod compat (`hemtt launch default bwa3`, without the TTT mod's old ITC PzH 2000): the
       ITC PzH 2000 loads, fires and reloads automatically through the ammunition handler (with
       the reload animation), its tablet SPG app gives solutions that hit, the gun recoils and
@@ -72,7 +75,8 @@ Locality fixes:
       a linked gun updates its data at the next calculation; SEND FFE puts each gun's MA/MQ in
       its sight (beep and hint for the crew, "FDC FM0001 FFE" in the SPG app) and the rounds
       hit; SEND ADJ only reaches the selected gun; CALC SLN on the gun replaces the FDC data; a
-      Hammer 2 operator gets the hint; the D-30/M119 basic sight shows the sent MA/MQ.
+      Hammer 2 operator gets the hint; Link gun lists the M1129 for an M121 battery and never a
+      D-30 or M119 (no tablet).
       Multiplayer: FDC and gun crews on different machines, and a crew joining mid-mission.
 - [ ] BCS fire orders: Fuze and Count on the engagement page reach the gun; the FCI ORDERS
       panel appears on the Sholef 2 and PzH 2000 with the right round, charge, fuze and count
@@ -80,6 +84,25 @@ Locality fixes:
       ORDERS in the ammunition handler fills in round, charge, fuze, count and GPS target, and
       the loaded rounds hit; the first shot starts SHOT/SPLASH on the FDC tablet (later shots
       and the other guns do not restart it); the solution page shows each gun's loader status.
+- [ ] MLRS on the datalink: Link gun lists the Seara 2 / Zamak / CUP M270 for an
+      M230 battery; SEND FFE lays them (guided rockets at 800 mils), the MLRS app shows "FDC" and
+      FS, FDC ORDERS on its fuze page fills in round, fuze and GPS target; the MLRS sight's orders
+      box (red, right side) shows and does not clip; the first rocket reports SHOT.
+- [ ] Observer handoff and counter-fire: Ctrl+Shift+T in the Darter 2 / Greyhawk / GLTD /
+      Strider optics puts the lased or aimed point into the FDC's Location Stores (TGT01) with a
+      ping and the right grid and altitude, also while the FDC tablet is closed; an enemy-side
+      FDC does not get it; COUNTER-FIRE on the COBRA data page opens the BCS at the engagement
+      page of a new mission on the firing position, and the solutions hit it.
+- [ ] Russian mils: the Sochor 2 sight shows `15-00`-style CA/MA/CQ/MQ and lays on target; a
+      G152 or D-30 battery's BCS gun lines are in 6000 mils and an OT of `15-00` shifts the target
+      the same way as 1600 in a NATO battery; with the setting off everything is 6400.
+- [ ] Delay fuze (HE, LGM/PGM, M230 HE): a shell into open ground bursts once, just under the
+      surface (small crater); one through a building roof bursts inside; no shell bursts twice.
+- [ ] Muzzle origin and elevation limits: SPG app, MLRS app and BCS (linked guns) solutions
+      start at the muzzle (a few metres higher and forward of the vehicle position) and still
+      hit, low and high angle; the BCS offers no solution steeper than the battery type's guns can
+      lay for hand-entered guns (e.g. D-30 battery), and the first BCS calculation of a battery
+      type does not hitch noticeably (it scans CfgVehicles once).
 - [ ] Firing solutions (exact vacuum solution instead of the table lookup): SPG app and BCS
       rounds hit with low and high angle, also near a charge's maximum range and at targets
       well above the gun; the first solution per shell type may hitch once while its tables
@@ -363,26 +386,34 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     page shows each linked gun's loader status; END MISSION sends "fdc"/"endMission", which
     clears the gun's orders. Changed from the plan: the loader status is in the solution page's
     gun list, not in Battery Setup's.
-  - Open: the fuze time of a time fuze is left to the crew until the BCS computes fuze settings
-    (realism item below); laser codes are not sent (they come from the observer); the towed
-    guns' basic sight (D-30, M119, M1129) has no orders panel and no ammunition handler, so they
-    get the line (MA/MQ) only.
-  - Later: the MLRS (different solution format, missile app).
-  - Test: a test range station with two Sholef 2 and a D-30; set up the battery on the FDC
+  - Done (2026-10-23): the MLRS (Seara 2, Zamak MRLi, CUP M270) link and get fire data like the
+    guns: rocket battery types are linkable, guided rockets get `itc_land_fixedQuadrant` (800)
+    in every solution, the MLRS app shows FDC data and FS live and has FDC ORDERS on its fuze
+    page, and the MLRS sights have the orders panel.
+  - By design: the towed guns (D-30, M119) are just the gun: no tablet, not on the datalink
+    (`bcs_fnc_getGunBatteryType` needs `itc_land >> mountedTablet`); their crews work by voice and
+    their sight shows only the current azimuth and quadrant. The FDC enters them by hand. The
+    M1129 is an SPH like the others (2026-10-23).
+  - Open: laser codes are not sent (they come from the observer).
+  - Test: a test range station with two Sholef 2 (linked) and a D-30 (hand-entered); set up the battery on the FDC
     tablet, send, switch to the gunner seat. Then multiplayer: FDC and gun crews on different
     machines, and a player joining mid-mission.
 - [ ] Realism, compared with real guns (2026-10-22):
-  - Fuze setting: real fire direction gives a time fuze setting (FS) that bursts the shell
-    at the right height (illumination about 600 m above the target, M825 smoke about 100 m,
-    cargo rounds per round type). The SPG app and BCS only give the time of flight, so the
-    crew guesses and usually bursts too late. Add an FS column for time-fuzed rounds
-    (TOF to the burst point, from a burst height per magazine in config).
-  - Delay fuze: `common_fnc_resolveFuzeSetting` sets 0.005 s; real delay fuzes use about
-    0.05 s. Not a one-line change: the delay places the burst along the last flight
-    path, so ten times the delay puts it about 15 m past the impact point, often
-    underground. Proximity bursts at the fuze's fixed `proxHOB` (9 m, realistic).
-  - Russian guns (D-30, 2S1, 2S3, Sochor 2) use 6000 mils in reality; everything here
-    shows NATO 6400. Optional, per battery type or vehicle.
+  - Fuze setting: done (2026-10-23). `itc_land_burstHeight` per magazine (HE 15, smoke 100,
+    ICM 400, FASCAM AT 300 / AP 400, illumination 600 m and aimed there); every solution carries
+    the exact FS (`ballistics_fnc_calcFuzeSetting`, element 10), shown in the SPG app, the BCS
+    gun lines and the orders panel and filled in by FDC ORDERS. Check the heights in game; the
+    Extra/Falat cargo rounds keep `itc_land_timeModifier` (-5 s) for their carriers.
+  - Delay fuze: done (2026-10-23). 0.05 s; `veh_weapons_fnc_fuze` removes the shell just before
+    it hits (no burst on impact, which also ended a second explosion the old delay added) and
+    bursts it after the delay half a metre into the ground or past a roof or wall, short of
+    the ground beyond. Proximity bursts at the fuze's fixed `proxHOB` (9 m, realistic).
+  - Russian 6000 mils: done (2026-10-23). `milSystem = 6000` on the Russian battery types
+    (G152, RHS 2S1/2S3/D-30/2B14, CUP D-30); vehicles take the system of their weapon's battery
+    type (`common_fnc_getMilSystem`). Display only (sights, orders panel, SPG app, BCS gun lines,
+    `15-00` notation) plus the BCS mil inputs of those batteries; everything is computed in 6400.
+    CBA setting `itc_land_common_russianMils` (on). The deflection is the converted US-style one
+    (reference 30-00); check against the real Russian goniometer convention.
 
 ## 9. Documentation (after in-game testing, issue #1)
 
@@ -393,22 +424,17 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 ## 10. Known bugs
 
-- [ ] Solutions beyond the gun's elevation limit in the BCS: the tables can reach steeper than some
-      guns (155 mm high angle to 80°, PzH 2000 72°, RCH 155 65°, Hammer 2 70°, the MLRS 66°). The
-      SPG and MLRS apps drop them (`common_fnc_filterSolutionsByElevation`, turret minElev/maxElev);
-      the BCS filters linked guns per gun, but knows no vehicle for hand-entered guns, so those
-      can still get them.
-- [ ] Firing solutions use the gun's `getPosASL` as the muzzle height (a few metres low);
-      use the muzzle position instead (`calcShellTypeSolutions` callers: SPG/MLRS apps, BCS).
+None open (2026-10-23: the BCS holds hand-entered guns and the battery solution to the battery
+type's elevation limits, `bcs_fnc_getBatteryElevationLimits`; solutions start at the muzzle,
+`common_fnc_getBarrel`).
 
 ## 11. Observers and the radar to fire direction
 
-- [ ] Target handoff from observers and drones. Today an observer reads a grid from the map,
-      a laser rangefinder or the UAV optics readouts and the FDC types it into a new fire
-      mission. Add a way to send it: a target (grid and elevation) from the UAV optics or a
-      designator lands in the FDC tablet as a new fire mission or a location store entry,
-      like a digital call for fire. Same for the observer's corrections during adjust fire.
-- [ ] COBRA detections as counter-fire missions. The COBRA app can save a back-traced firing
-      position as a known point, but the BCS operator still loads it and builds the mission by
-      hand. Add "counter-fire" from a COBRA engagement: a new BCS fire mission on the firing
-      position, ready to compute, as real counter-battery radar hands targets to fire direction.
+- [x] Target handoff (2026-10-23): "Send target to FDC" keybind (Ctrl+Shift+T) in the ITC UAV,
+      GLTD and Strider optics (`veh_sights_fnc_sendTarget`) broadcasts "observer"/"target" over
+      the datalink; FDCs that opened the BCS add it to the Location Stores (TGT01, ...). COBRA
+      counter-fire (2026-10-23): COUNTER-FIRE on the COBRA data page opens a new BCS mission on
+      the firing position at the engagement step (`itc_land_tablet_bcs_pendingTarget`).
+- [ ] Still open: the observer's corrections during adjust fire over the datalink (today by
+      voice into the adjustment page); sending from other observer devices (ACE Vector, laser
+      rangefinders); targets reach every friendly FDC, not one picked FDC.
