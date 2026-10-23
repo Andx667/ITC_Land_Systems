@@ -280,6 +280,23 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     or the vehicle has no modules.
   - Zeus module and/or ACE interaction to fit an APS to a vehicle
   - document the config keys and the API for mod makers (with section 9)
+- [ ] Datalink as a public API for other mods. It already works from outside (`connect`,
+      `registerEvent`, `transmit` with free header/type strings, IDs public as
+      `itc_land_datalink_id`, ID format in config), but nothing says it is supported. To do:
+  - mark `connect`, `disconnect`, `transmit`, `registerEvent`, `unregisterEvent` and
+    `validateID` `Public: Yes` and tidy their headers
+  - a CBA event when an object gets its ID (e.g. `itc_land_datalink_connected`) and an optional
+    callback on `connect`; today the ID arrives asynchronously, a refused registration only
+    logs, and auto IDs only go to group `01`
+  - a "Datalink" section in `docs/scripting.md`: transmission format
+    `[destination, origin, header, type, data]`, handlers live on the machine that called
+    `connect` (registering on a client for a server-connected object receives nothing),
+    addressing (`GGNN`, `GG00` group, `0000` all), reserved headers (`fdc`,
+    `object_register`), no reply/ack, and the trust model
+  - optional: the server rejects a transmission whose origin ID is not registered to the
+    sending machine (today only its format is checked, so any client can send as any origin)
+  - optional: a server-side query for the registered nodes (only the server has the registry;
+    the BCS scans vehicles for the public ID instead)
 - [ ] Maybe: APS for the Puma and Boxer (researched 2026-10-23). Neither has a hard-kill APS
       in service.
   - Boxer: Trophy was integrated on a pre-series APC in September 2025, on a mission module, so
