@@ -24,7 +24,8 @@ params ["_vehicle"];
 
 if (isNil QGVAR(gunTypeCache)) then {GVAR(gunTypeCache) = createHashMap};
 
-GVAR(gunTypeCache) getOrDefaultCall [typeOf _vehicle, {
+// exitWith inside the getOrDefaultCall code itself returns nil, not its value: the call scope takes it
+GVAR(gunTypeCache) getOrDefaultCall [typeOf _vehicle, {call {
     if !(isText (configOf _vehicle >> "itc_land" >> "mountedTablet")) exitWith {""};
     private _turretConfig = [_vehicle, [0]] call BIS_fnc_turretConfig;
     if ((toLower getText (_turretConfig >> "turretInfoType")) select [0, 9] != "itc_land_") exitWith {""};
@@ -33,4 +34,4 @@ GVAR(gunTypeCache) getOrDefaultCall [typeOf _vehicle, {
     private _types = "true" configClasses (configFile >> "itc_land_ballistics" >> "batteryTypes");
     private _index = _types findIf {getText (_x >> "weaponClass") in _weapons};
     if (_index == -1) then {""} else {configName (_types # _index)}
-}, true]
+}}, true]

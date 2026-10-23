@@ -23,7 +23,8 @@ params ["_batteryType"];
 
 if (isNil QGVAR(elevationLimitsCache)) then {GVAR(elevationLimitsCache) = createHashMap};
 
-GVAR(elevationLimitsCache) getOrDefaultCall [_batteryType, {
+// exitWith inside the getOrDefaultCall code itself returns nil, not its value: the call scope takes it
+GVAR(elevationLimitsCache) getOrDefaultCall [_batteryType, {call {
     private _config = configFile >> "itc_land_ballistics" >> "batteryTypes" >> _batteryType;
     private _limits = getArray (_config >> "elevationLimits");
     if (_limits isEqualTypeArray [0, 0]) exitWith {_limits};
@@ -44,4 +45,4 @@ GVAR(elevationLimitsCache) getOrDefaultCall [_batteryType, {
     } forEach ("getNumber (_x >> 'scope') == 2 && {isClass (_x >> 'Turrets')}" configClasses (configFile >> "CfgVehicles"));
 
     if (_max < _min) then {[]} else {[_min, _max]}
-}, true]
+}}, true]

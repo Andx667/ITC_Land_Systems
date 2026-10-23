@@ -39,6 +39,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- BCS Battery Setup: **SAVE** with a new battery type left **Link gun** listing the guns of the old type (often none) until the page was opened again. It now lists those of the saved type at once.
 - Delay fuze: an HE shell (or LGM/PGM, M230 HE rocket) on delay burst twice, on impact and again along its flight path. It now bursts once, 0.05 s after impact (was 0.005 s): half a metre into the ground, or inside a building after going through its roof or wall.
 - Firing solutions start at the muzzle: the SPG and MLRS apps and the BCS for linked guns took the vehicle's position on the ground as the start of the trajectory, a few metres below and behind the muzzle. The muzzle is now where it will be at each solution's quadrant (the barrel's breech plus its length).
 - BCS: hand-entered guns and the battery solution could be offered quadrants no gun of the battery type can lay (the tables reach 80°, a D-30 70°). They are now held to the battery type's elevation limits, the widest of the vehicles carrying its weapon (or `elevationLimits[]` in the battery type's config).

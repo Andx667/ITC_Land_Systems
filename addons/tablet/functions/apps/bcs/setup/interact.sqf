@@ -29,10 +29,8 @@ switch (_action) do {
         GVAR(bcs_bty_name) = UITEXT(4303);
         private _gunIndex = lbCurSel 4304;
         GVAR(bcs_bty_type) = [_gunIndex, lbData [4304, _gunIndex]];
-        private _display = findDisplay 32562;
-        private _activeTypeName = getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> (GVAR(bcs_bty_type) # 1) >> "displayName");
-        private _activeTypeText = format[LLSTRING(Bcs_ActiveType), _activeTypeName];
-        SETTEXT(4318,_activeTypeText);
+        // redraw: the guns to link are those of the active battery type
+        [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     };
     case "addGun": {
         private _num = UITEXT(4306);
