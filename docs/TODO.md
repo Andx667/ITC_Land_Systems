@@ -269,6 +269,21 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     or the vehicle has no modules.
   - Zeus module and/or ACE interaction to fit an APS to a vehicle
   - document the config keys and the API for mod makers (with section 9)
+- [ ] Maybe: APS for the Puma and Boxer (researched 2026-10-23). Neither has a hard-kill APS
+      in service.
+  - Boxer: Trophy was integrated on a pre-series APC in September 2025, on a mission module, so
+    the launchers are fixed to the hull. Live fire was announced but no results were found.
+    StrikeShield (Rheinmetall) was also fitted to a Boxer for testing; it uses many small
+    hull-wide modules, each breaking up the threat about 10 m out. The Bundeswehr reportedly
+    plans StrikeShield + AVePS for wheeled vehicles, which vehicles is unconfirmed. Both fit
+    the current module config: Trophy is `TROPHY_L`/`_R` without `turret[]`; StrikeShield is
+    4-6 hull modules, `traverse` about 45, `range` about 10, short reload, few shots (guessed,
+    no per-module figures are published). ITC has no Boxer APC yet, only the GTK RCH 155.
+  - Puma: MUSS / MUSS 2.0 (Hensoldt) is soft kill only: warning sensors, an IR jammer that
+    blinds guided missiles, and smoke. It has room for a hard-kill system, none ordered. It
+    does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
+    breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
+    BWMod (`compat_bwa3`).
 - [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, presses
       SEND, and every gun of the battery gets its own firing data in the gunner sight, like a real
       fire direction system sending to the gun display. Today the BCS only knows guns as hand-typed
