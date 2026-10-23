@@ -254,8 +254,19 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     (missions, Zeus), query its modules and remaining ammo
   - presets (Trophy, Drozd, Afganit, ...) a vehicle config can inherit instead of
     copying every value
-  - rearm: refill module ammo from ACE rearm / vanilla ammo sources, which never happens
-    now
+  - rearm, vanilla and ACE compatible: spent charges are never refilled now (only a
+    respawned or new vehicle has full modules). `vehicleInit` keeps each module's maximum;
+    a rearm refills to it on the vehicle's owner and publishes the state like
+    `onModuleFired`. Vanilla: rearming from an ammo truck/box has no event, so detect it
+    (vehicle near an ammo source, or its own magazines refilling). ACE (`ace_rearm` loaded):
+    hook ACE rearm, check what it exposes; partial refills are fine, as ACE rearms gradually.
+    Work with both and with neither loaded. Optional: a refill cost/time per charge.
+  - crew GUI for the APS state: a small overlay for the vehicle's crew showing the system
+    state (READY / INCOMING DETECTED / DEFENDING, plus RELOADING and EMPTY) and each
+    module's remaining charges, e.g. `TROPHY L 7/10`. Detection and interception run on the
+    shooter's machine, so "incoming" and "defending" have to be sent to the crew (CBA event
+    to the vehicle's crew), not read from local state. Hidden when the APS setting is off
+    or the vehicle has no modules.
   - Zeus module and/or ACE interaction to fit an APS to a vehicle
   - document the config keys and the API for mod makers (with section 9)
 - [ ] Battery fire solution distribution (planned 2026-10-22): the FDC computes a mission, presses
