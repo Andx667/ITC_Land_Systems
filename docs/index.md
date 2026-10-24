@@ -1,13 +1,13 @@
-# ITC Land Systems
+# ITC Land Systems Redux
 
 ![ITC Land Systems Logo](assets/logo.png){ width="320" }
 
-**ITC Land Systems** (ITC) adds and improves Arma 3's land-based weapon systems: self-propelled artillery with real fire control, a battery computer for fire missions across several guns, counter-battery radar, air and missile defence, active protection for tanks, guided munitions and UAVs.
+**ITC Land Systems Redux** (ITC) adds and improves Arma 3's land-based weapon systems: self-propelled artillery with real fire control, a battery computer for fire missions across several guns, counter-battery radar, air and missile defence, active protection for tanks, guided munitions and UAVs.
 
 The project is entirely open-source and any contributions are welcome — see [Contributing](contributing.md).
 
 !!! warning "Beta"
-    ITC Land Systems is in beta (0.1.0). Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the [issue tracker](https://github.com/Andx667/ITC_Land_Systems/issues).
+    ITC Land Systems Redux is in beta. Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the [issue tracker](https://github.com/Andx667/ITC_Land_Systems/issues).
 
 !!! info "Requirements"
     ITC requires [CBA_A3](https://github.com/CBATeam/CBA_A3/releases/latest) and [ACE3](https://github.com/acemod/ACE3), see [Installation](installation.md).
@@ -33,4 +33,4 @@ The project is entirely open-source and any contributions are welcome — see [C
 
 ## Credits
 
-ITC Land Systems is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal. See [License](license.md).
+ITC Land Systems Redux is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal. See [License](license.md).

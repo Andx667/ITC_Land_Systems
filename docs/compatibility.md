@@ -1,6 +1,6 @@
 # Compatibility with other mods
 
-ITC Land Systems brings its fire control to the artillery of RHS, CUP, BWMod and the GTK Boxer. The compatibility is part of the mod: there is nothing extra to download, and each part switches itself on only when the other mod is loaded. Without that mod it is skipped silently.
+ITC Land Systems Redux brings its fire control to the artillery of RHS, CUP, BWMod and the GTK Boxer. The compatibility is part of the mod: there is nothing extra to download, and each part switches itself on only when the other mod is loaded. Without that mod it is skipped silently.
 
 The ITC versions are separate vehicles next to the originals, in the same factions, with **mod. 0** in their names (e.g. **2S1 mod. 0 Gvozdika 2**). The original vehicles of the other mod stay as they are.
 

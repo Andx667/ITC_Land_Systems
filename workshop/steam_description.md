@@ -1,8 +1,8 @@
-# ITC Land Systems [BETA]
+# ITC Land Systems Redux [BETA]
 
-**Beta status:** ITC Land Systems is in beta. Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the issue tracker (see Source & Issues below).
+**Beta status:** ITC Land Systems Redux is in beta. Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the issue tracker (see Source & Issues below).
 
-**ITC Land Systems** (ITC) is about the artillery fight in Arma 3: finding targets, putting rounds on them, and detecting and stopping the enemy's incoming fire. Made for player crews.
+**ITC Land Systems Redux** (ITC) is about the artillery fight in Arma 3: finding targets, putting rounds on them, and detecting and stopping the enemy's incoming fire. Made for player crews.
 
 # Requirements
 

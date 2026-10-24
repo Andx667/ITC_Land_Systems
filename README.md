@@ -1,11 +1,11 @@
-# ITC Land Systems [BETA]
+# ITC Land Systems Redux [BETA]
 
 <p align="center">
     <a href="https://github.com/Andx667/ITC_Land_Systems/issues">
-        <img src="https://img.shields.io/github/issues-raw/Andx667/ITC_Land_Systems.svg?style=flat-square&label=Issues" alt="ITC Land Systems Issues">
+        <img src="https://img.shields.io/github/issues-raw/Andx667/ITC_Land_Systems.svg?style=flat-square&label=Issues" alt="ITC Land Systems Redux Issues">
     </a>
     <a href="https://github.com/Andx667/ITC_Land_Systems/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="ITC Land Systems License">
+        <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="ITC Land Systems Redux License">
     </a>
     <br>
     <img src="https://img.shields.io/github/actions/workflow/status/Andx667/ITC_Land_Systems/check.yml?style=flat-square&label=Check" alt="Check">
@@ -14,20 +14,20 @@
 
 __Requires__ [CBA_A3](https://github.com/CBATeam/CBA_A3) and [ACE3](https://github.com/acemod/ACE3).
 
-__ITC Land Systems__ (ITC) adds and improves Arma 3's land-based artillery: observers and UAVs, fire control, howitzers, rocket and naval artillery, and the counter-artillery systems against incoming fire (counter-battery radar, CIWS, SAM sites). Active protection comes along as an extra.
+__ITC Land Systems Redux__ (ITC) adds and improves Arma 3's land-based artillery: observers and UAVs, fire control, howitzers, rocket and naval artillery, and the counter-artillery systems against incoming fire (counter-battery radar, CIWS, SAM sites). Active protection comes along as an extra.
 
 The project is entirely __open-source__ and any contributions are welcome.
 
 Discord: <https://discord.gg/ag4v6kxYAa>
 
 > [!NOTE]
-> ITC Land Systems is in __beta__ (0.1.0). Expect bugs and unfinished content, and please report them on the issue tracker.
+> ITC Land Systems Redux is in __beta__. Expect bugs and unfinished content, and please report them on the issue tracker.
 >
 > The project is in pre-release. The current build is being tested in game, see [issue #3](https://github.com/Andx667/ITC_Land_Systems/issues/3). A Steam Workshop release follows once that is done.
 
 ## Features
 
-ITC Land Systems is about the artillery fight: finding targets, putting rounds on them, and detecting and stopping the enemy's incoming fire.
+ITC Land Systems Redux is about the artillery fight: finding targets, putting rounds on them, and detecting and stopping the enemy's incoming fire.
 
 ### Observation
 
@@ -72,7 +72,7 @@ The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:
 
 ## Settings
 
-Under __Addon Options → ITC Land Systems__ (CBA settings, can be forced by the server):
+Under __Addon Options → ITC Land Systems Redux__ (CBA settings, can be forced by the server):
 
 | System | Setting |
 | --- | --- |
@@ -90,7 +90,7 @@ All player-facing text lives in stringtables. Only English exists so far, transl
 
 Planned, with parts already in the code but not yet usable in game:
 
-- 105 mm and 122 mm howitzers as a framework for other mods: weapons, ammunition, ballistic tables and fire control support ready to mount on their own vehicles. ITC Land Systems itself adds no vehicle for them.
+- 105 mm and 122 mm howitzers as a framework for other mods: weapons, ammunition, ballistic tables and fire control support ready to mount on their own vehicles. ITC Land Systems Redux itself adds no vehicle for them.
 - SADL (situational awareness) tablet app
 - Dual-mode GPS/laser guided artillery rounds
 - Datalink to share radar and fire-mission data between systems
@@ -99,7 +99,7 @@ Also planned: Zeus and Zeus Enhanced modules, translations, a documentation site
 
 ## Credits
 
-ITC Land Systems is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. The new work in this beta is released under the [MIT](./LICENSE) license. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal.
+ITC Land Systems Redux is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. The new work in this beta is released under the [MIT](./LICENSE) license. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal.
 
 ## Contributing
 
@@ -107,4 +107,4 @@ For new contributors, see the [Contributing Setup & Guidelines](./.github/CONTRI
 
 ## License
 
-ITC Land Systems is licensed under [MIT](./LICENSE).
+ITC Land Systems Redux is licensed under [MIT](./LICENSE).

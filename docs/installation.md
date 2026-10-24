@@ -15,11 +15,11 @@ The RHS, CUP and BWMod compatibility (ITC versions of their artillery) is part o
 
 1. Subscribe to the mod on the Steam Workshop once it is published, or download a release from the [Releases](https://github.com/Andx667/ITC_Land_Systems/releases) page.
 2. Make sure CBA_A3 and ACE3 are also installed and enabled.
-3. Enable **ITC Land Systems**, CBA_A3 and ACE3 in your mod launcher.
+3. Enable **ITC Land Systems Redux**, CBA_A3 and ACE3 in your mod launcher.
 
 ## Server owners
 
-Add the mod's folder alongside CBA_A3 and ACE3 in your server's mod line, keeping the same load order (CBA_A3 → ACE3 → ITC Land Systems). Every client needs the mod as well.
+Add the mod's folder alongside CBA_A3 and ACE3 in your server's mod line, keeping the same load order (CBA_A3 → ACE3 → ITC Land Systems Redux). Every client needs the mod as well.
 
 The [CBA settings](usage.md#settings) for APS, CIWS and COBRA are server-wide and can be forced by the server.
 

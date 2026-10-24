@@ -31,7 +31,7 @@ Numbers are the sections of the checklist in GitHub issue #3. Use the control bo
 <marker name='itc_test_aps'>APS</marker>: crewed tank without ammo. Use 'APS attack' and/or shoot it with launchers from the arsenal from two machines (12).<br/>
 <marker name='itc_test_rover'>UAV apron</marker>: MQ-4I and UCAVi parked facing north. Take off with the UAV terminal; for ROVER fly the MQ-4I over the target area, lase, open the ROVER tablet (14, 16).<br/>
 Tablets (FDC, ROVER) and a UAV terminal are in your inventory; the SPG tablet is mounted in the guns (4, 15, 16).<br/><br/>
-Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems (1).
+Diagnostics: 'Show per-frame handler count' should not keep growing after entering and leaving gunner seats (15). Settings: Escape, Options, Addon Options, ITC Land Systems Redux (1).
 "]];
 
 // --- control board -------------------------------------------------------------------------

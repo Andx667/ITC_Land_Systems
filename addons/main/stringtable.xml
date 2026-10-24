@@ -2,7 +2,7 @@
 <Project name="itc_land">
     <Package name="main">
         <Key ID="STR_itc_land_main_Category">
-            <English>ITC Land Systems</English>
+            <English>ITC Land Systems Redux</English>
         </Key>
     </Package>
 </Project>

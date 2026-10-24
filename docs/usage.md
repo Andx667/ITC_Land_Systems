@@ -37,7 +37,7 @@ The vehicles carry a **mounted tablet**: the SPG tablet in the Sholef 2, Sochor 
 
 ## Settings
 
-Under **Addon Options → ITC Land Systems** (CBA settings):
+Under **Addon Options → ITC Land Systems Redux** (CBA settings):
 
 | Category | Setting | Default | Scope |
 | --- | --- | --- | --- |

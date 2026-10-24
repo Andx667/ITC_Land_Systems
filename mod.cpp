@@ -1,9 +1,9 @@
-name            = "ITC Land Systems v0.0.0 [BETA]";    // Name of your mod; the version placeholder is filled in by .hemtt/hooks/pre_build/set_version.rhai
+name            = "ITC Land Systems Redux v0.0.0 [BETA]";    // Name of your mod; the version placeholder is filled in by .hemtt/hooks/pre_build/set_version.rhai
 author          = "ITC Addons Team";            // Affects Arma 3 Launcher, when the mod are loaded as local
 logo            = "itc-combo.paa";              // Logo displayed in the main menu
 logoOver        = "itc-combo.paa";              // When the mouse is over, in the main menu
-tooltip         = "ITC Land Systems";
-tooltipOwned    = "ITC Land Systems";           // Tool tip displayed when the mouse is left over, in the main menu
+tooltip         = "ITC Land Systems Redux";
+tooltipOwned    = "ITC Land Systems Redux";           // Tool tip displayed when the mouse is left over, in the main menu
 picture         = "itc-combo.paa";              // Picture displayed from the expansions menu. Optimal size is 2048x1024
 actionName      = "GitHub";
 action          = "https://github.com/Andx667/ITC_Land_Systems";    // Website URL, that can be accessed from the expansions menu

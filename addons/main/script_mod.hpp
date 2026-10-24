@@ -1,6 +1,6 @@
 #define MAINPREFIX z
 #define PREFIX itc_land
-#define MOD_NAME ITC Land Systems
+#define MOD_NAME ITC Land Systems Redux
 #define AUTHOR "ITC Addons Team"
 
 #define REQUIRED_VERSION 2.18

@@ -1,6 +1,6 @@
 # TODO
 
-Open work for ITC Land Systems. Finished items are in git history and `CHANGELOG.md`.
+Open work for ITC Land Systems Redux. Finished items are in git history and `CHANGELOG.md`.
 Section numbers are kept stable so commits and issues can refer to them.
 
 ## Scope
@@ -153,7 +153,7 @@ validation errors (never shown to players) stay English. Acronyms and product na
 - [ ] Further candidates: CIWS/COBRA detection arc, siren trigger distance, SPH loader
       timings, a debug logging toggle.
 - [ ] One on/off switch per system. Rules:
-  - CBA checkbox `itc_land_<component>_enabled` under "ITC Land Systems" -> system,
+  - CBA checkbox `itc_land_<component>_enabled` under "ITC Land Systems Redux" -> system,
     default on, server-forced (like the existing APS and CIWS toggles).
   - Off = ITC's scripted behaviour is gone and the vehicle falls back to what the engine
     does; vehicles, weapons and ammo stay in Eden/Zeus/Arsenal (settings cannot unload
