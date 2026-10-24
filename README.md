@@ -42,7 +42,7 @@ ITC Land Systems is about the artillery fight: finding targets, putting rounds o
 - __Vertical Launch System__ (MN230 cruise missile variant) with a target dialog for ad-hoc and saved targets and a selectable impact angle.
 - __Munitions__ for 152/155 mm, 127 mm naval and 230 mm MLRS: HE, ICM, smoke, illumination, AP/AT mines, laser-guided (LGM) and GPS-guided (PGM) rounds, and the Extra and Falat submunition rounds. Proximity, time and delay fuzes.
 - __Ammunition handler__ for the self-propelled guns: pick round, charge, fuze and guidance, then watch the semi-automatic or automatic loading sequence, or prepare and drop each round by hand on a mortar. The loader status is shared with the whole crew.
-- __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, with the time fuze setting, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations.
+- __Fire control tablet__ (handheld and vehicle-mounted): firing solutions from ballistic tables for guns and MLRS, with the time fuze setting, a battery computer (BCS) for planning and adjusting fire missions across several guns, and stored target locations. The tablet and the ammunition handler run as web pages in the game's browser (Arma 3 2.20+), with the classic interfaces one click away.
 - __Datalink__: the FDC links guns and rocket launchers into its battery and sends them firing data and fire orders, observers hand targets from UAV, GLTD and Strider optics to the FDC, and COBRA engagements become counter-fire missions.
 - __Gunner sights__ with azimuth, quadrant, firing solution, fire orders and loader readouts, and an alignment guide on the crosshair. Russian guns read in 6000 mils.
 - __RHS compatibility__ (loads only with RHS: AFRF / USAF): ITC versions of the 2S1, 2S3 and M109A6 with ammunition handler and mounted tablet, ITC sights and firing tables for the D-30 and M119A2, BCS firing tables for the RHS mortars.
@@ -79,6 +79,8 @@ Under __Addon Options → ITC Land Systems__ (CBA settings, can be forced by the
 | CIWS | Enable CIWS |
 | Active Protection System | Enable APS |
 | COBRA | Detection range, engagement window |
+| Tablet | Tablet in HTML (tablet and ammunition handler as web pages; off: the classic interfaces) |
+| Sights | Russian guns in 6000 mils |
 
 ## Languages
 

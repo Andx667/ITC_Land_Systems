@@ -13,6 +13,8 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-24
+
 ### Added
 
 - Tablet in HTML (Arma 3 2.20+): the new setting **Tablet in HTML** (on by default) opens the tablets and the ammunition handler as web pages in the game's browser control. The tablet keeps its frame: the APP keys switch the apps, Input Lock goes home, the sidebar the pages, and every app is there (SPG and MLRS fire control and status, the whole BCS, COBRA with its map). The ammunition handler is the same panel as before, for the gunner and the loader. The pages follow a fire mission's order and its terms: the BCS solution page has the message to the observer (battery, rounds, target, time of flight), the gun lines in fire command order (charge, fuze setting, deflection, quadrant), a marked adjusting gun for SEND ADJ (one round per correction) and the observer's direction kept from one correction to the next. Each page has one highlighted main action; END MISSION and REMOVE ask to be pressed again; fields show their units and check their input before it is sent; the result of an action shows in the page; the MLRS applies its fuze and guidance with the calculation; the ammunition handler says when its settings are not applied yet; known points and guns number themselves. Fields keep what you type while they update; tooltips show on hover. **CLASSIC TABLET** on the home screen opens the classic tablet; turning the setting off brings back both classic interfaces. Launch the game through Steam, otherwise the pages update only about once a second.
@@ -21,6 +23,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 - Classic BCS: SEND ADJ sends the adjusting gun one round per correction, as the HTML tablet does (the round count is for fire for effect). The classic and HTML tablets and ammunition handlers now run the same code behind their buttons.
 - BCS Battery Setup: a new gun, linked or entered by hand, gets the lowest free gun number from 1 up (a removed gun's number is used again), and **Gun #** shows it; linking before took the highest number + 1.
+
+### Fixed
+
+- BCS: **LOAD** on the new mission page did not take the grid of a known point the BCS recorded itself (an ended mission's target, a COBRA firing position, an observer's target): it was stored with a space ("06100 06200") and failed the grid check. Such points are stored as digits only now, and LOAD drops the space of points recorded before.
 
 ## [0.2.0] - 2026-10-23
 
