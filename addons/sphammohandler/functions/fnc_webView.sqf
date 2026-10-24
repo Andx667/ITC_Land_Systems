@@ -52,36 +52,26 @@ if (_magazine != "" && {((_vehicle getVariable ["itc_land_currentMagInfo", []]) 
 private _maxCharge = getNumber (_magazineConfig >> "itc_land_maxChargeIndex");
 private _charge = _vehicle getVariable ["itc_land_currentChargeIndex", 1];
 
-private _fuzeConfig = configFile >> "ITC_Land_CfgFuzes" >> getText (_magazineConfig >> "itc_land_fuze");
+private _fuzeConfig = [_magazine] call EFUNC(common,getFuzeConfig);
 private _modes = getArray (_fuzeConfig >> "modes");
 if ((_form get "fuze") >= count _modes) then {_form set ["fuze", 0]};
 private _guidance = (getArray (_magazineConfig >> "itc_land_guidance")) param [0, ""];
 
-// the checks and units of the fields, as the tablet's
-private _check = {
-    params ["_regex", "_message", ["_unit", ""]];
-    private _extras = createHashMapFromArray [["check", [_regex, _message]]];
-    if (_unit != "") then {_extras set ["unit", _unit]};
-    _extras
-};
-private _number = "^-?[0-9]+([.][0-9]+)?$";
 private _fields = [[
     "fuze", LLSTRING(fuze_type_Text), "", [getArray (_fuzeConfig >> "modeDesc"), ["-"]] select (_modes isEqualTo []), "ahFuze"
 ] call EFUNC(tablet,webField)];
 if ((_modes param [_form get "fuze", ""]) == "time") then {
-    _fields pushBack (["time", LLSTRING(fuzeTime_Text), "", [], "", [], [_number, LELSTRING(tablet,WebCheckNumber), "s"] call _check] call EFUNC(tablet,webField));
+    _fields pushBack (["time", LLSTRING(fuzeTime_Text), "", [], "", [], ["positive", "s"] call EFUNC(tablet,webCheck)] call EFUNC(tablet,webField));
 };
-private _laser = ["^1[1-7][1-8][1-8]$", LELSTRING(tablet,WebCheckLaser)] call _check;
+private _laser = ["laser"] call EFUNC(tablet,webCheck);
 if (_guidance in ["laser_coded", "laser_coded_2"]) then {_fields pushBack (["code1", LLSTRING(laserCode_Text), "", [], "", [], _laser] call EFUNC(tablet,webField))};
 if (_guidance == "laser_coded_2") then {_fields pushBack (["code2", LLSTRING(laserCode_Text), "", [], "", [], _laser] call EFUNC(tablet,webField))};
 if (_guidance == "gps_inertial") then {
-    private _grid = ["^([0-9][0-9]){2,5}$", LELSTRING(tablet,WebCheckGrid)] call _check;
-    _grid set ["max", 10];
-    _fields pushBack (["grid", LLSTRING(gridText_Text), "", [], "", [], _grid] call EFUNC(tablet,webField));
-    _fields pushBack (["alt", LLSTRING(altText_Text), "", [], "", [], [_number, LELSTRING(tablet,WebCheckNumber), "m"] call _check] call EFUNC(tablet,webField));
+    _fields pushBack (["grid", LLSTRING(gridText_Text), "", [], "", [], ["grid"] call EFUNC(tablet,webCheck)] call EFUNC(tablet,webField));
+    _fields pushBack (["alt", LLSTRING(altText_Text), "", [], "", [], ["number", "m"] call EFUNC(tablet,webCheck)] call EFUNC(tablet,webField));
 };
 if (!_mortar) then {
-    _fields pushBack (["count", LLSTRING(countText_Text), LELSTRING(tablet,WebCountTip), [], "", [], ["^[0-9]+$", LELSTRING(tablet,WebCheckCount)] call _check] call EFUNC(tablet,webField));
+    _fields pushBack (["count", LLSTRING(countText_Text), LELSTRING(tablet,WebCountTip), [], "", [], ["count"] call EFUNC(tablet,webCheck)] call EFUNC(tablet,webField));
 };
 private _settingFields = ["fuze", "time", "code1", "code2", "grid", "alt", "count"];
 
@@ -123,32 +113,26 @@ if (!_mortar) then {
 _applied pushBack [LLSTRING(status_Text), localize _statusText, "ok"];
 _applied pushBack ["", [LELSTRING(tablet,WebNotApplied), LELSTRING(tablet,WebApplied)] select _isApplied, ["warn", "ok"] select _isApplied];
 
-private _block = {
-    params ["_type", ["_pairs", []]];
-    private _map = createHashMapFromArray _pairs;
-    _map set ["t", _type];
-    _map
-};
 createHashMapFromArray [
     ["layout", "panel"],
     ["title", ["G15X: AMMO HANDLER & AUTOLOADER", LLSTRING(MortarHeader)] select _mortar],
     ["side", []],
     ["blocks", [
         ["row", [["blocks", [
-            ["list", [["id", "ammo"], ["a", "ahAmmo"], ["rows", _carried apply {[_x # 1, getText (configFile >> "CfgMagazines" >> _x # 0 >> "displayName")]}]]] call _block,
+            ["list", [["id", "ammo"], ["a", "ahAmmo"], ["rows", _carried apply {[_x # 1, getText (configFile >> "CfgMagazines" >> _x # 0 >> "displayName")]}]]] call EFUNC(tablet,webBlock),
             ["col", [["blocks", [
-                ["kv", [["rows", [[LLSTRING(round_name_Text), getText (_magazineConfig >> "displayName"), "ok"]]]]] call _block,
-                ["stepper", [["label", LLSTRING(chargebutton_label_Text)], ["value", format ["%1 / %2", _charge, _maxCharge]], ["a", "ahCharge"]]] call _block,
-                ["fields", [["items", _fields]]] call _block,
+                ["kv", [["rows", [[LLSTRING(round_name_Text), getText (_magazineConfig >> "displayName"), "ok"]]]]] call EFUNC(tablet,webBlock),
+                ["stepper", [["label", LLSTRING(chargebutton_label_Text)], ["value", format ["%1 / %2", _charge, _maxCharge]], ["a", "ahCharge"]]] call EFUNC(tablet,webBlock),
+                ["fields", [["items", _fields]]] call EFUNC(tablet,webBlock),
                 ["bar", [
                     ["left", [[LLSTRING(fdcOrdersButton_Text), "ahFdcOrders", true, [], LLSTRING(fdcOrdersButton_Tooltip)] call _button]],
                     ["groups", [_mainButtons]]
-                ]] call _block
-            ]]]] call _block,
+                ]] call EFUNC(tablet,webBlock)
+            ]]]] call EFUNC(tablet,webBlock),
             ["col", [["blocks", [
-                ["section", [["text", [LLSTRING(AL_Header_Text), LLSTRING(LoaderHeader)] select _mortar]]] call _block,
-                ["kv", [["rows", _applied]]] call _block
-            ]]]] call _block
-        ]]]] call _block
+                ["section", [["text", [LLSTRING(AL_Header_Text), LLSTRING(LoaderHeader)] select _mortar]]] call EFUNC(tablet,webBlock),
+                ["kv", [["rows", _applied]]] call EFUNC(tablet,webBlock)
+            ]]]] call EFUNC(tablet,webBlock)
+        ]]]] call EFUNC(tablet,webBlock)
     ]]
 ]

@@ -22,12 +22,13 @@
 params ["_app"];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _shared = getText (configFile >> "itc_land" >> "apps" >> _app >> "sharedApp");
-private _page = switch ([_app, _shared] select (_shared != "")) do {
-    case "artillery": {"fcs"};
-    case "bcs": {[] call FUNC(bcsInit)};
-    case "cbr": {"map"};
-    default {"appList"};
+// the app's start page (tablet\CfgMisc.hpp); home and apps without one on the app list
+private _appConfig = configFile >> "itc_land" >> "apps" >> _app;
+private _page = if (isText (_appConfig >> "webStartFunction")) then {
+    [] call (missionNamespace getVariable getText (_appConfig >> "webStartFunction"))
+} else {
+    getText (_appConfig >> "webStartPage")
 };
+if (_page == "") then {_page = "appList"};
 _vehicle setVariable [QGVAR(app), _app];
 _vehicle setVariable [QGVAR(page), _page];

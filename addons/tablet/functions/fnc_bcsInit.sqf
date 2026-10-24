@@ -63,8 +63,8 @@ if (missionNamespace getVariable [QGVAR(bcs_datalinkUnit), objNull] != ACE_playe
         _targetPos = [_targetPos # 0, _targetPos # 1, round (_targetPos # 2)];
         GVAR(bcs_observerTargets) = (missionNamespace getVariable [QGVAR(bcs_observerTargets), 0]) + 1;
         private _id = format ["TGT%1", [GVAR(bcs_observerTargets), 2] call CBA_fnc_formatNumber];
+        [_id, _targetPos] call FUNC(bcsRecordPoint);
         private _grid = [_targetPos] call EFUNC(common,posToGrid);
-        GVAR(bcs_locations) pushBack [_id, _grid, _targetPos, _targetPos # 2, false];
         playSound "TacticalPing3";
         [format [LLSTRING(Bcs_TargetReceived), _id, _observer, _grid, _targetPos # 2], 2.5] call ace_common_fnc_displayTextStructured;
         // the classic Location Stores page shows it right away (the HTML tablet redraws by itself)

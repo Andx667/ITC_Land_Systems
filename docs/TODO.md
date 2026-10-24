@@ -349,9 +349,18 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
       and Input Lock (home) as the app keys (APP 3 has no function), and a sidebar of pages. Only
       the COBRA map stays native (`RscMapControl` over the page's map slot, `tablet_fnc_webPlaceMap`,
       drawn by `tablet_fnc_cbrDrawMap`, shared with the classic map). The pages are described in SQF
-      (`tablet_fnc_webView*`: fields, select boxes, buttons, lists, readouts) and their actions run
-      there (`tablet_fnc_webAction*`, ports of the classic pages' interact scripts, every value
-      checked); the BCS start is shared (`tablet_fnc_bcsInit`). App and page are the vehicle's, so
+      (`tablet_fnc_webView*`: fields, select boxes, buttons, lists, readouts, built with
+      `tablet_fnc_webBlock/webField/webButton/webCheck`) and their actions run there
+      (`tablet_fnc_webAction*`, every value checked, read with `tablet_fnc_webFormValue`); each
+      app's view, actions, pages and start page are in `itc_land >> apps` (`tablet\CfgMisc.hpp`).
+      What an action changes goes through functions the classic pages call as well, so the two
+      cannot drift apart: the BCS (`tablet_fnc_bcsInit`, `bcsSetTarget`, `bcsSetEngagement`,
+      `bcsAdjustTarget`, `bcsSendFireData`, `bcsEndMission`, `bcsSaveGun`, `bcsLinkGun`,
+      `bcsSaveLocation`, `bcsNextId`), the FCI (`tablet_fnc_fcsCalculate`, `fcsStep`,
+      `fcsApplyRocketSettings`), the ammunition handler (`sphammohandler_fnc_applyLoaderSettings`)
+      and both (`common_fnc_setFuzeSelection`, `getFuzeConfig`, `setGpsTarget`, `getFdcOrders`).
+      New work goes into those and the HTML pages; the classic pages only read their controls and
+      call them. App and page are the vehicle's, so
       either tablet opens where the other left; CLASSIC TABLET on home opens the classic one.
       Checked in a headless browser: layout on the frame, typed text kept over state updates,
       buttons send the page's fields. To test in game, per app:

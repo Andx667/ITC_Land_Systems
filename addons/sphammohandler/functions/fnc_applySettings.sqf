@@ -2,11 +2,9 @@
 
 /*
  * Author: ITC Addons Team
- * Reads the current control values from the SPH ammo-loader dialog (selected ammo and
- * charge, fuze mode and its associated value, and guidance settings for laser-coded,
- * dual laser-coded, or GPS/inertial guided munitions, plus the requested round count)
- * and stores them on the vehicle as itc_land_sphloadersettings and related variables,
- * updating the dialog's readout labels and enabling the Load button.
+ * The classic ammunition handler's APPLY SETTINGS: applies the dialog's fuze, guidance and count
+ * (sphammohandler_fnc_applyLoaderSettings), shows the applied settings in the readout and enables
+ * the Load button.
  *
  * Arguments:
  * None
@@ -20,107 +18,33 @@
  * Public: No
  */
 
-//private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
+private _magazine = (_vehicle getVariable ["itc_land_currentMagInfo", [0, ""]]) param [1, ""];
 
-_vehicle setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];
+// the fuze shown, also when it was never changed
+[_vehicle, _magazine, lbCurSel 86004] call EFUNC(common,setFuzeSelection);
+private _settings = [
+    _vehicle,
+    parseNumber (ctrlText 86006),
+    [parseNumber (ctrlText 86008), parseNumber (ctrlText 86024)],
+    ctrlText 86013,
+    parseNumber (ctrlText 86015),
+    parseNumber (ctrlText 86022)
+] call FUNC(applyLoaderSettings);
 [] call FUNC(updateStatus);
 
-private _curMagInfo = _vehicle getVariable "itc_land_currentMagInfo";
-private _selectedMagClass = _curMagInfo # 1;
-private _selectedMagConfig = _curMagInfo # 2;
-
-private _ammoType = getText (_selectedMagConfig >> "displayNameShort");
-private _charge = str (_vehicle getVariable ["itc_land_currentChargeIndex",1]);
-private _ammoText = format [LLSTRING(AmmoCharge), _ammoType,_charge];
-ctrlSetText[86019,_ammoText];
-
-//Get fuze settings based on type
-//Get fuze description from combobox
-private _fuze  = getText (configFile >> "CfgMagazines" >> _selectedMagClass >> "itc_land_fuze");
-private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
-private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc",(lbText [86004,_selectedFuzeIndex])];
-private _fuzeMode = _vehicle getVariable ["itc_land_selectedFuzeMode","pd"];
-
-([_vehicle, _fuzeMode, _fuzeDesc, _fuze, parseNumber (ctrlText 86006), "itc_land_fuzeTime"] call EFUNC(common,resolveFuzeSetting)) params ["_fuzeText", "_fuzeValues"];
-//Render string to output field.
-ctrlSetText [86018, _fuzeText];
-
-//Get guidance inputs
-//itc_land_guidance = getArray (_selectedMagConfig >> "itc_land_guidance");
-private _guidance = getArray (_selectedMagConfig >> "itc_land_guidance");
-
-private _guidanceText = "-- N/A --";
-if (_guidance isNotEqualTo []) then {
-    switch (_guidance # 0) do {
-        case "gps_inertial" : {
-            private _targetGrid = ctrlText 86013;
-            _vehicle setVariable ["itc_land_guidance_targetGrid", _targetGrid, true];
-
-            private _targetAlt = parseNumber(ctrlText 86015);
-            _vehicle setVariable ["itc_land_guidance_targetAlt", _targetAlt, true];
-            private _targetPos = [_targetGrid, _targetAlt] call EFUNC(common,gridToPos);
-
-            _vehicle setVariable ["itc_land_guidance_targetPos", _targetPos, true];
-            _guidanceText = format["%1 -- %2",_targetGrid,_targetAlt];
-
-        };
-        case "laser_coded" : {
-            private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
-            _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
-            _guidanceText = format[LLSTRING(LaserCode),_laserCode];
-        };
-        case "laser_coded_2" : {
-            private _laserCode = [86008] call EFUNC(common,sanitizeLaserCode);
-            private _laserCode2 = [86024] call EFUNC(common,sanitizeLaserCode);
-            _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
-            _vehicle setVariable ["itc_land_guidance_laserCode_2", _laserCode2, true];
-            _guidanceText = format[LLSTRING(LaserCodes), _laserCode, _laserCode2];
-        };
-        default {
-            //Set guidance output as none.
-            _guidanceText = "-- N/A --";
-
-        };
-
-    };
+_settings params ["_round", "_fuze", "_guidance"];
+// a laser code that was none shows the one used
+if ((_guidance # 1) in ["laser_coded", "laser_coded_2"]) then {
+    ctrlSetText [86008, str (_vehicle getVariable ["itc_land_guidance_laserCode", 1111])];
 };
-ctrlSetText [86017, _guidanceText];
-
-//round count; a mortar has none, its crew fires every round by hand
-private _roundCount = [parseNumber(ctrlText 86022), 0] select (getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3);
-//set limit of rounds to load:
-_vehicle setVariable ["itc_land_roundCount", _roundCount, true];
-//reset count of fired rounds
-_vehicle setVariable ["itc_land_roundsFired", 0, true];
-if (_roundCount >= 1) then {
-    ctrlSetText [86020, str _roundCount];
-} else {
-    ctrlSetText [86020,"-- N/A --"];
+if ((_guidance # 1) == "laser_coded_2") then {
+    ctrlSetText [86024, str (_vehicle getVariable ["itc_land_guidance_laserCode_2", 1111])];
 };
+ctrlSetText [86019, _round # 0];
+ctrlSetText [86018, _fuze # 0];
+ctrlSetText [86017, _guidance # 0];
+ctrlSetText [86020, [str (_round # 3), "-- N/A --"] select ((_round # 3) < 1)];
 
-//ctrlEnable [86009, false]; //disable loading/unloading
-//ctrlSetText [86009, "UNLOAD"];
-//ctrlEnable [86009, true];
 ctrlEnable [86010, true];
-
-private _ctrl = ((findDisplay 86000) displayCtrl 86010);
-ctrlSetFocus _ctrl;
-private _settings = [
-    [
-        _ammoText,
-        _selectedMagClass,
-        _vehicle getVariable ["itc_land_currentChargeIndex",1],
-        _roundCount
-    ],
-    [
-        _fuzeText,
-        _fuzeMode,
-        _fuzeValues
-    ],
-    [
-        _guidanceText,
-        _guidance # 0
-    ]
-];
-_vehicle setVariable ["itc_land_sphloadersettings", _settings, true];
+ctrlSetFocus ((findDisplay 86000) displayCtrl 86010);

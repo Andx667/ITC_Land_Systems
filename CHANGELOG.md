@@ -19,6 +19,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
+- Classic BCS: SEND ADJ sends the adjusting gun one round per correction, as the HTML tablet does (the round count is for fire for effect). The classic and HTML tablets and ammunition handlers now run the same code behind their buttons.
 - BCS Battery Setup: a new gun, linked or entered by hand, gets the lowest free gun number from 1 up (a removed gun's number is used again), and **Gun #** shows it; linking before took the highest number + 1.
 
 ## [0.2.0] - 2026-10-23

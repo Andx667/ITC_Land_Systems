@@ -7,21 +7,22 @@
  *
  * Arguments:
  * 0: Vehicle (the tablet's state is kept on it) <OBJECT>
- * 1: The tablet's apps <ARRAY>
+ * 1: App ("home") <STRING>
  *
  * Return Value:
  * View <HASHMAP>
  *
  * Example:
- * [_vehicle, ["bcs", "cbr"]] call itc_land_tablet_fnc_webViewHome
+ * [_vehicle, "home"] call itc_land_tablet_fnc_webViewHome
  *
  * Public: No
  */
 
-params ["_vehicle", "_apps"];
+params ["_vehicle", "_app"];
 
 ["home", {createHashMap}] call FUNC(webForm);
 
+private _tablet = configFile >> "CfgWeapons" >> (GVAR(web) get "tablet");
 private _tiles = [];
 {
     private _config = configFile >> "itc_land" >> "apps" >> _x;
@@ -33,16 +34,16 @@ private _tiles = [];
         ["a", "key"],
         ["v", _forEachIndex]
     ];
-} forEach (_apps select [0, 3]);
+} forEach (getArray (_tablet >> "apps") select [0, 3]);
 
 createHashMapFromArray [
     ["header1", LLSTRING(header1_Text)],
     ["header2", LLSTRING(header2_Text)],
-    ["title", getText (configFile >> "CfgWeapons" >> (GVAR(web) get "tablet") >> "displayName")],
+    ["title", getText (_tablet >> "displayName")],
     ["side", []],
     ["blocks", [
-        createHashMapFromArray [["t", "tiles"], ["items", _tiles]],
-        createHashMapFromArray [["t", "bar"], ["groups", [[[LLSTRING(WebClassic), "classic", [], LLSTRING(WebClassic_Tooltip)] call FUNC(webButton)]]]],
-        createHashMapFromArray [["t", "image"], ["path", QPATHTOF(UI\logo.paa) select [1]]]
+        ["tiles", [["items", _tiles]]] call FUNC(webBlock),
+        ["bar", [["groups", [[[LLSTRING(WebClassic), "classic", [], LLSTRING(WebClassic_Tooltip)] call FUNC(webButton)]]]]] call FUNC(webBlock),
+        ["image", [["path", QPATHTOF(UI\logo.paa) select [1]]]] call FUNC(webBlock)
     ]]
 ]

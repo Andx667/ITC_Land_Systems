@@ -2,11 +2,9 @@
 
 /*
  * Author: ITC Addons Team
- * FDC ORDERS button of the ammunition handler: fills in the fire orders the FDC sent the vehicle
- * (itc_land_bcs_fireData): the round, the charge of the sent firing line, the fuze (a time fuze
- * with the line's fuze setting), the round count and, for a GPS round, the target grid and
- * altitude. It only pre-fills the dialog: the crew still checks it, then APPLY and LOAD, and lays
- * the gun.
+ * The classic ammunition handler's FDC ORDERS: fills in the fire orders the FDC sent
+ * (common_fnc_getFdcOrders): round, charge, fuze (a time fuze with the line's fuze setting),
+ * count and GPS target. The crew still checks them, then APPLY SETTINGS and LOAD, and lays the gun.
  *
  * Arguments:
  * None
@@ -21,46 +19,33 @@
  */
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-(_vehicle getVariable ["itc_land_bcs_fireData", []]) params [["_mission", ""], "", ["_magazine", ""], "", ["_count", 1], ["_fuzeMode", ""], ["_targetPos", []]];
-if (_mission == "") exitWith {
+private _rounds = [];
+for "_i" from 0 to (lbSize 86001) - 1 do {_rounds pushBack lbData [86001, _i]};
+private _orders = [_vehicle, _rounds] call EFUNC(common,getFdcOrders);
+if (_orders isEqualTo createHashMap) exitWith {
     [LLSTRING(NoFdcOrders)] call ace_common_fnc_displayTextStructured;
+};
+if ((_orders get "round") == -1) exitWith {
+    [format [LLSTRING(FdcRoundMissing), getText (configFile >> "CfgMagazines" >> (_orders get "magazine") >> "displayName")]] call ace_common_fnc_displayTextStructured;
 };
 
 // the round; selecting it also fills the fuze list
-private _ammoIndex = -1;
-for "_i" from 0 to (lbSize 86001) - 1 do {
-    if (lbData [86001, _i] == _magazine) exitWith {_ammoIndex = _i};
-};
-if (_ammoIndex == -1) exitWith {
-    [format [LLSTRING(FdcRoundMissing), getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")]] call ace_common_fnc_displayTextStructured;
-};
-lbSetCurSel [86001, _ammoIndex];
-[controlNull, _ammoIndex] call FUNC(onSelectAmmo);
-
-// the charge of the firing line the FDC sent
-private _line = [_vehicle] call EFUNC(common,getFireSolution);
-_vehicle setVariable ["itc_land_currentChargeIndex", parseNumber (_line param [0, "1"]), true];
+lbSetCurSel [86001, _orders get "round"];
+[controlNull, _orders get "round"] call FUNC(onSelectAmmo);
+_vehicle setVariable ["itc_land_currentChargeIndex", _orders get "charge", true];
 [0] call FUNC(changeCharge);
-
-private _fuzeIndex = -1;
-for "_i" from 0 to (lbSize 86004) - 1 do {
-    if (lbData [86004, _i] == _fuzeMode) exitWith {_fuzeIndex = _i};
-};
-if (_fuzeIndex != -1) then {
-    // a time fuze gets the fuze setting of the sent line, shown in the time field when the fuze is selected
-    private _fuzeSetting = _line param [10, -1];
-    if (_fuzeMode == "time" && {_fuzeSetting >= 0}) then {
-        _vehicle setVariable ["itc_land_fuzeTime", parseNumber ([_fuzeSetting, 1, 1] call CBA_fnc_formatNumber), true];
+if ((_orders get "fuze") != -1) then {
+    // shown in the time field when the fuze is selected
+    if ((_orders get "time") != "") then {
+        _vehicle setVariable ["itc_land_fuzeTime", parseNumber (_orders get "time"), true];
     };
-    lbSetCurSel [86004, _fuzeIndex];
-    [controlNull, _fuzeIndex] call FUNC(onSelectFuze);
+    lbSetCurSel [86004, _orders get "fuze"];
+    [controlNull, _orders get "fuze"] call FUNC(onSelectFuze);
+};
+ctrlSetText [86022, str (_orders get "count")];
+if ((_orders get "grid") != "") then {
+    ctrlSetText [86013, _orders get "grid"];
+    ctrlSetText [86015, _orders get "alt"];
 };
 
-ctrlSetText [86022, str _count];
-
-if ((getArray (configFile >> "CfgMagazines" >> _magazine >> "itc_land_guidance")) param [0, ""] == "gps_inertial" && {_targetPos isEqualTypeArray [0, 0, 0]}) then {
-    ctrlSetText [86013, ([_targetPos] call ace_common_fnc_getMapGridFromPos) joinString ""];
-    ctrlSetText [86015, str round (_targetPos # 2)];
-};
-
-[format [LLSTRING(FdcOrdersApplied), _mission]] call ace_common_fnc_displayTextStructured;
+[format [LLSTRING(FdcOrdersApplied), _orders get "mission"]] call ace_common_fnc_displayTextStructured;

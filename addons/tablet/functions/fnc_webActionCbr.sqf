@@ -8,30 +8,29 @@
  *
  * Arguments:
  * 0: Vehicle (the tablet's app is kept on it) <OBJECT>
- * 1: Action <STRING>
- * 2: Value <ANY>
+ * 1: App ("cbr") <STRING>
+ * 2: Action <STRING>
+ * 3: Value <ANY>
  *
  * Return Value:
  * None
  *
  * Example:
- * [player, "cbrCounterFire", nil] call itc_land_tablet_fnc_webActionCbr
+ * [player, "cbr", "cbrCounterFire", nil] call itc_land_tablet_fnc_webActionCbr
  *
  * Public: No
  */
 
-params ["_vehicle", "_action", "_value"];
+params ["_vehicle", "_app", "_action", "_value"];
 
-private _selected = (GVAR(web) get "form") getOrDefault ["engagement", -1];
+private _selected = ["engagement", "index"] call FUNC(webFormValue);
 private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
-if (!(_selected isEqualType 0) || {_selected < 0} || {_selected >= count _engagements}) exitWith {};
+if (_selected < 0 || {_selected >= count _engagements}) exitWith {};
 private _engagement = _engagements # _selected;
 
 switch (_action) do {
     case "cbrSave": {
-        if (isNil QGVAR(bcs_locations)) then {GVAR(bcs_locations) = []};
-        private _pos = _engagement # 2 # 0;
-        GVAR(bcs_locations) pushBack [_engagement # 0, [_pos] call EFUNC(common,posToGrid), _pos, round (_pos # 2), false];
+        [_engagement # 0, _engagement # 2 # 0] call FUNC(bcsRecordPoint);
         [format [LLSTRING(WebPointSaved), _engagement # 0]] call FUNC(webNotice);
     };
     case "cbrCounterFire": {

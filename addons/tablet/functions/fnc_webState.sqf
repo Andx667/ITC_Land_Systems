@@ -49,11 +49,6 @@ if (!(_app == "home" || {_app in _apps}) || {isNil {_vehicle getVariable QGVAR(p
     _app = _vehicle getVariable QGVAR(app);
 };
 
-private _shared = getText (configFile >> "itc_land" >> "apps" >> _app >> "sharedApp");
-private _view = switch ([_app, _shared] select (_shared != "")) do {
-    case "artillery": {[_vehicle, _app] call FUNC(webViewArtillery)};
-    case "bcs": {[_vehicle] call FUNC(webViewBcs)};
-    case "cbr": {[_vehicle] call FUNC(webViewCbr)};
-    default {[_vehicle, _apps] call FUNC(webViewHome)};
-};
-[_view] call _finish
+// the app's view function (tablet\CfgMisc.hpp); home has no config
+private _viewFunction = getText (configFile >> "itc_land" >> "apps" >> _app >> "webView");
+[[_vehicle, _app] call ([missionNamespace getVariable _viewFunction, FUNC(webViewHome)] select (_viewFunction == ""))] call _finish

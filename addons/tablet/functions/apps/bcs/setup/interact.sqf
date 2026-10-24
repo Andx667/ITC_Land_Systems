@@ -37,34 +37,22 @@ switch (_action) do {
         private _posStr = UITEXT(4308);
         private _elev = UINUMBER(4310);
         private _dir = UINUMBER(4312);
-        private _pos = [_posStr, false] call ace_common_fnc_getMapPosFromGrid;
-        _pos = _pos vectorAdd [0,0,_elev];
-        private _gunString = format["%1               %2               %3              %4               %5", GVAR(bcs_bty_name), _num, _posStr, _elev, _dir];
-        private _gunData = [_num, _posStr, _pos, _elev, _dir, GVAR(bcs_bty_name)];
-
-        private _gun = GVAR(bcs_bty_guns) findIf {_x # 0 == _num};
-        if (_gun == -1) then {
-            lbAdd [4315, _gunString];
-            GVAR(bcs_bty_guns) pushBack _gunData;
-            ctrlSetText [4306, [] call FUNC(bcsNextGunNumber)];
+        if ([_num, _posStr, _elev, _dir] call FUNC(bcsSaveGun)) then {
+            lbAdd [4315, format["%1               %2               %3              %4               %5", GVAR(bcs_bty_name), _num, _posStr, _elev, _dir]];
+            ctrlSetText [4306, ["gun"] call FUNC(bcsNextId)];
         } else {
-            GVAR(bcs_bty_guns) set [_gun, _gunData];
             [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
         };
     };
     case "linkGun": {
-        private _vehicle = GVAR(bcs_linkableGuns) param [lbCurSel 4320, objNull];
-        if (!alive _vehicle) exitWith {
+        if (([GVAR(bcs_linkableGuns) param [lbCurSel 4320, objNull]] call FUNC(bcsLinkGun)) == "") exitWith {
             [LLSTRING(Bcs_NoGunsToLink)] call ace_common_fnc_displayTextStructured;
         };
-        // the next free gun number; position, elevation and direction come from the vehicle
-        private _num = [] call FUNC(bcsNextGunNumber);
-        GVAR(bcs_bty_guns) append ([[[_num, "", [0, 0, 0], 0, 0, GVAR(bcs_bty_name), _vehicle]]] call EFUNC(bcs,refreshLinkedGuns));
         [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
     };
     case "removeGun": {
         GVAR(bcs_bty_guns) deleteAt _listIndex;
         lbDelete [4315, _listIndex];
-        ctrlSetText [4306, [] call FUNC(bcsNextGunNumber)];
+        ctrlSetText [4306, ["gun"] call FUNC(bcsNextId)];
     };
 };

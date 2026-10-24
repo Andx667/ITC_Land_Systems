@@ -22,4 +22,5 @@
 
 params ["_control", "_index"];
 
-[[] call EFUNC(common,getCurVehicle), _index, 86004, 86005, 86006, "itc_land_fuzeTime"] call EFUNC(common,applyFuzeSelection);
+private _vehicle = [] call EFUNC(common,getCurVehicle);
+[_vehicle, (_vehicle getVariable ["itc_land_currentMagInfo", [0, ""]]) param [1, ""], _index, 86005, 86006, "itc_land_fuzeTime"] call EFUNC(common,applyFuzeSelection);

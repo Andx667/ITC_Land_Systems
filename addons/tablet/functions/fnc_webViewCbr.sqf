@@ -8,17 +8,18 @@
  *
  * Arguments:
  * 0: Vehicle (the tablet's page is kept on it) <OBJECT>
+ * 1: App ("cbr") <STRING>
  *
  * Return Value:
  * View <HASHMAP>
  *
  * Example:
- * [player] call itc_land_tablet_fnc_webViewCbr
+ * [player, "cbr"] call itc_land_tablet_fnc_webViewCbr
  *
  * Public: No
  */
 
-params ["_vehicle"];
+params ["_vehicle", "_app"];
 
 private _page = _vehicle getVariable [QGVAR(page), "map"];
 private _view = createHashMapFromArray [
@@ -37,16 +38,16 @@ if (_page == "data") exitWith {
     };
     _view set ["title", LLSTRING(Cbr_Data)];
     _view set ["blocks", [
-        createHashMapFromArray [["t", "list"], ["id", "engagement"], ["header", ["ID", "POS", "SHOTS", "LAST SHOT"]], ["rows", _rows], ["empty", LLSTRING(WebNoEngagements)]],
-        createHashMapFromArray [["t", "buttons"], ["items", [
+        ["list", [["id", "engagement"], ["header", ["ID", "POS", "SHOTS", "LAST SHOT"]], ["rows", _rows], ["empty", LLSTRING(WebNoEngagements)]]] call FUNC(webBlock),
+        ["buttons", [["items", [
             [LLSTRING(WebSaveKnownPoint), "cbrSave", ["engagement"], LLSTRING(WebSaveKnownPointTip)] call FUNC(webButton),
             [LLSTRING(cbr_data_counterFire_Text), "cbrCounterFire", ["engagement"], LLSTRING(cbr_data_counterFire_Tooltip), nil, false, "primary"] call FUNC(webButton)
-        ]]]
+        ]]]] call FUNC(webBlock)
     ]];
     _view
 };
 
 ["cbr/map", {createHashMap}] call FUNC(webForm);
 _view set ["title", LLSTRING(Cbr_Map)];
-_view set ["blocks", [createHashMapFromArray [["t", "map"]]]];
+_view set ["blocks", [["map"] call FUNC(webBlock)]];
 _view

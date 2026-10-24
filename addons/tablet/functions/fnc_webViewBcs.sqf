@@ -11,17 +11,18 @@
  *
  * Arguments:
  * 0: Vehicle (the tablet's page is kept on it) <OBJECT>
+ * 1: App ("bcs") <STRING>
  *
  * Return Value:
  * View <HASHMAP>
  *
  * Example:
- * [player] call itc_land_tablet_fnc_webViewBcs
+ * [player, "bcs"] call itc_land_tablet_fnc_webViewBcs
  *
  * Public: No
  */
 
-params ["_vehicle"];
+params ["_vehicle", "_app"];
 
 private _page = _vehicle getVariable [QGVAR(page), "settings"];
 // resumed without the app start (a new mission, a respawned player): start the BCS for this player
@@ -43,18 +44,12 @@ private _batteryType = GVAR(bcs_bty_type) # 1;
 private _batteryTypeName = getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> _batteryType >> "displayName");
 private _milSystem = [_batteryType] call EFUNC(common,getMilSystem);
 
-private _block = {
-    params ["_type", ["_pairs", []]];
-    private _map = createHashMapFromArray _pairs;
-    _map set ["t", _type];
-    _map
-};
 // the checks and units of the input fields
-private _grid = createHashMapFromArray [["check", ["^([0-9][0-9]){2,5}$", LLSTRING(WebCheckGrid)]], ["hint", LLSTRING(WebHintGrid)], ["max", 10]];
-private _metres = createHashMapFromArray [["check", ["^-?[0-9]+([.][0-9]+)?$", LLSTRING(WebCheckNumber)]], ["unit", "m"]];
-private _mils = createHashMapFromArray [["check", ["^-?[0-9]+([.-][0-9]+)?$", LLSTRING(WebCheckNumber)]], ["unit", "mil"]];
-private _degrees = createHashMapFromArray [["check", ["^[0-9]+([.][0-9]+)?$", LLSTRING(WebCheckNumber)]], ["unit", "deg"]];
-private _whole = createHashMapFromArray [["check", ["^[1-9][0-9]*$", LLSTRING(WebCheckWhole)]]];
+private _grid = ["grid"] call FUNC(webCheck);
+private _metres = ["number", "m"] call FUNC(webCheck);
+private _mils = ["mils", "mil"] call FUNC(webCheck);
+private _degrees = ["positive", "deg"] call FUNC(webCheck);
+private _whole = ["whole"] call FUNC(webCheck);
 
 // the fire missions, SHOT / SPLASH while counting down
 private _missionRows = _missions apply {
@@ -103,11 +98,11 @@ switch (_page) do {
         _view set ["blocks", [
             ["fields", [["items", [
                 ["splash", LLSTRING(bcs_settings_alerttosplash_label_Text), LLSTRING(bcs_settings_alerttosplash_Tooltip), [], "", [],
-                    createHashMapFromArray [["check", ["^[0-9]*[.]?[0-9]+$", LLSTRING(WebCheckNumber)]], ["unit", "s"]]] call FUNC(webField),
+                    ["positive", "s"] call FUNC(webCheck)] call FUNC(webField),
                 ["code", LLSTRING(bcs_settings_firemission_code_label_Text), LLSTRING(bcs_settings_firemission_code_Tooltip), [], "", [], createHashMapFromArray [["max", 4]]] call FUNC(webField),
                 ["start", LLSTRING(WebNextMissionNumber), LLSTRING(bcs_settings_firemission_start_Tooltip), [], "", [], _whole] call FUNC(webField)
-            ]], ["enter", _save]]] call _block,
-            ["bar", [["left", [_save]]]] call _block
+            ]], ["enter", _save]]] call FUNC(webBlock),
+            ["bar", [["left", [_save]]]] call FUNC(webBlock)
         ]];
     };
     case "setup": {
@@ -116,7 +111,7 @@ switch (_page) do {
         ["bcs/setup", {createHashMapFromArray [
             ["callsign", GVAR(bcs_bty_name)],
             ["type", (_types find _batteryType) max 0],
-            ["num", [] call FUNC(bcsNextGunNumber)], ["grid", ""], ["elev", ""], ["dir", ""],
+            ["num", ["gun"] call FUNC(bcsNextId)], ["grid", ""], ["elev", ""], ["dir", ""],
             ["gun", -1], ["link", 0]
         ]}] call FUNC(webForm);
 
@@ -153,62 +148,62 @@ switch (_page) do {
         _view set ["blocks", [
             ["row", [["blocks", [
                 ["col", [["blocks", [
-                    ["section", [["text", LLSTRING(WebBattery)]]] call _block,
+                    ["section", [["text", LLSTRING(WebBattery)]]] call FUNC(webBlock),
                     ["fields", [["items", [
                         ["callsign", LLSTRING(btysetup_bty_callsign_label_Text)] call FUNC(webField),
                         ["type", LLSTRING(btysetup_gun_type_label_Text), LLSTRING(btysetup_gun_type_Tooltip),
                             _types apply {getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> _x >> "displayName")}] call FUNC(webField)
-                    ]], ["enter", _saveBattery]]] call _block,
-                    ["kv", [["rows", [[format [LLSTRING(Bcs_ActiveType), _batteryTypeName], ""]]]]] call _block,
-                    ["bar", [["left", [_saveBattery]]]] call _block,
-                    ["section", [["text", LLSTRING(WebLinkGun)], ["tip", LLSTRING(btysetup_link_Tooltip)]]] call _block,
+                    ]], ["enter", _saveBattery]]] call FUNC(webBlock),
+                    ["kv", [["rows", [[format [LLSTRING(Bcs_ActiveType), _batteryTypeName], ""]]]]] call FUNC(webBlock),
+                    ["bar", [["left", [_saveBattery]]]] call FUNC(webBlock),
+                    ["section", [["text", LLSTRING(WebLinkGun)], ["tip", LLSTRING(btysetup_link_Tooltip)]]] call FUNC(webBlock),
                     ["fields", [["items", [
                         ["link", LLSTRING(btysetup_link_label_Text), LLSTRING(btysetup_link_Tooltip), [_linkNames, [LLSTRING(Bcs_NoGunsToLink)]] select (_linkNames isEqualTo [])] call FUNC(webField)
-                    ]], ["wide", true]]] call _block,
-                    ["bar", [["left", [_link]]]] call _block
-                ]]]] call _block,
+                    ]], ["wide", true]]] call FUNC(webBlock),
+                    ["bar", [["left", [_link]]]] call FUNC(webBlock)
+                ]]]] call FUNC(webBlock),
                 ["col", [["blocks", [
-                    ["section", [["text", LLSTRING(WebGuns)]]] call _block,
-                    ["list", [["id", "gun"], ["header", ["GUN", "GRID", "ALT", "DIR", "LINK"]], ["rows", _gunRows], ["empty", LLSTRING(WebNoGuns)]]] call _block,
-                    ["bar", [["left", [[LLSTRING(locstores_remove_button_Text), "bcsSetupRemoveGun", ["gun"], "", nil, false, "danger"] call FUNC(webButton)]]]] call _block,
-                    ["section", [["text", LLSTRING(WebAddGun)]]] call _block,
+                    ["section", [["text", LLSTRING(WebGuns)]]] call FUNC(webBlock),
+                    ["list", [["id", "gun"], ["header", ["GUN", "GRID", "ALT", "DIR", "LINK"]], ["rows", _gunRows], ["empty", LLSTRING(WebNoGuns)]]] call FUNC(webBlock),
+                    ["bar", [["left", [[LLSTRING(locstores_remove_button_Text), "bcsSetupRemoveGun", ["gun"], "", nil, false, "danger"] call FUNC(webButton)]]]] call FUNC(webBlock),
+                    ["section", [["text", LLSTRING(WebAddGun)]]] call FUNC(webBlock),
                     ["fields", [["items", [
                         ["num", LLSTRING(btysetup_gun_number_label_Text), LLSTRING(btysetup_gun_number_Tooltip), [], "", [], _whole] call FUNC(webField),
                         ["grid", LLSTRING(locstores_position_label_Text), LLSTRING(Grid_Tooltip), [], "", [], _grid] call FUNC(webField),
                         ["elev", LLSTRING(locstores_elevation_label_Text), LLSTRING(Altitude_Tooltip), [], "", [], _metres] call FUNC(webField),
                         ["dir", LLSTRING(engagement_direction_text_Text), LLSTRING(btysetup_direction_Tooltip), [], "", [], _degrees] call FUNC(webField)
-                    ]], ["enter", _saveGun]]] call _block,
-                    ["bar", [["left", [_saveGun]]]] call _block
-                ]]]] call _block
-            ]]]] call _block
+                    ]], ["enter", _saveGun]]] call FUNC(webBlock),
+                    ["bar", [["left", [_saveGun]]]] call FUNC(webBlock)
+                ]]]] call FUNC(webBlock)
+            ]]]] call FUNC(webBlock)
         ]];
     };
     case "locStores": {
         ["bcs/locStores", {createHashMapFromArray [
-            ["id", [] call FUNC(webNextPointId)], ["grid", ""], ["elev", ""], ["friendly", 0], ["loc", -1]
+            ["id", ["point"] call FUNC(bcsNextId)], ["grid", ""], ["elev", ""], ["friendly", 0], ["loc", -1]
         ]}] call FUNC(webForm);
         private _add = [LLSTRING(locstores_addnew_button_Text), "bcsLocAdd", ["id", "grid", "elev", "friendly"], LLSTRING(locstores_referenceID_Tooltip), nil, false, "primary"] call FUNC(webButton);
         _view set ["title", LLSTRING(WebKnownPoints)];
         _view set ["blocks", [
             ["row", [["blocks", [
                 ["col", [["blocks", [
-                    ["section", [["text", LLSTRING(WebKnownPoints)]]] call _block,
+                    ["section", [["text", LLSTRING(WebKnownPoints)]]] call FUNC(webBlock),
                     ["list", [["id", "loc"], ["header", ["ID", "GRID", "ALT", "FRIENDLY"]],
                         ["rows", GVAR(bcs_locations) apply {[_x # 0, _x # 1, _x # 3, ["", "X"] select ((_x # 4) in [true, "yes"])]}],
-                        ["empty", LLSTRING(WebNoPoints)]]] call _block,
-                    ["bar", [["left", [[LLSTRING(locstores_remove_button_Text), "bcsLocRemove", ["loc"], "", nil, false, "danger"] call FUNC(webButton)]]]] call _block
-                ]]]] call _block,
+                        ["empty", LLSTRING(WebNoPoints)]]] call FUNC(webBlock),
+                    ["bar", [["left", [[LLSTRING(locstores_remove_button_Text), "bcsLocRemove", ["loc"], "", nil, false, "danger"] call FUNC(webButton)]]]] call FUNC(webBlock)
+                ]]]] call FUNC(webBlock),
                 ["col", [["blocks", [
-                    ["section", [["text", LLSTRING(WebAddPoint)]]] call _block,
+                    ["section", [["text", LLSTRING(WebAddPoint)]]] call FUNC(webBlock),
                     ["fields", [["items", [
                         ["id", LLSTRING(locstores_referenceID_label_Text), LLSTRING(locstores_referenceID_Tooltip), [], "", [], createHashMapFromArray [["max", 12]]] call FUNC(webField),
                         ["grid", LLSTRING(locstores_position_label_Text), LLSTRING(Grid_Tooltip), [], "", [], _grid] call FUNC(webField),
                         ["elev", LLSTRING(locstores_elevation_label_Text), LLSTRING(Altitude_Tooltip), [], "", [], _metres] call FUNC(webField),
                         ["friendly", LLSTRING(locstores_isFriendly_label_Text), LLSTRING(locstores_isFriendly_Tooltip), [], "", [], createHashMapFromArray [["kind", "check"]]] call FUNC(webField)
-                    ]], ["enter", _add]]] call _block,
-                    ["bar", [["left", [_add]]]] call _block
-                ]]]] call _block
-            ]]]] call _block
+                    ]], ["enter", _add]]] call FUNC(webBlock),
+                    ["bar", [["left", [_add]]]] call FUNC(webBlock)
+                ]]]] call FUNC(webBlock)
+            ]]]] call FUNC(webBlock)
         ]];
     };
     case "newMission": {
@@ -253,8 +248,8 @@ switch (_page) do {
         private _next = [LLSTRING(firemission_next_Text), "bcsNmSave", _allFields, "", nil, false, "primary"] call FUNC(webButton);
         _view set ["title", _ident];
         _view set ["blocks", [
-            ["fields", [["items", _fields], ["enter", _next]]] call _block,
-            ["bar", [["groups", [[_next]]]]] call _block
+            ["fields", [["items", _fields], ["enter", _next]]] call FUNC(webBlock),
+            ["bar", [["groups", [[_next]]]]] call FUNC(webBlock)
         ]];
     };
     case "engageMission": {
@@ -267,7 +262,7 @@ switch (_page) do {
         // a round's fuze modes ("modes") or their names ("modeDesc")
         private _fuzeOf = {
             params ["_shell", "_entry"];
-            getArray (configFile >> "ITC_Land_CfgFuzes" >> getText (configFile >> "CfgMagazines" >> _shell >> "itc_land_fuze") >> _entry)
+            getArray (([_shell] call EFUNC(common,getFuzeConfig)) >> _entry)
         };
         private _form = ["bcs/engageMission/" + _ident, {createHashMapFromArray [
             ["ammo", _shellTypeIndex max 0],
@@ -275,7 +270,7 @@ switch (_page) do {
             ["count", str _roundCount],
             ["sheaf", _sheafTypeIndex],
             // Quick Sheaf as a checkbox: the classic list's first entry, On, is checked
-            ["quick", [0, 1] select (_quick == 0)],
+            ["quick", parseNumber (_quick == 0)],
             ["dir", [_sheafdir, _milSystem] call EFUNC(common,formatMils)],
             ["length", str _sheaflength]
         ]}] call FUNC(webForm);
@@ -284,7 +279,7 @@ switch (_page) do {
         private _fields = [
             ["ammo", LLSTRING(engage_ammoType_text_Text), "", _shellTypes apply {getText (configFile >> "CfgMagazines" >> _x >> "displayName")}, "bcsEngAmmo", _allFields] call FUNC(webField),
             ["fuze", LLSTRING(engage_fuze_text_Text), LLSTRING(engage_fuze_Tooltip), [[_shell, "modeDesc"] call _fuzeOf, ["-"]] select (_shell == "")] call FUNC(webField),
-            ["count", LLSTRING(engage_count_text_Text), LLSTRING(engage_count_Tooltip), [], "", [], createHashMapFromArray [["check", ["^[1-9][0-9]*$", LLSTRING(WebCheckWhole)]], ["unit", LLSTRING(WebRoundsPerGun)]]] call FUNC(webField),
+            ["count", LLSTRING(engage_count_text_Text), LLSTRING(engage_count_Tooltip), [], "", [], ["whole", LLSTRING(WebRoundsPerGun)] call FUNC(webCheck)] call FUNC(webField),
             ["sheaf", LLSTRING(engagement_sheaf_text_Text), LLSTRING(engagement_sheaf_Tooltip), ["Parallel", "Converged", "Linear", "Open", "Special"], "bcsEngSheaf", _allFields] call FUNC(webField)
         ];
         // a special sheaf only: its direction (or quick, at right angles to the gun-target line) and width
@@ -298,8 +293,8 @@ switch (_page) do {
         private _next = [LLSTRING(firemission_next_Text), "bcsEngSave", _allFields, "", nil, false, "primary"] call FUNC(webButton);
         _view set ["title", format [LLSTRING(Bcs_Engagement), _ident]];
         _view set ["blocks", [
-            ["fields", [["items", _fields], ["enter", _next]]] call _block,
-            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsEngBack"] call FUNC(webButton)]], ["groups", [[_next]]]]] call _block
+            ["fields", [["items", _fields], ["enter", _next]]] call FUNC(webBlock),
+            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsEngBack"] call FUNC(webButton)]], ["groups", [[_next]]]]] call FUNC(webBlock)
         ]];
     };
     case "solutionMission": {
@@ -365,15 +360,15 @@ switch (_page) do {
                 ["value", format ["%1 / %2", _index + 1, count _btySolutions]],
                 ["a", "bcsSolStep"],
                 ["tip", LLSTRING(solution_solutionCount_Tooltip)]
-            ]] call _block);
+            ]] call FUNC(webBlock));
         };
         _blocks append [
-            ["kv", [["rows", _summary]]] call _block,
+            ["kv", [["rows", _summary]]] call FUNC(webBlock),
             ["list", [["id", "gun"], ["a", "bcsAdjGun"], ["selected", _adjGun],
                 ["header", ["", "G", "CH", "FS", "DF", "QD", "AZ", "TOF", ""]],
                 ["tips", [LLSTRING(WebAdjustingGunTip), LLSTRING(WebTip_Gun), LLSTRING(WebTip_Charge), LLSTRING(WebTip_FuzeSetting), LLSTRING(WebTip_Deflection),
                     LLSTRING(WebTip_Quadrant), LLSTRING(WebTip_Azimuth), LLSTRING(WebTip_TimeOfFlight), LLSTRING(WebTip_Loader)]],
-                ["rows", _lines], ["empty", LLSTRING(WebNoGuns)]]] call _block,
+                ["rows", _lines], ["empty", LLSTRING(WebNoGuns)]]] call FUNC(webBlock),
             ["bar", [
                 ["left", [[LLSTRING(firemission_back_Text), "bcsSolBack"] call FUNC(webButton)]],
                 ["groups", [
@@ -384,11 +379,11 @@ switch (_page) do {
                     ],
                     [[LLSTRING(WebAdjust), "bcsAdjust", [], LLSTRING(Bcs_AdjustMission)] call FUNC(webButton)]
                 ]]
-            ]] call _block,
+            ]] call FUNC(webBlock),
             ["bar", [["groups", [[
                 [LLSTRING(solution_eom_Text), "bcsEom", [], "", nil, false, "danger"] call FUNC(webButton),
                 [LLSTRING(WebEomRecord), "bcsEomSave", [], "", nil, false, "danger"] call FUNC(webButton)
-            ]]]]] call _block
+            ]]]]] call FUNC(webBlock)
         ];
         _view set ["blocks", _blocks];
     };
@@ -405,8 +400,8 @@ switch (_page) do {
                 ["ad", LLSTRING(target_field2_text_Text), LLSTRING(target_field2_text_Tooltip), [], "", [], _metres] call FUNC(webField),
                 ["lr", LLSTRING(target_field3_text_Text), LLSTRING(target_field3_text_Tooltip), [], "", [], _metres] call FUNC(webField),
                 ["ud", LLSTRING(target_field4_text_Text), LLSTRING(target_field4_text_Tooltip), [], "", [], _metres] call FUNC(webField)
-            ]], ["enter", _apply]]] call _block,
-            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsAdjBack"] call FUNC(webButton)]], ["groups", [[_apply]]]]] call _block
+            ]], ["enter", _apply]]] call FUNC(webBlock),
+            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsAdjBack"] call FUNC(webButton)]], ["groups", [[_apply]]]]] call FUNC(webBlock)
         ]];
     };
 };

@@ -12,7 +12,7 @@
  *   mapRect [x,y,w,h]  where the page has the map's slot, fractions of the page ([]: no map)
  *   close          close the tablet
  *   classic        close this and open the classic tablet where this one is
- *   anything else  the app's handler (tablet_fnc_webAction*)
+ *   anything else  the app's handler (webAction in tablet\CfgMisc.hpp, tablet_fnc_webAction*)
  *
  * Arguments:
  * 0: Browser control <CONTROL>
@@ -49,8 +49,7 @@ if ((_msg getOrDefault ["k", ""]) isEqualTo (GVAR(web) get "formKey")) then {
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _apps = getArray (configFile >> "CfgWeapons" >> (GVAR(web) get "tablet") >> "apps");
 private _app = _vehicle getVariable [QGVAR(app), "home"];
-private _shared = getText (configFile >> "itc_land" >> "apps" >> _app >> "sharedApp");
-private _appType = [_app, _shared] select (_shared != "");
+private _appConfig = configFile >> "itc_land" >> "apps" >> _app;
 
 // the ammunition handler: its own actions (sphammohandler_fnc_webAction) besides hello, close and classic
 if ((GVAR(web) get "kind") == "ammo" && {!(_action in ["hello", "close", "classic"])}) exitWith {
@@ -69,13 +68,7 @@ switch (_action) do {
         };
     };
     case "page": {
-        private _pages = switch (_appType) do {
-            case "artillery": {["fcs", "status"]};
-            case "bcs": {["settings", "setup", "locStores"]};
-            case "cbr": {["map", "data"]};
-            default {[]};
-        };
-        if (_value isEqualType "" && {_value in _pages}) then {
+        if (_value isEqualType "" && {_value in getArray (_appConfig >> "webPages")}) then {
             _vehicle setVariable [QGVAR(page), _value];
         };
     };
@@ -98,10 +91,9 @@ switch (_action) do {
         }, [_ctrl, GVAR(web) get "tablet", GVAR(web) get "kind"]] call CBA_fnc_execNextFrame;
     };
     default {
-        switch (_appType) do {
-            case "artillery": {[_vehicle, _app, _action, _value] call FUNC(webActionArtillery)};
-            case "bcs": {[_vehicle, _action, _value] call FUNC(webActionBcs)};
-            case "cbr": {[_vehicle, _action, _value] call FUNC(webActionCbr)};
+        private _actionFunction = getText (_appConfig >> "webAction");
+        if (_actionFunction != "") then {
+            [_vehicle, _app, _action, _value] call (missionNamespace getVariable _actionFunction);
         };
     };
 };

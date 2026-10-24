@@ -5,6 +5,7 @@ PREP(fillFuzeList);
 PREP(onSelectAmmo);
 PREP(onSelectFuze);
 PREP(changeCharge);
+PREP(applyLoaderSettings);
 PREP(applySettings);
 PREP(applyFdcOrders);
 PREP(loadGun);

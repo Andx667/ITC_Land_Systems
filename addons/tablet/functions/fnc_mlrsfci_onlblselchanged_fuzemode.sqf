@@ -23,4 +23,4 @@
 params ["_control", "_index"];
 ITC_CURVEHICLE
 
-[_vehicle, _index, 1904, 1905, 1906, "itc_land_mlrsfci_fuzeTime"] call EFUNC(common,applyFuzeSelection);
+[_vehicle, lbData [2402, lbCurSel 2402], _index, 1905, 1906, "itc_land_mlrsfci_fuzeTime"] call EFUNC(common,applyFuzeSelection);

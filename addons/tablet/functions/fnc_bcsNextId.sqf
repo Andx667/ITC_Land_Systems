@@ -2,22 +2,29 @@
 
 /*
  * Author: ITC Addons Team
- * The number for the next gun of the BCS battery: the lowest free one from 1 up, so linked and
- * hand-entered guns are numbered 1, 2, 3, ... and a removed gun's number is used again.
+ * The ID for the next BCS gun or known point: the lowest free one, so new entries need no typing
+ * and do not overwrite one (an ID that exists updates that entry). Guns are numbered 1, 2, 3, ...
+ * (linked and hand-entered alike, a removed gun's number is used again), known points AB0001,
+ * AB0002, ...
  *
  * Arguments:
- * None
+ * 0: "gun" or "point" <STRING>
  *
  * Return Value:
- * Gun number <STRING>
+ * ID <STRING>
  *
  * Example:
- * [] call itc_land_tablet_fnc_bcsNextGunNumber
+ * ["gun"] call itc_land_tablet_fnc_bcsNextId
  *
  * Public: No
  */
 
-private _taken = GVAR(bcs_bty_guns) apply {_x # 0};
+params ["_kind"];
+
+private _gun = _kind == "gun";
+private _taken = (missionNamespace getVariable [[QGVAR(bcs_locations), QGVAR(bcs_bty_guns)] select _gun, []]) apply {_x # 0};
+private _format = ["AB%1", "%1"] select _gun;
+private _digits = [4, 1] select _gun;
 private _number = 1;
-while {str _number in _taken} do {_number = _number + 1};
-str _number
+while {format [_format, [_number, _digits] call CBA_fnc_formatNumber] in _taken} do {_number = _number + 1};
+format [_format, [_number, _digits] call CBA_fnc_formatNumber]
