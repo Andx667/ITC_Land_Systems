@@ -38,11 +38,11 @@ All player-facing text is in the `stringtable.xml` of each addon. Only English e
 
 ## Documentation
 
-The documentation is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) from the `docs` folder:
+The documentation is built with [Zensical](https://zensical.org/) from the `docs` folder:
 
 ```cmd
 pip install -r docs/requirements.txt
-mkdocs serve
+zensical serve
 ```
 
 Pushes to `master` that change the docs publish them to GitHub Pages (`.github/workflows/docs.yml`). Add a new vehicle or item with its classname to the page of its system in `docs/systems/`, and new config for modders to [Mission Makers & Modders](scripting.md).
