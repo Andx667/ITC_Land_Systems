@@ -14,7 +14,7 @@ The ITC camera readouts show the view direction in degrees and mils, the grid an
 
 ### Sending a target to the FDC
 
-In the ITC optics of a UAV, the GLTD or the Strider, **Send target to FDC** (++ctrl+shift+t++, under Configure → Controls → Configure Addons → ITC Land Systems Redux) sends the target over the datalink to every friendly FDC: the lased spot while the laser is on, else the point under the crosshair. It arrives in their BCS [Location Stores](bcs.md#location-stores) as **TGT01**, **TGT02**, … with a ping and a hint, ready as the known point of a fire mission. Targets are received from the start of the mission: an FDC that opens the BCS later finds the ones sent before in its Location Stores; the ping and hint come once it has opened the BCS. Corrections during adjust fire still go by voice.
+In the ITC optics of a UAV, the GLTD, the Strider or the Nyx, **Send target to FDC** (++ctrl+shift+t++, under Configure → Controls → Configure Addons → ITC Land Systems Redux) sends the target over the datalink to every friendly FDC: the lased spot while the laser is on, else the point under the crosshair. It arrives in their BCS [Location Stores](bcs.md#location-stores) as **TGT01**, **TGT02**, … with a ping and a hint, ready as the known point of a fire mission. An FDC receives targets once it has opened the BCS. Corrections during adjust fire still go by voice.
 
 ## Packable equipment
 
@@ -54,3 +54,11 @@ The tablet shows your own grid and the aircraft's altitude, speed and direction,
 | **Strider RV GMG** | `itc_land_I_StriderRV_GMG` |
 
 Strider variants with a commander optic that shows the view direction in degrees and mils, and the grid and altitude of the vehicle and of the point under the crosshair.
+
+## Nyx RV
+
+| Vehicle | Classname |
+| --- | --- |
+| **Nyx RV** | `itc_land_I_NyxRV` |
+
+The AWC 304 Nyx Recon (Tanks DLC) with the Strider RV's optic on its observer seat: view direction in degrees and mils, and the grid and altitude of the vehicle and of the point under the crosshair. Its laser designator and radar are the vanilla ones, and **Send target to FDC** works from its optic.
