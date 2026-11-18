@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_aps", "_projectile"];
+params [["_vehicle", objNull, [objNull]], ["_aps", [], [[]]], ["_projectile", objNull, [objNull]]];
 _aps params [
     "_name",
     "_position",

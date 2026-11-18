@@ -16,7 +16,7 @@
  *
  * Public: No
  */
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 // The init event runs on every machine; only the server sets the state so that joining clients do not reset it
 if (!isServer) exitWith {};
