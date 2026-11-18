@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _settings = _vehicle getVariable ["itc_land_sphloadersettings", []];
 if (_settings isEqualTo []) exitWith {

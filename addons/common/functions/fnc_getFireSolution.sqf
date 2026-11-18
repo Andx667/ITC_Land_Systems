@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _index = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
 if (isNil "_index") exitWith {[]};

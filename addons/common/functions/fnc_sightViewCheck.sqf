@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_display", "_groupIdc", "_pfID", "_role", "_requiredRole"];
+params [["_display", displayNull, [displayNull]], ["_groupIdc", 0, [0]], ["_pfID", 0, [0]], ["_role", "", [""]], ["_requiredRole", "", [""]]];
 
 private _group = _display displayCtrl _groupIdc;
 

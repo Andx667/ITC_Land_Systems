@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_magazine", "_index", "_timeLabelIdc", "_timeEditIdc", "_timeVariable"];
+params [["_vehicle", objNull, [objNull]], ["_magazine", "", [""]], ["_index", 0, [0]], ["_timeLabelIdc", 0, [0]], ["_timeEditIdc", 0, [0]], ["_timeVariable", "", [""]]];
 
 private _isTimeFuze = ([_vehicle, _magazine, _index] call FUNC(setFuzeSelection)) == "time";
 [[_timeLabelIdc, _timeEditIdc], _isTimeFuze] call FUNC(ctrlShowMany);

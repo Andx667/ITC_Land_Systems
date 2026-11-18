@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_grid", "_alt"];
+params [["_vehicle", objNull, [objNull]], ["_grid", "", [""]], ["_alt", 0, [0]]];
 
 private _targetPos = [_grid, _alt] call FUNC(gridToPos);
 _vehicle setVariable ["itc_land_guidance_targetGrid", _grid, true];

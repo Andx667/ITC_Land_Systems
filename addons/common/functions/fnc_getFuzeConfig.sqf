@@ -17,6 +17,6 @@
  * Public: No
  */
 
-params ["_magazine"];
+params [["_magazine", "", [""]]];
 
 configFile >> "ITC_Land_CfgFuzes" >> getText (configFile >> "CfgMagazines" >> _magazine >> "itc_land_fuze")

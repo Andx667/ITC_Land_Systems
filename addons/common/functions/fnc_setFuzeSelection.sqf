@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_magazine", "_index"];
+params [["_vehicle", objNull, [objNull]], ["_magazine", "", [""]], ["_index", 0, [0]]];
 
 private _fuzeConfig = [_magazine] call FUNC(getFuzeConfig);
 private _modes = getArray (_fuzeConfig >> "modes");

@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_input", "_decimalPlaces", "_integerPlaces"];
+params [["_input", 0, [0]], ["_decimalPlaces", 0, [0]], ["_integerPlaces", 0, [0]]];
 
 private _prefix = ["", "-"] select (_input < 0);
 private _return = [abs (_input), _integerPlaces, _decimalPlaces, false] call CBA_fnc_formatNumber;
