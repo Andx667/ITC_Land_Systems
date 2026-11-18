@@ -15,6 +15,6 @@ An active protection system (APS) intercepts incoming rockets and missiles befor
 - The modules are mounted on the turret, so their arcs turn with it.
 - Shells, bullets and grenades are not intercepted, only rockets and missiles.
 - Spent shots are **not** refilled by rearming. A module's shots are back only when the vehicle respawns or is created again.
-- The APS can be switched off with the **Enable APS** [setting](../usage.md#settings).
+- The APS can be switched off with the **Enable APS** [setting](index.md#settings).
 
 Fitting an APS to other vehicles is described in [Mission Makers & Modders](../scripting.md#active-protection).

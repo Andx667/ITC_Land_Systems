@@ -1,6 +1,6 @@
 # Battery Computer (BCS)
 
-The **Battery Control System** app plans fire missions for a whole battery. It runs on the FDC tablet of the fire direction centre and on the mounted SPG and MLRS tablets (see [Tablets](../usage.md#tablets)).
+The **Battery Control System** app plans fire missions for a whole battery. It runs on the FDC tablet of the fire direction centre and on the mounted SPG and MLRS tablets (see [Tablets](index.md#tablets)).
 
 The BCS is a fire direction computer: it gives you the firing data for every gun of the battery. Guns linked over the datalink get their data straight into their [gunner sight](artillery.md#gunner-sight) (**SEND ADJ** / **SEND FFE**); for other guns the fire direction centre passes it on by voice. Each gun lays with its own gunner sight and [ammunition handler](artillery.md#ammunition-handler).
 
@@ -68,7 +68,7 @@ The solution page shows the selected solution's **MAXIMUM ORDINATE**, **IMPACT A
 
 ## Russian batteries
 
-The Russian battery types (G152 for the Sochor 2, and with RHS or CUP the 2S1, 2S3, D-30 and 2B14) work in the Russian 6000 mil system while the **Russian guns in 6000 mils** [setting](../usage.md#settings) is on: the gun lines show azimuth, deflection and quadrant as `15-00`, and the OT direction (Shift, Polar, adjustment) and the sheaf direction are entered in it, as `1500` or `15-00`. Other batteries use NATO 6400 mils.
+The Russian battery types (G152 for the Sochor 2, and with RHS or CUP the 2S1, 2S3, D-30 and 2B14) work in the Russian 6000 mil system while the **Russian guns in 6000 mils** [setting](index.md#settings) is on: the gun lines show azimuth, deflection and quadrant as `15-00`, and the OT direction (Shift, Polar, adjustment) and the sheaf direction are entered in it, as `1500` or `15-00`. Other batteries use NATO 6400 mils.
 
 ## Settings
 

@@ -51,7 +51,7 @@ Each round type has five propellant charges per gun.
 
 ## Fire control on the tablet
 
-The **Self Propelled Gun** app of the [mounted SPG tablet](../usage.md#tablets) computes firing solutions for the vehicle you are in.
+The **Self Propelled Gun** app of the [mounted SPG tablet](index.md#tablets) computes firing solutions for the vehicle you are in.
 
 1. Enter the **Target Position** (grid) and **Target Elevation**.
 2. Pick the **Munition Type**.
@@ -85,7 +85,7 @@ The gunner sight of the guns shows:
 - the heading of the gun and the laser range
 - **LOAD**, **FUZE**, **GUIDANCE** and **STATUS** of the [ammunition handler](#ammunition-handler), with the round count of the current mission (`3 / 5`)
 
-Lay the gun until the current values match the mission values, then fire. All four values are in mils: NATO 6400 mils, or on the Russian guns (Sochor 2 and the ITC 2S1, 2S3; the D-30's current azimuth and quadrant too) the Russian 6000 mils, written `15-00` (the **Russian guns in 6000 mils** [setting](../usage.md#settings)). The SPG app shows the same system.
+Lay the gun until the current values match the mission values, then fire. All four values are in mils: NATO 6400 mils, or on the Russian guns (Sochor 2 and the ITC 2S1, 2S3; the D-30's current azimuth and quadrant too) the Russian 6000 mils, written `15-00` (the **Russian guns in 6000 mils** [setting](index.md#settings)). The SPG app shows the same system.
 
 The guns of other mods ([compatibility](../compatibility.md)) keep their own optics and reticle; the same readouts sit in boxes at the left of their sight.
 

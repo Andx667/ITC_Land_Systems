@@ -84,7 +84,7 @@ Missions made with them keep working. The vehicle, weapon and magazine classname
 
 ## For developers
 
-The compatibility addons are `addons/compat_rhs_afrf`, `compat_rhs_usaf`, `compat_cup_units`, `compat_cup_vehicles`, `compat_bwa3` and `compat_gtk_boxer` (see [Components](components.md#compatibility)). Each sets `skipWhenMissingDependencies = 1` and lists the other mod's addons in `requiredAddons`.
+The compatibility addons are `addons/compat_rhs_afrf`, `compat_rhs_usaf`, `compat_cup_units`, `compat_cup_vehicles`, `compat_bwa3` and `compat_gtk_boxer`. Each sets `skipWhenMissingDependencies = 1` and lists the other mod's addons in `requiredAddons`.
 
 `.hemtt/launch.toml` has a profile per mod, to chain after another profile:
 

@@ -10,7 +10,7 @@ The project is entirely open-source and any contributions are welcome — see [C
     ITC Land Systems Redux is in beta. Features are still being tested and balanced, and you may run into bugs or unfinished content. Please report problems on the [issue tracker](https://github.com/Andx667/ITC_Land_Systems/issues).
 
 !!! info "Requirements"
-    ITC requires [CBA_A3](https://github.com/CBATeam/CBA_A3/releases/latest) and [ACE3](https://github.com/acemod/ACE3), see [Installation](installation.md).
+    ITC requires [CBA_A3](https://github.com/CBATeam/CBA_A3/releases/latest) and [ACE3](https://github.com/acemod/ACE3).
 
 ## Core Features
 
@@ -21,15 +21,12 @@ The project is entirely open-source and any contributions are welcome — see [C
 - **[Air & missile defence](systems/air-defence.md)** — CIWS that shoot down incoming shells, rockets and missiles, SAM sites with proximity-fuzed missiles, and a vertical launch system with a target dialog.
 - **[Active protection](systems/aps.md)** — Trophy, Drozd and Afghanit systems on the vanilla main battle tanks intercept incoming rockets and missiles.
 - **[UAVs & recon](systems/uavs.md)** — new UAVs, packable UAVs and laser designators, the ROVER tablet with the video feed of laser-designating aircraft, and the Strider RV and Nyx RV.
-- Every system that can be switched off has a [CBA setting](usage.md#settings).
+- Every system that can be switched off has a [CBA setting](systems/index.md#settings).
 
 ## Getting Started
 
-- [Installation](installation.md) — how to get the mod running alongside CBA and ACE3
-- [Usage](usage.md) — tablets, interactions and settings
-- [Systems](systems/index.md) — every system with its vehicles, classnames and how to use it
+- [Systems](systems/index.md) — every system with its vehicles and classnames, plus interactions, tablets and settings
 - [Mission Makers & Modders](scripting.md) — what to place, and the config to add ITC features to your own vehicles
-- [Components](components.md) — a tour of the addons that make up the mod
 
 ## Credits
 
