@@ -35,9 +35,9 @@
 params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 
 //First we need to use GPS guidance to get to target area.
-private _targetPos = _vehicle getVariable "itc_land_guidance_targetPos";
+private _targetPos = _vehicle getVariable QGVAR(targetPos);
 //We then need a laser code for terminal guidance
-private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
+private _laserCode = _vehicle getVariable [QGVAR(laserCode),1111];
 
 if (isNil{_targetPos}) exitWith {};
 [{

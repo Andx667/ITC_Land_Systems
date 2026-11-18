@@ -32,7 +32,7 @@
  */
 
 params [["_unit", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
-private _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
+private _targetPos = _unit getVariable [QGVAR(targetPos), GVAR(targetPos)];
 
 if (isNil{_targetPos}) exitWith {};
 [_projectile, {
