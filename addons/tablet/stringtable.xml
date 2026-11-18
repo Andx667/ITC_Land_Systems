@@ -148,9 +148,6 @@
         <Key ID="STR_itc_land_tablet_CfgWeapons_tablet_spg_DisplayName">
             <English>SPG Vehicle Management Tablet</English>
         </Key>
-        <Key ID="STR_itc_land_tablet_Controls_fcs_mode_title_Text">
-            <English>LFCS Solutions:</English>
-        </Key>
         <Key ID="STR_itc_land_tablet_Fcs_Azimuth">
             <English>AZIMUTH: %1</English>
         </Key>
@@ -207,60 +204,6 @@
         </Key>
         <Key ID="STR_itc_land_tablet_Home_Interfaces_Tooltip">
             <English>Vehicle systems the app needs: it only works inside a vehicle that has them (- means none)</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscButton_1600_Text">
-            <English>ALL ON</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscButton_1601_Text">
-            <English>ALL OFF</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscButton_1602_Text">
-            <English>SEL TGL</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscButton_1603_Text">
-            <English>ALL SET</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscButton_1604_Text">
-            <English>SEL SET</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscEdit_1400_Text">
-            <English>HE</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscEdit_1403_Text">
-            <English>VT</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1006_Text">
-            <English>ADJ</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1013_Text">
-            <English>GNS</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1014_Text">
-            <English>SHELL</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1015_Text">
-            <English>FFE</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1018_Text">
-            <English>COUNT</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1019_Text">
-            <English>FUZE</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1020_Text">
-            <English>MOC</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1021_Text">
-            <English>SHEAF</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1022_Text">
-            <English>QUICK</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1023_Text">
-            <English>DIR</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_RscText_1024_Text">
-            <English>LENGTH</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Tablet">
             <English>Tablet</English>
@@ -658,17 +601,11 @@
         <Key ID="STR_itc_land_tablet_firemission_next_Text">
             <English>Next</English>
         </Key>
-        <Key ID="STR_itc_land_tablet_fuse_type_Text">
-            <English>Fuse:</English>
-        </Key>
         <Key ID="STR_itc_land_tablet_header1_Text">
             <English>FDC SUITE</English>
         </Key>
         <Key ID="STR_itc_land_tablet_header2_Text">
             <English>ILS - AIFMS</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_las_code_Text">
-            <English>LAS Code:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_locstores_addnew_button_Text">
             <English>ADD NEW</English>
@@ -697,23 +634,8 @@
         <Key ID="STR_itc_land_tablet_locstores_remove_button_Text">
             <English>REMOVE</English>
         </Key>
-        <Key ID="STR_itc_land_tablet_manual_azimuth_Text">
-            <English>Mission Azimuth</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_manual_azimuth_button_Text">
-            <English>APPLY</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_manual_quadrant_Text">
-            <English>Mission Quadrant</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_manual_title_Text">
-            <English>MANUAL TARGETING</English>
-        </Key>
         <Key ID="STR_itc_land_tablet_missile_DisplayName">
             <English>Guided Missile Configuration</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_msl_type_Text">
-            <English>Munition:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_solution_adj_Text">
             <English>ADJUST/FFE</English>
@@ -804,9 +726,6 @@
         </Key>
         <Key ID="STR_itc_land_tablet_tablet_spg_DisplayName">
             <English>SPG Tablet</English>
-        </Key>
-        <Key ID="STR_itc_land_tablet_target_el_Text">
-            <English>TGT Elev:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_target_field1_text_Text">
             <English>OT</English>
