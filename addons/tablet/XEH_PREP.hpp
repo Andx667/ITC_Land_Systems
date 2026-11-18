@@ -16,6 +16,7 @@ PREP(fcsSolutionText);
 PREP(bcsFillFuzes);
 PREP(bcsShot);
 PREP(bcsInit);
+PREP(bcsListenTargets);
 PREP(cbrDrawMap);
 PREP(bcsNextId);
 PREP(bcsSetTarget);

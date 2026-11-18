@@ -16,6 +16,7 @@ start a fresh empty [Unreleased] section above it. -->
 ### Fixed
 
 - Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
+- BCS - Targets an observer sent before the FDC opened the BCS were lost; they now arrive in its Location Stores (#27) by Andx
 
 ### Added
 
