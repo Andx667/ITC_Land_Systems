@@ -16,6 +16,7 @@ start a fresh empty [Unreleased] section above it. -->
 ### Changed
 
 - COBRA - Change the multiplayer sync: clients get each detected shell, firing position and engagement as a small event instead of all COBRA data again (#15) by Andx
+- APS, CIWS - Change the debug RPT lines to the CBA log format, `[ITC_LAND] (aps) INFO:` / `[ITC_LAND] (ciws) INFO:` (#14) by Andx
 
 ## [0.3.0] - 2026-10-24
 

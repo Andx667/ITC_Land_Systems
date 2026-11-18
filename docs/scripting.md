@@ -159,7 +159,7 @@ A vehicle can be packed into an item and unpacked again:
 
 | Variable | Effect |
 | --- | --- |
-| `itc_land_aps_debug` | Logs every tracked rocket and missile, every APS shot (kill or miss) and why a module did not fire to the RPT (`[ITC APS]`) |
-| `itc_land_ciws_debug` | Logs the shell decoys, the CIWS sensor state every 3 s and whether each shell was intercepted or landed to the RPT (`[ITC CIWS]`) |
+| `itc_land_aps_debug` | Logs every tracked rocket and missile, every APS shot (kill or miss) and why a module did not fire to the RPT (`[ITC_LAND] (aps) INFO:`) |
+| `itc_land_ciws_debug` | Logs the shell decoys, the CIWS sensor state every 3 s and whether each shell was intercepted or landed to the RPT (`[ITC_LAND] (ciws) INFO:`) |
 
 Set them with `missionNamespace setVariable ["itc_land_aps_debug", true, true];`.
