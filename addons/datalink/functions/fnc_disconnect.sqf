@@ -17,6 +17,6 @@
  * Public: No
  */
 
-params[["_object",player],["_id",""]];
+params [["_object", player, [objNull]], ["_id", "", [""]]];
 
 [QGVAR(clientDisconnect),[_object, _id]] call CBA_fnc_serverEvent;
