@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- APS, CIWS - Change the debug RPT lines to the CBA log format, `[ITC_LAND] (aps) INFO:` / `[ITC_LAND] (ciws) INFO:` (#14) by Andx
+
 ## [0.3.0] - 2026-10-24
 
 ### Added
