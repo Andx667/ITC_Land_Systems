@@ -4,6 +4,7 @@
  * Author: ITC Addons Team
  * Places the HTML tablet's native map control (COBRA map) over the slot the page reported
  * (GVAR(web) "mapRect", fractions of the page), or hides it when the page has no map slot.
+ * A shown map takes the focus, so it is drawn above the browser.
  *
  * Arguments:
  * 0: Browser control <CONTROL>
@@ -29,3 +30,5 @@ _rect params ["_rx", "_ry", "_rw", "_rh"];
 _map ctrlSetPosition [_px + _rx * _pw, _py + _ry * _ph, _rw * _pw, _rh * _ph];
 _map ctrlCommit 0;
 _map ctrlShow true;
+// the focused control is drawn on top: once a click focuses the browser, it covers the map
+ctrlSetFocus _map;
