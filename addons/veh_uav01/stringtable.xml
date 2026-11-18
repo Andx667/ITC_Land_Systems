@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="veh_uav01">
+        <Key ID="STR_itc_land_veh_uav01_B_AR2e_Packed_DisplayName">
+            <English>AR-2e Darter [NATO] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_B_AR2i_Packed_DisplayName">
+            <English>AR-2i Darter 2 [NATO] (Packed)</English>
+        </Key>
         <Key ID="STR_itc_land_veh_uav01_B_UAV_AR2e_DisplayName">
             <English>AR-2e Darter</English>
         </Key>
         <Key ID="STR_itc_land_veh_uav01_B_UAV_AR2i_DisplayName">
             <English>AR-2i Darter 2</English>
         </Key>
+        <Key ID="STR_itc_land_veh_uav01_B_UAV_Packed_DisplayName">
+            <English>AR-2 Darter [NATO] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_I_AR2e_Packed_DisplayName">
+            <English>AR-2e Darter [AAF] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_I_AR2i_Packed_DisplayName">
+            <English>AR-2i Darter 2 [AAF] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_I_UAV_Packed_DisplayName">
+            <English>AR-2 Darter [AAF] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_O_AR2e_Packed_DisplayName">
+            <English>AR-2e Tayran [CSAT] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_O_AR2i_Packed_DisplayName">
+            <English>AR-2i Tayran 2 [CSAT] (Packed)</English>
+        </Key>
         <Key ID="STR_itc_land_veh_uav01_O_UAV_AR2e_DisplayName">
             <English>AR-2e Trayan</English>
         </Key>
         <Key ID="STR_itc_land_veh_uav01_O_UAV_AR2i_DisplayName">
             <English>AR-2i Tayran 2</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav01_O_UAV_Packed_DisplayName">
+            <English>AR-2 Tayran [CSAT] (Packed)</English>
         </Key>
         <Key ID="STR_itc_land_veh_uav01_PackDarter_DisplayName">
             <English>Repack UAV</English>

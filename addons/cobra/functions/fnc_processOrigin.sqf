@@ -6,6 +6,7 @@
  * other), incrementing the shot count and timestamp for an existing cluster,
  * or creating a new one if none of the tracked positions are close enough.
  * Also appends the raw origin to the mission's flat list of all origins.
+ * Sends the new or updated cluster to the clients (firingPositionChanged).
  *
  * Arguments:
  * 0: COBRA radar vehicle processing the origin (unused in body) <Object>
@@ -25,12 +26,14 @@ private _origins = missionNamespace getVariable "itc_land_cobra_origins";
 private _firingPositions = missionNamespace getVariable "itc_land_cobra_firingPositions";
 _origins pushBack _origin;
 private _existingPosition = nil;
+private _index = -1;
 {
     _x params ["_shots", "_positions"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {
         if (_origin distance (_positions # _i) < 15) then {
             if (isNil{_existingPosition}) then {
                 _existingPosition = _x;
+                _index = _forEachIndex;
                 _positions pushBack _origin;
                 _x set [0,_shots + 1];
                 _x set [2, cba_missionTime];
@@ -40,8 +43,9 @@ private _existingPosition = nil;
 }forEach _firingPositions;
 
 if (isNil{_existingPosition}) then {
-    _firingPositions pushBack [1, [_origin], cba_missionTime];
+    _index = _firingPositions pushBack [1, [_origin], cba_missionTime];
 };
 
 missionNamespace setVariable ["itc_land_cobra_firingPositions",_firingPositions];
+[QGVAR(firingPositionChanged), [_index, _firingPositions # _index]] call CBA_fnc_globalEvent;
 missionNamespace setVariable ["itc_land_cobra_origins",_origins];

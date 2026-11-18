@@ -3,8 +3,8 @@
 /*
  * Author: ToadBall, Yax
  * Registers a COBRA counter-battery radar vehicle with the server-side COBRA
- * simulation (see itc_land_cobra_fnc_scan) and publishes the updated list of
- * COBRA vehicles to all clients. Runs from the vehicle's init event, which
+ * simulation (see itc_land_cobra_fnc_scan) and sends the updated list of
+ * COBRA vehicles to the clients (cobrasChanged). Runs from the vehicle's init event, which
  * fires on every machine; only the server registers.
  *
  * Arguments:
@@ -22,8 +22,9 @@
 params [["_cbr", objNull, [objNull]]];
 if (!isServer) exitWith {};
 
-itc_land_cobras pushBackUnique _cbr;
-publicVariable "itc_land_cobras";
+if (itc_land_cobras pushBackUnique _cbr != -1) then {
+    [QGVAR(cobrasChanged), [itc_land_cobras]] call CBA_fnc_globalEvent;
+};
 
 //private _linkID = _cbr getVariable ["init_datalink_id",""];
 //[_cbr,"","object_register",true] call EFUNC(datalink,connect);

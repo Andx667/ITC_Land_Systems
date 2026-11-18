@@ -42,7 +42,7 @@ if !(_fields isEqualType createHashMap) then {_fields = createHashMap};
 if ((_msg getOrDefault ["k", ""]) isEqualTo (GVAR(web) get "formKey")) then {
     private _form = GVAR(web) get "form";
     {
-        if (_y isEqualType "" || {_y isEqualType 0}) then {_form set [_x, _y]};
+        if (_y isEqualTypeAny ["", 0]) then {_form set [_x, _y]};
     } forEach _fields;
 };
 

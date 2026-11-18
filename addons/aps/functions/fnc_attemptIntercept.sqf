@@ -45,7 +45,8 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
 
         private _kill = random 1 <= _pk;
         if (missionNamespace getVariable [QGVAR(debug), false]) then {
-            diag_log format ["[ITC APS] %1 %2 fired at %3 m: %4", typeOf _vehicle, _module select 0, round (_projectile distance _vehicle), ["miss", "kill"] select _kill];
+            private _result = ["miss", "kill"] select _kill;
+            INFO_4("%1 %2 fired at %3 m: %4",typeOf _vehicle,_module select 0,round (_projectile distance _vehicle),_result);
         };
 
         if (_kill) then {
