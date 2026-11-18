@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_display", ["_calculate", true]];
+params [["_display", displayNull, [displayNull]], ["_calculate", true, [true]]];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;

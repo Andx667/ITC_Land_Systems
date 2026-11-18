@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params ["", "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {};
 _this call FUNC(guide);
 _this call BIS_fnc_effectFiredCruiseMissile;

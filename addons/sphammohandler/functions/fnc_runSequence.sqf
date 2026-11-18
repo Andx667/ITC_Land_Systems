@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_steps", "_args"];
+params [["_steps", [], [[]]], "_args"];
 if (_steps isEqualTo []) exitWith {};
 
 (_steps # 0) params ["_delay", "_code"];

@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_gun"];
+params [["_gun", objNull, [objNull, ""]]];
 
 if !(missionNamespace getVariable [QGVAR(russianMils), true]) exitWith {6400};
 

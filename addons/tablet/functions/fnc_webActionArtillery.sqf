@@ -27,7 +27,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app", "_action", "_value"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]], ["_action", "", [""]], "_value"];
 
 // MLRS: one press applies the fuze and guidance and calculates, so both are of the same round
 if (_action == "artApplyCalc") exitWith {

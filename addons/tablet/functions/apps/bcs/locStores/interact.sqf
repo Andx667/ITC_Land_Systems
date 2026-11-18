@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 #include "..\bcsDefines.hpp"
 
 switch (_action) do {

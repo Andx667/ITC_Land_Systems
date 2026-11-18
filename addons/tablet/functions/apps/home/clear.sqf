@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 {
     ctrlShow [_x, false];
 } forEach [13301];

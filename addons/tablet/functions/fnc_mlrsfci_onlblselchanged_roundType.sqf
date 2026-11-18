@@ -10,7 +10,7 @@
  * or none).
  *
  * Arguments:
- * 0: Listbox control that triggered the event <Control>
+ * 0: Listbox control that triggered the event (or its IDC when called from code) <Control or Number>
  * 1: Selected listbox index <Number>
  *
  * Return Value:
@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_control","_index"];
+params [["_control", controlNull, [controlNull, 0]], ["_index", 0, [0]]];
 ITC_CURVEHICLE
 
 //Generate globals

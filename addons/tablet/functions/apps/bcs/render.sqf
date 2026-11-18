@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 
 private _fireMissionStrings = GVAR(bcs_missions) apply {
     if (_x # 6 > time) then {

@@ -17,8 +17,8 @@
  * Public: No
  */
 
-params ["_gunList"];
-if (count _gunList == 0) exitWith {[0,0,0]};
+params [["_gunList", [], [[]]]];
+if (_gunList isEqualTo []) exitWith {[0,0,0]};
 //add up all the eastings, northings and elevations
 private _totalEasting = 0;
 private _totalNorthing = 0;
