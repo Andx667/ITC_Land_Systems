@@ -63,5 +63,5 @@ ctrlSetText [188, _uavSpeedDisplayed];
 ctrlSetText [75017, _tgtASLdisplayed];
 ctrlSetText [75011, _uavASLDisplayed];
 ctrlSetText [189, _uavAGLDisplayed];
-(uiNamespace getVariable "itc_land_rover_ui_nArrow") ctrlSetAngle [(_viewDir) * -1, 0.5, 0.5];
+(uiNamespace getVariable QGVAR(ui_nArrow)) ctrlSetAngle [(_viewDir) * -1, 0.5, 0.5];
 ctrlSetText [19357, (format ["%1:%2", [date # 3, 2] call CBA_fnc_formatNumber, [date # 4, 2] call CBA_fnc_formatNumber])];

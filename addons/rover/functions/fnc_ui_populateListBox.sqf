@@ -19,7 +19,7 @@
  */
 
 private _aircraft = call FUNC(getAircraft);
-itc_land_rover_ui_aircraftList = [objNull] + _aircraft;
+GVAR(ui_aircraftList) = [objNull] + _aircraft;
 
 lbClear 2100;
 lbAdd [2100, " -- "];
@@ -28,13 +28,13 @@ lbAdd [2100, " -- "];
     lbAdd [2100, (getText (configOf _x >> "displayName")) + " (" + (name _x) + ")"];
 } forEach _aircraft;
 
-private _index = missionNamespace getVariable ["itc_land_rover_ui_curSelIndex",0];
+private _index = missionNamespace getVariable [QGVAR(ui_curSelIndex),0];
 
-private _curAircraft = missionNamespace getVariable ["itc_land_rover_ui_curAircraft",objNull];
-private _findAircraft = itc_land_rover_ui_aircraftList find _curAircraft;
+private _curAircraft = missionNamespace getVariable [QGVAR(ui_curAircraft),objNull];
+private _findAircraft = GVAR(ui_aircraftList) find _curAircraft;
 if (_findAircraft == -1) then { _index = 0; } else { _index = _findAircraft; };
 
 lbSetCurSel [2100,_index];
 
-itc_land_rover_ui_curSelIndex = _index;
-itc_land_rover_ui_curAircraft = itc_land_rover_ui_aircraftList # _index;
+GVAR(ui_curSelIndex) = _index;
+GVAR(ui_curAircraft) = GVAR(ui_aircraftList) # _index;
