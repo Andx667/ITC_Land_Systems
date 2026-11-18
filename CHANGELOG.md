@@ -15,7 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
-- Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#PR) by Andx
+- Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
 
 ### Added
 
