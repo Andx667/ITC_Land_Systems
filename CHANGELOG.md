@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- Credits - The original ITC team agreed to the continuation; README, Workshop page and documentation say so (#PR) by Andx
+
 ## [0.3.0] - 2026-10-24
 
 ### Added

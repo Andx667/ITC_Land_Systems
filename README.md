@@ -99,7 +99,7 @@ Also planned: Zeus and Zeus Enhanced modules, translations, a documentation site
 
 ## Credits
 
-ITC Land Systems Redux is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original project has no license and was no longer maintained, so it was considered abandoned when this continuation took it up. The new work in this beta is released under the [MIT](./LICENSE) license. This is not an official release of the original team, and the original authors are welcome to get in touch about credit or removal.
+ITC Land Systems Redux is based on the original [ITC Land Systems](https://github.com/itc-addons/ITC_Land_Systems) by the ITC Addons Team and its contributors. The original team agreed to its continuation under the new name ([itc-addons/ITC_Land_Systems#24](https://github.com/itc-addons/ITC_Land_Systems/issues/24)); the original repository has no license file yet. The new work in this beta is released under the [MIT](./LICENSE) license. This is not an official release of the original team.
 
 ## Contributing
 
