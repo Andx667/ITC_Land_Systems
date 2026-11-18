@@ -3,8 +3,8 @@
 /*
  * Author: ToadBall, Yax
  * Records a predicted shell impact (position and calculated impact time) in
- * the mission's active-shells list, then triggers any COBRA-linked sirens
- * within range of the impact point.
+ * the mission's active-shells list and sends it to the clients (impactAdded),
+ * then triggers any COBRA-linked sirens within range of the impact point.
  *
  * Arguments:
  * 0: COBRA radar vehicle that detected the shell (unused in body) <Object>
@@ -26,6 +26,7 @@ private _impactTime = cba_missionTime + _tof;
 _impacts pushBack [_position, _impactTime];
 
 missionNamespace setVariable ["itc_land_cobra_activeShells",_impacts];
+[QGVAR(impactAdded), [[_position, _impactTime]]] call CBA_fnc_globalEvent;
 
 private _sirenTypes = [0] call FUNC(sirenTypes);
 
