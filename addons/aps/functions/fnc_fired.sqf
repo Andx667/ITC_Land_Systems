@@ -34,7 +34,7 @@ private _simulation = getText (configFile >> "cfgAmmo" >> _ammo >> "simulation")
 if (!(_simulation in ["shotRocket", "shotMissile"])) exitWith {};
 
 if (missionNamespace getVariable [QGVAR(debug), false]) then {
-    diag_log format ["[ITC APS] tracking %1 fired by %2 at %3 m/s", _ammo, typeOf _unit, round vectorMagnitude velocity _projectile];
+    INFO_3("tracking %1 fired by %2 at %3 m/s",_ammo,typeOf _unit,round vectorMagnitude velocity _projectile);
 };
 
 // every frame: a rocket covers several metres per frame and a module's window is only its range
