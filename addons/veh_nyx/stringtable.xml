@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="itc_land">
+    <Package name="veh_nyx">
+        <Key ID="STR_itc_land_veh_nyx_I_NyxRV_DisplayName">
+            <English>Nyx RV</English>
+        </Key>
+    </Package>
+</Project>

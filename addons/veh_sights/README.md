@@ -1,6 +1,6 @@
 # Sights
 
-`itc_land_veh_sights`: [Gunner sights](../../docs/systems/artillery.md#gunner-sight) and the optics readouts of UAVs and the Strider.
+`itc_land_veh_sights`: [Gunner sights](../../docs/systems/artillery.md#gunner-sight) and the optics readouts of UAVs, the Strider and the Nyx.
 
 ## Dependencies
 
