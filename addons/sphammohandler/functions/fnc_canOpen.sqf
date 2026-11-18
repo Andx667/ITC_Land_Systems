@@ -18,6 +18,6 @@
  * Public: No
  */
 
-params ["_vehicle", "_unit"];
+params [["_vehicle", objNull, [objNull]], ["_unit", objNull, [objNull]]];
 
 gunner _vehicle == _unit || {[_vehicle] call FUNC(getLoader) == _unit}

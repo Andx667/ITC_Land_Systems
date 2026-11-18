@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _loaderTurret = getText (configOf _vehicle >> "itc_land" >> "loaderTurret");
 if (_loaderTurret == "") exitWith {objNull};

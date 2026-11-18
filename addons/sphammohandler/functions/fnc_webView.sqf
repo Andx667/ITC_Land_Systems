@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _web = EGVAR(tablet,web);
 private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3;
