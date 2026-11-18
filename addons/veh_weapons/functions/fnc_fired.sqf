@@ -26,7 +26,7 @@
  * Public: No
  */
 
-params ["_unit", "", "", "", "_ammo", "_magazine", "_projectile", "_gunner"];
+params [["_unit", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {};
 
 private _fuze = getText (configFile >> "CfgMagazines" >> _magazine >> "itc_land_fuze");

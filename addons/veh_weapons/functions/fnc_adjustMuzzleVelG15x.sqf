@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_vehicle","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile"];
+params [["_vehicle", objNull, [objNull]], ["_weapon", "", [""]], ["_muzzle", "", [""]], ["_mode", "", [""]], ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]]];
 
 private _currentSpeed = vectorMagnitude (velocity _projectile);
 private _randomFactor = random [(_currentSpeed / 100) * -0.5,0,(_currentSpeed / 100) * 0.5];

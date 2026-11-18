@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_map"];
+params [["_map", controlNull, [controlNull]]];
 
 {
     private _direction = deg (_x animationPhase "mainTurret");

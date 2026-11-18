@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_btn"];
+params [["_btn", "", [""]]];
 switch (_btn) do {
     case "dtv": {
         camUseNVG false;

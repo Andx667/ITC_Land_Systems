@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_atab", "_distance", "_heightDelta"];
+params [["_atab", [], [[]]], ["_distance", 0, [0]], ["_heightDelta", 0, [0]]];
 private _table = _atab # 0;
 
 // The gravity the tables were generated with (ACE's GRAVITY macro is rounded to 9.8066)

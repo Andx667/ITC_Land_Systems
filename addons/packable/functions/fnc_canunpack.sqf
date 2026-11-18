@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_unit"];
+params [["_unit", objNull, [objNull]]];
 if (!((vehicle _unit) isKindOf 'Man')) exitWith { false };
 
 private _items = [_unit] call CBA_fnc_uniqueUnitItems;

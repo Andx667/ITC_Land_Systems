@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_app"];
+params [["_app", "", [""]]];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 // the app's start page (tablet\CfgMisc.hpp); home and apps without one on the app list

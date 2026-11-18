@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_control", "_charCode"];
+params [["_control", controlNull, [controlNull]], ["_charCode", 0, [0]]];
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _idc = ctrlIDC _control;
 //systemChat str [ctrlClassName _control,_idc];

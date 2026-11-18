@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_index"];
+params [["_vehicle", objNull, [objNull]], ["_index", 0, [0]]];
 
 private _solution = [_vehicle] call FUNC(getFireSolution);
 if (_solution isEqualTo []) exitWith {"----"};

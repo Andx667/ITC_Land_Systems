@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 ctrlShow [2205, true];
 ctrlShow [1004, true];
 ctrlShow [1005, true];

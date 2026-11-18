@@ -27,7 +27,7 @@
  * Public: No
  */
 
-params ["_vehicle", "", "", "", "_ammo", "_magazine", "_projectile", "_gunner"];
+params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {};
 
 private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];

@@ -18,6 +18,6 @@
  * Public: No
  */
 
-params ["_display", "_ctrl", "_text"];
+params [["_display", displayNull, [displayNull]], ["_ctrl", 0, [0]], ["_text", "", [""]]];
 
 (_display displayCtrl _ctrl) ctrlSetText _text;

@@ -24,7 +24,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_mode", "_description", "_fuze", "_time", "_timeVariable"];
+params [["_vehicle", objNull, [objNull]], ["_mode", "", [""]], ["_description", "", [""]], ["_fuze", "", [""]], ["_time", 0, [0]], ["_timeVariable", "", [""]]];
 
 private _text = _description;
 _vehicle setVariable ["itc_land_fuzeMode", _mode, true];

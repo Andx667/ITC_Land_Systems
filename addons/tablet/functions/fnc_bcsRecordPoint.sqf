@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_id", "_pos"];
+params [["_id", "", [""]], ["_pos", [], [[]]]];
 
 if (isNil QGVAR(bcs_locations)) then {GVAR(bcs_locations) = []};
 private _grid = ([_pos] call ace_common_fnc_getMapGridFromPos) joinString "";

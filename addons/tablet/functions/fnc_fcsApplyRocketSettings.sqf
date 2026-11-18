@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_round", "_fuzeIndex", "_fuzeTime", "_targetGrid", "_targetAlt"];
+params [["_vehicle", objNull, [objNull]], ["_round", "", [""]], ["_fuzeIndex", 0, [0]], ["_fuzeTime", 0, [0]], ["_targetGrid", "", [""]], ["_targetAlt", 0, [0]]];
 
 if (_round == "") exitWith {};
 private _mode = [_vehicle, _round, _fuzeIndex] call EFUNC(common,setFuzeSelection);

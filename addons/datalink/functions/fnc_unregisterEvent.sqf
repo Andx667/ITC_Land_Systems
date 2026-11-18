@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_target", "_header", "_type"];
+params [["_target", objNull, [objNull]], ["_header", "", [""]], ["_type", "", [""]]];
 
 private _functions = _target getVariable QGVAR(functions);
 private _indexToRemove = _functions findIf {((_x # 1) == _header && (_x # 2) == _type)};

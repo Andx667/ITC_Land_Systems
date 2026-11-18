@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_origin", "_ot", "_ad", "_lr", "_ud"];
+params [["_origin", [], [[]]], ["_ot", 0, [0]], ["_ad", 0, [0]], ["_lr", 0, [0]], ["_ud", 0, [0]]];
 //player sideChat str _this;
 private _otDeg = _ot / 6400 * 360; //ot dir in mils
 private _target = _origin getPos [_ad, _otDeg]; //apply add/drop

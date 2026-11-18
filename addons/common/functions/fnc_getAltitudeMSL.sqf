@@ -16,6 +16,6 @@
  * Public: No
  */
 
-params ["_object"];
+params [["_object", objNull, [objNull]]];
 
 round ((getPosASL _object) select 2) + ace_common_mapAltitude

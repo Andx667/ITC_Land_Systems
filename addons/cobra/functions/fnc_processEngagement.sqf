@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_cbr", "_origin"];
+params [["_cbr", objNull, [objNull]], ["_origin", [], [[]]]];
 private _engagements = missionNamespace getVariable "itc_land_cobra_engagements";
 private _existingPosition = nil;
 private _index = -1;

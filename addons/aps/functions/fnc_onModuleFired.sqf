@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_index", "_firedTime"];
+params [["_vehicle", objNull, [objNull]], ["_index", 0, [0]], ["_firedTime", 0, [0]]];
 
 if (!local _vehicle) exitWith {};
 

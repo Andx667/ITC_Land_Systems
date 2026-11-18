@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_mode"];
+params [["_mode", 0, [0]]];
 private _configTypes = [];
 {
     if (getNumber _x > 0) then {

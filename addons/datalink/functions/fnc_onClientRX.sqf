@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_object","_transmission"];
+params [["_object", objNull, [objNull]], ["_transmission", [], [[]]]];
 if (isNull _object) exitWith {};
 _transmission params ["_destination","_origin","_header","_type","_data"];
 

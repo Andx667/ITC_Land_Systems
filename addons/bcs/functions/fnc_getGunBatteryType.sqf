@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 if (isNil QGVAR(gunTypeCache)) then {GVAR(gunTypeCache) = createHashMap};
 

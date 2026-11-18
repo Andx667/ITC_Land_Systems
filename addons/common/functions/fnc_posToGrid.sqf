@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_pos"];
+params [["_pos", [], [[]]]];
 
 ([_pos] call ace_common_fnc_getMapGridFromPos) params ["_easting", "_northing"];
 format ["%1 %2", _easting, _northing]

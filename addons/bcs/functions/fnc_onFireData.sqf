@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_gun", "_transmission"];
+params [["_gun", objNull, [objNull]], ["_transmission", "", [""]]];
 _transmission params ["", "_origin", "", "", "_data"];
 _data params [
     ["_mission", "", [""]],

@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_control","_index"];
+params [["_control", controlNull, [controlNull]], ["_index", 0, [0]]];
 
 missionNamespace setVariable ["itc_land_rover_ui_curSelIndex",_index];
 missionNamespace setVariable ["itc_land_rover_ui_curAircraft",itc_land_rover_ui_aircraftList # _index];

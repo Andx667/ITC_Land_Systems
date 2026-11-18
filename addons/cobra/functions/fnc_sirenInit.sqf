@@ -25,7 +25,7 @@
 //[this,"vtolAlarm",100,2] call FUNC(sirenInit)
 
 if (!isServer) exitWith {};
-params ["_siren","_sirenSound","_sirenDistance","_sirenDuration"];
+params [["_siren", objNull, [objNull]], ["_sirenSound", "", [""]], ["_sirenDistance", 0, [0]], ["_sirenDuration", 0, [0]]];
 
 //_siren setVariable ["datalinkMethods",["EFUNC(datalink,receiveIDRegistry)","FUNC(sirenTrigger)"]];
 

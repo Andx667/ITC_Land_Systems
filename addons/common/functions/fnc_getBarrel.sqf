@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _turretConfig = [_vehicle, [0]] call BIS_fnc_turretConfig;
 private _muzzleName = getText (_turretConfig >> "gunBeg");

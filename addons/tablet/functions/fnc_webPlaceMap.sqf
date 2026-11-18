@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_ctrl"];
+params [["_ctrl", controlNull, [controlNull]]];
 
 private _map = (ctrlParent _ctrl) displayCtrl 32574;
 if (isNull _map) exitWith {};

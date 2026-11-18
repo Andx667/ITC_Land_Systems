@@ -19,7 +19,7 @@
 
 #include "BCS_idc_defines.hpp"
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 
 [_display, IDC_header1, ""] call EFUNC(common,ctrlSetText);
 [_display, IDC_header2, ""] call EFUNC(common,ctrlSetText);

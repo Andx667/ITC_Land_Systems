@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_fixed","_deflecting"];
+params [["_fixed", 0, [0]], ["_deflecting", 0, [0]]];
 
 // Deflection as on a US panoramic telescope: 3200 when the target lies along the fixed direction,
 // counting up to the left and down to the right ("left add, right subtract")

@@ -27,7 +27,7 @@
  */
 
 
-params ["_gun", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_shell", "_gunner"];
+params [["_gun", objNull, [objNull]], ["_weapon", "", [""]], ["_muzzle", "", [""]], ["_mode", "", [""]], ["_ammo", "", [""]], ["_magazine", "", [""]], ["_shell", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 
 if (!(local _gunner)) exitWith {};
 

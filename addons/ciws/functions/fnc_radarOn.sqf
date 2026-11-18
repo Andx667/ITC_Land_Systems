@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 if (!local _vehicle) exitWith {};
 

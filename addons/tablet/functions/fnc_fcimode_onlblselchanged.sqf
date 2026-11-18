@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_control","_index"];
+params [["_control", controlNull, [controlNull]], ["_index", 0, [0]]];
 if (true)exitWith{};
 //Generate global
 itc_land_fcimode = [_index,lbText [1501,_index]];

@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_siren","_position","_impactTime"];
+params [["_siren", objNull, [objNull]], ["_position", [], [[]]], ["_impactTime", 0, [0]]];
 private _sirenTriggerDist = _siren getVariable [QGVAR(sirenTriggerDist), 500];
 
 if (_siren distance2D _position < _sirenTriggerDist) then { // _position is ASL, distance would read it as AGL

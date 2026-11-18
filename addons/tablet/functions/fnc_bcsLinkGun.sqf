@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_gunVehicle"];
+params [["_gunVehicle", objNull, [objNull]]];
 
 if (!alive _gunVehicle || {_gunVehicle in (GVAR(bcs_bty_guns) apply {_x param [6, objNull]})}) exitWith {""};
 private _num = ["gun"] call FUNC(bcsNextId);

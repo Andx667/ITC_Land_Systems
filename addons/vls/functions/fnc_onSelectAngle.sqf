@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_control","_index"];
+params [["_control", controlNull, [controlNull]], ["_index", 0, [0]]];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _targetAngl = lbData [4110,_index];

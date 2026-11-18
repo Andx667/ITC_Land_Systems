@@ -31,7 +31,7 @@
  * Public: No
  */
 
-params ["_pfhValues", "_pfhId"];
+params [["_pfhValues", [], [[]]], ["_pfhId", 0, [0]]];
 _pfhValues params ["_projectile", "_magazine", "_position", "_fuzeMode", "_fuzeValue", "_firedTime", "_velocity"];
 
 if (_fuzeMode == "delay") exitWith {

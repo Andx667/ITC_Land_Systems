@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_action", "_magClass"];
+params [["_vehicle", objNull, [objNull]], ["_action", "", [""]], ["_magClass", "", [""]]];
 
 if !(_vehicle turretLocal [0]) exitWith {};
 

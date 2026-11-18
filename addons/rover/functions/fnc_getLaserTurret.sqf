@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 private _turrets = allTurrets _vehicle;
 _turrets pushBack [-1]; //driver
 scopeName "main";

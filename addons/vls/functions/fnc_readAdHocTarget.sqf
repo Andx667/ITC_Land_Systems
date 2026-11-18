@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 private _targetGrid = ctrlText 4106;
 _vehicle setVariable ["ITC_Land_VLS_adHocData_grid", _targetGrid, true];

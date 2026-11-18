@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_solutions", "_reference"];
+params [["_solutions", [], [[]]], ["_reference", [], [[]]]];
 
 if (_reference isEqualTo []) exitWith {[]};
 

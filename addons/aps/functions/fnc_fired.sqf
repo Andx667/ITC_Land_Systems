@@ -24,7 +24,7 @@
  * Public: No
  */
 
-params ["_unit", "_weapon", "", "", "_ammo", "", "_projectile", "_gunner"];
+params [["_unit", objNull, [objNull]], ["_weapon", "", [""]], "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 
 if (!local _unit) exitWith {};
 if (!GVAR(enabled)) exitWith {};

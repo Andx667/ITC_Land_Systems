@@ -27,7 +27,7 @@
  * Public: No
  */
 
-params ["_ctrl", "_message"];
+params [["_ctrl", controlNull, [controlNull]], ["_message", "", [""]]];
 
 if (isNil QGVAR(web)) exitWith {};
 private _msg = fromJSON _message;

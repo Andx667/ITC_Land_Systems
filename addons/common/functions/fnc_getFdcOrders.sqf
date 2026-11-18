@@ -27,7 +27,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_magazines"];
+params [["_vehicle", objNull, [objNull]], ["_magazines", [], [[]]]];
 
 (_vehicle getVariable [QEGVAR(bcs,fireData), []]) params [["_mission", ""], "", ["_magazine", ""], "", ["_count", 1], ["_fuzeMode", ""], ["_targetPos", []]];
 if (_mission == "") exitWith {createHashMap};

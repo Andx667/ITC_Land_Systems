@@ -27,7 +27,7 @@
  */
 
 //diag_log format ["LAUNCH: SAM35 Fuze START"];
-params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_launcher"];
+params [["_unit", objNull, [objNull]], ["_weapon", "", [""]], ["_muzzle", "", [""]], ["_mode", "", [""]], ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]], ["_launcher", objNull, [objNull]]];
 if (!local _launcher) exitWith {};
 //diag_log format ["LAUNCH: SAM35 Fuze Active"];
 private _projAD = getNumber (configFile >> "CfgAmmo" >> _ammo >> "fuseDistance");   //How far from the launcher should the missile before before the sensor is active

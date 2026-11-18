@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_projectile", "_vehicle"];
+params [["_projectile", objNull, [objNull]], ["_vehicle", objNull, [objNull]]];
 
 private _killed = false;
 private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];

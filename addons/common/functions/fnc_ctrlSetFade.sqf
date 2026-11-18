@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_display", "_ctrl", "_fade"];
+params [["_display", displayNull, [displayNull]], ["_ctrl", 0, [0]], ["_fade", 0, [0]]];
 
 (_display displayCtrl _ctrl) ctrlSetFade _fade;
 (_display displayCtrl _ctrl) ctrlCommit 0;

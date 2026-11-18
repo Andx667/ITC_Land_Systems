@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_ident", "_timeOfFlight"];
+params [["_ident", "", [""]], ["_timeOfFlight", 0, [0]]];
 
 private _mission = GVAR(bcs_missions) param [GVAR(bcs_missions) findIf {_x # 0 == _ident}, []];
 if (_mission isEqualTo []) exitWith {false};

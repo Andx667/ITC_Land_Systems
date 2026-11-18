@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_increment"];
+params [["_increment", 0, [0]]];
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 

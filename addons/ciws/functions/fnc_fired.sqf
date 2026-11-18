@@ -29,7 +29,7 @@
  * Public: No
  */
 
-params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params ["", "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {}; //make sure it doesn't get executed everywhere
 if (!GVAR(enabled)) exitWith {};  //if the CIWS system is turned off, stop the script
 
