@@ -30,7 +30,7 @@ if (isNil{_id} || _id == "") then {
 //check formating
 ([_id, true] call FUNC(validateID)) params ["_isValidID","_errors"];
 //check if it's free
-private _isAvailableID = !(_id in itc_land_datalink_nodes);
+private _isAvailableID = !(_id in GVAR(nodes));
 if (!_isAvailableID) then {
     _errors pushBack "ID unavailable";
 };
@@ -38,7 +38,7 @@ if (!_isAvailableID) then {
 //if valid and available then add it
 private _transmission = [];
 if (_isAvailableID && _isValidID) then {
-    itc_land_datalink_nodes set [_id, [_player, _owner]];
+    GVAR(nodes) set [_id, [_player, _owner]];
     _transmission = [_id,"0000",_requestingSystem,"response",[true,_id]];
 } else { //return errors
     _transmission = ["","0000",_requestingSystem,"response",[false,_errors]];

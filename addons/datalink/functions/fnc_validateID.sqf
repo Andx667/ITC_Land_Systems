@@ -38,14 +38,14 @@ if (!_broadCastAllowed) then {
 };
 
 //check the ID length
-if (count _characterArray != itc_land_datalink_IDLength) then {
+if (count _characterArray != GVAR(IDLength)) then {
     _isValid = false;
-    _errors pushBack format["Incorrect ID length %1, expected %2", _idLength, itc_land_datalink_IDLength];
+    _errors pushBack format["Incorrect ID length %1, expected %2", _idLength, GVAR(IDLength)];
 };
 
 //check the ID characters
 {
-    if (!(_x in itc_land_datalink_allowedIDCharacters)) then {
+    if (!(_x in GVAR(allowedIDCharacters))) then {
         _isValid = false;
         _errors pushBack format ["Invalid character %1 at %2", _x, _forEachIndex];
     };

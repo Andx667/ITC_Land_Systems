@@ -19,7 +19,7 @@
 
 params ["_index", "_match"];
 
-private _toRemoveIDs = (keys itc_land_datalink_nodes) select {((itc_land_datalink_nodes get _x) # _index) isEqualTo _match};
+private _toRemoveIDs = (keys GVAR(nodes)) select {((GVAR(nodes) get _x) # _index) isEqualTo _match};
 {
-    itc_land_datalink_nodes deleteAt _x;
+    GVAR(nodes) deleteAt _x;
 } forEach _toRemoveIDs;

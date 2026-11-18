@@ -45,6 +45,6 @@ private _targetNodeID = [_id, 2, 2] call CBA_fnc_substr;
             };
         };
     };
-}forEach itc_land_datalink_nodes;
+}forEach GVAR(nodes);
 
 _targets
