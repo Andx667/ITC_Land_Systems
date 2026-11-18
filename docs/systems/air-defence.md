@@ -13,7 +13,7 @@ Close-in weapon systems that track and shoot down incoming artillery shells, roc
 - About a second after such a round is fired, the CIWS can see it. A round that is shot down disappears in the air.
 - The Praetorian's radar is switched on as soon as it is placed, by the editor, Zeus or a script.
 - They are anti-air only: their sensors do not see ground vehicles and do not report them over datalink.
-- The CIWS can be switched off with the **Enable CIWS** [setting](../usage.md#settings).
+- The CIWS can be switched off with the **Enable CIWS** [setting](index.md#settings).
 
 ## SAM sites
 

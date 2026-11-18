@@ -77,8 +77,6 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Installation: installation.md
-  - Usage: usage.md
   - Systems:
       - systems/index.md
       - Artillery & Fire Control: systems/artillery.md
@@ -89,6 +87,5 @@ nav:
       - UAVs & Recon: systems/uavs.md
   - Compatibility: compatibility.md
   - Mission Makers & Modders: scripting.md
-  - Components: components.md
   - Contributing: contributing.md
   - License: license.md

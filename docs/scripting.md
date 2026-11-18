@@ -11,7 +11,7 @@ What to keep in mind when you place ITC systems in a mission, and the config to 
 - **Radar**: the Praetorian 2 switches its radar on as soon as it is created, whether by the editor, Zeus or a script. Other radar vehicles start with the radar off until their AI turns it on.
 - **VLS**: AI gunners of the ITC launchers never launch on their own. Fire them from the gunner seat, the [VLS interface](systems/air-defence.md#vls-interface) or by script, for example `_vls fireAtTarget [objNull, (_vls weaponsTurret [0]) select 0]` (without a target set in the interface the missile flies unguided).
 - **COBRA**: a radar only detects while it stands still. Turn it towards the expected threat; it covers 23° to each side.
-- **Settings**: the server-wide [settings](usage.md#settings) can be set per mission in `cba_settings.sqf`, for example `force itc_land_cobra_range = 15000;`.
+- **Settings**: the server-wide [settings](systems/index.md#settings) can be set per mission in `cba_settings.sqf`, for example `force itc_land_cobra_range = 15000;`.
 
 ## COBRA sirens
 

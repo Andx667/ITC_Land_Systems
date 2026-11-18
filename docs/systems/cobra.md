@@ -13,10 +13,10 @@ COBRA radars detect incoming artillery shells, predict where they land and back-
 
 ## How it works
 
-- A COBRA covers a 46° arc (23° to each side of where its radar faces) up to the [detection range](../usage.md#settings) (10 km by default). It only detects while it stands still and has line of sight to the shell.
+- A COBRA covers a 46° arc (23° to each side of where its radar faces) up to the [detection range](index.md#settings) (10 km by default). It only detects while it stands still and has line of sight to the shell.
 - It tracks artillery shells: every shell based on the vanilla 155 mm artillery shell (the ITC gun shells and the vanilla howitzer shells) and guided 82 mm mortar rounds. Rockets and unguided mortar rounds are not detected.
 - The first COBRA that sees a shell predicts its impact point and time, and back-traces the firing position.
-- Shots from within 300 m of a known firing position that come within the [engagement window](../usage.md#settings) (30 s by default) of the last one count to the same engagement.
+- Shots from within 300 m of a known firing position that come within the [engagement window](index.md#settings) (30 s by default) of the last one count to the same engagement.
 - The simulation runs on the server and is shared with every player.
 
 ## Sirens
@@ -32,7 +32,7 @@ Any other object can be made a siren too, see [Mission Makers & Modders](../scri
 
 ## Counter Battery Radar app
 
-The **Counter Battery Radar** app on the [FDC tablet](../usage.md#tablets) shows what the COBRAs see:
+The **Counter Battery Radar** app on the [FDC tablet](index.md#tablets) shows what the COBRAs see:
 
 - **Map view** — every COBRA with the edges of its arc, the detected firing positions in red with the number of rounds fired from them, and the predicted impacts with the seconds until they land
 - **Data view** — the list of engagements with their position, number of shots and the time of the last shot. **Save to BCS** stores the selected firing position in the [BCS location stores](bcs.md#location-stores); **COUNTER-FIRE** opens a new BCS fire mission on it at the engagement step, so you only pick the round and sheaf and compute
