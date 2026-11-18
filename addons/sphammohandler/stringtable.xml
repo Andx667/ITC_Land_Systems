@@ -58,9 +58,6 @@
         <Key ID="STR_itc_land_sphammohandler_PrepareRound">
             <English>PREPARE</English>
         </Key>
-        <Key ID="STR_itc_land_sphammohandler_SPHammohandler_DisplayName">
-            <English>Open Ammo Handling Interface</English>
-        </Key>
         <Key ID="STR_itc_land_sphammohandler_Status_AttachingLanyard">
             <English>ATTACHING LANYARD</English>
         </Key>

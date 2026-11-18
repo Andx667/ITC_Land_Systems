@@ -8,8 +8,8 @@
  * The first COBRA that detects a shell calculates its impact and origin
  * points and records the impact, origin and engagement; the shell then stops
  * being tracked (as does any shell that is no longer alive). Also purges
- * expired impact predictions, then publishes the results to all clients if
- * anything changed.
+ * expired impact predictions. The process functions send each new result to
+ * the clients as an event; a destroyed COBRA sends cobrasChanged.
  *
  * Arguments:
  * None
@@ -26,11 +26,10 @@
 private _cobras = itc_land_cobras select {alive _x};
 if (count _cobras != count itc_land_cobras) then {
     itc_land_cobras = _cobras;
-    publicVariable "itc_land_cobras";
+    [QGVAR(cobrasChanged), [_cobras]] call CBA_fnc_globalEvent;
 };
 
 private _scanning = _cobras select {vectorMagnitude (velocity _x) < 1};
-private _changed = false;
 private _remainingShells = [];
 {
     private _shell = _x;
@@ -53,20 +52,10 @@ private _remainingShells = [];
             private _origin = ([_shell, true] call EFUNC(common,simulateTrajectory)) # 0;
             [_cbr, _origin] call FUNC(processOrigin);
             [_cbr, _origin] call FUNC(processEngagement);
-            _changed = true;
         };
     };
 } forEach itc_land_cobra_shells;
 itc_land_cobra_shells = _remainingShells;
 
-private _activeShells = itc_land_cobra_activeShells select {cba_missionTime <= _x # 1};
-if (count _activeShells != count itc_land_cobra_activeShells) then {
-    itc_land_cobra_activeShells = _activeShells;
-    _changed = true;
-};
-
-if (_changed) then {
-    publicVariable "itc_land_cobra_firingPositions";
-    publicVariable "itc_land_cobra_engagements";
-    publicVariable "itc_land_cobra_activeShells";
-};
+// clients drop expired impacts themselves (cobra XEH_postInit), so this needs no event
+itc_land_cobra_activeShells = itc_land_cobra_activeShells select {cba_missionTime <= _x # 1};

@@ -17,7 +17,7 @@ class CfgWeapons {
             scope = 0;
         };
     };
-    class ITC_Land_B_RemoteGLTD_Packed: ITC_Land_RemoteGLTD_Packed_base {displayName = "Remote GLTD [NATO] (Packed)"; scope = 2; scopeCurator = 2; itc_land_unPacksTo = "ITC_Land_B_RemoteGLTD";};
+    class ITC_Land_B_RemoteGLTD_Packed: ITC_Land_RemoteGLTD_Packed_base {displayName = CSTRING(B_RemoteGLTD_Packed_DisplayName); scope = 2; scopeCurator = 2; itc_land_unPacksTo = "ITC_Land_B_RemoteGLTD";};
 
-    class ITC_Land_BW_RemoteGLTD_Packed: ITC_Land_RemoteGLTD_Packed_base {displayName = "Remote GLTD [NATO] (Green, Packed)"; scope = 2; scopeCurator = 2; itc_land_unPacksTo = "ITC_Land_BW_RemoteGLTD";};
+    class ITC_Land_BW_RemoteGLTD_Packed: ITC_Land_RemoteGLTD_Packed_base {displayName = CSTRING(BW_RemoteGLTD_Packed_DisplayName); scope = 2; scopeCurator = 2; itc_land_unPacksTo = "ITC_Land_BW_RemoteGLTD";};
 };

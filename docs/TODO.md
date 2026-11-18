@@ -229,7 +229,8 @@ exists but cannot be reached in game, kept to be finished later.
 - [ ] 105 mm / 122 mm framework for other mods (ITC adds no vehicle for them). Missing so
       far:
   - `veh_weapons/CfgMagazines_105mm.hpp` is never included in `CfgMagazines.hpp`, so
-    `itc_land_105mm_howitzer` lists magazines that do not exist.
+    `itc_land_105mm_howitzer` lists magazines that do not exist. This is also why
+    `hemtt check` reports the 8 `veh_weapons` `g105*` stringtable keys as unused.
   - no `G105`/`G122` entry under `itc_land_ballistics >> batteryTypes`
     (`ballistics/CfgMisc.hpp`), so the tablet FCS and the BCS offer no shells or
     solutions for these guns.

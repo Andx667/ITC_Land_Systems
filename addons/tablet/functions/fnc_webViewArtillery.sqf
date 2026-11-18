@@ -131,7 +131,7 @@ if (_missile) then {
         _fuzeFields pushBack (["pgmGrid", LLSTRING(fci_guideinputs_tgtgrid_text_Text), LLSTRING(fci_guideinputs_Tooltip), [], "", [], _grid] call FUNC(webField));
         _fuzeFields pushBack (["pgmAlt", LLSTRING(fci_guideinputs_elev_text_Text), LLSTRING(fci_guideinputs_Tooltip), [], "", [], _number] call FUNC(webField));
     };
-    _calcFields = _calcFields + ["fuze", "time", "pgmGrid", "pgmAlt"];
+    _calcFields append ["fuze", "time", "pgmGrid", "pgmAlt"];
 };
 private _calculate = if (_missile) then {
     [LLSTRING(WebApplyCalculate), "artApplyCalc", _calcFields, LLSTRING(fci_fuzeinputs_Tooltip), nil, false, "primary"] call FUNC(webButton)

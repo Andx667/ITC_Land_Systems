@@ -42,7 +42,7 @@ private _projectilePosition = getPosASL _projectile;
 // "out of range" is not logged, it repeats every frame while the projectile closes in
 private _reject = {
     if (_this != "out of range" && {missionNamespace getVariable [QGVAR(debug), false]}) then {
-        diag_log format ["[ITC APS] %1 %2: no intercept, %3 (projectile %4 m)", typeOf _vehicle, _name, _this, round (_apsPosition distance _projectilePosition)];
+        INFO_4("%1 %2: no intercept - %3 (projectile %4 m)",typeOf _vehicle,_name,_this,round (_apsPosition distance _projectilePosition));
     };
     false
 };

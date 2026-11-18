@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="veh_uav06">
+        <Key ID="STR_itc_land_veh_uav06_B_AL6_Packed_DisplayName">
+            <English>AL-6 Pelican [NATO] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_B_AL6m_Packed_DisplayName">
+            <English>AL-6M Pelican [NATO] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_C_AL6_Packed_DisplayName">
+            <English>Civilian Utility Drone (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_C_AL6m_Packed_DisplayName">
+            <English>Civilian Medical Drone (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_C_IDAP_AL6_Packed_DisplayName">
+            <English>IDAP Utility Drone (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_C_IDAP_AL6m_Packed_DisplayName">
+            <English>IDAP Medical Drone (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_I_AL6_Packed_DisplayName">
+            <English>AL-6 Pelican [AAF] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_I_AL6m_Packed_DisplayName">
+            <English>AL-6M Pelican [AAF] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_O_AL6_Packed_DisplayName">
+            <English>AL-6 Pelican [CSAT] (Packed)</English>
+        </Key>
+        <Key ID="STR_itc_land_veh_uav06_O_AL6m_Packed_DisplayName">
+            <English>AL-6M Pelican [CSAT] (Packed)</English>
+        </Key>
         <Key ID="STR_itc_land_veh_uav06_PackAL6_DisplayName">
             <English>Repack UAV</English>
         </Key>
