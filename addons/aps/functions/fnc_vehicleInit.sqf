@@ -4,6 +4,7 @@
  * Author: Yax
  * Initializes a vehicle's APS (Active Protection System) modules from its "itc_land_aps" config class, and stores the resulting
  * module array in the vehicle's "itc_land_aps_modules" variable (public) if any modules are defined.
+ * Run on the server; on other machines it does nothing, so the init event handler can call it everywhere.
  *
  * Arguments:
  * 0: Vehicle to initialize APS modules for <OBJECT>
@@ -14,7 +15,7 @@
  * Example:
  * [vehicle] call itc_land_aps_fnc_vehicleInit
  *
- * Public: No
+ * Public: Yes
  */
 params [["_vehicle", objNull, [objNull]]];
 

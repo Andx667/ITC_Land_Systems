@@ -5,6 +5,7 @@
  * Opens the ammunition handler: in HTML with the setting "Tablet in HTML" (the tablet's web page
  * as a panel, sphammohandler_fnc_webView/webAction), else the classic dialog. The vehicles' ACE
  * action "Open Ammo Handling Interface" calls it.
+ * Run on the client of the unit opening the handler.
  *
  * Arguments:
  * 0: The classic dialog also with the setting "Tablet in HTML" <BOOL> (default: false)
@@ -15,7 +16,7 @@
  * Example:
  * [] call itc_land_sphammohandler_fnc_open
  *
- * Public: No
+ * Public: Yes
  */
 
 params [["_classic", false, [false]]];

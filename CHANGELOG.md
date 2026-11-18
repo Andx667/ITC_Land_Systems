@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Added
+
+- Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#PR) by Andx
+
 ### Changed
 
 - Credits - The original ITC team agreed to the continuation; README, Workshop page and documentation say so (#18) by Andx
