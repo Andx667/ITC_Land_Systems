@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_display", "_vehicle", "_azimuth", "_quadrant", "_origin"];
+params [["_display", displayNull, [displayNull]], ["_vehicle", objNull, [objNull]], ["_azimuth", 0, [0]], ["_quadrant", 0, [0]], ["_origin", [], [[]]]];
 _origin params ["_originX", "_originY"];
 
 // where the gun points relative to the selected solution, shown while one is selected
