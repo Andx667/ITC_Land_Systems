@@ -31,7 +31,7 @@
  * Public: No
  */
 
-params ["_unit", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params [["_unit", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 private _targetPos = _unit getVariable ["itc_land_guidance_targetPos", itc_land_guidance_targetPos];
 
 if (isNil{_targetPos}) exitWith {};

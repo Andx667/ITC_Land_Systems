@@ -29,7 +29,7 @@
  * Public: No
  */
 
-params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 private _targetPos = _vehicle getVariable "itc_land_guidance_targetPos";
 if (isNil{_targetPos}) exitWith {};
 [_projectile, {
