@@ -58,6 +58,7 @@ if (!isNull _map) then {
 };
 
 // the handlers go on before the page loads, so PageLoaded cannot fire into a control without them
+// hemtt check warns L-S02UE on both: its command data (acemod/arma3-wiki) lacks the 2.20 CT_WEBBROWSER events
 _ctrl ctrlAddEventHandler ["JSDialog", {
     params ["_ctrl", "", "_message"];
     [_ctrl, _message] call FUNC(webReceive);
