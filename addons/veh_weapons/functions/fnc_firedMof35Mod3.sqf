@@ -30,14 +30,14 @@
 params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {};
 
-private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
+private _fuzeValue = _vehicle getVariable [QEGVAR(common,fuzeValues),0];
 private _guidanceInfo = [
     [
-        _vehicle getVariable ["itc_land_guidance_laserCode",1111],
-        _vehicle getVariable ["itc_land_guidance_laserCode_2",1112]
+        _vehicle getVariable [QEGVAR(guidance,laserCode),1111],
+        _vehicle getVariable [QEGVAR(guidance,laserCode_2),1112]
     ],
-    _vehicle getVariable ["itc_land_guidance_targetGrid","00000000"],
-    _vehicle getVariable ["itc_land_guidance_targetAlt",0]
+    _vehicle getVariable [QEGVAR(guidance,targetGrid),"00000000"],
+    _vehicle getVariable [QEGVAR(guidance,targetAlt),0]
 ];
 
 [{
