@@ -20,9 +20,9 @@
 params [["_vehicle", objNull, [objNull]]];
 
 private _targetGrid = ctrlText 4106;
-_vehicle setVariable ["ITC_Land_VLS_adHocData_grid", _targetGrid, true];
+_vehicle setVariable [QGVAR(adHocData_grid), _targetGrid, true];
 
 private _targetElev = parseNumber (ctrlText 4108);
-_vehicle setVariable ["ITC_Land_VLS_adHocData_elev", _targetElev, true];
+_vehicle setVariable [QGVAR(adHocData_elev), _targetElev, true];
 
 [_targetGrid, _targetElev, [_targetGrid, _targetElev] call EFUNC(common,gridToPos)]

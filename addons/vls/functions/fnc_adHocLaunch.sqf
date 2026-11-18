@@ -22,10 +22,10 @@ private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 ([_vehicle] call FUNC(readAdHocTarget)) params ["_targetGrid", "_targetElev", "_targetPos"];
 
-private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
+private _targetAngl = _vehicle getVariable [QGVAR(adHocData_angl),[1,"45"]];
 
-_vehicle setVariable ["itc_land_vls_targetAngl",  parseNumber (_targetAngl # 1), true];
+_vehicle setVariable [QGVAR(targetAngl),  parseNumber (_targetAngl # 1), true];
 
-_vehicle setVariable ["itc_land_vls_targetPos", _targetPos, true];
+_vehicle setVariable [QGVAR(targetPos), _targetPos, true];
 
 _vehicle fire (currentWeapon _vehicle);

@@ -22,11 +22,11 @@ private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 ([_vehicle] call FUNC(readAdHocTarget)) params ["_targetGrid", "_targetElev", "_targetPos"];
 
-private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
+private _targetAngl = _vehicle getVariable [QGVAR(adHocData_angl),[1,"45"]];
 private _targetAnglNum = parseNumber (_targetAngl # 1);
 
 private _targetName = ctrlText 4112;
-_vehicle setVariable ["ITC_Land_VLS_adHocData_name", _targetName, true];
+_vehicle setVariable [QGVAR(adHocData_name), _targetName, true];
 
 private _TGTData = [_targetName,_targetPos,_targetAnglNum];
 private _TGTLabel = format [LLSTRING(TargetLabel),_targetName,_targetGrid,_targetElev,_targetAngl # 1];
@@ -35,6 +35,6 @@ private _index = lbAdd [4103, format["%1", _TGTLabel]];
 lbSetData [4103, _index, str _TGTData];
 
 private _TGTRecord = [_TGTLabel, str _TGTData];
-private _targetsArray = _vehicle getVariable ["ITC_Land_VLS_TGTList",[]];
+private _targetsArray = _vehicle getVariable [QGVAR(TGTList),[]];
 _targetsArray pushBack _TGTRecord;
-_vehicle setVariable ["ITC_Land_VLS_TGTList",_targetsArray,true];
+_vehicle setVariable [QGVAR(TGTList),_targetsArray,true];

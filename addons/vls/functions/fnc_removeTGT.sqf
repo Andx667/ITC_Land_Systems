@@ -20,11 +20,11 @@
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 //get selected target
-private _target = _vehicle getVariable ["ITC_Land_VLS_selectedTGT",[]];
+private _target = _vehicle getVariable [QGVAR(selectedTGT),[]];
 if ((count _target) < 1) exitWith {};
 
 lbDelete [4103, _target # 0];
 
-private _targetsArray = _vehicle getVariable ["ITC_Land_VLS_TGTList",[]];
+private _targetsArray = _vehicle getVariable [QGVAR(TGTList),[]];
 _targetsArray deleteAt (_target # 0);
-_vehicle setVariable ["ITC_Land_VLS_TGTList",_targetsArray,true];
+_vehicle setVariable [QGVAR(TGTList),_targetsArray,true];

@@ -22,4 +22,4 @@ params [["_control", controlNull, [controlNull]], ["_index", 0, [0]]];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 private _targetAngl = lbData [4110,_index];
-_vehicle setVariable ["ITC_Land_VLS_adHocData_angl",[_index,_targetAngl],true];
+_vehicle setVariable [QGVAR(adHocData_angl),[_index,_targetAngl],true];
