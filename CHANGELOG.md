@@ -15,7 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
-- Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work by Andx
+- Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work (#30) by Andx
 
 ### Fixed
 
