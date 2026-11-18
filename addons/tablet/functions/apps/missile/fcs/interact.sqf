@@ -44,7 +44,7 @@ switch (_action) do {
         [2402, _orders get "round"] call FUNC(mlrsfci_onlblselchanged_roundType);
         if ((_orders get "fuze") != -1) then {
             if ((_orders get "time") != "") then {
-                _vehicle setVariable ["itc_land_mlrsfci_fuzeTime", parseNumber (_orders get "time"), true];
+                _vehicle setVariable [QGVAR(mlrsfci_fuzeTime), parseNumber (_orders get "time"), true];
             };
             lbSetCurSel [1904, _orders get "fuze"];
             [1904, _orders get "fuze"] call FUNC(mlrsfci_onlblselchanged_fuzemode);

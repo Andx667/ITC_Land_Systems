@@ -24,19 +24,19 @@
 
 params [["_vehicle", objNull, [objNull]], ["_grid", "", [""]], ["_elevation", 0, [0]], ["_round", "", [""]]];
 
-_vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _grid, true];
+_vehicle setVariable [QGVAR(fcs_tgtgrid), _grid, true];
 _vehicle setVariable [QEGVAR(bcs,fireData), nil, true];
 
 private _solutions = [];
 // ACE reads an empty grid as the map origin
 if (_grid regexMatch GRID_REGEX && {_round != ""}) then {
-    _vehicle setVariable ["itc_land_tablet_fcs_tgtelev", _elevation, true];
+    _vehicle setVariable [QGVAR(fcs_tgtelev), _elevation, true];
     private _targetPos = [_grid, false] call ace_common_fnc_getMapPosFromGrid;
     private _gunPos = getPosASL _vehicle;
     _solutions = [_round, _gunPos, _gunPos # 2, getDir _vehicle, _targetPos, _elevation - ace_common_mapAltitude, _vehicle] call EFUNC(ballistics,calcShellTypeSolutions);
     // the tables can reach steeper or flatter than this gun can lay (guided rockets: after their fixed quadrant)
     _solutions = [_vehicle, _solutions] call EFUNC(common,filterSolutionsByElevation);
 };
-_vehicle setVariable ["itc_land_tablet_fcs_solutions", _solutions, true];
-_vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+_vehicle setVariable [QGVAR(fcs_solutions), _solutions, true];
+_vehicle setVariable [QGVAR(fcs_solutions_index), 0, true];
 _solutions

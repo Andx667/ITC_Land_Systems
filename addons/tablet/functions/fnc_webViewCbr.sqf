@@ -33,7 +33,7 @@ private _view = createHashMapFromArray [
 
 if (_page == "data") exitWith {
     ["cbr/data", {createHashMapFromArray [["engagement", 0]]}] call FUNC(webForm);
-    private _rows = (missionNamespace getVariable ["itc_land_cobra_engagements", []]) apply {
+    private _rows = (missionNamespace getVariable [QEGVAR(cobra,engagements), []]) apply {
         [_x # 0, [_x # 2 # 0] call EFUNC(common,posToGrid), _x # 1, (_x # 5) call BIS_fnc_timeToString]
     };
     _view set ["title", LLSTRING(Cbr_Data)];

@@ -31,7 +31,7 @@ switch (_action) do {
         if ([_num, _posStr, _elev, _friendly == "yes"] call FUNC(bcsSaveLocation)) then {
             lbAdd [5411, format["%1               %2              %3               %4", _num, _posStr, _elev, _friendly]];
         } else {
-            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+            [findDisplay 32562] call FUNC(pageInit);
         };
     };
     case "removeLocation": {

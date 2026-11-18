@@ -23,7 +23,7 @@ ctrlShow [13602, true];
 
 [_display, IDC_workspace_header, LLSTRING(Cbr_Data)] call EFUNC(common,ctrlSetText);
 
-private _firesStrings = (missionNamespace getVariable ["itc_land_cobra_engagements", []]) apply {
+private _firesStrings = (missionNamespace getVariable [QEGVAR(cobra,engagements), []]) apply {
     format[LLSTRING(Cbr_EngagementEntry),
         _x # 0,
         [_x # 2 # 0] call EFUNC(common,posToGrid),

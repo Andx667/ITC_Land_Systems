@@ -55,4 +55,4 @@ if ("eom" in _action) then {
     [_action == "eomsave"] call FUNC(bcsEndMission);
     ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(page), "locStores"];
 };
-[findDisplay 32562, false] call itc_land_tablet_fnc_pageInit;
+[findDisplay 32562, false] call FUNC(pageInit);

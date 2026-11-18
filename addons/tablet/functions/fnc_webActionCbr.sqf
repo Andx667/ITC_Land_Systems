@@ -24,7 +24,7 @@
 params ["_vehicle", "_app", "_action", "_value"];
 
 private _selected = ["engagement", "index"] call FUNC(webFormValue);
-private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
+private _engagements = missionNamespace getVariable [QEGVAR(cobra,engagements), []];
 if (_selected < 0 || {_selected >= count _engagements}) exitWith {};
 private _engagement = _engagements # _selected;
 

@@ -19,7 +19,7 @@
  */
 
 params [["_app", "", [""]]];
-itc_land_tablet_fnc_appInit = [[_app, "init.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);
+FUNC(appInit) = [[_app, "init.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);
 FUNC(appClear) = [[_app, "clear.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);
 FUNC(appInteract) = [[_app, "interact.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);
-itc_land_tablet_fnc_appRender = [[_app, "render.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);
+FUNC(appRender) = [[_app, "render.sqf"] call FUNC(resolveAppFile)] call FUNC(compileScript);

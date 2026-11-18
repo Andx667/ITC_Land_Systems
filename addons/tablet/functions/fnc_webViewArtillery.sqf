@@ -94,13 +94,13 @@ GVAR(web) set ["rounds", _rounds];
 
 private _form = [_app + "/fcs", {
     createHashMapFromArray [
-        ["grid", _vehicle getVariable ["itc_land_tablet_fcs_tgtgrid", ""]],
-        ["elev", [str (_vehicle getVariable ["itc_land_tablet_fcs_tgtelev", 0]), ""] select isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtelev"}],
+        ["grid", _vehicle getVariable [QGVAR(fcs_tgtgrid), ""]],
+        ["elev", [str (_vehicle getVariable [QGVAR(fcs_tgtelev), 0]), ""] select isNil {_vehicle getVariable QGVAR(fcs_tgtelev)}],
         ["round", 0],
-        ["fuze", (_vehicle getVariable ["itc_land_selectedFuzeIndex", 0]) max 0],
-        ["time", str (_vehicle getVariable ["itc_land_mlrsfci_fuzeTime", 0])],
-        ["pgmGrid", format ["%1", _vehicle getVariable ["itc_land_guidance_targetGrid", "0000000000"]]],
-        ["pgmAlt", format ["%1", _vehicle getVariable ["itc_land_guidance_targetAlt", 0]]]
+        ["fuze", (_vehicle getVariable [QEGVAR(common,selectedFuzeIndex), 0]) max 0],
+        ["time", str (_vehicle getVariable [QGVAR(mlrsfci_fuzeTime), 0])],
+        ["pgmGrid", format ["%1", _vehicle getVariable [QEGVAR(guidance,targetGrid), "0000000000"]]],
+        ["pgmAlt", format ["%1", _vehicle getVariable [QEGVAR(guidance,targetAlt), 0]]]
     ]
 }] call FUNC(webForm);
 if ((_form get "round") >= count _rounds) then {_form set ["round", 0]};
@@ -151,7 +151,7 @@ if (_missile) then {_secondary pushBack [[LLSTRING(fci_fdcorders_btn_Text), "art
 _blocks pushBack (["bar", [["left", [_calculate]], ["groups", _secondary]]] call FUNC(webBlock));
 
 // the selected solution (stepped as in the BCS) or the FDC's data, label and value
-private _solutions = _vehicle getVariable ["itc_land_tablet_fcs_solutions", []];
+private _solutions = _vehicle getVariable [QGVAR(fcs_solutions), []];
 private _solutionKey = (LLSTRING(Fcs_Solution) splitString ":") param [0, ""];
 private _rows = [];
 {
@@ -164,7 +164,7 @@ _blocks pushBack (["section", [["text", LLSTRING(WebSolution)], ["tip", LLSTRING
 if (_solutions isNotEqualTo []) then {
     _blocks pushBack (["stepper", [
         ["label", LLSTRING(WebSolution)],
-        ["value", format ["%1 / %2", (_vehicle getVariable ["itc_land_tablet_fcs_solutions_index", 0]) + 1, count _solutions]],
+        ["value", format ["%1 / %2", (_vehicle getVariable [QGVAR(fcs_solutions_index), 0]) + 1, count _solutions]],
         ["a", "artStep"],
         ["tip", LLSTRING(solution_solutionCount_Tooltip)]
     ]] call FUNC(webBlock));

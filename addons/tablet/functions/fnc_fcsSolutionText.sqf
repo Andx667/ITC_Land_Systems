@@ -28,10 +28,10 @@ if (_mission != "") then {
     _text = format [LLSTRING(Fcs_FromFdc) + "<br/>", _mission, _phase, getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")];
 };
 
-private _solutions = _vehicle getVariable ["itc_land_tablet_fcs_solutions", []];
+private _solutions = _vehicle getVariable [QGVAR(fcs_solutions), []];
 if (_solutions isEqualTo []) exitWith {_text + LLSTRING(Fcs_NoSolution)};
 
-private _solutionIndex = _vehicle getVariable ["itc_land_tablet_fcs_solutions_index", 0];
+private _solutionIndex = _vehicle getVariable [QGVAR(fcs_solutions_index), 0];
 (_solutions # _solutionIndex) params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist", "", ["_fuzeSetting", -1]];
 
 _text = _text + format [LLSTRING(Fcs_Solution) + "<br/>", _solutionIndex + 1, count _solutions];

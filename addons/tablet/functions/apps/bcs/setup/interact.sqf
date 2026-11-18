@@ -30,7 +30,7 @@ switch (_action) do {
         private _gunIndex = lbCurSel 4304;
         GVAR(bcs_bty_type) = [_gunIndex, lbData [4304, _gunIndex]];
         // redraw: the guns to link are those of the active battery type
-        [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+        [findDisplay 32562] call FUNC(pageInit);
     };
     case "addGun": {
         private _num = UITEXT(4306);
@@ -41,14 +41,14 @@ switch (_action) do {
             lbAdd [4315, format["%1               %2               %3              %4               %5", GVAR(bcs_bty_name), _num, _posStr, _elev, _dir]];
             ctrlSetText [4306, ["gun"] call FUNC(bcsNextId)];
         } else {
-            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+            [findDisplay 32562] call FUNC(pageInit);
         };
     };
     case "linkGun": {
         if (([GVAR(bcs_linkableGuns) param [lbCurSel 4320, objNull]] call FUNC(bcsLinkGun)) == "") exitWith {
             [LLSTRING(Bcs_NoGunsToLink)] call ace_common_fnc_displayTextStructured;
         };
-        [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+        [findDisplay 32562] call FUNC(pageInit);
     };
     case "removeGun": {
         GVAR(bcs_bty_guns) deleteAt _listIndex;
