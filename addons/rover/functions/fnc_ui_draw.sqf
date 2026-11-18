@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_plane"];
+params [["_plane", objNull, [objNull]]];
 ([] call ace_common_fnc_getTargetAzimuthAndInclination) params ["_viewDir","_viewInc"]; //new method uses ace function to get player view direction and inclination, as this function works of camera position it is better suited for multiple platforms.
 private _weaponDirD = [ _viewDir , 3 ] call CBA_fnc_formatNumber;     //Take weapon direction in degrees and format as 3 figure string
 private _weaponDirM = round (_viewDir / 360 * 6400); //Take weapon direction in degrees, convert to mils and format as 4 figure string
