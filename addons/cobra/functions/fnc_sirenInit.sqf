@@ -36,10 +36,10 @@ params [["_siren", objNull, [objNull]], ["_sirenSound", "", [""]], ["_sirenDista
 //[_siren,_linkID,"object_register", true] call EFUNC(datalink,connect);
 
 private _sirenType = typeOf _siren;
-if (isNil "ITC_Land_COBRA_SirenTypes") then {
-    missionNamespace setVariable ["ITC_Land_COBRA_SirenTypes",[_sirenType],true];
+if (isNil QGVAR(sirenTypes)) then {
+    missionNamespace setVariable [QGVAR(sirenTypes),[_sirenType],true];
 } else {
-    ITC_Land_COBRA_SirenTypes append [_sirenType];
+    GVAR(sirenTypes) append [_sirenType];
 };
 
 if ((count _this) < 4) then {

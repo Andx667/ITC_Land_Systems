@@ -6,7 +6,7 @@ if (isServer) then {
     // a joining client gets the whole state once, every change after that comes as its own event
     [QGVAR(requestState), {
         params ["_owner"];
-        [QGVAR(state), [itc_land_cobras, GVAR(firingPositions), GVAR(engagements), GVAR(activeShells)], _owner] call CBA_fnc_ownerEvent;
+        [QGVAR(state), [GVAR(vehicles), GVAR(firingPositions), GVAR(engagements), GVAR(activeShells)], _owner] call CBA_fnc_ownerEvent;
     }] call CBA_fnc_addEventHandler;
 
     [FUNC(scan), 1] call CBA_fnc_addPerFrameHandler;
@@ -17,7 +17,7 @@ if (hasInterface && {!isServer}) then {
     // changes can arrive before the answer to requestState; the state already holds them and replaces the copy
     [QGVAR(state), {
         params ["_cobras", "_firingPositions", "_engagements", "_activeShells"];
-        itc_land_cobras = _cobras;
+        GVAR(vehicles) = _cobras;
         GVAR(firingPositions) = _firingPositions;
         GVAR(engagements) = _engagements;
         GVAR(activeShells) = _activeShells;
@@ -25,7 +25,7 @@ if (hasInterface && {!isServer}) then {
 
     [QGVAR(cobrasChanged), {
         params ["_cobras"];
-        itc_land_cobras = _cobras;
+        GVAR(vehicles) = _cobras;
     }] call CBA_fnc_addEventHandler;
 
     [QGVAR(firingPositionChanged), {

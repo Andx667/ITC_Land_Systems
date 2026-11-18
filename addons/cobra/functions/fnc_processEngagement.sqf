@@ -23,13 +23,13 @@
  */
 
 params [["_cbr", objNull, [objNull]], ["_origin", [], [[]]]];
-private _engagements = missionNamespace getVariable "itc_land_cobra_engagements";
+private _engagements = missionNamespace getVariable QGVAR(engagements);
 private _existingPosition = nil;
 private _index = -1;
 {
     _x params ["_ident","_shots", "_positions", "_firstShot", "_lastShot"];
     for "_i" from 0 to (count _positions) - 1 step 1 do {
-        if (_origin distance (_positions # _i) < 300 && (_lastShot + (missionNamespace getVariable "itc_land_cobra_engagementTime")) > cba_missionTime) then {
+        if (_origin distance (_positions # _i) < 300 && (_lastShot + (missionNamespace getVariable QGVAR(engagementTime))) > cba_missionTime) then {
             if (isNil{_existingPosition}) then {
                 _existingPosition = _x;
                 _index = _forEachIndex;
@@ -43,9 +43,9 @@ private _index = -1;
 }forEach _engagements;
 
 if (isNil{_existingPosition}) then {
-    private _start = missionNamespace getVariable "itc_land_cobra_start";
+    private _start = missionNamespace getVariable QGVAR(start);
     _index = _engagements pushBack [format["CB%1",[_start,4] call cba_fnc_formatNumber],1, [_origin], cba_missionTime, cba_missionTime, dayTime];
-    missionNamespace setVariable ["itc_land_cobra_start", _start + 1];
+    missionNamespace setVariable [QGVAR(start), _start + 1];
 };
-missionNamespace setVariable ["itc_land_cobra_engagements",_engagements];
+missionNamespace setVariable [QGVAR(engagements),_engagements];
 [QGVAR(engagementChanged), [_index, _engagements # _index]] call CBA_fnc_globalEvent;

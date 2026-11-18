@@ -22,8 +22,8 @@
  */
 
 params [["_cbr", objNull, [objNull]], ["_origin", [], [[]]]];
-private _origins = missionNamespace getVariable "itc_land_cobra_origins";
-private _firingPositions = missionNamespace getVariable "itc_land_cobra_firingPositions";
+private _origins = missionNamespace getVariable QGVAR(origins);
+private _firingPositions = missionNamespace getVariable QGVAR(firingPositions);
 _origins pushBack _origin;
 private _existingPosition = nil;
 private _index = -1;
@@ -46,6 +46,6 @@ if (isNil{_existingPosition}) then {
     _index = _firingPositions pushBack [1, [_origin], cba_missionTime];
 };
 
-missionNamespace setVariable ["itc_land_cobra_firingPositions",_firingPositions];
+missionNamespace setVariable [QGVAR(firingPositions),_firingPositions];
 [QGVAR(firingPositionChanged), [_index, _firingPositions # _index]] call CBA_fnc_globalEvent;
-missionNamespace setVariable ["itc_land_cobra_origins",_origins];
+missionNamespace setVariable [QGVAR(origins),_origins];
