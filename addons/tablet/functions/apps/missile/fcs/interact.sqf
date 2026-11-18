@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 ITC_CURVEHICLE
 
 switch (_action) do {

@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 
 if (!local _gunner) exitWith {};
 

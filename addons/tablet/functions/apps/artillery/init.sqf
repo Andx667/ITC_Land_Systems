@@ -20,7 +20,7 @@
 
 #include "..\..\BCS_idc_defines.hpp"
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 ITC_CURVEHICLE
 private _appConfig = configFile >> "itc_land" >> "apps" >> (_vehicle getVariable QGVAR(app));
 private _interfaces = (configOf _vehicle >> "itc_land" >> "tabletInterfaces")  call BIS_fnc_getCfgData;

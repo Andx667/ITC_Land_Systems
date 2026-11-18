@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 if (_action == "back") then {

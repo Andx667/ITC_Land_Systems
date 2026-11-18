@@ -24,7 +24,7 @@
  * Public: No
  */
 
-params ["_action", "_listBox", "_target", "_value"];
+params [["_action", "", [""]], ["_listBox", -1, [0]], ["_target", -1, [0]], ["_value", "", [""]]];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 

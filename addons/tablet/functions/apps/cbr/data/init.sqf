@@ -18,7 +18,7 @@
  */
 
 #include "..\..\..\BCS_idc_defines.hpp"
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 ctrlShow [13602, true];
 
 [_display, IDC_workspace_header, LLSTRING(Cbr_Data)] call EFUNC(common,ctrlSetText);

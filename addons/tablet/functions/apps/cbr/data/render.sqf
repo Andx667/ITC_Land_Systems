@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 private _firesStrings = (missionNamespace getVariable [QEGVAR(cobra,engagements), []]) apply {
     format[LLSTRING(Cbr_EngagementEntry),
         _x # 0,

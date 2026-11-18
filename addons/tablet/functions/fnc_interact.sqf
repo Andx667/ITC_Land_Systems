@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_action", "_value"];
+params [["_action", "", [""]], ["_value", nil, [0]]];
 ITC_CURVEHICLE
 
 if (_action == "app" && !isNil{_value}) exitWith {

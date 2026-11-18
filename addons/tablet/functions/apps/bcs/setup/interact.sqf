@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 #include "..\..\..\BCS_idc_defines.hpp"
 #include "..\bcsDefines.hpp"
 

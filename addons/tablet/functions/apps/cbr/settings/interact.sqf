@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 
 switch (_action) do {
     case "cobraConnect": {
