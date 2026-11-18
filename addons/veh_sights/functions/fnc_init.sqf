@@ -40,7 +40,7 @@
     params ["_player", "_newVehicle"];
     if (count (currentWeapon _player) > 0) exitWith {};
     if (isNull _newVehicle) exitWith {};
-    private _sightEvent = _newVehicle getVariable "ITC_Land_SightEvent";
+    private _sightEvent = _newVehicle getVariable QGVAR(sightEvent);
     if (isNil "_sightEvent") exitWith {};
 
     //Restore sight display

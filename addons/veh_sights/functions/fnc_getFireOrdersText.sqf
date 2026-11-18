@@ -21,7 +21,7 @@
 
 params [["_vehicle", objNull, [objNull]]];
 
-(_vehicle getVariable ["itc_land_bcs_fireData", []]) params [["_mission", ""], ["_phase", ""], ["_magazine", ""], "", ["_count", 1], ["_fuzeMode", ""], ["_targetPos", []]];
+(_vehicle getVariable [QEGVAR(bcs,fireData), []]) params [["_mission", ""], ["_phase", ""], ["_magazine", ""], "", ["_count", 1], ["_fuzeMode", ""], ["_targetPos", []]];
 if (_mission == "") exitWith {
     [
         LLSTRING(FciOrders),
