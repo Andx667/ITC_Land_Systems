@@ -1,6 +1,10 @@
 # ITC Land Systems Redux [BETA]
 
 <p align="center">
+    <img src="img/logo.png" alt="ITC Land Systems Redux Logo">
+</p>
+
+<p align="center">
     <a href="https://github.com/Andx667/ITC_Land_Systems/issues">
         <img src="https://img.shields.io/github/issues-raw/Andx667/ITC_Land_Systems.svg?style=flat-square&label=Issues" alt="ITC Land Systems Redux Issues">
     </a>
