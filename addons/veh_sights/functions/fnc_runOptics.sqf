@@ -25,7 +25,7 @@
  * Public: No
  */
 
-params ["_sightName", "_layout"];
+params [["_sightName", "", [""]], ["_layout", createHashMap, [createHashMap]]];
 
 // the observer sends targets to the FDC over the datalink (sendTarget)
 [ACE_player] call EFUNC(datalink,connectPlayer);

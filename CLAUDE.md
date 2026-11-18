@@ -113,3 +113,9 @@ A behaviour change without matching docs updates is incomplete.
 - No `remoteExec`/`publicVariable` where a CBA event fits; no scheduled polling.
 - No public functions or events "just in case".
 - No unrelated formatting changes in functional PRs.
+
+## Known exceptions
+
+These are intentional and agreed; don't flag or "fix" them without a new decision.
+
+- `params` inside event handler, per-frame handler and `CBA_fnc_waitAndExecute` code blocks (and `(_this select 0) params` unpacking a PFH's arguments) stay untyped: the engine or CBA defines those arguments. Top-level `params` of functions and tablet app scripts are typed.

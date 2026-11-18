@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_guns"];
+params [["_guns", [], [[]]]];
 
 _guns apply {
     _x params ["_num", "", "", "", "", "_batteryName", ["_vehicle", objNull]];

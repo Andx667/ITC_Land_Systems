@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 GVAR(bcs_solutions) params ["_btySolutions", "_gunSolutions"];

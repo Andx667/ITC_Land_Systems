@@ -33,7 +33,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app", "_action", "_value"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]], ["_action", "", [""]], "_value"];
 
 private _form = GVAR(web) get "form";
 private _setPage = {_vehicle setVariable [QGVAR(page), _this]};

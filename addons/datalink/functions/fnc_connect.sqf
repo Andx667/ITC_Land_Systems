@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params[["_object",player],["_id",""],"_system",["_autoStore", false]];
+params [["_object", player, [objNull]], ["_id", "", [""]], ["_system", "", [""]], ["_autoStore", false, [false]]];
 
 if (_autoStore) then {
     [_object, "object_register", "response", {

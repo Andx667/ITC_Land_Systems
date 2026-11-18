@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]]];
 
 private _appConfig = configFile >> "itc_land" >> "apps" >> _app;
 private _view = createHashMapFromArray [

@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 #include "..\..\BCS_idc_defines.hpp"
 
 [_display, IDC_header1, "COBRA"] call EFUNC(common,ctrlSetText);

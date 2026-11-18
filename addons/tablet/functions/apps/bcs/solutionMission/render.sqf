@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;
 if (_shotEnd > time) then {

@@ -17,6 +17,6 @@
  * Public: No
  */
 
-params ["_idcs", "_show"];
+params [["_idcs", [], [[]]], ["_show", false, [false]]];
 
 {ctrlShow [_x, _show]} forEach _idcs;

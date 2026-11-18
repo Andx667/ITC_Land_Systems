@@ -9,7 +9,7 @@
  * according to the selected ammo's guidance type.
  *
  * Arguments:
- * 0: The listbox control that triggered the selection change <Control>
+ * 0: The listbox control that triggered the selection change (or its IDC when called from code) <Control or Number>
  * 1: Index of the newly selected ammo listbox item <Number>
  *
  * Return Value:
@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_control","_index"];
+params [["_control", controlNull, [controlNull, 0]], ["_index", 0, [0]]];
 
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);

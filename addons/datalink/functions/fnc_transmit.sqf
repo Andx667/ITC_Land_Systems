@@ -9,7 +9,7 @@
  * 1: Origin datalink ID <String>
  * 2: Transmission header <String>
  * 3: Transmission type <String>
- * 4: Transmission payload <Array>
+ * 4: Transmission payload, any value the receiving handler expects <Any>
  *
  * Return Value:
  * None
@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params["_destination","_origin","_header","_type","_data"];
+params [["_destination", "", [""]], ["_origin", "", [""]], ["_header", "", [""]], ["_type", "", [""]], "_data"];
 private _validDestination = [_destination, false, true] call FUNC(validateID);
 private _validOrigin = [_origin] call FUNC(validateID);
 

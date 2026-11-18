@@ -25,7 +25,7 @@
 
 #define BTAB_GRAVITY 9.80665
 
-params ["_magazine", "_solution"];
+params [["_magazine", "", [""]], ["_solution", [], [[]]]];
 
 private _config = configFile >> "CfgMagazines" >> _magazine;
 private _fuze = configFile >> "ITC_Land_CfgFuzes" >> getText (_config >> "itc_land_fuze");

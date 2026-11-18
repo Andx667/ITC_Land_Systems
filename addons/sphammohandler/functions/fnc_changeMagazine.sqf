@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_action", "_magClass"];
+params [["_vehicle", objNull, [objNull]], ["_action", "", [""]], ["_magClass", "", [""]]];
 
 private _target = _vehicle turretUnit [0];
 if (isNull _target) then {_target = _vehicle};

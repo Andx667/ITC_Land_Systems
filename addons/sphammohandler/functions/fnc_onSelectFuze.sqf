@@ -8,7 +8,7 @@
  * is "time".
  *
  * Arguments:
- * 0: The listbox control that triggered the selection change <Control>
+ * 0: The listbox control that triggered the selection change (or its IDC when called from code) <Control or Number>
  * 1: Index of the newly selected fuze listbox item <Number>
  *
  * Return Value:
@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_control", "_index"];
+params [["_control", controlNull, [controlNull, 0]], ["_index", 0, [0]]];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 [_vehicle, (_vehicle getVariable [QGVAR(currentMagInfo), [0, ""]]) param [1, ""], _index, 86005, 86006, QGVAR(fuzeTime)] call EFUNC(common,applyFuzeSelection);

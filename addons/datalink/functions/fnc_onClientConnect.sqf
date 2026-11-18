@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_player","_id","_requestingSystem","_owner"];
+params [["_player", objNull, [objNull]], ["_id", nil, [""]], ["_requestingSystem", "", [""]], ["_owner", 0, [0]]];
 
 //auto-assign ID if not set
 if (isNil{_id} || _id == "") then {
