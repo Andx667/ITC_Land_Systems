@@ -466,7 +466,7 @@ type's elevation limits, `bcs_fnc_getBatteryElevationLimits`; solutions start at
 
 - [x] Target handoff (2026-10-23): "Send target to FDC" keybind (Ctrl+Shift+T) in the ITC UAV,
       GLTD and Strider optics (`veh_sights_fnc_sendTarget`) broadcasts "observer"/"target" over
-      the datalink; FDCs that opened the BCS add it to the Location Stores (TGT01, ...). COBRA
+      the datalink; every player adds it to the Location Stores (TGT01, ...), from mission start. COBRA
       counter-fire (2026-10-23): COUNTER-FIRE on the COBRA data page opens a new BCS mission on
       the firing position at the engagement step (`itc_land_tablet_bcs_pendingTarget`).
 - [ ] Still open: the observer's corrections during adjust fire over the datalink (today by

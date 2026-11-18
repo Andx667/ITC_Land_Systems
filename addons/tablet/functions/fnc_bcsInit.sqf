@@ -6,9 +6,9 @@
  * Starts the BCS for the classic and the HTML tablet: seeds the mission namespace with default
  * BCS variables (splash time, mission code, battery data, etc.) if not already set, and connects
  * the player to the datalink (once per unit, so again after a respawn): fire data sent to the
- * linked guns goes out with the player's ID as the origin, and the guns' shot reports and the
- * targets observers send from the ITC optics come back to it (a target becomes a Location Stores
- * entry, TGT01, TGT02, ...). A target another app handed over (itc_land_tablet_bcs_pendingTarget,
+ * linked guns goes out with the player's ID as the origin, and the guns' shot reports come back
+ * to it. The observers' targets reach every player from the start (tablet_fnc_bcsListenTargets);
+ * once the BCS is open, they come with a ping and a hint. A target another app handed over (itc_land_tablet_bcs_pendingTarget,
  * COBRA counter-fire) becomes a new fire mission.
  *
  * Arguments:
@@ -54,25 +54,7 @@ if (missionNamespace getVariable [QGVAR(bcs_datalinkUnit), objNull] != ACE_playe
         [_ident, _timeOfFlight] call FUNC(bcsShot);
         [format [LLSTRING(Bcs_ShotReported), _ident, round _timeOfFlight]] call ace_common_fnc_displayTextStructured;
     }] call EFUNC(datalink,registerEvent);
-    // a target an observer sends from the ITC optics (to every FDC): a new entry in the Location Stores
-    [ACE_player, "observer", "target", {
-        params ["", "_transmission"];
-        (_transmission select 4) params [["_observer", "", [""]], ["_side", sideUnknown, [sideUnknown]], ["_targetPos", [], [[]]]];
-        if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {};
-        if ((side group ACE_player) getFriend _side < 0.6) exitWith {};
-        _targetPos = [_targetPos # 0, _targetPos # 1, round (_targetPos # 2)];
-        GVAR(bcs_observerTargets) = (missionNamespace getVariable [QGVAR(bcs_observerTargets), 0]) + 1;
-        private _id = format ["TGT%1", [GVAR(bcs_observerTargets), 2] call CBA_fnc_formatNumber];
-        [_id, _targetPos] call FUNC(bcsRecordPoint);
-        private _grid = [_targetPos] call EFUNC(common,posToGrid);
-        playSound "TacticalPing3";
-        [format [LLSTRING(Bcs_TargetReceived), _id, _observer, _grid, _targetPos # 2], 2.5] call ace_common_fnc_displayTextStructured;
-        // the classic Location Stores page shows it right away (the HTML tablet redraws by itself)
-        private _vehicle = [] call EFUNC(common,getCurVehicle);
-        if (!isNull findDisplay 32562 && {_vehicle getVariable [QGVAR(app), ""] == "bcs"} && {_vehicle getVariable [QGVAR(page), ""] == "locStores"}) then {
-            [findDisplay 32562] call FUNC(pageInit);
-        };
-    }] call EFUNC(datalink,registerEvent);
+    // the observers' targets: tablet_fnc_bcsListenTargets, from the start of the mission
 };
 
 // a target another app handed over (COBRA counter-fire): a new fire mission on it, at the engagement step
