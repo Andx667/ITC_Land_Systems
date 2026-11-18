@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- COBRA - Change the multiplayer sync: clients get each detected shell, firing position and engagement as a small event instead of all COBRA data again (#15) by Andx
+
 ## [0.3.0] - 2026-10-24
 
 ### Added
