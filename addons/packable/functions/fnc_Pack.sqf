@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_item","_caller"];
+params [["_item", objNull, [objNull]], ["_caller", objNull, [objNull]]];
 
 //get item to pack item to:
 private _packed = (configOf _item >> "itc_land_PacksTo") call BIS_fnc_getCfgData;
