@@ -31,14 +31,14 @@ private _carried = ((magazines _vehicle) select {getNumber (configFile >> "CfgMa
 _web set ["ammoList", _carried apply {_x # 0}];
 
 private _form = [format ["ammo/%1", netId _vehicle], {createHashMapFromArray [
-    ["ammo", ((_vehicle getVariable ["itc_land_currentMagInfo", [0]]) # 0) max 0],
-    ["fuze", (_vehicle getVariable ["itc_land_selectedFuzeIndex", 0]) max 0],
-    ["time", str (_vehicle getVariable ["itc_land_fuzeTime", 0])],
-    ["code1", str (_vehicle getVariable ["itc_land_guidance_laserCode", 1111])],
-    ["code2", str (_vehicle getVariable ["itc_land_guidance_laserCode_2", 1112])],
-    ["grid", format ["%1", _vehicle getVariable ["itc_land_guidance_targetGrid", "00000000"]]],
-    ["alt", str (_vehicle getVariable ["itc_land_guidance_targetAlt", 0])],
-    ["count", str (_vehicle getVariable ["itc_land_roundCount", 0])]
+    ["ammo", ((_vehicle getVariable [QGVAR(currentMagInfo), [0]]) # 0) max 0],
+    ["fuze", (_vehicle getVariable [QEGVAR(common,selectedFuzeIndex), 0]) max 0],
+    ["time", str (_vehicle getVariable [QGVAR(fuzeTime), 0])],
+    ["code1", str (_vehicle getVariable [QEGVAR(guidance,laserCode), 1111])],
+    ["code2", str (_vehicle getVariable [QEGVAR(guidance,laserCode_2), 1112])],
+    ["grid", format ["%1", _vehicle getVariable [QEGVAR(guidance,targetGrid), "00000000"]]],
+    ["alt", str (_vehicle getVariable [QEGVAR(guidance,targetAlt), 0])],
+    ["count", str (_vehicle getVariable [QGVAR(roundCount), 0])]
 ]}] call EFUNC(tablet,webForm);
 
 // the round to prepare; the vehicle keeps it, as the classic list does
@@ -46,11 +46,11 @@ private _index = ((_form get "ammo") min (count _carried - 1)) max 0;
 _form set ["ammo", _index];
 private _magazine = (_carried param [_index, [""]]) # 0;
 private _magazineConfig = configFile >> "CfgMagazines" >> _magazine;
-if (_magazine != "" && {((_vehicle getVariable ["itc_land_currentMagInfo", []]) param [1, ""]) != _magazine}) then {
-    _vehicle setVariable ["itc_land_currentMagInfo", [_index, _magazine, _magazineConfig], true];
+if (_magazine != "" && {((_vehicle getVariable [QGVAR(currentMagInfo), []]) param [1, ""]) != _magazine}) then {
+    _vehicle setVariable [QGVAR(currentMagInfo), [_index, _magazine, _magazineConfig], true];
 };
 private _maxCharge = getNumber (_magazineConfig >> "itc_land_maxChargeIndex");
-private _charge = _vehicle getVariable ["itc_land_currentChargeIndex", 1];
+private _charge = _vehicle getVariable [QGVAR(currentChargeIndex), 1];
 
 private _fuzeConfig = [_magazine] call EFUNC(common,getFuzeConfig);
 private _modes = getArray (_fuzeConfig >> "modes");
@@ -76,14 +76,14 @@ if (!_mortar) then {
 private _settingFields = ["fuze", "time", "code1", "code2", "grid", "alt", "count"];
 
 // the buttons as the classic dialog enables them (sphammohandler_fnc_updateStatus)
-(_vehicle getVariable ["itc_land_ammoHandler_status", [0, 0, LSTRING(Status_Waiting)]]) params ["_status", "", "_statusText"];
+(_vehicle getVariable [QGVAR(ammoHandler_status), [0, 0, LSTRING(Status_Waiting)]]) params ["_status", "", "_statusText"];
 private _button = {
     params ["_label", "_action", "_enabled", ["_send", []], ["_tip", ""], "_value", ["_kind", ""]];
     [_label, _action, _send, _tip, _value, false, _kind, !_enabled] call EFUNC(tablet,webButton)
 };
 
 // the applied settings the loader works with, and whether the form still shows them
-private _settings = _vehicle getVariable ["itc_land_sphloadersettings", []];
+private _settings = _vehicle getVariable [QGVAR(sphloadersettings), []];
 (_settings param [0, []]) params ["", ["_appliedMagazine", ""], ["_appliedCharge", -1], ["_appliedCount", 0]];
 private _isApplied = _settings isNotEqualTo []
     && {_appliedMagazine == _magazine}

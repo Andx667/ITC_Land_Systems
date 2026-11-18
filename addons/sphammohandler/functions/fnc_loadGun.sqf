@@ -1,7 +1,7 @@
 #include "..\script_component.hpp"
 
 // Sequence steps receive [_vehicle, ...] as _this
-#define SET_STATUS(STAGE,STEP,TEXT) (_this select 0) setVariable ["itc_land_ammoHandler_status", [STAGE, STEP, TEXT], true]; [] call FUNC(updateStatus)
+#define SET_STATUS(STAGE,STEP,TEXT) (_this select 0) setVariable [QGVAR(ammoHandler_status), [STAGE, STEP, TEXT], true]; [] call FUNC(updateStatus)
 
 /*
  * Author: ITC Addons Team
@@ -34,11 +34,11 @@ params [["_vehicle", objNull, [objNull]], ["_stow", false, [false]]];
 if (isNull _vehicle) then {
     _vehicle = [] call EFUNC(common,getCurVehicle);
 };
-private _status = (_vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]]) # 0;
+private _status = (_vehicle getVariable [QGVAR(ammoHandler_status),[0,0,LSTRING(Status_Waiting)]]) # 0;
 
 private _loaderType = getNumber (configOf _vehicle >> "itc_land" >> "loaderType");
 // Loading always uses the applied settings, not whatever is currently selected in the dialog
-private _sphloadersettings = _vehicle getVariable ["itc_land_sphloadersettings", []];
+private _sphloadersettings = _vehicle getVariable [QGVAR(sphloadersettings), []];
 
 // Status 3 (loaded, ready to fire) unloads, status 1 (empty, ready to load) loads, anything else does nothing.
 // Loader type 1 is semi-automatic, 2 automatic, 3 a muzzle-loaded mortar; 0 (manual) has no sequence.
@@ -47,8 +47,8 @@ if (_sphloadersettings isEqualTo []) exitWith {};
 private _semiAuto = _loaderType == 1;
 
 private _roundCount = (_sphloadersettings # 0) # 3;
-if (_roundCount == _vehicle getVariable ["itc_land_roundsFired", 0]) then {
-    _vehicle setVariable ["itc_land_roundsFired", 0, true];
+if (_roundCount == _vehicle getVariable [QGVAR(roundsFired), 0]) then {
+    _vehicle setVariable [QGVAR(roundsFired), 0, true];
 };
 
 if (_loaderType == 3) exitWith {
@@ -56,7 +56,7 @@ if (_loaderType == 3) exitWith {
         // the prepared round is in the loader's hands, the tube is empty
         if (_stow) exitWith {
             [[
-                [0, {params ["_vehicle"]; [_vehicle, "add", _vehicle getVariable "itc_land_loadedMagClass"] call FUNC(changeMagazine); SET_STATUS(4,3,LSTRING(Status_StowingRound))}],
+                [0, {params ["_vehicle"]; [_vehicle, "add", _vehicle getVariable QGVAR(loadedMagClass)] call FUNC(changeMagazine); SET_STATUS(4,3,LSTRING(Status_StowingRound))}],
                 [2 + random 1, {SET_STATUS(1,0,LSTRING(Status_Waiting))}]
             ], [_vehicle]] call FUNC(runSequence);
         };
@@ -68,15 +68,15 @@ if (_loaderType == 3) exitWith {
             [0, {SET_STATUS(2,4,LSTRING(Status_HangingRound))}],
             [0.7 + random 0.5, {
                 params ["_vehicle"];
-                [_vehicle, "drop", _vehicle getVariable "itc_land_preparedMagClass"] call FUNC(changeMagazine);
+                [_vehicle, "drop", _vehicle getVariable QGVAR(preparedMagClass)] call FUNC(changeMagazine);
                 SET_STATUS(2,5,LSTRING(Status_RoundAway));
             }]
         ], [_vehicle]] call FUNC(runSequence);
     };
 
     (_sphloadersettings # 0) params ["", "_selectedMagClass", "_charge"];
-    _vehicle setVariable ["itc_land_loadedMagClass", _selectedMagClass, true];
-    _vehicle setVariable ["itc_land_preparedMagClass", format [getText (configFile >> "CfgMagazines" >> _selectedMagClass >> "itc_land_charge_format"), _charge], true];
+    _vehicle setVariable [QGVAR(loadedMagClass), _selectedMagClass, true];
+    _vehicle setVariable [QGVAR(preparedMagClass), format [getText (configFile >> "CfgMagazines" >> _selectedMagClass >> "itc_land_charge_format"), _charge], true];
     [_vehicle, "remove", _selectedMagClass] call FUNC(changeMagazine);
 
     // one hand short without a loader; a hot tube has to cool to the sustained rate first
@@ -109,12 +109,12 @@ if (_status == 3) exitWith {
         [4, {params ["_vehicle", "", "_loadedMagClass"]; [_vehicle, "add", _loadedMagClass] call FUNC(changeMagazine); SET_STATUS(4,3,LSTRING(Status_StowingRound))}],
         [4, {SET_STATUS(1,0,LSTRING(Status_Waiting))}]
     ]};
-    [_steps, [_vehicle, _curMag, _vehicle getVariable "itc_land_loadedMagClass"]] call FUNC(runSequence);
+    [_steps, [_vehicle, _curMag, _vehicle getVariable QGVAR(loadedMagClass)]] call FUNC(runSequence);
 };
 
 (_sphloadersettings # 0) params ["", "_selectedMagClass", "_charge"];
 private _magClass = format [getText (configFile >> "CfgMagazines" >> _selectedMagClass >> "itc_land_charge_format"), _charge];
-_vehicle setVariable ["itc_land_loadedMagClass", _selectedMagClass, true];
+_vehicle setVariable [QGVAR(loadedMagClass), _selectedMagClass, true];
 [_vehicle, "remove", _selectedMagClass] call FUNC(changeMagazine);
 
 private _closeBreech = {

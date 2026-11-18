@@ -31,7 +31,7 @@ private _selectedMagIndex = _index;
 private _selectedMagClass = lbData [86001,_index];
 private _selectedMagConfig = configFile >> "CfgMagazines" >> _selectedMagClass;
 
-_vehicle setVariable ["itc_land_currentMagInfo",[_selectedMagIndex,_selectedMagClass,_selectedMagConfig],true];
+_vehicle setVariable [QGVAR(currentMagInfo),[_selectedMagIndex,_selectedMagClass,_selectedMagConfig],true];
 
 //Get Displayname and set header text
 private _displayName = getText(_selectedMagConfig >> "displayName");
@@ -39,11 +39,11 @@ ctrlSetText [86002, format[LLSTRING(Prepare), _displayName]];
 
 //Set current Charge label
 private _maxChargeIndex =  getNumber(_selectedMagConfig >> "itc_land_maxChargeIndex");
-private _curChargeIndex = _vehicle getVariable ["itc_land_currentChargeIndex",1];
+private _curChargeIndex = _vehicle getVariable [QGVAR(currentChargeIndex),1];
 ctrlSetText [86003, format[LLSTRING(ChargeOf), _curChargeIndex, _maxChargeIndex]];
 
 [] call FUNC(fillFuzeList);
-private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
+private _selectedFuzeIndex = _vehicle getVariable [QEGVAR(common,selectedFuzeIndex),0];
 if ( _selectedFuzeIndex < (lbSize 86004)) then {
     //Recall last selection in ComboBox
     lbSetCurSel [86004, _selectedFuzeIndex];

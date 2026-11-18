@@ -37,8 +37,8 @@ _data params [
 
 if (!alive _gun || {count _line < 9}) exitWith {};
 
-_gun setVariable ["itc_land_tablet_fcs_solutions", [_line], true];
-_gun setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+_gun setVariable [QEGVAR(tablet,fcs_solutions), [_line], true];
+_gun setVariable [QEGVAR(tablet,fcs_solutions_index), 0, true];
 // the receive time tells fire data apart, so each one reports its first shot once
 _gun setVariable [QGVAR(fireData), [_mission, _phase, _magazine, _origin, _count, _fuzeMode, _targetPos, CBA_missionTime], true];
 

@@ -5,7 +5,7 @@
  * Draws the alignment guide of the artillery sights (the controls of SIGHT_ALIGNMENT_GUIDE, IDCs
  * 1800-1806): while a solution is selected, azimuth and quadrant marks on the crosshair within
  * 100 mils of it, arrows beyond. Hidden without a solution or with the
- * itc_land_IGS_showAlignmentGuides global off.
+ * itc_land_veh_sights_IGS_showAlignmentGuides global off.
  *
  * Arguments:
  * 0: Sight display <DISPLAY>
@@ -28,8 +28,8 @@ _origin params ["_originX", "_originY"];
 
 // where the gun points relative to the selected solution, shown while one is selected
 private _solution = [_vehicle] call EFUNC(common,getFireSolution);
-if (isNil "itc_land_IGS_showAlignmentGuides") then {itc_land_IGS_showAlignmentGuides = true};
-if !(itc_land_IGS_showAlignmentGuides && {_solution isNotEqualTo []}) exitWith {
+if (isNil QGVAR(IGS_showAlignmentGuides)) then {GVAR(IGS_showAlignmentGuides) = true};
+if !(GVAR(IGS_showAlignmentGuides) && {_solution isNotEqualTo []}) exitWith {
     {[_display, _x, 1] call EFUNC(common,ctrlSetFade)} forEach [1800, 1801, 1802, 1803, 1804, 1805, 1806];
 };
 

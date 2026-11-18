@@ -21,6 +21,6 @@
 params ["_vehicle", ["_step", 0, [0]]];
 
 if !(_step in [-1, 1]) exitWith {};
-private _index = _vehicle getVariable ["itc_land_tablet_fcs_solutions_index", 0];
-private _count = count (_vehicle getVariable ["itc_land_tablet_fcs_solutions", []]);
-_vehicle setVariable ["itc_land_tablet_fcs_solutions_index", (_index + _step) min (_count - 1) max 0, true];
+private _index = _vehicle getVariable [QGVAR(fcs_solutions_index), 0];
+private _count = count (_vehicle getVariable [QGVAR(fcs_solutions), []]);
+_vehicle setVariable [QGVAR(fcs_solutions_index), (_index + _step) min (_count - 1) max 0, true];

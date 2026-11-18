@@ -20,6 +20,6 @@
  */
 
 params [["_app", "", [""]], ["_page", "", [""]]];
-itc_land_tablet_fnc_pageInit = [[_app, format ["%1\init.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);
-itc_land_tablet_fnc_pageInteract = [[_app, format ["%1\interact.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);
-itc_land_tablet_fnc_pageRender = [[_app, format ["%1\render.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);
+FUNC(pageInit) = [[_app, format ["%1\init.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);
+FUNC(pageInteract) = [[_app, format ["%1\interact.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);
+FUNC(pageRender) = [[_app, format ["%1\render.sqf", _page]] call FUNC(resolveAppFile)] call FUNC(compileScript);

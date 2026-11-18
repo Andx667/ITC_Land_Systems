@@ -21,11 +21,11 @@
 
 params [["_cbr", objNull, [objNull]], ["_impact", [], [[]]]];
 _impact params ["_position", "_tof"];
-private _impacts = missionNamespace getVariable "itc_land_cobra_activeShells";
+private _impacts = missionNamespace getVariable QGVAR(activeShells);
 private _impactTime = cba_missionTime + _tof;
 _impacts pushBack [_position, _impactTime];
 
-missionNamespace setVariable ["itc_land_cobra_activeShells",_impacts];
+missionNamespace setVariable [QGVAR(activeShells),_impacts];
 [QGVAR(impactAdded), [[_position, _impactTime]]] call CBA_fnc_globalEvent;
 
 private _sirenTypes = [0] call FUNC(sirenTypes);

@@ -53,7 +53,7 @@ switch (_action) do {
             (gunner _vehicle) forceWeaponFire [_weapon, (getArray (configFile >> "CfgWeapons" >> _weapon >> "modes")) param [0, "this"]];
         }, [_vehicle, _weapon], 5, {
             params ["_vehicle"];
-            _vehicle setVariable ["itc_land_ammoHandler_status", [2, 6, LSTRING(Status_Misfire)], true];
+            _vehicle setVariable [QGVAR(ammoHandler_status), [2, 6, LSTRING(Status_Misfire)], true];
             [] call FUNC(updateStatus);
         }] call CBA_fnc_waitUntilAndExecute;
     };

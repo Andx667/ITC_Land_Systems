@@ -28,8 +28,8 @@
 
 params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], ["_magazine", "", [""]], ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 if (!local _gunner) exitWith {};
-private _fuzeType = _vehicle getVariable ["itc_land_fuzeMode","pd"];
-private _fuzeValue = _vehicle getVariable ["itc_land_fuzeValues",0];
+private _fuzeType = _vehicle getVariable [QEGVAR(common,fuzeMode),"pd"];
+private _fuzeValue = _vehicle getVariable [QEGVAR(common,fuzeValues),0];
 
 
 if (isNil{_fuzeType}) exitWith {};

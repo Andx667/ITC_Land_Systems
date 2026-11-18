@@ -22,9 +22,9 @@
 
 params [["_control", controlNull, [controlNull]], ["_index", 0, [0]]];
 
-missionNamespace setVariable ["itc_land_rover_ui_curSelIndex",_index];
-missionNamespace setVariable ["itc_land_rover_ui_curAircraft",itc_land_rover_ui_aircraftList # _index];
-private _plane = missionNamespace getVariable ["itc_land_rover_ui_curAircraft",objNull];
+missionNamespace setVariable [QGVAR(ui_curSelIndex),_index];
+missionNamespace setVariable [QGVAR(ui_curAircraft),GVAR(ui_aircraftList) # _index];
+private _plane = missionNamespace getVariable [QGVAR(ui_curAircraft),objNull];
 
 [_plane] call FUNC(createFeed);
 
@@ -32,9 +32,9 @@ private _turret = [_plane] call FUNC(getLaserTurret);
 if (isNil "_turret") exitWith {};
 if (count _turret == 1 && {_turret # 0 == -1}) then {
     private _memPointName = getText (configOf _plane >> "memoryPointDriverOptics");
-    itc_land_rover_mempointPos = _plane selectionPosition _memPointName;
+    GVAR(mempointPos) = _plane selectionPosition _memPointName;
 } else {
     private _turretConfig = [_plane, _turret] call CBA_fnc_getTurret;
     private _memPointName = getText (_turretConfig >> "memoryPointGunnerOptics");
-    itc_land_rover_mempointPos = _plane selectionPosition _memPointName;
+    GVAR(mempointPos) = _plane selectionPosition _memPointName;
 };

@@ -37,9 +37,9 @@ switch (_btn) do {
         true setCamUseTI 1;
     };
     case "fov": {
-        itc_land_rover_ui_camFov = 0.02 + ((10 - (sliderPosition 1600)) / 10) * 0.33;
-        itc_land_rover_ui_sliderFov = (sliderPosition 1600);
+        GVAR(ui_camFov) = 0.02 + ((10 - (sliderPosition 1600)) / 10) * 0.33;
+        GVAR(ui_sliderFov) = (sliderPosition 1600);
     };
 };
 
-if (_btn != "fov") then { itc_land_rover_ui_visMode = _btn };
+if (_btn != "fov") then { GVAR(ui_visMode) = _btn };

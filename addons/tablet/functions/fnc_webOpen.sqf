@@ -23,11 +23,11 @@
  * Public: No
  */
 
-params [["_tabletClass", "itc_land_tablet_fdc", [""]], ["_kind", "tablet", [""]]];
+params [["_tabletClass", QGVAR(fdc), [""]], ["_kind", "tablet", [""]]];
 
 private _ammo = _kind == "ammo";
 if (!_ammo && {!isArray (configFile >> "CfgWeapons" >> _tabletClass >> "apps")}) exitWith {};
-if !(createDialog (["itc_land_tablet_web", "itc_land_ammo_web"] select _ammo)) exitWith {};
+if !(createDialog ([QGVAR(web), "itc_land_ammo_web"] select _ammo)) exitWith {};
 private _display = findDisplay ([32570, 32580] select _ammo);
 private _ctrl = _display displayCtrl 32571;
 

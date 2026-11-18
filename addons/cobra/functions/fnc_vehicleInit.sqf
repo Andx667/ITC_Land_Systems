@@ -22,8 +22,8 @@
 params [["_cbr", objNull, [objNull]]];
 if (!isServer) exitWith {};
 
-if (itc_land_cobras pushBackUnique _cbr != -1) then {
-    [QGVAR(cobrasChanged), [itc_land_cobras]] call CBA_fnc_globalEvent;
+if (GVAR(vehicles) pushBackUnique _cbr != -1) then {
+    [QGVAR(cobrasChanged), [GVAR(vehicles)]] call CBA_fnc_globalEvent;
 };
 
 //private _linkID = _cbr getVariable ["init_datalink_id",""];

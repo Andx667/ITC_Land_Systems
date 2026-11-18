@@ -26,7 +26,7 @@ params [["_vehicle", objNull, [objNull]], ["_round", "", [""]], ["_fuzeIndex", 0
 
 if (_round == "") exitWith {};
 private _mode = [_vehicle, _round, _fuzeIndex] call EFUNC(common,setFuzeSelection);
-[_vehicle, _mode, _vehicle getVariable ["itc_land_selectedFuzeDesc", ""], getText (configFile >> "CfgMagazines" >> _round >> "itc_land_fuze"), _fuzeTime, "itc_land_mlrsfci_fuzeTime"] call EFUNC(common,resolveFuzeSetting);
+[_vehicle, _mode, _vehicle getVariable [QEGVAR(common,selectedFuzeDesc), ""], getText (configFile >> "CfgMagazines" >> _round >> "itc_land_fuze"), _fuzeTime, QGVAR(mlrsfci_fuzeTime)] call EFUNC(common,resolveFuzeSetting);
 
 if ((getArray (configFile >> "CfgMagazines" >> _round >> "itc_land_guidance")) param [0, ""] == "gps_inertial") then {
     [_vehicle, _targetGrid, _targetAlt] call EFUNC(common,setGpsTarget);

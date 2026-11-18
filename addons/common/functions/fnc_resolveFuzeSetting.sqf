@@ -4,8 +4,8 @@
  * Author: ToadBall, Yax
  * Applies the selected fuze mode to the vehicle: stores the mode and the value the fuze
  * will use (proximity height, time or delay) and builds the text shown in the interface.
- * The fired handlers read only these applied values (itc_land_fuzeMode/itc_land_fuzeValues),
- * not the live selection in the interface (itc_land_selectedFuzeMode).
+ * The fired handlers read only these applied values (itc_land_common_fuzeMode/itc_land_common_fuzeValues),
+ * not the live selection in the interface (itc_land_common_selectedFuzeMode).
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -19,7 +19,7 @@
  * [display text, stored fuze value] <ARRAY>
  *
  * Example:
- * [_vehicle, "time", "TIME", "mof35_mod1", 12, "itc_land_fuzeTime"] call itc_land_common_fnc_resolveFuzeSetting
+ * [_vehicle, "time", "TIME", "mof35_mod1", 12, "itc_land_sphammohandler_fuzeTime"] call itc_land_common_fnc_resolveFuzeSetting
  *
  * Public: No
  */
@@ -27,22 +27,22 @@
 params [["_vehicle", objNull, [objNull]], ["_mode", "", [""]], ["_description", "", [""]], ["_fuze", "", [""]], ["_time", 0, [0]], ["_timeVariable", "", [""]]];
 
 private _text = _description;
-_vehicle setVariable ["itc_land_fuzeMode", _mode, true];
+_vehicle setVariable [QGVAR(fuzeMode), _mode, true];
 switch (_mode) do {
     case "prox": {
         private _height = getNumber (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "proxHOB");
-        _vehicle setVariable ["itc_land_fuzeValues", _height, true];
+        _vehicle setVariable [QGVAR(fuzeValues), _height, true];
         _text = format ["%1: %2m", _description, _height];
     };
     case "time": {
         _vehicle setVariable [_timeVariable, _time, true];
-        _vehicle setVariable ["itc_land_fuzeValues", _time, true];
+        _vehicle setVariable [QGVAR(fuzeValues), _time, true];
         _text = format ["%1: %2s", _description, _time];
     };
     case "delay": {
         // about the delay of real delay fuzes (fnc_fuze lets the shell dig in or go through a roof first)
-        _vehicle setVariable ["itc_land_fuzeValues", 0.05, true];
+        _vehicle setVariable [QGVAR(fuzeValues), 0.05, true];
     };
 };
 
-[_text, _vehicle getVariable ["itc_land_fuzeValues", 0]]
+[_text, _vehicle getVariable [QGVAR(fuzeValues), 0]]

@@ -24,14 +24,14 @@ params ["_action"];
 switch (_action) do {
     case "savePos": {
         private _posIndex = lbCurSel 136001;
-        private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
+        private _engagements = missionNamespace getVariable [QEGVAR(cobra,engagements), []];
         if (_posIndex < 0 || {_posIndex >= count _engagements}) exitWith {};
         private _engagement = _engagements # _posIndex;
         [_engagement # 0, _engagement # 2 # 0] call FUNC(bcsRecordPoint);
     };
     case "counterFire": {
         private _posIndex = lbCurSel 136001;
-        private _engagements = missionNamespace getVariable ["itc_land_cobra_engagements", []];
+        private _engagements = missionNamespace getVariable [QEGVAR(cobra,engagements), []];
         if (_posIndex < 0 || {_posIndex >= count _engagements}) exitWith {};
         GVAR(bcs_pendingTarget) = [(_engagements # _posIndex) # 2 # 0];
         ([] call EFUNC(common,getCurVehicle)) setVariable [QGVAR(app), "bcs"];

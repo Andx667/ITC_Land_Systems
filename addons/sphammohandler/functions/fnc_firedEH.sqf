@@ -39,17 +39,17 @@ if (_firedIndex != -1) then {
 };
 [_gun, "remove", _magazine] call FUNC(changeMagazine);
 
-private _roundsFired = _gun getVariable ["itc_land_roundsFired",0];
+private _roundsFired = _gun getVariable [QGVAR(roundsFired),0];
 _roundsFired = _roundsFired +1;
-_gun setVariable ["itc_land_roundsFired",_roundsFired,true];
+_gun setVariable [QGVAR(roundsFired),_roundsFired,true];
 if (getNumber (configOf _gun >> "itc_land" >> "loaderType") == 3) then {
     [_gun, true] call FUNC(tubeHeat);
 };
 
-_gun setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];
+_gun setVariable [QGVAR(ammoHandler_status),[1,0,LSTRING(Status_Waiting)],true];
 [] call FUNC(updateStatus);
 
-private _sphloadersettings = _gun getVariable ["itc_land_sphloadersettings", []];
+private _sphloadersettings = _gun getVariable [QGVAR(sphloadersettings), []];
 private _ammoToLoad = ((_sphloadersettings # 0) # 1);
 private _roundCount = ((_sphloadersettings # 0) # 3);
 
@@ -57,10 +57,10 @@ if ((_ammoToLoad in _gunMags) && {(_roundCount < 1) || ((_roundCount >= 1) && (_
     [_gun] call FUNC(loadGun);
 } else {
     if (_ammoToLoad in _gunMags) then {
-        _gun setVariable ["itc_land_ammoHandler_status",[1,0,LSTRING(Status_Waiting)],true];
+        _gun setVariable [QGVAR(ammoHandler_status),[1,0,LSTRING(Status_Waiting)],true];
         [] call FUNC(updateStatus);
     } else {
-        _gun setVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)],true];
+        _gun setVariable [QGVAR(ammoHandler_status),[0,0,LSTRING(Status_Waiting)],true];
         [] call FUNC(updateStatus);
     };
 };

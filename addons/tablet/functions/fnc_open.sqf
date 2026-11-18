@@ -52,23 +52,23 @@ private _page = if (isNil{_vehicle getVariable QGVAR(page)}) then [{""},{"OPEN"}
         };
         _app = _vehicle getVariable QGVAR(app); //switch the app variable
         [_app] call FUNC(compileApp);
-        private _newPage = [_display] call itc_land_tablet_fnc_appInit; //initialize the new app
+        private _newPage = [_display] call FUNC(appInit); //initialize the new app
         if (_page != "OPEN") then { //this makes sure the init page isn't loaded when you're re-opening an already running tablet
             _vehicle setVariable [QGVAR(page), _newPage];
         };
     };
-    [_display] call itc_land_tablet_fnc_appRender; //render the app
+    [_display] call FUNC(appRender); //render the app
 
     if (_vehicle getVariable QGVAR(page) != _page) then { //check if page switched
         _page = _vehicle getVariable QGVAR(page); //switch the app variable
         [_display] call FUNC(appClear); //clear app pages
         if (_page != "") then { //if there's a page, initlialize it
             [_app,_page] call FUNC(compilePage);
-            [_display] call itc_land_tablet_fnc_pageInit; //initialise the new page
+            [_display] call FUNC(pageInit); //initialise the new page
         };
     };
     if (_page != "") then { //if there's a page, render it
-        [_display] call itc_land_tablet_fnc_pageRender; //render the page
+        [_display] call FUNC(pageRender); //render the page
     };
     (_this select 0) set [2, _app];
     (_this select 0) set [3, _page];

@@ -18,13 +18,13 @@
  */
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _target = _vehicle getVariable ["ITC_Land_VLS_selectedTGT",[]];
+private _target = _vehicle getVariable [QGVAR(selectedTGT),[]];
 if ((count _target) < 1) exitWith {};
 
 private _targetData = parseSimpleArray (_target # 1);
 
-_vehicle setVariable ["itc_land_vls_targetAngl", (_targetData # 2), true];
+_vehicle setVariable [QGVAR(targetAngl), (_targetData # 2), true];
 
-_vehicle setVariable ["itc_land_vls_targetPos", (_targetData # 1), true];
+_vehicle setVariable [QGVAR(targetPos), (_targetData # 1), true];
 
 _vehicle fire (currentWeapon _vehicle);

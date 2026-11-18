@@ -18,6 +18,7 @@ start a fresh empty [Unreleased] section above it. -->
 - Credits - The original ITC team agreed to the continuation; README, Workshop page and documentation say so (#18) by Andx
 - COBRA - Change the multiplayer sync: clients get each detected shell, firing position and engagement as a small event instead of all COBRA data again (#15) by Andx
 - APS, CIWS - Change the debug RPT lines to the CBA log format, `[ITC_LAND] (aps) INFO:` / `[ITC_LAND] (ciws) INFO:` (#14) by Andx
+- Scripting - Rename the vehicle and mission variables without a component to the component's prefix (`itc_land_currentMagInfo` → `itc_land_sphammohandler_currentMagInfo`, `itc_land_selectedFuzeIndex` → `itc_land_common_selectedFuzeIndex`, `itc_land_cobras` → `itc_land_cobra_vehicles`, `ITC_Land_VLS_*` → `itc_land_vls_*`, `itc_land_IGS_show*` → `itc_land_veh_sights_IGS_show*`, ...). Missions or scripts that read them need the new names (#20) by Andx
 
 ## [0.3.0] - 2026-10-24
 

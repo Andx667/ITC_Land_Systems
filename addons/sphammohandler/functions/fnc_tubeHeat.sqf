@@ -26,11 +26,11 @@ private _config = configOf _vehicle >> "itc_land";
 private _rapidRounds = [16, getNumber (_config >> "mortarRapidRounds")] select (isNumber (_config >> "mortarRapidRounds"));
 private _sustainedRate = [4, getNumber (_config >> "mortarSustainedRate")] select (isNumber (_config >> "mortarSustainedRate"));
 
-(_vehicle getVariable ["itc_land_tubeHeat", [0, 0]]) params ["_heat", "_time"];
+(_vehicle getVariable [QGVAR(tubeHeat), [0, 0]]) params ["_heat", "_time"];
 _heat = 0 max (_heat - (CBA_missionTime - _time) * _sustainedRate / 60);
 if (_addRound) then {
     _heat = _heat + 1;
-    _vehicle setVariable ["itc_land_tubeHeat", [_heat, CBA_missionTime], true];
+    _vehicle setVariable [QGVAR(tubeHeat), [_heat, CBA_missionTime], true];
 };
 
 ((_heat + 1 - _rapidRounds) max 0) * 60 / _sustainedRate

@@ -70,7 +70,7 @@ if (missionNamespace getVariable [QGVAR(bcs_datalinkUnit), objNull] != ACE_playe
         // the classic Location Stores page shows it right away (the HTML tablet redraws by itself)
         private _vehicle = [] call EFUNC(common,getCurVehicle);
         if (!isNull findDisplay 32562 && {_vehicle getVariable [QGVAR(app), ""] == "bcs"} && {_vehicle getVariable [QGVAR(page), ""] == "locStores"}) then {
-            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+            [findDisplay 32562] call FUNC(pageInit);
         };
     }] call EFUNC(datalink,registerEvent);
 };

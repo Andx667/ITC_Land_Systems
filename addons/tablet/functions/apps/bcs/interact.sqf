@@ -37,7 +37,7 @@ switch (_action) do {
         GVAR(bcs_missions) pushBack _newMission;
         GVAR(bcs_mission_index) = (count GVAR(bcs_missions)) - 1;
         if (_vehicle getVariable QGVAR(page) == "newMission") then {
-            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+            [findDisplay 32562] call FUNC(pageInit);
         } else {
             _vehicle setVariable [QGVAR(page), "newMission"];
         };
@@ -46,7 +46,7 @@ switch (_action) do {
         GVAR(bcs_mission_index) = lbCurSel 15114;
         MISSION;
         if (_vehicle getVariable QGVAR(page) == _mission # 1) then {
-            [findDisplay 32562] call itc_land_tablet_fnc_pageInit;
+            [findDisplay 32562] call FUNC(pageInit);
         } else {
             _vehicle setVariable [QGVAR(page), _mission # 1];
         };

@@ -25,33 +25,33 @@ if (isNull findDisplay 20001) exitWith {
     [{!isNull findDisplay 20001}, FUNC(ui_init), _this] call CBA_fnc_waitUntilAndExecute;
 };
 
-itc_land_rover_camera = "camera" camCreate [0,0,0];
+GVAR(camera) = "camera" camCreate [0,0,0];
 call FUNC(ui_populateListBox);
 
-[itc_land_rover_ui_curAircraft] call FUNC(createFeed);
+[GVAR(ui_curAircraft)] call FUNC(createFeed);
 
 sliderSetPosition [1600, 5];
-itc_land_rover_ui_camFov = 0.02 + ((10 - (sliderPosition 1600)) / 10) * 0.33;
+GVAR(ui_camFov) = 0.02 + ((10 - (sliderPosition 1600)) / 10) * 0.33;
 
 
-if (isNil "itc_land_rover_ui_sliderFov") then {
+if (isNil QGVAR(ui_sliderFov)) then {
     sliderSetPosition [1600, 5];
-    itc_land_rover_ui_sliderFov = (sliderPosition 1600);
+    GVAR(ui_sliderFov) = (sliderPosition 1600);
 };
-sliderSetPosition [1600, itc_land_rover_ui_sliderFov];
-itc_land_rover_ui_camFov = 0.02 + ((10 - (itc_land_rover_ui_sliderFov)) / 10) * 0.33;
+sliderSetPosition [1600, GVAR(ui_sliderFov)];
+GVAR(ui_camFov) = 0.02 + ((10 - (GVAR(ui_sliderFov))) / 10) * 0.33;
 
-if (isNil "itc_land_rover_ui_visMode") then {
-    itc_land_rover_ui_visMode = "dtv";
+if (isNil QGVAR(ui_visMode)) then {
+    GVAR(ui_visMode) = "dtv";
 };
-[itc_land_rover_ui_visMode] call FUNC(ui_vismode);
+[GVAR(ui_visMode)] call FUNC(ui_vismode);
 
 [{
-    private _plane = itc_land_rover_ui_curAircraft;
+    private _plane = GVAR(ui_curAircraft);
     if (!dialog || !alive player) exitWith {
         [_this select 1] call CBA_fnc_removePerFrameHandler;
         call FUNC(killFeed);
-        camDestroy itc_land_rover_camera;
+        camDestroy GVAR(camera);
     };
     private _illumination = ([] call ace_common_fnc_ambientBrightness);
     ctrlShow [1201, (_illumination < 0.5)];
@@ -65,9 +65,9 @@ if (isNil "itc_land_rover_ui_visMode") then {
     ctrlShow [1004, (isNull (laserTarget _plane))];
     ctrlShow [1005, (isNull (laserTarget _plane))];
     if (!(isNull (laserTarget _plane))) then {
-        itc_land_rover_camera camSetPos (_plane modelToWorldVisual itc_land_rover_mempointPos);
-        itc_land_rover_camera camSetTarget (getPos (laserTarget _plane));
-        itc_land_rover_camera camSetFov itc_land_rover_ui_camFov;
+        GVAR(camera) camSetPos (_plane modelToWorldVisual GVAR(mempointPos));
+        GVAR(camera) camSetTarget (getPos (laserTarget _plane));
+        GVAR(camera) camSetFov GVAR(ui_camFov);
     };
-    itc_land_rover_camera camCommit 0;
+    GVAR(camera) camCommit 0;
     }, 0, []] call CBA_fnc_addPerFrameHandler;

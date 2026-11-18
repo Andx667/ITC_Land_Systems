@@ -23,9 +23,9 @@
  * Public: No
  */
 
-private _cobras = itc_land_cobras select {alive _x};
-if (count _cobras != count itc_land_cobras) then {
-    itc_land_cobras = _cobras;
+private _cobras = GVAR(vehicles) select {alive _x};
+if (count _cobras != count GVAR(vehicles)) then {
+    GVAR(vehicles) = _cobras;
     [QGVAR(cobrasChanged), [_cobras]] call CBA_fnc_globalEvent;
 };
 
@@ -54,8 +54,8 @@ private _remainingShells = [];
             [_cbr, _origin] call FUNC(processEngagement);
         };
     };
-} forEach itc_land_cobra_shells;
-itc_land_cobra_shells = _remainingShells;
+} forEach GVAR(shells);
+GVAR(shells) = _remainingShells;
 
 // clients drop expired impacts themselves (cobra XEH_postInit), so this needs no event
-itc_land_cobra_activeShells = itc_land_cobra_activeShells select {cba_missionTime <= _x # 1};
+GVAR(activeShells) = GVAR(activeShells) select {cba_missionTime <= _x # 1};

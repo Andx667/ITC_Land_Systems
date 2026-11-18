@@ -22,8 +22,8 @@ params ["_display"];
 ITC_CURVEHICLE
 
 private _state = [
-    _vehicle getVariable ["itc_land_tablet_fcs_solutions", []],
-    _vehicle getVariable ["itc_land_tablet_fcs_solutions_index", 0],
+    _vehicle getVariable [QGVAR(fcs_solutions), []],
+    _vehicle getVariable [QGVAR(fcs_solutions_index), 0],
     _vehicle getVariable [QEGVAR(bcs,fireData), []]
 ];
 if (_state isEqualTo (_display getVariable [QGVAR(fcsShown), []])) exitWith {};

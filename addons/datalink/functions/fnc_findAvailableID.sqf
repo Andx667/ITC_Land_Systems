@@ -20,18 +20,18 @@ params [["_groupID", "", [""]]];
 private ["_firstChar","_secondChar","_id"];
 
 private _isAvailableID = false;
-private _characterHighestIndex = ((count itc_land_datalink_allowedIDCharacters) - 1);
+private _characterHighestIndex = ((count GVAR(allowedIDCharacters)) - 1);
 //loop through first char
 for "_firstCharIndex" from 0 to _characterHighestIndex do {
-    _firstChar = itc_land_datalink_allowedIDCharacters # _firstCharIndex;
+    _firstChar = GVAR(allowedIDCharacters) # _firstCharIndex;
     //loop through second char
     if (_isAvailableID) exitWith {};
     for "_secondCharIndex" from 0 to _characterHighestIndex do {
-        _secondChar = itc_land_datalink_allowedIDCharacters # _secondCharIndex;
+        _secondChar = GVAR(allowedIDCharacters) # _secondCharIndex;
         //generate ID
         _id = _groupID + _firstChar + _secondChar;
         //check if ID is free; node 00 addresses the whole group, so it is never assigned
-        _isAvailableID = !(_id in itc_land_datalink_nodes) && {(_firstChar + _secondChar) != "00"};
+        _isAvailableID = !(_id in GVAR(nodes)) && {(_firstChar + _secondChar) != "00"};
         //exit if free
         if (_isAvailableID) exitWith {};
     };

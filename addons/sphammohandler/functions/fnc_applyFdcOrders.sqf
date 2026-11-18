@@ -32,12 +32,12 @@ if ((_orders get "round") == -1) exitWith {
 // the round; selecting it also fills the fuze list
 lbSetCurSel [86001, _orders get "round"];
 [controlNull, _orders get "round"] call FUNC(onSelectAmmo);
-_vehicle setVariable ["itc_land_currentChargeIndex", _orders get "charge", true];
+_vehicle setVariable [QGVAR(currentChargeIndex), _orders get "charge", true];
 [0] call FUNC(changeCharge);
 if ((_orders get "fuze") != -1) then {
     // shown in the time field when the fuze is selected
     if ((_orders get "time") != "") then {
-        _vehicle setVariable ["itc_land_fuzeTime", parseNumber (_orders get "time"), true];
+        _vehicle setVariable [QGVAR(fuzeTime), parseNumber (_orders get "time"), true];
     };
     lbSetCurSel [86004, _orders get "fuze"];
     [controlNull, _orders get "fuze"] call FUNC(onSelectFuze);

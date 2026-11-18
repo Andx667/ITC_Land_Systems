@@ -20,7 +20,7 @@
 
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _selectedMagConfig = (_vehicle getVariable "itc_land_currentMagInfo") # 2;
+private _selectedMagConfig = (_vehicle getVariable QGVAR(currentMagInfo)) # 2;
 
 //Clear then re-fill the fuze combobox
 lbClear 86004;

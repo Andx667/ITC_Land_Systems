@@ -3,9 +3,9 @@
 /*
  * Author: ITC Addons Team
  * Applies the ammunition handler's settings, the ones the loader works with: the prepared round
- * (itc_land_currentMagInfo) with its charge, the selected fuze mode (common_fnc_setFuzeSelection)
+ * (itc_land_sphammohandler_currentMagInfo) with its charge, the selected fuze mode (common_fnc_setFuzeSelection)
  * with its setting, the guidance (GPS target or laser codes) and the round count, stored on the
- * vehicle as itc_land_sphloadersettings. The ammunition handler is then ready to load.
+ * vehicle as itc_land_sphammohandler_sphloadersettings. The ammunition handler is then ready to load.
  * A laser code that is none is replaced by 1111; the page shows the codes the vehicle keeps
  * (itc_land_guidance_laserCode / _2). A mortar has no round count: its crew fires every round by hand.
  *
@@ -28,16 +28,16 @@
 
 params ["_vehicle", "_fuzeTime", "_laserCodes", "_targetGrid", "_targetAlt", "_roundCount"];
 
-_vehicle setVariable ["itc_land_ammoHandler_status", [1, 0, LSTRING(Status_Waiting)], true];
+_vehicle setVariable [QGVAR(ammoHandler_status), [1, 0, LSTRING(Status_Waiting)], true];
 
-private _magazine = (_vehicle getVariable ["itc_land_currentMagInfo", [0, ""]]) param [1, ""];
+private _magazine = (_vehicle getVariable [QGVAR(currentMagInfo), [0, ""]]) param [1, ""];
 private _magazineConfig = configFile >> "CfgMagazines" >> _magazine;
-private _charge = _vehicle getVariable ["itc_land_currentChargeIndex", 1];
+private _charge = _vehicle getVariable [QGVAR(currentChargeIndex), 1];
 private _ammoText = format [LLSTRING(AmmoCharge), getText (_magazineConfig >> "displayNameShort"), _charge];
 
-private _fuzeMode = _vehicle getVariable ["itc_land_selectedFuzeMode", "pd"];
-private _fuzeDesc = _vehicle getVariable ["itc_land_selectedFuzeDesc", ""];
-([_vehicle, _fuzeMode, _fuzeDesc, getText (_magazineConfig >> "itc_land_fuze"), _fuzeTime, "itc_land_fuzeTime"] call EFUNC(common,resolveFuzeSetting)) params ["_fuzeText", "_fuzeValues"];
+private _fuzeMode = _vehicle getVariable [QEGVAR(common,selectedFuzeMode), "pd"];
+private _fuzeDesc = _vehicle getVariable [QEGVAR(common,selectedFuzeDesc), ""];
+([_vehicle, _fuzeMode, _fuzeDesc, getText (_magazineConfig >> "itc_land_fuze"), _fuzeTime, QGVAR(fuzeTime)] call EFUNC(common,resolveFuzeSetting)) params ["_fuzeText", "_fuzeValues"];
 
 _laserCodes = _laserCodes apply {[1111, _x] select ([_x] call EFUNC(common,isLaserCode))};
 _laserCodes params ["_laserCode", "_laserCode2"];
@@ -49,24 +49,24 @@ switch (_guidance) do {
         _guidanceText = format ["%1 -- %2", _targetGrid, _targetAlt];
     };
     case "laser_coded": {
-        _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
+        _vehicle setVariable [QEGVAR(guidance,laserCode), _laserCode, true];
         _guidanceText = format [LLSTRING(LaserCode), _laserCode];
     };
     case "laser_coded_2": {
-        _vehicle setVariable ["itc_land_guidance_laserCode", _laserCode, true];
-        _vehicle setVariable ["itc_land_guidance_laserCode_2", _laserCode2, true];
+        _vehicle setVariable [QEGVAR(guidance,laserCode), _laserCode, true];
+        _vehicle setVariable [QEGVAR(guidance,laserCode_2), _laserCode2, true];
         _guidanceText = format [LLSTRING(LaserCodes), _laserCode, _laserCode2];
     };
 };
 
 if (getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3) then {_roundCount = 0};
-_vehicle setVariable ["itc_land_roundCount", _roundCount, true];
-_vehicle setVariable ["itc_land_roundsFired", 0, true];
+_vehicle setVariable [QGVAR(roundCount), _roundCount, true];
+_vehicle setVariable [QGVAR(roundsFired), 0, true];
 
 private _settings = [
     [_ammoText, _magazine, _charge, _roundCount],
     [_fuzeText, _fuzeMode, _fuzeValues],
     [_guidanceText, _guidance]
 ];
-_vehicle setVariable ["itc_land_sphloadersettings", _settings, true];
+_vehicle setVariable [QGVAR(sphloadersettings), _settings, true];
 _settings

@@ -30,13 +30,13 @@ params ["_vehicle", "_action", "_value"];
 
 private _form = EGVAR(tablet,web) get "form";
 private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3;
-private _status = (_vehicle getVariable ["itc_land_ammoHandler_status", [0, 0, LSTRING(Status_Waiting)]]) # 0;
+private _status = (_vehicle getVariable [QGVAR(ammoHandler_status), [0, 0, LSTRING(Status_Waiting)]]) # 0;
 private _ammoList = EGVAR(tablet,web) getOrDefault ["ammoList", []];
-private _magazine = (_vehicle getVariable ["itc_land_currentMagInfo", [0, ""]]) param [1, ""];
+private _magazine = (_vehicle getVariable [QGVAR(currentMagInfo), [0, ""]]) param [1, ""];
 private _setRound = {
     params ["_index"];
     _magazine = _ammoList # _index;
-    _vehicle setVariable ["itc_land_currentMagInfo", [_index, _magazine, configFile >> "CfgMagazines" >> _magazine], true];
+    _vehicle setVariable [QGVAR(currentMagInfo), [_index, _magazine, configFile >> "CfgMagazines" >> _magazine], true];
     _form set ["ammo", _index];
 };
 
@@ -46,14 +46,14 @@ switch (_action) do {
         if (_index < 0 || {_index >= count _ammoList}) exitWith {};
         [_index] call _setRound;
         // the new round's fuzes: the last one if it has it, else the first
-        [_vehicle, _magazine, _vehicle getVariable ["itc_land_selectedFuzeIndex", 0]] call EFUNC(common,setFuzeSelection);
-        _form set ["fuze", _vehicle getVariable ["itc_land_selectedFuzeIndex", 0]];
+        [_vehicle, _magazine, _vehicle getVariable [QEGVAR(common,selectedFuzeIndex), 0]] call EFUNC(common,setFuzeSelection);
+        _form set ["fuze", _vehicle getVariable [QEGVAR(common,selectedFuzeIndex), 0]];
         [] call EFUNC(tablet,webFormChanged);
     };
     case "ahCharge": {
         if !(_value in [-1, 1]) exitWith {};
         private _max = getNumber (configFile >> "CfgMagazines" >> _magazine >> "itc_land_maxChargeIndex");
-        _vehicle setVariable ["itc_land_currentChargeIndex", (((_vehicle getVariable ["itc_land_currentChargeIndex", 1]) + _value) min _max) max 1, true];
+        _vehicle setVariable [QGVAR(currentChargeIndex), (((_vehicle getVariable [QGVAR(currentChargeIndex), 1]) + _value) min _max) max 1, true];
     };
     case "ahFuze": {
         [_vehicle, _magazine, ["fuze", "index"] call EFUNC(tablet,webFormValue)] call EFUNC(common,setFuzeSelection);
@@ -73,8 +73,8 @@ switch (_action) do {
         // a laser code that was none shows the one used
         private _guidance = _settings # 2 # 1;
         private _codes = [];
-        if (_guidance in ["laser_coded", "laser_coded_2"]) then {_codes pushBack ["code1", "itc_land_guidance_laserCode"]};
-        if (_guidance == "laser_coded_2") then {_codes pushBack ["code2", "itc_land_guidance_laserCode_2"]};
+        if (_guidance in ["laser_coded", "laser_coded_2"]) then {_codes pushBack ["code1", QEGVAR(guidance,laserCode)]};
+        if (_guidance == "laser_coded_2") then {_codes pushBack ["code2", QEGVAR(guidance,laserCode_2)]};
         {
             _x params ["_id", "_variable"];
             private _used = str (_vehicle getVariable [_variable, 1111]);
@@ -100,7 +100,7 @@ switch (_action) do {
             [format [LLSTRING(FdcRoundMissing), getText (configFile >> "CfgMagazines" >> (_orders get "magazine") >> "displayName")], "bad"] call EFUNC(tablet,webNotice);
         };
         [_orders get "round"] call _setRound;
-        _vehicle setVariable ["itc_land_currentChargeIndex", _orders get "charge", true];
+        _vehicle setVariable [QGVAR(currentChargeIndex), _orders get "charge", true];
         if ((_orders get "fuze") != -1) then {
             [_vehicle, _magazine, _orders get "fuze"] call EFUNC(common,setFuzeSelection);
             _form set ["fuze", _orders get "fuze"];

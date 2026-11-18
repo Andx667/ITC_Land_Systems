@@ -19,7 +19,7 @@
 
 params [["_vehicle", objNull, [objNull]]];
 
-private _index = _vehicle getVariable "itc_land_tablet_fcs_solutions_index";
+private _index = _vehicle getVariable QEGVAR(tablet,fcs_solutions_index);
 if (isNil "_index") exitWith {[]};
 
-(_vehicle getVariable ["itc_land_tablet_fcs_solutions", []]) param [_index, []]
+(_vehicle getVariable [QEGVAR(tablet,fcs_solutions), []]) param [_index, []]

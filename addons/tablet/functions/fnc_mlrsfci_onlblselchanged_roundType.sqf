@@ -36,7 +36,7 @@ private _fuzeModeArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >>
 private _fuzeDescArray = getArray (configFile >> "ITC_Land_CfgFuzes" >> _fuze >> "modeDesc");
 
 // The fuze selection is stored on the vehicle (see EFUNC(common,applyFuzeSelection))
-private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex", -1];
+private _selectedFuzeIndex = _vehicle getVariable [QEGVAR(common,selectedFuzeIndex), -1];
 if (_selectedFuzeIndex >= 0 && {_selectedFuzeIndex < count _fuzeDescArray}) then {
     //Recall last selection in ComboBox
     [1904, _fuzeDescArray, _selectedFuzeIndex, _fuzeModeArray] call FUNC(fillComboBox);
@@ -51,6 +51,6 @@ if (_selectedFuzeIndex >= 0 && {_selectedFuzeIndex < count _fuzeDescArray}) then
 private _isPgm = ((getArray (_selectedMagConfig >> "itc_land_guidance")) param [0, ""]) == "gps_inertial";
 [[1907, 1908, 1909, 1910, 1911], _isPgm] call EFUNC(common,ctrlShowMany);
 if (_isPgm) then {
-    ctrlSetText [1909, format ["%1", _vehicle getVariable ["itc_land_guidance_targetGrid", "0000000000"]]];
-    ctrlSetText [1911, format ["%1", _vehicle getVariable ["itc_land_guidance_targetAlt", 0]]];
+    ctrlSetText [1909, format ["%1", _vehicle getVariable [QEGVAR(guidance,targetGrid), "0000000000"]]];
+    ctrlSetText [1911, format ["%1", _vehicle getVariable [QEGVAR(guidance,targetAlt), 0]]];
 };

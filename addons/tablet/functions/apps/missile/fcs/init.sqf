@@ -30,17 +30,17 @@ lbClear (_display displayCtrl 1512);
 (_display displayCtrl 1512) lbSetCurSel 0;
 //[_display,1] call FUNC(fcimode_onlblselchanged);
 
-if (isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions"}) then {
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions", [], true];
+if (isNil{_vehicle getVariable QGVAR(fcs_solutions)}) then {
+    _vehicle setVariable [QGVAR(fcs_solutions), [], true];
 };
-if (isNil{_vehicle getVariable "itc_land_tablet_fcs_solutions_index"}) then {
-    _vehicle setVariable ["itc_land_tablet_fcs_solutions_index", 0, true];
+if (isNil{_vehicle getVariable QGVAR(fcs_solutions_index)}) then {
+    _vehicle setVariable [QGVAR(fcs_solutions_index), 0, true];
 };
 
 //Clear or populate local FCS inputs and solution output
-if ((!(isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtgrid"}))&&(!(isNil {_vehicle getVariable "itc_land_tablet_fcs_tgtelev"})) ) then {
-    ctrlSetText [2400,_vehicle getVariable "itc_land_tablet_fcs_tgtgrid"];
-    ctrlSetText [2401,str(_vehicle getVariable "itc_land_tablet_fcs_tgtelev")];
+if ((!(isNil {_vehicle getVariable QGVAR(fcs_tgtgrid)}))&&(!(isNil {_vehicle getVariable QGVAR(fcs_tgtelev)})) ) then {
+    ctrlSetText [2400,_vehicle getVariable QGVAR(fcs_tgtgrid)];
+    ctrlSetText [2401,str(_vehicle getVariable QGVAR(fcs_tgtelev))];
 } else {
     ctrlSetText [2400,""];
     ctrlSetText [2401,""];
@@ -70,12 +70,12 @@ _display setVariable [QGVAR(fcsShown), nil];
 
 
 /*
-if (isNil "itc_land_fcimode") then {
+if (isNil "itc_land_tablet_fcimode") then {
     lbSetCurSel [1501,0];
     [_display,0] call FUNC(fcimode_onlblselchanged);
 } else {
-    lbSetCurSel [1501,itc_land_fcimode # 0];
-    [_display,itc_land_fcimode # 0] call FUNC(fcimode_onlblselchanged);
+    lbSetCurSel [1501,itc_land_tablet_fcimode # 0];
+    [_display,itc_land_tablet_fcimode # 0] call FUNC(fcimode_onlblselchanged);
 };
 */
 //(_display displayCtrl 1500) lbAdd "G: 0101   CH: 2    AZ: 800    DF: 3982    QD: 368    TOF:23.31";

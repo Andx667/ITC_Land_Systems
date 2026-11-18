@@ -28,15 +28,15 @@ params [["_map", controlNull, [controlNull]]];
     _map drawIcon ["iconExplosiveGPDirectional",[0,0,1,1],_position, 24, 24, 0, "",0,0.05,"TahomaB","right"];
     _map drawLine [_x, (_position getPos [10000, _direction + 22]),[0,0,1,1]];
     _map drawLine [_x, (_position getPos [10000, _direction - 22]),[0,0,1,1]];
-} forEach (missionNamespace getVariable ["itc_land_cobras",[]]);
+} forEach (missionNamespace getVariable [QEGVAR(cobra,vehicles),[]]);
 
 {
     _x params ["_roundCount","_origins","_lastActive"];
     _map drawIcon ["iconExplosiveGPDirectional",[1,0,0,1],_origins # 0, 24, 24, 0, str _roundCount,0,0.05,"TahomaB","right"];
-} forEach (missionNamespace getVariable ["itc_land_cobra_firingPositions",[]]);
+} forEach (missionNamespace getVariable [QEGVAR(cobra,firingPositions),[]]);
 {
     _x params ["_impactPoint","_impactTime"];
     if (cba_missionTime < _impactTime) then {
         _map drawIcon ["a3\ui_f\data\Map\Markers\Military\destroy_CA.paa",[1,0,0,1],_impactPoint, 24, 24, 0, str round(_impactTime - cba_missionTime),0,0.05,"TahomaB","right"];
     };
-} forEach (missionNamespace getVariable ["itc_land_cobra_activeShells",[]]);
+} forEach (missionNamespace getVariable [QEGVAR(cobra,activeShells),[]]);

@@ -31,7 +31,7 @@
 
 params [["_vehicle", objNull, [objNull]], "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 
-private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
+private _laserCode = _vehicle getVariable [QGVAR(laserCode),1111];
 
 [_projectile, {
     params ["_projectile", "_args"];

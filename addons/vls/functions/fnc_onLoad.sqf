@@ -26,7 +26,7 @@ private _vehicle = [] call EFUNC(common,getCurVehicle);
 
 //clear and populate saved target list
 lbClear 4103;
-private _targetList = _vehicle getVariable ["ITC_Land_VLS_TGTList",[]];
+private _targetList = _vehicle getVariable [QGVAR(TGTList),[]];
 if ((count _targetList) > 0) then {
     {
         private _label = _x # 0;
@@ -35,7 +35,7 @@ if ((count _targetList) > 0) then {
         lbSetData [4103, _index, _data];
     } forEach _targetList;
 };
-private _currentTGTindex = _vehicle getVariable ["ITC_Land_VLS_selectedTGT",[]];
+private _currentTGTindex = _vehicle getVariable [QGVAR(selectedTGT),[]];
 if ((lbSize 4103) > 0) then {
     if ( (count _currentTGTindex > 0) && {(_currentTGTindex # 0) < (lbSize 4103)}) then {
         //Recall last selection in ComboBox
@@ -46,10 +46,10 @@ if ((lbSize 4103) > 0) then {
     };
 };
 //populate edit fields
-private _targetGrid = _vehicle getVariable ["ITC_Land_VLS_adHocData_grid","00000000"];
+private _targetGrid = _vehicle getVariable [QGVAR(adHocData_grid),"00000000"];
 ctrlSetText [4106, _targetGrid];
 
-private _targetElev = _vehicle getVariable ["ITC_Land_VLS_adHocData_elev",0];
+private _targetElev = _vehicle getVariable [QGVAR(adHocData_elev),0];
 ctrlSetText [4108, str _targetElev];
 
 lbClear 4110;
@@ -60,7 +60,7 @@ lbClear 4110;
     lbSetData [4110, _index, _angl];
 } forEach [["LOW - 25","25"],["NORMAL - 45","45"],["HIGH - 75","75"]];
 
-private _targetAngl = _vehicle getVariable ["ITC_Land_VLS_adHocData_angl",[1,"45"]];
+private _targetAngl = _vehicle getVariable [QGVAR(adHocData_angl),[1,"45"]];
 
 if ( (_targetAngl # 0) < (lbSize 4110)) then {
     //Recall last selection in ComboBox
@@ -69,7 +69,7 @@ if ( (_targetAngl # 0) < (lbSize 4110)) then {
     //select first item in ComboBox
     lbSetCurSel [4110, 0];
 };
-private _targetName = _vehicle getVariable ["ITC_Land_VLS_adHocData_name","TGT000"];
+private _targetName = _vehicle getVariable [QGVAR(adHocData_name),"TGT000"];
 ctrlSetText [4112, _targetName];
 
 

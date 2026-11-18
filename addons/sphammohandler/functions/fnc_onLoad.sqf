@@ -36,15 +36,15 @@ if (getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3) then {
     {ctrlShow [_x, false]} forEach [86020, 86021, 86022, 86029];
 };
 
-private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
-_vehicle setVariable ["itc_land_ammoHandler_status",_status,true];
+private _status = _vehicle getVariable [QGVAR(ammoHandler_status),[0,0,LSTRING(Status_Waiting)]];
+_vehicle setVariable [QGVAR(ammoHandler_status),_status,true];
 [] call FUNC(updateStatus);
 
 [] call FUNC(fillAmmoList);
 
-private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
+private _currentMagInfo = _vehicle getVariable [QGVAR(currentMagInfo),[0,""]];
 private _selectedMagIndex = (_currentMagInfo # 0);
-private _selectedFuzeIndex = _vehicle getVariable ["itc_land_selectedFuzeIndex",0];
+private _selectedFuzeIndex = _vehicle getVariable [QEGVAR(common,selectedFuzeIndex),0];
 
 if ( _selectedMagIndex < (lbSize 86001)) then {
     lbSetCurSel [86001, _selectedMagIndex];
@@ -58,30 +58,30 @@ if ( _selectedFuzeIndex < (lbSize 86004)) then {
     //select first item in ComboBox
     lbSetCurSel [86004, 0];
 };
-private _roundCount = _vehicle getVariable ["itc_land_roundCount",0];
+private _roundCount = _vehicle getVariable [QGVAR(roundCount),0];
 ctrlSetText [86022,str _roundCount];
 
 //Hide Guidance fields
 //LGM
 ctrlShow [86007, false];
 ctrlShow [86008, false];
-private _laserCode = _vehicle getVariable ["itc_land_guidance_laserCode",1111];
-private _laserCode2 = _vehicle getVariable ["itc_land_guidance_laserCode_2",1112];
+private _laserCode = _vehicle getVariable [QEGVAR(guidance,laserCode),1111];
+private _laserCode2 = _vehicle getVariable [QEGVAR(guidance,laserCode_2),1112];
 ctrlSetText [86008, str _laserCode];
 ctrlSetText [86024, str _laserCode2];
 
 //PGM
 ctrlShow [86012, false];
 ctrlShow [86013, false];
-private _targetGrid = _vehicle getVariable ["itc_land_guidance_targetGrid","00000000"];
+private _targetGrid = _vehicle getVariable [QEGVAR(guidance,targetGrid),"00000000"];
 ctrlSetText [86013, _targetGrid];
 ctrlShow [86014, false];
 ctrlShow [86015, false];
-private _targetAlt = _vehicle getVariable ["itc_land_guidance_targetAlt",0];
+private _targetAlt = _vehicle getVariable [QEGVAR(guidance,targetAlt),0];
 ctrlSetText [86015, str _targetAlt];
 
 //Autoloader Labels
-private _sphloadersettings = _vehicle getVariable ["itc_land_sphloadersettings", []];
+private _sphloadersettings = _vehicle getVariable [QGVAR(sphloadersettings), []];
 if (count _sphloadersettings > 0) then {
     ctrlSetText[86019, ((_sphloadersettings # 0) # 0)];
     if (((_sphloadersettings # 0) # 3) >= 1 ) then {

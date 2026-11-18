@@ -25,8 +25,8 @@ params ["_vehicle", "", "", "", "_ammo", "", "_projectile", "_gunner"];
 
 if (!local _gunner) exitWith {};
 
-private _angle = _vehicle getVariable "itc_land_vls_targetAngl";
-private _targetCoordinates = _vehicle getVariable "itc_land_vls_targetPos";
+private _angle = _vehicle getVariable QGVAR(targetAngl);
+private _targetCoordinates = _vehicle getVariable QGVAR(targetPos);
 // No target set through the launch dialog (e.g. an AI gunner fired): fly unguided
 if (isNil "_targetCoordinates" || {isNil "_angle"}) exitWith {};
 private _azimuth = 0;//keep this 0 until target azimuth works

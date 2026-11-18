@@ -18,7 +18,7 @@
  */
 
 params ["_display"];
-private _firesStrings = (missionNamespace getVariable ["itc_land_cobra_engagements", []]) apply {
+private _firesStrings = (missionNamespace getVariable [QEGVAR(cobra,engagements), []]) apply {
     format[LLSTRING(Cbr_EngagementEntry),
         _x # 0,
         [_x # 2 # 0] call EFUNC(common,posToGrid),

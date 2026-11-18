@@ -32,7 +32,7 @@ if((!alive ace_player) || (!itc_land_SPHammoHandler_open)) then {
 
 //private _vehicle = vehicle ace_player;
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _status = _vehicle getVariable ["itc_land_ammoHandler_status",[0,0,LSTRING(Status_Waiting)]];
+private _status = _vehicle getVariable [QGVAR(ammoHandler_status),[0,0,LSTRING(Status_Waiting)]];
 // a mortar prepares a round, then fires (drops) or stows it
 private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3;
 //Only run code required to update if status has changed.
@@ -74,7 +74,7 @@ private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") ==
 
             //After pulling shell update available ammo list.
             //refresh ammo list
-            private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
+            private _currentMagInfo = _vehicle getVariable [QGVAR(currentMagInfo),[0,""]];
             private _selectedMagIndex = (_currentMagInfo # 0);
             if ((_status # 1) == 3) then {
                 [] call FUNC(fillAmmoList);
@@ -107,7 +107,7 @@ private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") ==
 
             if ((_status # 1) == 3) then {
                 //refresh ammo list
-                private _currentMagInfo = _vehicle getVariable ["itc_land_currentMagInfo",[0,""]];
+                private _currentMagInfo = _vehicle getVariable [QGVAR(currentMagInfo),[0,""]];
                 private _selectedMagIndex = (_currentMagInfo # 0);
                 [] call FUNC(fillAmmoList);
                 if ( _selectedMagIndex < (lbSize 86001)) then {
@@ -123,5 +123,5 @@ private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") ==
     ctrlShow [86026, _mortar];
     ctrlEnable [86026, _mortar && {(_status # 0) == 3}]; //a prepared mortar round can be stowed
     ctrlSetText [86011, localize (_status # 2)]; //updating status label
-    _vehicle setVariable ["itc_land_ammoHandler_lastStatus",_status,true];
+    _vehicle setVariable [QGVAR(ammoHandler_lastStatus),_status,true];
 //};

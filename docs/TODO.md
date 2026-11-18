@@ -198,7 +198,7 @@ validation errors (never shown to players) stay English. Acronyms and product na
       hostile target. The crew leak is fixed; profile a large barrage in MP to see
       whether the per-shell vehicle/group creation is acceptable.
 
-- [ ] VLS: removing a saved target leaves `ITC_Land_VLS_selectedTGT` pointing at it.
+- [ ] VLS: removing a saved target leaves `itc_land_vls_selectedTGT` pointing at it.
       Check in game whether `lbDelete` fires a new selection; if not, "Launch selected"
       can fire at the removed target. Clear or refresh the selection in `fnc_removeTGT`.
 - [ ] VLS `onChar` broadcasts the grid/elevation/name to every machine on each keystroke;

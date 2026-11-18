@@ -19,7 +19,7 @@
 if (!isServer) exitWith {}; //end code if not server
 
 //create the address list, a hashmap of ID: [object, machine ID that connected it]
-itc_land_datalink_nodes = createHashMap;
+GVAR(nodes) = createHashMap;
 
 //drop entries for deleted objects and for machines that left, so transmissions don't go to dead targets
 addMissionEventHandler ["EntityDeleted", {
@@ -32,8 +32,8 @@ addMissionEventHandler ["PlayerDisconnected", {
 }];
 
 //add the eventhandlers for connecting and disconnecting clients
-itc_land_datalink_eh_clientConnect = [QGVAR(clientConnect), FUNC(onClientConnect)] call CBA_fnc_addEventHandler;
-itc_land_datalink_eh_clientDisconnect = [QGVAR(clientDisconnect), FUNC(onClientDisconnect)] call CBA_fnc_addEventHandler;
+GVAR(eh_clientConnect) = [QGVAR(clientConnect), FUNC(onClientConnect)] call CBA_fnc_addEventHandler;
+GVAR(eh_clientDisconnect) = [QGVAR(clientDisconnect), FUNC(onClientDisconnect)] call CBA_fnc_addEventHandler;
 
 //add eventhandlers for handling transmissions
-itc_land_datalink_eh_clientTX = [QGVAR(clientTX), FUNC(onClientTX)] call CBA_fnc_addEventHandler;
+GVAR(eh_clientTX) = [QGVAR(clientTX), FUNC(onClientTX)] call CBA_fnc_addEventHandler;

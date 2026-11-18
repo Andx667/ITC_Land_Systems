@@ -19,7 +19,7 @@
  */
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
-private _magazine = (_vehicle getVariable ["itc_land_currentMagInfo", [0, ""]]) param [1, ""];
+private _magazine = (_vehicle getVariable [QGVAR(currentMagInfo), [0, ""]]) param [1, ""];
 
 // the fuze shown, also when it was never changed
 [_vehicle, _magazine, lbCurSel 86004] call EFUNC(common,setFuzeSelection);
@@ -36,10 +36,10 @@ private _settings = [
 _settings params ["_round", "_fuze", "_guidance"];
 // a laser code that was none shows the one used
 if ((_guidance # 1) in ["laser_coded", "laser_coded_2"]) then {
-    ctrlSetText [86008, str (_vehicle getVariable ["itc_land_guidance_laserCode", 1111])];
+    ctrlSetText [86008, str (_vehicle getVariable [QEGVAR(guidance,laserCode), 1111])];
 };
 if ((_guidance # 1) == "laser_coded_2") then {
-    ctrlSetText [86024, str (_vehicle getVariable ["itc_land_guidance_laserCode_2", 1111])];
+    ctrlSetText [86024, str (_vehicle getVariable [QEGVAR(guidance,laserCode_2), 1111])];
 };
 ctrlSetText [86019, _round # 0];
 ctrlSetText [86018, _fuze # 0];
