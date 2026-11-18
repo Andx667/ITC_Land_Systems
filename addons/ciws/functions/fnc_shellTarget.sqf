@@ -34,7 +34,7 @@
 
 [{
     params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
-    private _classTarget = getText (configFile >> "cfgAmmo" >> _ammo >> "itc_land_ciws_target");
+    private _classTarget = getText (configFile >> "cfgAmmo" >> _ammo >> QGVAR(target));
     private _initialClass = if (_classTarget != "") then [{_classTarget},{"itc_land_shell"}];
     private _class = if ((side _gunner) == west) then [{_initialClass + "_b"},{_initialClass + "_o"}];
     _class = if ((side _gunner) == resistance) then [{_initialClass + "_i"},{_class}];
