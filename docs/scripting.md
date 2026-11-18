@@ -159,6 +159,29 @@ A vehicle can be packed into an item and unpacked again:
 - The vehicle sets `itc_land_PacksTo = "My_Packed_Item";` and gets an ACE action that calls `[_target, _player] call itc_land_packable_fnc_pack`.
 - The item inherits from `itc_land_packableItem`, sets `itc_land_unPacksTo = "My_Vehicle";` and gets an ACE self action under `ACE_Equipment >> ITC_Land_Unpack` that calls `["My_Packed_Item", _player] call itc_land_packable_fnc_unpack`.
 
+## Public functions
+
+These functions are the mod's public API: their arguments and behaviour stay stable, and any change is announced in the changelog with a deprecation period. Every other function is internal and can change at any time.
+
+| Function | Arguments | Returns | Where to run |
+| --- | --- | --- | --- |
+| `itc_land_cobra_fnc_sirenInit` | 0: siren object, 1: sound class (CfgSounds), 2: audible distance in m, 3: seconds between repeats. With fewer than 4 arguments: `"alarm"`, 250 m, 1.75 s | the arguments | Server (does nothing elsewhere) |
+| `itc_land_aps_fnc_vehicleInit` | 0: vehicle with an `itc_land_aps` config class | nothing | Server (does nothing elsewhere) |
+| `itc_land_sphammohandler_fnc_canOpen` | 0: vehicle, 1: unit | `true` if the unit is the gunner or the loader | Any machine |
+| `itc_land_sphammohandler_fnc_open` | 0: open the classic dialog even with **Tablet in HTML** on (optional, default `false`) | nothing | Client of the unit opening it |
+| `itc_land_packable_fnc_pack` | 0: deployed object, 1: unit packing it | nothing | Client of the unit packing |
+| `itc_land_packable_fnc_unpack` | 0: packed item class, 1: unit unpacking it | nothing | Client of the unit unpacking |
+
+```sqf
+// a siren with its own sound, heard to 400 m, repeating every 3 s
+if (isServer) then { [this, "MySirenSound", 400, 3] call itc_land_cobra_fnc_sirenInit; };
+
+// open the ammunition handler from your own action, classic dialog
+[true] call itc_land_sphammohandler_fnc_open;
+```
+
+The mod raises no public events yet.
+
 ## Debugging
 
 | Variable | Effect |

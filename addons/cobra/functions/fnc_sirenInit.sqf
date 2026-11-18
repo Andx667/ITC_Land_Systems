@@ -6,6 +6,7 @@
  * in the mission-wide siren-type registry and stores its siren sound class,
  * trigger distance and repeat duration on the object, falling back to default
  * alarm values if fewer than 4 arguments are supplied.
+ * Run on the server; on other machines it does nothing, so an init field can call it everywhere.
  *
  * Arguments:
  * 0: Siren object/vehicle to register <Object>
@@ -19,7 +20,7 @@
  * Example:
  * [_siren, _sirenSound, _sirenDistance, _sirenDuration] call itc_land_cobra_fnc_sirenInit
  *
- * Public: No
+ * Public: Yes
  */
 
 //[this,"vtolAlarm",100,2] call FUNC(sirenInit)

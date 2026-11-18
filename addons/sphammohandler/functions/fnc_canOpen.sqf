@@ -4,6 +4,7 @@
  * Author: ITC Addons Team
  * Condition of the ammunition handler's ACE self action: the gunner, or the loader where the
  * vehicle has a loader seat (see getLoader).
+ * Runs on any machine; it only reads the vehicle and unit.
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -15,7 +16,7 @@
  * Example:
  * [_vehicle, ACE_player] call itc_land_sphammohandler_fnc_canOpen
  *
- * Public: No
+ * Public: Yes
  */
 
 params [["_vehicle", objNull, [objNull]], ["_unit", objNull, [objNull]]];

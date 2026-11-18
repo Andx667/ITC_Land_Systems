@@ -7,6 +7,7 @@
  * local, spawns the unpacked vehicle classname (itc_land_unPacksTo) next to
  * the caller with a crew, and removes the packed item from the caller's
  * inventory. Plays a "put down" gesture once the progress bar completes.
+ * Run on the client of the unit unpacking (it shows the ACE progress bar there).
  *
  * Arguments:
  * 0: Packed item classname <STRING>
@@ -18,7 +19,7 @@
  * Example:
  * [_item, _caller] call itc_land_packable_fnc_unPack
  *
- * Public: No
+ * Public: Yes
  */
 
     params ["_item","_caller"];

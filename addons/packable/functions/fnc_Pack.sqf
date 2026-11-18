@@ -7,6 +7,7 @@
  * animation, then deletes it and spawns a ground weapon holder at its
  * position containing one copy of its packed item classname
  * (itc_land_PacksTo).
+ * Run on the client of the unit packing (it shows the ACE progress bar there).
  *
  * Arguments:
  * 0: Item/object to pack <OBJECT>
@@ -18,7 +19,7 @@
  * Example:
  * [_item, _caller] call itc_land_packable_fnc_Pack
  *
- * Public: No
+ * Public: Yes
  */
 
 params [["_item", objNull, [objNull]], ["_caller", objNull, [objNull]]];
