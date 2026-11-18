@@ -129,7 +129,11 @@ Every round-and-charge combination is a one-round magazine. The magazines carry 
 | `itc_land_fuze` | Fuze class from `ITC_Land_CfgFuzes` (`mof35_mod0` all modes, `mof35_mod1` time, `mof35_mod2` point detonate, proximity and delay, `mof35_mod3` time for cargo rounds) |
 | `itc_land_guidance[]` | Guidance: `{"laser_coded", function}`, `{"gps_inertial", function}` or `{"laser_coded_2"}` |
 | `itc_land_submunition` | Object or ammunition released by the fuze |
+| `itc_land_submunitionScript`, `itc_land_submunitionCount` | Cargo rounds with the `mof35_mod3` time fuze: the function (name as a string, e.g. `"itc_land_veh_weapons_fnc_deployExtra"`) called that many times when the fuze functions, with `[index, positionASL, velocity, pitch, bank, guidance]` |
+| `dispersionEvent` | Function (name as a string) called with the Fired event arguments for every shot of the magazine, e.g. to vary the muzzle velocity |
 | `itc_land_heightModifier`, `itc_land_timeModifier` | Corrections to the computed impact height and time of flight |
+
+A fuze is a class in `ITC_Land_CfgFuzes` with `modes[]` (from `"pd"`, `"prox"`, `"time"`, `"delay"`), their display names in `modeDesc[]`, the `firedEvent` function that arms it, and for proximity the burst height `proxHOB` in metres. Inherit from `mof35_mod0` for a new combination of modes.
 
 ### Battery types
 
