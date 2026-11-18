@@ -15,7 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
-- Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#PR) by Andx
+- Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
 
 ### Changed
 
