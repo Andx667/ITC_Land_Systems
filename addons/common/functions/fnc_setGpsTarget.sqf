@@ -23,7 +23,7 @@
 params [["_vehicle", objNull, [objNull]], ["_grid", "", [""]], ["_alt", 0, [0]]];
 
 private _targetPos = [_grid, _alt] call FUNC(gridToPos);
-_vehicle setVariable ["itc_land_guidance_targetGrid", _grid, true];
-_vehicle setVariable ["itc_land_guidance_targetAlt", _alt, true];
-_vehicle setVariable ["itc_land_guidance_targetPos", _targetPos, true];
+_vehicle setVariable [QEGVAR(guidance,targetGrid), _grid, true];
+_vehicle setVariable [QEGVAR(guidance,targetAlt), _alt, true];
+_vehicle setVariable [QEGVAR(guidance,targetPos), _targetPos, true];
 _targetPos

@@ -17,7 +17,7 @@
  * None
  *
  * Example:
- * [_vehicle, "itc_land_155mm_HE", 2, 86005, 86006, "itc_land_fuzeTime"] call itc_land_common_fnc_applyFuzeSelection
+ * [_vehicle, "itc_land_155mm_HE", 2, 86005, 86006, "itc_land_sphammohandler_fuzeTime"] call itc_land_common_fnc_applyFuzeSelection
  *
  * Public: No
  */
