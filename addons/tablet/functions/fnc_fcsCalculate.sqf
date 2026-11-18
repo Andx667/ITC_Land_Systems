@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_grid", "_elevation", "_round"];
+params [["_vehicle", objNull, [objNull]], ["_grid", "", [""]], ["_elevation", 0, [0]], ["_round", "", [""]]];
 
 _vehicle setVariable ["itc_land_tablet_fcs_tgtgrid", _grid, true];
 _vehicle setVariable [QEGVAR(bcs,fireData), nil, true];

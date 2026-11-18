@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_app", "_file"];
+params [["_app", "", [""]], ["_file", "", [""]]];
 
 private _path = format [QPATHTOF(functions\apps\%1\%2), _app, _file];
 if (fileExists _path) exitWith {_path};

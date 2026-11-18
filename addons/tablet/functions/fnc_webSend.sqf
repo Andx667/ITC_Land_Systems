@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_ctrl"];
+params [["_ctrl", controlNull, [controlNull]]];
 
 if (isNull _ctrl || {isNil QGVAR(web)}) exitWith {};
 private _json = toJSON ([] call FUNC(webState));

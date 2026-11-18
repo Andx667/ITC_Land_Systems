@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_path"];
+params [["_path", "", [""]]];
 
 #ifdef DISABLE_COMPILE_CACHE
     compile preprocessFileLineNumbers _path

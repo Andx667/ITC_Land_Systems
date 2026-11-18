@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_key", "_init"];
+params [["_key", "", [""]], ["_init", {}, [{}]]];
 
 if ((GVAR(web) get "formKey") isNotEqualTo _key) then {
     GVAR(web) set ["formKey", _key];

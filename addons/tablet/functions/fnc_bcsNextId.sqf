@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_kind"];
+params [["_kind", "", [""]]];
 
 private _gun = _kind == "gun";
 private _taken = (missionNamespace getVariable [[QGVAR(bcs_locations), QGVAR(bcs_bty_guns)] select _gun, []]) apply {_x # 0};

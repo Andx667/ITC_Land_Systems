@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]]];
 
 private _page = _vehicle getVariable [QGVAR(page), "map"];
 private _view = createHashMapFromArray [

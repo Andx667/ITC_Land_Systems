@@ -25,7 +25,7 @@
  * Public: No
  */
 
-params ["_mission", "_sheaf", "_quick", "_direction", "_length", "_ammoIndex", "_count", "_fuzeMode"];
+params [["_mission", [], [[]]], ["_sheaf", 0, [0]], ["_quick", false, [false]], ["_direction", "", [""]], ["_length", 0, [0]], ["_ammoIndex", 0, [0]], ["_count", 0, [0]], ["_fuzeMode", "", [""]]];
 
 private _batteryType = GVAR(bcs_bty_type) # 1;
 private _magazine = if (_ammoIndex < 0) then {""} else {

@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_mission", "_solutions", "_ffe", "_adjustingGun"];
+params [["_mission", [], [[]]], ["_solutions", [], [[]]], ["_ffe", false, [false]], ["_adjustingGun", 0, [0]]];
 
 _mission params ["_ident", "", "_targetPage", "_engagePage", "_curSolution"];
 _engagePage params ["", "", "", "", "", ["_magazineType", ""], ["_roundCount", 1], ["_fuzeMode", ""]];

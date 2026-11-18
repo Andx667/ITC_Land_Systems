@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_num", "_grid", "_elev", "_dir"];
+params [["_num", "", [""]], ["_grid", "", [""]], ["_elev", 0, [0]], ["_dir", 0, [0]]];
 
 private _pos = ([_grid, false] call ace_common_fnc_getMapPosFromGrid) vectorAdd [0, 0, _elev];
 private _gunData = [_num, _grid, _pos, _elev, _dir, GVAR(bcs_bty_name)];

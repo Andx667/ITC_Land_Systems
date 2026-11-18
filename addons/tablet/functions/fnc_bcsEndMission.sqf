@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_recordTarget"];
+params [["_recordTarget", false, [false]]];
 
 private _mission = GVAR(bcs_missions) param [GVAR(bcs_mission_index), []];
 if (_mission isEqualTo []) exitWith {};

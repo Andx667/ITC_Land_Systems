@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]]];
 
 private _page = _vehicle getVariable [QGVAR(page), "settings"];
 // resumed without the app start (a new mission, a respawned player): start the BCS for this player

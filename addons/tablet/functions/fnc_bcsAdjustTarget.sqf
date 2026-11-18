@@ -22,7 +22,7 @@
  * Public: No
  */
 
-params ["_mission", "_direction", "_addDrop", "_leftRight", "_upDown"];
+params [["_mission", [], [[]]], ["_direction", "", [""]], ["_addDrop", 0, [0]], ["_leftRight", 0, [0]], ["_upDown", 0, [0]]];
 
 private _targetPage = _mission # 2;
 private _ot = [_direction, [GVAR(bcs_bty_type) # 1] call EFUNC(common,getMilSystem)] call EFUNC(common,parseMils);

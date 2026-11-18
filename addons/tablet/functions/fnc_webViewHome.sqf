@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]]];
 
 ["home", {createHashMap}] call FUNC(webForm);
 

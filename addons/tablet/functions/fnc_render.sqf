@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 
 private _illumination = ([] call ace_common_fnc_ambientBrightness);
 (_display displayCtrl (15117)) ctrlSetFade _illumination;

@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_id", "_grid", "_elev", "_friendly"];
+params [["_id", "", [""]], ["_grid", "", [""]], ["_elev", 0, [0]], ["_friendly", false, [false]]];
 
 private _pos = ([_grid, false] call ace_common_fnc_getMapPosFromGrid) vectorAdd [0, 0, _elev];
 // friendly as the classic list's "no" / "yes"
