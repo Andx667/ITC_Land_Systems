@@ -45,6 +45,6 @@ if (isClass _config) then {
     } forEach _apsSystems;
 
     if (_apsArray isNotEqualTo []) then {
-        _vehicle setVariable ["itc_land_aps_modules", _apsArray, true];
+        _vehicle setVariable [QGVAR(modules), _apsArray, true];
     };
 };

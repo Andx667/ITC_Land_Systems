@@ -23,7 +23,7 @@
 params [["_projectile", objNull, [objNull]], ["_vehicle", objNull, [objNull]]];
 
 private _killed = false;
-private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
+private _apsModules = _vehicle getVariable [QGVAR(modules), []];
 {
     if (_killed) exitWith {};
     private _canIntercept = [_vehicle, _x, _projectile] call FUNC(canIntercept);
@@ -39,7 +39,7 @@ private _apsModules = _vehicle getVariable ["itc_land_aps_modules", []];
             _module set [7, (_module select 7) - 1];
             _module set [11, cba_missionTime];
             _apsModules set [_index, _module];
-            _vehicle setVariable ["itc_land_aps_modules", _apsModules];
+            _vehicle setVariable [QGVAR(modules), _apsModules];
         };
         [QGVAR(moduleFired), [_vehicle, _index, cba_missionTime], _vehicle] call CBA_fnc_targetEvent;
 

@@ -45,7 +45,7 @@ if (missionNamespace getVariable [QGVAR(debug), false]) then {
     private _intersects = lineIntersectsWith  [_begin, _end, objNull, objNull];
     if (count _intersects > 0) exitWith {
         { // forEach _intersects
-            private _aps = _x getVariable ["itc_land_aps_modules", nil];
+            private _aps = _x getVariable [QGVAR(modules), nil];
             // a killed projectile can stay alive for a few frames: stop tracking it so no module fires at it again
             if (!(isNil "_aps") && {[_projectile, _x] call FUNC(attemptIntercept)}) exitWith {
                 [_pfhId] call CBA_fnc_removePerFrameHandler;
