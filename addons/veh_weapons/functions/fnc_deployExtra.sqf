@@ -25,7 +25,7 @@
  * Public: No
  */
 
-params ["_subMunitionIndex", "_position", "_velocity"];
+params [["_subMunitionIndex", 0, [0]], ["_position", [], [[]]], ["_velocity", [], [[]]]];
 
 private _profile = createHashMapFromArray [
     ["jitter", 3],

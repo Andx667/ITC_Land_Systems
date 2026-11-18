@@ -25,7 +25,7 @@
  * Public: No
  */
 
-params ["_subMunitionIndex", "_position", "_velocity", "_pitch", "_bank", "_guidanceInfo"];
+params [["_subMunitionIndex", 0, [0]], ["_position", [], [[]]], ["_velocity", [], [[]]], ["_pitch", 0, [0]], ["_bank", 0, [0]], ["_guidanceInfo", [], [[]]]];
 
 private _laserCode = 1111;
 // submunition indices start at 1: the first uses the first laser code, the second the second
