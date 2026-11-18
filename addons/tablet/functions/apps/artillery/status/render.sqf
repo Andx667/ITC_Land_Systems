@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 ITC_CURVEHICLE
 
 private _allDamage = getAllHitPointsDamage _vehicle;

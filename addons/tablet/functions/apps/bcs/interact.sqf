@@ -18,7 +18,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 #include "bcsDefines.hpp"
 ITC_CURVEHICLE
 switch (_action) do {

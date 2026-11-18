@@ -38,7 +38,7 @@
  * Public: No
  */
 
-params ["_sightName", "_layout"];
+params [["_sightName", "", [""]], ["_layout", createHashMap, [createHashMap]]];
 
 private _vehicle = [] call EFUNC(common,getCurVehicle);
 _vehicle setVariable [QGVAR(sightEvent), format ["itc_land_onLoad_%1", _sightName], true];

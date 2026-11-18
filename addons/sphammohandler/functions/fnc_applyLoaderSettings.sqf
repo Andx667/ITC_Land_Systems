@@ -26,7 +26,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_fuzeTime", "_laserCodes", "_targetGrid", "_targetAlt", "_roundCount"];
+params [["_vehicle", objNull, [objNull]], ["_fuzeTime", 0, [0]], ["_laserCodes", [], [[]]], ["_targetGrid", "", [""]], ["_targetAlt", 0, [0]], ["_roundCount", 0, [0]]];
 
 _vehicle setVariable [QGVAR(ammoHandler_status), [1, 0, LSTRING(Status_Waiting)], true];
 

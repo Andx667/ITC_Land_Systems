@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_mission", "_name", "_typeIndex", "_kpi", "_inputs"];
+params [["_mission", [], [[]]], ["_name", "", [""]], ["_typeIndex", 0, [0]], ["_kpi", -1, [0]], ["_inputs", [], [[]]]];
 
 private _targetPage = [_typeIndex, _kpi] + _inputs;
 private _validInput = switch (_typeIndex) do {

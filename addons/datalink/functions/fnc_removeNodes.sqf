@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_index", "_match"];
+params [["_index", 0, [0]], ["_match", objNull, [objNull, 0]]];
 
 private _toRemoveIDs = (keys GVAR(nodes)) select {((GVAR(nodes) get _x) # _index) isEqualTo _match};
 {

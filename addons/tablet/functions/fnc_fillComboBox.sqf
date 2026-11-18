@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_idc", "_entries", "_selected", "_data"];
+params [["_idc", 0, [0]], ["_entries", [], [[]]], ["_selected", -1, [0]], ["_data", nil, [[]]]];
 lbClear _idc;
 {
     lbAdd [_idc, _x];

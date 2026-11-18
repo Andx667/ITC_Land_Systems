@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_gun", "_transmission"];
+params [["_gun", objNull, [objNull]], ["_transmission", [], [[]]]];
 (_transmission select 4) params [["_mission", "", [""]]];
 
 if (((_gun getVariable [QGVAR(fireData), []]) param [0, ""]) != _mission) exitWith {};

@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 #include "..\..\..\BCS_idc_defines.hpp"
 ctrlShow [13420, true];
 [_display, IDC_workspace_header, LLSTRING(Artillery_VehicleStatus)] call EFUNC(common,ctrlSetText);

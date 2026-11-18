@@ -21,7 +21,7 @@
 
 #include "..\..\BCS_idc_defines.hpp"
 #include "bcsDefines.hpp"
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 
 [_display, IDC_header1, "AIFMS"] call EFUNC(common,ctrlSetText);
 [_display, IDC_header2, LLSTRING(Bcs_FdcSuite)] call EFUNC(common,ctrlSetText);

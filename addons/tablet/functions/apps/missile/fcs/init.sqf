@@ -20,7 +20,7 @@
  */
 
 #include "..\..\..\BCS_idc_defines.hpp"
-params ["_display"];
+params [["_display", displayNull, [displayNull]]];
 ITC_CURVEHICLE
 ctrlShow [13701, true];
 [_display, IDC_workspace_header, LLSTRING(Fcs_Header)] call EFUNC(common,ctrlSetText);

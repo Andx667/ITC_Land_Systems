@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_action"];
+params [["_action", "", [""]]];
 //player sideChat "type switch";
 #include "..\bcsDefines.hpp"
 MISSION;MISSIONPARAMS;

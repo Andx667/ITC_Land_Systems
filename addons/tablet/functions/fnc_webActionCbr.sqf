@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_app", "_action", "_value"];
+params [["_vehicle", objNull, [objNull]], ["_app", "", [""]], ["_action", "", [""]], "_value"];
 
 private _selected = ["engagement", "index"] call FUNC(webFormValue);
 private _engagements = missionNamespace getVariable [QEGVAR(cobra,engagements), []];

@@ -26,7 +26,7 @@
  * Public: No
  */
 
-params ["_vehicle", "_action", "_value"];
+params [["_vehicle", objNull, [objNull]], ["_action", "", [""]], "_value"];
 
 private _form = EGVAR(tablet,web) get "form";
 private _mortar = getNumber (configOf _vehicle >> "itc_land" >> "loaderType") == 3;

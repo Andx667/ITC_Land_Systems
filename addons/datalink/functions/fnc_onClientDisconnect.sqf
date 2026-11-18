@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_player","_id"];
+params [["_player", objNull, [objNull]], ["_id", "", [""]]];
 
 //remove all IDs with this target
 if (isNil {_id} || _id == "") then {
