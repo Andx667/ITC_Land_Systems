@@ -69,10 +69,6 @@ The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:
 - [Compatibility](https://andx667.github.io/ITC_Land_Systems/compatibility/) — the ITC versions of RHS, CUP, BWMod and GTK Boxer artillery
 - [Mission Makers & Modders](https://andx667.github.io/ITC_Land_Systems/scripting/) — what to place, and the config to add ITC features to your own vehicles
 
-## Languages
-
-All player-facing text lives in stringtables. Only English exists so far, translations are welcome.
-
 ## Roadmap
 
 Planned, with parts already in the code but not yet usable in game:
