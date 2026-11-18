@@ -28,7 +28,7 @@
  * Public: No
  */
 
-params ["_guidance","_bank","_bankRate","_pitch","_diveRate"];
+params [["_guidance", [], [[]]], ["_bank", 0, [0]], ["_bankRate", 0, [0]], ["_pitch", 0, [0]], ["_diveRate", 0, [0]]];
 _guidance params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage"];
 
 _pitch = _pitch + 0.01;

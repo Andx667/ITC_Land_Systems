@@ -28,7 +28,7 @@
  * Public: No
  */
 
-params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_targetCoordinates","_azimuth","_time"];
+params [["_projectile", objNull, [objNull]], ["_steerPoint", [], [[]]], ["_frameTime", 0, [0]], ["_angleX", 0, [0]], ["_angleY", 0, [0]], ["_stage", "", [""]], ["_targetCoordinates", [], [[]]], ["_azimuth", 0, [0]], ["_time", 0, [0]]];
 //(_this select 0) params ["_projectile", "_ammo", "_position", "_targetCoordinates", "_stage", "_time", "_angle", "_lastFrameTime","_azimuth","_steerPoint"];
 private _return = [_stage, _steerPoint];
 if (_stage == "SEP") exitWith {

@@ -25,7 +25,7 @@
  * Public: No
  */
 
-params ["_projectile", "_steerPoint","_frameTime", "_angleX", "_angleY","_stage","_position","_angle"];
+params [["_projectile", objNull, [objNull]], ["_steerPoint", [], [[]]], ["_frameTime", 0, [0]], ["_angleX", 0, [0]], ["_angleY", 0, [0]], ["_stage", "", [""]], ["_position", [], [[]]], ["_angle", 0, [0]]];
 //[ASLtoAGL _steerPoint, "ColorRed"] call test_fnc_mark;
 (_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 private _speed = vectorMagnitude (velocity _projectile);
