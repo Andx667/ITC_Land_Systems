@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_target", "_header", "_type", "_code"];
+params [["_target", objNull, [objNull]], ["_header", "", [""]], ["_type", "", [""]], ["_code", {}, [{}]]];
 
 private _functions = _target getVariable [QGVAR(functions),[]];
 _functions pushBack _this;

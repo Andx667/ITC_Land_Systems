@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_groupID"];
+params [["_groupID", "", [""]]];
 private ["_firstChar","_secondChar","_id"];
 
 private _isAvailableID = false;

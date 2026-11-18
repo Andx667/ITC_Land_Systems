@@ -16,7 +16,7 @@
  * Public: No
  */
 
-params ["_id"];
+params [["_id", "", [""]]];
 private ["_groupID","_nodeID","_target","_groupMatch","_nodeMatch"];
 
 private _targets = [];
