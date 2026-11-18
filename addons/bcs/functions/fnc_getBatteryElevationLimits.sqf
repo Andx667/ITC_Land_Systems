@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_batteryType"];
+params [["_batteryType", "", [""]]];
 
 if (isNil QGVAR(elevationLimitsCache)) then {GVAR(elevationLimitsCache) = createHashMap};
 

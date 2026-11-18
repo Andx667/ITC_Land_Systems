@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_gun"];
+params [["_gun", objNull, [objNull]]];
 
 if (!local _gun) exitWith {};
 

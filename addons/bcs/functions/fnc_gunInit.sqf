@@ -21,7 +21,7 @@
  * Public: No
  */
 
-params ["_vehicle"];
+params [["_vehicle", objNull, [objNull]]];
 
 if ([_vehicle] call FUNC(getGunBatteryType) == "") exitWith {};
 

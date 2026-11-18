@@ -23,7 +23,7 @@
  * Public: No
  */
 
-params ["_targetTypeIndex","_kpi","_in0","_in1","_in2","_in3"];
+params [["_targetTypeIndex", 0, [0]], ["_kpi", 0, [0]], ["_in0", "", [""]], ["_in1", "", [""]], ["_in2", "", [""]], ["_in3", "", [""]]];
 private _targetPos = [];
 if (_targetTypeIndex == 0) then {
     private _pos = [_in0, false] call ace_common_fnc_getMapPosFromGrid;
