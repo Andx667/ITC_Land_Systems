@@ -29,7 +29,7 @@
 
 if (!isServer) exitWith {};
 
-params ["", "", "", "", "_ammo", "", "_projectile", "_gunner"];
+params ["", "", "", "", ["_ammo", "", [""]], "", ["_projectile", objNull, [objNull]], ["_gunner", objNull, [objNull]]];
 
 if (_ammo isKindOf ["Sh_155mm_AMOS", configFile >> "cfgAmmo"] || _ammo isKindOf ["Sh_82mm_AMOS_guided", configFile >> "cfgAmmo"]) exitWith {
     //{

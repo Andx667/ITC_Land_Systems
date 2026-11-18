@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_cbr", "_impact"];
+params [["_cbr", objNull, [objNull]], ["_impact", [], [[]]]];
 _impact params ["_position", "_tof"];
 private _impacts = missionNamespace getVariable "itc_land_cobra_activeShells";
 private _impactTime = cba_missionTime + _tof;

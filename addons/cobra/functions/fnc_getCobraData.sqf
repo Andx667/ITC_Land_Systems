@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_target","_transmission"];
+params [["_target", objNull, [objNull]], ["_transmission", [], [[]]]];
 _transmission params ["_destination","_origin","_header","_type","_data"];
 
 private _returnData = [

@@ -24,7 +24,7 @@
  * Public: No
  */
 
-params ["_siren", "_sirenSound", "_sirenDistance", "_sirenDuration", "_endTime"];
+params [["_siren", objNull, [objNull]], ["_sirenSound", "", [""]], ["_sirenDistance", 0, [0]], ["_sirenDuration", 0, [0]], ["_endTime", 0, [0]]];
 
 [{
     params ["_args", "_pfhId"];

@@ -20,7 +20,7 @@
  * Public: No
  */
 
-params ["_cbr", "_origin"];
+params [["_cbr", objNull, [objNull]], ["_origin", [], [[]]]];
 private _origins = missionNamespace getVariable "itc_land_cobra_origins";
 private _firingPositions = missionNamespace getVariable "itc_land_cobra_firingPositions";
 _origins pushBack _origin;

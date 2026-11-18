@@ -19,7 +19,7 @@
  * Public: No
  */
 
-params ["_cbr"];
+params [["_cbr", objNull, [objNull]]];
 if (!isServer) exitWith {};
 
 itc_land_cobras pushBackUnique _cbr;
