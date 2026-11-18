@@ -69,15 +69,6 @@ _ctrl ctrlAddEventHandler ["PageLoaded", {
     GVAR(web) set ["sent", ""];
     [_ctrl] call FUNC(webSend);
 }];
-// a click on the page focuses the browser, which then draws over the native map: while the map is
-// shown (the page has no fields then), give the focus back to it
-_ctrl ctrlAddEventHandler ["SetFocus", {
-    params ["_ctrl"];
-    private _map = (ctrlParent _ctrl) displayCtrl 32574;
-    if (!isNull _map && {ctrlShown _map}) then {
-        [{if (!isNull _this && {ctrlShown _this}) then {ctrlSetFocus _this}}, _map] call CBA_fnc_execNextFrame;
-    };
-}];
 [_ctrl, ["LoadFile", QPATHTOF(html\tablet.html)]] call GVAR(webAction);
 
 [{
