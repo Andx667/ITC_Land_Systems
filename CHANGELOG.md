@@ -20,7 +20,7 @@ start a fresh empty [Unreleased] section above it. -->
 ### Added
 
 - Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
-- Nyx RV - The AWC 304 Nyx Recon with the Strider RV's ITC optics on its observer seat (`itc_land_I_NyxRV`) (#PR) by Andx
+- Nyx RV - The AWC 304 Nyx Recon with the Strider RV's ITC optics on its observer seat (`itc_land_I_NyxRV`) (#26) by Andx
 
 ### Changed
 
