@@ -138,25 +138,34 @@ private _calculate = if (_missile) then {
 } else {
     [LLSTRING(WebCalculate), "artCalc", _calcFields, LLSTRING(fcs_round_type_Tooltip), nil, false, "primary"] call FUNC(webButton)
 };
-private _blocks = [
+private _target = [
     ["section", [["text", LLSTRING(fcs_target_title_Text)], ["tip", LLSTRING(fcs_target_title_Tooltip)]]] call FUNC(webBlock),
     ["fields", [["items", _fields], ["enter", _calculate]]] call FUNC(webBlock)
 ];
-if (_missile) then {
-    _blocks pushBack (["section", [["text", LLSTRING(fci_fuzeinputs_Text)], ["tip", LLSTRING(fci_fuzeinputs_Tooltip)]]] call FUNC(webBlock));
-    _blocks pushBack (["fields", [["items", _fuzeFields], ["enter", _calculate]]] call FUNC(webBlock));
-};
-private _secondary = [];
-if (_missile) then {_secondary pushBack [[LLSTRING(fci_fdcorders_btn_Text), "artFdcOrders", [], LLSTRING(fci_fdcorders_btn_Tooltip)] call FUNC(webButton)]};
-_blocks pushBack (["bar", [["left", [_calculate]], ["groups", _secondary]]] call FUNC(webBlock));
+_target pushBack (["bar", [["left", [_calculate]]]] call FUNC(webBlock));
+private _blocks = if (_missile) then {
+    // the FDC's orders fill in the fields below, so they come first; target and rockets side by side to fit the screen
+    [
+        ["bar", [["left", [[LLSTRING(fci_fdcorders_btn_Text), "artFdcOrders", [], LLSTRING(fci_fdcorders_btn_Tooltip)] call FUNC(webButton)]]]] call FUNC(webBlock),
+        ["row", [["blocks", [
+            ["col", [["blocks", _target]]] call FUNC(webBlock),
+            ["col", [["blocks", [
+                ["section", [["text", LLSTRING(fci_fuzeinputs_Text)], ["tip", LLSTRING(fci_fuzeinputs_Tooltip)]]] call FUNC(webBlock),
+                ["fields", [["items", _fuzeFields], ["enter", _calculate]]] call FUNC(webBlock)
+            ]]]] call FUNC(webBlock)
+        ]]]] call FUNC(webBlock)
+    ]
+} else {_target};
 
-// the selected solution (stepped as in the BCS) or the FDC's data, label and value
+// the selected solution (stepped as in the BCS) or the FDC's data, label and value; the values the gun is laid to stand out
 private _solutions = _vehicle getVariable [QGVAR(fcs_solutions), []];
 private _solutionKey = (LLSTRING(Fcs_Solution) splitString ":") param [0, ""];
+private _layKeys = [LLSTRING(Fcs_Charge), LLSTRING(Fcs_Azimuth), LLSTRING(Fcs_Deflection), LLSTRING(Fcs_Quadrant)] apply {(_x splitString ":") param [0, ""]};
 private _rows = [];
 {
     private _colon = _x find ": ";
     private _row = if (_colon > 0) then {[_x select [0, _colon], _x select [_colon + 2]]} else {[_x, ""]};
+    if ((_row # 0) in _layKeys) then {_row pushBack "big"};
     // the solution count is the stepper's
     if ((_row # 0) != _solutionKey) then {_rows pushBack _row};
 } forEach (([_vehicle, !_missile] call FUNC(fcsSolutionText)) splitString "<>" select {_x != "br/" && {_x != ""}});

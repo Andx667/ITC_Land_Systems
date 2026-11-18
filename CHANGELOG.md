@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work by Andx
+
 ### Fixed
 
 - Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx

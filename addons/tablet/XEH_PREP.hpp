@@ -43,6 +43,7 @@ PREP(webFormValue);
 PREP(webFormChanged);
 PREP(webButton);
 PREP(webStartApp);
+PREP(webStartBcs);
 PREP(webPlaceMap);
 PREP(webViewHome);
 PREP(webViewArtillery);

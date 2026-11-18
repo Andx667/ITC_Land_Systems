@@ -35,7 +35,7 @@
             <English>Battery Setup</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_BatterySetupButton">
-            <English>Bty Setup</English>
+            <English>Battery Setup</English>
         </Key>
         <Key ID="STR_itc_land_tablet_Bcs_DatalinkNotConnected">
             <English>Datalink not connected yet. Try again in a moment.</English>
@@ -286,6 +286,9 @@
         <Key ID="STR_itc_land_tablet_WebLoadNeedsApply">
             <English>Apply the settings first</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebLoader">
+            <English>Loader</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebMto">
             <English>%1, %2 rounds per gun, %3, time of flight %4 s</English>
         </Key>
@@ -295,8 +298,11 @@
         <Key ID="STR_itc_land_tablet_WebMtoTip">
             <English>Message to observer: the battery firing, rounds per gun, the target and the time of flight</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebNeeds">
+            <English>Needs: %1</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebNewMission">
-            <English>+ NEW FIRE MISSION</English>
+            <English>+ NEW MISSION</English>
         </Key>
         <Key ID="STR_itc_land_tablet_WebNextMissionNumber">
             <English>Next mission number</English>
@@ -319,6 +325,12 @@
         <Key ID="STR_itc_land_tablet_WebPointSaved">
             <English>Known point %1 saved</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebQuantity">
+            <English>Qty</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebRound">
+            <English>Round</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebRoundsPerGun">
             <English>rds per gun</English>
         </Key>
@@ -331,14 +343,32 @@
         <Key ID="STR_itc_land_tablet_WebSaveKnownPointTip">
             <English>The firing position into the BCS known points, as a target</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebSavePoint">
+            <English>Save point</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebSaved">
             <English>Saved</English>
         </Key>
         <Key ID="STR_itc_land_tablet_WebSendAdjGun">
             <English>SEND ADJ (GUN %1)</English>
         </Key>
+        <Key ID="STR_itc_land_tablet_WebShotTip">
+            <English>Press when guns that are not linked report the rounds fired: starts the time to impact countdown and the SPLASH alert. Linked guns report their shot by themselves</English>
+        </Key>
         <Key ID="STR_itc_land_tablet_WebSolution">
             <English>Solution</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebStageAdjust">
+            <English>ADJUST</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebStageEngage">
+            <English>ENGAGE</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebStageSolution">
+            <English>SOLUTION</English>
+        </Key>
+        <Key ID="STR_itc_land_tablet_WebStageTarget">
+            <English>TARGET</English>
         </Key>
         <Key ID="STR_itc_land_tablet_WebStatusId">
             <English>FDC ID %1</English>
@@ -392,7 +422,7 @@
             <English>Prefix of new fire mission names, followed by a 4-digit number (FM0001)</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_label_Text">
-            <English>Firemission Code:</English>
+            <English>Fire Mission Code:</English>
         </Key>
         <Key ID="STR_itc_land_tablet_bcs_settings_firemission_code_text_Text">
             <English>FM</English>
@@ -596,7 +626,7 @@
             <English>Name of the mission, from the fire mission code and number in the BCS settings</English>
         </Key>
         <Key ID="STR_itc_land_tablet_firemission_name_text_Text">
-            <English>Firemission Name</English>
+            <English>Fire Mission Name</English>
         </Key>
         <Key ID="STR_itc_land_tablet_firemission_next_Text">
             <English>Next</English>

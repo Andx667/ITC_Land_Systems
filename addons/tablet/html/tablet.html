@@ -42,7 +42,7 @@ html, body {
     overflow: hidden;
     user-select: none;
     color: var(--text);
-    font: 1.1vw/1.3 var(--font);
+    font: 1.2vw/1.35 var(--font);
 }
 /* the browser control has the classic tablet frame's size; the frame is the native picture behind it */
 #frame { position: absolute; inset: 0; }
@@ -82,12 +82,16 @@ button.key:hover { box-shadow: 0 0 0.4em var(--green) inset; }
     display: flex;
     align-items: center;
     gap: 1em;
+    min-width: 0;
     padding: 0.4em 0.8em;
     background: var(--bar);
     border-bottom: 1px solid var(--line);
 }
-#title { color: var(--green); font-size: 1.15em; letter-spacing: 0.04em; }
+#title { color: var(--green); font-size: 1.15em; letter-spacing: 0.04em; white-space: nowrap; }
 .spacer { flex: 1; }
+/* the last action's result, in the title bar so the page under it does not move (full text in its tooltip) */
+#notice { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0; }
+#notice:empty { visibility: hidden; }
 #side {
     display: flex;
     flex-direction: column;
@@ -105,11 +109,11 @@ button.key:hover { box-shadow: 0 0 0.4em var(--green) inset; }
     grid-column: 1 / 3;
     display: flex;
     gap: 1.5em;
-    padding: 0.15em 0.8em;
+    padding: 0.2em 0.8em;
     background: var(--bar);
     border-top: 1px solid var(--line);
     color: var(--dim);
-    font-size: 0.75em;
+    font-size: 0.8em;
 }
 .warn { color: var(--amber); }
 .bad { color: var(--red); }
@@ -135,7 +139,7 @@ button.danger:hover:not(:disabled) { border-color: var(--red); color: var(--red)
 button.armed { background: #5a1e19; border-color: var(--red); color: #fff; }
 button:disabled.primary { background: var(--panel); border-color: var(--line); }
 /* one label style: upper case, no colons (the page strips them) */
-.fields label, .kv .k, .section, button, .list th, .stepper .k, .sidehead { text-transform: uppercase; }
+.fields label, .kv .k, .section, button, .list th, .stepper .k, .sidehead, #header1, #title { text-transform: uppercase; }
 input[type="checkbox"] { width: 1.1em; height: 1.1em; accent-color: var(--green); }
 input.invalid { border-color: var(--red); }
 .fieldmsg { grid-column: 2 / 5; color: var(--red); font-size: 0.8em; margin-top: -0.2em; }
@@ -152,9 +156,11 @@ input, select {
 }
 input:focus, select:focus { outline: none; border-color: var(--green); }
 .block { margin-bottom: 0.7em; }
-.section { color: var(--green); margin: 0.4em 0 0.4em; letter-spacing: 0.04em; }
+/* more room above a section than inside it, so the groups read apart */
+.section { color: var(--green); margin: 1.1em 0 0.45em; letter-spacing: 0.04em; }
+.section:first-child { margin-top: 0; }
 /* label, box, unit, a button of the field: the boxes of a block line up, the grid hugs the left */
-.fields { display: grid; grid-template-columns: max-content minmax(8em, 22em) max-content max-content; justify-content: start; gap: 0.3em 0.8em; align-items: center; }
+.fields { display: grid; grid-template-columns: max-content minmax(8em, 22em) max-content max-content; justify-content: start; gap: 0.3em 0.6em; align-items: center; }
 .fields > button { justify-self: start; }
 .fields label { color: var(--dim); }
 /* a fields block with long entries (link gun: ID, vehicle and grid) */
@@ -166,7 +172,7 @@ input:focus, select:focus { outline: none; border-color: var(--green); }
 .stepper { display: flex; align-items: center; gap: 0.5em; }
 .stepper .k { color: var(--dim); min-width: 7em; }
 .stepper .v { min-width: 4.5em; text-align: center; color: var(--green); }
-.notice { padding: 0.35em 0.6em; border-left: 0.25em solid var(--green); background: #1d261b; margin-bottom: 0.7em; }
+.notice { padding: 0.2em 0.6em; border-left: 0.25em solid var(--green); background: #1d261b; }
 .notice.warn { border-color: var(--amber); background: #2a2416; }
 .notice.bad { border-color: var(--red); background: #2b1a18; }
 .sidehead { color: var(--dim); font-size: 0.85em; margin-top: 0.8em; }
@@ -174,18 +180,23 @@ input:focus, select:focus { outline: none; border-color: var(--green); }
 .row > * { flex: 1; min-width: 0; }
 .list { border: 1px solid var(--line); background: #0d0d0d; overflow-y: auto; max-height: 18em; }
 .list table { border-collapse: collapse; width: 100%; }
-.list th, .list td { padding: 0.15em 0.6em 0.15em 0.4em; text-align: left; white-space: nowrap; }
+.list th, .list td { padding: 0.3em 0.6em 0.3em 0.4em; text-align: left; white-space: nowrap; }
 .list th { color: var(--dim); font-weight: normal; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #0d0d0d; }
 .list tr.item { cursor: pointer; }
 .list tr.item:hover td { color: var(--green); }
 .list tr.sel td { background: #2e3a2b; color: var(--green); }
 .list .empty { color: var(--dim); padding: 0.4em; }
 .lines div { white-space: pre-wrap; }
-.kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.15em 1.2em; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.3em 1.2em; align-items: baseline; }
 .kv .k { color: var(--dim); }
 .big { font-size: 1.5em; color: var(--green); }
-.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6em; }
-.tile { padding: 0.8em; display: flex; flex-direction: column; gap: 0.25em; min-height: 4.5em; }
+/* the values a gunner lays the gun to: charge, deflection, quadrant (and azimuth) */
+.kv .big { font-size: 1.35em; line-height: 1.1; }
+.list td.hi { font-size: 1.15em; color: var(--green); }
+.list tr.sel td.hi { color: #fff; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8em; }
+.tile { padding: 1em; display: flex; flex-direction: column; gap: 0.4em; min-height: 6em; }
+.tile > span:first-child { font-size: 1.1em; }
 .tile .note { color: var(--dim); font-size: 0.85em; }
 /* the home screen's logo, behind the app tiles as on the classic tablet */
 #work > .logo { position: absolute; inset: 12% 8% 4%; background: center / contain no-repeat; opacity: 0.35; pointer-events: none; }
@@ -227,7 +238,7 @@ input[data-tip] { cursor: text; }
     <button class="key" style="top: 63.1%; height: 3.9%;" data-tip="HOME" data-key="3"></button>
     <div id="screen">
         <div id="brand"><div id="header1"></div><div id="header2"></div></div>
-        <div id="titlebar"><span id="title"></span><span class="spacer"></span><span id="tti" class="big"></span></div>
+        <div id="titlebar"><span id="title"></span><span id="notice"></span><span id="tti" class="big"></span></div>
         <div id="side"></div>
         <div id="work"><div class="dim">...</div></div>
         <div id="status"><span id="info"></span><span class="spacer"></span><span id="bridge"></span></div>
@@ -346,10 +357,12 @@ window.ITC = (() => {
         $("tti").textContent = view.tti || "";
         renderSide(view);
         const work = $("work");
-        const blocks = (view.blocks || []).map(renderBlock);
-        // the result of the last action, in the page
-        if (view.notice) blocks.unshift(el("div", {class: "notice " + (view.notice.c || ""), text: view.notice.text}));
-        work.replaceChildren(...blocks);
+        work.replaceChildren(...(view.blocks || []).map(renderBlock));
+        // the result of the last action, in the title bar: a message in the page would move the buttons under the pointer
+        const notice = $("notice");
+        notice.textContent = view.notice ? view.notice.text : "";
+        notice.className = view.notice ? "notice " + (view.notice.c || "") : "";
+        if (view.notice) notice.dataset.tip = view.notice.text; else delete notice.dataset.tip;
         for (const id of fieldSpecs.keys()) if (drafts.has(id)) markField(id);
 
         if (focusId) {
