@@ -15,7 +15,7 @@
 
 - **UAVs** — Darter 2 and Tayran 2, Greyhawk and Ababil-3, Sentinel 2, and the AL-6 as a carryable UAV bag.
 - **ROVER tablet** — the video feed of laser-designating aircraft.
-- **Strider RV** — recon vehicle (unarmed, HMG, GMG) with ITC optics readouts.
+- **Strider RV** — recon vehicle (unarmed, HMG, GMG) and **Nyx RV** light recon tank with ITC optics readouts.
 - **Packable equipment** — pack and unpack UAVs and the Remote GLTD laser designator.
 
 ## Artillery and fire control
@@ -24,7 +24,7 @@
 - **Munitions** — HE, ICM, smoke, illumination, mines, laser- and GPS-guided rounds and submunition rounds, with proximity, time and delay fuzes.
 - **Ammunition handler** — choose round, charge, fuze and guidance, then follow the automatic or semi-automatic loading sequence, or prepare and drop each round by hand on a mortar; the status is shared with the whole crew.
 - **Fire control tablet** — exact firing solutions for every charge, low and high angle, with the time fuze setting, a battery computer (BCS) for planning and adjusting multi-gun fire missions, and stored target locations; the tablet and the ammunition handler run as web pages in the game's browser (Arma 3 2.20+), with the classic interfaces one click away.
-- **Datalink** — the FDC sends firing data and fire orders to linked guns and rocket launchers, observers hand targets from UAV, GLTD and Strider optics to the FDC, and COBRA engagements become counter-fire missions.
+- **Datalink** — the FDC sends firing data and fire orders to linked guns and rocket launchers, observers hand targets from UAV, GLTD, Strider and Nyx optics to the FDC, and COBRA engagements become counter-fire missions.
 - **Gunner sights** — azimuth, quadrant, solution and fire order readouts with an alignment guide on the crosshair; Russian guns read in 6000 mils.
 
 ## Counter-artillery

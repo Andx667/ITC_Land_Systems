@@ -20,7 +20,7 @@ Most ITC actions are in the ACE interaction menu:
 | **Open Ammo Handling Interface** | Self interaction in Sholef 2, Sochor 2 | Gunner |
 | **Open Ammo Handling Interface** | Self interaction in Hammer 2 | Any crew seat |
 | **Open VLS Interface** | Self interaction in the MN230 VLS (Cruise Missile) | Any crew seat |
-| **Send target to FDC** (key, ++ctrl+shift+t++) | In the ITC optics of a UAV, the GLTD or the Strider | Observer ([details](systems/uavs.md#sending-a-target-to-the-fdc)) |
+| **Send target to FDC** (key, ++ctrl+shift+t++) | In the ITC optics of a UAV, the GLTD, the Strider or the Nyx | Observer ([details](systems/uavs.md#sending-a-target-to-the-fdc)) |
 
 ## Tablets
 

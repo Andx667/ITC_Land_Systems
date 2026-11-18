@@ -13,7 +13,7 @@ ITC follows the ACE-style addon layout: the functionality is split across severa
 | `itc_land_tablet` | The tablet items, the app framework and the [tablet apps](usage.md#tablets) |
 | `itc_land_bcs` | [Battery fire missions](systems/bcs.md): target methods, sheaf patterns, per-gun solutions |
 | `itc_land_veh_weapons` | Howitzer and rocket launcher weapons, [munitions](systems/artillery.md#munitions), fuzes, submunitions and the SAM-35 proximity fuze |
-| `itc_land_veh_sights` | [Gunner sights](systems/artillery.md#gunner-sight) and the optics readouts of UAVs and the Strider |
+| `itc_land_veh_sights` | [Gunner sights](systems/artillery.md#gunner-sight) and the optics readouts of UAVs, the Strider and the Nyx |
 | `itc_land_sphammohandler` | The [ammunition handler](systems/artillery.md#ammunition-handler) |
 | `itc_land_guidance` | Laser and GPS guidance of the guided rounds |
 
@@ -42,6 +42,7 @@ ITC follows the ACE-style addon layout: the functionality is split across severa
 | `itc_land_veh_rhea` | S750 Rhea 2 |
 | `itc_land_veh_gltd` | Remote GLTD |
 | `itc_land_veh_strider` | Strider RV |
+| `itc_land_veh_nyx` | Nyx RV |
 | `itc_land_veh_uav01` | AR-2i and AR-2e, UAV bags |
 | `itc_land_veh_uav02` | MQ-4I Greyhawk, K40i Ababil-3 |
 | `itc_land_veh_uav05` | UCAVi Sentinel 2 |
