@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Fixed
+
+- Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
+
 ### Added
 
 - Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
