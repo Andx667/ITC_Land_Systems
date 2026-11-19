@@ -2,10 +2,13 @@
 <title>itc-land-systems-redux</title>
 <rect width="512" height="512" rx="0" fill="#161A1F"/>
 <g transform="translate(56.00 56.00) scale(2.00000)" color="#FFFFFF" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="100" r="92"/>
-<circle cx="66" cy="124" r="14"/>
-<path d="M76 114 L104 86 M52 128 L36 140"/>
-<path d="M112 78 C120 40 140 38 142 96" stroke-dasharray="11 10"/>
-<circle cx="142" cy="124" r="12"/>
-<path d="M142 104 V108 M142 140 V144 M122 124 H126 M158 124 H162"/>
+<rect x="32" y="132" width="78" height="18" rx="9"/>
+<path d="M47 141 H95" stroke-dasharray="0.1 16"/>
+<path d="M34 132 L40 120 H102 L108 132"/>
+<path d="M46 120 V106 L52 100 H78 L86 120"/>
+<path d="M82 108 L112 72"/>
+<path d="M119 63 C130 48 154 44 156 106" stroke-dasharray="10 9"/>
+<circle cx="156" cy="126" r="10"/>
+<path d="M138 126 H142 M170 126 H174 M156 140 V144"/>
 </g>
 </svg>
