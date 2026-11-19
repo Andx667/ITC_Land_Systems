@@ -12,7 +12,8 @@ Primary, in this order of the fight:
   gun and the VLS.
 - **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
 
-Secondary, maintenance only: APS. Removed on 2026-10-22: the Spike LR (ACE ships its own), the
+APS moved to its own mod, [Active Protection Systems](https://github.com/Andx667/active-protection-systems), on 2026-11-19.
+Removed on 2026-10-22: the Spike LR (ACE ships its own), the
 remote frag grenade (ACE has placeable charges) and the unreachable smoke dispenser magazine.
 
 ## Next up
@@ -25,7 +26,7 @@ remote frag grenade (ACE has placeable charges) and the unreachable smoke dispen
    muzzle origin and elevation limits, Russian mils, observer handoff and COBRA counter-fire.
 4. Observers to fire direction, the rest (11): corrections during adjust fire over the datalink.
 5. Translations (1), compatibility (8), then documentation (9).
-6. Secondary systems: fixes only; the APS framework (8) comes last.
+6. Secondary systems: fixes only.
 
 ## In-game verification
 
@@ -113,9 +114,6 @@ Locality fixes:
 
 Secondary systems:
 
-- [ ] APS: two shooters at the same vehicle; ammo/reload state stays consistent.
-      The elevation limit (10-40 deg) and the out-of-ammo check are now enforced,
-      check that top-attack coverage is still acceptable.
 - [ ] Optional (AI crews are nice to have, the mod targets player crews): SPH loader with an
       AI driver or an AI gunner on the server.
 
@@ -127,8 +125,8 @@ User-flow fixes from the code review:
 
 Settings and dependencies:
 
-- [ ] CBA settings can be forced by the server; COBRA range/engagement window and APS/CIWS
-      toggles take effect.
+- [ ] CBA settings can be forced by the server; COBRA range/engagement window and CIWS
+      toggle take effect.
 - [ ] SPH loader status text shows correctly for the other crew members.
 - [ ] UI base classes now defined once (in `common`): the RPT has no `Updating base class`
       lines for `ITC_LAND_Rsc*`, and the tablet, SPH loader and VLS dialogs look as before.
@@ -154,18 +152,17 @@ validation errors (never shown to players) stay English. Acronyms and product na
       timings, a debug logging toggle.
 - [ ] One on/off switch per system. Rules:
   - CBA checkbox `itc_land_<component>_enabled` under "ITC Land Systems Redux" -> system,
-    default on, server-forced (like the existing APS and CIWS toggles).
+    default on, server-forced (like the existing CIWS toggle).
   - Off = ITC's scripted behaviour is gone and the vehicle falls back to what the engine
     does; vehicles, weapons and ammo stay in Eden/Zeus/Arsenal (settings cannot unload
     config).
   - Takes effect at the next mission (CBA "needs restart") for systems set up at mission
-    start or vehicle init; APS and CIWS check per shot and can stay live.
+    start or vehicle init; CIWS checks per shot and can stay live.
   - Per component: `initSettings.inc.sqf` + stringtable keys; gate the few entry points
     (postInit registrations, config init/`Fired` handlers, ACE action conditions, UI
     openers) with a shared `EXIT_IF_DISABLED` macro; register behind CBA's
     settings-initialized event so the value is known.
 - [ ] Clean switches (off = vanilla fallback):
-  - APS (exists): no APS on tanks.
   - CIWS (exists): engages only what vanilla does (air, missiles).
   - COBRA: server scan loop, radar vehicle init, sirens, CBR tablet app (and the datalink,
     which only COBRA uses). Off: plain radar vehicles, CBR app hidden.
@@ -273,7 +270,7 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 
 - [x] Test range mission (`.hemtt/missions/itc_land_vr_test.VR`, started by `hemtt launch`):
       stations for every issue #3 section, a control board with teleports, scenarios
-      (enemy barrage, APS attack, AI VLS shot, air target, Zeus) and diagnostics.
+      (enemy barrage, AI VLS shot, air target, Zeus) and diagnostics.
 - [ ] Automate parts of it (scripted pass/fail checks) once the manual run is done.
 
 ## 8. Compatibility and polish
@@ -283,31 +280,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
 - [ ] Use newer commands where it helps (`getOrDefault`, ...).
 - [ ] Real Steam Workshop ID in README badges and `mod.cpp` (currently `id=0`);
       version is 0.1.0.
-- [ ] APS as a framework that can be attached to any vehicle. Today a vehicle needs an
-      `itc_land_aps` config class plus the `APS_INIT_EH` init handler in its
-      `EventHandlers` (a vehicle that redefines `EventHandlers` without inheriting silently
-      gets no APS), and only three vanilla tanks are patched. To do:
-  - init through CBA XEH (`Extended_InitPost_EventHandlers` on `AllVehicles`, reading
-    `itc_land_aps` if present) so a config class alone is enough, no event handler
-  - public script API: add/remove a module or a whole preset on a vehicle at runtime
-    (missions, Zeus), query its modules and remaining ammo
-  - presets (Trophy, Drozd, Afganit, ...) a vehicle config can inherit instead of
-    copying every value
-  - rearm, vanilla and ACE compatible: spent charges are never refilled now (only a
-    respawned or new vehicle has full modules). `vehicleInit` keeps each module's maximum;
-    a rearm refills to it on the vehicle's owner and publishes the state like
-    `onModuleFired`. Vanilla: rearming from an ammo truck/box has no event, so detect it
-    (vehicle near an ammo source, or its own magazines refilling). ACE (`ace_rearm` loaded):
-    hook ACE rearm, check what it exposes; partial refills are fine, as ACE rearms gradually.
-    Work with both and with neither loaded. Optional: a refill cost/time per charge.
-  - crew GUI for the APS state: a small overlay for the vehicle's crew showing the system
-    state (READY / INCOMING DETECTED / DEFENDING, plus RELOADING and EMPTY) and each
-    module's remaining charges, e.g. `TROPHY L 7/10`. Detection and interception run on the
-    shooter's machine, so "incoming" and "defending" have to be sent to the crew (CBA event
-    to the vehicle's crew), not read from local state. Hidden when the APS setting is off
-    or the vehicle has no modules.
-  - Zeus module and/or ACE interaction to fit an APS to a vehicle
-  - document the config keys and the API for mod makers (with section 9)
 - [ ] Datalink as a public API for other mods. It already works from outside (`connect`,
       `registerEvent`, `transmit` with free header/type strings, IDs public as
       `itc_land_datalink_id`, ID format in config), but nothing says it is supported. To do:
@@ -325,21 +297,6 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     sending machine (today only its format is checked, so any client can send as any origin)
   - optional: a server-side query for the registered nodes (only the server has the registry;
     the BCS scans vehicles for the public ID instead)
-- [ ] Maybe: APS for the Puma and Boxer (researched 2026-10-23). Neither has a hard-kill APS
-      in service.
-  - Boxer: Trophy was integrated on a pre-series APC in September 2025, on a mission module, so
-    the launchers are fixed to the hull. Live fire was announced but no results were found.
-    StrikeShield (Rheinmetall) was also fitted to a Boxer for testing; it uses many small
-    hull-wide modules, each breaking up the threat about 10 m out. The Bundeswehr reportedly
-    plans StrikeShield + AVePS for wheeled vehicles, which vehicles is unconfirmed. Both fit
-    the current module config: Trophy is `TROPHY_L`/`_R` without `turret[]`; StrikeShield is
-    4-6 hull modules, `traverse` about 45, `range` about 10, short reload, few shots (guessed,
-    no per-module figures are published). ITC has no Boxer APC yet, only the GTK RCH 155.
-  - Puma: MUSS / MUSS 2.0 (Hensoldt) is soft kill only: warning sensors, an IR jammer that
-    blinds guided missiles, and smoke. It has room for a hard-kill system, none ordered. It
-    does not fit the current APS: it needs a soft-kill type that ignores unguided rockets,
-    breaks guidance instead of detonating, and can fire smoke. The Puma itself comes from
-    BWMod (`compat_bwa3`).
 - [ ] Tablet in HTML (built 2026-10-23, setting "Tablet in HTML", on by default; then
       `tablet_fnc_open` opens `tablet_fnc_webOpen`, and `sphammohandler_fnc_open` (the vehicles'
       ammunition handler action) the handler as a panel of the same page, its view and actions in

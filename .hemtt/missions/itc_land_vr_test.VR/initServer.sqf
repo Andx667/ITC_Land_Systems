@@ -179,16 +179,6 @@ private _playerSam = ["itc_land_b_defender2", [6640, 6900, 0], 90] call itc_test
 (group effectiveCommander _playerSam) setCombatMode "BLUE";
 ["itc_test_sam", [6620, 6900, 0], "SAM-35 (11); UAV terminal"] call itc_test_fnc_marker;
 
-// --- station: APS (crewed tank without ammo, shooters spawn on demand) ---------------------
-
-// logs every tracked rocket/missile and why each module did or did not fire to the RPT ([ITC APS])
-missionNamespace setVariable ["itc_land_aps_debug", true, true];
-
-itc_test_apsTank = ["B_MBT_01_cannon_F", [6400, 6700, 0], 180, true] call itc_test_fnc_spawn;
-[itc_test_apsTank] call itc_test_fnc_pacify;
-["itc_test_aps", [6400, 6700, 0], "APS tank (12)"] call itc_test_fnc_marker;
-["itc_test_apsShooters", [6400, 6400, 0], "APS shooters", "o_inf"] call itc_test_fnc_marker;
-
 // --- UAV apron: the bigger UAVs parked facing north, flown with the UAV terminal ----------
 // (the MQ-4I is the laser-capable one for ROVER; nothing is in the take-off path)
 
@@ -238,21 +228,6 @@ itc_test_startCurator = call itc_test_fnc_createCurator;
         };
     } forEach itc_test_battery;
     ["itc_test_notify", [format ["Barrage: %1 gun(s) firing 4 rounds each", _firing]], _caller] call CBA_fnc_targetEvent;
-}] call CBA_fnc_addEventHandler;
-
-["itc_test_apsAttack", {
-    params ["_caller"];
-    private _group = createGroup east;
-    {
-        private _unit = _group createUnit ["O_Soldier_LAT_F", _x, [], 0, "NONE"];
-        _unit disableAI "PATH";
-        _unit setDir 0;
-        _unit reveal [itc_test_apsTank, 4];
-        _unit doTarget itc_test_apsTank;
-        _unit doFire itc_test_apsTank;
-    } forEach [[6380, 6400, 0], [6420, 6400, 0]];
-    [{{deleteVehicle _x} forEach units _this; deleteGroup _this}, _group, 90] call CBA_fnc_waitAndExecute;
-    ["itc_test_notify", ["APS attack: 2 AT soldiers for 90 s"], _caller] call CBA_fnc_targetEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["itc_test_airTarget", {

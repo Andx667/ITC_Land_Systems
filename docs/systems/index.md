@@ -8,7 +8,6 @@ Every system of ITC with its vehicles and items. Classnames are given for missio
 | [Battery Computer (BCS)](bcs.md) | `itc_land_bcs`, `itc_land_tablet` | Fire missions with a whole battery from the tablet |
 | [Counter-Battery Radar](cobra.md) | `itc_land_cobra` | COBRA radars, impact prediction, firing positions, sirens |
 | [Air & Missile Defence](air-defence.md) | `itc_land_ciws`, `itc_land_veh_defender`, `itc_land_veh_rhea`, `itc_land_vls` | CIWS, SAM sites, vertical launch system |
-| [Active Protection](aps.md) | `itc_land_aps` | Trophy, Drozd and Afghanit on the vanilla main battle tanks |
 | [UAVs & Recon](uavs.md) | `itc_land_veh_uav01`, `itc_land_veh_uav02`, `itc_land_veh_uav05`, `itc_land_veh_uav06`, `itc_land_packable`, `itc_land_veh_gltd`, `itc_land_rover`, `itc_land_veh_strider`, `itc_land_veh_nyx` | UAVs, packable equipment, remote laser designator, ROVER tablet, Strider RV |
 
 ## Interactions
@@ -52,7 +51,6 @@ Under **Addon Options → ITC Land Systems Redux** (CBA settings):
 
 | Category | Setting | Default | Scope |
 | --- | --- | --- | --- |
-| Active Protection System | **Enable APS** — vehicles with an [active protection system](aps.md) intercept incoming rockets and missiles | On | Server-wide |
 | CIWS | **Enable CIWS** — [CIWS](air-defence.md#ciws) turrets track and shoot down incoming artillery, mortar and rocket rounds | On | Server-wide |
 | COBRA Counter-Battery Radar | **Detection range** — maximum distance at which a [COBRA](cobra.md) detects incoming rounds | 10 000 m (1 000–20 000) | Server-wide |
 | COBRA Counter-Battery Radar | **Engagement window** — seconds after the last detected shot during which new shots from within 300 m are added to the same engagement | 30 s (5–300) | Server-wide |
