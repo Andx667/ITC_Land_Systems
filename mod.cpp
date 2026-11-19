@@ -1,13 +1,13 @@
 name            = "ITC Land Systems Redux v0.0.0 [BETA]";    // Name of your mod; the version placeholder is filled in by .hemtt/hooks/pre_build/set_version.rhai
 author          = "ITC Addons Team";            // Affects Arma 3 Launcher, when the mod are loaded as local
-logo            = "itc-combo.paa";              // Logo displayed in the main menu
-logoOver        = "itc-combo.paa";              // When the mouse is over, in the main menu
+logo            = "img\icon_ca.paa";            // Logo displayed in the main menu
+logoOver        = "img\icon_ca.paa";            // When the mouse is over, in the main menu
 tooltip         = "ITC Land Systems Redux";
 tooltipOwned    = "ITC Land Systems Redux";           // Tool tip displayed when the mouse is left over, in the main menu
-picture         = "itc-combo.paa";              // Picture displayed from the expansions menu. Optimal size is 2048x1024
+picture         = "img\logo_ca.paa";            // Picture displayed from the expansions menu. Optimal size is 2048x1024
 actionName      = "GitHub";
 action          = "https://github.com/Andx667/ITC_Land_Systems";    // Website URL, that can be accessed from the expansions menu
 overview        = "The artillery fight: observers and UAVs, fire control, howitzers, rocket and naval artillery, and counter-artillery against incoming fire (counter-battery radar, CIWS, SAM sites).";   // Supports structured text
 hideName        = 0;                            // Hide the extension name
 hidePicture     = 0;                            // Hide the extension menu
-logoSmall       = "itc-combo.paa";              // Display in creative lists, next to the entities added by the mod
+logoSmall       = "img\icon_ca.paa";            // Display in creative lists, next to the entities added by the mod
