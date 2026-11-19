@@ -2,26 +2,29 @@
 
 /*
  * Author: ITC Addons Team
- * Fired handler of an ITC gun: the first shot after fire data from the FDC arrived is reported
- * back to the FDC ("fdc"/"shot" with the mission and the time of flight), which starts its SHOT
- * and SPLASH countdown. Later shots of the same fire data, and shots without fire data (a local
- * SPG app solution), report nothing. Acts only where the gun is local.
+ * Fired handler of an ITC gun: the first shot of the main gun after fire data from the FDC
+ * arrived is reported back to the FDC ("fdc"/"shot" with the mission and the time of flight),
+ * which starts its SHOT and SPLASH countdown. Later shots of the same fire data, shots without
+ * fire data (a local SPG app solution) and other weapons of the vehicle report nothing. Acts
+ * only where the gun is local.
  *
  * Arguments:
  * 0: Gun <OBJECT>
+ * 1: Weapon that fired <STRING>
  *
  * Return Value:
  * None
  *
  * Example:
- * [_gun] call itc_land_bcs_fnc_onGunFired
+ * [_gun, "itc_land_155mm_howitzer"] call itc_land_bcs_fnc_onGunFired
  *
  * Public: No
  */
 
-params [["_gun", objNull, [objNull]]];
+params [["_gun", objNull, [objNull]], ["_weapon", "", [""]]];
 
-if (!local _gun) exitWith {};
+// the commander's machine gun or the smoke launchers would otherwise count as the shot
+if (!local _gun || {!(_weapon in (_gun weaponsTurret [0]))}) exitWith {};
 
 (_gun getVariable [QGVAR(fireData), []]) params [["_mission", ""], "", "", ["_origin", ""], "", "", "", ["_received", -1]];
 if (_mission == "" || {_gun getVariable [QGVAR(shotReported), -2] isEqualTo _received}) exitWith {};

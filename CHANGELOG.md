@@ -13,10 +13,18 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+- Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work (#30) by Andx
+
 ### Fixed
 
 - Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
 - BCS - Targets an observer sent before the FDC opened the BCS were lost; they now arrive in its Location Stores (#27) by Andx
+- BCS - After a respawn, targets an observer sent could arrive twice in the Location Stores (#32) by Andx
+- BCS - Linked guns did not receive the fire data the FDC sent (SEND ADJ / SEND FFE) (#31) by Andx
+- BCS - Firing a gun's machine gun or smoke launchers reported SHOT to the FDC, and the howitzer's real first round was then not reported (#31) by Andx
+- Tablet - The classic BCS solution page broke when an adjustment left fewer solutions than the one selected, and SHOT failed without solutions (#31) by Andx
 
 ### Added
 

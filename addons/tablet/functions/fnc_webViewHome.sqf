@@ -29,7 +29,7 @@ private _tiles = [];
     _tiles pushBack createHashMapFromArray [
         ["label", toUpper format [LLSTRING(Home_AppEntry), _forEachIndex + 1, getText (_config >> "displayName")]],
         // the vehicle systems the app needs; none ("-") is left out
-        ["note", [toUpper getText (_config >> "interfaces"), ""] select (getText (_config >> "interfaces") in ["", "-"])],
+        ["note", [toUpper format [LLSTRING(WebNeeds), getText (_config >> "interfaces")], ""] select (getText (_config >> "interfaces") in ["", "-"])],
         ["tip", LLSTRING(Home_Interfaces_Tooltip)],
         ["a", "key"],
         ["v", _forEachIndex]

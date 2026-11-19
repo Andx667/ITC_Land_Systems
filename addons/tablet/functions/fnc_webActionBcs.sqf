@@ -186,6 +186,9 @@ switch (_action) do {
     case "bcsSendFfe": {
         if (_mission isEqualTo []) exitWith {};
         ([_mission, GVAR(web) get "solutions", _action == "bcsSendFfe", ["gun", "index"] call FUNC(webFormValue)] call FUNC(bcsSendFireData)) params ["_report", "_kind"];
+        // the solutions page makes the phase sent last the main fire command
+        if (isNil QGVAR(bcs_lastPhase)) then {GVAR(bcs_lastPhase) = createHashMap};
+        GVAR(bcs_lastPhase) set [_mission # 0, ["ADJ", "FFE"] select (_action == "bcsSendFfe")];
         [_report joinString "  -  ", _kind] call FUNC(webNotice);
     };
     case "bcsEom";
