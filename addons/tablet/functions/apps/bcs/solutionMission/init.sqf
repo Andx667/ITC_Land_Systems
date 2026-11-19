@@ -49,6 +49,9 @@ if (count _btySolutions == 0) exitWith {
     };
 };
 _mission set [5, (count _btySolutions) - 1];
+// a recalculation (an adjustment, a gun moved or lost) can leave fewer solutions than the selected one
+_curSolution = _curSolution min ((count _btySolutions) - 1);
+_mission set [4, _curSolution];
 (_btySolutions # _curSolution) params ["_charge", "_az", "_df", "_qd", "_tof", "_impVel", "_impAng", "_maxOrd", "_dist"];
 SETTEXT(8018,str (round _maxOrd));//ordinate
 SETTEXT(8019,str (round _impAng));//angle
