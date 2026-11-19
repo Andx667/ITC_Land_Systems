@@ -23,7 +23,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
-- COBRA - A radar facing near north missed shells on the other side of north (e.g. facing 350 deg, shell at 5 deg); its 46 deg scan arc now wraps across north (#PR) by Andx
+- COBRA - A radar facing near north missed shells on the other side of north (e.g. facing 350 deg, shell at 5 deg); its 46 deg scan arc now wraps across north (#37) by Andx
 - Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
 - BCS - Targets an observer sent before the FDC opened the BCS were lost; they now arrive in its Location Stores (#27) by Andx
 - BCS - After a respawn, targets an observer sent could arrive twice in the Location Stores (#32) by Andx
