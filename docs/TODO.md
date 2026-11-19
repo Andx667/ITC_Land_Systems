@@ -401,10 +401,11 @@ S49 (`countType`) is disabled because it misfires on class-name strings.
     `15-00` notation) plus the BCS mil inputs of those batteries; everything is computed in 6400.
     CBA setting `itc_land_common_russianMils` (on). The deflection is the converted US-style one
     (reference 30-00); check against the real Russian goniometer convention.
-- [ ] Look at [Shot-Over](https://github.com/YannikH/Shot-Over), an unreleased artillery mod by
-      YannikH of the original ITC team, for its gun and ammunition handling mechanics. He
-      suggested it in [itc-addons/ITC_Land_Systems#24](https://github.com/itc-addons/ITC_Land_Systems/issues/24)
-      and would like parts of it to be used. Check its license before taking code.
+- [x] Looked at [Shot-Over](https://github.com/YannikH/Shot-Over) (2026-11-19), an unreleased
+      gunline mod for the SOG Prairie Fire M101 by YannikH of the original ITC team, suggested in
+      [itc-addons/ITC_Land_Systems#24](https://github.com/itc-addons/ITC_Land_Systems/issues/24).
+      Out of scope for ITC, which is about modern artillery: its hand-loaded shells, crate logistics,
+      aiming stakes and paper FDC notebook fit a separate SOG-only addon. MIT licensed.
 
 ## 9. Documentation (after in-game testing, issue #1)
 
