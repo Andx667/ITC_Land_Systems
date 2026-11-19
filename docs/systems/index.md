@@ -54,6 +54,7 @@ Under **Addon Options → ITC Land Systems Redux** (CBA settings):
 | CIWS | **Enable CIWS** — [CIWS](air-defence.md#ciws) turrets track and shoot down incoming artillery, mortar and rocket rounds | On | Server-wide |
 | COBRA Counter-Battery Radar | **Detection range** — maximum distance at which a [COBRA](cobra.md) detects incoming rounds | 10 000 m (1 000–20 000) | Server-wide |
 | COBRA Counter-Battery Radar | **Engagement window** — seconds after the last detected shot during which new shots from within 300 m are added to the same engagement | 30 s (5–300) | Server-wide |
+| Debug | **Debug overlay** — shows the state of the ITC systems as text above vehicles and units, with lines between linked systems; see [Debugging](../scripting.md#debugging). For testing: it shows things a player would not know | Off | Each player |
 | Fire control | **Russian guns in 6000 mils** — the Russian guns (Sochor 2, 2S1, 2S3, D-30, 2B14) and their BCS batteries show angles in the Russian 6000 mil system, written `15-00`, and the BCS reads those batteries' mil inputs (OT and sheaf direction) in it; off: NATO 6400 mils everywhere | On | Server-wide |
 | Tablet | **Tablet in HTML** — the tablets and the ammunition handler open as web pages (Arma 3 2.20 browser control) with the same apps and settings; **CLASSIC TABLET** on the tablet's home screen opens the classic one; off: the classic tablet and handler | On | Each player |
 

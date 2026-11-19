@@ -10,3 +10,5 @@ PREP(sirenTrigger);
 PREP(sirenTypes);
 PREP(getCobraData);
 PREP(sirenPlay);
+PREP(debugLines);
+PREP(debugDrawDetections);

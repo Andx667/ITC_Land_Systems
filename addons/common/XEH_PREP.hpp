@@ -28,3 +28,7 @@ PREP(resolveFuzeSetting);
 PREP(ctrlShowMany);
 PREP(simulateTrajectory);
 PREP(addProjectilePFH);
+PREP(registerDebug);
+PREP(debugToggle);
+PREP(debugDraw);
+PREP(debugText);
