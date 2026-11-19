@@ -15,7 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
-- Common - Debug overlay (setting **Debug overlay**, each player, off by default): datalink IDs, BCS guns with their link and fire data, and COBRA radars with their scan arc, predicted impacts and firing positions are shown as text and lines in the world (#PR) by Andx
+- Common - Debug overlay (setting **Debug overlay**, each player, off by default): datalink IDs, BCS guns with their link and fire data, and COBRA radars with their scan arc, predicted impacts and firing positions are shown as text and lines in the world (#36) by Andx
 
 ### Removed
 
