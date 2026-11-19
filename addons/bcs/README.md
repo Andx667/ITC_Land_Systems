@@ -27,5 +27,5 @@ Internal events this addon handles (raised with `CBA_fnc_*Event`):
 | `fnc_matchGunSolution` |  | Finds a gun's firing line for the selected battery solution: the gun's solution with the same charge and the same angle (low or high). |
 | `fnc_onEndMission` |  | Datalink handler for the end of a fire mission ("fdc"/"endMission"): clears the gun's fire orders if they are for that mission, which hides the FCI ORDERS panel. |
 | `fnc_onFireData` |  | Datalink handler for fire data the FDC sends to a gun ("fdc"/"fireData"). |
-| `fnc_onGunFired` |  | Fired handler of an ITC gun: the first shot after fire data from the FDC arrived is reported back to the FDC ("fdc"/"shot" with the mission and the time of flight), which starts its SHOT and SPLASH countdown. |
+| `fnc_onGunFired` |  | Fired handler of an ITC gun: the first shot of the main gun after fire data from the FDC arrived is reported back to the FDC ("fdc"/"shot" with the mission and the time of flight), which starts its SHOT and SPLASH countdown. |
 | `fnc_refreshLinkedGuns` |  | Updates the guns linked in Battery Setup from their vehicles: grid, position, elevation and direction as they are now. |
