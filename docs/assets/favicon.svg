@@ -2,7 +2,7 @@
 <title>itc-land-systems-redux</title>
 <style>.g{color:#161A1F;stroke:#161A1F}@media (prefers-color-scheme:dark){.g{color:#FFFFFF;stroke:#FFFFFF}}</style><g class="g" transform="translate(-50.55 -64.34) scale(3.06548)" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
 <path d="M26 134 L32 126 H108 L114 134 L106 142 H36 Z"/>
-<path d="M48 134 H96" stroke-dasharray="0.1 16"/>
+<path d="M46 134 H94.5" stroke-dasharray="0.1 16"/>
 <path d="M30 126 L34 116 H96 L110 126"/>
 <path d="M36 116 V100 L44 92 H76 L86 104 V116"/>
 <path d="M84 102 L122 80"/>
