@@ -6,7 +6,8 @@
  * from the start of the mission and for every player: each becomes a Location Stores entry
  * (TGT01, TGT02, ...), so an FDC that opens the BCS only later still has the targets sent
  * before. Only a player who has opened the BCS gets the ping and the hint. Runs once per unit,
- * so again after a respawn or for a remote-controlled unit.
+ * so again after a respawn or for a remote-controlled unit; only the unit the player controls
+ * now records the target.
  *
  * Arguments:
  * 0: Player unit <OBJECT>
@@ -27,7 +28,10 @@ _unit setVariable [QGVAR(bcs_listensTargets), true];
 
 [_unit] call EFUNC(datalink,connectPlayer);
 [_unit, "observer", "target", {
-    params ["", "_transmission"];
+    params ["_listener", "_transmission"];
+    // the body left by a respawn keeps its datalink ID until it is deleted; it must not record the
+    // target a second time (its ID stays, guns may still report shots of fire data sent before)
+    if (_listener != ACE_player) exitWith {};
     (_transmission select 4) params [["_observer", "", [""]], ["_side", sideUnknown, [sideUnknown]], ["_targetPos", [], [[]]]];
     if !(_targetPos isEqualTypeArray [0, 0, 0]) exitWith {};
     if ((side group ACE_player) getFriend _side < 0.6) exitWith {};
