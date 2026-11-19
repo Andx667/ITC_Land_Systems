@@ -43,7 +43,10 @@ if (_action == "soldn") then {
 };
 
 if (_action == "shot") then {
-    [_ident, (_btySolutions # _curSolution) # 4] call FUNC(bcsShot);
+    private _solution = _btySolutions param [_curSolution, []];
+    if (_solution isNotEqualTo []) then {
+        [_ident, _solution # 4] call FUNC(bcsShot);
+    };
 };
 
 if (_action in ["sendadj", "sendffe"]) then {

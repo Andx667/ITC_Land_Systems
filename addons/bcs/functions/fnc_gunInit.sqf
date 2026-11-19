@@ -25,7 +25,7 @@ params [["_vehicle", objNull, [objNull]]];
 
 if ([_vehicle] call FUNC(getGunBatteryType) == "") exitWith {};
 
-_vehicle addEventHandler ["Fired", {[_this select 0] call FUNC(onGunFired)}];
+_vehicle addEventHandler ["Fired", {[_this select 0, _this select 1] call FUNC(onGunFired)}];
 
 if (!isServer) exitWith {};
 
