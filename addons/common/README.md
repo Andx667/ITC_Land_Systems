@@ -9,7 +9,11 @@
 
 ## Settings
 
-CBA settings in `initSettings.inc.sqf`: `itc_land_common_russianMils`.
+CBA settings in `initSettings.inc.sqf`: `itc_land_common_russianMils`, `itc_land_common_debug`.
+
+## Debug overlay
+
+The per-player setting `itc_land_common_debug` adds a `Draw3D` handler (`fnc_debugToggle`) that runs `fnc_debugDraw`. Common knows no system itself: each addon registers its lines and drawing with `fnc_registerDebug` in its own `XEH_preInit.sqf` (datalink, bcs, cobra), because those addons depend on common and not the other way round. Nothing runs while the setting is off.
 
 ## Functions
 
@@ -20,6 +24,9 @@ CBA settings in `initSettings.inc.sqf`: `itc_land_common_russianMils`.
 | `fnc_ctrlSetFade` |  | Sets the fade value of a display control and commits the change immediately. |
 | `fnc_ctrlSetText` |  | Sets the text of a display control. |
 | `fnc_ctrlShowMany` |  | Shows or hides several controls of the active dialog at once. |
+| `fnc_debugDraw` |  | Draws the debug overlay: labels over the vehicles and units on foot near the camera that a registered system knows, then each system's own drawing. |
+| `fnc_debugText` |  | Draws one line of text of the debug overlay in the world. |
+| `fnc_debugToggle` |  | Switches the debug overlay on or off. Called by the setting itc_land_common_debug. |
 | `fnc_filterSolutionsByElevation` |  | Drops the firing solutions whose quadrant the gun cannot lay: below the main turret's minElev or above its maxElev, or outside given limits. |
 | `fnc_FormatAsMeters` |  | Formats a distance in meters as a zero-padded string, with a "-" prefix for negative values. |
 | `fnc_FormatAsMils` |  | Converts an angle from degrees to mils and formats it as a zero-padded string, with a "-" prefix for negative values. |
@@ -40,6 +47,7 @@ CBA settings in `initSettings.inc.sqf`: `itc_land_common_russianMils`.
 | `fnc_isLaserCode` |  | Validates whether a number is a valid laser code: must be between 1111 and 1788, and must not contain the digits 0 or 9. |
 | `fnc_parseMils` |  | Reads an angle typed in mils (a BCS input such as an OT direction) in a mil system and returns it in NATO mils. |
 | `fnc_posToGrid` |  | Converts a world position into a displayable map grid string. |
+| `fnc_registerDebug` |  | Registers a system for the debug overlay: which objects it labels, their lines and its own drawing. |
 | `fnc_resolveFuzeSetting` |  | Applies the selected fuze mode to the vehicle: stores the mode and the value the fuze will use (proximity height, time or delay) and builds the text shown in the interface. |
 | `fnc_setFuzeSelection` |  | Selects a fuze mode of a magazine for the vehicle: stores its index, mode and name on the vehicle (itc_land_common_selectedFuzeIndex / Mode / Desc), where the ammunition handler, the FCI and resolveFuzeSetting read it. |
 | `fnc_setGpsTarget` |  | Sets the target of the vehicle's GPS guided rounds: the position they fly to (itc_land_guidance_targetPos), and the grid and altitude it was entered as, so the ammunition handler and the FCI can show them again. |

@@ -25,6 +25,7 @@ Internal events this addon handles (raised with `CBA_fnc_*Event`):
 | --- | --- | --- |
 | `fnc_connect` |  | Connects an object to the datalink server, requesting a new ID for the given system (or validating an explicitly supplied one), and optionally auto-storing the assigned ID on the target once the server responds. |
 | `fnc_connectPlayer` |  | Connects a player's unit to the datalink with an automatic ID (stored as itc_land_datalink_id), once per unit: later calls for the same unit do nothing, and after a respawn the new unit connects again. |
+| `fnc_debugLines` |  | Lines of the debug overlay for an object on the datalink: its ID and group, and those of its crew. |
 | `fnc_disconnect` |  | Disconnects an object from the datalink server, removing the given ID (or, if no ID is given, every ID currently registered to the object) from the server's node registry. |
 | `fnc_findAvailableID` |  | Finds and returns the next unused datalink ID within a given group by generating candidate IDs from the allowed ID character set and checking them against the current node registry. |
 | `fnc_findIDTargets` |  | Finds all targets registered under a given datalink ID. |

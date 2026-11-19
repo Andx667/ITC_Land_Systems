@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Added
+
+- Common - Debug overlay (setting **Debug overlay**, each player, off by default): datalink IDs, BCS guns with their link and fire data, and COBRA radars with their scan arc, predicted impacts and firing positions are shown as text and lines in the world (#PR) by Andx
+
 ### Removed
 
 - APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) was removed. Its code is kept in [Active Protection Systems](https://github.com/Andx667/active-protection-systems), which is not released (#33) by Andx

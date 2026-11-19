@@ -15,3 +15,4 @@ PREP(unregisterEvent);
 PREP(init);
 PREP(validateID);
 PREP(removeNodes);
+PREP(debugLines);
