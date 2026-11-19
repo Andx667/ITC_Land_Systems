@@ -13,6 +13,10 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Removed
+
+- APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) moved to its own mod, [Active Protection Systems](https://github.com/Andx667/active-protection-systems). Load that mod to keep it; configs and scripts that use `itc_land_aps` need its new names (#33) by Andx
+
 ### Changed
 
 - Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work (#30) by Andx

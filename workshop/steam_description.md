@@ -42,13 +42,9 @@ Loaded only when the other mod is loaded too:
 - **BWMod** — ITC versions of the Panzerhaubitze 2000, BCS firing tables for the MRS120 mortar.
 - **GTK Boxer** — ITC versions of the Boxer RCH 155.
 
-## Also included
-
-Active Protection System: intercepts incoming rockets and missiles.
-
 ## Settings
 
-CBA settings to toggle CIWS and APS, tune the COBRA detection range and engagement window, switch between the HTML and the classic tablet, and show Russian guns in 6000 or NATO 6400 mils.
+CBA settings to toggle CIWS, tune the COBRA detection range and engagement window, switch between the HTML and the classic tablet, and show Russian guns in 6000 or NATO 6400 mils.
 
 # Documentation
 

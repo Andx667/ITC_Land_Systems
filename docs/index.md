@@ -19,7 +19,6 @@ The project is entirely open-source and any contributions are welcome — see [C
 - **[Battery computer (BCS)](systems/bcs.md)** — plan, adjust and fire missions with a whole battery from the fire direction tablet, with sheaf patterns and stored target locations.
 - **[Counter-battery radar](systems/cobra.md)** — COBRA radars detect incoming shells, predict their impact and back-trace the firing position. Sirens sound near predicted impacts.
 - **[Air & missile defence](systems/air-defence.md)** — CIWS that shoot down incoming shells, rockets and missiles, SAM sites with proximity-fuzed missiles, and a vertical launch system with a target dialog.
-- **[Active protection](systems/aps.md)** — Trophy, Drozd and Afghanit systems on the vanilla main battle tanks intercept incoming rockets and missiles.
 - **[UAVs & recon](systems/uavs.md)** — new UAVs, packable UAVs and laser designators, the ROVER tablet with the video feed of laser-designating aircraft, and the Strider RV and Nyx RV.
 - Every system that can be switched off has a [CBA setting](systems/index.md#settings).
 

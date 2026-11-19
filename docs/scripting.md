@@ -55,40 +55,6 @@ In a mission, the list is the variable `itc_land_ciws_interceptable` on every ma
 [{ itc_land_ciws_interceptable pushBackUnique "My_Rocket_Ammo_Base"; }, [], 1] call CBA_fnc_waitAndExecute;
 ```
 
-## Active protection
-
-A vehicle gets an [APS](systems/aps.md) from its config: an `itc_land_aps` class with one subclass per launcher module, and the init event handler that reads it.
-
-```cpp
-class CfgVehicles {
-    class MyTank_base;
-    class MyTank: MyTank_base {
-        class EventHandlers: EventHandlers {
-            class itc_land_aps {
-                init = "call itc_land_aps_fnc_vehicleInit";
-            };
-        };
-        class itc_land_aps {
-            class TROPHY_L {
-                displayName = "Trophy Left";
-                position[] = {-1, 0, 1.5};  // model coordinates of the launcher
-                turret[] = {0};             // turns with this turret; leave out to fix it to the hull
-                direction = -90;            // facing relative to the turret/hull, degrees
-                traverse = 93;              // covers this many degrees to each side of its facing
-                elevate = 40;               // and this many degrees up and down
-                range = 15;                 // m, engages when the projectile is this close
-                munitions = 10;             // shots
-                pk = 0.8;                   // kill chance per shot
-                reloadTime = 0.1;           // s between shots
-                trigger = 1;                // 1 = detonate the round, 0 = replace it with a penetrator
-            };
-        };
-    };
-};
-```
-
-The vehicle class must declare `class EventHandlers: EventHandlers` so it keeps the event handlers of its parent and of CBA; without the init handler the vehicle has no APS. A config class alone (without the event handler), presets and a script API are planned.
-
 ## Artillery vehicles
 
 ITC's fire control, ammunition handler and mounted tablet read an `itc_land` class in the vehicle config:
@@ -166,7 +132,6 @@ These functions are the mod's public API: their arguments and behaviour stay sta
 | Function | Arguments | Returns | Where to run |
 | --- | --- | --- | --- |
 | `itc_land_cobra_fnc_sirenInit` | 0: siren object, 1: sound class (CfgSounds), 2: audible distance in m, 3: seconds between repeats. With fewer than 4 arguments: `"alarm"`, 250 m, 1.75 s | the arguments | Server (does nothing elsewhere) |
-| `itc_land_aps_fnc_vehicleInit` | 0: vehicle with an `itc_land_aps` config class | nothing | Server (does nothing elsewhere) |
 | `itc_land_sphammohandler_fnc_canOpen` | 0: vehicle, 1: unit | `true` if the unit is the gunner or the loader | Any machine |
 | `itc_land_sphammohandler_fnc_open` | 0: open the classic dialog even with **Tablet in HTML** on (optional, default `false`) | nothing | Client of the unit opening it |
 | `itc_land_packable_fnc_pack` | 0: deployed object, 1: unit packing it | nothing | Client of the unit packing |
@@ -186,7 +151,6 @@ The mod raises no public events yet.
 
 | Variable | Effect |
 | --- | --- |
-| `itc_land_aps_debug` | Logs every tracked rocket and missile, every APS shot (kill or miss) and why a module did not fire to the RPT (`[ITC_LAND] (aps) INFO:`) |
 | `itc_land_ciws_debug` | Logs the shell decoys, the CIWS sensor state every 3 s and whether each shell was intercepted or landed to the RPT (`[ITC_LAND] (ciws) INFO:`) |
 
-Set them with `missionNamespace setVariable ["itc_land_aps_debug", true, true];`.
+Set it with `missionNamespace setVariable ["itc_land_ciws_debug", true, true];`.
