@@ -62,6 +62,8 @@ The **FUZE SETTING** (FS) is the time fuze setting that bursts the round at its 
 
 The selected solution is sent to the gunner sight as the mission azimuth and quadrant.
 
+As with real guns, rounds fired with the same data do not all land on the same spot. The muzzle velocity of every shot varies by up to 0.5 %, mostly much less, so the rounds spread along the line of fire by up to about 1 % of the range. The solution aims at the centre of that spread; adjust on where the rounds actually land. This applies to the guns' ITC rounds, not to mortars or rockets.
+
 ### Fire data from the FDC
 
 The guns are on the datalink, so a fire direction centre can link them in the [BCS](bcs.md#1-battery-setup) and send their firing data (**SEND ADJ** / **SEND FFE**). When it arrives, the crew hears a beep and gets a hint (`FDC: fire data FM0001 FFE`), the data becomes the selected solution in the gunner sight (mission azimuth and quadrant), and the SPG app shows where it came from (**FDC FM0001 FFE** and the round) above it. The newest data wins: new data from the FDC replaces your own solution, and **CALC SLN** replaces the FDC's.
