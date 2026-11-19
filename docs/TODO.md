@@ -12,7 +12,7 @@ Primary, in this order of the fight:
   gun and the VLS.
 - **Counter-artillery**: the COBRA counter-battery radar, CIWS and the SAM sites.
 
-APS moved to its own mod, [Active Protection Systems](https://github.com/Andx667/active-protection-systems), on 2026-11-19.
+APS removed on 2026-11-19; its code is kept, unreleased, in [Active Protection Systems](https://github.com/Andx667/active-protection-systems).
 Removed on 2026-10-22: the Spike LR (ACE ships its own), the
 remote frag grenade (ACE has placeable charges) and the unreachable smoke dispenser magazine.
 
