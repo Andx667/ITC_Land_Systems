@@ -31,6 +31,8 @@ Internal events this addon handles (raised with `CBA_fnc_*Event`):
 
 | Function | Public | What it does |
 | --- | --- | --- |
+| `fnc_debugDrawDetections` |  | Debug overlay drawing for COBRA: scan arc edges, predicted impacts, firing positions and engagements. |
+| `fnc_debugLines` |  | Lines of the debug overlay for a COBRA radar: scanning, range, facing and what it has found. |
 | `fnc_fired` |  | Handles the "FiredBIS" event, which runs on every machine, on the server only. |
 | `fnc_getCobraData` |  | Datalink event callback that gathers a COBRA vehicle's tracked firing positions, engagements and active shells, and transmits them back to the requesting origin over the datalink. |
 | `fnc_init` |  | Initializes the server-side COBRA counter-battery state: the list of COBRA vehicles, the tracked shells, the recorded origins, firing positions, engagements and predicted impacts, and the engagement ID counter. |

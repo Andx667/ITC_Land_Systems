@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="itc_land">
     <Package name="common">
+        <Key ID="STR_itc_land_common_Debug">
+            <English>Debug</English>
+        </Key>
+        <Key ID="STR_itc_land_common_Debug_Description">
+            <English>Shows the state of the ITC systems as text above vehicles and units, with lines between linked systems: datalink IDs, BCS guns and their fire data, COBRA radars and their detections. For testing: it shows things a player would not know.</English>
+        </Key>
+        <Key ID="STR_itc_land_common_Debug_DisplayName">
+            <English>Debug overlay</English>
+        </Key>
         <Key ID="STR_itc_land_common_FireControl">
             <English>Fire control</English>
         </Key>

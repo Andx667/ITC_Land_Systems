@@ -10,3 +10,5 @@ PREP(onEndMission);
 PREP(onFireData);
 PREP(onGunFired);
 PREP(refreshLinkedGuns);
+PREP(debugLines);
+PREP(debugDrawLinks);

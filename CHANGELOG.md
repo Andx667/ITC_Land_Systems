@@ -17,6 +17,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Added
 
+- Common - Debug overlay (setting **Debug overlay**, each player, off by default): datalink IDs, BCS guns with their link and fire data, and COBRA radars with their scan arc, predicted impacts and firing positions are shown as text and lines in the world (#36) by Andx
 - Scripting - Public API: `cobra_fnc_sirenInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
 - Nyx RV - The AWC 304 Nyx Recon with the Strider RV's ITC optics on its observer seat (`itc_land_I_NyxRV`) (#26) by Andx
 
@@ -34,6 +35,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Fixed
 
+- COBRA - A radar facing near north missed shells on the other side of north (e.g. facing 350 deg, shell at 5 deg); its 46 deg scan arc now wraps across north (#37) by Andx
 - Tablet - The COBRA map in the HTML tablet stayed hidden behind the page after switching to another view and back (#25) by Andx
 - BCS - Targets an observer sent before the FDC opened the BCS were lost; they now arrive in its Location Stores (#27) by Andx
 - BCS - After a respawn, targets an observer sent could arrive twice in the Location Stores (#32) by Andx

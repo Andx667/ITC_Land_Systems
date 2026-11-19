@@ -60,11 +60,7 @@ ITC Land Systems Redux is about the artillery fight: finding targets, putting ro
 - __CIWS__ (Mk49 Spartan 2, Praetorian 2) that track and shoot down incoming artillery, mortar and rocket rounds.
 - __SAM sites__: MIM-145 Defender 2 and S750 Rhea 2 with proximity-fuzed missiles.
 - __Vertical Launch System__ air defence variant (MN230).
-
-### Also included
-
-- __Active Protection System__ that intercepts incoming rockets and missiles, with per-module arcs, ammunition and reload times.
-
+  
 ## Documentation
 
 The full documentation is at <https://andx667.github.io/ITC_Land_Systems/>:

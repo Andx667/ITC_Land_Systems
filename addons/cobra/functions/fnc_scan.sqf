@@ -35,10 +35,9 @@ private _remainingShells = [];
     private _shell = _x;
     if (alive _shell) then {
         private _detectedBy = _scanning findIf {
-            private _dir = deg (_x animationPhase "mainTurret");
-            _dir = (getDir _x - _dir);
-            if (_dir > 360) then {_dir = _dir - 360;};
-            private _angleTo = abs (((_dir) + 360) - ((_x getDir _shell) + 360));
+            private _dir = getDir _x - deg (_x animationPhase "mainTurret");
+            // signed angle between the radar's facing and the shell, -180..180, so the arc wraps across north
+            private _angleTo = abs ((((_x getDir _shell) - _dir) % 360 + 540) % 360 - 180);
             _angleTo < 23
                 && {_shell distance _x < GVAR(range)}
                 && {!(terrainIntersectASL [getPosASL _shell, (getPosASL _x) vectorAdd [0,0,3]])}

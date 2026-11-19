@@ -149,6 +149,21 @@ The mod raises no public events yet.
 
 ## Debugging
 
+### Debug overlay
+
+The setting **Debug overlay** (Addon Options → ITC Land Systems Redux → Debug, each player, off by default) shows the state of the ITC systems as text above vehicles and units within 600 m, with lines between systems that are linked:
+
+| System | Label | Lines and markers |
+| --- | --- | --- |
+| Datalink | The datalink ID and group of the object and of its crew | – |
+| BCS guns | Battery type; whether your BCS links it, as which gun; the fire data it received (mission, phase, FDC, rounds, shell, fuze, how long ago); where the gun is local, whether its first shot was reported | To the FDC that sent the fire data, and to the target |
+| FDC (you, with a battery set up) | Battery, linked guns, missions | To each linked gun |
+| COBRA | Scanning or moving, range, the direction it scans | The edges of its scan arc; within 5 km: predicted impacts with the seconds to impact, firing positions, engagements |
+
+Each machine shows what it knows: the BCS battery exists only on the FDC's machine, and the datalink registry only on the server, so other machines see the public IDs. It shows things a player would not know, such as enemy firing positions; a server can force the setting off.
+
+### RPT logging
+
 | Variable | Effect |
 | --- | --- |
 | `itc_land_ciws_debug` | Logs the shell decoys, the CIWS sensor state every 3 s and whether each shell was intercepted or landed to the RPT (`[ITC_LAND] (ciws) INFO:`) |
