@@ -110,8 +110,6 @@ if (!_mortar) then {
     private _count = (_settings param [0, []]) param [3, 0];
     _applied pushBack [LLSTRING(AL_COUNT_Text), [str _count, "-- N/A --"] select (_count < 1)];
 };
-_applied pushBack [LLSTRING(status_Text), localize _statusText, "ok"];
-_applied pushBack ["", [LELSTRING(tablet,WebNotApplied), LELSTRING(tablet,WebApplied)] select _isApplied, ["warn", "ok"] select _isApplied];
 
 createHashMapFromArray [
     ["layout", "panel"],
@@ -119,15 +117,18 @@ createHashMapFromArray [
     ["side", []],
     ["blocks", [
         ["row", [["blocks", [
-            ["list", [["id", "ammo"], ["a", "ahAmmo"], ["rows", _carried apply {[_x # 1, getText (configFile >> "CfgMagazines" >> _x # 0 >> "displayName")]}]]] call EFUNC(tablet,webBlock),
+            ["list", [["id", "ammo"], ["a", "ahAmmo"], ["header", [LELSTRING(tablet,WebQuantity), LELSTRING(tablet,WebRound)]],
+                ["rows", _carried apply {[_x # 1, getText (configFile >> "CfgMagazines" >> _x # 0 >> "displayName")]}]]] call EFUNC(tablet,webBlock),
+            // the FDC's orders fill in the fields, so they come first; the loader's status next to the buttons it enables
             ["col", [["blocks", [
-                ["kv", [["rows", [[LLSTRING(round_name_Text), getText (_magazineConfig >> "displayName"), "ok"]]]]] call EFUNC(tablet,webBlock),
+                ["bar", [["left", [[LLSTRING(fdcOrdersButton_Text), "ahFdcOrders", true, [], LLSTRING(fdcOrdersButton_Tooltip)] call _button]]]] call EFUNC(tablet,webBlock),
                 ["stepper", [["label", LLSTRING(chargebutton_label_Text)], ["value", format ["%1 / %2", _charge, _maxCharge]], ["a", "ahCharge"]]] call EFUNC(tablet,webBlock),
                 ["fields", [["items", _fields]]] call EFUNC(tablet,webBlock),
-                ["bar", [
-                    ["left", [[LLSTRING(fdcOrdersButton_Text), "ahFdcOrders", true, [], LLSTRING(fdcOrdersButton_Tooltip)] call _button]],
-                    ["groups", [_mainButtons]]
-                ]] call EFUNC(tablet,webBlock)
+                ["bar", [["left", _mainButtons]]] call EFUNC(tablet,webBlock),
+                ["kv", [["rows", [
+                    [LLSTRING(status_Text), localize _statusText, "ok"],
+                    ["", [LELSTRING(tablet,WebNotApplied), LELSTRING(tablet,WebApplied)] select _isApplied, ["warn", "ok"] select _isApplied]
+                ]]]] call EFUNC(tablet,webBlock)
             ]]]] call EFUNC(tablet,webBlock),
             ["col", [["blocks", [
                 ["section", [["text", [LLSTRING(AL_Header_Text), LLSTRING(LoaderHeader)] select _mortar]]] call EFUNC(tablet,webBlock),

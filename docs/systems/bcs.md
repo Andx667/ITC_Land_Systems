@@ -16,9 +16,11 @@ The BCS is a fire direction computer: it gives you the firing data for every gun
 
 ## Workflow
 
+The BCS opens where you work: on **Battery Setup** while the battery has no guns, then on the fire mission you had open (or the newest one). The mission list shows the step each mission is at (**TARGET**, **ENGAGE**, **SOLUTION**, **ADJUST**). The classic tablet opens on the BCS settings.
+
 ### 1. Battery setup
 
-Open **Bty Setup**:
+Open **Battery Setup**:
 
 1. Enter the **Battery Callsign** and pick the **Gun Type** (battery type), then **SAVE BTY TYPE**.
 2. Add the guns:
@@ -31,7 +33,7 @@ Every ITC gun and rocket launcher with a mounted tablet (Sholef 2, Sochor 2, Ham
 
 ### 2. New fire mission
 
-Open **New Firemission** and choose the **Target Type**:
+Open **+ New mission** and choose the **Target Type**:
 
 | Target type | Target from |
 | --- | --- |
@@ -48,7 +50,7 @@ Set how the battery engages:
 
 - **Ammo Type** (shell), its **Fuze** and the **Count** of rounds per gun: the linked guns get them as their fire orders
 - **Sheaf Type**: parallel, converged, linear, open or special — where each gun aims relative to the target
-- **Quick Sheaf**, **Direction** and **Length** for the sheaf
+- **Quick Sheaf**, **Direction** and **Length** for a special sheaf; with Quick Sheaf on, the guns spread at right angles to the gun-target line and no direction is needed
 
 **Next** computes the solutions.
 
@@ -56,7 +58,7 @@ Set how the battery engages:
 
 The solution page shows the selected solution's **MAXIMUM ORDINATE**, **IMPACT ANGLE** and **TARGET DISTANCE**, and per gun the charge, azimuth, deflection, quadrant, time of flight and, for rounds with a time fuze, the fuze setting (**FS**, see [Fire control on the tablet](artillery.md#fire-control-on-the-tablet)) for the same charge and angle. **SLN+** / **SLN-** step through the solutions (charges, low and high angle). **NO SOLUTIONS** with the range means the target is out of reach for this battery type; **NO SLN** on a gun means that gun has no solution for the selected charge and angle (out of range, or a quadrant it cannot lay).
 
-- **SEND ADJ** sends the firing data of the gun selected in the list (the first gun if none is), for adjusting fire; **SEND FFE** sends every gun its data, for fire for effect. Each linked gun gets its line as the selected solution in its gunner sight and SPG app, and the round, fuze and count as fire orders (the **FCI ORDERS** panel in its sight, **FDC ORDERS** in its ammunition handler); its crew gets a beep and a hint. A hint tells you which guns got the data, which are not linked and which have no solution. After an adjustment, send again. While the solution page is open, each linked gun's row shows its loader status (for example `READY TO FIRE ( 1 / 3 )`).
+- **SEND ADJ** sends the firing data of the gun selected in the list (the first gun if none is), for adjusting fire; **SEND FFE** sends every gun its data, for fire for effect. Each linked gun gets its line as the selected solution in its gunner sight and SPG app, and the round, fuze and count as fire orders (the **FCI ORDERS** panel in its sight, **FDC ORDERS** in its ammunition handler); its crew gets a beep and a hint. A hint tells you which guns got the data, which are not linked and which have no solution. After an adjustment, send again. While the solution page is open, each linked gun's row shows its loader status (for example `READY TO FIRE ( 1 / 3 )`). The fire command of the next step is highlighted: **SEND ADJ** until you have sent fire for effect, then **SEND FFE**.
 
 - **SHOT**: a linked gun reports its first shot of the data you sent, which starts SHOT by itself (hint `FM0001: SHOT reported by the guns`); for guns that are not linked, press it when they report the rounds fired. The page counts down the time to impact (**TTI**) and the mission list shows the mission as **SHOT**. **Alert To Splash** seconds before impact (5 by default, [BCS settings](#settings)) it turns to **SPLASH**, with a beep and a hint, also while the tablet is closed: the moment to call "splash" to the observer. If the time of flight is shorter, the alert comes right away. Ending the mission or pressing SHOT again cancels the pending alert.
 - **ADJUST/FFE** opens the adjustment page: enter the observer's correction (OT, add/drop, left/right, up/down) to move the target and recalculate.
@@ -64,7 +66,7 @@ The solution page shows the selected solution's **MAXIMUM ORDINATE**, **IMPACT A
 
 ### Location stores
 
-**Location Stores** keeps known points with a **Reference ID**, **Position**, **Elevation** and whether it is **Friendly**. **ADD NEW** adds a point or updates the one with the same ID, **REMOVE** deletes the selected one. The [counter-battery radar app](cobra.md#counter-battery-radar-app) can save detected firing positions here, and targets observers send from the ITC optics arrive here as **TGT01**, **TGT02**, … ([Sending a target to the FDC](uavs.md#sending-a-target-to-the-fdc)).
+**Location Stores** keeps known points with a **Reference ID**, **Position**, **Elevation** and whether it is **Friendly**. **SAVE POINT** adds a point or updates the one with the same ID, **REMOVE** deletes the selected one. The [counter-battery radar app](cobra.md#counter-battery-radar-app) can save detected firing positions here, and targets observers send from the ITC optics arrive here as **TGT01**, **TGT02**, … ([Sending a target to the FDC](uavs.md#sending-a-target-to-the-fdc)).
 
 ## Russian batteries
 
@@ -72,4 +74,4 @@ The Russian battery types (G152 for the Sochor 2, and with RHS or CUP the 2S1, 2
 
 ## Settings
 
-**BCS Settings**: the **Firemission Code** and **Firemission Start** number name new missions, **Alert To Splash** sets how many seconds before impact the splash warning comes (more than 0, default 5). **Save** stores them; with an invalid Alert To Splash nothing is saved and a hint says why.
+**BCS Settings**: the **Fire Mission Code** and **Firemission Start** number name new missions, **Alert To Splash** sets how many seconds before impact the splash warning comes (more than 0, default 5). **Save** stores them; with an invalid Alert To Splash nothing is saved and a hint says why.

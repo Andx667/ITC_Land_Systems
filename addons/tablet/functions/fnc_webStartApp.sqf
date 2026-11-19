@@ -3,8 +3,8 @@
 /*
  * Author: ITC Addons Team
  * Switches the HTML tablet to an app, on its first page (what the classic tablet's app init
- * returns): home on its app list, the SPG and MLRS apps on the FCI page, the BCS on its settings
- * (or a handed-over target's fire mission, tablet_fnc_bcsInit), COBRA on its map. The app and
+ * returns): home on its app list, the SPG and MLRS apps on the FCI page, the BCS where the FDC
+ * works (tablet_fnc_webStartBcs), COBRA on its map. The app and
  * page are the vehicle's, as in the classic tablet, so either tablet opens where the other left.
  *
  * Arguments:

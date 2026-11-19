@@ -22,8 +22,8 @@ class itc_land {
             webAction = QFUNC(webActionBcs);
             webPages[] = {"settings", "setup", "locStores"};
             webStartPage = "settings";
-            // a handed-over target's fire mission starts on its engagement
-            webStartFunction = QFUNC(bcsInit);
+            // the BCS where the FDC works: a handed-over target's fire mission, the battery setup, the last fire mission
+            webStartFunction = QFUNC(webStartBcs);
         };
         class cbr {
             displayName = CSTRING(cbr_DisplayName);

@@ -51,24 +51,29 @@ private _mils = ["mils", "mil"] call FUNC(webCheck);
 private _degrees = ["positive", "deg"] call FUNC(webCheck);
 private _whole = ["whole"] call FUNC(webCheck);
 
-// the fire missions, SHOT / SPLASH while counting down
+// the fire missions with the step they are at, SHOT / SPLASH while counting down
+private _stages = createHashMapFromArray [
+    ["newMission", LLSTRING(WebStageTarget)], ["engageMission", LLSTRING(WebStageEngage)],
+    ["solutionMission", LLSTRING(WebStageSolution)], ["adjustMission", LLSTRING(WebStageAdjust)]
+];
 private _missionRows = _missions apply {
     private _shotEnd = _x # 6;
     if (_shotEnd > time) then {
         private _splash = time > _shotEnd - GVAR(bcs_splash_time);
         [_x # 0, createHashMapFromArray [["text", [LLSTRING(Bcs_Shot), LLSTRING(Bcs_Splash)] select _splash], ["c", ["warn", "bad"] select _splash]]]
     } else {
-        [_x # 0, ""]
+        [_x # 0, createHashMapFromArray [["text", _stages getOrDefault [_x # 1, ""]], ["c", "dim"]]]
     };
 };
 
+// the battery in the header, where the FDC looks first
 private _view = createHashMapFromArray [
-    ["header1", "AIFMS"],
-    ["header2", LLSTRING(Bcs_FdcSuite)],
+    ["header1", [GVAR(bcs_bty_name), "AIFMS"] select (GVAR(bcs_bty_name) == "")],
+    ["header2", _batteryTypeName],
     ["side", [
-        [LLSTRING(Bcs_SettingsButton), "page", [], LLSTRING(Bcs_Settings), "settings", _page == "settings"] call FUNC(webButton),
         [LLSTRING(Bcs_BatterySetupButton), "page", [], LLSTRING(Bcs_BatterySetup), "setup", _page == "setup"] call FUNC(webButton),
-        [LLSTRING(Bcs_LocationStores), "page", [], LLSTRING(WebKnownPoints), "locStores", _page == "locStores"] call FUNC(webButton)
+        [LLSTRING(Bcs_LocationStores), "page", [], LLSTRING(Bcs_LocationStores), "locStores", _page == "locStores"] call FUNC(webButton),
+        [LLSTRING(Bcs_SettingsButton), "page", [], LLSTRING(Bcs_Settings), "settings", _page == "settings"] call FUNC(webButton)
     ]],
     ["sideList", createHashMapFromArray [
         ["title", LLSTRING(WebFireMissions)],
@@ -80,7 +85,6 @@ private _view = createHashMapFromArray [
     ]],
     ["status", [
         format [LLSTRING(WebStatusId), ACE_player getVariable [QEGVAR(datalink,id), "-"]],
-        format ["%1 (%2)", [GVAR(bcs_bty_name), "-"] select (GVAR(bcs_bty_name) == ""), _batteryTypeName],
         [dayTime, "HH:MM"] call BIS_fnc_timeToString
     ]],
     ["blocks", []]
@@ -94,7 +98,7 @@ switch (_page) do {
             ["start", str GVAR(bcs_mission_start)]
         ]}] call FUNC(webForm);
         private _save = [LLSTRING(bcs_settings_save_button_Text), "bcsSettingsSave", ["splash", "code", "start"], "", nil, false, "primary"] call FUNC(webButton);
-        _view set ["title", LLSTRING(Bcs_Settings)];
+        _view set ["title", LLSTRING(Bcs_SettingsButton)];
         _view set ["blocks", [
             ["fields", [["items", [
                 ["splash", LLSTRING(bcs_settings_alerttosplash_label_Text), LLSTRING(bcs_settings_alerttosplash_Tooltip), [], "", [],
@@ -154,8 +158,8 @@ switch (_page) do {
                         ["type", LLSTRING(btysetup_gun_type_label_Text), LLSTRING(btysetup_gun_type_Tooltip),
                             _types apply {getText (configFile >> "itc_land_ballistics" >> "batteryTypes" >> _x >> "displayName")}] call FUNC(webField)
                     ]], ["enter", _saveBattery]]] call FUNC(webBlock),
-                    ["kv", [["rows", [[format [LLSTRING(Bcs_ActiveType), _batteryTypeName], ""]]]]] call FUNC(webBlock),
                     ["bar", [["left", [_saveBattery]]]] call FUNC(webBlock),
+                    ["note", [["text", format [LLSTRING(Bcs_ActiveType), _batteryTypeName]]]] call FUNC(webBlock),
                     ["section", [["text", LLSTRING(WebLinkGun)], ["tip", LLSTRING(btysetup_link_Tooltip)]]] call FUNC(webBlock),
                     ["fields", [["items", [
                         ["link", LLSTRING(btysetup_link_label_Text), LLSTRING(btysetup_link_Tooltip), [_linkNames, [LLSTRING(Bcs_NoGunsToLink)]] select (_linkNames isEqualTo [])] call FUNC(webField)
@@ -182,8 +186,8 @@ switch (_page) do {
         ["bcs/locStores", {createHashMapFromArray [
             ["id", ["point"] call FUNC(bcsNextId)], ["grid", ""], ["elev", ""], ["friendly", 0], ["loc", -1]
         ]}] call FUNC(webForm);
-        private _add = [LLSTRING(locstores_addnew_button_Text), "bcsLocAdd", ["id", "grid", "elev", "friendly"], LLSTRING(locstores_referenceID_Tooltip), nil, false, "primary"] call FUNC(webButton);
-        _view set ["title", LLSTRING(WebKnownPoints)];
+        private _add = [LLSTRING(WebSavePoint), "bcsLocAdd", ["id", "grid", "elev", "friendly"], LLSTRING(locstores_referenceID_Tooltip), nil, false, "primary"] call FUNC(webButton);
+        _view set ["title", LLSTRING(Bcs_LocationStores)];
         _view set ["blocks", [
             ["row", [["blocks", [
                 ["col", [["blocks", [
@@ -249,7 +253,7 @@ switch (_page) do {
         _view set ["title", _ident];
         _view set ["blocks", [
             ["fields", [["items", _fields], ["enter", _next]]] call FUNC(webBlock),
-            ["bar", [["groups", [[_next]]]]] call FUNC(webBlock)
+            ["bar", [["left", [_next]]]] call FUNC(webBlock)
         ]];
     };
     case "engageMission": {
@@ -282,19 +286,19 @@ switch (_page) do {
             ["count", LLSTRING(engage_count_text_Text), LLSTRING(engage_count_Tooltip), [], "", [], ["whole", LLSTRING(WebRoundsPerGun)] call FUNC(webCheck)] call FUNC(webField),
             ["sheaf", LLSTRING(engagement_sheaf_text_Text), LLSTRING(engagement_sheaf_Tooltip), ["Parallel", "Converged", "Linear", "Open", "Special"], "bcsEngSheaf", _allFields] call FUNC(webField)
         ];
-        // a special sheaf only: its direction (or quick, at right angles to the gun-target line) and width
+        // a special sheaf only: its direction (only without quick, which spreads at right angles to the gun-target line) and width
         if ((_form get "sheaf") == 4) then {
-            _fields append [
-                ["quick", LLSTRING(engagement_quick_text_Text), LLSTRING(engagement_quick_Tooltip), [], "bcsEngSheaf", _allFields, createHashMapFromArray [["kind", "check"]]] call FUNC(webField),
-                ["dir", LLSTRING(engagement_direction_text_Text), LLSTRING(engagement_direction_Tooltip), [], "", [], _mils] call FUNC(webField),
-                ["length", LLSTRING(engagement_length_text_Text), LLSTRING(engagement_length_Tooltip), [], "", [], _metres] call FUNC(webField)
-            ];
+            _fields pushBack (["quick", LLSTRING(engagement_quick_text_Text), LLSTRING(engagement_quick_Tooltip), [], "bcsEngSheaf", _allFields, createHashMapFromArray [["kind", "check"]]] call FUNC(webField));
+            if ((_form get "quick") isNotEqualTo 1) then {
+                _fields pushBack (["dir", LLSTRING(engagement_direction_text_Text), LLSTRING(engagement_direction_Tooltip), [], "", [], _mils] call FUNC(webField));
+            };
+            _fields pushBack (["length", LLSTRING(engagement_length_text_Text), LLSTRING(engagement_length_Tooltip), [], "", [], _metres] call FUNC(webField));
         };
         private _next = [LLSTRING(firemission_next_Text), "bcsEngSave", _allFields, "", nil, false, "primary"] call FUNC(webButton);
         _view set ["title", format [LLSTRING(Bcs_Engagement), _ident]];
         _view set ["blocks", [
             ["fields", [["items", _fields], ["enter", _next]]] call FUNC(webBlock),
-            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsEngBack"] call FUNC(webButton)]], ["groups", [[_next]]]]] call FUNC(webBlock)
+            ["bar", [["left", [_next]], ["groups", [[[LLSTRING(firemission_back_Text), "bcsEngBack"] call FUNC(webButton)]]]]] call FUNC(webBlock)
         ]];
     };
     case "solutionMission": {
@@ -329,7 +333,9 @@ switch (_page) do {
                 [LLSTRING(solution_distance_label_Text), format ["%1 m", round _dist], "", LLSTRING(solution_distance_Tooltip)]
             ]
         };
-        // the fire command order: charge, fuze setting, deflection, quadrant; azimuth and time of flight after
+        // the fire command order: charge, fuze setting, deflection, quadrant; azimuth and time of flight after.
+        // Charge, deflection and quadrant are what the gun is laid to: they stand out
+        private _hi = {createHashMapFromArray [["text", _this], ["c", "hi"]]};
         private _lines = [];
         {
             _x params ["_num", "_gunSolutionList"];
@@ -342,17 +348,26 @@ switch (_page) do {
             } else {
                 private _fuzeSetting = _line param [10, -1];
                 [
-                    _marker, _num, _line # 0,
+                    _marker, _num, (format ["%1", _line # 0]) call _hi,
                     ["", [_fuzeSetting, 1, 1] call CBA_fnc_formatNumber] select (_fuzeSetting >= 0),
-                    [parseNumber (_line # 2), _milSystem] call EFUNC(common,formatMils),
-                    [_line # 3, _milSystem] call EFUNC(common,formatMils),
+                    ([parseNumber (_line # 2), _milSystem] call EFUNC(common,formatMils)) call _hi,
+                    ([_line # 3, _milSystem] call EFUNC(common,formatMils)) call _hi,
                     [_line # 1, _milSystem] call EFUNC(common,formatMils),
                     [_line # 4, 1, 2] call CBA_fnc_formatNumber,
                     _status
                 ]
             });
         } forEach _gunSolutions;
+        private _header = ["", "G", "CH", "FS", "DF", "QD", "AZ", "TOF", LLSTRING(WebLoader)];
+        private _tips = [LLSTRING(WebAdjustingGunTip), LLSTRING(WebTip_Gun), LLSTRING(WebTip_Charge), LLSTRING(WebTip_FuzeSetting), LLSTRING(WebTip_Deflection),
+            LLSTRING(WebTip_Quadrant), LLSTRING(WebTip_Azimuth), LLSTRING(WebTip_TimeOfFlight), LLSTRING(WebTip_Loader)];
+        // the fuze setting only for a time fuze: an empty column otherwise
+        if (_lines findIf {(_x # 3) isNotEqualTo ""} < 0) then {
+            {_x deleteAt 3} forEach (_lines + [_header, _tips]);
+        };
         private _adjNum = (_gunSolutions param [_adjGun, ["-"]]) # 0;
+        // the main fire command: adjust until fire for effect was sent, then fire for effect again
+        private _ffeSent = ((missionNamespace getVariable [QGVAR(bcs_lastPhase), createHashMap]) getOrDefault [_ident, ""]) == "FFE";
         private _blocks = [];
         if (_btySolutions isNotEqualTo []) then {
             _blocks pushBack (["stepper", [
@@ -365,20 +380,17 @@ switch (_page) do {
         _blocks append [
             ["kv", [["rows", _summary]]] call FUNC(webBlock),
             ["list", [["id", "gun"], ["a", "bcsAdjGun"], ["selected", _adjGun],
-                ["header", ["", "G", "CH", "FS", "DF", "QD", "AZ", "TOF", ""]],
-                ["tips", [LLSTRING(WebAdjustingGunTip), LLSTRING(WebTip_Gun), LLSTRING(WebTip_Charge), LLSTRING(WebTip_FuzeSetting), LLSTRING(WebTip_Deflection),
-                    LLSTRING(WebTip_Quadrant), LLSTRING(WebTip_Azimuth), LLSTRING(WebTip_TimeOfFlight), LLSTRING(WebTip_Loader)]],
+                ["header", _header], ["tips", _tips],
                 ["rows", _lines], ["empty", LLSTRING(WebNoGuns)]]] call FUNC(webBlock),
+            // in the order of the procedure: send, the guns fire (SHOT), the observer's correction (ADJUST)
             ["bar", [
-                ["left", [[LLSTRING(firemission_back_Text), "bcsSolBack"] call FUNC(webButton)]],
-                ["groups", [
-                    [
-                        [LLSTRING(solution_shot_Text), "bcsShot", [], LLSTRING(solution_shot_Tooltip)] call FUNC(webButton),
-                        [format [LLSTRING(WebSendAdjGun), _adjNum], "bcsSendAdj", [], LLSTRING(solution_send_adj_Tooltip)] call FUNC(webButton),
-                        [LLSTRING(solution_send_ffe_Text), "bcsSendFfe", [], LLSTRING(solution_send_ffe_Tooltip), nil, false, "primary"] call FUNC(webButton)
-                    ],
-                    [[LLSTRING(WebAdjust), "bcsAdjust", [], LLSTRING(Bcs_AdjustMission)] call FUNC(webButton)]
-                ]]
+                ["left", [
+                    [format [LLSTRING(WebSendAdjGun), _adjNum], "bcsSendAdj", [], LLSTRING(solution_send_adj_Tooltip), nil, false, ["primary", ""] select _ffeSent] call FUNC(webButton),
+                    [LLSTRING(solution_send_ffe_Text), "bcsSendFfe", [], LLSTRING(solution_send_ffe_Tooltip), nil, false, ["", "primary"] select _ffeSent] call FUNC(webButton),
+                    [LLSTRING(solution_shot_Text), "bcsShot", [], LLSTRING(WebShotTip)] call FUNC(webButton),
+                    [LLSTRING(WebAdjust), "bcsAdjust", [], LLSTRING(Bcs_AdjustMission)] call FUNC(webButton)
+                ]],
+                ["groups", [[[LLSTRING(firemission_back_Text), "bcsSolBack"] call FUNC(webButton)]]]
             ]] call FUNC(webBlock),
             ["bar", [["groups", [[
                 [LLSTRING(solution_eom_Text), "bcsEom", [], "", nil, false, "danger"] call FUNC(webButton),
@@ -401,7 +413,7 @@ switch (_page) do {
                 ["lr", LLSTRING(target_field3_text_Text), LLSTRING(target_field3_text_Tooltip), [], "", [], _metres] call FUNC(webField),
                 ["ud", LLSTRING(target_field4_text_Text), LLSTRING(target_field4_text_Tooltip), [], "", [], _metres] call FUNC(webField)
             ]], ["enter", _apply]]] call FUNC(webBlock),
-            ["bar", [["left", [[LLSTRING(firemission_back_Text), "bcsAdjBack"] call FUNC(webButton)]], ["groups", [[_apply]]]]] call FUNC(webBlock)
+            ["bar", [["left", [_apply]], ["groups", [[[LLSTRING(firemission_back_Text), "bcsAdjBack"] call FUNC(webButton)]]]]] call FUNC(webBlock)
         ]];
     };
 };

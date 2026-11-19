@@ -40,8 +40,8 @@ if (_page == "data") exitWith {
     _view set ["blocks", [
         ["list", [["id", "engagement"], ["header", ["ID", "POS", "SHOTS", "LAST SHOT"]], ["rows", _rows], ["empty", LLSTRING(WebNoEngagements)]]] call FUNC(webBlock),
         ["buttons", [["items", [
-            [LLSTRING(WebSaveKnownPoint), "cbrSave", ["engagement"], LLSTRING(WebSaveKnownPointTip)] call FUNC(webButton),
-            [LLSTRING(cbr_data_counterFire_Text), "cbrCounterFire", ["engagement"], LLSTRING(cbr_data_counterFire_Tooltip), nil, false, "primary"] call FUNC(webButton)
+            [LLSTRING(cbr_data_counterFire_Text), "cbrCounterFire", ["engagement"], LLSTRING(cbr_data_counterFire_Tooltip), nil, false, "primary"] call FUNC(webButton),
+            [LLSTRING(WebSaveKnownPoint), "cbrSave", ["engagement"], LLSTRING(WebSaveKnownPointTip)] call FUNC(webButton)
         ]]]] call FUNC(webBlock)
     ]];
     _view
