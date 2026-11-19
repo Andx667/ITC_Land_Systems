@@ -15,7 +15,7 @@ start a fresh empty [Unreleased] section above it. -->
 
 ### Removed
 
-- APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) moved to its own mod, [Active Protection Systems](https://github.com/Andx667/active-protection-systems). Load that mod to keep it; configs and scripts that use `itc_land_aps` need its new names (#33) by Andx
+- APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) was removed. Its code is kept in [Active Protection Systems](https://github.com/Andx667/active-protection-systems), which is not released (#33) by Andx
 
 ### Changed
 
