@@ -13,13 +13,24 @@ start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
-### Removed
+## [0.4.0] - 2026-11-19
 
-- APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) was removed. Its code is kept in [Active Protection Systems](https://github.com/Andx667/active-protection-systems), which is not released (#33) by Andx
+### Added
+
+- Scripting - Public API: `cobra_fnc_sirenInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
+- Nyx RV - The AWC 304 Nyx Recon with the Strider RV's ITC optics on its observer seat (`itc_land_I_NyxRV`) (#26) by Andx
 
 ### Changed
 
 - Tablet - Clearer HTML tablet and ammunition handler: larger text, the firing data the gun is laid to stands out, buttons in the order of the procedure, results no longer move the page, consistent names, and the BCS opens where you work (#30) by Andx
+- Credits - The original ITC team agreed to the continuation; README, Workshop page and documentation say so (#18) by Andx
+- COBRA - Change the multiplayer sync: clients get each detected shell, firing position and engagement as a small event instead of all COBRA data again (#15) by Andx
+- CIWS - Change the debug RPT lines to the CBA log format, `[ITC_LAND] (ciws) INFO:` (#14) by Andx
+- Scripting - Rename the vehicle and mission variables without a component to the component's prefix (`itc_land_currentMagInfo` → `itc_land_sphammohandler_currentMagInfo`, `itc_land_selectedFuzeIndex` → `itc_land_common_selectedFuzeIndex`, `itc_land_cobras` → `itc_land_cobra_vehicles`, `ITC_Land_VLS_*` → `itc_land_vls_*`, `itc_land_IGS_show*` → `itc_land_veh_sights_IGS_show*`, ...). Missions or scripts that read them need the new names (#20) by Andx
+
+### Removed
+
+- APS - The active protection system (Trophy, Drozd, Afghanit on the vanilla main battle tanks) was removed. Its code is kept in [Active Protection Systems](https://github.com/Andx667/active-protection-systems), which is not released (#33) by Andx
 
 ### Fixed
 
@@ -29,18 +40,6 @@ start a fresh empty [Unreleased] section above it. -->
 - BCS - Linked guns did not receive the fire data the FDC sent (SEND ADJ / SEND FFE) (#31) by Andx
 - BCS - Firing a gun's machine gun or smoke launchers reported SHOT to the FDC, and the howitzer's real first round was then not reported (#31) by Andx
 - Tablet - The classic BCS solution page broke when an adjustment left fewer solutions than the one selected, and SHOT failed without solutions (#31) by Andx
-
-### Added
-
-- Scripting - Public API: `cobra_fnc_sirenInit`, `aps_fnc_vehicleInit`, `sphammohandler_fnc_canOpen` and `_open`, `packable_fnc_pack` and `_unpack` are marked public and listed on the Mission Makers & Modders page (#22) by Andx
-- Nyx RV - The AWC 304 Nyx Recon with the Strider RV's ITC optics on its observer seat (`itc_land_I_NyxRV`) (#26) by Andx
-
-### Changed
-
-- Credits - The original ITC team agreed to the continuation; README, Workshop page and documentation say so (#18) by Andx
-- COBRA - Change the multiplayer sync: clients get each detected shell, firing position and engagement as a small event instead of all COBRA data again (#15) by Andx
-- APS, CIWS - Change the debug RPT lines to the CBA log format, `[ITC_LAND] (aps) INFO:` / `[ITC_LAND] (ciws) INFO:` (#14) by Andx
-- Scripting - Rename the vehicle and mission variables without a component to the component's prefix (`itc_land_currentMagInfo` → `itc_land_sphammohandler_currentMagInfo`, `itc_land_selectedFuzeIndex` → `itc_land_common_selectedFuzeIndex`, `itc_land_cobras` → `itc_land_cobra_vehicles`, `ITC_Land_VLS_*` → `itc_land_vls_*`, `itc_land_IGS_show*` → `itc_land_veh_sights_IGS_show*`, ...). Missions or scripts that read them need the new names (#20) by Andx
 
 ## [0.3.0] - 2026-10-24
 
